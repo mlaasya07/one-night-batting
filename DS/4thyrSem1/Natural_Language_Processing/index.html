@@ -1,0 +1,3262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NLP — Units 1 &amp; 2 Complete Exam Key</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #000000;
+    color: #ddd;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header {
+    padding: 64px 0 40px;
+    border-bottom: 2px solid #111;
+    margin-bottom: 48px;
+  }
+  .course-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  header p {
+    font-size: 1rem;
+    color: #aaa;
+    max-width: 580px;
+    font-style: italic;
+  }
+
+  /* ── Tab navigation ── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #1a1a1a;
+    margin-bottom: 48px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tab-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #444;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 14px 22px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color .2s, border-color .2s;
+  }
+  .tab-btn:hover { color: #aaa; }
+  .tab-btn.active { color: #c0392b; border-bottom-color: #c0392b; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Part headers ── */
+  .part-header { margin: 64px 0 32px; }
+  .part-header h2 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .part-header .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-top: 6px;
+  }
+  .unit-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #666;
+    margin: 40px 0 4px;
+    padding-top: 40px;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  /* ── Short entries ── */
+  .short-entry {
+    padding: 28px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .short-entry:last-child { border-bottom: none; }
+  .entry-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .entry-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #c0392b;
+    flex-shrink: 0;
+  }
+  .entry-term {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .entry-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .entry-body {
+    font-size: 0.97rem;
+    color: #ccc;
+    line-height: 1.85;
+  }
+
+  /* ── Detailed questions ── */
+  .q-block {
+    padding: 40px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .q-block:last-child { border-bottom: none; }
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .q-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #c0392b;
+    flex-shrink: 0;
+  }
+  .q-title {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .q-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .q-body p {
+    font-size: 0.97rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+  .q-body p:last-child { margin-bottom: 0; }
+  .sub-h {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #e8c19a;
+    margin: 22px 0 8px;
+  }
+  .q-body ul, .q-body ol {
+    padding-left: 22px;
+    margin: 10px 0 14px;
+  }
+  .q-body li {
+    font-size: 0.97rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 4px;
+  }
+  .q-body li strong { color: #fff; }
+  .entry-body ul, .entry-body ol { padding-left: 22px; margin: 8px 0 10px; }
+  .entry-body li { font-size: 0.95rem; color: #ccc; line-height: 1.75; }
+
+  /* ── Tables ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 18px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+  }
+  th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #e8c19a;
+    padding: 10px 14px;
+    text-align: left;
+    border-top: 2px solid #2a2a2a;
+    border-bottom: 1px solid #333;
+    background: #080808;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #1a1a1a;
+    color: #bbb;
+    vertical-align: top;
+    font-size: 0.86rem;
+    line-height: 1.6;
+  }
+  tr:last-child td { border-bottom: 2px solid #2a2a2a; }
+  td:first-child { color: #fff; font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+
+  /* ── Code & Rule boxes ── */
+  .code-block {
+    background: #060606;
+    border: 1px solid #222;
+    border-left: 3px solid #c0392b;
+    border-radius: 0 4px 4px 0;
+    padding: 14px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    line-height: 1.9;
+    color: #bbb;
+    overflow-x: auto;
+    margin: 14px 0;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rule-box {
+    border-left: 3px solid #333;
+    padding: 12px 18px;
+    margin: 14px 0;
+    background: #060606;
+  }
+  .rule-box p {
+    margin-bottom: 0 !important;
+    font-size: 0.93rem !important;
+    color: #bbb !important;
+  }
+
+  /* ── Diagram / SVG ── */
+  .diagram-wrap {
+    margin: 18px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diagram-wrap svg { display: block; max-width: 100%; height: auto; }
+  .diagram-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 6px;
+  }
+
+  /* ── Memory tag ── */
+  .mem-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    background: #1a0800;
+    border: 1px solid #5c2900;
+    color: #e8c19a;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin: 4px 4px 4px 0;
+    vertical-align: middle;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 2px solid #111;
+    padding: 32px 0 48px;
+    margin-top: 64px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #444;
+    text-transform: uppercase;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 0 16px; }
+    header { padding: 40px 0 28px; }
+    .part-header { margin: 48px 0 24px; }
+    .q-block, .short-entry { padding: 20px 0; }
+    .entry-marks, .q-marks { display: none; }
+    table { min-width: 360px; }
+    td, th { padding: 7px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="course-code">NLP &middot; DS743PE &middot; IV B.Tech CSE (Data Science)</div>
+  <h1>Natural Language Processing</h1>
+  <p>Units 1 &amp; 2 — Morphology, Sentence Segmentation, Syntax &amp; Parsing &mdash; Complete Exam Answer Key</p>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('partA')">Part A — Short Answers</button>
+  <button class="tab-btn" onclick="switchTab('partB')">Part B — Detailed Answers</button>
+</nav>
+
+<!-- ═══════════════════ PART A ═══════════════════ -->
+<div id="panel-partA" class="tab-panel active">
+
+  <div class="part-header">
+    <h2>Part A — Short Answer Questions</h2>
+    <div class="meta">2 Marks Each &middot; ~150 Words Each</div>
+  </div>
+
+  <!-- ══ UNIT 1 — Morphology ══ -->
+  <div class="unit-label">Unit 1 — Morphology &amp; Morphological Parsing</div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.1</span>
+      <span class="entry-term">State the meaning of Morphological Parsing and illustrate it with a suitable example.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Morphological Parsing</strong> is the computational process of analyzing a word to decompose it into its constituent morphemes and determine its grammatical properties such as part of speech, tense, number, and gender.<br><br>
+      The parser takes a surface word form as input and returns a structured description of its internal components.<br><br>
+      <strong>Example:</strong>
+      <div class="code-block">Word: "unhappiness"
+  un-    → prefix meaning "not" (bound morpheme)
+  happy  → root/stem (free morpheme)
+  -ness  → suffix indicating "state of" (bound morpheme)
+
+Output: un + happy + ness → ADJ [negation + root + nominalization]</div>
+      Morphological parsing is essential in NLP for tasks like machine translation, stemming, lemmatization, and information retrieval. A morphological parser produces a <em>lexeme</em> (base dictionary form) plus a set of morphosyntactic features (e.g., PLURAL, PAST) for every input token.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.2</span>
+      <span class="entry-term">Differentiate between Morphemes and Morphs with suitable examples.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Morpheme</th><th>Morph</th></tr></thead>
+        <tbody>
+          <tr><td>Definition</td><td>Abstract smallest unit of meaning in a language</td><td>The physical (spoken/written) form realizing a morpheme</td></tr>
+          <tr><td>Nature</td><td>Conceptual / abstract</td><td>Concrete / observable</td></tr>
+          <tr><td>Example</td><td>PLURAL (the concept of "more than one")</td><td>-s in "cats", -en in "oxen", -i in "cacti"</td></tr>
+          <tr><td>Relation</td><td>One morpheme</td><td>Can have many morphs (allomorphs)</td></tr>
+        </tbody>
+      </table></div>
+      A <strong>morpheme</strong> is the underlying abstract linguistic unit, while a <strong>morph</strong> is its surface realization in actual text or speech. Multiple morphs can express the same morpheme in different phonological environments.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.3</span>
+      <span class="entry-term">What is Morphology in Natural Language Processing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Morphology</strong> is the branch of linguistics that studies the internal structure and formation of words. In NLP, it refers to the computational analysis of how words are built from smaller meaningful units called <em>morphemes</em>.<br><br>
+      Morphology in NLP encompasses:
+      <ul>
+        <li><strong>Inflectional morphology</strong> — grammatical variations of the same word (run → runs, ran, running)</li>
+        <li><strong>Derivational morphology</strong> — creating new words by adding affixes (teach → teacher → teachable)</li>
+        <li><strong>Compounding</strong> — combining two roots (news + paper = newspaper)</li>
+      </ul>
+      NLP systems use morphological analysis as a <em>preprocessing step</em> to normalize word forms, reduce vocabulary size, and improve performance in tasks like text classification, machine translation, and speech recognition.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.4</span>
+      <span class="entry-term">Define a Morpheme with a suitable example.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>morpheme</strong> is the smallest meaningful unit in a language — the minimal form that carries either a lexical meaning or a grammatical function and cannot be divided further without loss of meaning.<br><br>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Word</th><th>Morphemes</th><th>Meanings</th></tr></thead>
+        <tbody>
+          <tr><td>teacher</td><td>teach + -er</td><td>action + agent</td></tr>
+          <tr><td>unhappy</td><td>un- + happy</td><td>negation + state</td></tr>
+          <tr><td>cats</td><td>cat + -s</td><td>animal + plural</td></tr>
+          <tr><td>replayed</td><td>re- + play + -ed</td><td>again + action + past</td></tr>
+        </tbody>
+      </table></div>
+      Each morpheme contributes something distinct to the word's overall meaning. Morphemes can be <em>free</em> (stand alone: "cat", "play") or <em>bound</em> (must attach to another: "-ed", "un-").
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.5</span>
+      <span class="entry-term">Differentiate between Free Morphemes and Bound Morphemes with examples.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Free Morpheme</th><th>Bound Morpheme</th></tr></thead>
+        <tbody>
+          <tr><td>Definition</td><td>Can stand alone as an independent word</td><td>Must attach to another morpheme; cannot stand alone</td></tr>
+          <tr><td>Type</td><td>Lexical (noun, verb, adj) or Functional (and, the)</td><td>Prefix, suffix, infix</td></tr>
+          <tr><td>Examples</td><td>dog, run, happy, book</td><td>un-, re-, -ed, -ness, -ing</td></tr>
+          <tr><td>NLP Role</td><td>Usually the stem/root</td><td>Carries grammatical information</td></tr>
+        </tbody>
+      </table></div>
+      In "teachers": <strong>teach</strong> is a free morpheme (root verb), while <strong>-er</strong> (agent) and <strong>-s</strong> (plural) are bound morphemes that cannot occur independently.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.6</span>
+      <span class="entry-term">What is a Morph? Give a suitable example.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>morph</strong> is the minimal phonological or orthographic unit that realizes a morpheme in actual language use. It is the concrete, visible or audible segment of a word corresponding to an abstract morpheme.<br><br>
+      <strong>Example — English plural morpheme:</strong>
+      <div class="code-block">cat  → cat + /s/      morph: -s     (voiceless)
+dog  → dog + /z/      morph: -z     (voiced)
+bus  → bus + /ɪz/     morph: -es    (after sibilant)
+ox   → ox + /ɛn/      morph: -en    (irregular)</div>
+      All four morphs (-s, -z, -es, -en) are realizations of the same PLURAL morpheme. The morph chosen depends on phonological context. When morphs of the same morpheme are analyzed, they are called <em>allomorphs</em>.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.7</span>
+      <span class="entry-term">What is an Allomorph? Give suitable examples.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Allomorphs</strong> are different phonological or orthographic forms of the same morpheme. They have the same meaning/function but appear in different phonological or lexical environments.<br><br>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Morpheme</th><th>Allomorphs</th><th>Examples</th><th>Condition</th></tr></thead>
+        <tbody>
+          <tr><td>PLURAL</td><td>-s, -z, -ɪz, -en, -i</td><td>cats, dogs, buses, oxen, cacti</td><td>Phonological context</td></tr>
+          <tr><td>PAST</td><td>-ed, -d, -t, ∅ (zero)</td><td>walked, loved, slept, hit</td><td>Verb class</td></tr>
+          <tr><td>NEGATION (in-)</td><td>in-, im-, il-, ir-</td><td>incapable, impossible, illegal, irregular</td><td>Following consonant</td></tr>
+        </tbody>
+      </table></div>
+      Allomorphs represent the surface variation of a single underlying morpheme and are a key challenge in morphological parsing — the system must recognize multiple forms as the same unit.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.8</span>
+      <span class="entry-term">Differentiate between Morph, Morpheme, and Allomorph.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Term</th><th>Definition</th><th>Level</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Morpheme</td><td>Abstract smallest unit of meaning</td><td>Conceptual</td><td>PLURAL (the concept)</td></tr>
+          <tr><td>Morph</td><td>Physical form realizing a morpheme</td><td>Surface/textual</td><td>-s in "cats"</td></tr>
+          <tr><td>Allomorph</td><td>Variant form of the same morpheme</td><td>Surface/contextual</td><td>-s, -es, -en are allomorphs of PLURAL</td></tr>
+        </tbody>
+      </table></div>
+      <strong>Analogy:</strong> The morpheme is the <em>idea</em>, the morph is its <em>written form</em>, and allomorphs are the <em>different spellings</em> of the same idea depending on context. Every morph is a phonological or graphemic realization; allomorphs are morphs that all realize the same morpheme.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.9</span>
+      <span class="entry-term">What is Morphological Analysis in NLP?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Morphological Analysis</strong> in NLP is the process of examining a word to determine its constituent morphemes, its root/lemma form, and its morphosyntactic features (tense, number, gender, case, etc.).<br><br>
+      It typically produces output in the form: <code>word → lemma + [features]</code>
+      <div class="code-block">Input:  "running"
+Output: run + [VERB, PRESENT_PARTICIPLE, PROGRESSIVE]
+
+Input:  "children"
+Output: child + [NOUN, PLURAL]
+
+Input:  "happiest"
+Output: happy + [ADJ, SUPERLATIVE]</div>
+      Morphological analysis is the foundation for higher NLP tasks: it feeds into POS tagging, parsing, machine translation, and information extraction by normalizing word forms and making grammatical information explicit.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.10</span>
+      <span class="entry-term">State the importance of Morphological Analysis in Natural Language Processing.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Morphological analysis is critically important in NLP for the following reasons:
+      <ul>
+        <li><strong>Vocabulary reduction</strong> — maps inflected forms to a single root, reducing data sparsity</li>
+        <li><strong>Lemmatization &amp; stemming</strong> — normalizes "runs", "ran", "running" → "run"</li>
+        <li><strong>Machine translation</strong> — generates correct target-language inflections</li>
+        <li><strong>POS tagging</strong> — morphological features help assign part-of-speech labels</li>
+        <li><strong>Morphologically rich languages</strong> — essential for Arabic, Turkish, Finnish where a single word can encode an entire sentence</li>
+        <li><strong>Search engines</strong> — expands queries to match all word forms</li>
+        <li><strong>Chatbots &amp; spell-checkers</strong> — understand variant word forms</li>
+      </ul>
+      Without morphological analysis, NLP systems would treat "walk", "walks", "walked", and "walking" as four completely unrelated tokens.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.11</span>
+      <span class="entry-term">Differentiate between Inflectional and Derivational Morphology with examples.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Inflectional Morphology</th><th>Derivational Morphology</th></tr></thead>
+        <tbody>
+          <tr><td>Purpose</td><td>Expresses grammatical categories (tense, number, case)</td><td>Creates new words with new meanings or POS</td></tr>
+          <tr><td>Same word?</td><td>Yes — same word, different form</td><td>No — creates a new, different word</td></tr>
+          <tr><td>Changes POS?</td><td>Never</td><td>Often yes</td></tr>
+          <tr><td>Examples</td><td>walk→walked, cat→cats, big→bigger</td><td>teach→teacher, happy→unhappy, nation→national</td></tr>
+          <tr><td>Productivity</td><td>Fully productive, regular</td><td>Semi-productive, some restrictions</td></tr>
+        </tbody>
+      </table></div>
+      Inflection: <em>runs</em> is still the verb RUN, just in 3rd-person singular. Derivation: <em>runner</em> is a new word (NOUN) derived from RUN.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.12</span>
+      <span class="entry-term">What are the major components of Morphological Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      The major components of a morphological parser are:
+      <ul>
+        <li><strong>Lexicon / Dictionary</strong> — stores root words and their grammatical properties</li>
+        <li><strong>Morphological Rules</strong> — describes how affixes combine with roots (e.g., suffix -ed → PAST)</li>
+        <li><strong>Finite-State Transducer (FST)</strong> — encodes spelling alternations between surface forms and lexical forms</li>
+        <li><strong>Tokenizer</strong> — splits input text into tokens before analysis</li>
+        <li><strong>Segmentation Module</strong> — identifies morpheme boundaries within a word</li>
+        <li><strong>Feature Extractor</strong> — assigns grammatical feature values (TENSE, NUMBER, GENDER)</li>
+        <li><strong>Ambiguity Resolver</strong> — selects the most likely analysis when multiple parses are possible</li>
+      </ul>
+      Together these components transform raw word forms into structured morphosyntactic representations.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.13</span>
+      <span class="entry-term">What are the major challenges involved in Morphological Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Challenge</th><th>Description</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Irregularity</td><td>Words that don't follow standard rules</td><td>go → went (not "goed")</td></tr>
+          <tr><td>Ambiguity</td><td>Same form, multiple interpretations</td><td>"saw" = tool OR past of "see"</td></tr>
+          <tr><td>Productivity</td><td>New words created constantly</td><td>"googling", "unfriended"</td></tr>
+          <tr><td>Allomorphy</td><td>Multiple surface forms of one morpheme</td><td>in-/im-/il-/ir-</td></tr>
+          <tr><td>Morphologically rich languages</td><td>Thousands of forms per root</td><td>Turkish, Arabic, Finnish</td></tr>
+        </tbody>
+      </table></div>
+      The core tension is between <em>rule-based generalization</em> (works for regular patterns) and <em>lexicon lookup</em> (needed for irregular forms). Real parsers use hybrid approaches to handle both.
+    </div>
+  </div>
+
+  <!-- ══ Lexemes ══ -->
+  <div class="unit-label">Lexemes &amp; Word Forms</div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.14</span>
+      <span class="entry-term">Define a Lexeme with a suitable example.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>lexeme</strong> is the abstract, canonical unit of the vocabulary — the dictionary entry form that represents a family of related word forms sharing the same core meaning, regardless of grammatical variation.<br><br>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Lexeme</th><th>Word Forms</th><th>Core Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>RUN</td><td>run, runs, ran, running</td><td>the act of running</td></tr>
+          <tr><td>MOUSE</td><td>mouse, mice</td><td>small rodent</td></tr>
+          <tr><td>HAPPY</td><td>happy, happier, happiest</td><td>feeling joy</td></tr>
+        </tbody>
+      </table></div>
+      The lexeme RUN is a single dictionary entry even though it appears in four different surface forms. Lexemes form the <em>lexicon</em> (vocabulary) of a language. In NLP, lexemes are the target of lemmatization.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.15</span>
+      <span class="entry-term">Differentiate between a Lexeme and a Morpheme.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Lexeme</th><th>Morpheme</th></tr></thead>
+        <tbody>
+          <tr><td>Definition</td><td>Abstract dictionary unit representing a word family</td><td>Smallest meaningful unit in language</td></tr>
+          <tr><td>Granularity</td><td>Larger — often contains multiple morphemes</td><td>Smaller — sub-word unit</td></tr>
+          <tr><td>Can stand alone?</td><td>Yes (as a word form)</td><td>Only if free morpheme</td></tr>
+          <tr><td>Example</td><td>TEACHER (the lexeme)</td><td>teach + -er (two morphemes)</td></tr>
+          <tr><td>NLP use</td><td>Lemmatization target</td><td>Morphological segmentation</td></tr>
+        </tbody>
+      </table></div>
+      A lexeme is the entry in the mental dictionary; a morpheme is a component that may make up that entry. The lexeme TEACHER consists of the morphemes {teach, -er}.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.16</span>
+      <span class="entry-term">What is a Lemma? How is it related to a lexeme?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>lemma</strong> is the canonical, base form chosen to represent a lexeme in a dictionary — the citation form conventionally used as the headword. For verbs, it is the infinitive; for nouns, the singular; for adjectives, the positive degree.<br><br>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Lexeme</th><th>Lemma</th><th>Other Word Forms</th></tr></thead>
+        <tbody>
+          <tr><td>SEE</td><td>see</td><td>sees, saw, seen, seeing</td></tr>
+          <tr><td>CHILD</td><td>child</td><td>children</td></tr>
+          <tr><td>GOOD</td><td>good</td><td>better, best</td></tr>
+        </tbody>
+      </table></div>
+      The <strong>lexeme</strong> is the abstract concept; the <strong>lemma</strong> is the specific written form chosen to represent it. In NLP, <em>lemmatization</em> reduces all word forms to their lemma (e.g., "saw" → "see"), whereas <em>stemming</em> is a cruder operation that simply strips affixes without guaranteeing a valid word.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.17</span>
+      <span class="entry-term">Differentiate between Lexeme, Lemma, and Word Form.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Term</th><th>Definition</th><th>Example for "go"</th></tr></thead>
+        <tbody>
+          <tr><td>Lexeme</td><td>Abstract unit grouping all related forms</td><td>GO (the abstract concept)</td></tr>
+          <tr><td>Lemma</td><td>The conventional dictionary citation form</td><td>"go" (infinitive)</td></tr>
+          <tr><td>Word Form</td><td>Any specific inflected surface realization</td><td>go, goes, going, went, gone</td></tr>
+        </tbody>
+      </table></div>
+      Think of it as three layers: the <em>lexeme</em> is the mental concept, the <em>lemma</em> is its dictionary label, and <em>word forms</em> are the actual tokens that appear in text. In NLP pipelines, we typically work with word forms as input and lemmas as normalized output.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.18</span>
+      <span class="entry-term">What is meant by representing related word forms under a single dictionary entry?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A dictionary groups all inflected and variant forms of a word under one headword (the lemma) rather than listing each form separately. This concept is called <strong>lexical consolidation</strong> or <strong>lemma-based organization</strong>.<br><br>
+      For example, a dictionary has a single entry for the verb <em>receive</em>, which covers: receive, receives, received, receiving, receiver, reception. All these forms share the same core meaning and are semantically related.<br><br>
+      In NLP, this principle is operationalized as <strong>lemmatization</strong> — the process of mapping every surface word form to its lemma, so that "was", "is", "are", "been" all reduce to the single lemma "be". This dramatically reduces vocabulary size and improves performance in tasks like text classification and information retrieval.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.19</span>
+      <span class="entry-term">Give suitable examples to illustrate the relationship between a lexeme and its word forms.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Lexeme</th><th>Word Forms</th><th>Morphological variation</th></tr></thead>
+        <tbody>
+          <tr><td>SEE</td><td>see, sees, saw, seen, seeing</td><td>Person, tense, aspect</td></tr>
+          <tr><td>RUN</td><td>run, runs, ran, running</td><td>Person, tense, aspect</td></tr>
+          <tr><td>MOUSE</td><td>mouse, mice</td><td>Number (irregular plural)</td></tr>
+          <tr><td>HAPPY</td><td>happy, happier, happiest</td><td>Degree (comparative, superlative)</td></tr>
+          <tr><td>BE</td><td>am, is, are, was, were, been, being</td><td>Person, number, tense</td></tr>
+        </tbody>
+      </table></div>
+      The lexeme BE has the most word forms in English (8 forms). The relationship is: one lexeme → one lemma → many word forms. NLP systems reduce all word forms back to the lemma for unified representation.
+    </div>
+  </div>
+
+  <!-- ══ Sentence Segmentation ══ -->
+  <div class="unit-label">Sentence Segmentation &amp; Boundary Detection</div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.20</span>
+      <span class="entry-term">What is Sentence Boundary Detection?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Sentence Boundary Detection (SBD)</strong>, also called <em>sentence segmentation</em>, is the NLP task of automatically identifying where one sentence ends and the next begins in a stream of text or speech.<br><br>
+      The challenge is distinguishing between end-of-sentence punctuation and other uses of the same characters:
+      <div class="code-block">Ambiguous: "Dr. Smith arrived at 10 a.m. He left early."
+Periods at: "Dr."  "a.m."  ← NOT sentence boundaries
+            "early." ← IS a sentence boundary</div>
+      SBD is typically the <em>first preprocessing step</em> in an NLP pipeline — downstream tasks (parsing, translation, summarization) all assume correctly identified sentence units as input. Methods range from hand-written rules to supervised classifiers using features around punctuation marks.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.21</span>
+      <span class="entry-term">State the purpose of Sentence Segmentation in Natural Language Processing.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      The primary purpose of sentence segmentation is to split a continuous stream of text into discrete, meaningful sentence units so that downstream NLP processes can operate on them correctly.<br><br>
+      <strong>Specific purposes:</strong>
+      <ul>
+        <li><strong>Machine Translation</strong> — translates sentence by sentence</li>
+        <li><strong>Parsing</strong> — syntactic parsers require sentence-level input</li>
+        <li><strong>Summarization</strong> — selects the most informative sentences</li>
+        <li><strong>Information Extraction</strong> — identifies entities and relations within sentences</li>
+        <li><strong>Sentiment Analysis</strong> — assigns sentiment to individual sentences</li>
+        <li><strong>Speech Recognition</strong> — segments spoken transcripts into utterances</li>
+      </ul>
+      Without sentence segmentation, a 1000-word paragraph would be treated as a single unit, breaking virtually every downstream task.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.22</span>
+      <span class="entry-term">Why is sentence segmentation considered an important preprocessing step in NLP?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Sentence segmentation is the entry point of most NLP pipelines — nearly every higher-level task assumes sentences as input units. Its importance stems from:
+      <ul>
+        <li><strong>Foundation for parsing</strong> — CFGs and dependency parsers operate on single sentences</li>
+        <li><strong>Unit of analysis</strong> — Semantics, co-reference resolution, and NER all work at sentence level</li>
+        <li><strong>Training data quality</strong> — ML models trained on incorrectly segmented text learn wrong patterns</li>
+        <li><strong>Cross-lingual NLP</strong> — Different languages have very different sentence-boundary conventions</li>
+        <li><strong>Speech processing</strong> — Spoken language lacks explicit punctuation; SBD must infer from prosody</li>
+      </ul>
+      An error in sentence boundary detection propagates through the entire pipeline — a misidentified boundary corrupts every subsequent analysis.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.23</span>
+      <span class="entry-term">What are the major challenges in Sentence Boundary Detection?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Challenge</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Abbreviations</td><td>"Dr.", "U.S.A.", "a.m." — periods not boundaries</td></tr>
+          <tr><td>Proper nouns</td><td>"A.P. Herbert wrote..." — initials not boundaries</td></tr>
+          <tr><td>Quoted speech</td><td>'She said "Go away!" He left.' — nested sentences</td></tr>
+          <tr><td>SMS/Social media</td><td>"omg that was wild lol anyway" — no punctuation</td></tr>
+          <tr><td>Ellipsis</td><td>"She paused... then spoke."</td></tr>
+          <tr><td>Code-switching</td><td>Mixed-language text with different punctuation conventions</td></tr>
+          <tr><td>Numbers/URLs</td><td>"Visit www.google.com. Register now."</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.24</span>
+      <span class="entry-term">How do punctuation marks help in sentence segmentation?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Punctuation marks are the primary surface-level cues for sentence boundary detection, though they require contextual interpretation:<br><br>
+      <strong>End-of-sentence signals:</strong> Period (.), Question mark (?), Exclamation mark (!), followed by a capital letter and whitespace — these together form the strongest heuristic for a sentence boundary.<br><br>
+      <strong>Non-sentence-boundary uses:</strong> The same period appears in abbreviations (Dr., Mr., U.S.), decimals (3.14), URLs (google.com), and initials (J.R.R. Tolkien).<br><br>
+      Practical systems use a combination of:
+      <ul>
+        <li><strong>Abbreviation lists</strong> — precompiled list of known abbreviations to filter</li>
+        <li><strong>Capitalization of the next word</strong> — strong boundary signal</li>
+        <li><strong>Word length before period</strong> — short words (2–3 chars) more likely abbreviations</li>
+        <li><strong>Contextual classifiers</strong> — ML models trained on labeled data</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.25</span>
+      <span class="entry-term">Explain the problem of abbreviations in sentence boundary detection with an example.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Abbreviations are the hardest challenge in sentence boundary detection because they use the same period character as sentence terminators, creating systematic ambiguity.<br><br>
+      <strong>Example:</strong>
+      <div class="code-block">Text: "Dr. Ramesh arrived at 10 a.m. He attended the meeting."
+
+Period analysis:
+  "Dr."   → abbreviation (NOT a sentence boundary)
+  "a.m."  → abbreviation (NOT a sentence boundary)
+  "meeting." → REAL sentence boundary
+
+A naive period-based splitter would incorrectly create 3 "sentences":
+  [1] "Dr."
+  [2] "Ramesh arrived at 10 a.m."
+  [3] "He attended the meeting."</div>
+      Solutions include <strong>abbreviation dictionaries</strong>, <strong>context features</strong> (capitalization of next word, word preceding period), and <strong>ML classifiers</strong> that learn to distinguish boundary vs. abbreviation periods from training data.
+    </div>
+  </div>
+
+  <!-- ══ Unit 2 — Parsing ══ -->
+  <div class="unit-label">Unit 2 — Parsing &amp; Syntactic Analysis</div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.26</span>
+      <span class="entry-term">What is Parsing in Natural Language Processing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Parsing</strong> in NLP is the process of analyzing a sentence to uncover its hidden grammatical structure — determining how words group together into phrases and how phrases relate to each other. A parser takes a sentence as input and produces a <em>parse tree</em> or <em>dependency graph</em> as output.<br><br>
+      <div class="code-block">Input:  "The dog chased the cat."
+Output: [S [NP [Det The] [N dog]] [VP [V chased] [NP [Det the] [N cat]]]]</div>
+      Parsing varies from shallow (POS tagging only) to deep (full predicate-argument structure). It uses knowledge encoded in a grammar (CFG, PCFG) or learned from annotated treebanks to find the most probable structural analysis consistent with the grammar and the input.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.27</span>
+      <span class="entry-term">Discuss the importance of Parsing with a suitable example.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Parsing is fundamental to NLP because it reveals the latent grammatical relationships that give sentences their meaning. Without parsing, sentences that look identical on the surface are indistinguishable despite having completely different meanings.<br><br>
+      <strong>Classic example of why parsing matters:</strong>
+      <div class="code-block">Sentence: "I saw the man with a telescope."
+
+Parse 1: [I] [saw [the man with a telescope]]
+  → The man has a telescope. (PP modifies "the man")
+
+Parse 2: [I] [saw [the man] [with a telescope]]
+  → I used a telescope to see the man. (PP modifies "saw")</div>
+      Parsing also enables <strong>paraphrasing</strong>, <strong>question answering</strong>, <strong>machine translation</strong>, and <strong>information extraction</strong>. A sentence like "He wanted to go for a drive in the country" has a natural pause before "in" that only parsing can make explicit.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.28</span>
+      <span class="entry-term">What is a Parse Tree?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>parse tree</strong> (also called a <em>syntax tree</em> or <em>phrase structure tree</em>) is a hierarchical tree-structured representation of the syntactic structure of a sentence according to a grammar. It shows how words group into phrases and how phrases nest within each other.
+      <div class="diagram-wrap">
+        <div class="diagram-label">Parse Tree — "The dog chased the cat"</div>
+        <svg viewBox="0 0 500 260" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;">
+          <text x="250" y="28" fill="#fff" font-size="13" text-anchor="middle" font-weight="bold">S</text>
+          <line x1="250" y1="32" x2="120" y2="72" stroke="#555" stroke-width="1.5"/>
+          <line x1="250" y1="32" x2="380" y2="72" stroke="#555" stroke-width="1.5"/>
+          <text x="120" y="88" fill="#e8c19a" font-size="12" text-anchor="middle">NP</text>
+          <text x="380" y="88" fill="#e8c19a" font-size="12" text-anchor="middle">VP</text>
+          <line x1="120" y1="92" x2="70" y2="130" stroke="#555" stroke-width="1.5"/>
+          <line x1="120" y1="92" x2="155" y2="130" stroke="#555" stroke-width="1.5"/>
+          <line x1="380" y1="92" x2="330" y2="130" stroke="#555" stroke-width="1.5"/>
+          <line x1="380" y1="92" x2="430" y2="130" stroke="#555" stroke-width="1.5"/>
+          <text x="70" y="146" fill="#ccc" font-size="11" text-anchor="middle">Det</text>
+          <text x="155" y="146" fill="#ccc" font-size="11" text-anchor="middle">N</text>
+          <text x="330" y="146" fill="#ccc" font-size="11" text-anchor="middle">V</text>
+          <text x="430" y="146" fill="#e8c19a" font-size="11" text-anchor="middle">NP</text>
+          <line x1="70" y1="150" x2="70" y2="183" stroke="#555" stroke-width="1.5"/>
+          <line x1="155" y1="150" x2="155" y2="183" stroke="#555" stroke-width="1.5"/>
+          <line x1="330" y1="150" x2="330" y2="183" stroke="#555" stroke-width="1.5"/>
+          <line x1="430" y1="150" x2="398" y2="183" stroke="#555" stroke-width="1.5"/>
+          <line x1="430" y1="150" x2="455" y2="183" stroke="#555" stroke-width="1.5"/>
+          <text x="70" y="200" fill="#aaa" font-size="11" text-anchor="middle">The</text>
+          <text x="155" y="200" fill="#aaa" font-size="11" text-anchor="middle">dog</text>
+          <text x="330" y="200" fill="#aaa" font-size="11" text-anchor="middle">chased</text>
+          <text x="398" y="200" fill="#ccc" font-size="10" text-anchor="middle">Det</text>
+          <text x="455" y="200" fill="#ccc" font-size="10" text-anchor="middle">N</text>
+          <line x1="398" y1="204" x2="398" y2="232" stroke="#555" stroke-width="1.5"/>
+          <line x1="455" y1="204" x2="455" y2="232" stroke="#555" stroke-width="1.5"/>
+          <text x="398" y="248" fill="#aaa" font-size="11" text-anchor="middle">the</text>
+          <text x="455" y="248" fill="#aaa" font-size="11" text-anchor="middle">cat</text>
+        </svg>
+      </div>
+      Leaf nodes are words (terminals); internal nodes are non-terminals (S, NP, VP, etc.) representing grammatical categories.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.29</span>
+      <span class="entry-term">What is Syntactic Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Syntactic Parsing</strong> is the process of analyzing a sentence's grammatical structure to determine how its words are related through syntactic rules. It uncovers the hierarchical organization of a sentence into phrases (constituents) and the head-dependent relationships between words.<br><br>
+      Two main forms:
+      <ul>
+        <li><strong>Constituency/Phrase-Structure Parsing</strong> — groups words into nested phrases (NP, VP, PP) using a grammar like CFG</li>
+        <li><strong>Dependency Parsing</strong> — identifies directed relationships (head → dependent) between words</li>
+      </ul>
+      Syntactic parsing is critical for downstream semantic tasks — you cannot determine "who did what to whom" without knowing the subject, verb, and object of a sentence, which syntactic parsing provides.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.30</span>
+      <span class="entry-term">Define a Context-Free Grammar (CFG).</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>Context-Free Grammar (CFG)</strong> is a formal grammar consisting of a set of production rules that describe how to generate the sentences of a language. It is "context-free" because the left-hand side of every rule is a single non-terminal symbol — its expansion does not depend on surrounding context.<br><br>
+      <strong>Formal definition:</strong> A CFG G = (V, Σ, R, S) where V = non-terminals, Σ = terminals, R = production rules, S = start symbol.
+      <div class="code-block">Sample CFG for English:
+  S  → NP VP
+  NP → Det N | NP PP
+  VP → V NP | VP PP
+  PP → P NP
+  Det → "the" | "a"
+  N  → "dog" | "cat" | "man"
+  V  → "chased" | "saw"
+  P  → "with" | "in"</div>
+      CFGs are the standard grammatical formalism used in constituency parsing. They allow systematic enumeration of all grammatically valid sentence structures.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.31</span>
+      <span class="entry-term">What are the basic components of a Context-Free Grammar?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A CFG has exactly four components:
+      <div class="table-wrap"><table>
+        <thead><tr><th>Component</th><th>Symbol</th><th>Description</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Non-terminals</td><td>V</td><td>Grammatical categories / phrase labels</td><td>S, NP, VP, PP, Det, N, V</td></tr>
+          <tr><td>Terminals</td><td>Σ</td><td>Actual words (vocabulary items)</td><td>"dog", "the", "chased"</td></tr>
+          <tr><td>Production Rules</td><td>R</td><td>Rules of the form A → α where A ∈ V</td><td>NP → Det N</td></tr>
+          <tr><td>Start Symbol</td><td>S</td><td>The top-level category from which all sentences derive</td><td>S (Sentence)</td></tr>
+        </tbody>
+      </table></div>
+      A CFG <em>generates</em> a sentence by starting from S and repeatedly applying production rules until only terminals remain. The derivation history forms the parse tree.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.32</span>
+      <span class="entry-term">What is syntactic ambiguity? Give a suitable example.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Syntactic ambiguity</strong> occurs when a sentence has more than one grammatically valid parse tree — i.e., when the same sequence of words can be structured in multiple ways, yielding different meanings.<br><br>
+      <strong>Classic example:</strong>
+      <div class="code-block">"I saw the man with a telescope."
+
+Parse A: I [saw [the man with a telescope]]
+  → "the man" has a telescope (PP attaches to NP)
+
+Parse B: I [saw [the man] [with a telescope]]
+  → I used a telescope (PP attaches to VP)</div>
+      <strong>Another example:</strong> "Flying planes can be dangerous" — either planes that fly are dangerous, or the act of flying planes is dangerous.<br><br>
+      Syntactic ambiguity is extremely common in natural language and is one of the primary reasons parsers use probabilistic models (PCFGs) to select the most likely interpretation.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.33</span>
+      <span class="entry-term">Differentiate between Lexical Ambiguity and Syntactic Ambiguity.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Lexical Ambiguity</th><th>Syntactic Ambiguity</th></tr></thead>
+        <tbody>
+          <tr><td>Source</td><td>A word has multiple meanings</td><td>A sentence has multiple parse trees</td></tr>
+          <tr><td>Level</td><td>Word level</td><td>Phrase/sentence level</td></tr>
+          <tr><td>Example</td><td>"bank" = financial OR river bank</td><td>"I saw the man with a telescope" (PP attachment)</td></tr>
+          <tr><td>Resolution</td><td>Word Sense Disambiguation (WSD)</td><td>Probabilistic parsing (PCFG)</td></tr>
+          <tr><td>NLP impact</td><td>Semantic analysis, NER</td><td>Parsing, machine translation</td></tr>
+        </tbody>
+      </table></div>
+      Lexical ambiguity is resolved at the word level using context and word sense models; syntactic ambiguity requires structural analysis and probabilistic scoring of alternative parse trees.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.34</span>
+      <span class="entry-term">What is Constituency Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Constituency Parsing</strong> (also called phrase structure parsing) is the process of analyzing a sentence by grouping words into nested <em>constituents</em> (phrases) based on a grammar. Each constituent is a natural linguistic unit — NP, VP, PP, etc. — that can be replaced by a single pronoun.<br><br>
+      <div class="code-block">Sentence: "The student reads a book."
+Constituents:
+  [NP The student] [VP reads [NP a book]]
+  └→ Full parse: [S [NP The student] [VP reads [NP a book]]]</div>
+      The output is a <strong>parse tree</strong> where leaf nodes are words and internal nodes are phrase labels. Constituency parsing is based on CFGs or PCFGs and is used in applications like machine translation, paraphrase detection, and semantic role labeling.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.35</span>
+      <span class="entry-term">What is Dependency Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Dependency Parsing</strong> analyzes a sentence by identifying directed binary relationships (<em>dependencies</em>) between words. Each word, except the root, depends on exactly one other word (its head). The result is a <em>dependency tree</em> or graph — no phrase nodes, only words connected by labeled arcs.<br><br>
+      <div class="code-block">Sentence: "John loves Mary."
+Dependency tree:
+  loves ← root
+  John  ← nsubj(loves)   [John is subject of loves]
+  Mary  ← obj(loves)     [Mary is object of loves]</div>
+      Common dependency relation labels: nsubj (nominal subject), obj (direct object), det (determiner), amod (adjectival modifier). Dependency parsing is preferred for free word-order languages (Turkish, Czech, Hindi) where constituency analysis is difficult.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.36</span>
+      <span class="entry-term">Differentiate between Constituency Parsing and Dependency Parsing.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Constituency Parsing</th><th>Dependency Parsing</th></tr></thead>
+        <tbody>
+          <tr><td>Output</td><td>Phrase-structure tree with non-terminal nodes</td><td>Dependency graph; only word nodes with arcs</td></tr>
+          <tr><td>Nodes</td><td>Words + phrase labels (NP, VP, S...)</td><td>Words only</td></tr>
+          <tr><td>Grammar</td><td>CFG / PCFG</td><td>Dependency grammar</td></tr>
+          <tr><td>Best for</td><td>Fixed word-order languages (English, French)</td><td>Free word-order languages (Czech, Turkish)</td></tr>
+          <tr><td>Empty elements</td><td>Yes (null elements for displaced arguments)</td><td>No</td></tr>
+          <tr><td>Algorithms</td><td>CYK, Earley, Chart parsing</td><td>MST, Shift-Reduce, Arc-Eager</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.37</span>
+      <span class="entry-term">What are the applications of Syntactic Parsing in NLP?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <ul>
+        <li><strong>Machine Translation</strong> — parse source sentence structure to guide target generation</li>
+        <li><strong>Question Answering</strong> — identify the main verb and its arguments to answer "who did what"</li>
+        <li><strong>Information Extraction</strong> — extract subject-verb-object triples from sentences</li>
+        <li><strong>Sentiment Analysis</strong> — negate/scope sentiments based on syntactic structure</li>
+        <li><strong>Paraphrase Detection</strong> — detect semantically equivalent sentences with different syntax</li>
+        <li><strong>Grammar Checking</strong> — identify ungrammatical constructions</li>
+        <li><strong>Semantic Role Labeling</strong> — uses parse structure to assign agent, patient, instrument roles</li>
+        <li><strong>Coreference Resolution</strong> — resolve pronouns using syntactic binding principles</li>
+      </ul>
+      Parsing is the bridge between surface text and meaning — it is the prerequisite for nearly all semantic NLP tasks.
+    </div>
+  </div>
+
+  <!-- ══ Parsing Models ══ -->
+  <div class="unit-label">Parsing Models &amp; Algorithms</div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.38</span>
+      <span class="entry-term">What are Generative Models for Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Generative models</strong> for parsing define a joint probability distribution P(sentence, parse tree). They model how sentences are <em>generated</em> from a probabilistic grammar. Given a sentence, the parser selects the parse tree that maximizes this joint probability.<br><br>
+      <strong>Key characteristic:</strong> They model P(x, y) — the probability of both the observation (sentence) and the label (parse tree) — then use Bayes' rule to find P(y|x).<br><br>
+      <strong>Primary example:</strong> <strong>Probabilistic Context-Free Grammar (PCFG)</strong> — each CFG rule A → α has an attached probability P(A → α). The probability of a parse tree is the product of all rule probabilities used.<br><br>
+      Generative models are efficient to train (maximum likelihood estimation) and handle large training sets well, but their conditional distribution P(y|x) is implicit and they use a limited feature set.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.39</span>
+      <span class="entry-term">What are Discriminative Models for Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Discriminative models</strong> for parsing directly model the conditional probability P(parse tree | sentence) — the probability of a parse given the observed input, without modeling how the sentence was generated.<br><br>
+      They optimize classification: given a sentence and a set of candidate parses, pick the highest-scoring one using a rich feature set that can include arbitrary properties of the sentence and parse.<br><br>
+      <strong>Examples:</strong> Maximum Entropy (log-linear) models, Support Vector Machines (SVMs), Conditional Random Fields (CRFs), Neural networks.<br><br>
+      <strong>Advantages:</strong> Can incorporate overlapping features, achieve higher accuracy on smaller datasets, and are not constrained by generative assumptions.<br><br>
+      <strong>Disadvantage:</strong> Require iterative training, are slower to train, and can overfit on small datasets.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.40</span>
+      <span class="entry-term">State the basic characteristics of Discriminative Models for Parsing.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <ul>
+        <li><strong>Model P(y|x) directly</strong> — no assumptions about how the input x was generated</li>
+        <li><strong>Rich feature sets</strong> — can use any feature of the sentence or candidate parse (n-grams, POS tags, distances, word embeddings)</li>
+        <li><strong>No independence assumptions</strong> — features may overlap and correlate freely</li>
+        <li><strong>Discriminative training</strong> — optimized by maximizing classification margin or log-likelihood of correct parses</li>
+        <li><strong>Better accuracy</strong> — consistently outperform generative models on standard benchmarks</li>
+        <li><strong>Higher training cost</strong> — require multiple passes over training data to converge</li>
+        <li><strong>Require decoding</strong> — use Viterbi or beam search to find the best parse at test time</li>
+      </ul>
+      Modern neural parsers (e.g., BiLSTM + attention) are discriminative models that have achieved state-of-the-art performance on English and multilingual parsing benchmarks.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.41</span>
+      <span class="entry-term">Differentiate between Generative and Discriminative Parsing Models.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Generative</th><th>Discriminative</th></tr></thead>
+        <tbody>
+          <tr><td>What is modeled</td><td>P(sentence, parse) — joint distribution</td><td>P(parse | sentence) — conditional</td></tr>
+          <tr><td>Example</td><td>PCFG, HMM parsers</td><td>MaxEnt, SVM, CRF, neural parsers</td></tr>
+          <tr><td>Feature constraints</td><td>Independence assumptions required</td><td>Arbitrary overlapping features</td></tr>
+          <tr><td>Training</td><td>Simple MLE; efficient on large data</td><td>Iterative optimization; better on small data</td></tr>
+          <tr><td>Accuracy</td><td>Lower</td><td>Higher (state-of-the-art)</td></tr>
+          <tr><td>Training speed</td><td>Fast</td><td>Slow (multiple passes)</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.42</span>
+      <span class="entry-term">What is a Probabilistic Context-Free Grammar (PCFG)?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>Probabilistic Context-Free Grammar (PCFG)</strong> is a CFG where each production rule A → α is assigned a probability P(A → α), representing the probability that the non-terminal A expands to α. Probabilities of all rules with the same left-hand side must sum to 1.<br><br>
+      <div class="code-block">PCFG example:
+  S  → NP VP         [1.0]
+  NP → Det N         [0.6]
+  NP → NP PP         [0.4]
+  VP → V NP          [0.7]
+  VP → VP PP         [0.3]
+
+Parse tree probability = PRODUCT of all rule probabilities used
+  e.g., P(tree) = 1.0 × 0.6 × 0.7 × 0.6 = 0.252</div>
+      PCFGs enable <em>disambiguation</em>: when a sentence has multiple parses, the parser selects the one with the highest probability. Rule probabilities are estimated from a treebank using maximum likelihood estimation.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.43</span>
+      <span class="entry-term">State the importance of PCFGs in Natural Language Processing.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      PCFGs are important in NLP for the following reasons:
+      <ul>
+        <li><strong>Ambiguity resolution</strong> — assigns probabilities to competing parse trees; highest-probability tree is selected</li>
+        <li><strong>Data-driven</strong> — probabilities learned from annotated treebanks, not hand-coded</li>
+        <li><strong>Principled probabilistic framework</strong> — allows Bayesian reasoning and use of expectation-maximization</li>
+        <li><strong>Efficiency</strong> — CYK algorithm finds the best parse in O(n³) time using PCFG probabilities</li>
+        <li><strong>Machine translation</strong> — synchronous PCFGs model translation as probabilistic grammar transformation</li>
+        <li><strong>Unsupervised grammar induction</strong> — PCFGs can be estimated from unannotated text using EM</li>
+      </ul>
+      PCFGs extended the pure CFG framework into a learnable, probabilistic model, making syntactic parsing a statistical estimation problem.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.44</span>
+      <span class="entry-term">How does a PCFG help in resolving syntactic ambiguity?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A PCFG resolves syntactic ambiguity by assigning a probability score to every possible parse tree and selecting the highest-probability tree as the output — the <em>Viterbi parse</em>.<br><br>
+      <strong>Example — PP Attachment ambiguity:</strong>
+      <div class="code-block">"I saw the man with a telescope."
+
+Parse A: NP[man] PP[with telescope]
+  Uses: NP → NP PP [prob 0.4]
+  Parse A probability: ... × 0.4 = 0.18
+
+Parse B: VP[saw] PP[with telescope]
+  Uses: VP → VP PP [prob 0.3]
+  Parse B probability: ... × 0.3 = 0.12
+
+PCFG selects Parse A (higher probability)</div>
+      The probabilities encode corpus-derived knowledge about how frequently different attachment choices occur in real text. When training data is large enough, the PCFG learns to prefer the linguistically more natural reading.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.45</span>
+      <span class="entry-term">What is Top-Down Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Top-Down Parsing</strong> starts from the start symbol S of the grammar and applies production rules to expand non-terminals, working downward toward the terminal symbols (words) of the input sentence. It attempts to <em>predict</em> what the sentence should look like according to the grammar.<br><br>
+      <div class="code-block">Grammar: S → NP VP, NP → Det N, VP → V NP
+Input: "The cat sat"
+
+Top-down derivation:
+  S
+  → NP VP               (expand S)
+  → Det N VP            (expand NP)
+  → "The" N VP          (match "The")
+  → "The" "cat" VP      (match "cat")
+  → "The" "cat" V NP    (expand VP)
+  → "The" "cat" "sat" NP (match "sat")
+  ...</div>
+      Top-down parsers can waste time exploring grammar rules that don't match the input. They may get stuck in <em>left recursion</em> (S → S NP cycles infinitely).
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.46</span>
+      <span class="entry-term">What is Bottom-Up Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Bottom-Up Parsing</strong> starts with the input words (terminals) and applies grammar rules in reverse — <em>reducing</em> groups of terminals and non-terminals to larger non-terminals — until the start symbol S is derived. It is data-driven: it only builds structures actually present in the input.<br><br>
+      <div class="code-block">Input: "The cat sat"
+Rules: Det → "The", N → "cat", V → "sat",
+       NP → Det N, VP → V, S → NP VP
+
+Bottom-up derivation:
+  "The" "cat" "sat"
+  → Det "cat" "sat"          (reduce "The" to Det)
+  → Det N "sat"              (reduce "cat" to N)
+  → NP "sat"                 (reduce Det N to NP)
+  → NP V                     (reduce "sat" to V)
+  → NP VP                    (reduce V to VP)
+  → S                        (reduce NP VP to S) ✓</div>
+      Bottom-up parsers cannot get stuck in left recursion and only build grammatically valid sub-structures. Used in Shift-Reduce parsers.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.47</span>
+      <span class="entry-term">Differentiate between Top-Down and Bottom-Up Parsing.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Top-Down</th><th>Bottom-Up</th></tr></thead>
+        <tbody>
+          <tr><td>Direction</td><td>Start symbol → words</td><td>Words → start symbol</td></tr>
+          <tr><td>Strategy</td><td>Prediction-based</td><td>Data-driven / reduction-based</td></tr>
+          <tr><td>Left recursion</td><td>Problematic (infinite loop)</td><td>Handles naturally</td></tr>
+          <tr><td>Wasted work</td><td>May explore many wrong rules</td><td>Only builds structures in input</td></tr>
+          <tr><td>Example algorithms</td><td>Recursive Descent, Earley (hybrid)</td><td>Shift-Reduce, CYK</td></tr>
+          <tr><td>When preferred</td><td>Grammar is highly constrained</td><td>Ambiguous grammars, NLP tasks</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.48</span>
+      <span class="entry-term">What is Chart Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Chart Parsing</strong> (also called <em>well-formed substring table</em> parsing) is a dynamic programming parsing technique that avoids redundant computation by storing all partial parse results in a data structure called a <em>chart</em>. Once a constituent spanning a particular range of words is found, it is stored and reused rather than recomputed.<br><br>
+      The chart is a triangular table where entry [i,j] stores all non-terminals that span words i through j. Both top-down and bottom-up strategies can be implemented as chart parsers.<br><br>
+      <strong>Earley's algorithm</strong> is the classic chart parser — it processes left-to-right, maintains <em>items</em> (dotted rules showing progress), and can handle any CFG including ambiguous and left-recursive grammars in O(n³) time. Chart parsing is the foundation of modern treebank parsers.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.49</span>
+      <span class="entry-term">What is Shift-Reduce Parsing?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Shift-Reduce Parsing</strong> is a bottom-up parsing strategy that uses a <em>stack</em> and an input <em>buffer</em>. At each step, the parser chooses between two operations:
+      <ul>
+        <li><strong>Shift</strong> — move the next word from the buffer onto the stack</li>
+        <li><strong>Reduce</strong> — if the top k items on the stack match the right-hand side of a grammar rule A → α, replace them with A</li>
+      </ul>
+      Parsing succeeds when the entire input is consumed and the stack contains only S.<br><br>
+      <div class="code-block">Input: "a and b"
+Stack       Buffer          Action
+[]          a and b         Shift
+[a]         and b           Reduce: N → a
+[N]         and b           Shift
+[N, and]    b               Shift
+[N,and,b]   []              Reduce: N → b
+[N,and,N]   []              Reduce: S → N and N ✓</div>
+      Shift-Reduce allows linear-time parsing but may require backtracking in the worst case (O(n³)).
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.50</span>
+      <span class="entry-term">What is the CYK Algorithm?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      The <strong>Cocke-Younger-Kasami (CYK) algorithm</strong> is a dynamic programming bottom-up parsing algorithm that works on CFGs in <em>Chomsky Normal Form (CNF)</em> — where every rule is either A → BC (two non-terminals) or A → w (one terminal).<br><br>
+      It fills a triangular parse table bottom-up, computing which non-terminals can span each substring of the input:
+      <div class="code-block">For input of length n, table has O(n²) cells.
+Each cell [i,j] stores non-terminals spanning positions i to j.
+Time complexity:  O(n³ × |G|)
+Space complexity: O(n²)
+
+Base case: [i, i+1] ← {A | A → word_i exists in grammar}
+Recursive: [i, j] ← {A | A → BC, B ∈ [i,k], C ∈ [k,j] for some k}</div>
+      CYK guarantees finding all valid parse trees in polynomial time and is the basis of the CKY hypergraph parser for PCFGs.
+    </div>
+  </div>
+
+  <div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.51</span>
+      <span class="entry-term">What is Earley's Parsing Algorithm?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Earley's Algorithm</strong> is a chart-based, top-down parsing algorithm that can handle <em>any</em> CFG — including ambiguous, left-recursive, and nullable grammars — in O(n³) time (O(n²) for unambiguous grammars, O(n) for grammars with finite ambiguity).<br><br>
+      It processes the input left-to-right and maintains <em>Earley items</em> (dotted rules) of the form [A → α • β, i, j] — meaning "we've parsed α from position i to j, and still need to parse β to complete A".<br><br>
+      Three operations:
+      <ul>
+        <li><strong>Predict</strong> — when a dot precedes a non-terminal, add items for all rules for that non-terminal</li>
+        <li><strong>Scan</strong> — when a dot precedes a terminal matching the next word, advance the dot</li>
+        <li><strong>Complete</strong> — when a rule is fully matched, advance the dot in all items waiting for it</li>
+      </ul>
+      Earley's algorithm is the most general and elegant parsing algorithm for context-free grammars.
+    </div>
+  </div>
+
+</div>
+<!-- end Part A panel -->
+
+
+<!-- ═══════════════════ PART B ═══════════════════ -->
+<div id="panel-partB" class="tab-panel">
+
+  <div class="part-header">
+    <h2>Part B — Detailed Answer Questions</h2>
+    <div class="meta">5 Marks Each &middot; 250–300 Words Each</div>
+  </div>
+
+  <div class="unit-label">Unit 1 — Morphology &amp; Morphological Parsing</div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.1</span>
+      <span class="q-title">Discuss the meaning, process, and importance of Morphological Parsing with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Definition:</strong> Morphological Parsing is the computational process of analyzing a word to identify its constituent morphemes and determine its lexical and grammatical properties. The goal is to map from a <em>surface form</em> (the word as written) to a <em>lexical form</em> (root + grammatical features).</p>
+
+      <p class="sub-h">The Process of Morphological Parsing</p>
+      <p>The parsing pipeline involves five stages:</p>
+      <ol>
+        <li><strong>Tokenization</strong> — split input text into individual word tokens</li>
+        <li><strong>Segmentation</strong> — identify morpheme boundaries within each token</li>
+        <li><strong>Identification</strong> — classify each segment as root, prefix, suffix, or infix</li>
+        <li><strong>Analysis</strong> — assign morphosyntactic features to each morpheme</li>
+        <li><strong>Disambiguation</strong> — if multiple analyses exist, select the most likely one</li>
+      </ol>
+
+      <div class="code-block">Example: "unhappiness"
+  Step 1: un + happy + ness
+  Step 2: un- (prefix: negation), happy (root: ADJ), -ness (suffix: nominalization)
+  Step 3: Lexical form: UN + HAPPY + NESS → [NOUN, NEGATIVE, STATE]
+  Output: {lemma: "happy", POS: NOUN, prefix: NEG, nominalization: +NESS}
+
+Example: "replayed"
+  re- (prefix: again), play (root: VERB), -ed (suffix: PAST)
+  Output: {lemma: "play", POS: VERB, TENSE: PAST, ASPECT: repetition}</div>
+
+      <p class="sub-h">Importance of Morphological Parsing</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Application</th><th>How Morphological Parsing Helps</th></tr></thead>
+        <tbody>
+          <tr><td>Machine Translation</td><td>Generates correct inflected forms in the target language</td></tr>
+          <tr><td>Search Engines</td><td>Expands queries to match all word forms (run, runs, ran)</td></tr>
+          <tr><td>Spell Checking</td><td>Validates that words conform to morphological rules</td></tr>
+          <tr><td>POS Tagging</td><td>Morphological features guide part-of-speech assignment</td></tr>
+          <tr><td>Lemmatization</td><td>Reduces forms to base forms for normalization</td></tr>
+          <tr><td>Morphologically rich languages</td><td>Essential for Arabic, Turkish, Finnish — one word ≈ a clause</td></tr>
+        </tbody>
+      </table></div>
+
+      <p>Morphological parsing is the first step in any NLP pipeline dealing with text. Without it, a system treating "walk", "walked", "walking", and "walks" as four unrelated tokens would fail to generalize across basic grammatical variations, drastically increasing data sparsity and reducing the accuracy of all downstream components.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.2</span>
+      <span class="q-title">Discuss the issues and challenges associated with Morphological Parsing.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Morphological parsing faces three fundamental challenges that make it a non-trivial computational problem: <strong>irregularity</strong>, <strong>ambiguity</strong>, and <strong>productivity</strong>.</p>
+
+      <p class="sub-h">1. Irregularity</p>
+      <p>Many words deviate from regular morphological patterns. Rule-based parsers that work for regular forms fail on irregular ones, which must be stored individually in a lexicon.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Regular (Rule Works)</th><th>Irregular (Rule Fails)</th><th>Issue</th></tr></thead>
+        <tbody>
+          <tr><td>cat → cats</td><td>mouse → mice (not "mouses")</td><td>Internal vowel change</td></tr>
+          <tr><td>walk → walked</td><td>go → went (not "goed")</td><td>Suppletion — completely different stem</td></tr>
+          <tr><td>child → childs</td><td>child → children</td><td>Special plural form</td></tr>
+          <tr><td>good → gooder</td><td>good → better</td><td>Suppletive comparative</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">2. Ambiguity</p>
+      <p>A single surface word form may correspond to multiple valid morphological analyses, requiring contextual disambiguation:</p>
+      <div class="code-block">"saw"  → {lemma: see, PAST TENSE} OR {lemma: saw, NOUN (tool)}
+"flies" → {lemma: fly, VERB, 3SG} OR {lemma: fly, NOUN, PLURAL}
+"wound" → {lemma: wind, PAST} OR {lemma: wound, NOUN}</div>
+      <p>A morphological parser must use surrounding context (POS tags, syntactic constraints) to resolve such ambiguities. Ambiguity rate is especially high in languages with rich homophony.</p>
+
+      <p class="sub-h">3. Productivity / Unknown Words</p>
+      <p>Languages continuously generate new words through affixation, compounding, and conversion. A parser trained on a static lexicon will encounter OOV (out-of-vocabulary) words it has never seen:</p>
+      <div class="code-block">New words: "googling", "unfriended", "tweeted", "selfie-ready"
+Morphological rules required:
+  google + -ing → [VERB, PRESENT_PARTICIPLE]
+  un- + friend + -ed → [VERB, PAST, NEGATIVE]</div>
+
+      <p class="sub-h">4. Morphologically Rich Languages</p>
+      <p>Languages like Turkish, Finnish, Arabic, or Sanskrit can produce thousands of inflected forms for a single root. A Turkish verb stem can have over 3,000 valid surface forms. The lexicon size required for these languages makes pure dictionary lookup infeasible.</p>
+
+      <p class="sub-h">5. Allomorphy</p>
+      <p>Multiple surface forms (allomorphs) encode the same morpheme. The negation prefix in- has allomorphs in-, im-, il-, ir- (incapable, impossible, illegal, irregular) — a parser must recognize all as realizations of the same abstract morpheme.</p>
+
+      <p>Real-world morphological parsers address these challenges through a combination of <strong>finite-state transducers</strong> for regular patterns, <strong>lexicons</strong> for irregular forms, and <strong>machine learning</strong> for unknown word handling.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.3</span>
+      <span class="q-title">Explain the different types of Morphemes with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Morphemes are classified along two primary dimensions: <em>whether they can stand alone</em> (free vs. bound) and <em>what grammatical function they serve</em> (derivational vs. inflectional).</p>
+
+      <p class="sub-h">1. Free Morphemes</p>
+      <p>Free morphemes can stand alone as independent words. They are further divided into:</p>
+      <ul>
+        <li><strong>Lexical morphemes</strong> — content words carrying semantic meaning: dog, run, happy, blue</li>
+        <li><strong>Functional morphemes</strong> — grammatical words with structural role: the, and, but, of, to</li>
+      </ul>
+
+      <p class="sub-h">2. Bound Morphemes</p>
+      <p>Bound morphemes cannot stand alone; they must attach to a root or stem. They include:</p>
+      <ul>
+        <li><strong>Prefixes</strong> — attached before the root: un-, re-, pre-, dis-</li>
+        <li><strong>Suffixes</strong> — attached after the root: -ness, -ed, -ing, -er, -tion</li>
+        <li><strong>Infixes</strong> — inserted within a root (rare in English, common in Tagalog)</li>
+        <li><strong>Circumfixes</strong> — wrap around the root (e.g., German ge-...-t for past participle)</li>
+      </ul>
+
+      <p class="sub-h">3. Inflectional Morphemes</p>
+      <p>Inflectional morphemes modify a word's grammatical category without creating a new word or changing its core meaning:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Morpheme</th><th>Function</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>-s</td><td>Plural</td><td>cat → cats</td></tr>
+          <tr><td>-ed</td><td>Past tense</td><td>walk → walked</td></tr>
+          <tr><td>-ing</td><td>Progressive aspect</td><td>run → running</td></tr>
+          <tr><td>-er</td><td>Comparative</td><td>tall → taller</td></tr>
+          <tr><td>-est</td><td>Superlative</td><td>tall → tallest</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">4. Derivational Morphemes</p>
+      <p>Derivational morphemes create new words, often changing the part of speech:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Morpheme</th><th>Change</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>-er / -or</td><td>V → N (agent)</td><td>teach → teacher, act → actor</td></tr>
+          <tr><td>-ness / -ity</td><td>Adj → N (state)</td><td>happy → happiness, rapid → rapidity</td></tr>
+          <tr><td>-ful / -less</td><td>N → Adj</td><td>hope → hopeful, hope → hopeless</td></tr>
+          <tr><td>un-</td><td>Adj → Adj (negation)</td><td>happy → unhappy</td></tr>
+          <tr><td>-ize / -ify</td><td>N/Adj → V</td><td>modern → modernize</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">5. Zero Morphemes</p>
+      <p>Some grammatical changes are expressed by <em>no overt morpheme</em> (zero or null morpheme). Example: "hit" in present and past ("He hits the ball" vs "He hit the ball") — the past tense is a zero morpheme. Similarly, "fish" (one fish) and "fish" (many fish) differ only in a zero plural morpheme.</p>
+
+      <p>Understanding morpheme types is fundamental to morphological analysis — NLP systems must identify and categorize each morpheme to correctly determine a word's grammatical properties and semantic contribution to a sentence.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.4</span>
+      <span class="q-title">Explain Inflectional and Derivational Morphology with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Morphology is broadly divided into two types based on the role of affixes: <strong>inflectional morphology</strong> (grammatical variation of the same word) and <strong>derivational morphology</strong> (creating new words with new meanings).</p>
+
+      <p class="sub-h">Inflectional Morphology</p>
+      <p>Inflectional morphology deals with grammatical modifications of a word that are <em>required by syntactic context</em>. The word's core meaning and part of speech do not change; only grammatical categories like tense, number, case, person, aspect, and degree change.</p>
+
+      <p><strong>Key properties of inflection:</strong></p>
+      <ul>
+        <li>Does not create a new word — "runs" is still the verb RUN</li>
+        <li>Never changes the syntactic category (part of speech)</li>
+        <li>Fully productive — applies to virtually all members of a grammatical class</li>
+        <li>Required by agreement and syntactic rules</li>
+      </ul>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Category</th><th>Morpheme</th><th>Example</th><th>Function</th></tr></thead>
+        <tbody>
+          <tr><td>Plural</td><td>-s, -es, -en</td><td>dog→dogs, ox→oxen</td><td>Number marking on nouns</td></tr>
+          <tr><td>Past Tense</td><td>-ed, -t, -∅</td><td>walk→walked, hit→hit</td><td>Tense marking on verbs</td></tr>
+          <tr><td>Progressive</td><td>-ing</td><td>run→running</td><td>Aspect marking</td></tr>
+          <tr><td>3rd Person Singular</td><td>-s</td><td>she run→runs</td><td>Subject-verb agreement</td></tr>
+          <tr><td>Comparative</td><td>-er</td><td>fast→faster</td><td>Degree marking on adjectives</td></tr>
+          <tr><td>Superlative</td><td>-est</td><td>fast→fastest</td><td>Degree marking on adjectives</td></tr>
+          <tr><td>Possessive</td><td>-'s</td><td>John→John's</td><td>Genitive case marking</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Derivational Morphology</p>
+      <p>Derivational morphology creates <em>new lexemes</em> by adding affixes that change the meaning and often the part of speech of the base word. The derived word gets its own dictionary entry.</p>
+
+      <p><strong>Key properties of derivation:</strong></p>
+      <ul>
+        <li>Creates a new word with a new dictionary entry</li>
+        <li>Often (but not always) changes the syntactic category</li>
+        <li>Semi-productive — not all derivations are possible (*teachful, *sadness of chairs)</li>
+        <li>Not required by syntax — a speaker <em>chooses</em> to derive new words</li>
+      </ul>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Process</th><th>Morpheme</th><th>POS Change</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Agentive nominalization</td><td>-er</td><td>V → N</td><td>teach → teacher</td></tr>
+          <tr><td>Abstract nominalization</td><td>-ness, -ity</td><td>Adj → N</td><td>happy → happiness, active → activity</td></tr>
+          <tr><td>Adjectivalization</td><td>-al, -ful, -ous</td><td>N → Adj</td><td>nation → national, hope → hopeful</td></tr>
+          <tr><td>Verbalization</td><td>-ize, -ify</td><td>N/Adj → V</td><td>modern → modernize, simple → simplify</td></tr>
+          <tr><td>Negation</td><td>un-, in-, dis-</td><td>Same POS</td><td>happy → unhappy, honest → dishonest</td></tr>
+          <tr><td>Diminutive</td><td>-let, -ette</td><td>N → N</td><td>drop → droplet, cigar → cigarette</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Key Distinction in NLP</p>
+      <p>In NLP, inflectional morphology is handled by <strong>lemmatization</strong> — all inflected forms reduce to the same lemma (runs, ran, running → run). Derivational morphology creates genuinely different lexemes that may need separate treatment — "teacher" and "teach" are related but distinct entries. Most NLP systems do not go further than the lemma level and treat derived forms as independent lexical items.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.5</span>
+      <span class="q-title">Discuss Morph, Morpheme, and Allomorph in detail with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Three foundational concepts in morphology — <strong>morpheme</strong>, <strong>morph</strong>, and <strong>allomorph</strong> — exist at different levels of abstraction and are related as: morpheme (abstract) → morph (concrete instance) → allomorph (variant morph of the same morpheme).</p>
+
+      <p class="sub-h">Morpheme</p>
+      <p>A <strong>morpheme</strong> is the smallest abstract linguistic unit that carries meaning. It exists at the level of the language system (langue), not at the level of actual utterances (parole). Morphemes are represented in SMALL CAPS as conceptual units.</p>
+      <ul>
+        <li>PLURAL — the abstract concept of "more than one"</li>
+        <li>PAST — the abstract concept of past tense</li>
+        <li>NEGATION — the abstract concept of negating a property</li>
+      </ul>
+      <p>A morpheme is identified by its <em>meaning</em> or grammatical function, not by its sound or spelling.</p>
+
+      <p class="sub-h">Morph</p>
+      <p>A <strong>morph</strong> is the minimal phonological or graphemic unit that realizes a morpheme in actual speech or text — it is the observable, physical form. Every time a morpheme appears in a word, it appears as a specific morph.</p>
+      <div class="code-block">The PLURAL morpheme appears as:
+  -s   in "cats"    (a morph)
+  -es  in "buses"   (a morph)
+  -en  in "oxen"    (a morph)
+  -i   in "cacti"   (a morph)
+  -∅   in "sheep"   (zero morph — no overt form)</div>
+
+      <p class="sub-h">Allomorphs</p>
+      <p><strong>Allomorphs</strong> are different morphs that realize the same morpheme. They have identical meaning/function but different phonological forms, distributed in complementary environments.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Morpheme</th><th>Allomorphs</th><th>Environment</th><th>Examples</th></tr></thead>
+        <tbody>
+          <tr><td>PLURAL</td><td>/s/</td><td>After voiceless consonants</td><td>cats, caps, bats</td></tr>
+          <tr><td>PLURAL</td><td>/z/</td><td>After voiced consonants/vowels</td><td>dogs, cars, shoes</td></tr>
+          <tr><td>PLURAL</td><td>/ɪz/</td><td>After sibilants</td><td>buses, churches, dishes</td></tr>
+          <tr><td>NEGATION</td><td>in-</td><td>Before most consonants</td><td>incapable, indecent</td></tr>
+          <tr><td>NEGATION</td><td>im-</td><td>Before b, p, m</td><td>impossible, imbalance</td></tr>
+          <tr><td>NEGATION</td><td>il-</td><td>Before l</td><td>illegal, illegible</td></tr>
+          <tr><td>NEGATION</td><td>ir-</td><td>Before r</td><td>irregular, irrelevant</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Relationship Summary</p>
+      <div class="code-block">PLURAL morpheme (abstract)
+  ↓  realized as
+  /s/  morph  (in "cats")    ─┐
+  /z/  morph  (in "dogs")    ─┤ all ALLOMORPHS of PLURAL
+  /ɪz/ morph  (in "buses")   ─┘</div>
+      <p>In NLP, morphological parsers must normalize all allomorphs of a morpheme to the same abstract representation. A PCFG parser that treats -s, -es, -en, and -i as completely different features would fail to recognize their common function as PLURAL markers. Allomorph normalization is a critical step in morphological analysis for multilingual NLP systems.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.6</span>
+      <span class="q-title">Explain the process of Morphological Analysis in Natural Language Processing.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Morphological analysis is the systematic computational process of decomposing word tokens into their constituent morphemes and extracting grammatical features. It is the first and most fundamental preprocessing step in any NLP pipeline.</p>
+
+      <p class="sub-h">Stage 1: Tokenization</p>
+      <p>Before morphological analysis, the input text must be tokenized — split into word-level units. This is itself non-trivial: contractions ("won't" → "will" + "not"), hyphenated compounds, and clitics all require special handling.</p>
+
+      <p class="sub-h">Stage 2: Segmentation</p>
+      <p>The tokenized word is segmented into morphemes by identifying the stem/root and any affixes:</p>
+      <div class="code-block">Input: "internationalization"
+Segmentation: inter- + nation + -al + -iz + -ation
+  inter-  : prefix (between)
+  nation  : root (N)
+  -al     : suffix (Adj-forming)
+  -iz     : suffix (V-forming)
+  -ation  : suffix (N-forming, nominalization)</div>
+
+      <p class="sub-h">Stage 3: Lexical Lookup</p>
+      <p>The identified root is looked up in a morphological lexicon to retrieve its base properties (POS, semantic class, irregular forms). For regular words, morphological rules generate the analysis; for irregular words, the lexicon stores the mapping.</p>
+
+      <p class="sub-h">Stage 4: Feature Extraction</p>
+      <p>Grammatical features are extracted from the identified morphemes and assembled into a feature structure:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Word</th><th>Lemma</th><th>POS</th><th>Features</th></tr></thead>
+        <tbody>
+          <tr><td>walked</td><td>walk</td><td>VERB</td><td>[PAST, REGULAR]</td></tr>
+          <tr><td>children</td><td>child</td><td>NOUN</td><td>[PLURAL, IRREGULAR]</td></tr>
+          <tr><td>happiest</td><td>happy</td><td>ADJ</td><td>[SUPERLATIVE]</td></tr>
+          <tr><td>teachers</td><td>teach</td><td>NOUN</td><td>[PLURAL, AGENTIVE]</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Stage 5: Disambiguation</p>
+      <p>Many words have multiple valid morphological analyses. The disambiguation stage selects the correct analysis based on context — using surrounding POS tags, syntactic constraints, or a language model:</p>
+      <div class="code-block">"saw" — context "she saw a bird" → {VERB, PAST(SEE)}
+"saw" — context "a saw and a hammer" → {NOUN, SINGULAR(SAW)}</div>
+
+      <p class="sub-h">Morphological Models Used</p>
+      <p>NLP systems implement morphological analysis using one or more models:</p>
+      <ul>
+        <li><strong>Dictionary Lookup</strong> — stores all forms; fast but can't handle OOV</li>
+        <li><strong>Finite-State Transducer (FST)</strong> — encodes morphological rules as state machines; efficient and handles regular patterns</li>
+        <li><strong>Unification-Based</strong> — uses feature structures; handles complex agreement</li>
+        <li><strong>Machine Learning</strong> — neural sequence models that learn morphological mappings from data</li>
+      </ul>
+      <p>The output of morphological analysis — lemma + feature values — feeds directly into POS tagging, syntactic parsing, machine translation, and semantic analysis, making it indispensable to the entire NLP pipeline.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.7</span>
+      <span class="q-title">Discuss the role of Morphological Parsing in NLP applications.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Morphological parsing plays a foundational role across virtually every NLP application by normalizing word forms, extracting grammatical information, and reducing vocabulary complexity.</p>
+
+      <p class="sub-h">1. Machine Translation (MT)</p>
+      <p>MT systems must generate grammatically correct target-language sentences. Morphological parsing analyzes source-language words for tense, number, and case; the generation module then applies target-language morphological rules to produce the correct inflected output. For example, translating "he runs" to Spanish requires knowing VERB + 3SG to generate "él corre" rather than "él correr".</p>
+
+      <p class="sub-h">2. Information Retrieval (Search Engines)</p>
+      <p>Search queries are morphologically analyzed so that "running shoes" matches documents containing "run", "runs", or "runner". Without morphological normalization, each inflected form would be indexed separately, causing recall failures. Stemming and lemmatization are the primary morphological tools used in IR.</p>
+
+      <p class="sub-h">3. Chatbots and Virtual Assistants</p>
+      <p>Chatbots must understand user input regardless of grammatical variation. Morphological parsing allows "Did he went?" to be understood despite the grammatical error, by extracting the PAST tense intent from "went".</p>
+
+      <p class="sub-h">4. Sentiment Analysis</p>
+      <p>Negation morphemes (un-, dis-, -less) directly affect sentiment polarity. "unhappy" has opposite sentiment to "happy"; "hopeless" negates hope. Morphological parsing identifies negation prefixes that invert sentiment, which is crucial for accurate sentiment classification.</p>
+
+      <p class="sub-h">5. Named Entity Recognition (NER)</p>
+      <p>In morphologically rich languages, entity names are inflected for case. "Germany" in German appears as Deutschland (nominative), Deutschlands (genitive), Deutschland (dative). A morphological parser normalizes these to the base form for entity matching.</p>
+
+      <p class="sub-h">6. Speech Recognition</p>
+      <p>Language models used in speech recognition are morphology-aware — they can better predict the next word based on the morphological form of the current word (e.g., a plural noun is more likely to be followed by a plural verb).</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Application</th><th>Morphological Feature Used</th><th>Impact</th></tr></thead>
+        <tbody>
+          <tr><td>Machine Translation</td><td>Tense, number, case, gender</td><td>Grammatically correct output</td></tr>
+          <tr><td>Search / IR</td><td>Lemmatization, stemming</td><td>Higher recall</td></tr>
+          <tr><td>Sentiment Analysis</td><td>Negation morphemes</td><td>Correct polarity</td></tr>
+          <tr><td>NER</td><td>Case normalization</td><td>Entity matching across inflections</td></tr>
+          <tr><td>Parsing</td><td>POS derivation from morphology</td><td>Better feature input to parser</td></tr>
+        </tbody>
+      </table></div>
+
+      <p>The contribution of morphological parsing is largest for morphologically rich languages. For English — which has relatively simple morphology — the impact is moderate. For Arabic, Turkish, or Finnish — where a single word can express what English says in a full clause — morphological parsing is absolutely indispensable.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.8</span>
+      <span class="q-title">Explain the challenges involved in morphological analysis of morphologically rich languages.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Morphologically rich languages (MRLs) — such as Turkish, Arabic, Finnish, Sanskrit, Czech, and Telugu — present dramatically greater challenges for morphological analysis than analytic languages like English. In MRLs, a single word form can express the semantic content of an entire English clause.</p>
+
+      <p class="sub-h">1. Extreme Form Proliferation</p>
+      <p>Turkish, a highly agglutinative language, can produce tens of thousands of grammatically valid word forms from a single root. The verb "gelmek" (to come) can combine with tense, aspect, modality, negation, and subject agreement to produce thousands of forms:</p>
+      <div class="code-block">geliyorum       = I am coming
+gelmiyordum     = I was not coming
+gelemeyecektim  = I would not have been able to come
+gelemeyebilirim = I may not be able to come</div>
+      <p>A parser must handle all valid combinations without enumerating them individually.</p>
+
+      <p class="sub-h">2. High Ambiguity Rate</p>
+      <p>Arabic words are written without short vowels (diacritics), leading to extreme lexical and morphological ambiguity. A single unvocalized Arabic word string can correspond to dozens of different analyses depending on the intended vowels and morphological structure.</p>
+
+      <p class="sub-h">3. Non-concatenative Morphology</p>
+      <p>Semitic languages (Arabic, Hebrew) use <em>root-and-pattern</em> morphology — the root is a sequence of consonants (usually 3), and grammatical meaning is conveyed by changing the intervening vowel pattern:</p>
+      <div class="code-block">Arabic root k-t-b (related to "writing"):
+  kataba  = he wrote
+  kitaab  = book
+  kaatib  = writer
+  maktaba = library
+  maktub  = written</div>
+      <p>This non-concatenative structure cannot be analyzed by simple prefix/suffix rules — it requires special morphological formalisms.</p>
+
+      <p class="sub-h">4. Large Lexicon Requirements</p>
+      <p>MRL parsers need much larger lexicons than English parsers. Finite-state transducers (FSTs) for Arabic morphology have hundreds of thousands of states and transitions. Building and maintaining these resources requires extensive linguistic expertise and time.</p>
+
+      <p class="sub-h">5. Code-Switching and Dialectal Variation</p>
+      <p>Many MRLs have multiple dialects with different morphological patterns. Egyptian Arabic, Moroccan Arabic, and Modern Standard Arabic all have different morphological rules. NLP systems built for one dialect often fail badly on another.</p>
+
+      <p class="sub-h">6. Data Sparsity</p>
+      <p>Statistical NLP models require large amounts of annotated training data. For MRLs, even moderate-sized corpora may not cover the full morphological space, leading to data sparsity problems that hurt model performance.</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Language Type</th><th>Example</th><th>Primary Challenge</th><th>Approach</th></tr></thead>
+        <tbody>
+          <tr><td>Agglutinative</td><td>Turkish, Finnish</td><td>Extreme form proliferation</td><td>FST with morpheme concatenation rules</td></tr>
+          <tr><td>Fusional</td><td>Arabic, Sanskrit</td><td>Non-concatenative morphology</td><td>Root-and-pattern FST</td></tr>
+          <tr><td>Fusional</td><td>Czech, German</td><td>Complex case/agreement</td><td>Unification-based morphology</td></tr>
+          <tr><td>Analytic</td><td>Chinese, English</td><td>Word segmentation</td><td>Tokenization, minimal morphology</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ══ Lexemes & Word Forms ══ -->
+  <div class="unit-label">Lexemes &amp; Word Forms</div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.9</span>
+      <span class="q-title">A dictionary represents related word forms under a single basic entry. Describe the concept of a Lexeme and illustrate it with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>A <strong>lexeme</strong> is the fundamental abstract unit of the vocabulary — a single conceptual entry in the mental lexicon that encompasses all morphologically related word forms sharing the same core meaning. The dictionary does not list "run", "runs", "ran", "running", and "runnable" as five separate entries; it groups them all under the single lexeme RUN.</p>
+
+      <p class="sub-h">The Lexeme Concept in Linguistics</p>
+      <p>Lexemes operate at the abstract level of the language system. They are distinguished from:</p>
+      <ul>
+        <li><strong>Word forms</strong> — the actual surface tokens appearing in text ("ran", "running")</li>
+        <li><strong>Lemmas</strong> — the conventional citation form for the lexeme ("run")</li>
+        <li><strong>Tokens</strong> — each occurrence of a word form in text</li>
+      </ul>
+
+      <p class="sub-h">The Dictionary Representation</p>
+      <p>A dictionary entry for a lexeme typically includes: the lemma (citation form), grammatical class, definition, and all irregular forms. Regular inflections are handled by grammar rules, not enumerated in the entry.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Lexeme</th><th>Lemma</th><th>POS</th><th>All Word Forms</th></tr></thead>
+        <tbody>
+          <tr><td>SEE</td><td>see</td><td>Verb</td><td>see, sees, saw, seen, seeing</td></tr>
+          <tr><td>MOUSE</td><td>mouse</td><td>Noun</td><td>mouse, mice</td></tr>
+          <tr><td>RECEIVE</td><td>receive</td><td>Verb</td><td>receive, receives, received, receiving, receiver, reception</td></tr>
+          <tr><td>RUN</td><td>run</td><td>Verb</td><td>run, runs, ran, running, runner</td></tr>
+          <tr><td>GOOD</td><td>good</td><td>Adj</td><td>good, better, best (suppletive)</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Example Analysis — "SEE"</p>
+      <div class="code-block">Sentences: "Did you see him?"  "I didn't see him."  "I didn't see anyone."
+
+Tokenization:        [Did, you, see, him], [I, did, not, see, him], [I, did, not, see, anyone]
+Word forms in text:  "see", "see", "see"
+All map to lexeme:   SEE
+Lexeme analysis:     see(V) | sees(3SG) | saw(PAST) | seen(PAST-PART) | seeing(PROG)</div>
+
+      <p class="sub-h">Importance in NLP</p>
+      <p>The lexeme concept is operationalized in NLP as <strong>lemmatization</strong>. When an NLP system lemmatizes text, it reduces every word form to its lexeme's citation form (lemma). This is critical for:</p>
+      <ul>
+        <li><strong>Vocabulary normalization</strong> — reduces a corpus with 50,000 word types to perhaps 30,000 lemmas</li>
+        <li><strong>Semantic analysis</strong> — maps different surface forms to a single meaning representation</li>
+        <li><strong>Cross-linguistic NLP</strong> — languages with rich inflection (Arabic, Turkish) especially benefit from lexeme-based normalization</li>
+        <li><strong>Lexical resources</strong> — WordNet, PropBank, FrameNet all use lemmas/lexemes as their organizing units</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ Sentence Boundary Detection ══ -->
+  <div class="unit-label">Sentence Boundary Detection</div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.13</span>
+      <span class="q-title">State the purpose of Sentence Boundary Detection (Sentence Segmentation) in NLP. Explain with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Sentence Boundary Detection (SBD) — also called sentence segmentation — is the task of automatically identifying where one sentence ends and the next begins in a continuous stream of text or speech. It is the essential preprocessing step that transforms raw text into the sentence units required by downstream NLP systems.</p>
+
+      <p class="sub-h">Purpose and Necessity</p>
+      <p>Almost all NLP tasks operate on individual sentences: parsers parse sentences, translators translate sentences, summarizers select sentences. Without SBD, a multi-sentence paragraph would be fed as a single unit, corrupting every subsequent analysis.</p>
+
+      <p class="sub-h">How Sentence Boundaries Are Identified</p>
+      <p>In formal written English, sentences typically end with a period (.), question mark (?), or exclamation mark (!), followed by whitespace and a capitalized next word. This heuristic works well in clean text but fails in many real-world scenarios.</p>
+
+      <p class="sub-h">Example 1 — Simple Case</p>
+      <div class="code-block">Input: "The cat sat on the mat. The dog barked loudly!"
+SBD correctly identifies two boundaries:
+  Sentence 1: "The cat sat on the mat."
+  Sentence 2: "The dog barked loudly!"</div>
+
+      <p class="sub-h">Example 2 — Abbreviation Challenge</p>
+      <div class="code-block">Input: "Dr. Ramesh arrived at 10 a.m. He attended the meeting."
+Naive rule (period + capital = boundary) produces 3 sentences:
+  ❌ "Dr." | "Ramesh arrived at 10 a.m." | "He attended the meeting."
+Correct SBD produces 2 sentences:
+  ✓ "Dr. Ramesh arrived at 10 a.m." | "He attended the meeting."</div>
+
+      <p class="sub-h">Applications of Sentence Segmentation</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>NLP Application</th><th>Why SBD is Needed</th></tr></thead>
+        <tbody>
+          <tr><td>Machine Translation</td><td>Translation is performed sentence-by-sentence</td></tr>
+          <tr><td>Syntactic Parsing</td><td>Parsers require exactly one sentence as input</td></tr>
+          <tr><td>Text Summarization</td><td>Selects the most informative sentence units</td></tr>
+          <tr><td>Sentiment Analysis</td><td>Assigns sentiment to each sentence</td></tr>
+          <tr><td>Information Extraction</td><td>Extracts facts from individual sentence contexts</td></tr>
+          <tr><td>Question Answering</td><td>Retrieves relevant sentences to answer queries</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Methods for SBD</p>
+      <ul>
+        <li><strong>Rule-based</strong> — hand-written rules using abbreviation lists and capitalization heuristics</li>
+        <li><strong>Generative (HMM)</strong> — models punctuation as a sequence labeling problem; uses Viterbi decoding to find the best boundary sequence</li>
+        <li><strong>Discriminative (MaxEnt, SVM, CRF)</strong> — classifies each punctuation mark as boundary or non-boundary using rich feature sets</li>
+        <li><strong>Hybrid</strong> — combines discriminative classifiers with HMM decoding for best of both approaches</li>
+      </ul>
+
+      <p>Sentence segmentation seems simple but achieves only ~95-98% accuracy even with the best models, because the remaining 2-5% involve edge cases (code-switching, social media text, spoken transcripts) that defy systematic rules.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.14</span>
+      <span class="q-title">Discuss the issues and challenges involved in Sentence Segmentation.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Sentence segmentation appears deceptively simple — find the period and split. But natural language presents numerous challenging situations where this fails, and a robust SBD system must handle all of them.</p>
+
+      <p class="sub-h">Challenge 1: Abbreviations</p>
+      <p>The most pervasive challenge. Periods in abbreviations look identical to sentence-terminating periods but are not boundaries:</p>
+      <div class="code-block">Dr., Mr., Mrs., Prof.    — title abbreviations
+U.S.A., U.K., E.U.     — country/organization abbreviations
+a.m., p.m., etc., e.g. — Latin abbreviations
+Jan., Feb., Mar.        — month abbreviations
+Apt., Blvd., Ave.       — address abbreviations</div>
+      <p>The problem is especially hard when an abbreviation appears at the end of a sentence: "She arrived at 5 p.m. He left at 6." — the period after "p.m." is both abbreviation-terminal AND sentence-terminal.</p>
+
+      <p class="sub-h">Challenge 2: Proper Nouns and Initials</p>
+      <p>Personal names with initials create false boundaries: "J.K. Rowling wrote Harry Potter." — the periods after "J" and "K" are not boundaries. Geographic and institutional names also cause problems: "U.N. Secretary-General spoke today."</p>
+
+      <p class="sub-h">Challenge 3: Quoted Speech / Nested Sentences</p>
+      <div class="code-block">She said, "Go away! I need quiet." He left immediately.
+Boundaries: end of outer sentence only (after "immediately")
+Non-boundary: "!" inside quotation marks — part of quoted content</div>
+
+      <p class="sub-h">Challenge 4: Informal / Social Media Text</p>
+      <p>SMS, tweets, and chat messages frequently violate standard punctuation conventions:</p>
+      <div class="code-block">"omg that was wild lol anyway did u see what happened yesterday"
+No sentence-terminating punctuation at all — human readers infer boundaries
+from discourse structure and context, not punctuation</div>
+      <p>Inter-annotator agreement on such text drops significantly below that for formal writing.</p>
+
+      <p class="sub-h">Challenge 5: Ellipsis and Suspension Points</p>
+      <p>"She paused... and then spoke." — three periods of ellipsis are not a sentence boundary. The parser must distinguish ellipsis from end-of-sentence.</p>
+
+      <p class="sub-h">Challenge 6: Code-Switching</p>
+      <p>Multilingual text may mix punctuation conventions from different languages. Spanish uses inverted question marks "¿" at the start of questions. A system trained on monolingual English text fails on Spanish-English mixed text.</p>
+
+      <p class="sub-h">Challenge 7: Technical Text</p>
+      <div class="code-block">URLs:     "Visit docs.google.com. Register now."
+Math:     "The accuracy reached 92.3%. It improved steadily."
+Code:     "Call func(a, b). Return val."</div>
+      <p>Periods in domain names, decimal numbers, and function calls are not sentence boundaries but are very difficult to distinguish automatically.</p>
+
+      <p class="sub-h">Challenge 8: Speech Transcripts</p>
+      <p>Spoken language lacks punctuation entirely. SBD for speech must use prosodic features (pauses, pitch drops, speaking rate) — which requires a completely different approach from text-based SBD.</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Challenge</th><th>Difficulty Level</th><th>Best Solution</th></tr></thead>
+        <tbody>
+          <tr><td>Abbreviations</td><td>High</td><td>Abbreviation lexicon + classifier</td></tr>
+          <tr><td>Social media</td><td>Very High</td><td>Domain-specific ML model</td></tr>
+          <tr><td>Code-switching</td><td>High</td><td>Multilingual models</td></tr>
+          <tr><td>Speech</td><td>Very High</td><td>Prosodic feature classifiers</td></tr>
+          <tr><td>Quoted speech</td><td>Medium</td><td>Quotation detection rules</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <!-- ══ CFG & Syntactic Parsing ══ -->
+  <div class="unit-label">CFG &amp; Syntactic Parsing</div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.18</span>
+      <span class="q-title">Discuss the importance of Parsing in Natural Language Processing with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Parsing — the process of recovering the hidden grammatical structure of a sentence — is the backbone of deep language understanding in NLP. While simple NLP tasks (spam filtering, keyword search) can work with surface text, any task requiring understanding of <em>who did what to whom</em> requires parsing.</p>
+
+      <p class="sub-h">1. Disambiguation of Meaning</p>
+      <p>Many sentences are structurally ambiguous. Parsing resolves this ambiguity by building an explicit structural representation:</p>
+      <div class="code-block">"I saw the man with a telescope."
+Parse A: [VP saw [NP the man with a telescope]]
+  → The man has the telescope.
+Parse B: [VP saw [NP the man] [PP with a telescope]]
+  → I used a telescope to see him.</div>
+      <p>A machine translator, chatbot, or question-answering system that does not parse this sentence will give random results. Parsing selects the more probable interpretation.</p>
+
+      <p class="sub-h">2. Machine Translation</p>
+      <p>Syntactic structure is largely preserved across languages. Parsing the source sentence allows the MT system to correctly reorder constituents for the target language. Japanese is SOV; English is SVO — translating "John eats pizza" to Japanese requires knowing that "pizza" is the object (from the parse tree) so it can be moved before the verb.</p>
+
+      <p class="sub-h">3. Paraphrase Detection and Generation</p>
+      <p>The sentence "open borders imply increasing racial fragmentation in European countries" is paraphrasable as "open borders imply increasing racial fragmentation in the countries of Europe." The parse tree identifies the constituent "European countries" as replaceable, and substitution rules generate the paraphrase. This requires a parser to identify which constituent is eligible for replacement.</p>
+
+      <p class="sub-h">4. Information Extraction</p>
+      <p>Extracting structured facts from text requires knowing the subject, verb, and object of each clause — information only the parse tree provides:</p>
+      <div class="code-block">Text: "Google acquired YouTube for $1.65 billion."
+Parse: [NP Google] [VP acquired [NP YouTube] [PP for $1.65 billion]]
+Extracted: (Acquirer=Google, Acquired=YouTube, Price=$1.65B)</div>
+
+      <p class="sub-h">5. Question Answering</p>
+      <p>Parsing a question identifies its type, head noun, and expected answer type. "What did Google acquire?" parses to: WH-NP="What" → object of "acquire" → answer is THING acquired by Google. Without parsing, the system cannot formulate the correct answer.</p>
+
+      <p class="sub-h">6. Prosody and Intonation (Speech NLP)</p>
+      <p>Parsing reveals the intonational structure of speech. The sentence "He wanted to go for a drive in the country" has a natural pause between "drive" and "in" — this pause is predicted by the parse tree (PP boundary) and used in text-to-speech synthesis.</p>
+
+      <p class="sub-h">7. Grammar Checking</p>
+      <p>Grammar checkers parse sentences and compare the resulting structure against grammatical constraints. Subject-verb disagreement ("she run fast") is detected by checking that the subject (3SG) matches the verb (non-3SG) — a structural check only possible after parsing.</p>
+
+      <div class="table-wrap"><table>
+        <thead><tr><th>Application</th><th>What Parsing Provides</th></tr></thead>
+        <tbody>
+          <tr><td>Machine Translation</td><td>Source constituent structure for target reordering</td></tr>
+          <tr><td>Information Extraction</td><td>Subject-verb-object triples</td></tr>
+          <tr><td>Sentiment Analysis</td><td>Scope of negation, aspect targets</td></tr>
+          <tr><td>Coreference Resolution</td><td>Syntactic binding constraints</td></tr>
+          <tr><td>Question Answering</td><td>Question type and expected answer category</td></tr>
+          <tr><td>Summarization</td><td>Main clause vs. subordinate clause identification</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.19</span>
+      <span class="q-title">Explain Context-Free Grammar (CFG) and its components with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>A <strong>Context-Free Grammar (CFG)</strong> is a formal generative grammar that describes the syntactic structure of a language through a set of production rules. It is "context-free" because each rule's left-hand side is a single non-terminal — its expansion is independent of surrounding symbols.</p>
+
+      <p class="sub-h">Formal Definition</p>
+      <p>A CFG is a 4-tuple G = (V, Σ, R, S) where:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Component</th><th>Symbol</th><th>Description</th><th>Example</th></tr></thead>
+        <tbody>
+          <tr><td>Non-terminals</td><td>V</td><td>Grammatical phrase categories</td><td>S, NP, VP, PP, Det, N, V, P</td></tr>
+          <tr><td>Terminals</td><td>Σ</td><td>Actual vocabulary words</td><td>"the", "dog", "chased"</td></tr>
+          <tr><td>Production Rules</td><td>R</td><td>A → α where A ∈ V, α ∈ (V∪Σ)*</td><td>NP → Det N</td></tr>
+          <tr><td>Start Symbol</td><td>S</td><td>Top-level sentence category</td><td>S (sentence)</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Example CFG for English</p>
+      <div class="code-block">S  → NP VP            (sentence = noun phrase + verb phrase)
+NP → Det N            (noun phrase = determiner + noun)
+NP → NP PP            (noun phrase can contain a prepositional phrase)
+VP → V NP             (verb phrase = verb + noun phrase)
+VP → VP PP            (verb phrase can contain a prepositional phrase)
+PP → P NP             (prepositional phrase = preposition + noun phrase)
+Det → "the" | "a"     (determiners)
+N  → "dog" | "cat" | "stick" | "man"
+V  → "chased" | "saw" | "hit"
+P  → "with" | "in" | "by"</div>
+
+      <p class="sub-h">Derivation Example</p>
+      <p>Parsing "The dog chased the cat" using this CFG:</p>
+      <div class="code-block">S
+→ NP VP               (S → NP VP)
+→ Det N VP            (NP → Det N)
+→ "the" N VP          (Det → "the")
+→ "the" "dog" VP      (N → "dog")
+→ "the" "dog" V NP    (VP → V NP)
+→ "the" "dog" "chased" NP
+→ "the" "dog" "chased" Det N
+→ "the" "dog" "chased" "the" N
+→ "the" "dog" "chased" "the" "cat" ✓</div>
+
+      <p class="sub-h">Parsing "The dog chased the cat with a stick"</p>
+      <p>This sentence has TWO valid parses (syntactic ambiguity):</p>
+      <div class="code-block">Parse 1: [S [NP the dog] [VP [VP chased [NP the cat]] [PP with a stick]]]
+  → The dog used a stick to chase the cat.
+
+Parse 2: [S [NP the dog] [VP chased [NP [NP the cat] [PP with a stick]]]]
+  → The dog chased the cat that had a stick.</div>
+
+      <p class="sub-h">Limitations of CFG</p>
+      <ul>
+        <li><strong>Ambiguity explosion</strong> — number of parses grows as Catalan numbers: O(4ⁿ/n^1.5) for n words</li>
+        <li><strong>No probabilities</strong> — cannot choose between competing parses without extensions (PCFG)</li>
+        <li><strong>Knowledge acquisition</strong> — exhaustively listing all grammar rules is impractical for natural language</li>
+        <li><strong>No context sensitivity</strong> — cannot model long-distance dependencies easily</li>
+      </ul>
+      <p>These limitations motivate the extension to PCFGs and treebank-trained parsers that learn grammar rules automatically from annotated data.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.20</span>
+      <span class="q-title">Construct a CFG for "The dog chased the cat with a stick." and represent its syntactic structure using a parse tree.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Step 1: Define the CFG</p>
+      <div class="code-block">S  → NP VP
+NP → Det N | NP PP
+VP → V NP | VP PP
+PP → P NP
+Det → "the" | "a"
+N  → "dog" | "cat" | "stick"
+V  → "chased"
+P  → "with"</div>
+
+      <p class="sub-h">Step 2: Two Parse Trees (Ambiguous Sentence)</p>
+      <p><strong>Parse 1:</strong> The dog used a stick to chase the cat (PP modifies VP).</p>
+      <div class="diagram-wrap">
+        <div class="diagram-label">Parse Tree 1 — PP attaches to VP</div>
+        <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+          <!-- S -->
+          <text x="340" y="22" fill="#fff" text-anchor="middle" font-weight="bold" font-size="13">S</text>
+          <line x1="340" y1="26" x2="140" y2="60" stroke="#555" stroke-width="1.5"/>
+          <line x1="340" y1="26" x2="440" y2="60" stroke="#555" stroke-width="1.5"/>
+          <!-- NP1 -->
+          <text x="140" y="75" fill="#e8c19a" text-anchor="middle">NP</text>
+          <line x1="140" y1="79" x2="90" y2="108" stroke="#555" stroke-width="1.5"/>
+          <line x1="140" y1="79" x2="175" y2="108" stroke="#555" stroke-width="1.5"/>
+          <text x="90" y="122" fill="#ccc" text-anchor="middle">Det</text>
+          <text x="175" y="122" fill="#ccc" text-anchor="middle">N</text>
+          <line x1="90" y1="126" x2="90" y2="152" stroke="#555" stroke-width="1.5"/>
+          <line x1="175" y1="126" x2="175" y2="152" stroke="#555" stroke-width="1.5"/>
+          <text x="90" y="166" fill="#aaa" text-anchor="middle">The</text>
+          <text x="175" y="166" fill="#aaa" text-anchor="middle">dog</text>
+          <!-- VP (outer) -->
+          <text x="440" y="75" fill="#e8c19a" text-anchor="middle">VP</text>
+          <line x1="440" y1="79" x2="310" y2="114" stroke="#555" stroke-width="1.5"/>
+          <line x1="440" y1="79" x2="560" y2="114" stroke="#555" stroke-width="1.5"/>
+          <!-- VP (inner) -->
+          <text x="310" y="128" fill="#e8c19a" text-anchor="middle">VP</text>
+          <line x1="310" y1="132" x2="258" y2="162" stroke="#555" stroke-width="1.5"/>
+          <line x1="310" y1="132" x2="362" y2="162" stroke="#555" stroke-width="1.5"/>
+          <text x="258" y="176" fill="#ccc" text-anchor="middle">V</text>
+          <text x="362" y="176" fill="#e8c19a" text-anchor="middle">NP</text>
+          <line x1="258" y1="180" x2="258" y2="206" stroke="#555" stroke-width="1.5"/>
+          <line x1="362" y1="180" x2="330" y2="210" stroke="#555" stroke-width="1.5"/>
+          <line x1="362" y1="180" x2="393" y2="210" stroke="#555" stroke-width="1.5"/>
+          <text x="258" y="220" fill="#aaa" text-anchor="middle">chased</text>
+          <text x="330" y="224" fill="#ccc" text-anchor="middle">Det</text>
+          <text x="393" y="224" fill="#ccc" text-anchor="middle">N</text>
+          <line x1="330" y1="228" x2="330" y2="252" stroke="#555" stroke-width="1.5"/>
+          <line x1="393" y1="228" x2="393" y2="252" stroke="#555" stroke-width="1.5"/>
+          <text x="330" y="266" fill="#aaa" text-anchor="middle">the</text>
+          <text x="393" y="266" fill="#aaa" text-anchor="middle">cat</text>
+          <!-- PP -->
+          <text x="560" y="128" fill="#e8c19a" text-anchor="middle">PP</text>
+          <line x1="560" y1="132" x2="520" y2="162" stroke="#555" stroke-width="1.5"/>
+          <line x1="560" y1="132" x2="600" y2="162" stroke="#555" stroke-width="1.5"/>
+          <text x="520" y="176" fill="#ccc" text-anchor="middle">P</text>
+          <text x="600" y="176" fill="#e8c19a" text-anchor="middle">NP</text>
+          <line x1="520" y1="180" x2="520" y2="206" stroke="#555" stroke-width="1.5"/>
+          <line x1="600" y1="180" x2="570" y2="210" stroke="#555" stroke-width="1.5"/>
+          <line x1="600" y1="180" x2="630" y2="210" stroke="#555" stroke-width="1.5"/>
+          <text x="520" y="220" fill="#aaa" text-anchor="middle">with</text>
+          <text x="570" y="224" fill="#ccc" text-anchor="middle">Det</text>
+          <text x="630" y="224" fill="#ccc" text-anchor="middle">N</text>
+          <line x1="570" y1="228" x2="570" y2="252" stroke="#555" stroke-width="1.5"/>
+          <line x1="630" y1="228" x2="630" y2="252" stroke="#555" stroke-width="1.5"/>
+          <text x="570" y="266" fill="#aaa" text-anchor="middle">a</text>
+          <text x="630" y="266" fill="#aaa" text-anchor="middle">stick</text>
+          <text x="340" y="305" fill="#555" text-anchor="middle" font-size="9">Interpretation: The dog used a stick to chase</text>
+        </svg>
+      </div>
+
+      <p><strong>Parse 2:</strong> The cat has a stick (PP modifies NP).</p>
+      <div class="code-block">Parse 2 bracket notation:
+[S [NP [Det the][N dog]]
+   [VP [V chased]
+       [NP [NP [Det the][N cat]]
+           [PP [P with][NP [Det a][N stick]]]]]]
+Interpretation: The dog chased the cat that had a stick.</div>
+
+      <p class="sub-h">Disambiguation</p>
+      <p>Both parse trees are grammatically valid. A PCFG resolves this by assigning probabilities: if "VP → VP PP" has probability 0.6 and "NP → NP PP" has probability 0.4, Parse 1 is preferred (higher product of rule probabilities). Corpus statistics generally favor VP-attachment for instrumental phrases ("with a stick"), so a trained PCFG would select Parse 1 as the most probable.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.24</span>
+      <span class="q-title">Compare Constituency Parsing and Dependency Parsing with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Constituency parsing and dependency parsing are the two major paradigms for syntactic analysis in NLP. They answer the same underlying question — "what is the structure of this sentence?" — but use fundamentally different representational frameworks.</p>
+
+      <p class="sub-h">Constituency Parsing — Overview</p>
+      <p>Constituency parsing divides a sentence into nested <em>constituents</em> (phrases) using a phrase-structure grammar. The output is a parse tree where internal nodes are phrase labels (NP, VP, S) and leaf nodes are words.</p>
+      <div class="code-block">Sentence: "John loves Mary."
+
+Constituency parse:
+[S [NP John]
+   [VP [V loves]
+       [NP Mary]]]
+
+Tree structure:
+       S
+      / \
+    NP   VP
+    |   /  \
+  John  V   NP
+      loves  |
+            Mary</div>
+
+      <p class="sub-h">Dependency Parsing — Overview</p>
+      <p>Dependency parsing identifies directed head-dependent relationships between words. The output is a dependency graph with words as nodes and labeled arcs showing grammatical relations.</p>
+      <div class="code-block">Sentence: "John loves Mary."
+
+Dependency parse:
+  loves ← ROOT
+  John  ← nsubj(loves)    [subject of "loves"]
+  Mary  ← obj(loves)      [object of "loves"]
+
+Graph: loves → John  (arc label: nsubj)
+       loves → Mary  (arc label: obj)</div>
+
+      <p class="sub-h">Detailed Comparison</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Constituency Parsing</th><th>Dependency Parsing</th></tr></thead>
+        <tbody>
+          <tr><td>Representational units</td><td>Phrases (NP, VP, PP) + words</td><td>Words only</td></tr>
+          <tr><td>Output</td><td>Labeled phrase-structure tree</td><td>Labeled directed graph (arcs)</td></tr>
+          <tr><td>Grammar formalism</td><td>CFG, PCFG</td><td>Dependency grammar</td></tr>
+          <tr><td>Handles free word order</td><td>Poorly — needs complex rules</td><td>Naturally — arcs are order-independent</td></tr>
+          <tr><td>Empty elements</td><td>Uses null elements for displaced args</td><td>No empty elements needed</td></tr>
+          <tr><td>Projectivity</td><td>Always projective</td><td>Can be non-projective (crossing arcs)</td></tr>
+          <tr><td>Best languages</td><td>English, French, Chinese</td><td>Czech, Turkish, Japanese, Hindi</td></tr>
+          <tr><td>Typical algorithms</td><td>CYK, Earley, PCFG</td><td>MST, Arc-Eager, Arc-Standard</td></tr>
+          <tr><td>Treebank examples</td><td>Penn Treebank (English)</td><td>Universal Dependencies (70+ languages)</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Projectivity — A Key Difference</p>
+      <p>A dependency tree is <em>projective</em> if dependency arcs don't cross when drawn above the sentence. Constituency parsing always produces projective analyses; dependency parsing can produce non-projective analyses (important for free word-order languages):</p>
+      <div class="code-block">Czech example of non-projective dependency:
+  "Knihu jsem mu dal"
+  ("The book I gave him" — book is object of "gave" but separated)
+  
+  book → gave   (object arc crosses over "I" and "him")</div>
+
+      <p class="sub-h">When to Use Each</p>
+      <ul>
+        <li>Use <strong>constituency</strong> when: phrase-level structure matters (paraphrasing, MT reordering), language is fixed word-order, or you need predicate-argument structure with empty elements</li>
+        <li>Use <strong>dependency</strong> when: head-modifier relations are primary (semantic role labeling, relation extraction), language has free word order, or you need a lighter, simpler representation</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ Parsing Algorithms ══ -->
+  <div class="unit-label">Parsing Algorithms</div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.28</span>
+      <span class="q-title">Explain Top-Down and Bottom-Up Parsing with suitable examples.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Top-down and bottom-up are the two fundamental strategies for traversing the search space of possible parse trees. They differ in the direction of derivation and the source of information used to guide parsing.</p>
+
+      <p class="sub-h">Top-Down Parsing</p>
+      <p><strong>Definition:</strong> Begins with the start symbol S and repeatedly expands non-terminals using grammar rules (derivation), moving downward toward the terminal words of the input. It predicts what the sentence should look like.</p>
+
+      <p><strong>Algorithm (Recursive Descent):</strong></p>
+      <ol>
+        <li>Start with S as the current goal</li>
+        <li>Choose a grammar rule for S (e.g., S → NP VP)</li>
+        <li>Recursively parse NP against the start of input, then VP against the remainder</li>
+        <li>Backtrack if no rule matches; try the next alternative</li>
+        <li>Succeed when all input is matched; fail if no alternatives remain</li>
+      </ol>
+
+      <div class="code-block">Grammar: S → NP VP | VP
+         NP → Det N | PN
+         VP → V NP | V
+         Det → "the", N → "cat", V → "sat", PN → "John"
+
+Input: "John sat"
+Top-Down trace:
+  Try: S → NP VP
+    Try: NP → Det N
+      Det: need "the", got "John" → FAIL
+    Try: NP → PN
+      PN: "John" matches ✓
+    NP done. Now VP:
+    Try: VP → V NP
+      V: "sat" matches ✓
+      NP: no more input → FAIL
+    Try: VP → V
+      V: "sat" matches ✓
+    VP done. Input consumed. SUCCESS ✓</div>
+
+      <p><strong>Problems with top-down parsing:</strong></p>
+      <ul>
+        <li><strong>Left recursion</strong> — S → S NP causes infinite expansion before matching any input</li>
+        <li><strong>Wasted work</strong> — may expand many rules that ultimately don't match the input</li>
+        <li><strong>Repeated subproblems</strong> — without memoization, same sub-tree computed many times</li>
+      </ul>
+
+      <p class="sub-h">Bottom-Up Parsing</p>
+      <p><strong>Definition:</strong> Begins with the input words (terminals) and applies grammar rules in reverse — reducing sequences of symbols to non-terminals — working upward toward the start symbol S.</p>
+
+      <p><strong>Algorithm (Shift-Reduce):</strong></p>
+      <ol>
+        <li>Initialize: empty stack, input buffer contains all words</li>
+        <li><strong>Shift</strong>: move next input token onto stack</li>
+        <li><strong>Reduce</strong>: if top of stack matches a rule's RHS, replace with LHS</li>
+        <li>Accept if stack = [S] and buffer empty; error otherwise</li>
+      </ol>
+
+      <div class="code-block">Grammar: S → NP VP, NP → Det N, VP → V, Det → "the", N → "cat", V → "sat"
+Input: "the cat sat"
+
+Stack        Buffer         Action
+[]           the cat sat    Shift
+[the]        cat sat        Reduce: Det → "the"
+[Det]        cat sat        Shift
+[Det, cat]   sat            Reduce: N → "cat"
+[Det, N]     sat            Reduce: NP → Det N
+[NP]         sat            Shift
+[NP, sat]    []             Reduce: V → "sat"
+[NP, V]      []             Reduce: VP → V
+[NP, VP]     []             Reduce: S → NP VP  ✓</div>
+
+      <p class="sub-h">Comparison Summary</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Property</th><th>Top-Down</th><th>Bottom-Up</th></tr></thead>
+        <tbody>
+          <tr><td>Direction</td><td>S → words (expansion)</td><td>Words → S (reduction)</td></tr>
+          <tr><td>Strategy</td><td>Prediction-driven</td><td>Evidence-driven</td></tr>
+          <tr><td>Left recursion</td><td>Fails (infinite loop)</td><td>Handles naturally</td></tr>
+          <tr><td>Wasted work</td><td>May explore wrong rules</td><td>Only matches actual input</td></tr>
+          <tr><td>Example algorithms</td><td>Recursive Descent, Earley</td><td>Shift-Reduce, CYK, LR</td></tr>
+        </tbody>
+      </table></div>
+
+      <p>Modern parsers often combine both strategies: <strong>Earley's algorithm</strong> is a top-down parser with bottom-up filtering (it predicts top-down but only adds items bottom-up when evidence in the input supports them), giving O(n³) worst-case complexity for any CFG.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.30</span>
+      <span class="q-title">Explain the CYK Parsing Algorithm with a suitable example.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>The <strong>Cocke-Younger-Kasami (CYK) algorithm</strong> is a dynamic programming, bottom-up chart parsing algorithm that efficiently finds all valid parse trees for a sentence given a CFG in Chomsky Normal Form (CNF). It is the foundation of probabilistic chart parsing (PCFG-based parsing).</p>
+
+      <p class="sub-h">Prerequisite: Chomsky Normal Form (CNF)</p>
+      <p>CYK requires that every grammar rule be in one of two forms:</p>
+      <div class="code-block">A → BC    (two non-terminals on the right)
+A → w     (one terminal on the right)
+
+Example CNF Grammar:
+  S  → NP VP
+  NP → Det N
+  VP → V NP
+  Det → "the" | "a"
+  N  → "dog" | "cat"
+  V  → "chased"</div>
+      <p>Any CFG can be converted to CNF by introducing new non-terminals to binarize rules with more than 2 symbols on the right.</p>
+
+      <p class="sub-h">The CYK Table</p>
+      <p>CYK builds a triangular table T where T[i][j] stores the set of non-terminals that can span words i through j (1-indexed). The sentence is accepted if S ∈ T[1][n].</p>
+
+      <p class="sub-h">Worked Example</p>
+      <p>Sentence: <strong>"the dog chased the cat"</strong> (n=5 words)</p>
+      <div class="code-block">Positions: [1:the] [2:dog] [3:chased] [4:the] [5:cat]
+
+Step 1 — Base case (length-1 spans):
+T[1][1] = {Det}          (Det → "the")
+T[2][2] = {N}            (N → "dog")
+T[3][3] = {V}            (V → "chased")
+T[4][4] = {Det}          (Det → "the")
+T[5][5] = {N}            (N → "cat")
+
+Step 2 — Length-2 spans:
+T[1][2]: Try split at k=1: Det N → NP  ✓ → {NP}
+T[2][3]: Try split at k=2: N V → ∅ (no rule); → {}
+T[3][4]: Try split at k=3: V Det → ∅; → {}
+T[4][5]: Try split at k=4: Det N → NP ✓ → {NP}
+
+Step 3 — Length-3 spans:
+T[1][3]: k=1: Det+N+V: NP+V → VP? No. k=2: Det+(N+V): Det+∅ → ∅
+T[2][4]: k=2: N+V+Det: ∅. k=3: (N+V)+Det: ∅
+T[3][5]: k=3: V+(Det+N): V+NP → VP ✓ → {VP}
+
+Step 4 — Length-4 spans:
+T[2][5]: k=2: N+VP → ? (no rule). k=3: (N+V)+NP → ∅. k=4: ? 
+         k=2: N+{VP[3-5]}: nothing maps N+VP
+T[1][4]: k=1: Det+{N,V,Det}: none. k=3: NP+{V+Det}: ∅
+
+Step 5 — Full span T[1][5]:
+k=1: Det+{N+V+Det+N[2-5]}: not found
+k=2: NP+VP[3-5] → NP+VP → S ✓
+→ T[1][5] = {S}  → ACCEPT ✓</div>
+
+      <p class="sub-h">Complexity Analysis</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Property</th><th>Value</th></tr></thead>
+        <tbody>
+          <tr><td>Time complexity</td><td>O(n³ × |G|) where |G| = number of grammar rules</td></tr>
+          <tr><td>Space complexity</td><td>O(n² × |V|) where |V| = number of non-terminals</td></tr>
+          <tr><td>Handles ambiguity</td><td>Yes — stores all valid analyses for each span</td></tr>
+          <tr><td>Requires CNF</td><td>Yes — any CFG can be converted</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Probabilistic CYK</p>
+      <p>For PCFGs, each table entry stores not just the set of non-terminals but also their <em>Viterbi probability</em> — the probability of the best parse tree for that span. The final parse is obtained by backtracking through the table to find the highest-probability derivation. This is the basis of all modern PCFG-based constituency parsers.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.31</span>
+      <span class="q-title">Explain Earley's Parsing Algorithm and discuss its advantages.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Earley's Algorithm</strong> (Jay Earley, 1970) is a top-down chart parsing algorithm that can handle <em>any</em> context-free grammar — including ambiguous, nullable, and left-recursive grammars — without requiring CNF conversion. It processes input left-to-right in O(n³) worst case, O(n²) for unambiguous grammars.</p>
+
+      <p class="sub-h">Core Data Structure: Earley Items</p>
+      <p>An Earley <strong>item</strong> (also called a <em>dotted rule</em>) is written as [A → α • β, i, j] and means:</p>
+      <ul>
+        <li>We are trying to build an A constituent</li>
+        <li>We have already parsed α, starting at position i, currently at position j</li>
+        <li>We still need to parse β to complete this A</li>
+      </ul>
+      <div class="code-block">Example item: [NP → Det • N, 0, 1]
+Meaning: "We're building an NP; we've seen a Det from position 0 to 1;
+          we still need an N starting at position 1."</div>
+
+      <p class="sub-h">Three Operations</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Operation</th><th>Trigger</th><th>Action</th></tr></thead>
+        <tbody>
+          <tr><td>Predict</td><td>Dot before non-terminal B in item [A → α • Bβ, i, j]</td><td>Add [B → •γ, j, j] for all rules B → γ in grammar</td></tr>
+          <tr><td>Scan</td><td>Dot before terminal w in item [A → α • wβ, i, j] and input[j] = w</td><td>Add [A → αw • β, i, j+1] to chart[j+1]</td></tr>
+          <tr><td>Complete</td><td>Item [B → γ•, j, k] is complete (dot at end)</td><td>For all [A → α • Bβ, i, j], add [A → αB • β, i, k]</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Worked Example</p>
+      <div class="code-block">Grammar: S → NP VP, NP → "John", VP → V NP, V → "loves", NP → "Mary"
+Input: "John loves Mary" (positions 0, 1, 2, 3)
+
+Chart[0]:
+  [S → •NP VP, 0, 0]   (Initial item)
+  [NP → •"John", 0, 0] (Predict: S needs NP)
+
+Chart[1]: (after scanning "John")
+  [NP → "John"•, 0, 1] (Scan)
+  [S → NP•VP, 0, 1]    (Complete: NP done, advance S)
+  [VP → •V NP, 1, 1]   (Predict: S needs VP)
+  [V → •"loves", 1, 1] (Predict: VP needs V)
+
+Chart[2]: (after scanning "loves")
+  [V → "loves"•, 1, 2] (Scan)
+  [VP → V•NP, 1, 2]    (Complete: V done)
+  [NP → •"Mary", 2, 2] (Predict: VP needs NP)
+
+Chart[3]: (after scanning "Mary")
+  [NP → "Mary"•, 2, 3] (Scan)
+  [VP → V NP•, 1, 3]   (Complete: NP done)
+  [S → NP VP•, 0, 3]   (Complete: VP done → ACCEPT ✓)</div>
+
+      <p class="sub-h">Advantages of Earley's Algorithm</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Advantage</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>Handles any CFG</td><td>No CNF conversion needed; handles left recursion, nullable rules, ambiguous grammars</td></tr>
+          <tr><td>Polynomial time</td><td>O(n³) worst case; O(n²) for unambiguous; O(n) for deterministic grammars</td></tr>
+          <tr><td>Complete</td><td>Guaranteed to find all valid parses if any exist</td></tr>
+          <tr><td>Incremental</td><td>Processes input left-to-right; suitable for online/streaming NLP</td></tr>
+          <tr><td>Memoization</td><td>Chart prevents redundant recomputation of the same items</td></tr>
+          <tr><td>No backtracking</td><td>Unlike recursive descent, Earley never backtracks — all possibilities explored simultaneously</td></tr>
+        </tbody>
+      </table></div>
+
+      <p><strong>Disadvantage:</strong> Earley's algorithm is slower in practice than CYK on grammars already in CNF, because it processes items one by one rather than using vectorizable table operations. Modern NLP systems typically use CYK-style dynamic programming for PCFGs and neural arc-eager/arc-standard algorithms for dependency parsing.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.33</span>
+      <span class="q-title">Explain Shift-Reduce Parsing with a suitable example.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Shift-Reduce Parsing</strong> is a bottom-up parsing strategy that simulates a rightmost derivation in reverse. It uses two data structures — a <em>stack</em> and an input <em>buffer</em> — and at each step chooses between two actions: <strong>shift</strong> (push the next input token onto the stack) or <strong>reduce</strong> (collapse the top of the stack using a grammar rule).</p>
+
+      <p class="sub-h">Algorithm Steps</p>
+      <ol>
+        <li>Initialize: empty stack, input buffer = all input tokens + END marker</li>
+        <li><strong>Accept</strong>: if stack = [S] and buffer = [END] → parsing succeeded</li>
+        <li><strong>Error</strong>: if no action can be taken → parsing failed</li>
+        <li>At each step, choose:
+          <ul>
+            <li><strong>Shift</strong>: Move the next symbol from the buffer onto the top of the stack</li>
+            <li><strong>Reduce</strong>: If the top k elements of the stack match the right-hand side of rule A → α, pop k elements and push A</li>
+          </ul>
+        </li>
+      </ol>
+
+      <p class="sub-h">Four Operations in Detail</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Operation</th><th>When Applied</th><th>Effect</th></tr></thead>
+        <tbody>
+          <tr><td>Shift</td><td>No reduction is possible</td><td>Move next input token → stack top</td></tr>
+          <tr><td>Reduce</td><td>Top of stack matches rule RHS</td><td>Replace RHS symbols with LHS non-terminal</td></tr>
+          <tr><td>Accept</td><td>Stack = [S], buffer empty</td><td>Parse successful</td></tr>
+          <tr><td>Error</td><td>No shift or reduce possible</td><td>Input is not in the language</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Worked Example</p>
+      <div class="code-block">Grammar:
+  S  → NP VP
+  NP → Det N
+  VP → V NP
+  Det → "the"
+  N  → "dog" | "cat"
+  V  → "chased"
+
+Input: "the dog chased the cat"
+
+Stack            Buffer                    Action
+─────────────────────────────────────────────────────
+[]               [the,dog,chased,the,cat]  Shift
+[the]            [dog,chased,the,cat]      Reduce: Det → "the"
+[Det]            [dog,chased,the,cat]      Shift
+[Det,dog]        [chased,the,cat]          Reduce: N → "dog"
+[Det,N]          [chased,the,cat]          Reduce: NP → Det N
+[NP]             [chased,the,cat]          Shift
+[NP,chased]      [the,cat]                 Reduce: V → "chased"
+[NP,V]           [the,cat]                 Shift
+[NP,V,the]       [cat]                     Reduce: Det → "the"
+[NP,V,Det]       [cat]                     Shift
+[NP,V,Det,cat]   []                        Reduce: N → "cat"
+[NP,V,Det,N]     []                        Reduce: NP → Det N
+[NP,V,NP]        []                        Reduce: VP → V NP
+[NP,VP]          []                        Reduce: S → NP VP
+[S]              []                        ACCEPT ✓</div>
+
+      <p class="sub-h">The Oracle / Conflict Problem</p>
+      <p>A fundamental challenge in shift-reduce parsing is that at any point, multiple actions may be valid: shift-reduce conflicts (should I shift the next token or reduce what's on the stack?) and reduce-reduce conflicts (which of two applicable rules should I reduce with?). The parser needs an <em>oracle</em> to resolve these:</p>
+      <ul>
+        <li><strong>LR(k) parsers</strong> — use a finite automaton to make deterministic decisions based on k tokens of lookahead</li>
+        <li><strong>Statistical oracles</strong> — train a classifier on treebank data to predict the correct action at each step</li>
+        <li><strong>Neural arc-eager parsers</strong> — use BiLSTM/Transformer to score actions; used in state-of-the-art dependency parsers</li>
+      </ul>
+
+      <p class="sub-h">Complexity</p>
+      <div class="code-block">Best case (no conflicts):  O(n)  — linear time parsing
+Worst case (backtracking): O(n³) — when every decision is wrong and must backtrack
+Typical NLP use (statistical oracle): O(n) — nearly linear with trained oracle</div>
+      <p>Shift-reduce parsing is the basis of all modern neural dependency parsers (arc-eager, arc-standard transition systems), where each transition (shift/left-arc/right-arc) is predicted by a neural classifier.</p>
+    </div>
+  </div>
+
+  <!-- ══ Probabilistic Parsing ══ -->
+  <div class="unit-label">Probabilistic Parsing — PCFG</div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.36</span>
+      <span class="q-title">What is the importance of Probabilistic Context-Free Grammars (PCFGs)? Discuss their advantages and disadvantages.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>A <strong>Probabilistic Context-Free Grammar (PCFG)</strong> extends a plain CFG by attaching a probability to every production rule. This probability encodes how often a non-terminal expands in a particular way — derived from corpus statistics. PCFGs transform parsing from a purely structural problem into a probabilistic estimation problem, enabling principled ambiguity resolution.</p>
+
+      <p class="sub-h">Formal Definition</p>
+      <p>A PCFG is a CFG G = (V, Σ, R, S) augmented with a probability function P: R → (0,1] such that for each non-terminal A, the probabilities of all rules with A on the left-hand side sum to 1:</p>
+      <div class="code-block">∑_{A → α ∈ R} P(A → α) = 1   for all A ∈ V
+
+Example PCFG:
+  S  → NP VP         [1.00]
+  NP → Det N         [0.60]
+  NP → NP PP         [0.40]
+  VP → V NP          [0.70]
+  VP → VP PP         [0.30]
+
+Probability of a parse tree = PRODUCT of all rule probabilities used
+P(tree) = 1.00 × 0.60 × 0.70 × 0.60 = 0.252  (for a specific derivation)</div>
+
+      <p class="sub-h">Importance of PCFGs</p>
+      <ul>
+        <li><strong>Disambiguation</strong> — when a sentence has multiple parses, select the highest-probability tree (Viterbi parse)</li>
+        <li><strong>Data-driven</strong> — probabilities are estimated by maximum likelihood from a treebank: P(A → α) = count(A → α) / count(A)</li>
+        <li><strong>Probabilistic foundation</strong> — enables Bayesian extensions, expectation-maximization for unsupervised learning, and integration with language models</li>
+        <li><strong>Machine Translation</strong> — synchronous PCFGs model translation as probabilistic rule-pair derivations</li>
+        <li><strong>Efficient search</strong> — Viterbi CYK finds the best parse in O(n³) without enumerating all parses</li>
+      </ul>
+
+      <p class="sub-h">Advantages of PCFGs</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Advantage</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td>Principled ambiguity resolution</td><td>Selects the most probable parse rather than an arbitrary one</td></tr>
+          <tr><td>Learnable from data</td><td>Parameters estimated from treebanks using MLE — no hand-crafting</td></tr>
+          <tr><td>Compatible with existing algorithms</td><td>CYK and Earley both extend naturally to PCFG with log-probability scores</td></tr>
+          <tr><td>Foundation for extensions</td><td>Lexicalized PCFGs, head-driven models, and neural CFGs are all extensions of the PCFG framework</td></tr>
+          <tr><td>Inside-outside algorithm</td><td>Enables unsupervised PCFG training via expectation-maximization</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Disadvantages / Limitations</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Limitation</th><th>Description</th><th>Solution</th></tr></thead>
+        <tbody>
+          <tr><td>Context independence</td><td>Rule probabilities don't depend on surrounding context — NP expands the same way whether it's a subject or object</td><td>Lexicalized PCFGs (head-word conditioning)</td></tr>
+          <tr><td>Ignores lexical info</td><td>All nouns treated equally — no distinction between animate/inanimate for PP attachment</td><td>Collins models, neural parsers</td></tr>
+          <tr><td>Independence assumption</td><td>Rule applications are conditionally independent given the parse tree</td><td>Discriminative models with overlapping features</td></tr>
+          <tr><td>Requires treebank</td><td>Needs large annotated corpus for reliable probability estimates</td><td>Semi-supervised and transfer learning approaches</td></tr>
+          <tr><td>Poor on coordination</td><td>Coordinate structures are difficult for PCFG to handle correctly</td><td>Grammar transformations, special handling</td></tr>
+        </tbody>
+      </table></div>
+
+      <p>Despite these limitations, PCFGs remain the standard probabilistic framework for constituency parsing. Modern parsers extend PCFGs with lexicalization (conditioning rule probabilities on head words) and neural models that can capture contextual and long-range dependencies that plain PCFGs miss.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.37</span>
+      <span class="q-title">Explain the structure and working of a Probabilistic Context-Free Grammar with a suitable example.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>A PCFG operates by assigning a probability score to every possible derivation of a sentence, then selecting the derivation with the highest probability as the preferred parse. This turns parsing into a <em>maximum a posteriori</em> (MAP) estimation problem.</p>
+
+      <p class="sub-h">Structure of a PCFG</p>
+      <p>A PCFG consists of the same four components as a CFG, plus a probability assignment:</p>
+      <div class="code-block">PCFG = (V, Σ, R, S, P)  where P: R → (0,1]
+
+Sample PCFG:
+  S  → NP VP           [P = 1.00]
+  NP → Det N           [P = 0.60]   ← 60% of NPs are Det+N
+  NP → NP PP           [P = 0.25]   ← 25% of NPs include PP
+  NP → PN              [P = 0.15]   ← 15% of NPs are proper nouns
+  VP → V NP            [P = 0.55]   ← 55% of VPs are transitive
+  VP → V               [P = 0.25]   ← 25% of VPs are intransitive
+  VP → VP PP           [P = 0.20]   ← 20% of VPs have PP adjunct
+  PP → P NP            [P = 1.00]
+
+Terminals:
+  Det → "the"[0.7] | "a"[0.3]
+  N   → "man"[0.3] | "telescope"[0.3] | "cat"[0.4]
+  V   → "saw"[0.6] | "chased"[0.4]
+  P   → "with"[0.5] | "in"[0.5]</div>
+
+      <p class="sub-h">How PCFG Selects Between Parses</p>
+      <p>For the ambiguous sentence "I saw the man with a telescope", there are two parses. The PCFG assigns each a probability:</p>
+      <div class="code-block">Parse A: VP → VP PP  (I used a telescope to see)
+  P(Parse A) = P(S→NP VP) × P(VP→VP PP) × P(VP→V NP) × ...
+             = 1.00 × 0.20 × 0.55 × ... = 0.18
+
+Parse B: NP → NP PP  (the man has a telescope)
+  P(Parse B) = P(S→NP VP) × P(VP→V NP) × P(NP→NP PP) × ...
+             = 1.00 × 0.55 × 0.25 × ... = 0.22
+
+PCFG selects Parse B (P = 0.22 > 0.18)</div>
+
+      <p class="sub-h">Parameter Estimation from a Treebank</p>
+      <p>PCFG probabilities are estimated from an annotated treebank using Maximum Likelihood Estimation (MLE):</p>
+      <div class="code-block">P(A → α) = count(A → α used in treebank) / count(A expanded in treebank)
+
+Example from Penn Treebank:
+  NP → Det N     appears 12,000 times
+  NP expands     20,000 times total
+  → P(NP → Det N) = 12,000 / 20,000 = 0.60</div>
+
+      <p class="sub-h">Viterbi Parsing</p>
+      <p>Finding the best parse is done using the <strong>Viterbi algorithm</strong> — a dynamic programming algorithm that fills in the CYK table with the <em>maximum probability</em> derivation for each span, rather than all possible derivations:</p>
+      <div class="code-block">viterbi[A][i][j] = max over all rules A → BC and split points k of:
+  P(A → BC) × viterbi[B][i][k] × viterbi[C][k][j]
+
+Final answer: viterbi[S][0][n] = probability of best parse for full sentence</div>
+
+      <p>The backpointer table is stored alongside the viterbi table so the actual best parse tree can be reconstructed by tracing back through the maximum decisions. This is exactly what modern PCFG-based constituency parsers do.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.38</span>
+      <span class="q-title">Discuss how PCFGs can be used to resolve syntactic ambiguity.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Syntactic ambiguity — sentences with multiple valid parse trees — is one of the most fundamental challenges in NLP. Plain CFGs have no mechanism to prefer one reading over another. PCFGs solve this by turning parse selection into a probabilistic inference problem: the correct parse is the one with the highest probability according to corpus-trained rule probabilities.</p>
+
+      <p class="sub-h">Sources of Syntactic Ambiguity</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Type</th><th>Example</th><th>Competing Analyses</th></tr></thead>
+        <tbody>
+          <tr><td>PP Attachment</td><td>"I saw the man with a telescope"</td><td>PP modifies VP vs NP</td></tr>
+          <tr><td>Coordination</td><td>"old men and women"</td><td>[old [men and women]] vs [[old men] and women]</td></tr>
+          <tr><td>Noun-Verb ambiguity</td><td>"Time flies like an arrow"</td><td>Subject-verb-object vs comparative</td></tr>
+          <tr><td>Modifier attachment</td><td>"the intelligent student solved the difficult problem"</td><td>Which adjective modifies which noun</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">PCFG Resolution Mechanism</p>
+      <p>The PCFG scores every possible parse tree with the product of probabilities of all rules used in that derivation. The Viterbi parse — the tree with the maximum probability — is returned as the system's best parse.</p>
+
+      <p class="sub-h">PP Attachment Example in Detail</p>
+      <div class="code-block">Sentence: "The boy ate the food with a spoon."
+
+Grammar rules and probabilities:
+  VP → VP PP   [0.30]   ← the action used a spoon
+  NP → NP PP   [0.40]   ← the food had a spoon
+
+Parse A: [VP [VP ate [NP the food]] [PP with a spoon]]
+  Rules used: S→NP VP [1.0], VP→VP PP [0.30], VP→V NP [0.70]...
+  P(Parse A) ∝ 0.30 × 0.70 = 0.210
+
+Parse B: [VP ate [NP [NP the food] [PP with a spoon]]]
+  Rules used: S→NP VP [1.0], VP→V NP [0.70], NP→NP PP [0.40]...
+  P(Parse B) ∝ 0.70 × 0.40 = 0.280
+
+PCFG selects Parse B (0.280 > 0.210)
+→ "the food had a spoon" reading</div>
+
+      <p class="sub-h">Limitations of Basic PCFG for Ambiguity Resolution</p>
+      <p>Plain PCFGs use <em>context-free</em> rule probabilities — they don't condition on the specific words involved. This means the PP attachment decision "with a spoon" is made using the same probabilities as "with a telescope", even though lexical semantics strongly suggests different attachments. A telescope is used for seeing (VP attachment) but a spoon is used for eating, which is itself the VP — both actually attach to VP.</p>
+
+      <p class="sub-h">Lexicalized PCFGs</p>
+      <p>To address this limitation, <strong>lexicalized PCFGs</strong> (Collins 1999, Charniak 2000) condition rule probabilities on the <em>head word</em> of each phrase:</p>
+      <div class="code-block">P(VP → VP PP | head-V = "eat") vs P(VP → VP PP | head-V = "see")
+P(NP → NP PP | head-N = "man") vs P(NP → NP PP | head-N = "food")
+
+These lexicalized probabilities much better capture world knowledge
+encoded in the training corpus.</div>
+
+      <p>Modern neural parsers (based on BiLSTMs and Transformers) can effectively learn context-sensitive attachment preferences without explicit lexicalization, by encoding rich word and sentence representations that capture semantic similarity, animacy, and typical instrument-action associations.</p>
+    </div>
+  </div>
+
+  <!-- ══ Generative & Discriminative Models ══ -->
+  <div class="unit-label">Generative &amp; Discriminative Parsing Models</div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.41</span>
+      <span class="q-title">What are Discriminative Models for Parsing? Explain their characteristics and applications.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Discriminative models</strong> for parsing directly model the conditional probability P(parse tree | sentence) — the probability of a specific structural analysis given the observed input — without making any assumptions about how the sentence was generated. They are trained to <em>discriminate</em> correct parses from incorrect ones.</p>
+
+      <p class="sub-h">Core Principle</p>
+      <div class="code-block">Generative:     models P(x, y)   → uses Bayes' rule to get P(y|x)
+Discriminative: models P(y|x)   → directly, without modeling P(x)
+
+Where: x = sentence (observation)
+       y = parse tree (label)</div>
+
+      <p class="sub-h">Key Characteristics</p>
+      <ol>
+        <li><strong>Direct conditional modeling</strong> — P(y|x) is the quantity of interest; no generative process needed</li>
+        <li><strong>Rich, overlapping features</strong> — can use any feature of x and y jointly, even correlated ones:
+          <ul>
+            <li>Word n-grams around a constituent boundary</li>
+            <li>POS tag sequences</li>
+            <li>Distance between head and dependent</li>
+            <li>Punctuation context</li>
+            <li>Word embeddings and neural representations</li>
+          </ul>
+        </li>
+        <li><strong>No independence assumptions</strong> — generative models require conditional independence between rules; discriminative models can capture arbitrary interactions</li>
+        <li><strong>Iterative training</strong> — trained by maximizing the conditional likelihood of correct parses, or minimizing a margin (SVM-style), using gradient descent over many passes</li>
+        <li><strong>Require a decoding algorithm</strong> — to find the best parse at test time, a search algorithm (Viterbi, beam search, CYK) must be applied to the learned scoring function</li>
+      </ol>
+
+      <p class="sub-h">Discriminative Parsing Models</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Model</th><th>Method</th><th>Key Property</th></tr></thead>
+        <tbody>
+          <tr><td>Maximum Entropy (LogLinear)</td><td>Log-linear scoring of parse features</td><td>Handles overlapping features elegantly</td></tr>
+          <tr><td>Support Vector Machine</td><td>Maximizes margin between correct and incorrect parses</td><td>Strong generalization on small datasets</td></tr>
+          <tr><td>Conditional Random Field (CRF)</td><td>Log-linear model over full sequence</td><td>Global normalization; widely used in SBD and NER</td></tr>
+          <tr><td>Neural Arc-Eager Parser</td><td>BiLSTM/Transformer predicts shift/reduce actions</td><td>State-of-the-art; learns features automatically</td></tr>
+          <tr><td>Graph Neural Network</td><td>Scores dependency arcs using GNN representations</td><td>Captures non-local structural information</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Applications</p>
+      <ul>
+        <li><strong>Constituency parsing</strong> — discriminative rerankers rerank the n-best parses from a PCFG using richer features</li>
+        <li><strong>Dependency parsing</strong> — neural transition-based and graph-based dependency parsers are all discriminative</li>
+        <li><strong>Sentence boundary detection</strong> — CRFs and MaxEnt classifiers for punctuation classification</li>
+        <li><strong>Semantic role labeling</strong> — discriminative sequence models assign argument labels given a parse</li>
+        <li><strong>Multilingual parsing</strong> — discriminative models with cross-lingual features generalize across languages</li>
+      </ul>
+
+      <p class="sub-h">Advantages and Disadvantages</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Advantages</th><th>Disadvantages</th></tr></thead>
+        <tbody>
+          <tr><td>Higher accuracy (state-of-the-art)</td><td>Slower to train — multiple passes required</td></tr>
+          <tr><td>Rich, flexible features</td><td>Can overfit on very small datasets</td></tr>
+          <tr><td>No generative assumptions</td><td>May require additional decoding algorithm</td></tr>
+          <tr><td>Handles small training sets well</td><td>Generative models scale better to huge corpora</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.43</span>
+      <span class="q-title">Differentiate between Generative and Discriminative Models for Parsing.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Generative and discriminative models represent two fundamentally different philosophies for building probabilistic parsers. Both aim to find the best parse tree for a sentence, but they model different probability distributions and make different assumptions about the data.</p>
+
+      <p class="sub-h">Core Philosophical Difference</p>
+      <div class="code-block">Generative model:
+  → Asks: "How likely is it that the grammar generated both this sentence
+            AND this parse tree?"
+  → Models: P(sentence, parse) = P(x, y)
+  → Uses Bayes' rule: P(parse|sentence) = P(sentence,parse) / P(sentence)
+
+Discriminative model:
+  → Asks: "Given this sentence, which parse tree best explains it?"
+  → Models: P(parse|sentence) = P(y|x) directly
+  → Does NOT model how the sentence was generated</div>
+
+      <p class="sub-h">Comprehensive Comparison Table</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Aspect</th><th>Generative Models</th><th>Discriminative Models</th></tr></thead>
+        <tbody>
+          <tr><td>Distribution modeled</td><td>P(x, y) — joint distribution</td><td>P(y|x) — conditional distribution</td></tr>
+          <tr><td>Primary example</td><td>PCFG, HMM-based parsers</td><td>MaxEnt, CRF, SVM, Neural parsers</td></tr>
+          <tr><td>Feature independence</td><td>Required — features must be conditionally independent</td><td>Not required — overlapping features allowed</td></tr>
+          <tr><td>Training algorithm</td><td>Maximum Likelihood Estimation (MLE) — simple, closed-form</td><td>Gradient descent, margin maximization — iterative</td></tr>
+          <tr><td>Training speed</td><td>Fast — single pass over training data</td><td>Slow — many passes (epochs)</td></tr>
+          <tr><td>Scalability</td><td>Scales well to huge training sets</td><td>Better on smaller training sets</td></tr>
+          <tr><td>Feature richness</td><td>Limited by independence assumptions</td><td>Arbitrary — any observable feature</td></tr>
+          <tr><td>Accuracy</td><td>Lower — typically 2-5% below discriminative</td><td>Higher — state-of-the-art results</td></tr>
+          <tr><td>Ambiguity resolution</td><td>Via probabilities of grammar rules (PCFG)</td><td>Via learned scoring function over all features</td></tr>
+          <tr><td>Interpretability</td><td>High — rule probabilities are meaningful</td><td>Lower — especially neural discriminative models</td></tr>
+          <tr><td>Decoding</td><td>Viterbi CYK — clean dynamic programming</td><td>Beam search or CYK + scoring</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Analogy</p>
+      <p>Consider a doctor diagnosing a disease from symptoms:</p>
+      <ul>
+        <li><strong>Generative approach</strong> — model how each disease causes symptoms (P(symptoms | disease)), then use Bayes' rule to infer the most likely disease. You need a complete causal model of every disease.</li>
+        <li><strong>Discriminative approach</strong> — directly learn which symptom patterns predict which disease (P(disease | symptoms)) from labeled patient records. No causal model needed; just learn the mapping from observations to diagnosis.</li>
+      </ul>
+
+      <p class="sub-h">Hybrid Approaches</p>
+      <p>Many state-of-the-art parsers combine both paradigms:</p>
+      <ul>
+        <li><strong>Reranking</strong> — use a generative PCFG to produce n-best parses, then a discriminative reranker to select the best using rich features</li>
+        <li><strong>HELM/fHELM</strong> — feed discriminative classifier posteriors into a generative HMM for sentence boundary detection</li>
+        <li><strong>Neural PCFG</strong> — use neural networks to predict rule probabilities conditioned on sentence context — combining the probabilistic structure of PCFGs with the feature richness of discriminative models</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ Application-Based Questions ══ -->
+  <div class="unit-label">Application-Based &amp; Analytical Questions</div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.47</span>
+      <span class="q-title">Construct a CFG and parse tree for the sentence: "The boy ate the food."</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Step 1: Define the CFG</p>
+      <div class="code-block">S   → NP VP
+NP  → Det N
+VP  → V NP
+Det → "the" | "a"
+N   → "boy" | "food"
+V   → "ate"</div>
+
+      <p class="sub-h">Step 2: Derivation</p>
+      <div class="code-block">S
+→ NP VP              (S → NP VP)
+→ Det N VP           (NP → Det N)
+→ "the" N VP         (Det → "the")
+→ "the" "boy" VP     (N → "boy")
+→ "the" "boy" V NP   (VP → V NP)
+→ "the" "boy" "ate" NP
+→ "the" "boy" "ate" Det N
+→ "the" "boy" "ate" "the" N
+→ "the" "boy" "ate" "the" "food" ✓</div>
+
+      <p class="sub-h">Step 3: Parse Tree</p>
+      <div class="diagram-wrap">
+        <div class="diagram-label">Parse Tree — "The boy ate the food"</div>
+        <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+          <text x="250" y="24" fill="#fff" text-anchor="middle" font-weight="bold" font-size="13">S</text>
+          <line x1="250" y1="28" x2="120" y2="65" stroke="#555" stroke-width="1.5"/>
+          <line x1="250" y1="28" x2="370" y2="65" stroke="#555" stroke-width="1.5"/>
+          <text x="120" y="80" fill="#e8c19a" text-anchor="middle">NP</text>
+          <text x="370" y="80" fill="#e8c19a" text-anchor="middle">VP</text>
+          <line x1="120" y1="84" x2="72" y2="116" stroke="#555" stroke-width="1.5"/>
+          <line x1="120" y1="84" x2="165" y2="116" stroke="#555" stroke-width="1.5"/>
+          <line x1="370" y1="84" x2="305" y2="116" stroke="#555" stroke-width="1.5"/>
+          <line x1="370" y1="84" x2="430" y2="116" stroke="#555" stroke-width="1.5"/>
+          <text x="72" y="132" fill="#ccc" text-anchor="middle">Det</text>
+          <text x="165" y="132" fill="#ccc" text-anchor="middle">N</text>
+          <text x="305" y="132" fill="#ccc" text-anchor="middle">V</text>
+          <text x="430" y="132" fill="#e8c19a" text-anchor="middle">NP</text>
+          <line x1="72" y1="136" x2="72" y2="165" stroke="#555" stroke-width="1.5"/>
+          <line x1="165" y1="136" x2="165" y2="165" stroke="#555" stroke-width="1.5"/>
+          <line x1="305" y1="136" x2="305" y2="165" stroke="#555" stroke-width="1.5"/>
+          <line x1="430" y1="136" x2="400" y2="168" stroke="#555" stroke-width="1.5"/>
+          <line x1="430" y1="136" x2="460" y2="168" stroke="#555" stroke-width="1.5"/>
+          <text x="72" y="180" fill="#aaa" text-anchor="middle">The</text>
+          <text x="165" y="180" fill="#aaa" text-anchor="middle">boy</text>
+          <text x="305" y="180" fill="#aaa" text-anchor="middle">ate</text>
+          <text x="400" y="184" fill="#ccc" text-anchor="middle">Det</text>
+          <text x="460" y="184" fill="#ccc" text-anchor="middle">N</text>
+          <line x1="400" y1="188" x2="400" y2="218" stroke="#555" stroke-width="1.5"/>
+          <line x1="460" y1="188" x2="460" y2="218" stroke="#555" stroke-width="1.5"/>
+          <text x="400" y="232" fill="#aaa" text-anchor="middle">the</text>
+          <text x="460" y="232" fill="#aaa" text-anchor="middle">food</text>
+        </svg>
+      </div>
+
+      <p class="sub-h">Step 4: Constituent Analysis</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Constituent</th><th>Words</th><th>Grammatical Role</th></tr></thead>
+        <tbody>
+          <tr><td>S</td><td>The boy ate the food</td><td>Sentence (root)</td></tr>
+          <tr><td>NP (subject)</td><td>The boy</td><td>Subject of "ate"</td></tr>
+          <tr><td>Det</td><td>The</td><td>Determiner of "boy"</td></tr>
+          <tr><td>N</td><td>boy</td><td>Head noun of subject NP</td></tr>
+          <tr><td>VP</td><td>ate the food</td><td>Predicate</td></tr>
+          <tr><td>V</td><td>ate</td><td>Main verb (PAST of EAT)</td></tr>
+          <tr><td>NP (object)</td><td>the food</td><td>Direct object of "ate"</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.51</span>
+      <span class="q-title">Identify the ambiguity in "I saw the man with a telescope." and explain the possible interpretations using parse trees.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>This sentence is a classic example of <strong>PP attachment ambiguity</strong> — the prepositional phrase "with a telescope" can attach to either the VP "saw" or the NP "the man", producing two grammatically valid but semantically distinct interpretations.</p>
+
+      <p class="sub-h">The Two Interpretations</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Parse</th><th>PP attaches to</th><th>Meaning</th></tr></thead>
+        <tbody>
+          <tr><td>Parse A</td><td>VP (verb phrase "saw")</td><td>I used a telescope to see the man</td></tr>
+          <tr><td>Parse B</td><td>NP (noun phrase "the man")</td><td>I saw the man who had a telescope</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">CFG Used</p>
+      <div class="code-block">S  → NP VP
+NP → PN | Det N | NP PP
+VP → V NP | VP PP
+PP → P NP
+PN → "I"
+Det → "the" | "a"
+N  → "man" | "telescope"
+V  → "saw"
+P  → "with"</div>
+
+      <p class="sub-h">Parse Tree A — PP attaches to VP (instrumental reading)</p>
+      <div class="code-block">Parse A bracket notation:
+[S [NP I]
+   [VP [VP saw [NP the man]]
+       [PP with [NP a telescope]]]]
+
+Reading: I (with a telescope) saw the man.
+         The telescope is the instrument of seeing.</div>
+
+      <p class="sub-h">Parse Tree B — PP attaches to NP (possessive reading)</p>
+      <div class="code-block">Parse B bracket notation:
+[S [NP I]
+   [VP saw
+       [NP [NP the man]
+           [PP with [NP a telescope]]]]]
+
+Reading: I saw the man (who had a telescope).
+         The telescope belongs to the man.</div>
+
+      <div class="diagram-wrap">
+        <div class="diagram-label">Parse A vs Parse B — structural difference</div>
+        <svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+          <!-- Parse A label -->
+          <text x="160" y="18" fill="#c0392b" text-anchor="middle" font-size="11">Parse A: PP → VP</text>
+          <!-- A: S -->
+          <text x="160" y="38" fill="#fff" text-anchor="middle" font-weight="bold">S</text>
+          <line x1="160" y1="42" x2="90" y2="65" stroke="#555" stroke-width="1.5"/>
+          <line x1="160" y1="42" x2="220" y2="65" stroke="#555" stroke-width="1.5"/>
+          <text x="90" y="78" fill="#e8c19a" text-anchor="middle">NP</text>
+          <text x="220" y="78" fill="#e8c19a" text-anchor="middle">VP</text>
+          <line x1="90" y1="82" x2="90" y2="105" stroke="#555" stroke-width="1.5"/>
+          <line x1="220" y1="82" x2="175" y2="108" stroke="#555" stroke-width="1.5"/>
+          <line x1="220" y1="82" x2="270" y2="108" stroke="#555" stroke-width="1.5"/>
+          <text x="90" y="118" fill="#aaa" text-anchor="middle">I</text>
+          <text x="175" y="122" fill="#e8c19a" text-anchor="middle">VP</text>
+          <text x="270" y="122" fill="#e8c19a" text-anchor="middle">PP</text>
+          <line x1="175" y1="126" x2="145" y2="150" stroke="#555" stroke-width="1.5"/>
+          <line x1="175" y1="126" x2="200" y2="150" stroke="#555" stroke-width="1.5"/>
+          <text x="145" y="164" fill="#ccc" text-anchor="middle">V</text>
+          <text x="200" y="164" fill="#e8c19a" text-anchor="middle">NP</text>
+          <line x1="145" y1="168" x2="145" y2="185" stroke="#555" stroke-width="1.5"/>
+          <text x="145" y="198" fill="#aaa" text-anchor="middle">saw</text>
+          <line x1="270" y1="126" x2="255" y2="150" stroke="#555" stroke-width="1.5"/>
+          <text x="255" y="164" fill="#ccc" text-anchor="middle">P+NP</text>
+          <text x="200" y="180" fill="#aaa" text-anchor="middle">the man</text>
+          <text x="255" y="180" fill="#aaa" text-anchor="middle">w/ telescope</text>
+          <!-- divider -->
+          <line x1="340" y1="20" x2="340" y2="195" stroke="#222" stroke-width="1" stroke-dasharray="4,4"/>
+          <!-- Parse B label -->
+          <text x="510" y="18" fill="#c0392b" text-anchor="middle" font-size="11">Parse B: PP → NP</text>
+          <!-- B: S -->
+          <text x="510" y="38" fill="#fff" text-anchor="middle" font-weight="bold">S</text>
+          <line x1="510" y1="42" x2="430" y2="65" stroke="#555" stroke-width="1.5"/>
+          <line x1="510" y1="42" x2="570" y2="65" stroke="#555" stroke-width="1.5"/>
+          <text x="430" y="78" fill="#e8c19a" text-anchor="middle">NP</text>
+          <text x="570" y="78" fill="#e8c19a" text-anchor="middle">VP</text>
+          <line x1="430" y1="82" x2="430" y2="105" stroke="#555" stroke-width="1.5"/>
+          <line x1="570" y1="82" x2="530" y2="108" stroke="#555" stroke-width="1.5"/>
+          <line x1="570" y1="82" x2="620" y2="108" stroke="#555" stroke-width="1.5"/>
+          <text x="430" y="118" fill="#aaa" text-anchor="middle">I</text>
+          <text x="530" y="122" fill="#ccc" text-anchor="middle">V</text>
+          <text x="620" y="122" fill="#e8c19a" text-anchor="middle">NP</text>
+          <line x1="530" y1="126" x2="530" y2="150" stroke="#555" stroke-width="1.5"/>
+          <text x="530" y="164" fill="#aaa" text-anchor="middle">saw</text>
+          <line x1="620" y1="126" x2="590" y2="150" stroke="#555" stroke-width="1.5"/>
+          <line x1="620" y1="126" x2="650" y2="150" stroke="#555" stroke-width="1.5"/>
+          <text x="590" y="164" fill="#e8c19a" text-anchor="middle">NP</text>
+          <text x="650" y="164" fill="#e8c19a" text-anchor="middle">PP</text>
+          <text x="590" y="180" fill="#aaa" text-anchor="middle">the man</text>
+          <text x="650" y="180" fill="#aaa" text-anchor="middle">w/ telescope</text>
+        </svg>
+      </div>
+
+      <p class="sub-h">Resolution Using PCFG</p>
+      <p>A PCFG trained on real English text resolves this ambiguity using corpus-derived probabilities. In practice, "with a telescope" is an instrument more naturally associated with the act of seeing (VP attachment), so Parse A is typically preferred for this specific sentence by a well-trained parser. However, the correct interpretation depends on world knowledge and context — a purely syntactic PCFG may not always get it right, which motivates the use of lexicalized PCFGs and neural parsers that encode semantic information.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.53</span>
+      <span class="q-title">Identify the morphemes in "unhappiness", "replayed", "teachers", "disagreement" and classify them as free or bound.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Morpheme identification involves segmenting each word into its minimal meaningful units and classifying each segment as either <em>free</em> (can stand alone) or <em>bound</em> (must attach to another morpheme).</p>
+
+      <p class="sub-h">1. unhappiness</p>
+      <div class="code-block">Segmentation: un + happy + ness
+
+Morpheme    Type     Category        Meaning
+un-         Bound    Prefix          negation ("not")
+happy       Free     Root (Adj)      state of joy
+-ness       Bound    Suffix          nominalization (state of)
+
+Derivational chain: happy (Adj) → unhappy (Adj) → unhappiness (N)</div>
+
+      <p class="sub-h">2. replayed</p>
+      <div class="code-block">Segmentation: re + play + ed
+
+Morpheme    Type     Category        Meaning
+re-         Bound    Prefix          again, repetition
+play        Free     Root (V)        the action of playing
+-ed         Bound    Suffix          past tense (inflectional)
+
+Note: "re-" is derivational (changes meaning); "-ed" is inflectional (marks tense)</div>
+
+      <p class="sub-h">3. teachers</p>
+      <div class="code-block">Segmentation: teach + er + s
+
+Morpheme    Type     Category        Meaning
+teach       Free     Root (V)        the action of teaching
+-er         Bound    Suffix (agent)  one who does X (derivational: V → N)
+-s          Bound    Suffix          plural (inflectional)
+
+Derivational chain: teach (V) → teacher (N) → teachers (N, PL)</div>
+
+      <p class="sub-h">4. disagreement</p>
+      <div class="code-block">Segmentation: dis + agree + ment
+
+Morpheme    Type     Category        Meaning
+dis-        Bound    Prefix          negation / reversal
+agree       Free     Root (V)        to be in accord
+-ment       Bound    Suffix          nominalization (V → N, result of action)
+
+Derivational chain: agree (V) → disagree (V) → disagreement (N)</div>
+
+      <p class="sub-h">Summary Table</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Word</th><th>Morphemes</th><th>Free / Bound</th><th>Inflectional / Derivational</th></tr></thead>
+        <tbody>
+          <tr><td>unhappiness</td><td>un-, happy, -ness</td><td>Bound, Free, Bound</td><td>Deriv., Root, Deriv.</td></tr>
+          <tr><td>replayed</td><td>re-, play, -ed</td><td>Bound, Free, Bound</td><td>Deriv., Root, Inflect.</td></tr>
+          <tr><td>teachers</td><td>teach, -er, -s</td><td>Free, Bound, Bound</td><td>Root, Deriv., Inflect.</td></tr>
+          <tr><td>disagreement</td><td>dis-, agree, -ment</td><td>Bound, Free, Bound</td><td>Deriv., Root, Deriv.</td></tr>
+        </tbody>
+      </table></div>
+      <p>Note that inflectional morphemes (like -ed, -s) are always at the outer edge of the word — after all derivational morphemes. This ordering constraint (derivational morphemes closer to root than inflectional) is a universal tendency in morphology.</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.55</span>
+      <span class="q-title">Identify the lexeme and word forms in: go, goes, going, went, gone.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>The words go, goes, going, went, gone all belong to the same <strong>lexeme GO</strong> — they share a common core meaning (the act of moving/traveling) despite their very different surface forms.</p>
+
+      <p class="sub-h">Lexeme Identification</p>
+      <p>The <strong>lexeme GO</strong> is the abstract dictionary unit representing "to move from one place to another." Its <strong>lemma</strong> (citation form) is "go" — the bare infinitive form conventionally used as the dictionary headword.</p>
+
+      <p class="sub-h">Word Form Analysis</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Word Form</th><th>Morphological Analysis</th><th>Grammatical Features</th><th>Example Sentence</th></tr></thead>
+        <tbody>
+          <tr><td>go</td><td>go + ∅ (zero morpheme)</td><td>Infinitive / 1st/2nd person present</td><td>"I/you go to school."</td></tr>
+          <tr><td>goes</td><td>go + -es (allomorph of 3SG)</td><td>3rd person singular present</td><td>"She goes to school."</td></tr>
+          <tr><td>going</td><td>go + -ing</td><td>Present participle / progressive</td><td>"He is going home."</td></tr>
+          <tr><td>went</td><td>Suppletive past tense (entirely different root)</td><td>Simple past tense (irregular)</td><td>"They went yesterday."</td></tr>
+          <tr><td>gone</td><td>go + -en (irregular past participle)</td><td>Past participle / perfect aspect</td><td>"She has gone already."</td></tr>
+        </tbody>
+      </table></div>
+
+      <p class="sub-h">Suppletive Form: went</p>
+      <p>"Went" is historically derived from a completely different Old English verb (<em>wendan</em>), but in Modern English it functions as the past tense form of GO. This phenomenon is called <strong>suppletion</strong> — where two morphologically unrelated forms fill paradigm slots of the same lexeme. Other examples: good → better → best, be → am/is/are/was/were.</p>
+
+      <p class="sub-h">NLP Implications</p>
+      <div class="code-block">Tokenization:  go | goes | going | went | gone   ← 5 distinct tokens in text
+Lemmatization: all → "go"                         ← 1 normalized form
+
+Without lemmatization: corpus treats 5 forms as 5 unrelated words
+With lemmatization:    corpus correctly unifies all 5 under lemma "go"
+
+Impact on IR: query "go" would miss documents with "went" unless lemmatized
+Impact on MT: target language must generate correct inflected form</div>
+      <p>The lexeme GO is one of the most irregular verbs in English — its word forms span three historically distinct roots (go, went, gone). For NLP, this irregularity makes dictionary-based lemmatization necessary; rule-based stemming would fail to normalize "went" to "go".</p>
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.58</span>
+      <span class="q-title">Explain how a probabilistic parser can choose between two competing parse trees for an ambiguous sentence.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>A probabilistic parser resolves ambiguity by assigning a score (probability or log-probability) to every candidate parse tree and selecting the one with the highest score — the <strong>Viterbi parse</strong>. The scoring function is derived from training data, encoding which structural choices are statistically preferred in real language.</p>
+
+      <p class="sub-h">The Ambiguity Problem</p>
+      <div class="code-block">Ambiguous sentence: "The student solved the difficult problem."
+
+Possible structural ambiguities:
+1. PP attachment (if there were a PP)
+2. Adjective attachment — "difficult" clearly modifies "problem" here,
+   but consider: "She saw the man with glasses."
+
+Let's use the classic: "I saw the man with a telescope."
+→ Parse A: [VP saw [NP the man]] [PP with telescope]  (I used telescope)
+→ Parse B: [VP saw [NP [the man] [PP with telescope]]] (man had telescope)</div>
+
+      <p class="sub-h">Step 1: Assign PCFG Probabilities</p>
+      <div class="code-block">Grammar rules with corpus-estimated probabilities:
+  VP → VP PP    [P = 0.35]   ← VP takes PP adjunct 35% of time
+  NP → NP PP    [P = 0.28]   ← NP takes PP modifier 28% of time
+  VP → V NP     [P = 0.65]
+  NP → Det N    [P = 0.72]</div>
+
+      <p class="sub-h">Step 2: Compute Parse Tree Probabilities</p>
+      <div class="code-block">Parse A: S → NP VP, VP → VP PP, VP → V NP, NP → Det N (×2), PP → P NP
+
+P(Parse A) = P(S→NP VP) × P(NP→PN) × P(VP→VP PP) × P(VP→V NP)
+           × P(NP→Det N) × P(PP→P NP) × P(NP→Det N)
+           = 1.00 × 1.00 × 0.35 × 0.65 × 0.72 × 1.00 × 0.72
+           = 0.118
+
+Parse B: S → NP VP, VP → V NP, NP → NP PP, NP → Det N (×2), PP → P NP
+
+P(Parse B) = P(S→NP VP) × P(NP→PN) × P(VP→V NP) × P(NP→NP PP)
+           × P(NP→Det N) × P(PP→P NP) × P(NP→Det N)
+           = 1.00 × 1.00 × 0.65 × 0.28 × 0.72 × 1.00 × 0.72
+           = 0.094</div>
+
+      <p class="sub-h">Step 3: Select the Viterbi Parse</p>
+      <div class="code-block">P(Parse A) = 0.118   ← SELECTED (higher probability)
+P(Parse B) = 0.094
+
+Parser output: Parse A
+Interpretation: "I used a telescope to see the man."</div>
+
+      <p class="sub-h">Implementation: Viterbi CYK</p>
+      <p>In practice, a probabilistic parser uses the <strong>Viterbi CYK algorithm</strong> — a dynamic programming algorithm that fills a parse table with the maximum-probability derivation for each span [i, j], rather than enumerating all parses:</p>
+      <div class="code-block">viterbi[A][i][j] = max_{k, A→BC} P(A→BC) × viterbi[B][i][k] × viterbi[C][k][j]
+
+This computes the best score for each span incrementally,
+avoiding the exponential blowup of explicit parse enumeration.
+Time complexity: O(n³ × |grammar rules|)</div>
+
+      <p class="sub-h">Limitations and Extensions</p>
+      <ul>
+        <li><strong>Plain PCFG</strong> — rule probabilities are context-free; ignore the specific words involved ("telescope" vs "glasses")</li>
+        <li><strong>Lexicalized PCFG</strong> — condition probabilities on head words: P(VP→VP PP | head-V = "saw") captures that "saw with telescope" is a common instrumental construction</li>
+        <li><strong>Neural parsers</strong> — use word embeddings and sentence encoders (BiLSTM, BERT) to compute context-sensitive scores for each rule application, effectively capturing world knowledge that bare PCFGs miss</li>
+      </ul>
+      <p>The core insight is that probabilistic parsing transforms the linguistic question "which parse is correct?" into the statistical question "which parse is most probable given the training data?" — making it a tractable, data-driven inference problem.</p>
+    </div>
+  </div>
+
+</div>
+<!-- end Part B panel -->
+
+<footer>NLP &middot; DS743PE &middot; Units 1–2 &middot; Morphology &middot; Parsing &middot; CFG &middot; PCFG &middot; Exam Reference</footer>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    b.classList.toggle('active',
+      (i === 0 && tab === 'partA') || (i === 1 && tab === 'partB'));
+  });
+  document.getElementById('panel-partA').classList.toggle('active', tab === 'partA');
+  document.getElementById('panel-partB').classList.toggle('active', tab === 'partB');
+  if (tab === 'partB') window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Predictive Analytics — Mid 1 Exam Key</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #000000;
+    color: #ddd;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header {
+    padding: 64px 0 40px;
+    border-bottom: 2px solid #111;
+    margin-bottom: 48px;
+  }
+  .course-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  header p {
+    font-size: 1rem;
+    color: #fff;
+    max-width: 560px;
+    font-style: italic;
+  }
+
+  /* ── Tab navigation ── */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #1a1a1a;
+    margin-bottom: 48px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tab-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #444;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 14px 24px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color .2s, border-color .2s;
+  }
+  .tab-btn:hover { color: #aaa; }
+  .tab-btn.active { color: #fff; border-bottom-color: #fff; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Part headers ── */
+  .part-header {
+    margin: 64px 0 32px;
+  }
+  .part-header h2 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .part-header .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-top: 6px;
+  }
+  .unit-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 40px 0 4px;
+    padding-top: 40px;
+    border-top: 1px solid #222;
+  }
+
+  /* ── Short entries ── */
+  .short-entry {
+    padding: 28px 0;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .short-entry:last-child { border-bottom: none; }
+  .entry-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .entry-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .entry-term {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .entry-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .entry-body {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+  }
+
+  /* ── Detailed questions ── */
+  .q-block {
+    padding: 36px 0;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .q-block:last-child { border-bottom: none; }
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .q-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .q-title {
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .q-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .q-body p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .q-body p:last-child { margin-bottom: 0; }
+  .sub-h {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #fff;
+    margin: 24px 0 8px;
+  }
+  .q-body ul, .q-body ol {
+    padding-left: 24px;
+    margin: 12px 0 16px;
+  }
+  .q-body li {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 4px;
+  }
+  .q-body li strong { color: #fff; }
+
+  /* ── Tables ── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  table {
+    width: 100%;
+    min-width: 460px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    border-top: 2px solid #333;
+    border-bottom: 1px solid #444;
+    background: #0a0a0a;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #1e1e1e;
+    color: #ccc;
+    vertical-align: top;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  tr:last-child td { border-bottom: 2px solid #333; }
+  td:first-child {
+    color: #fff;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+  }
+
+  /* ── Code & Rule boxes ── */
+  .code-block {
+    background: #060606;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #555;
+    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.9;
+    color: #ccc;
+    overflow-x: auto;
+    margin: 16px 0;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rule-box {
+    border-left: 3px solid #444;
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: #080808;
+  }
+  .rule-box p {
+    margin-bottom: 0 !important;
+    font-size: 0.95rem !important;
+    color: #ccc !important;
+  }
+
+  /* ── Diagrams ── */
+  .diagram-wrap {
+    margin: 20px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diagram-wrap svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  .diagram-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 6px;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 2px solid #222;
+    padding: 32px 0 48px;
+    margin-top: 64px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #555;
+    text-transform: uppercase;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 0 16px; }
+    header { padding: 40px 0 28px; }
+    .part-header { margin: 48px 0 28px; }
+    .q-block, .short-entry { padding: 22px 0; }
+    .entry-marks, .q-marks { display: none; }
+    table { min-width: 380px; }
+    td, th { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="course-code">C4101 &middot; Predictive Analytics &middot; Mid Term 1</div>
+  <h1>Predictive Analytics &mdash; Exam Key</h1>
+  <p>Unit 1 Introduction &amp; Problem Setup &middot; Unit 2 Prediction Effect, Deployment &amp; Ethics &middot; Unit 3 Decision Trees &amp; CNN (3.7)</p>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('u1')">UNIT 1</button>
+  <button class="tab-btn" onclick="switchTab('u2')">UNIT 2</button>
+  <button class="tab-btn" onclick="switchTab('u3')">UNIT 3 &amp; CNN</button>
+  <button class="tab-btn" onclick="switchTab('formulas')">FORMULA SHEET</button>
+</nav>
+
+<!-- ═══════════════════════ UNIT 1 ═══════════════════════ -->
+<div id="panel-u1" class="tab-panel active">
+
+  <div class="part-header">
+    <h2>Part A &mdash; Short Answer Questions</h2>
+    <div class="meta">2 Marks Each</div>
+  </div>
+
+  <div class="unit-label">Unit 1 &mdash; Introduction &amp; Problem Setup</div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.01</span><span class="entry-term">Define analytics and predictive analytics.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Analytics is the discovery, interpretation and communication of patterns in data to improve decisions. <strong>Predictive analytics</strong> is a collection of statistical/ML techniques that use historical data to estimate unknown future outcomes so humans or machines can make better decisions.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.02</span><span class="entry-term">How does Business Intelligence (BI) differ from Predictive Analytics?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">BI is <strong>retrospective</strong> &mdash; it analyzes historical/current data via reports, dashboards and KPIs to answer &ldquo;what happened?&rdquo;. PA is <strong>prospective</strong> &mdash; it uses historical data to predict future behaviour, answering &ldquo;what is likely to happen?&rdquo;.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.03</span><span class="entry-term">List the four types of analytics.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Descriptive</strong> (what is happening), <strong>Diagnostic</strong> (why it happened), <strong>Predictive</strong> (what will happen), <strong>Prescriptive</strong> (what action to take).</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.04</span><span class="entry-term">What is CRISP-DM? Name its six phases.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Cross-Industry Standard Process for Data Mining &mdash; a six-phase iterative process model: Business Understanding, Data Understanding, Data Preparation, Modeling, Evaluation, Deployment, connected by feedback loops.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.05</span><span class="entry-term">What is the &ldquo;three-legged stool&rdquo; of business understanding?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">The three expert groups a PA project needs to succeed: <strong>Domain experts</strong>, <strong>Data/Database experts</strong>, and <strong>Predictive modeling experts</strong>. If any one is missing, the project is at risk of failure.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.06</span><span class="entry-term">Define data leakage with one example.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Using information in training data that would not actually be available at prediction time. Eg: using &ldquo;has phone number&rdquo; to predict &ldquo;became customer&rdquo;, when the phone number was only collected <em>after</em> conversion.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.07</span><span class="entry-term">What is the unit of analysis?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">What each row/record in the modeling dataset represents (one customer, one visit, one transaction). Predictive algorithms assume every record is an <strong>independent</strong> observation.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.08</span><span class="entry-term">List the three types of target variables.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Binary</strong> (two outcomes, eg churn Yes/No), <strong>Continuous</strong> (numeric value, eg future spend), <strong>Categorical</strong> (multiple classes, eg fraud type 1/2/3/none).</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.09</span><span class="entry-term">What is a &ldquo;time gap&rdquo; in target variable definition, and why is it needed?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">The interval kept between the data used for prediction and the event being predicted, so the business has time to act before the event happens &mdash; eg predicting churn 30 days ahead instead of on the day it occurs.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.10</span><span class="entry-term">Define overfitting.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">When a model becomes too complex and memorizes the training data instead of learning general patterns &mdash; it performs very well on training data but poorly on new/unseen data.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.11</span><span class="entry-term">What is PCC?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Percent Correct Classification</strong> &mdash; overall classification accuracy computed from the confusion matrix; treats every kind of error with equal weight.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.12</span><span class="entry-term">Name four metrics used for continuous-valued estimation (regression) problems.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">R&sup2; (R-squared), Mean Squared Error (MSE), average/mean absolute error (MAE), median error / median absolute error.</div></div>
+
+  <div class="part-header">
+    <h2>Part B &mdash; Detailed Explanations</h2>
+    <div class="meta">5+ Marks Each</div>
+  </div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.01</span><span class="q-title">Explain the Four Types of Analytics with Examples</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <p>Data analytics techniques fall into four categories, each answering a progressively harder question about the business.</p>
+  <div class="table-wrap"><table><thead><tr><th>Type</th><th>Question answered</th><th>Example (annual check-up)</th></tr></thead>
+  <tbody>
+  <tr><td>Descriptive</td><td>What is happening?</td><td>Your cholesterol level is 215</td></tr>
+  <tr><td>Diagnostic</td><td>Why is it happening?</td><td>High due to lack of exercise and diet</td></tr>
+  <tr><td>Predictive</td><td>What will happen?</td><td>Cholesterol will keep rising, risk of heart disease</td></tr>
+  <tr><td>Prescriptive</td><td>What should we do?</td><td>Prescribe statins, recommend a new diet</td></tr>
+  </tbody></table></div>
+  <div class="diagram-wrap"><div class="diagram-label">The Analytics Progression</div>
+  <svg viewBox="0 0 620 100" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+    <rect x="10" y="20" width="130" height="55" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/>
+    <text x="75" y="43" text-anchor="middle" fill="#fff" font-size="11">Descriptive</text>
+    <text x="75" y="58" text-anchor="middle" fill="#888" font-size="8">what happened</text>
+    <rect x="170" y="20" width="130" height="55" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/>
+    <text x="235" y="43" text-anchor="middle" fill="#fff" font-size="11">Diagnostic</text>
+    <text x="235" y="58" text-anchor="middle" fill="#888" font-size="8">why it happened</text>
+    <rect x="330" y="20" width="130" height="55" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/>
+    <text x="395" y="43" text-anchor="middle" fill="#fff" font-size="11">Predictive</text>
+    <text x="395" y="58" text-anchor="middle" fill="#888" font-size="8">what will happen</text>
+    <rect x="490" y="20" width="130" height="55" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/>
+    <text x="555" y="43" text-anchor="middle" fill="#fff" font-size="11">Prescriptive</text>
+    <text x="555" y="58" text-anchor="middle" fill="#888" font-size="8">what to do</text>
+    <line x1="140" y1="47" x2="170" y2="47" stroke="#555" stroke-width="1.5" marker-end="url(#arrA)"/>
+    <line x1="300" y1="47" x2="330" y2="47" stroke="#555" stroke-width="1.5" marker-end="url(#arrA)"/>
+    <line x1="460" y1="47" x2="490" y2="47" stroke="#555" stroke-width="1.5" marker-end="url(#arrA)"/>
+    <defs><marker id="arrA" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/></marker></defs>
+  </svg></div>
+  <p>A grocery store owner uses descriptive analytics for sales-by-department dashboards, diagnostic analytics to see why revenue moved, predictive analytics to forecast how many units of each product will sell, and prescriptive analytics to decide how much stock to order.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.02</span><span class="q-title">Explain the CRISP-DM Process Model</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <p>The <strong>Cross-Industry Standard Process for Data Mining (CRISP-DM)</strong> describes six steps for building predictive models, connected by feedback loops so the project can revisit earlier stages.</p>
+  <div class="diagram-wrap"><div class="diagram-label">CRISP-DM Cycle</div>
+  <svg viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+    <rect x="20"  y="20"  width="140" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="90" y="44" text-anchor="middle" fill="#fff" font-size="10">1. Business Understanding</text>
+    <rect x="200" y="20"  width="140" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="270" y="44" text-anchor="middle" fill="#fff" font-size="10">2. Data Understanding</text>
+    <rect x="380" y="20"  width="140" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="450" y="44" text-anchor="middle" fill="#fff" font-size="10">3. Data Preparation</text>
+    <rect x="380" y="110" width="140" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="450" y="134" text-anchor="middle" fill="#fff" font-size="10">4. Modeling</text>
+    <rect x="200" y="110" width="140" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="270" y="134" text-anchor="middle" fill="#fff" font-size="10">5. Evaluation</text>
+    <rect x="20"  y="110" width="140" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="90" y="134" text-anchor="middle" fill="#fff" font-size="10">6. Deployment</text>
+    <line x1="160" y1="40" x2="200" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <line x1="340" y1="40" x2="380" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <line x1="450" y1="60" x2="450" y2="110" stroke="#555" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <line x1="380" y1="130" x2="340" y2="130" stroke="#555" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <line x1="200" y1="130" x2="160" y2="130" stroke="#555" stroke-width="1.5" marker-end="url(#arrB)"/>
+    <path d="M270,110 C270,80 270,60 200,40" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrB)"/>
+    <text x="195" y="78" fill="#888" font-size="8">feedback: poor data</text>
+    <path d="M270,150 C270,185 130,190 90,150" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrB)"/>
+    <text x="110" y="200" fill="#888" font-size="8">feedback: low accuracy</text>
+    <defs><marker id="arrB" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/></marker></defs>
+  </svg></div>
+  <p>After defining business objectives, the data understanding phase analyzes what data is actually available. If the data is insufficient or poor quality, the project may need to loop back and redefine the objectives. If a built model gives low accuracy, the project loops back to data preparation to create new derived features. This iteration continues until results are good enough to deploy.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.03</span><span class="q-title">Explain the Obstacles That Cause Predictive Analytics Projects to Fail</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p>Predictive models often fail in real-world operations for four broad categories of reasons.</p>
+  <p class="sub-h">1. Obstacles in Management</p>
+  <p>Problems related to people, planning and business support: the problem is not clearly defined, there is no support from decision-makers, or predictions are simply not used in business decisions. Eg: a fraud detection model flags 1,000 suspicious transactions a month, but without investigator trust and management support, the flags are never acted on.</p>
+  <p class="sub-h">2. Obstacles with Data</p>
+  <p>Predictive models need data in a single rectangular table (rows &times; columns). Real data is usually spread across multiple transactional databases and must share a common key to be joined.</p>
+  <ul>
+    <li><strong>Different tables:</strong> if the customer table doesn&rsquo;t record which campaign created the customer, you cannot tell who responded and who ignored the offer &mdash; training data cannot be built.</li>
+    <li><strong>History removed:</strong> updating a lead&rsquo;s record when they become a customer overwrites the old values, destroying the &ldquo;before&rdquo; snapshot the model needs.</li>
+    <li><strong>Data leakage:</strong> using information (like a phone number) that was only obtained <em>after</em> the outcome occurred.</li>
+  </ul>
+  <p class="sub-h">3. Obstacles with Modelling</p>
+  <p><strong>Overfitting</strong> &mdash; the model memorizes training data and performs poorly on unseen data; this may only be discovered after deployment. <strong>Overly ambitious models</strong> &mdash; analysts try to build an advanced model without considering available data, time or budget; a better approach is a simple working model first, improved later with more data, features, or advanced algorithms.</p>
+  <p class="sub-h">4. Obstacles with Deployment</p>
+  <p>A model that works well in development can still fail at deployment: it must be translated into the language the production system supports (SQL, Java, C++), and the exact same data preparation steps used during training must be repeated in real time &mdash; which can be too slow for use cases like on-page content recommendation that must respond within seconds.</p>
+  <div class="table-wrap"><table><thead><tr><th>Obstacle</th><th>Root cause</th><th>Example</th></tr></thead>
+  <tbody>
+  <tr><td>Management</td><td>No support / undefined problem</td><td>Fraud alerts ignored by investigators</td></tr>
+  <tr><td>Data</td><td>Disconnected tables, overwritten history, leakage</td><td>Phone number added only after conversion</td></tr>
+  <tr><td>Modelling</td><td>Overfitting, over-ambitious scope</td><td>Customer retention model with 1000s of variables</td></tr>
+  <tr><td>Deployment</td><td>Language mismatch, slow real-time pipeline</td><td>Website recommender must respond in seconds</td></tr>
+  </tbody></table></div>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.04</span><span class="q-title">Explain Business Understanding &mdash; the Three-Legged Stool</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <p>Successful predictive modeling rests on three groups of experts. If any one leg is missing, the project may fail.</p>
+  <div class="table-wrap"><table><thead><tr><th>Expert group</th><th>Role</th><th>Consequence if missing</th></tr></thead>
+  <tbody>
+  <tr><td>Domain experts</td><td>Understand the business area, define the correct objective (eg a banking manager framing &ldquo;predict loan default&rdquo;)</td><td>Model may solve the wrong problem entirely</td></tr>
+  <tr><td>Data / database experts</td><td>Identify, collect, clean and organize the required data</td><td>Analysts can&rsquo;t locate or join the right tables</td></tr>
+  <tr><td>Predictive modeling experts</td><td>Translate the business goal into a modeling task, define the target variable</td><td>Business asks for something that can&rsquo;t actually be modeled (eg no &ldquo;customer left&rdquo; field exists at all)</td></tr>
+  </tbody></table></div>
+  <p>Eg: an insurance officer (domain expert) defines the goal as predicting claim likelihood; the database expert supplies policy and claims history; the modeling expert defines the binary target variable Claim = Yes/No and checks the data actually supports it.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.05</span><span class="q-title">Explain the Three Methods of Defining Columns as Measures for Repeated Events</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <p>When a unit of analysis (eg a customer) has a variable number of repeated events (eg hotel visits), a single rectangular row still has to represent them. Three methods are used:</p>
+  <p class="sub-h">Method 1 &mdash; Separate columns per visit</p>
+  <p>Store Visit 1, Visit 2, Visit 3&hellip; as separate columns. <strong>Problem:</strong> customers with fewer visits get NULL/missing values, and many algorithms handle missing values poorly.</p>
+  <p class="sub-h">Method 2 &mdash; Most recent visit first</p>
+  <div class="table-wrap"><table><thead><tr><th>Customer ID</th><th>Recent Visit</th><th>Previous Visit</th></tr></thead>
+  <tbody><tr><td>100001</td><td>5/2/12</td><td>NULL</td></tr><tr><td>100002</td><td>10/13/12</td><td>9/29/12</td></tr></tbody></table></div>
+  <p>Advantage: captures the most recent, often most predictive, behaviour.</p>
+  <p class="sub-h">Method 3 &mdash; Summarize into derived features</p>
+  <p>Instead of storing each visit, create features like total visits, average spend, days since last visit. Advantages: no missing values, stays rectangular, easiest for models to use. This is the generally preferred approach.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.06</span><span class="q-title">Explain Unit of Analysis with the Hotel Booking Example</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <p>The unit of analysis defines what each row represents, and predictive algorithms assume every record is <strong>independent</strong>. If records are actually connected, the model learns biased patterns.</p>
+  <p class="sub-h">Correct case</p>
+  <p>A hotel wants to predict &ldquo;will this customer book again?&rdquo; Unit of analysis = one customer. Each row is independent: customer 101, 102, 103&hellip; The model learns general patterns like &ldquo;frequent visits &rarr; higher chance of returning&rdquo;.</p>
+  <div class="table-wrap"><table><thead><tr><th>Customer ID</th><th>Visits</th><th>Purpose</th><th>Book Again</th></tr></thead>
+  <tbody><tr><td>101</td><td>5</td><td>Vacation</td><td>Yes</td></tr><tr><td>102</td><td>1</td><td>Business</td><td>No</td></tr><tr><td>103</td><td>3</td><td>Family Trip</td><td>Yes</td></tr></tbody></table></div>
+  <p class="sub-h">Biased case</p>
+  <p>If all customers in the training data are employees of the same company, their behaviour is <em>connected</em> &mdash; same travel policy, same location preference. The model ends up learning &ldquo;ABC company travel rules&rdquo; instead of general customer behaviour. When a genuine family-vacation customer is scored after deployment, the prediction is wrong because the model never saw a real independent customer during training.</p>
+  <div class="rule-box"><p>Rule: always check whether records could be influenced by a shared factor (same company, same household, same time window) before treating them as independent.</p></div>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.07</span><span class="q-title">Explain Target Variable Types, Temporal Considerations, and Measures of Success</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p class="sub-h">Types of target variable</p>
+  <div class="table-wrap"><table><thead><tr><th>Type</th><th>Description</th><th>Example</th></tr></thead>
+  <tbody>
+  <tr><td>Binary</td><td>Two outcomes, used for classification</td><td>Customer Acquired: 1 / 0</td></tr>
+  <tr><td>Continuous</td><td>Numeric value</td><td>Future spend amount</td></tr>
+  <tr><td>Categorical</td><td>One class among many</td><td>Fraud Type 1 / 2 / 3 / 4 / No Fraud</td></tr>
+  </tbody></table></div>
+  <p class="sub-h">Temporal considerations &mdash; the time gap</p>
+  <p>A time gap must be kept between the data used for prediction and the event being predicted, so there is time to act. Without a gap, a churn model that fires the day the customer leaves is useless &mdash; the company cannot intervene. With a gap, the model predicts &ldquo;may leave in 30 days&rdquo; using Jan&ndash;March activity, giving the company time to offer discounts or improve service before the customer actually leaves.</p>
+  <p class="sub-h">Measures of success &mdash; classification</p>
+  <p><strong>PCC (Percent Correct Classification)</strong> measures overall accuracy, weighting every error equally. The <strong>confusion matrix</strong> breaks errors down into false alarms and false dismissals and is good for judging the whole population. When only a selected subset of the population will actually be treated (eg only the top-scored leads get a sales call), <strong>Lift, Gain, ROC, and AUC</strong> are used instead, since they measure how well the model ranks a subset.</p>
+  <p class="sub-h">Measures of success &mdash; estimation</p>
+  <p>For continuous targets: <strong>R&sup2;</strong>, average error, <strong>MSE</strong>, median error, average/median absolute error. Average error reveals whether the model is biased positive or negative; absolute error metrics reveal the magnitude of errors regardless of direction.</p>
+  </div></div>
+
+</div>
+
+<!-- ═══════════════════════ UNIT 2 ═══════════════════════ -->
+<div id="panel-u2" class="tab-panel">
+
+  <div class="part-header">
+    <h2>Part A &mdash; Short Answer Questions</h2>
+    <div class="meta">2 Marks Each</div>
+  </div>
+
+  <div class="unit-label">Unit 2 &mdash; Prediction Effect, Deployment &amp; Ethics</div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.01</span><span class="entry-term">Define prediction effect.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">The overall impact, outcomes and changes that occur when predictions are actually used in decision-making. Follows the cycle Prediction &rarr; Decision &rarr; Action &rarr; Outcome &rarr; New Data.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.02</span><span class="entry-term">Differentiate positive and negative prediction effect with one example each.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Positive:</strong> predict student failure &rarr; extra coaching &rarr; student passes. <strong>Negative:</strong> bank predicts default &rarr; rejects every high-risk application &rarr; customer&rsquo;s financial situation worsens because they cannot get credit elsewhere.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.03</span><span class="entry-term">List the steps in deploying a predictive model.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Define problem statement &rarr; data collection &rarr; data cleaning &rarr; data analysis (EDA) &rarr; build model &rarr; validate model &rarr; deployment &rarr; monitor &amp; take action.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.04</span><span class="entry-term">Differentiate batch and real-time deployment.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Batch:</strong> predictions generated periodically on collected data (eg nightly demand forecast). <strong>Real-time:</strong> predictions generated immediately per event (eg fraud check on each transaction).</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.05</span><span class="entry-term">What is edge deployment? Give an example.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">The model runs directly on a device rather than a server &mdash; no network round-trip. Eg: face detection running locally on a CCTV camera or an IoT sensor.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.06</span><span class="entry-term">Name two benefits and two challenges of model deployment.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Benefits:</strong> real-time predictions, scalability, automation. <strong>Challenges:</strong> data quality issues, security &amp; compliance requirements.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.07</span><span class="entry-term">Name any four of the nine factors affecting prediction effect.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Improves decision-making, reduces uncertainty, increases accuracy, minimizes risk. (Also: saves time &amp; cost, enhances efficiency, better customer experience, competitive advantage, supports continuous improvement.)</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.08</span><span class="entry-term">Name any four ethical principles in predictive analytics.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Privacy &amp; data protection, transparency, avoiding bias, informed consent. (Also: human oversight, security &amp; confidentiality, data quality, continuous monitoring/audits.)</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.09</span><span class="entry-term">What does &ldquo;avoiding bias&rdquo; mean as an ethical principle?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Models must not produce unfair outcomes based on gender, caste, race, age or religion. If training data contains bias, the model reproduces it &mdash; so regular bias testing is required to ensure fairness.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.10</span><span class="entry-term">Why is human oversight required even with automated predictive models?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Predictions should not be fully automated for critical decisions &mdash; human experts must review outcomes like medical diagnosis, credit scoring, or legal judgements rather than relying completely on the model.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.11</span><span class="entry-term">List the eight data effects.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Data quality, data quantity, data relevance, data diversity, data timeline, data security &amp; privacy, data integration, data structure.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.12</span><span class="entry-term">What happens when too little data is used to train a model?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Underfitting</strong> &mdash; the model fails to learn the underlying relationship properly, resulting in weak predictions even on training data.</div></div>
+
+  <div class="part-header">
+    <h2>Part B &mdash; Detailed Explanations</h2>
+    <div class="meta">5+ Marks Each</div>
+  </div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.01</span><span class="q-title">Explain the Prediction Effect with the Prediction&ndash;Decision&ndash;Action Cycle</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <p>The prediction effect describes how using predictions in decision-making changes real-world outcomes. A prediction is rarely the end of the story &mdash; it triggers a decision, which triggers an action, which changes the actual outcome, which becomes new data for the next cycle.</p>
+  <div class="diagram-wrap"><div class="diagram-label">Prediction Effect Cycle</div>
+  <svg viewBox="0 0 630 90" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+    <rect x="0"   y="20" width="110" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="55" y="44" text-anchor="middle" fill="#fff" font-size="10">Prediction</text>
+    <rect x="130" y="20" width="110" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="185" y="44" text-anchor="middle" fill="#fff" font-size="10">Decision</text>
+    <rect x="260" y="20" width="110" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="315" y="44" text-anchor="middle" fill="#fff" font-size="10">Action</text>
+    <rect x="390" y="20" width="110" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="445" y="44" text-anchor="middle" fill="#fff" font-size="10">Outcome</text>
+    <rect x="520" y="20" width="110" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="575" y="44" text-anchor="middle" fill="#fff" font-size="10">New Data</text>
+    <line x1="110" y1="40" x2="130" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#arrC)"/>
+    <line x1="240" y1="40" x2="260" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#arrC)"/>
+    <line x1="370" y1="40" x2="390" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#arrC)"/>
+    <line x1="500" y1="40" x2="520" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#arrC)"/>
+    <defs><marker id="arrC" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/></marker></defs>
+  </svg></div>
+  <p><strong>Positive effect example:</strong> a university predicts a student is likely to fail, provides extra coaching, and the student passes &mdash; the prediction led to a good outcome. <strong>Negative effect example:</strong> a bank predicts a customer is likely to default and rejects every such application; if the customer can&rsquo;t get credit elsewhere, their financial situation worsens &mdash; the decision made from the prediction actively harmed the outcome.</p>
+  <p>This matters because PA should be judged not only on prediction accuracy, but on its real-world impact once decisions are actually made from it.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.02</span><span class="q-title">Why Is It Hard to Judge a Prediction&rsquo;s Correctness When the Predicted Event Is Prevented?</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <p>When a prediction triggers a preventive action, the predicted event may never occur &mdash; making it impossible to know for certain whether the prediction was actually correct.</p>
+  <div class="table-wrap"><table><thead><tr><th>Scenario</th><th>Prediction</th><th>Action taken</th><th>Result</th></tr></thead>
+  <tbody>
+  <tr><td>Cybersecurity</td><td>IP address likely to attack</td><td>IP blocked</td><td>Attack never happens &mdash; was the prediction right?</td></tr>
+  <tr><td>Hospital</td><td>Patient high risk of disease</td><td>Extra tests, monitoring, preventive treatment</td><td>Patient stays healthy &mdash; model isn&rsquo;t &ldquo;wrong&rdquo;, intervention worked</td></tr>
+  </tbody></table></div>
+  <p>The sequence Prediction &rarr; Preventive Intervention &rarr; Risk Reduced &rarr; Expected Event Does Not Occur means the absence of the predicted event is not proof the model was wrong &mdash; it may be proof the intervention worked. This is a key nuance examiners like to test.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.03</span><span class="q-title">Explain the Nine Factors Affecting Prediction Effect</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <div class="table-wrap"><table><thead><tr><th>#</th><th>Factor</th><th>Example</th></tr></thead>
+  <tbody>
+  <tr><td>1</td><td>Improves decision-making</td><td>Bank reviews a high-default-risk loan application more carefully before approving</td></tr>
+  <tr><td>2</td><td>Reduces uncertainty</td><td>Supermarket pre-stocks umbrellas before the rainy season instead of guessing</td></tr>
+  <tr><td>3</td><td>Increases accuracy</td><td>ML-based sales forecast beats manual estimate using patterns in historical data</td></tr>
+  <tr><td>4</td><td>Minimizes risk</td><td>Fraud model blocks a suspicious transaction before financial loss occurs</td></tr>
+  <tr><td>5</td><td>Saves time &amp; cost</td><td>Predictive maintenance: failure predicted &rarr; preventive service &rarr; no downtime</td></tr>
+  <tr><td>6</td><td>Enhances efficiency</td><td>Food-delivery app allocates more riders in advance for the 7&ndash;9 PM rush</td></tr>
+  <tr><td>7</td><td>Better customer experience</td><td>E-commerce personalizes recommendations, customers find relevant products faster</td></tr>
+  <tr><td>8</td><td>Competitive advantage</td><td>Airline adjusts ticket prices ahead of a demand spike, beats competitors who react late</td></tr>
+  <tr><td>9</td><td>Supports continuous improvement</td><td>Recommendation model retrained as new ratings and clicks arrive, gets more accurate over time</td></tr>
+  </tbody></table></div>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.04</span><span class="q-title">Explain the Deployment Process and Model Development vs Deployment</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p>Deployment is the process of integrating a trained ML model into a production environment where it processes real-world data and returns predictions.</p>
+  <div class="diagram-wrap"><div class="diagram-label">Deployment Pipeline</div>
+  <svg viewBox="0 0 620 130" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+    <rect x="0"   y="15" width="120" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="60" y="37" text-anchor="middle" fill="#fff" font-size="9">Define Problem</text>
+    <rect x="150" y="15" width="120" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="210" y="37" text-anchor="middle" fill="#fff" font-size="9">Data Collection</text>
+    <rect x="300" y="15" width="120" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="360" y="37" text-anchor="middle" fill="#fff" font-size="9">Data Cleaning</text>
+    <rect x="450" y="15" width="120" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="510" y="37" text-anchor="middle" fill="#fff" font-size="9">Data Analysis</text>
+    <rect x="450" y="80" width="120" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="510" y="102" text-anchor="middle" fill="#fff" font-size="9">Build Model</text>
+    <rect x="300" y="80" width="120" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="360" y="102" text-anchor="middle" fill="#fff" font-size="9">Validate</text>
+    <rect x="150" y="80" width="120" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="210" y="102" text-anchor="middle" fill="#fff" font-size="9">Deployment</text>
+    <rect x="0"   y="80" width="120" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="60" y="102" text-anchor="middle" fill="#fff" font-size="9">Monitor &amp; Act</text>
+    <line x1="120" y1="33" x2="150" y2="33" stroke="#555" stroke-width="1.5" marker-end="url(#arrD)"/>
+    <line x1="270" y1="33" x2="300" y2="33" stroke="#555" stroke-width="1.5" marker-end="url(#arrD)"/>
+    <line x1="420" y1="33" x2="450" y2="33" stroke="#555" stroke-width="1.5" marker-end="url(#arrD)"/>
+    <line x1="510" y1="51" x2="510" y2="80" stroke="#555" stroke-width="1.5" marker-end="url(#arrD)"/>
+    <line x1="450" y1="98" x2="420" y2="98" stroke="#555" stroke-width="1.5" marker-end="url(#arrD)"/>
+    <line x1="300" y1="98" x2="270" y2="98" stroke="#555" stroke-width="1.5" marker-end="url(#arrD)"/>
+    <line x1="150" y1="98" x2="120" y2="98" stroke="#555" stroke-width="1.5" marker-end="url(#arrD)"/>
+    <defs><marker id="arrD" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/></marker></defs>
+  </svg></div>
+  <div class="table-wrap"><table><thead><tr><th>Model Development</th><th>Model Deployment</th></tr></thead>
+  <tbody>
+  <tr><td>Model is built</td><td>Model is put into actual use</td></tr>
+  <tr><td>Uses historical data</td><td>Uses new/real-world data</td></tr>
+  <tr><td>Training and testing</td><td>Prediction and decision-making</td></tr>
+  <tr><td>Mainly experimental</td><td>Production environment</td></tr>
+  <tr><td>Focus on model performance</td><td>Focus on performance + reliability + business impact</td></tr>
+  </tbody></table></div>
+  <p><strong>Real-time example (credit-card fraud):</strong> Transaction &rarr; Data Preprocessing &rarr; Deployed Model &rarr; Fraud Probability 96% &rarr; Transaction Flagged &rarr; Customer Verification.<br>
+  <strong>Batch example (sales forecast):</strong> Daily Sales Data &rarr; Batch Processing &rarr; Prediction Model &rarr; Tomorrow&rsquo;s Demand &rarr; Inventory Planning.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.05</span><span class="q-title">Compare Batch, Real-Time, Edge and Cloud Deployment</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <div class="table-wrap"><table><thead><tr><th>Parameter</th><th>Batch</th><th>Real-time</th><th>Edge</th><th>Cloud</th></tr></thead>
+  <tbody>
+  <tr><td>Data speed</td><td>Slow / periodic</td><td>Very fast</td><td>Very fast</td><td>Fast / very fast</td></tr>
+  <tr><td>Processing</td><td>In batches</td><td>One-by-one</td><td>Locally on device</td><td>On cloud server</td></tr>
+  <tr><td>Decision</td><td>Delayed</td><td>Immediate</td><td>Immediate</td><td>Immediate / near real-time</td></tr>
+  <tr><td>Example</td><td>Daily sales prediction</td><td>Fraud detection</td><td>Face detection on CCTV</td><td>Fraud detection via AWS/Azure</td></tr>
+  </tbody></table></div>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.06</span><span class="q-title">Explain the Ethical Principles and Responsibilities in Predictive Analytics</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <div class="table-wrap"><table><thead><tr><th>Principle</th><th>What it requires</th></tr></thead>
+  <tbody>
+  <tr><td>Privacy &amp; data protection</td><td>Collect only necessary data; follow GDPR-style laws; encrypt storage; limit access to authorized personnel only</td></tr>
+  <tr><td>Transparency</td><td>Explain how and why predictions are made; avoid unexplained &ldquo;black-box&rdquo; systems, especially in healthcare, finance, and education</td></tr>
+  <tr><td>Avoiding bias</td><td>Use unbiased data; test regularly for discrimination by gender, caste, race, age or religion; if training data is biased, the model will reproduce it</td></tr>
+  <tr><td>Informed consent</td><td>Users must know their data is collected and agree to it &mdash; no hidden or unauthorized data usage</td></tr>
+  <tr><td>Human oversight</td><td>Critical decisions (medical diagnosis, credit scoring, legal judgements) must be reviewed by a human expert; don&rsquo;t rely completely on automated prediction</td></tr>
+  <tr><td>Security &amp; confidentiality</td><td>Encryption, access control and secure storage to prevent hacking, data theft and misuse</td></tr>
+  <tr><td>Data quality</td><td>Accurate, complete, up-to-date data; poor data leads to biased, wrong predictions; regular cleaning and updating is necessary</td></tr>
+  <tr><td>Continuous monitoring / audits</td><td>Regularly check accuracy, fairness and prediction drift after deployment; update the model when new data is available</td></tr>
+  </tbody></table></div>
+  <p>Organizations must ensure their models do not cause harm, violate privacy, or create unfair decisions &mdash; this protects individuals from outcomes like unfair loan rejection or unjust hiring decisions.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.07</span><span class="q-title">Explain the Data Effect (Eight Effects)</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <div class="table-wrap"><table><thead><tr><th>Effect</th><th>Key idea</th><th>Example</th></tr></thead>
+  <tbody>
+  <tr><td>1. Data quality</td><td>Clean, correct data &rarr; accurate model; noisy or missing data &rarr; unreliable predictions</td><td>&mdash;</td></tr>
+  <tr><td>2. Data quantity</td><td>Too little &rarr; underfitting; adequate/large dataset &rarr; better learning (but more compute needed)</td><td>&mdash;</td></tr>
+  <tr><td>3. Data relevance</td><td>Irrelevant features add noise and reduce accuracy; only related features should be used</td><td>Shoe size is irrelevant to predicting exam marks; attendance and study hours are relevant</td></tr>
+  <tr><td>4. Data diversity</td><td>Representing all groups reduces bias and improves generalization across different populations</td><td>Face-recognition model trained on one demographic performs poorly on others</td></tr>
+  <tr><td>5. Data timeline</td><td>Outdated data &rarr; outdated predictions; refresh data regularly to match current trends</td><td>5-year-old sales data misses current market patterns</td></tr>
+  <tr><td>6. Data security &amp; privacy</td><td>Secure data builds trust; if customers feel unsafe they won&rsquo;t share data, weakening the model</td><td>Encrypted financial data &rarr; customers share more freely &rarr; better model</td></tr>
+  <tr><td>7. Data integration</td><td>Data from many sources must be integrated cleanly; poor integration causes duplicates and inconsistent formats</td><td>Databases, sensors, logs, and surveys must be merged on a common key</td></tr>
+  <tr><td>8. Data structure</td><td>Structured data (tables, numbers) is easier to process; unstructured data (text, images, audio) requires extra preprocessing</td><td>&mdash;</td></tr>
+  </tbody></table></div>
+  </div></div>
+
+</div>
+
+<!-- ═══════════════════════ UNIT 3 & CNN ═══════════════════════ -->
+<div id="panel-u3" class="tab-panel">
+
+  <div class="part-header">
+    <h2>Part A &mdash; Short Answer Questions</h2>
+    <div class="meta">2 Marks Each</div>
+  </div>
+
+  <div class="unit-label">Unit 3 &mdash; Decision Trees</div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.01</span><span class="entry-term">What is a decision tree used for? Name two ensemble algorithms built on it.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Used for both classification and regression. Ensemble algorithms like <strong>Random Forest</strong> and <strong>XGBoost</strong> combine multiple decision trees to improve accuracy and reduce overfitting.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.02</span><span class="entry-term">Define a pure node.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">A node where all records belong to a single class (eg 100% play cricket, 0% don&rsquo;t). The objective of a decision tree is to reach nodes as pure as possible. A pure node has Gini Impurity = 0.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.03</span><span class="entry-term">Write the formula for Gini and Gini Impurity.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Gini = &Sigma; p<sub>i</sub><sup>2</sup> (sum of squared class probabilities). Gini Impurity = 1 &minus; Gini = 1 &minus; &Sigma; p<sub>i</sub><sup>2</sup>. Value ranges 0&ndash;1; lower means purer. Pick the split with the <strong>lowest</strong> weighted Gini Impurity.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.04</span><span class="entry-term">What does CHAID stand for, and what test does it use?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Chi-square Automatic Interaction Detection.</strong> It selects the feature with the strongest statistical association to the target using the <strong>Chi-square test</strong> &mdash; the variable with the least p-value (highest &chi;&sup2; value) is chosen for splitting.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.05</span><span class="entry-term">What splitting technique is used for a continuous target variable?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Reduction in variance</strong> (used by CART). The split whose children give the lowest weighted average variance is selected &mdash; used for continuous targets like taxi fare or sales amount.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.06</span><span class="entry-term">Write the variance formula used in reduction-in-variance splitting.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Variance = &Sigma;(X &minus; &mu;)&sup2; / n, where X is each data value, &mu; is the mean of the node, and n is the number of observations in that node.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.07</span><span class="entry-term">What happens if no constraint is placed on tree growth?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">The tree grows until every node is pure, fitting the training data at ~100% accuracy &mdash; but this causes <strong>overfitting</strong>: the model memorizes training observations and performs poorly on unseen data.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.08</span><span class="entry-term">Name the four hyperparameters used to control overfitting/underfitting in a DT.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Minimum samples for a node split, minimum samples for a terminal (leaf) node, maximum depth of the tree, maximum number of terminal nodes.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.09</span><span class="entry-term">What is the effect of setting &ldquo;minimum samples per split&rdquo; too high?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Higher values control overfitting, but too high a value causes <strong>underfitting</strong> &mdash; the model can&rsquo;t split enough to learn anything useful from the data.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.10</span><span class="entry-term">What is the effect of setting max_depth too low, eg depth = 1?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">The tree can barely split, so training accuracy itself is poor &mdash; this causes <strong>underfitting</strong>. Too high a depth instead causes overfitting. The correct depth is tuned using validation data.</div></div>
+
+  <div class="part-header">
+    <h2>Part B &mdash; Detailed Explanations</h2>
+    <div class="meta">5+ Marks Each</div>
+  </div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.01</span><span class="q-title">Explain Gini Impurity as a Splitting Criterion, Worked with the Play Cricket Dataset</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p>Gini Impurity measures how mixed a node is. For a node with class probabilities p<sub>1</sub>, p<sub>2</sub>&hellip;, Gini = &Sigma;p<sub>i</sub><sup>2</sup> and <strong>Gini Impurity = 1 &minus; Gini</strong>. A pure node has Gini Impurity = 0; a 50/50 split has the maximum impurity of 0.5. A decision tree evaluates every candidate feature, computes the <strong>weighted</strong> Gini Impurity of the resulting children, and picks the split with the <strong>lowest</strong> weighted impurity.</p>
+  <div class="diagram-wrap"><div class="diagram-label">Pure Node &mdash; Split on &ldquo;Played Cricket Last Year?&rdquo;</div>
+  <svg viewBox="0 0 460 130" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+    <rect x="165" y="10" width="130" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="230" y="32" text-anchor="middle" fill="#fff" font-size="9">20 students, 50% play</text>
+    <rect x="30"  y="85" width="150" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="105" y="103" text-anchor="middle" fill="#fff" font-size="9">No: 10 students, 0% play</text>
+    <rect x="280" y="85" width="150" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="355" y="103" text-anchor="middle" fill="#fff" font-size="9">Yes: 10 students, 100% play</text>
+    <line x1="200" y1="46" x2="120" y2="85" stroke="#555" stroke-width="1.5" marker-end="url(#arrE)"/>
+    <line x1="260" y1="46" x2="345" y2="85" stroke="#555" stroke-width="1.5" marker-end="url(#arrE)"/>
+    <text x="150" y="65" fill="#888" font-size="8">No</text><text x="300" y="65" fill="#888" font-size="8">Yes</text>
+    <defs><marker id="arrE" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/></marker></defs>
+  </svg></div>
+  <p>Both children are pure (Gini Impurity = 0 each) &mdash; this is an ideal split. In practice, features give partial separation:</p>
+  <p class="sub-h">Root node (20 students, 10 play cricket &mdash; 50%)</p>
+  <p>p(play) = 0.5, p(not) = 0.5 &rArr; Gini Impurity = 1 &minus; (0.5&sup2; + 0.5&sup2;) = <strong>0.5</strong> (maximum impurity for a 50/50 split).</p>
+  <div class="table-wrap"><table><thead><tr><th>Split feature</th><th>Child node</th><th>n</th><th>P(play)</th><th>Gini Impurity</th></tr></thead>
+  <tbody>
+  <tr><td rowspan="2">Height</td><td>&lt; 5.5 ft</td><td>8</td><td>0.25</td><td>1&minus;(0.25&sup2;+0.75&sup2;) = 0.375</td></tr>
+  <tr><td>&ge; 5.5 ft</td><td>12</td><td>0.667</td><td>1&minus;(0.667&sup2;+0.333&sup2;) = 0.444</td></tr>
+  <tr><td rowspan="2">Performance in class</td><td>Above average</td><td>14</td><td>0.57</td><td>1&minus;(0.57&sup2;+0.43&sup2;) = 0.49</td></tr>
+  <tr><td>Below average</td><td>6</td><td>0.33</td><td>1&minus;(0.33&sup2;+0.67&sup2;) = 0.44</td></tr>
+  <tr><td rowspan="2">Class</td><td>Class IX</td><td>10</td><td>0.8</td><td>1&minus;(0.8&sup2;+0.2&sup2;) = 0.32</td></tr>
+  <tr><td>Class X</td><td>10</td><td>0.2</td><td>1&minus;(0.2&sup2;+0.8&sup2;) = 0.32</td></tr>
+  </tbody></table></div>
+  <p class="sub-h">Weighted Gini Impurity per feature</p>
+  <div class="table-wrap"><table><thead><tr><th>Feature</th><th>Calculation</th><th>Weighted Gini Impurity</th></tr></thead>
+  <tbody>
+  <tr><td>Performance in class</td><td>(14/20)&times;0.49 + (6/20)&times;0.44</td><td>0.475</td></tr>
+  <tr><td>Class</td><td>(10/20)&times;0.32 + (10/20)&times;0.32</td><td><strong>0.32</strong></td></tr>
+  </tbody></table></div>
+  <div class="rule-box"><p>Lower weighted Gini Impurity = purer split. <strong>Class</strong> (0.32) beats Performance in Class (0.475), so &ldquo;Class&rdquo; is the better first split &mdash; the tree selects the feature with the lowest weighted Gini Impurity among all candidates.</p></div>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.02</span><span class="q-title">Explain the CHAID (Chi-square) Method, Worked with the Play Tennis Dataset</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p>CHAID selects the feature with the strongest statistical association to the target using the Chi-square statistic: <strong>&chi;&sup2; = &Sigma; (O &minus; E)&sup2; / E</strong>, where O is the observed count and E is the expected count (E = row total / 2, assuming Yes/No equally likely).</p>
+  <div class="table-wrap"><table><thead><tr><th>Day</th><th>Outlook</th><th>Temp</th><th>Humidity</th><th>Wind</th><th>Decision</th></tr></thead>
+  <tbody>
+  <tr><td>1</td><td>Sunny</td><td>Hot</td><td>High</td><td>Weak</td><td>No</td></tr>
+  <tr><td>2</td><td>Sunny</td><td>Hot</td><td>High</td><td>Strong</td><td>No</td></tr>
+  <tr><td>3</td><td>Overcast</td><td>Hot</td><td>High</td><td>Weak</td><td>Yes</td></tr>
+  <tr><td>4</td><td>Rain</td><td>Mild</td><td>High</td><td>Weak</td><td>Yes</td></tr>
+  <tr><td>5</td><td>Rain</td><td>Cool</td><td>Normal</td><td>Weak</td><td>Yes</td></tr>
+  <tr><td>6</td><td>Rain</td><td>Cool</td><td>Normal</td><td>Strong</td><td>No</td></tr>
+  <tr><td>7</td><td>Overcast</td><td>Cool</td><td>Normal</td><td>Strong</td><td>Yes</td></tr>
+  <tr><td colspan="6">&hellip; (14 rows total &mdash; 9 Yes, 5 No)</td></tr>
+  </tbody></table></div>
+  <p class="sub-h">Step 1 &mdash; Outlook feature</p>
+  <div class="table-wrap"><table><thead><tr><th>Outlook</th><th>Yes</th><th>No</th><th>Total</th><th>Expected</th><th>&chi;&sup2;(Yes)</th><th>&chi;&sup2;(No)</th></tr></thead>
+  <tbody>
+  <tr><td>Sunny</td><td>2</td><td>3</td><td>5</td><td>2.5</td><td>0.316</td><td>0.316</td></tr>
+  <tr><td>Overcast</td><td>4</td><td>0</td><td>4</td><td>2.0</td><td>1.414</td><td>1.414</td></tr>
+  <tr><td>Rain</td><td>3</td><td>2</td><td>5</td><td>2.5</td><td>0.316</td><td>0.316</td></tr>
+  </tbody></table></div>
+  <p>&chi;&sup2;(Outlook) = 0.316+0.316+1.414+1.414+0.316+0.316 = <strong>4.092</strong></p>
+  <p class="sub-h">Step 2 &mdash; compare against other features</p>
+  <div class="table-wrap"><table><thead><tr><th>Feature</th><th>&chi;&sup2; Value</th></tr></thead>
+  <tbody>
+  <tr><td>Outlook</td><td><strong>4.092</strong></td></tr>
+  <tr><td>Humidity</td><td>3.207</td></tr>
+  <tr><td>Temperature</td><td>2.569</td></tr>
+  <tr><td>Wind</td><td>1.604</td></tr>
+  </tbody></table></div>
+  <div class="rule-box"><p>Higher &chi;&sup2; = stronger association with the target. Since Outlook has the highest value (4.092), <strong>CHAID selects Outlook as the root node</strong> for the first split.</p></div>
+  <p class="sub-h">Steps for developing a CHAID tree</p>
+  <ol>
+    <li>Start with the complete training data at the root node.</li>
+    <li>Check the statistical significance (Chi-square) of every independent variable.</li>
+    <li>The variable with the least p-value (highest &chi;&sup2;) is used to split, creating subsets.</li>
+    <li>Repeat step 3 on each subset until variables are exhausted or not significant at &alpha;, or a stopping criterion is met.</li>
+    <li>Generate business rules for the terminal (leaf) nodes.</li>
+  </ol>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.03</span><span class="q-title">Explain Reduction in Variance for Continuous Targets, Worked with the Play Cricket Dataset</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p>When the target is continuous (or coded numerically, eg Plays Cricket = 1, Does not = 0), CART uses <strong>reduction in variance</strong>: compute the variance of each candidate child node, take the weighted average, and select the split with the <strong>lowest</strong> weighted variance &mdash; lower variance means more homogeneous children.</p>
+  <p>Variance formula: &Sigma;(X&minus;&mu;)&sup2; / n</p>
+  <p class="sub-h">Split on Performance in Class</p>
+  <div class="table-wrap"><table><thead><tr><th>Node</th><th>n</th><th>Mean (&mu;)</th><th>Variance</th></tr></thead>
+  <tbody>
+  <tr><td>Above Average</td><td>14</td><td>(8&times;1+6&times;0)/14 = 0.57</td><td>[8(1&minus;0.57)&sup2;+6(0&minus;0.57)&sup2;]/14 = 0.245</td></tr>
+  <tr><td>Below Average</td><td>6</td><td>(2&times;1+4&times;0)/6 = 0.33</td><td>[2(1&minus;0.33)&sup2;+4(0&minus;0.33)&sup2;]/6 = 0.222</td></tr>
+  </tbody></table></div>
+  <p>Weighted Variance (Performance in Class) = (14/20)&times;0.245 + (6/20)&times;0.222 = <strong>0.238</strong></p>
+  <p class="sub-h">Split on Class</p>
+  <div class="table-wrap"><table><thead><tr><th>Node</th><th>n</th><th>Mean (&mu;)</th><th>Variance</th></tr></thead>
+  <tbody>
+  <tr><td>Class IX</td><td>10</td><td>(8&times;1+2&times;0)/10 = 0.8</td><td>[8(1&minus;0.8)&sup2;+2(0&minus;0.8)&sup2;]/10 = 0.16</td></tr>
+  <tr><td>Class X</td><td>10</td><td>(2&times;1+8&times;0)/10 = 0.2</td><td>[2(1&minus;0.2)&sup2;+8(0&minus;0.2)&sup2;]/10 = 0.16</td></tr>
+  </tbody></table></div>
+  <p>Weighted Variance (Class) = (10/20)&times;0.16 + (10/20)&times;0.16 = <strong>0.16</strong></p>
+  <div class="rule-box"><p><strong>Class</strong> (weighted variance 0.16) beats Performance in Class (0.238) &mdash; lower variance means purer children. Notice this matches the Gini Impurity result on the same dataset &mdash; both criteria often agree on the most informative feature.</p></div>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.04</span><span class="q-title">Explain the Hyperparameters Used to Optimize Decision Tree Performance</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p>An unconstrained tree grows until every leaf is pure, memorizing the training data (100% training accuracy) but overfitting and generalizing poorly. Four hyperparameters balance overfitting against underfitting:</p>
+  <div class="table-wrap"><table><thead><tr><th>Hyperparameter</th><th>Higher value effect</th><th>Too-high value risk</th></tr></thead>
+  <tbody>
+  <tr><td>Min. samples for a node split</td><td>Controls overfitting &mdash; forces more data before any split</td><td>Underfitting &mdash; model doesn&rsquo;t learn enough patterns</td></tr>
+  <tr><td>Min. samples for a terminal (leaf) node</td><td>Controls overfitting &mdash; leaf must hold at least this many records</td><td>Underfitting &mdash; can&rsquo;t split even from the root; parent node becomes leaf</td></tr>
+  <tr><td>Maximum depth of tree</td><td>Higher depth &rarr; more splits &rarr; overfitting risk</td><td>Lower depth &rarr; underfitting (depth = 1 barely learns anything)</td></tr>
+  <tr><td>Maximum number of terminal nodes</td><td>More nodes &rarr; finer partitions &rarr; overfitting risk</td><td>Fewer nodes &rarr; underfitting</td></tr>
+  </tbody></table></div>
+  <p>Setting <strong>depth = 1</strong> is the classic underfitting example: the training data itself isn&rsquo;t modeled well enough to even check accuracy properly. The correct setting is tuned using validation data to sit between the two failure modes &mdash; not too deep and not too shallow.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.05</span><span class="q-title">Explain Overfitting and Underfitting in Decision Trees</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Overfitting</th><th>Underfitting</th></tr></thead>
+  <tbody>
+  <tr><td>Cause</td><td>Tree grows too deep / unconstrained</td><td>Tree too shallow / too constrained</td></tr>
+  <tr><td>Training accuracy</td><td>Very high (up to 100%)</td><td>Low</td></tr>
+  <tr><td>Test / unseen data accuracy</td><td>Poor</td><td>Poor</td></tr>
+  <tr><td>Fix</td><td>Limit depth, raise min. samples per split/leaf</td><td>Relax constraints, allow more splits</td></tr>
+  </tbody></table></div>
+  <p>The goal is a tree that captures genuine patterns without memorizing noise &mdash; controlled using the four hyperparameters above, validated on a held-out dataset.</p>
+  </div></div>
+
+  <div class="part-header">
+    <h2>Part C &mdash; Worked Numerical Problems</h2>
+    <div class="meta">Full Solutions</div>
+  </div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">N.01</span><span class="q-title">Buy Laptop Dataset &mdash; Full Gini and CHAID Solution</span><span class="q-marks">Practice Problem</span></div>
+  <div class="q-body">
+  <div class="table-wrap"><table><thead><tr><th>ID</th><th>Age</th><th>Income</th><th>Student</th><th>Buy Laptop</th></tr></thead>
+  <tbody>
+  <tr><td>1</td><td>Young</td><td>High</td><td>No</td><td>No</td></tr>
+  <tr><td>2</td><td>Young</td><td>Low</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>3</td><td>Middle</td><td>High</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>4</td><td>Senior</td><td>Low</td><td>Yes</td><td>Yes</td></tr>
+  <tr><td>5</td><td>Senior</td><td>High</td><td>No</td><td>No</td></tr>
+  <tr><td>6</td><td>Middle</td><td>Low</td><td>No</td><td>Yes</td></tr>
+  </tbody></table></div>
+  <p class="sub-h">1. Gini Impurity of the root node</p>
+  <p>Buy Laptop: 4 Yes, 2 No out of 6. p(Yes) = 4/6 = 0.667, p(No) = 2/6 = 0.333.<br>
+  Gini Impurity = 1 &minus; (0.667&sup2; + 0.333&sup2;) = 1 &minus; (0.444 + 0.111) = <strong>0.444</strong></p>
+  <p class="sub-h">2. Weighted Gini Impurity for all three features</p>
+  <div class="table-wrap"><table><thead><tr><th>Feature</th><th>Category</th><th>n</th><th>Yes/No</th><th>Gini Impurity</th><th>Weighted Gini Impurity</th></tr></thead>
+  <tbody>
+  <tr><td rowspan="3">Age</td><td>Young</td><td>2</td><td>1 / 1</td><td>1&minus;(0.5&sup2;+0.5&sup2;) = 0.5</td><td rowspan="3">(2/6)(0.5)+(2/6)(0)+(2/6)(0.5) = <strong>0.333</strong></td></tr>
+  <tr><td>Middle</td><td>2</td><td>2 / 0</td><td>0 (pure)</td></tr>
+  <tr><td>Senior</td><td>2</td><td>1 / 1</td><td>0.5</td></tr>
+  <tr><td rowspan="2">Income</td><td>High</td><td>3</td><td>1 / 2</td><td>1&minus;(0.333&sup2;+0.667&sup2;) = 0.444</td><td rowspan="2">(3/6)(0.444)+(3/6)(0) = <strong>0.222</strong></td></tr>
+  <tr><td>Low</td><td>3</td><td>3 / 0</td><td>0 (pure)</td></tr>
+  <tr><td rowspan="2">Student</td><td>Yes</td><td>3</td><td>3 / 0</td><td>0 (pure)</td><td rowspan="2">(3/6)(0)+(3/6)(0.444) = <strong>0.222</strong></td></tr>
+  <tr><td>No</td><td>3</td><td>1 / 2</td><td>0.444</td></tr>
+  </tbody></table></div>
+  <p class="sub-h">3. Which feature will GINI select?</p>
+  <p><strong>Income</strong> and <strong>Student</strong> are tied at 0.222 &mdash; both lower (purer) than Age at 0.333. GINI selects either Income or Student as the first split; Age is clearly the weakest choice.</p>
+  <p class="sub-h">4. Which feature is likely selected by CHAID (Chi-square)?</p>
+  <div class="table-wrap"><table><thead><tr><th>Feature</th><th>&chi;&sup2; calculation</th><th>Total &chi;&sup2;</th></tr></thead>
+  <tbody>
+  <tr><td>Age</td><td>Young: 0 + Middle: 2 + Senior: 0</td><td>2.0</td></tr>
+  <tr><td>Income</td><td>High: 0.333 + Low: 3.0</td><td><strong>3.333</strong></td></tr>
+  <tr><td>Student</td><td>Yes: 3.0 + No: 0.333</td><td><strong>3.333</strong></td></tr>
+  </tbody></table></div>
+  <div class="rule-box"><p>CHAID also finds <strong>Income and Student tied</strong> at the highest &chi;&sup2; (3.333), well above Age (2.0). Both Gini and CHAID agree: Age is the weakest predictor &mdash; a good point to mention explicitly in the exam.</p></div>
+  </div></div>
+
+  <!-- ── CNN Section ── -->
+  <div class="part-header">
+    <h2>3.7 &mdash; Convolutional Neural Networks (CNN)</h2>
+    <div class="meta">Unit 3 continued</div>
+  </div>
+
+  <div class="unit-label">Unit 3.7 &mdash; Convolutional Neural Networks</div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.01</span><span class="entry-term">Why doesn&rsquo;t a plain ANN work well directly on images?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">A plain feed-forward ANN needs a flat 1D input vector, so an image would have to be flattened immediately, destroying spatial structure (which pixels are near which). CNNs slide small filters over the 2D/3D image to preserve and exploit that structure before flattening.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.02</span><span class="entry-term">Define a filter / kernel in a CNN.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">A small matrix (eg 3&times;3, 5&times;5) of learnable weights that slides across the input, computing an element-wise multiply-and-sum at each position to produce one value in the output feature map.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.03</span><span class="entry-term">Write the formula for output size after convolution.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">n&prime; = &lfloor;(n &minus; f + 2p) / s&rfloor; + 1, where n = input size, f = filter size, p = padding, s = stride.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.04</span><span class="entry-term">Differentiate &ldquo;valid&rdquo; and &ldquo;same&rdquo; padding.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Valid:</strong> p = 0, no padding, output shrinks every layer. <strong>Same:</strong> p = (f&minus;1)/2, chosen so output size equals input size &mdash; border pixels are padded with zeros.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.05</span><span class="entry-term">What does stride control?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">How many pixels the filter shifts each step. Stride 1 moves one pixel at a time; stride 2 skips positions and roughly halves the output size, downsampling the feature map.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.06</span><span class="entry-term">What is the purpose of a pooling layer? Does it have learnable parameters?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Pooling downsamples height/width (keeping channels unchanged) to reduce computation and add tolerance to small spatial shifts. It has <strong>no learnable weights</strong> &mdash; nothing in a pooling layer is updated during backpropagation.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.07</span><span class="entry-term">Differentiate softmax and sigmoid as output activations.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body"><strong>Sigmoid:</strong> one output node, value 0&ndash;1, used for binary classification. <strong>Softmax:</strong> one node per class, all outputs sum to 1, used for multi-class classification.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.08</span><span class="entry-term">Why aren&rsquo;t pooling-layer weights updated during backpropagation?</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">Because a pooling layer has no weights or biases to begin with &mdash; it just takes a max or average of a region. Only convolution filter weights and biases (and FC layer weights) are updated during training.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.09</span><span class="entry-term">Write the cross-entropy loss formula.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">L = &minus;&Sigma; y<sub>i</sub> log(&ycirc;<sub>i</sub>), where y is the one-hot true label vector and &ycirc; is the predicted probability vector from softmax.</div></div>
+
+  <div class="short-entry"><div class="entry-head"><span class="entry-num">Q.10</span><span class="entry-term">Write the gradient descent weight-update rule.</span><span class="entry-marks">2 marks</span></div>
+  <div class="entry-body">w<sub>new</sub> = w<sub>old</sub> &minus; &alpha; &middot; &part;L/&part;w (and similarly for bias b), where &alpha; is the learning rate.</div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.01</span><span class="q-title">Explain the CNN Architecture, Layer by Layer</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p>A CNN is built on the same feed-forward idea as an ANN, with a front end designed for spatial data. Convolution and pooling layers repeat to extract features; the result is flattened and passed to fully connected layers for classification.</p>
+  <div class="diagram-wrap"><div class="diagram-label">CNN Pipeline</div>
+  <svg viewBox="0 0 620 170" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+    <rect x="0"   y="20" width="105" height="46" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="52" y="40" text-anchor="middle" fill="#fff" font-size="9">Input</text><text x="52" y="54" text-anchor="middle" fill="#888" font-size="8">32&times;32&times;3</text>
+    <rect x="135" y="20" width="105" height="46" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="187" y="40" text-anchor="middle" fill="#fff" font-size="9">Conv+ReLU</text><text x="187" y="54" text-anchor="middle" fill="#888" font-size="8">extract features</text>
+    <rect x="270" y="20" width="105" height="46" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="322" y="40" text-anchor="middle" fill="#fff" font-size="9">Pooling</text><text x="322" y="54" text-anchor="middle" fill="#888" font-size="8">downsample</text>
+    <rect x="405" y="20" width="90" height="46" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="450" y="40" text-anchor="middle" fill="#fff" font-size="9">Flatten</text><text x="450" y="54" text-anchor="middle" fill="#888" font-size="8">to vector</text>
+    <rect x="515" y="20" width="100" height="46" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/><text x="565" y="40" text-anchor="middle" fill="#fff" font-size="9">FC + Softmax</text><text x="565" y="54" text-anchor="middle" fill="#888" font-size="8">classify</text>
+    <line x1="105" y1="43" x2="135" y2="43" stroke="#555" stroke-width="1.5" marker-end="url(#arrF)"/>
+    <line x1="240" y1="43" x2="270" y2="43" stroke="#555" stroke-width="1.5" marker-end="url(#arrF)"/>
+    <line x1="375" y1="43" x2="405" y2="43" stroke="#555" stroke-width="1.5" marker-end="url(#arrF)"/>
+    <line x1="495" y1="43" x2="515" y2="43" stroke="#555" stroke-width="1.5" marker-end="url(#arrF)"/>
+    <path d="M322,66 C322,100 187,100 187,66" fill="none" stroke="#555" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrF)"/>
+    <text x="230" y="115" fill="#888" font-size="8">repeats several times</text>
+    <defs><marker id="arrF" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/></marker></defs>
+  </svg></div>
+  <div class="table-wrap"><table><thead><tr><th>Layer</th><th>Function</th></tr></thead>
+  <tbody>
+  <tr><td>Convolution</td><td>Slides learnable filters over the input; each filter detects one pattern (edge, texture, shape)</td></tr>
+  <tr><td>ReLU</td><td>Zeros out negative values in the feature map (introduces non-linearity)</td></tr>
+  <tr><td>Pooling (max/avg)</td><td>Shrinks height &amp; width, keeps channel count unchanged; no learnable weights</td></tr>
+  <tr><td>Flatten</td><td>Unrolls the final 3D volume into a 1D vector for the FC layers</td></tr>
+  <tr><td>Fully connected</td><td>Standard ANN layer(s) that learn combinations of the extracted features</td></tr>
+  <tr><td>Softmax / Sigmoid</td><td>Converts final logits into class probabilities for the output</td></tr>
+  </tbody></table></div>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.02</span><span class="q-title">Explain the Convolution Operation with Padding and Stride &mdash; Worked Example</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p>At each filter position, multiply every filter cell by the image cell beneath it and sum the results &mdash; that single number becomes one entry of the output feature map. The filter then slides by the stride amount and repeats.</p>
+  <p>Output size formula: <strong>n&prime; = &lfloor;(n &minus; f + 2p)/s&rfloor; + 1</strong></p>
+  <div class="table-wrap"><table><thead><tr><th>Input n</th><th>Filter f</th><th>Padding p</th><th>Stride s</th><th>Calculation</th><th>Output n&prime;</th></tr></thead>
+  <tbody>
+  <tr><td>6</td><td>3</td><td>0 (valid)</td><td>1</td><td>(6&minus;3+0)/1 + 1 = 4</td><td>4&times;4</td></tr>
+  <tr><td>6</td><td>3</td><td>0</td><td>2</td><td>&lfloor;(6&minus;3+0)/2&rfloor; + 1 = &lfloor;1.5&rfloor;+1</td><td>2&times;2</td></tr>
+  <tr><td>6</td><td>3</td><td>1 (same)</td><td>1</td><td>(6&minus;3+2)/1 + 1 = 6</td><td>6&times;6</td></tr>
+  </tbody></table></div>
+  <p><strong>Same padding</strong> is derived by setting n&prime; = n and solving: p = (f&minus;1)/2. For f = 3, p = 1; for f = 5, p = 2. Padding matters because without it, edge and corner pixels participate in far fewer convolutions than centre pixels, under-representing image borders.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.03</span><span class="q-title">Explain Multi-Channel Convolution (RGB Images, Multiple Filters)</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <p>A colour image is 3D: height &times; width &times; 3 channels (R, G, B). The filter must match that depth &mdash; a &ldquo;3&times;3 filter&rdquo; on an RGB image is really 3&times;3&times;3. Each channel is convolved separately and the three results are summed into a <strong>single</strong> 2D output value per position &mdash; so a 3D input convolved with one 3D filter always collapses to a 2D map (eg 6&times;6&times;3 &circledast; 3&times;3&times;3 &rarr; 4&times;4 single-channel map).</p>
+  <p>One filter only detects one pattern. To detect several patterns simultaneously, a layer uses <strong>multiple filters</strong>, each producing its own 2D map; these maps stack to form the depth of the next layer. Eg: two 3&times;3&times;3 filters on a 6&times;6&times;3 image each give a 4&times;4 map, stacking into a 4&times;4&times;2 volume. <strong>The number of filters in a layer becomes the number of channels in the next layer.</strong> A bias is added per filter, then ReLU is applied element-wise.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.04</span><span class="q-title">Explain Pooling (Max vs Average) with a Worked Example</span><span class="q-marks">5 marks</span></div>
+  <div class="q-body">
+  <p>Pooling slides a small window (commonly 2&times;2, stride 2) over each channel of the feature map independently, taking either the <strong>maximum</strong> or <strong>average</strong> value in the window. Channels stay the same; only height and width shrink.</p>
+  <div class="table-wrap"><table><thead><tr><th>Input (4&times;4)</th><th>Max pool, f=2, s=2</th></tr></thead>
+  <tbody>
+  <tr><td style="font-family:'JetBrains Mono',monospace;white-space:pre;">4  9  2  5
+5  6  2  4
+2  4  5  4
+5  6  8  4</td><td style="font-family:'JetBrains Mono',monospace;white-space:pre;">9  5
+6  8</td></tr>
+  </tbody></table></div>
+  <p>Why pool: (1) reduces computation and memory for later layers, (2) keeps the strongest activation in a region while discarding exact pixel position &mdash; giving tolerance to small translations, (3) has zero learnable weights, so pooling layers are completely skipped during backpropagation weight updates. Unlike conv layers, pooling does not learn to detect features; it simply downsamples what convolution already extracted.</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">Q.05</span><span class="q-title">Explain Loss Computation and Backpropagation in a CNN</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+  <p class="sub-h">Loss functions</p>
+  <div class="table-wrap"><table><thead><tr><th>Loss</th><th>Formula</th><th>Use</th></tr></thead>
+  <tbody>
+  <tr><td>L1 (MAE)</td><td>|y &minus; &ycirc;|</td><td>Regression, robust to outliers</td></tr>
+  <tr><td>L2 (MSE)</td><td>(y &minus; &ycirc;)&sup2;</td><td>Regression, penalizes large errors more heavily</td></tr>
+  <tr><td>Cross-entropy</td><td>&minus;&Sigma; y<sub>i</sub> log(&ycirc;<sub>i</sub>)</td><td>Classification, paired with softmax output</td></tr>
+  </tbody></table></div>
+  <p class="sub-h">Softmax</p>
+  <p>Converts raw logits z<sub>i</sub> into class probabilities: &ycirc;<sub>i</sub> = e<sup>z<sub>i</sub></sup> / &Sigma;<sub>k</sub> e<sup>z<sub>k</sub></sup>. The true label y is one-hot encoded (eg [0,0,1,0] for class 3 of 4) before computing cross-entropy loss.</p>
+  <p class="sub-h">Backpropagation</p>
+  <p>The loss is backpropagated to find &part;L/&part;w and &part;L/&part;b for every learnable weight and bias, then gradient descent updates them:</p>
+  <div class="code-block">w_new = w_old - α · ∂L/∂w
+b_new = b_old - α · ∂L/∂b</div>
+  <p>&alpha; is the learning rate. This updates convolution filter weights, filter biases, and fully-connected layer weights. <strong>Pooling layers have no weights, so nothing in them is touched during backpropagation</strong> &mdash; a favourite short-answer trap question.</p>
+  </div></div>
+
+  <div class="part-header">
+    <h2>3.7 &mdash; Worked Numerical Problems</h2>
+    <div class="meta">CNN Full Solutions</div>
+  </div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">N.02</span><span class="q-title">Output Size and Padding Calculations</span><span class="q-marks">Practice Problem</span></div>
+  <div class="q-body">
+  <p><strong>(a)</strong> Input 6&times;6, filter 3&times;3, stride 1, padding 0 (valid):<br>
+  n&prime; = (6&minus;3+0)/1 + 1 = <strong>4 &rarr; output 4&times;4</strong></p>
+  <p><strong>(b)</strong> Same input/filter, stride 2, padding 0:<br>
+  n&prime; = &lfloor;(6&minus;3+0)/2&rfloor; + 1 = &lfloor;1.5&rfloor; + 1 = <strong>2 &rarr; output 2&times;2</strong></p>
+  <p><strong>(c)</strong> What padding keeps a 5&times;5 filter&rsquo;s output the same size as the input (&ldquo;same&rdquo; padding)?<br>
+  p = (f&minus;1)/2 = (5&minus;1)/2 = <strong>p = 2</strong> (two rings of zero padding around the input)</p>
+  <p><strong>(d)</strong> Input 39&times;39&times;3, filter 3&times;3, stride 1, padding 0, 10 filters:<br>
+  n&prime; = (39&minus;3+0)/1 + 1 = <strong>37 &rarr; output 37&times;37&times;10</strong> (depth = number of filters)</p>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">N.03</span><span class="q-title">Full LeNet-5 Dimension Walkthrough</span><span class="q-marks">Practice Problem</span></div>
+  <div class="q-body">
+  <p>LeNet-5 is the classic worked example connecting every stage of a CNN with real numbers.</p>
+  <div class="table-wrap"><table><thead><tr><th>Layer</th><th>Operation</th><th>Calculation</th><th>Output shape</th></tr></thead>
+  <tbody>
+  <tr><td>Input</td><td>Grayscale image</td><td>&mdash;</td><td>32&times;32&times;1</td></tr>
+  <tr><td>Conv 1</td><td>5&times;5 filter, s=1, p=0, 6 filters</td><td>(32&minus;5)/1+1 = 28</td><td>28&times;28&times;6</td></tr>
+  <tr><td>Avg Pool 1</td><td>2&times;2, s=2</td><td>(28&minus;2)/2+1 = 14</td><td>14&times;14&times;6</td></tr>
+  <tr><td>Conv 2</td><td>5&times;5 filter, s=1, p=0, 16 filters</td><td>(14&minus;5)/1+1 = 10</td><td>10&times;10&times;16</td></tr>
+  <tr><td>Avg Pool 2</td><td>2&times;2, s=2</td><td>(10&minus;2)/2+1 = 5</td><td>5&times;5&times;16</td></tr>
+  <tr><td>Flatten</td><td>5&times;5&times;16</td><td>5&times;5&times;16 = 400</td><td>400</td></tr>
+  <tr><td>FC layers</td><td>Fully connected</td><td>&mdash;</td><td>120 &rarr; 84</td></tr>
+  <tr><td>Output</td><td>Softmax, 10 classes</td><td>&mdash;</td><td>10</td></tr>
+  </tbody></table></div>
+  <div class="rule-box"><p>Pattern to remember: every conv layer shrinks height/width but grows depth (more filters = more channels); every pool layer shrinks height/width further while leaving depth untouched. This contract-in-space, expand-in-depth shape is the signature of every CNN.</p></div>
+  </div></div>
+
+  <div class="q-block"><div class="q-head"><span class="q-num">N.04</span><span class="q-title">Max Pooling Worked Example</span><span class="q-marks">Practice Problem</span></div>
+  <div class="q-body">
+  <p>Input 4&times;4 matrix, f = 2, s = 2, max pooling:</p>
+  <div class="code-block"> 4  9  2  5        9  5
+ 5  6  2  4   →   6  8
+ 2  4  5  4
+ 5  6  8  4</div>
+  <p>Top-left 2&times;2 block {4,9,5,6} &rarr; max = 9. Top-right block {2,5,2,4} &rarr; max = 5. Bottom-left block {2,4,5,6} &rarr; max = 6. Bottom-right block {5,4,8,4} &rarr; max = 8. Output: 2&times;2 matrix [[9,5],[6,8]]. Average pooling on the same blocks would give the mean of each block instead.</p>
+  </div></div>
+
+</div>
+
+<!-- ═══════════════════════ FORMULA SHEET ═══════════════════════ -->
+<div id="panel-formulas" class="tab-panel">
+
+  <div class="part-header">
+    <h2>Quick Reference &mdash; All Formulas</h2>
+    <div class="meta">Units 1&ndash;3</div>
+  </div>
+
+  <div class="unit-label">Unit 1 &mdash; Measures of Success</div>
+  <div class="table-wrap"><table><thead><tr><th>Metric</th><th>Formula / Definition</th></tr></thead>
+  <tbody>
+  <tr><td>PCC</td><td>(Correct predictions / Total predictions) &times; 100</td></tr>
+  <tr><td>Accuracy</td><td>(TP + TN) / (TP + TN + FP + FN)</td></tr>
+  <tr><td>Precision</td><td>TP / (TP + FP)</td></tr>
+  <tr><td>Recall</td><td>TP / (TP + FN)</td></tr>
+  <tr><td>MSE</td><td>(1/n) &Sigma; (y &minus; &ycirc;)&sup2;</td></tr>
+  <tr><td>MAE</td><td>(1/n) &Sigma; |y &minus; &ycirc;|</td></tr>
+  <tr><td>Lift / Gain / ROC / AUC</td><td>Used to rank &amp; score a treated subset rather than the whole population</td></tr>
+  </tbody></table></div>
+
+  <div class="unit-label">Unit 2 &mdash; Deployment Types</div>
+  <div class="table-wrap"><table><thead><tr><th>Type</th><th>Speed</th><th>Use case</th></tr></thead>
+  <tbody>
+  <tr><td>Batch</td><td>Slow / periodic</td><td>Daily sales forecasting, nightly reports</td></tr>
+  <tr><td>Real-time</td><td>Immediate</td><td>Fraud detection, credit scoring per transaction</td></tr>
+  <tr><td>Edge</td><td>Immediate (on device)</td><td>Face detection on CCTV / IoT sensors</td></tr>
+  <tr><td>Cloud</td><td>Fast / near real-time</td><td>Fraud detection via AWS/Azure APIs</td></tr>
+  </tbody></table></div>
+
+  <div class="unit-label">Unit 3 &mdash; Decision Trees</div>
+  <div class="table-wrap"><table><thead><tr><th>Concept</th><th>Formula</th></tr></thead>
+  <tbody>
+  <tr><td>Gini</td><td>&Sigma; p<sub>i</sub><sup>2</sup></td></tr>
+  <tr><td>Gini Impurity</td><td>1 &minus; &Sigma; p<sub>i</sub><sup>2</sup> &nbsp;&mdash; lower = purer; pick lowest weighted value</td></tr>
+  <tr><td>Weighted Gini Impurity</td><td>&Sigma; (n<sub>child</sub>/n<sub>parent</sub>) &times; Gini Impurity(child)</td></tr>
+  <tr><td>Chi-square (CHAID)</td><td>&chi;&sup2; = &Sigma; (O&minus;E)&sup2;/E &nbsp;&mdash; higher = stronger association; pick highest</td></tr>
+  <tr><td>Expected value (CHAID)</td><td>E = category row total / 2</td></tr>
+  <tr><td>Variance</td><td>&Sigma;(X&minus;&mu;)&sup2; / n &nbsp;&mdash; lower weighted variance = better split</td></tr>
+  </tbody></table></div>
+
+  <div class="unit-label">Unit 3.7 &mdash; CNN</div>
+  <div class="table-wrap"><table><thead><tr><th>Concept</th><th>Formula</th></tr></thead>
+  <tbody>
+  <tr><td>Output size (conv/pool)</td><td>n&prime; = &lfloor;(n &minus; f + 2p)/s&rfloor; + 1</td></tr>
+  <tr><td>Same padding</td><td>p = (f&minus;1)/2</td></tr>
+  <tr><td>Softmax</td><td>&ycirc;<sub>i</sub> = e<sup>z<sub>i</sub></sup> / &Sigma;<sub>k</sub> e<sup>z<sub>k</sub></sup></td></tr>
+  <tr><td>Cross-entropy loss</td><td>L = &minus;&Sigma; y<sub>i</sub> log(&ycirc;<sub>i</sub>)</td></tr>
+  <tr><td>L1 loss</td><td>|y &minus; &ycirc;|</td></tr>
+  <tr><td>L2 loss</td><td>(y &minus; &ycirc;)&sup2;</td></tr>
+  <tr><td>Gradient descent update</td><td>w<sub>new</sub> = w<sub>old</sub> &minus; &alpha; &middot; &part;L/&part;w</td></tr>
+  </tbody></table></div>
+
+  <div class="unit-label">Exam-Day Reminders</div>
+  <div class="rule-box"><p><strong>Decision tree tie-break:</strong> if two features give the same weighted Gini / variance / &chi;&sup2;, either is a valid split &mdash; state the tie explicitly rather than guessing one.</p></div>
+  <div class="rule-box"><p><strong>Pooling layers never get updated</strong> in backpropagation &mdash; they have no weights. Only conv filters, biases, and FC weights update.</p></div>
+  <div class="rule-box"><p><strong>Padding rule:</strong> valid = p = 0 (output shrinks), same = p = (f&minus;1)/2 (output stays same size as input).</p></div>
+  <div class="rule-box"><p><strong>Lower is better</strong> for Gini Impurity and Variance. <strong>Higher is better</strong> for Chi-square (&chi;&sup2;).</p></div>
+  <div class="rule-box"><p><strong>Nine prediction effect factors (mnemonic DARIMESCCC):</strong> Decision-making, Accuracy, Risk, Improve, Minimize, Efficiency, Save, Competitive, Continuous improvement, Customer experience.</p></div>
+  <div class="rule-box"><p><strong>Eight ethical principles:</strong> Privacy, Transparency, Bias, Consent, Human oversight, Security, Data quality, Audits.</p></div>
+  <div class="rule-box"><p><strong>Eight data effects:</strong> Quality, Quantity, Relevance, Diversity, Timeline, Security, Integration, Structure.</p></div>
+
+</div>
+
+<footer>Predictive Analytics &middot; C4101 &middot; Mid Term 1 &middot; Units 1&ndash;3 &amp; CNN &middot; Exam Reference</footer>
+
+<script>
+function switchTab(tab) {
+  const tabs = ['u1', 'u2', 'u3', 'formulas'];
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    b.classList.toggle('active', tabs[i] === tab);
+  });
+  tabs.forEach(t => {
+    document.getElementById('panel-' + t).classList.toggle('active', t === tab);
+  });
+}
+</script>
+</body>
+</html>
