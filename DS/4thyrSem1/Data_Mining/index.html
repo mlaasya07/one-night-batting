@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Mining — Units 1, 2 &amp; 3 Complete Exam Key</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #000000;
+    color: #ddd;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header {
+    padding: 64px 0 40px;
+    border-bottom: 2px solid #111;
+    margin-bottom: 48px;
+  }
+  .course-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  header p {
+    font-size: 1rem;
+    color: #aaa;
+    max-width: 580px;
+    font-style: italic;
+  }
+
+  /* tab navigation */
+  .tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #1a1a1a;
+    margin-bottom: 48px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .tab-btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #444;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: 14px 22px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color .2s, border-color .2s;
+  }
+  .tab-btn:hover { color: #aaa; }
+  .tab-btn.active { color: #c0392b; border-bottom-color: #c0392b; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .part-header { margin: 64px 0 32px; }
+  .part-header h2 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .part-header .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c0392b;
+    margin-top: 6px;
+  }
+  .unit-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #666;
+    margin: 40px 0 4px;
+    padding-top: 40px;
+    border-top: 1px solid #1a1a1a;
+  }
+
+  .short-entry {
+    padding: 28px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .short-entry:last-child { border-bottom: none; }
+  .entry-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .entry-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #c0392b;
+    flex-shrink: 0;
+  }
+  .entry-num.star { color: #e8c19a; }
+  .entry-term {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .entry-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .entry-body {
+    font-size: 0.97rem;
+    color: #ccc;
+    line-height: 1.85;
+  }
+
+  .q-block {
+    padding: 40px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .q-block:last-child { border-bottom: none; }
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .q-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #c0392b;
+    flex-shrink: 0;
+  }
+  .q-num.star { color: #e8c19a; }
+  .q-title {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .q-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .q-body p {
+    font-size: 0.97rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+  .q-body p:last-child { margin-bottom: 0; }
+  .sub-h {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #e8c19a;
+    margin: 22px 0 8px;
+  }
+  .q-body ul, .q-body ol {
+    padding-left: 22px;
+    margin: 10px 0 14px;
+  }
+  .q-body li {
+    font-size: 0.97rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 4px;
+  }
+  .q-body li strong { color: #fff; }
+  .entry-body ul, .entry-body ol { padding-left: 22px; margin: 8px 0 10px; }
+  .entry-body li { font-size: 0.95rem; color: #ccc; line-height: 1.75; }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 18px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  table {
+    width: 100%;
+    min-width: 420px;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+  }
+  th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #e8c19a;
+    padding: 10px 14px;
+    text-align: left;
+    border-top: 2px solid #2a2a2a;
+    border-bottom: 1px solid #333;
+    background: #080808;
+  }
+  td {
+    padding: 9px 14px;
+    border-bottom: 1px solid #1a1a1a;
+    color: #bbb;
+    vertical-align: top;
+    font-size: 0.86rem;
+    line-height: 1.6;
+  }
+  tr:last-child td { border-bottom: 2px solid #2a2a2a; }
+  td:first-child { color: #fff; font-weight: 600; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; }
+
+  .code-block {
+    background: #060606;
+    border: 1px solid #222;
+    border-left: 3px solid #c0392b;
+    border-radius: 0 4px 4px 0;
+    padding: 14px 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.76rem;
+    line-height: 1.9;
+    color: #bbb;
+    overflow-x: auto;
+    margin: 14px 0;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rule-box {
+    border-left: 3px solid #333;
+    padding: 12px 18px;
+    margin: 14px 0;
+    background: #060606;
+  }
+  .rule-box p {
+    margin-bottom: 0 !important;
+    font-size: 0.93rem !important;
+    color: #bbb !important;
+  }
+
+  .diagram-wrap {
+    margin: 18px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diagram-wrap svg { display: block; max-width: 100%; height: auto; }
+  .diagram-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 6px;
+  }
+
+  .mem-tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    background: #1a0800;
+    border: 1px solid #5c2900;
+    color: #e8c19a;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin: 4px 4px 4px 0;
+    vertical-align: middle;
+  }
+
+  .star-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: #e8c19a;
+    background: #1a0800;
+    border: 1px solid #5c2900;
+    border-radius: 3px;
+    padding: 10px 16px;
+    margin-bottom: 32px;
+    display: inline-block;
+  }
+
+  footer {
+    border-top: 2px solid #111;
+    padding: 32px 0 48px;
+    margin-top: 64px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #444;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 0 16px; }
+    header { padding: 40px 0 28px; }
+    .part-header { margin: 48px 0 24px; }
+    .q-block, .short-entry { padding: 20px 0; }
+    .entry-marks, .q-marks { display: none; }
+    table { min-width: 360px; }
+    td, th { padding: 7px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="course-code">Data Mining &middot; C4105 &middot; IV B.Tech CSE (Data Science)</div>
+  <h1>Data Mining</h1>
+  <p>Unit 1 &mdash; Introduction, Data Preprocessing &middot; Unit 2 &mdash; Association Analysis &middot; Unit 3 &mdash; Bayesian Classification &mdash; Complete Exam Answer Key</p>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('important')">&#9993; Important Topics (Mids)</button>
+  <button class="tab-btn" onclick="switchTab('partA')">Part A — Short Answers</button>
+  <button class="tab-btn" onclick="switchTab('partB')">Part B — Detailed Answers</button>
+</nav>
+
+<div id="panel-important" class="tab-panel active">
+  <div class="part-header">
+    <h2>&#9993; Important Topics for Mids</h2>
+    <div class="meta">Instructor-Given List &middot; Every Question = 5 Marks &middot; ~300 Words Each</div>
+  </div>
+  <div class="star-note">This is a standalone section, separate from Part A/B below &mdash; each of your instructor's 12 topics answered in full as one self-contained 5-mark response, with tables/diagrams where they help.</div>
+
+<div class="unit-label">Unit 1</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;1</span>
+      <span class="q-title">Basic Definitions: What is Data, Information, Knowledge and Data Mining?</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Data</strong> is raw, unprocessed facts and figures (numbers, text, images, sensor readings) with no context attached. <strong>Information</strong> is data that has been organized/processed to carry meaning (e.g., a sales total). <strong>Knowledge</strong> is the actionable insight or pattern derived from information (e.g., “sales spike every December”).</p><p><strong>Data Mining</strong> is the process of discovering meaningful, previously-unknown patterns, correlations and trends from large volumes of data, using methods drawn from statistics, machine learning and database systems.</p><p class="sub-h">Why “KDD”?</p><p>To refer to extracting gold from rock, we say “gold mining”, not “rock mining”. By the same logic, data mining should really have been called <strong>“knowledge mining from data”</strong> &mdash; shortened, this became <strong>Knowledge Discovery from Data (KDD)</strong>. Many treat the two terms as synonyms; more precisely, data mining is the core pattern-extraction <em>step</em> inside the larger, 7-step KDD process (cleaning &rarr; integration &rarr; selection &rarr; transformation &rarr; mining &rarr; evaluation &rarr; presentation).</p><div class="table-wrap"><table><thead><tr><th>Term</th><th>Nature</th><th>Example</th></tr></thead><tbody><tr><td>Data</td><td>Raw facts, no context</td><td>52, 4, "yes"</td></tr><tr><td>Information</td><td>Processed/organized data</td><td>Average patient age = 52</td></tr><tr><td>Knowledge</td><td>Actionable pattern/insight</td><td>Patients with &le;4 nodes usually survive</td></tr><tr><td>Data Mining</td><td>The extraction process itself</td><td>Applying Apriori to find Diaper&rarr;Beer</td></tr></tbody></table></div><p>This distinction &mdash; data mining as one essential step within the broader KDD pipeline &mdash; is the most commonly tested basic definition in this unit.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;2</span>
+      <span class="q-title">What is Data Mining? What Kinds of Data can be Mined?</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Data mining</strong> is the process of discovering hidden, meaningful patterns and knowledge from large data repositories using statistical, machine-learning and database techniques. It turns a large, information-poor collection of raw data into compact, actionable knowledge &mdash; e.g., Google Flu Trends aggregating search queries to predict flu activity up to two weeks faster than traditional systems.</p><p class="sub-h">Kinds of Data that can be Mined</p><div class="table-wrap"><table><thead><tr><th>Category</th><th>Examples</th></tr></thead><tbody><tr><td>Database-oriented</td><td>Relational databases, data warehouses, transactional databases</td></tr><tr><td>Advanced / complex data</td><td>Data streams &amp; sensor data, time-series/temporal/sequence data, graphs &amp; social networks, spatial &amp; spatiotemporal data</td></tr><tr><td>Heterogeneous data</td><td>Object-relational and legacy databases, multimedia databases</td></tr><tr><td>Text &amp; Web data</td><td>Text databases, the World Wide Web</td></tr></tbody></table></div><p>Data types are also classified by structure: <strong>structured</strong> (tables/rows/columns, e.g., SQL, CSV), <strong>unstructured</strong> (text, images, video with no predefined format), and <strong>semi-structured</strong> (XML, JSON, HTML &mdash; partially organized with tags).</p><p>Modern data mining must therefore span everything from simple flat relational tables to unstructured text, images, and continuously arriving streaming sensor feeds &mdash; each requiring different mining techniques and preprocessing strategies.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;3</span>
+      <span class="q-title">Major Issues in Data Mining</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Data mining faces practical and research challenges commonly grouped into four categories.</p><div class="table-wrap"><table><thead><tr><th>Category</th><th>Key Issues</th></tr></thead><tbody><tr><td>Mining Methodology</td><td>Mining diverse kinds of knowledge; multi-dimensional space mining; handling noise/uncertainty; pattern evaluation; it is inherently interdisciplinary</td></tr><tr><td>User Interaction</td><td>Interactive mining and query refinement; incorporating background/prior knowledge; presentation &amp; visualization of results for non-technical users</td></tr><tr><td>Efficiency &amp; Scalability</td><td>Algorithms must scale to terabyte-sized data; drives parallel, distributed, incremental and stream-mining methods</td></tr><tr><td>Diversity of Data Types &amp; Society</td><td>Handling graphs, networks, spatiotemporal &amp; multimedia data; privacy-preserving mining; social impact of automated pattern discovery</td></tr></tbody></table></div><p>A practical exam-style summary condenses these into seven concerns: <strong>Data Quality</strong> (incomplete/noisy/inconsistent data needs cleaning), <strong>Scalability</strong> (huge datasets), <strong>High Dimensionality</strong> (many attributes slow analysis), <strong>Data Integration</strong> (merging differing formats/sources), <strong>Privacy &amp; Security</strong> (protecting sensitive data), <strong>Dynamic/Streaming Data</strong> (real-time, constantly changing data needs adaptive methods), and <strong>Interpretability</strong> (patterns must be understandable and useful for decisions).</p><p>These issues explain why data mining is inherently interdisciplinary, drawing on statistics, databases, machine learning and domain expertise simultaneously, and why real deployments spend most of their effort on preprocessing and evaluation rather than the mining algorithm itself.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;4</span>
+      <span class="q-title">The Knowledge Discovery (KDD) Process, with an Example</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>The <strong>KDD process</strong> is an iterative sequence of seven steps that transforms raw data into validated, presentable knowledge. Steps 1&ndash;4 together are called <em>data preprocessing</em>.</p><div class="diagram-wrap"><div class="diagram-label">The Seven KDD Steps</div><svg viewBox="0 0 700 110" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9.5px;"><g fill="none" stroke="#555" stroke-width="1.5"><rect x="8" y="35" width="82" height="38" rx="3" stroke="#c0392b"/><rect x="106" y="35" width="82" height="38" rx="3" stroke="#c0392b"/><rect x="204" y="35" width="82" height="38" rx="3" stroke="#c0392b"/><rect x="302" y="35" width="82" height="38" rx="3" stroke="#c0392b"/><rect x="400" y="35" width="82" height="38" rx="3" stroke="#e8c19a"/><rect x="498" y="35" width="92" height="38" rx="3"/><rect x="606" y="35" width="88" height="38" rx="3"/></g><text x="49" y="58" fill="#ccc" text-anchor="middle">Cleaning</text><text x="147" y="58" fill="#ccc" text-anchor="middle">Integration</text><text x="245" y="58" fill="#ccc" text-anchor="middle">Selection</text><text x="343" y="58" fill="#ccc" text-anchor="middle">Transform</text><text x="441" y="58" fill="#e8c19a" text-anchor="middle">Data Mining</text><text x="544" y="58" fill="#ccc" text-anchor="middle">Pat. Eval.</text><text x="650" y="58" fill="#ccc" text-anchor="middle">Presentation</text><g stroke="#444" stroke-width="1"><line x1="90" y1="54" x2="104" y2="54"/><line x1="188" y1="54" x2="202" y2="54"/><line x1="286" y1="54" x2="300" y2="54"/><line x1="384" y1="54" x2="398" y2="54"/><line x1="482" y1="54" x2="496" y2="54"/><line x1="590" y1="54" x2="604" y2="54"/></g><g fill="#444"><path d="M104,54 l-5,-3 l0,6 z"/><path d="M202,54 l-5,-3 l0,6 z"/><path d="M300,54 l-5,-3 l0,6 z"/><path d="M398,54 l-5,-3 l0,6 z"/><path d="M496,54 l-5,-3 l0,6 z"/><path d="M604,54 l-5,-3 l0,6 z"/></g><text x="350" y="20" fill="#666" text-anchor="middle">Steps 1&ndash;4 = Data Preprocessing</text></svg></div><div class="table-wrap"><table><thead><tr><th>#</th><th>Step</th><th>What it does</th></tr></thead><tbody><tr><td>1</td><td>Data Cleaning</td><td>Removes noise and inconsistent data</td></tr><tr><td>2</td><td>Data Integration</td><td>Combines multiple sources into one store</td></tr><tr><td>3</td><td>Data Selection</td><td>Retrieves only task-relevant data</td></tr><tr><td>4</td><td>Data Transformation</td><td>Consolidates/aggregates data for mining</td></tr><tr><td>5</td><td>Data Mining</td><td>Applies algorithms to extract patterns</td></tr><tr><td>6</td><td>Pattern Evaluation</td><td>Filters truly interesting patterns</td></tr><tr><td>7</td><td>Knowledge Presentation</td><td>Visualizes/presents results to users</td></tr></tbody></table></div><p class="sub-h">Worked example: Web Mining</p><p>A search engine cleans raw web logs (step 1), integrates logs from multiple servers (step 2), selects only the clickstream data relevant to a marketing question (step 3), aggregates page visits per session (step 4), mines frequent navigation-path patterns (step 5), filters out trivial paths like the homepage-only visit (step 6), and finally visualizes the top navigation paths for the web team (step 7). Because the process is <em>iterative</em>, a noisy pattern found in step 6 can send the analyst back to step 1 to clean the data further.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;5</span>
+      <span class="q-title">Data Preprocessing: Major Tasks</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Real-world data is dirty &mdash; incomplete, noisy and inconsistent &mdash; and poor-quality data produces poor-quality mining results (“garbage in, garbage out”). Data preprocessing corresponds to the first four steps of KDD and is often the most time-consuming part of a real project.</p><div class="diagram-wrap"><div class="diagram-label">Preprocessing Pipeline</div><svg viewBox="0 0 560 90" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;"><rect x="8" y="28" width="120" height="36" rx="3" fill="none" stroke="#c0392b" stroke-width="1.5"/><rect x="152" y="28" width="120" height="36" rx="3" fill="none" stroke="#c0392b" stroke-width="1.5"/><rect x="296" y="28" width="120" height="36" rx="3" fill="none" stroke="#c0392b" stroke-width="1.5"/><rect x="440" y="28" width="112" height="36" rx="3" fill="none" stroke="#e8c19a" stroke-width="1.5"/><text x="68" y="50" fill="#ccc" text-anchor="middle">Cleaning</text><text x="212" y="50" fill="#ccc" text-anchor="middle">Integration</text><text x="356" y="50" fill="#ccc" text-anchor="middle">Reduction</text><text x="496" y="50" fill="#e8c19a" text-anchor="middle">Transform</text><g stroke="#444"><line x1="128" y1="46" x2="150" y2="46"/><line x1="272" y1="46" x2="294" y2="46"/><line x1="416" y1="46" x2="438" y2="46"/></g><g fill="#444"><path d="M150,46 l-6,-3 l0,6 z"/><path d="M294,46 l-6,-3 l0,6 z"/><path d="M438,46 l-6,-3 l0,6 z"/></g></svg></div><div class="table-wrap"><table><thead><tr><th>Task</th><th>Purpose</th><th>Key Techniques</th></tr></thead><tbody><tr><td>Data Cleaning</td><td>Fill missing values, smooth noise, resolve inconsistencies</td><td>Ignore tuple, mean/class-mean fill, binning, regression, clustering</td></tr><tr><td>Data Integration</td><td>Merge multiple databases/files into one store</td><td>Entity identification, redundancy/correlation checks, conflict resolution</td></tr><tr><td>Data Reduction</td><td>Obtain a smaller-volume representation, same analytical value</td><td>Dimensionality reduction (PCA), numerosity reduction (sampling, histograms), compression</td></tr><tr><td>Data Transformation &amp; Discretization</td><td>Normalize values, bin continuous data, build concept hierarchies</td><td>Min-max/Z-score normalization, equal-width/depth binning</td></tr></tbody></table></div><p>These four tasks are not strictly sequential in practice &mdash; cleaning and integration often iterate together, and the right reduction/transformation strategy depends on which downstream mining algorithm (e.g., Apriori vs. Naïve Bayes) will be applied.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;6</span>
+      <span class="q-title">Data Objects and Attribute Types</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>A <strong>data object</strong> represents an entity in a dataset (also called a sample, instance, or tuple) &mdash; database rows are objects, columns are attributes. Attributes fall into four main types.</p><div class="table-wrap"><table><thead><tr><th>Attribute</th><th>Order?</th><th>Example</th><th>Allowed Operations</th></tr></thead><tbody><tr><td>Nominal</td><td>No</td><td>Blood group (A, B, AB, O)</td><td>=, &ne;, mode</td></tr><tr><td>Binary</td><td>No (2 states)</td><td>Gender (symmetric); Disease Y/N (asymmetric)</td><td>=, &ne;</td></tr><tr><td>Ordinal</td><td>Yes, unequal gaps</td><td>Satisfaction: low/medium/high</td><td>=, &ne;, &lt;, &gt;, median</td></tr><tr><td>Numeric (Interval)</td><td>Yes, no true zero</td><td>Temperature in &deg;C</td><td>All arithmetic, but no valid ratios</td></tr><tr><td>Numeric (Ratio)</td><td>Yes, true zero</td><td>Height, weight, income</td><td>All arithmetic + valid ratios</td></tr></tbody></table></div><p><strong>Symmetric vs asymmetric binary:</strong> in a symmetric binary attribute (e.g., Gender) both outcomes matter equally; in an asymmetric one (e.g., a disease test) the “presence” outcome (usually coded 1) is more significant, so similarity measures like Jaccard deliberately ignore 0-0 (both-absent) matches.</p><p>Independently of this, any attribute can also be <strong>discrete</strong> (finite/countable values, e.g., number of children) or <strong>continuous</strong> (uncountably infinite values in a range, e.g., height = 165.2cm). Correctly identifying the attribute type governs which central-tendency statistic (mode for nominal, median for ordinal, mean for numeric), which similarity measure, and which visualization is valid for that attribute &mdash; a frequent source of tricky exam questions that mix up ordinal vs. interval, or symmetric vs. asymmetric binary.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;7</span>
+      <span class="q-title">Basic Statistical Descriptions of Data</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Basic statistical description summarizes a dataset's <strong>central tendency</strong> (where values cluster) and <strong>dispersion</strong> (how spread out they are) before any deeper mining task.</p><div class="table-wrap"><table><thead><tr><th>Measure</th><th>Formula</th><th>Notes</th></tr></thead><tbody><tr><td>Mean</td><td>x&#772; = (&Sigma;x&#8093;)/n</td><td>Sensitive to outliers</td></tr><tr><td>Median</td><td>Middle value (sorted)</td><td>Robust to outliers</td></tr><tr><td>Mode</td><td>Most frequent value</td><td>Uni/bi/tri-modal</td></tr><tr><td>Range</td><td>Max &minus; Min</td><td>Crude spread measure</td></tr><tr><td>IQR</td><td>Q3 &minus; Q1</td><td>Used for boxplot &amp; outlier fence</td></tr><tr><td>Variance / Std Dev</td><td>(1/(n&minus;1))&Sigma;(x&#8093;&minus;x&#772;)&sup2; / &radic;Variance</td><td>Spread around the mean</td></tr></tbody></table></div><div class="diagram-wrap"><div class="diagram-label">Symmetric vs Skewed Distributions</div><svg viewBox="0 0 500 130" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9.5px;"><path d="M15,115 Q50,15 85,115 T155,115" fill="none" stroke="#666" stroke-width="1.5"/><text x="85" y="128" fill="#aaa" text-anchor="middle">Symmetric: Mean=Median=Mode</text><path d="M185,115 Q205,20 240,50 Q275,80 330,115" fill="none" stroke="#c0392b" stroke-width="1.5"/><text x="255" y="128" fill="#aaa" text-anchor="middle">+Skew: Mean&gt;Median&gt;Mode</text><path d="M355,115 Q380,80 415,50 Q450,20 470,115" fill="none" stroke="#e8c19a" stroke-width="1.5"/><text x="412" y="128" fill="#aaa" text-anchor="middle">&minus;Skew: Mean&lt;Median&lt;Mode</text></svg></div><p>The <strong>five-number summary</strong> (Min, Q1, Median, Q3, Max) is displayed as a <strong>boxplot</strong>: the box spans Q1&ndash;Q3, the median is a line inside it, whiskers reach the min/max within 1.5&times;IQR of the box edges, and anything beyond that is plotted as an individual <em>outlier</em>. For a normal distribution, the <strong>68-95-99.7 rule</strong> says &mu;&plusmn;&sigma; covers ~68% of data, &mu;&plusmn;2&sigma; covers ~95%, and &mu;&plusmn;3&sigma; covers ~99.7% &mdash; commonly used to flag statistical outliers.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 2</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;8</span>
+      <span class="q-title">Market Basket Analysis: The Apriori Algorithm and FP-Growth</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Market Basket Analysis</strong> finds items frequently bought together (e.g., Diaper&rarr;Beer) to guide store layout, catalog design and cross-marketing. It relies on:</p><div class="code-block">Support(X-&gt;Y)    = (transactions with X and Y) / (total transactions)
+Confidence(X-&gt;Y) = (transactions with X and Y) / (transactions with X)</div><p>An itemset is <strong>frequent</strong> if its support &ge; minsup; a rule is <strong>strong</strong> if it meets both minsup and minconf.</p><p class="sub-h">Apriori</p><p>Uses the <strong>Apriori (downward-closure) property</strong>: every subset of a frequent itemset must itself be frequent, so any candidate with an infrequent subset is pruned before even scanning the DB. It works level-wise: find L1, self-join &amp; prune to get C2, scan DB to get L2, and so on until Lk is empty &mdash; requiring <em>k scans</em> for max pattern length k.</p><p class="sub-h">FP-Growth</p><p>Avoids candidate generation entirely. It compresses the database into a compact <strong>FP-tree</strong> (built from an F-list of items sorted by descending frequency) in just two scans, then mines it recursively via <em>conditional pattern bases</em> and <em>conditional FP-trees</em>, growing long patterns directly from short ones.</p><div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Apriori</th><th>FP-Growth</th></tr></thead><tbody><tr><td>Search</td><td>Breadth-first, level-wise</td><td>Depth-first, divide-and-conquer</td></tr><tr><td>Candidates</td><td>Explicitly generated &amp; tested</td><td>None &mdash; grown from conditional trees</td></tr><tr><td>DB scans</td><td>One per level (k scans)</td><td>Exactly two, total</td></tr><tr><td>Speed</td><td>Slower on dense/long-pattern data</td><td>Typically an order of magnitude faster</td></tr></tbody></table></div><p>Both rely on the same anti-monotone Apriori property, but exploit it differently &mdash; Apriori prunes before counting; FP-Growth only ever grows from combinations already known to be locally frequent.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;9</span>
+      <span class="q-title">From Association Analysis to Correlation Analysis</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Support and confidence alone can be <strong>misleading</strong>: a rule can look “strong” purely because its consequent is popular overall, not because the items are truly related.</p><p class="sub-h">Classic example (AllElectronics, 10,000 transactions)</p><div class="code-block">6,000 buy games, 7,500 buy videos, 4,000 buy both
+Confidence(game-&gt;video) = 4000/6000 = 66.7%  (looks strong)
+But baseline P(video) = 7500/10000 = 75% &gt; 66.7%
+=&gt; game and video are actually NEGATIVELY correlated</div><p class="sub-h">Correlation Measures</p><div class="table-wrap"><table><thead><tr><th>Measure</th><th>Formula</th><th>Interpretation</th></tr></thead><tbody><tr><td>Lift</td><td>P(A&cup;B) / (P(A)&times;P(B))</td><td>&gt;1 positive, =1 independent, &lt;1 negative correlation</td></tr><tr><td>Chi-Square (&chi;&sup2;)</td><td>Compares observed vs expected contingency-table counts</td><td>Large &chi;&sup2; &rArr; correlated; sign of the gap shows direction</td></tr><tr><td>All-Confidence</td><td>sup(A&cup;B) / max(sup(A),sup(B))</td><td>Null-invariant (unaffected by transactions with neither item)</td></tr><tr><td>Kulczynski</td><td>&frac12;[P(A|B)+P(B|A)]</td><td>Null-invariant; often paired with the Imbalance Ratio</td></tr></tbody></table></div><p>Lift for the example above = 0.4/(0.6&times;0.75) = 0.89 &lt; 1, confirming the negative correlation the raw confidence hid. Because lift and &chi;&sup2; are distorted by “null transactions” (those containing neither item, which dominate large sparse datasets), <strong>null-invariant</strong> measures such as all-confidence, cosine and Kulczynski are generally preferred for correlation analysis on real-world retail data.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;10</span>
+      <span class="q-title">Multilevel and Multidimensional Association Rules</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Multilevel Association Rules</p><p>Items naturally form <strong>concept hierarchies</strong> (Skim Milk &rarr; 2% Milk &rarr; Milk), and multilevel mining finds rules across these levels.</p><div class="diagram-wrap"><div class="diagram-label">Concept Hierarchy</div><svg viewBox="0 0 380 110" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;"><text x="190" y="22" fill="#fff" text-anchor="middle">Milk (support=10%)</text><line x1="190" y1="28" x2="110" y2="60" stroke="#555"/><line x1="190" y1="28" x2="270" y2="60" stroke="#555"/><text x="110" y="75" fill="#e8c19a" text-anchor="middle">2% Milk (6%)</text><text x="270" y="75" fill="#e8c19a" text-anchor="middle">Skim Milk (4%)</text><text x="190" y="100" fill="#666" text-anchor="middle">Uniform min_sup=5% vs Reduced min_sup=3% at level 2</text></svg></div><div class="table-wrap"><table><thead><tr><th>Approach</th><th>Rule</th><th>Trade-off</th></tr></thead><tbody><tr><td>Uniform Support</td><td>Same min-support at every level</td><td>Simple, but may miss rare low-level patterns</td></tr><tr><td>Reduced Support</td><td>Lower min-support at deeper levels</td><td>Captures specific patterns; needs level-cross filtering to stay efficient</td></tr><tr><td>Group-based Support</td><td>Expert-defined threshold per item/group</td><td>Focuses on commercially important rare items</td></tr></tbody></table></div><p class="sub-h">Multidimensional Association Rules</p><p>A <strong>single-dimensional</strong> rule repeats one predicate (buys(X,milk)&rArr;buys(X,bread)). A <strong>multidimensional</strong> rule spans &ge;2 predicates:</p><div class="table-wrap"><table><thead><tr><th>Type</th><th>Definition</th><th>Example</th></tr></thead><tbody><tr><td>Inter-dimension</td><td>No repeated predicate</td><td>age(X,"19-25") &and; occupation(X,"student") &rArr; buys(X,"coke")</td></tr><tr><td>Hybrid-dimension</td><td>Repeated predicate</td><td>age(X,"19-25") &and; buys(X,"popcorn") &rArr; buys(X,"coke")</td></tr></tbody></table></div><p><strong>Categorical</strong> attributes (finite, unordered) use a data-cube counting approach; <strong>quantitative</strong> attributes (numeric, ordered) must first be discretized &mdash; statically (fixed ranges) or dynamically (grid-based, adjusted to the data distribution) &mdash; before mining.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 3</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;11</span>
+      <span class="q-title">Naive Bayes Classification</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Bayes' Theorem</strong> gives the posterior probability of a class C given evidence X:</p><div class="code-block">P(C|X) = P(X|C) * P(C) / P(X)     [posterior = likelihood x prior / evidence]</div><p>The <strong>Naïve Bayes classifier</strong> adds a simplifying (“naïve”) assumption: all attributes are <em>conditionally independent</em> given the class, so:</p><div class="code-block">P(X|Ci) = P(x1|Ci) * P(x2|Ci) * ... * P(xn|Ci)
+Predict Ci that maximizes  P(X|Ci) * P(Ci)</div><p class="sub-h">Mini worked example</p><p>For X = (age&le;30, income=medium, student=yes, credit=fair) on the standard buys_computer dataset: P(yes)=0.643, P(no)=0.357. Multiplying the four class-conditional probabilities gives P(X|yes)=0.044 and P(X|no)=0.019; multiplying by the priors gives 0.028 vs 0.007 &mdash; so the classifier predicts <strong>buys_computer = yes</strong>.</p><div class="table-wrap"><table><thead><tr><th>Feature</th><th>Detail</th></tr></thead><tbody><tr><td>Zero-probability problem</td><td>One zero conditional probability wipes out the entire product</td></tr><tr><td>Fix: Laplacian correction</td><td>Add 1 to every count, add (#categories) to the denominator</td></tr><tr><td>Advantages</td><td>Fast, simple, needs only one pass, works well on high-dimensional text data</td></tr><tr><td>Disadvantages</td><td>Conditional-independence assumption rarely holds exactly in practice</td></tr></tbody></table></div><p>When attribute dependencies matter too much to ignore, <strong>Bayesian Belief Networks</strong> generalize Naïve Bayes by explicitly modelling a graph of dependencies, trading its speed/simplicity for accuracy.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">&#9993;12</span>
+      <span class="q-title">Supervised vs Unsupervised Learning</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Supervised learning</strong> trains on <em>labelled</em> data (input + known output) to learn a mapping X&rarr;Y usable on new inputs; performance is measured directly against true labels. <strong>Unsupervised learning</strong> works on <em>unlabelled</em> data, discovering hidden structure without any “correct answer” to learn from.</p><div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Supervised</th><th>Unsupervised</th></tr></thead><tbody><tr><td>Data</td><td>Labelled (X, Y)</td><td>Unlabelled (X only)</td></tr><tr><td>Goal</td><td>Predict Y for new X</td><td>Discover structure/groupings in X</td></tr><tr><td>Feedback</td><td>Direct error vs true label</td><td>No ground truth; internal criteria only</td></tr><tr><td>Tasks</td><td>Classification, Regression</td><td>Clustering, Association Rule Mining, Outlier detection</td></tr><tr><td>Algorithms (this syllabus)</td><td>Na&iuml;ve Bayes (Unit 3)</td><td>Apriori/FP-Growth (Unit 2), k-Means/DBSCAN (Unit 4)</td></tr><tr><td>Evaluation</td><td>Accuracy, Precision, Recall, F1, RMSE</td><td>Silhouette score, intra/inter-cluster distance</td></tr></tbody></table></div><p>A third category, <strong>semi-supervised learning</strong>, mixes a small labelled set with abundant unlabelled data (useful when labelling is expensive, e.g., medical images). <strong>Reinforcement learning</strong> is a separate paradigm again, where an agent learns from rewards/penalties through interacting with an environment rather than from a fixed dataset. Recognizing which category an algorithm from this syllabus belongs to (e.g., Naïve Bayes = supervised classification; Apriori = unsupervised pattern discovery) is a common short-answer exam question.</p>
+    </div>
+  </div>
+
+</div>
+<!-- end Important Topics panel -->
+
+<div id="panel-partA" class="tab-panel">
+  <div class="part-header">
+    <h2>Part A — Short Answer Questions</h2>
+    <div class="meta">2 Marks Each &middot; ~100&ndash;150 Words Each</div>
+  </div>
+  <div class="star-note">&#9993; marked questions correspond to topics also covered in the Important Topics tab</div>
+
+<div class="unit-label">Unit 1 &mdash; Introduction to Data Mining &amp; the KDD Process</div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.1</span>
+      <span class="entry-term">Define Data Mining. Why is it also called Knowledge Discovery from Data (KDD)?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Data Mining</strong> is the process of discovering meaningful patterns, correlations, trends and useful knowledge from large volumes of data using methods drawn from statistics, machine learning and database systems.<br><br>It is called <em>Knowledge Discovery from Data (KDD)</em> because the literal name "data mining" only describes one step (extracting patterns); the fuller process actually mines <em>knowledge</em> out of raw data, the way gold mining extracts gold from rock &mdash; hence "knowledge mining from data" is the more accurate but longer name.<div class="code-block">Raw Data  --&gt; Cleaning --&gt; Integration --&gt; Selection --&gt; Transformation
+          --&gt; Data Mining --&gt; Pattern Evaluation --&gt; Knowledge Presentation</div>Data mining turns a large, information-poor collection of data into compact, actionable knowledge (e.g., Google Flu Trends predicting flu activity two weeks faster using aggregated search queries).
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.2</span>
+      <span class="entry-term">Differentiate between Data Mining and KDD.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Aspect</th><th>KDD</th><th>Data Mining</th></tr></thead><tbody><tr><td>Scope</td><td>The entire iterative process (7 steps)</td><td>One specific step within KDD</td></tr><tr><td>Function</td><td>Cleaning, integration, selection, transformation, mining, evaluation, presentation</td><td>Applying algorithms to extract patterns</td></tr><tr><td>Output</td><td>Validated, presented knowledge</td><td>Raw discovered patterns</td></tr><tr><td>Relation</td><td>Superset</td><td>Subset (the core analytical step)</td></tr></tbody></table></div>In practice the two terms are often used interchangeably, but strictly, data mining is the pattern-extraction engine inside the larger KDD pipeline.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.3</span>
+      <span class="entry-term">List the seven steps of the Knowledge Discovery (KDD) process.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      The KDD process is an <strong>iterative sequence</strong> of seven steps, the first four of which are collectively called data preprocessing:<div class="table-wrap"><table><thead><tr><th>Step</th><th>Task</th></tr></thead><tbody><tr><td>1</td><td>Data Cleaning &mdash; remove noise and inconsistent data</td></tr><tr><td>2</td><td>Data Integration &mdash; combine multiple data sources</td></tr><tr><td>3</td><td>Data Selection &mdash; retrieve data relevant to the task</td></tr><tr><td>4</td><td>Data Transformation &mdash; consolidate into forms fit for mining</td></tr><tr><td>5</td><td>Data Mining &mdash; apply intelligent methods to extract patterns</td></tr><tr><td>6</td><td>Pattern Evaluation &mdash; identify truly interesting patterns</td></tr><tr><td>7</td><td>Knowledge Presentation &mdash; visualize and present mined knowledge</td></tr></tbody></table></div>The data-mining step may interact with the user or a knowledge base, and the resulting patterns can be stored back as new knowledge.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.4</span>
+      <span class="entry-term">What are Data Mining Functionalities? Classify them broadly.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Data Mining Functionalities specify the <strong>kind of knowledge</strong> to be mined and are broadly split into two categories:<br><br><strong>Descriptive functions</strong> &mdash; summarize the general properties of data: <em>Characterization/Generalization, Association &amp; Correlation Analysis, Classification (descriptive use), Clustering,</em> and <em>Summarization.</em><br><br><strong>Predictive functions</strong> &mdash; build models to forecast unknown values: <em>Classification (predictive), Regression,</em> and <em>Time-series/Sequential Pattern Analysis.</em><br><br>Outlier Analysis is a related functionality that flags data objects deviating from the general behaviour of the dataset.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.5</span>
+      <span class="entry-term">What are the different Kinds of Patterns mined in Data Mining?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Pattern Type</th><th>What it finds</th><th>Example</th></tr></thead><tbody><tr><td>Association</td><td>Co-occurring items</td><td>Tea &rarr; Sugar</td></tr><tr><td>Classification</td><td>Assigns data to predefined classes</td><td>Spam / Not-spam</td></tr><tr><td>Clustering</td><td>Groups similar data, no labels</td><td>Market segments</td></tr><tr><td>Sequential</td><td>Order of events over time</td><td>Phone &rarr; Cover &rarr; Charger</td></tr><tr><td>Regression</td><td>Predicts continuous values</td><td>Temperature forecast</td></tr><tr><td>Outlier/Anomaly</td><td>Rare or abnormal points</td><td>Fraudulent transaction</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.6</span>
+      <span class="entry-term">List the Major Issues in Data Mining.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Major issues fall into four broad groups:<br><br><strong>Mining Methodology</strong> &mdash; mining diverse kinds of knowledge, multi-dimensional space mining, handling noise/uncertainty, pattern evaluation.<br><strong>User Interaction</strong> &mdash; interactive mining, incorporating background knowledge, visualization of results.<br><strong>Efficiency &amp; Scalability</strong> &mdash; algorithm scalability, parallel/distributed/incremental mining.<br><strong>Diversity of Data Types &amp; Society</strong> &mdash; handling complex/networked data, privacy-preserving mining, social impact.<br><br>In short: data quality, scalability, high dimensionality, integration, privacy/security, dynamic data, and interpretability of results are the practical concerns exam questions usually probe.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.7</span>
+      <span class="entry-term">What kinds of data can be mined? Give categories with one example each.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Category</th><th>Examples</th></tr></thead><tbody><tr><td>Database-oriented</td><td>Relational databases, data warehouses, transactional databases</td></tr><tr><td>Advanced/complex</td><td>Data streams, sensor data, time-series, spatial &amp; spatiotemporal data</td></tr><tr><td>Structured/graph</td><td>Object-relational DBs, social networks, multi-linked graphs</td></tr><tr><td>Heterogeneous</td><td>Legacy databases, multimedia databases</td></tr><tr><td>Text &amp; Web</td><td>Text databases, the World Wide Web</td></tr></tbody></table></div>Modern data mining thus spans everything from simple flat tables to unstructured text, images and streaming sensor feeds.
+    </div>
+  </div>
+
+<div class="unit-label">Data Objects, Attribute Types &amp; Kinds of Data</div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.8</span>
+      <span class="entry-term">What is a Data Object? Give examples from different domains.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>data object</strong> represents an entity in a dataset &mdash; it is also called a sample, example, instance, data point or tuple. Data objects are described by <em>attributes</em>, where database rows correspond to objects and columns correspond to attributes.<br><br><div class="table-wrap"><table><thead><tr><th>Domain</th><th>Data Objects</th></tr></thead><tbody><tr><td>Sales database</td><td>Customers, store items, sales</td></tr><tr><td>Medical database</td><td>Patients, treatments</td></tr><tr><td>University database</td><td>Students, professors, courses</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.9</span>
+      <span class="entry-term">Define Nominal Attribute with examples.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>nominal attribute</strong> is categorical: its values are names or labels with <em>no meaningful order</em>. Only equality (=) and inequality (&ne;) can be checked, and category frequency can be counted, but values cannot be ranked or averaged.<br><br><strong>Examples:</strong> Gender (male, female), Colour (red, blue, green), Blood Group (A, B, AB, O), City (Delhi, Mumbai, Chennai).<br><br>Even if coded numerically (e.g., 1 = male, 2 = female), the numbers carry no mathematical meaning &mdash; arithmetic on them is invalid.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.10</span>
+      <span class="entry-term">Define Binary Attribute. Distinguish symmetric and asymmetric binary attributes.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>binary attribute</strong> has exactly two states, typically coded 0/1, True/False, or Yes/No.<br><br><div class="table-wrap"><table><thead><tr><th>Type</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td>Symmetric</td><td>Both outcomes are equally important/valuable</td><td>Gender (male/female)</td></tr><tr><td>Asymmetric</td><td>One outcome (usually 1) is more significant than the other</td><td>Disease test (1 = positive, 0 = negative)</td></tr></tbody></table></div>For asymmetric attributes, similarity measures (like the Jaccard coefficient) deliberately ignore the 0-0 (both-absent) matches since they carry little information.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.11</span>
+      <span class="entry-term">Define Ordinal Attribute with examples.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      An <strong>ordinal attribute</strong> has values with a meaningful <em>order or rank</em>, but the intervals between successive values are not necessarily equal or meaningful.<br><br><strong>Examples:</strong> Education level (primary &lt; secondary &lt; graduate &lt; postgraduate), Satisfaction (unsatisfied &lt; neutral &lt; satisfied), Size (small &lt; medium &lt; large).<br><br>Allowed operations are comparisons (=, &ne;, &lt;, &gt;), computing median/mode, and frequency counts; values can be mapped to ranks for further analysis, but arithmetic mean is not strictly valid.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.12</span>
+      <span class="entry-term">Define Numeric Attribute. Differentiate Interval-scaled and Ratio-scaled attributes.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>numeric attribute</strong> is quantitative and measurable, supporting full arithmetic (+, &minus;, &times;, &divide;) and statistics (mean, variance, correlation).<br><br><div class="table-wrap"><table><thead><tr><th>Type</th><th>True Zero?</th><th>Example</th></tr></thead><tbody><tr><td>Interval</td><td>No &mdash; zero does not mean "absence"</td><td>Temperature in &deg;C / &deg;F</td></tr><tr><td>Ratio</td><td>Yes &mdash; zero means absence of quantity</td><td>Height, weight, age, income</td></tr></tbody></table></div>Because ratio-scaled data has a true zero, statements like "20kg is twice as heavy as 10kg" are valid; the same ratio statement is meaningless for interval-scaled temperature (20&deg;C is not "twice as hot" as 10&deg;C).
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.13</span>
+      <span class="entry-term">Differentiate Discrete and Continuous attributes with examples.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Discrete Attribute</th><th>Continuous Attribute</th></tr></thead><tbody><tr><td>Values</td><td>Finite or countably infinite</td><td>Infinite, uncountable, within a range</td></tr><tr><td>Nature</td><td>Often integers/categories</td><td>Measurable physical quantities</td></tr><tr><td>Can be</td><td>Nominal, ordinal or numeric</td><td>Usually numeric</td></tr><tr><td>Examples</td><td>Number of children, zip codes, product category</td><td>Height (165.2cm), Temperature (37.6&deg;C), Time (3.15s)</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.14</span>
+      <span class="entry-term">Differentiate the four types of attributes (Nominal, Binary, Ordinal, Numeric) in one comparison table.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Attribute</th><th>Order?</th><th>Allowed Operations</th><th>Example</th></tr></thead><tbody><tr><td>Nominal</td><td>No</td><td>=, &ne;, mode</td><td>Colour, Blood group</td></tr><tr><td>Binary</td><td>No (2 states only)</td><td>=, &ne;</td><td>Gender, Disease (Y/N)</td></tr><tr><td>Ordinal</td><td>Yes, but unequal gaps</td><td>=, &ne;, &lt;, &gt;, median</td><td>Rating: low/medium/high</td></tr><tr><td>Numeric</td><td>Yes, equal/meaningful gaps</td><td>All arithmetic + statistics</td><td>Age, Income, Height</td></tr></tbody></table></div>This four-way distinction is the foundation for choosing the correct dissimilarity measure and the correct central-tendency statistic (mode for nominal, median for ordinal, mean for numeric).
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.15</span>
+      <span class="entry-term">What are the important characteristics of Structured Data?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Characteristic</th><th>Meaning</th></tr></thead><tbody><tr><td>Dimensionality</td><td>Number of attributes; the "curse of dimensionality" makes analysis harder as it grows</td></tr><tr><td>Sparsity</td><td>Only presence of non-zero values matters (e.g., market-basket data)</td></tr><tr><td>Resolution</td><td>Patterns depend on the scale at which data is examined</td></tr><tr><td>Distribution</td><td>Centrality and dispersion of attribute values</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="unit-label">Basic Statistical Descriptions of Data</div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.16</span>
+      <span class="entry-term">Define Mean, Median and Mode with formulas.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Measure</th><th>Formula / Rule</th><th>Notes</th></tr></thead><tbody><tr><td>Mean</td><td>x&#772; = (&Sigma;x&#8093;) / n</td><td>Sensitive to outliers</td></tr><tr><td>Median</td><td>Middle value (sorted); avg. of two middles if n is even</td><td>Robust to outliers</td></tr><tr><td>Mode</td><td>Most frequently occurring value</td><td>Can be unimodal, bimodal, trimodal</td></tr></tbody></table></div>Empirical relation for moderately skewed data: <strong>Mean &minus; Mode &asymp; 3 &times; (Mean &minus; Median)</strong>, i.e. Mode &asymp; 3&times;Median &minus; 2&times;Mean.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.17</span>
+      <span class="entry-term">Define Range, Variance and Standard Deviation.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Measure</th><th>Formula</th></tr></thead><tbody><tr><td>Range</td><td>Max &minus; Min</td></tr><tr><td>Variance (s&sup2;)</td><td>(1/(n&minus;1)) &Sigma;(x&#8093; &minus; x&#772;)&sup2;</td></tr><tr><td>Std. Deviation (s)</td><td>&radic;(Variance)</td></tr></tbody></table></div>Variance and standard deviation measure spread around the mean; a small SD means values cluster tightly around the mean, while a large SD indicates high variability. Population versions use N and &mu;, &sigma; instead of n and x&#772;, s.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.18</span>
+      <span class="entry-term">What is the Five-Number Summary? How is a Boxplot constructed from it?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      The <strong>Five-Number Summary</strong> is: Minimum, Q1 (25th percentile), Median, Q3 (75th percentile), Maximum.<br><br>A <strong>boxplot</strong> is built as: the box spans Q1 to Q3 (height = IQR = Q3&minus;Q1), a line inside marks the Median, and whiskers extend to the Min/Max &mdash; any point beyond 1.5&times;IQR from the box edges is plotted individually as an <em>outlier</em>.<div class="code-block">|-------[   |     ]--------|
+Min     Q1  Median Q3       Max
+        &lt;----- IQR -----&gt;</div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.19</span>
+      <span class="entry-term">Explain Symmetric vs Positively/Negatively Skewed data with a diagram.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      In a <strong>symmetric</strong> distribution, Mean = Median = Mode. Skew occurs when the tail stretches to one side.<div class="diagram-wrap"><div class="diagram-label">Skewness of Data Distribution</div><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;"><path d="M20,150 Q60,20 100,150 T180,150" fill="none" stroke="#666" stroke-width="1.5"/><text x="100" y="165" fill="#aaa" text-anchor="middle">Symmetric</text><path d="M210,150 Q230,30 270,60 Q310,90 370,150" fill="none" stroke="#c0392b" stroke-width="1.5"/><text x="290" y="165" fill="#aaa" text-anchor="middle">Positive skew (tail right)</text><path d="M400,150 Q430,90 470,60 Q510,30 530,150" fill="none" stroke="#e8c19a" stroke-width="1.5"/><text x="465" y="165" fill="#aaa" text-anchor="middle">Negative skew (tail left)</text></svg></div><div class="table-wrap"><table><thead><tr><th>Skew Type</th><th>Tail Direction</th><th>Mean vs Median vs Mode</th></tr></thead><tbody><tr><td>Symmetric</td><td>None</td><td>Mean = Median = Mode</td></tr><tr><td>Positive (right)</td><td>Long tail on right</td><td>Mean &gt; Median &gt; Mode</td></tr><tr><td>Negative (left)</td><td>Long tail on left</td><td>Mean &lt; Median &lt; Mode</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.20</span>
+      <span class="entry-term">State the 68-95-99.7 rule of the Normal Distribution curve.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      For a normal (Gaussian) distribution with mean &mu; and standard deviation &sigma;:<div class="table-wrap"><table><thead><tr><th>Range</th><th>Data Covered</th></tr></thead><tbody><tr><td>&mu; &minus; &sigma; to &mu; + &sigma;</td><td>&asymp; 68%</td></tr><tr><td>&mu; &minus; 2&sigma; to &mu; + 2&sigma;</td><td>&asymp; 95%</td></tr><tr><td>&mu; &minus; 3&sigma; to &mu; + 3&sigma;</td><td>&asymp; 99.7%</td></tr></tbody></table></div>This is the classic <em>68-95-99.7 rule</em>, widely used to judge whether a value is a statistical outlier (commonly, anything beyond 3&sigma; is treated as extreme).
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.21</span>
+      <span class="entry-term">What is Kurtosis? Differentiate high and low kurtosis.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Kurtosis</strong> measures the "peakedness" or tailedness of a probability distribution relative to a normal distribution.<br><br><div class="table-wrap"><table><thead><tr><th>Kurtosis</th><th>Shape</th><th>Interpretation</th></tr></thead><tbody><tr><td>High</td><td>Sharp, narrow peak, heavy tails</td><td>More outliers than normal (leptokurtic)</td></tr><tr><td>Low</td><td>Flat, wide shape</td><td>Fewer outliers, thin tails (platykurtic)</td></tr></tbody></table></div>Kurtosis is often analysed alongside skewness to fully characterize the shape of a data distribution before choosing a statistical model.
+    </div>
+  </div>
+
+<div class="unit-label">Data Visualization</div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.22</span>
+      <span class="entry-term">Why is Data Visualization important? List the categories of visualization methods.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Data visualization maps data onto graphical primitives to gain insight, provide a qualitative overview of large datasets, search for patterns/trends/irregularities, and find good parameters for further quantitative analysis.<br><br><strong>Categories:</strong><div class="table-wrap"><table><thead><tr><th>Category</th><th>Examples</th></tr></thead><tbody><tr><td>Pixel-oriented</td><td>One window per dimension; colour encodes value</td></tr><tr><td>Geometric projection</td><td>Scatterplot matrices, parallel coordinates, landscapes</td></tr><tr><td>Icon-based</td><td>Chernoff faces, stick figures</td></tr><tr><td>Hierarchical</td><td>Dimensional stacking, tree-maps, cone trees</td></tr><tr><td>Complex data/relations</td><td>Tag clouds, social-network graphs</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.23</span>
+      <span class="entry-term">Differentiate Histogram and Boxplot as visualization tools.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Histogram</th><th>Boxplot</th></tr></thead><tbody><tr><td>Shows</td><td>Full frequency distribution as adjacent bars</td><td>Five-number summary only</td></tr><tr><td>Value encoded by</td><td>Area of the bar (not height, for unequal widths)</td><td>Position of box edges/whiskers</td></tr><tr><td>Detects</td><td>Multi-modality, exact shape of distribution</td><td>Outliers, spread, symmetry at a glance</td></tr><tr><td>Limitation</td><td>Two datasets with the same 5-number summary can still look identical in a boxplot</td><td>Hides multi-modal shape a histogram would reveal</td></tr></tbody></table></div>Hence the slide note: "Histograms often tell more than boxplots" &mdash; two very differently-shaped distributions can share an identical boxplot.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.24</span>
+      <span class="entry-term">What is a Quantile-Quantile (Q-Q) Plot?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>Q-Q plot</strong> graphs the quantiles of one univariate distribution against the corresponding quantiles of another, to check whether there is a systematic <em>shift</em> between the two distributions.<br><br><strong>Example (from slides):</strong> plotting unit price quantiles of Branch 1 against Branch 2 shows that Branch 1's prices are consistently lower at every quantile &mdash; a parallel-but-shifted line pattern.<br><br>A <em>Quantile plot</em> (single distribution) instead pairs each sorted value x&#8093; with f&#8093;, the fraction of data &le; x&#8093;.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.25</span>
+      <span class="entry-term">What is a Scatter Plot? How do positively and negatively correlated data appear on it?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      A <strong>scatter plot</strong> treats each pair of attribute values as (x, y) coordinates and plots them as points, giving a first look at bivariate relationships, clusters, and outliers.<br><br><div class="table-wrap"><table><thead><tr><th>Pattern</th><th>Appearance</th><th>Meaning</th></tr></thead><tbody><tr><td>Positively correlated</td><td>Points trend upward left-to-right</td><td>As X increases, Y increases</td></tr><tr><td>Negatively correlated</td><td>Points trend downward left-to-right</td><td>As X increases, Y decreases</td></tr><tr><td>Uncorrelated</td><td>Random scatter, no trend</td><td>No linear relationship</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.26</span>
+      <span class="entry-term">Briefly explain Pixel-oriented and Icon-based visualization techniques.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Pixel-oriented:</strong> for m dimensions, m separate windows are created; each record's m values are mapped to m pixels (one per window) whose colour encodes the value &mdash; useful for very large, high-dimensional datasets. Pixels can also be laid out in circle segments to save space.<br><br><strong>Icon-based (e.g., Chernoff Faces):</strong> maps data dimensions onto features of an icon &mdash; e.g., eyebrow slant, eye size, nose length &mdash; so a human can visually compare many records at once by comparing "faces". Stick-figures similarly map two attributes to axes and the rest to limb angle/length.
+    </div>
+  </div>
+
+<div class="unit-label">Measuring Data Similarity and Dissimilarity</div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.27</span>
+      <span class="entry-term">Differentiate Similarity and Dissimilarity.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Similarity</th><th>Dissimilarity</th></tr></thead><tbody><tr><td>Meaning</td><td>Numerical measure of how alike two objects are</td><td>Numerical measure of how different two objects are</td></tr><tr><td>Value trend</td><td>Higher when objects are more alike</td><td>Lower when objects are more alike</td></tr><tr><td>Typical range</td><td>[0, 1]</td><td>Minimum often 0; upper limit varies</td></tr></tbody></table></div>Both are referred to collectively as <em>proximity</em> measures, and the choice of measure depends on the attribute type (nominal, binary, numeric, ordinal, or mixed).
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.28</span>
+      <span class="entry-term">How is proximity measured for Nominal attributes?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Method 1 &mdash; Simple Matching:</strong> d(i, j) = (p &minus; m) / p, where p is the total number of nominal attributes and m is the number that match between objects i and j.<br><br><strong>Method 2 &mdash; Binary encoding:</strong> create a new asymmetric binary attribute for each of the M possible nominal states, then apply binary-attribute dissimilarity measures.<br><br>Nominal proximity only checks equality/inequality since the values carry no order.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.29</span>
+      <span class="entry-term">Define the Jaccard Coefficient for asymmetric binary attributes.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      For two objects with asymmetric binary attributes, define a contingency table of counts q (1-1 matches), r (1-0), s (0-1), t (0-0).<div class="code-block">Jaccard similarity:  J(i,j) = q / (q + r + s)
+Asymmetric distance: d(i,j) = (r + s) / (q + r + s)</div>The Jaccard coefficient <em>deliberately ignores</em> the t (0-0, both-absent) count because, for asymmetric attributes such as disease presence, agreeing on absence is not informative. Jaccard is equivalent to what the slides call "coherence".
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.30</span>
+      <span class="entry-term">Define Minkowski Distance and name its three special cases.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      The <strong>Minkowski distance</strong> between p-dimensional objects i and j is:<div class="code-block">d(i,j) = ( |x_i1-x_j1|^h + |x_i2-x_j2|^h + ... + |x_ip-x_jp|^h ) ^ (1/h)</div><div class="table-wrap"><table><thead><tr><th>h value</th><th>Name</th></tr></thead><tbody><tr><td>h = 1</td><td>Manhattan / City-block (L1 norm)</td></tr><tr><td>h = 2</td><td>Euclidean (L2 norm)</td></tr><tr><td>h &rarr; &infin;</td><td>Supremum (L&infin; / Chebyshev, max attribute difference)</td></tr></tbody></table></div>A valid Minkowski distance satisfies positive definiteness, symmetry, and the triangle inequality, qualifying it as a true metric.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.31</span>
+      <span class="entry-term">Define Cosine Similarity. When is it preferred over Euclidean distance?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Cosine similarity</strong> measures the angle between two vectors, ignoring their magnitude:<div class="code-block">cos(d1, d2) = (d1 . d2) / (||d1|| * ||d2||)</div>It is preferred for high-dimensional, sparse data such as document term-frequency vectors, because it captures orientation/direction (topical similarity) rather than raw magnitude (document length). Applications include information retrieval, gene-feature mapping, and text mining.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num">A.32</span>
+      <span class="entry-term">What is Z-score standardization? Give the formula.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Z-score</strong> standardizes a raw value X using the population mean &mu; and standard deviation &sigma;:<div class="code-block">z = (X - mu) / sigma</div>It expresses the distance of a raw score from the mean in units of standard deviation &mdash; negative when below the mean, positive when above. A more robust alternative uses the <em>mean absolute deviation</em> instead of &sigma;, which is less sensitive to outliers.
+    </div>
+  </div>
+
+<div class="unit-label">Data Preprocessing</div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.33</span>
+      <span class="entry-term">Why do we need to preprocess data? List the dimensions of Data Quality.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Real-world data is dirty &mdash; incomplete, noisy, and inconsistent &mdash; and poor-quality data produces poor-quality mining results ("garbage in, garbage out"). Preprocessing improves accuracy and efficiency of mining.<br><br><div class="table-wrap"><table><thead><tr><th>Quality Dimension</th><th>Question it Answers</th></tr></thead><tbody><tr><td>Accuracy</td><td>Is the data correct or wrong?</td></tr><tr><td>Completeness</td><td>Is anything missing/unrecorded?</td></tr><tr><td>Consistency</td><td>Are records contradictory or dangling?</td></tr><tr><td>Timeliness</td><td>Is the data updated on time?</td></tr><tr><td>Believability</td><td>How trustworthy is the data?</td></tr><tr><td>Interpretability</td><td>How easily can the data be understood?</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.34</span>
+      <span class="entry-term">List the Major Tasks in Data Preprocessing.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Task</th><th>Purpose</th></tr></thead><tbody><tr><td>Data Cleaning</td><td>Fill missing values, smooth noise, remove outliers, resolve inconsistencies</td></tr><tr><td>Data Integration</td><td>Merge multiple databases, cubes or files</td></tr><tr><td>Data Reduction</td><td>Reduce dimensionality, numerosity, or apply compression</td></tr><tr><td>Data Transformation &amp; Discretization</td><td>Normalize values; generate concept hierarchies</td></tr></tbody></table></div>These four correspond exactly to the first four steps of the KDD process.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.35</span>
+      <span class="entry-term">How is Missing Data handled? List the main methods.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Method</th><th>Description</th></tr></thead><tbody><tr><td>Ignore the tuple</td><td>Common when the class label is missing; poor if missing-rate is high</td></tr><tr><td>Manual fill-in</td><td>Accurate but tedious/infeasible at scale</td></tr><tr><td>Global constant</td><td>e.g., fill with “Unknown”</td></tr><tr><td>Attribute mean</td><td>Fill with the overall mean of that attribute</td></tr><tr><td>Class-wise mean</td><td>Fill with the mean for tuples of the same class (smarter)</td></tr><tr><td>Most probable value</td><td>Inference via regression, Bayesian formula, or decision tree</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.36</span>
+      <span class="entry-term">How is Noisy Data handled? Explain Binning briefly.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Noise</strong> is random error or variance in a measured variable. Four common ways to handle it:<br><br><strong>Binning</strong> &mdash; sort the data, partition into bins, then smooth by bin mean, bin median, or bin boundaries.<br><strong>Regression</strong> &mdash; smooth data by fitting it to a regression function.<br><strong>Clustering</strong> &mdash; group similar values and treat far-away points as outliers to be removed.<br><strong>Combined computer + human inspection</strong> &mdash; flag suspicious values for manual review.<div class="code-block">Sorted prices: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34
+Equal-frequency bins of size 4:
+ Bin 1: 4, 8, 9, 15   Bin 2: 21,21,24,25   Bin 3: 26,28,29,34
+Smoothed by bin mean:
+ Bin 1: 9,9,9,9       Bin 2: 23,23,23,23   Bin 3: 29,29,29,29</div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.37</span>
+      <span class="entry-term">What is Data Integration? Define the Entity Identification Problem.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Data Integration</strong> combines data from multiple databases, data cubes, or files into one coherent store.<br><br>The <strong>Entity Identification Problem</strong> arises when matching equivalent real-world entities from different sources &mdash; e.g., "cust_id" in one database vs "customer_number" in another may refer to the same attribute, requiring metadata comparison to avoid duplication or schema conflicts. Integration also involves detecting redundancy/correlation between attributes and resolving data-value conflicts (e.g., different units of measurement).
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.38</span>
+      <span class="entry-term">List Data Reduction strategies with one line each.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Strategy</th><th>Idea</th></tr></thead><tbody><tr><td>Dimensionality reduction</td><td>Remove irrelevant attributes (e.g., PCA, attribute subset selection, wavelet transform)</td></tr><tr><td>Numerosity reduction</td><td>Replace data with smaller representation (histograms, clustering, sampling, regression)</td></tr><tr><td>Data compression</td><td>Encode data in compressed form (lossless/lossy)</td></tr><tr><td>Data cube aggregation</td><td>Summarize data at a higher abstraction level</td></tr></tbody></table></div>The goal is to obtain a reduced representation that is much smaller in volume but yields the same (or nearly the same) analytical results.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.39</span>
+      <span class="entry-term">Differentiate Min-Max Normalization and Z-score Normalization with formulas.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Method</th><th>Formula</th><th>Range</th></tr></thead><tbody><tr><td>Min-Max</td><td>v' = (v-min_A)/(max_A-min_A) * (new_max-new_min) + new_min</td><td>Fixed, e.g. [0,1]</td></tr><tr><td>Z-score</td><td>v' = (v &minus; &mu;) / &sigma;</td><td>Unbounded, mean 0, SD 1</td></tr></tbody></table></div><strong>Worked example:</strong> Income range $12,000&ndash;$98,000 normalized to [0,1]: $73,000 &rarr; (73000&minus;12000)/(98000&minus;12000) = 0.716. For Z-score with &mu;=54,000, &sigma;=16,000: z = (73000&minus;54000)/16000 = 1.225.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.40</span>
+      <span class="entry-term">Differentiate Equal-width and Equal-depth (frequency) Binning.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Equal-Width</th><th>Equal-Depth (Frequency)</th></tr></thead><tbody><tr><td>Rule</td><td>W = (Max&minus;Min)/N, uniform interval size</td><td>Each bin holds &asymp; same number of samples</td></tr><tr><td>Simplicity</td><td>Most straightforward</td><td>Better data scaling</td></tr><tr><td>Weakness</td><td>Outliers dominate, handles skewed data poorly</td><td>Categorical attributes can be tricky to bin</td></tr></tbody></table></div>Both are unsupervised, top-down splitting methods; clustering-based discretization typically produces better-quality bins than either simple binning strategy.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.41</span>
+      <span class="entry-term">What is Concept Hierarchy Generation for Nominal Data?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Concept hierarchy generation</strong> organizes attribute values into levels of abstraction (e.g., city &rarr; state &rarr; country), letting mining algorithms discover patterns at multiple granularities. It is a form of discretization for categorical data, and is typically generated by specifying a partial ordering of attributes explicitly, or automatically based on the number of distinct values per attribute (fewer distinct values &rarr; higher level of the hierarchy).
+    </div>
+  </div>
+
+<div class="unit-label">Unit 2 &mdash; Association Analysis: Basic Concepts</div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.42</span>
+      <span class="entry-term">What is Market Basket Analysis? Give a real-world example.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Market Basket Analysis</strong> analyzes customer buying habits by finding items frequently placed together in a "shopping basket", revealing associations between products.<br><br><strong>Example:</strong> if customers buying milk also frequently buy bread, a retailer can place bread near milk (to boost combined sales) or at opposite ends of the store (to make customers walk past other items). It also guides catalog design, cross-marketing, and sale-campaign planning &mdash; e.g., discounting printers to boost computer sales when the two are bought together.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.43</span>
+      <span class="entry-term">Define Support and Confidence of an association rule X &rarr; Y.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="code-block">Support(X-&gt;Y)    = P(X and Y) = (transactions containing X and Y) / (total transactions)
+Confidence(X-&gt;Y) = P(Y|X)     = (transactions containing X and Y) / (transactions containing X)</div><strong>Example:</strong> If Beer&rarr;Diaper has support 60% and confidence 100% over 5 transactions, it means 60% of all transactions contain both, and every transaction with beer also contains diapers. A rule is <em>strong</em> only if it meets both a minimum support and a minimum confidence threshold.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.44</span>
+      <span class="entry-term">What is a Frequent Itemset? When is an itemset called "frequent"?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      An <strong>itemset</strong> is a set of one or more items (a k-itemset has k items). Its <em>absolute support</em> (support count) is how many transactions contain it; its <em>relative support</em> is the fraction of transactions containing it.<br><br>An itemset X is called <strong>frequent</strong> if its support is no less than a chosen <em>minsup</em> threshold. Frequent itemsets are the building blocks from which strong association rules are later generated.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.45</span>
+      <span class="entry-term">State the Apriori Property (downward-closure property).</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="rule-box"><p>If an itemset is <strong>infrequent</strong>, all of its supersets must also be infrequent &mdash; equivalently, every subset of a frequent itemset must itself be frequent.</p></div>This <em>anti-monotone</em> property lets Apriori prune the search space aggressively: once a candidate itemset is found to have a non-frequent subset, it is discarded immediately without even scanning the database, dramatically reducing the number of candidates that must be tested.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.46</span>
+      <span class="entry-term">List methods used to improve the efficiency of the Apriori algorithm.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Method</th><th>Idea</th></tr></thead><tbody><tr><td>Hash-based counting</td><td>A k-itemset whose hash bucket count is below threshold cannot be frequent</td></tr><tr><td>Transaction reduction</td><td>Drop transactions containing no frequent k-itemset from later scans</td></tr><tr><td>Partitioning</td><td>An itemset frequent in DB must be frequent in at least one partition</td></tr><tr><td>Sampling</td><td>Mine a data subset with a lowered support threshold</td></tr><tr><td>Dynamic itemset counting</td><td>Add new candidates only once all their subsets are estimated frequent</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.47</span>
+      <span class="entry-term">What is Lift? How does it help detect meaningful associations?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Lift</strong> is the ratio of the observed support of X and Y together to the support expected if X and Y were statistically independent:<div class="code-block">Lift(X-&gt;Y) = Support(X and Y) / (Support(X) * Support(Y))</div><div class="table-wrap"><table><thead><tr><th>Lift Value</th><th>Meaning</th></tr></thead><tbody><tr><td>&gt; 1</td><td>Positive association &mdash; items co-occur more than by chance</td></tr><tr><td>= 1</td><td>Independence &mdash; no real association</td></tr><tr><td>&lt; 1</td><td>Negative association &mdash; items co-occur less than expected</td></tr></tbody></table></div>Lift addresses the key limitation that support and confidence alone can be misleading (a high-confidence rule can still be a spurious/negatively-correlated pattern) &mdash; this is exactly why Correlation Analysis supplements plain Association Analysis.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.48</span>
+      <span class="entry-term">Differentiate Uniform Support and Reduced Support in multilevel association rule mining.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Approach</th><th>Rule</th><th>Drawback</th></tr></thead><tbody><tr><td>Uniform Support</td><td>Same min-support threshold used at every concept-hierarchy level</td><td>May miss meaningful low-level, low-frequency associations if set too high</td></tr><tr><td>Reduced Support</td><td>Lower min-support threshold for deeper (more specific) levels</td><td>More complex search; needs level-by-level or level-cross filtering strategies</td></tr><tr><td>Group-based Support</td><td>Expert-defined threshold per item/group of interest</td><td>Requires domain expertise to set correctly</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 2 &mdash; From Association Analysis to Correlation Analysis</div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.49</span>
+      <span class="entry-term">Why is Correlation Analysis needed in addition to Support and Confidence? Give the classic games-videos example.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      Support and confidence alone can generate <strong>misleading</strong> rules: a rule can have high confidence purely because the consequent itself is very popular, not because the two items are truly related.<br><br><strong>Classic example (AllElectronics, 10,000 transactions):</strong> 6,000 buy computer games, 7,500 buy videos, 4,000 buy both.<br><div class="code-block">Rule: game -&gt; video
+Support = 4000/10000 = 40%
+Confidence = 4000/6000 = 66.7%   (looks strong!)
+
+But P(video) = 7500/10000 = 75% &gt; 66.7%
+=&gt; buying a game actually LOWERS the chance of buying video
+=&gt; game and video are NEGATIVELY correlated, despite the 'strong' rule</div>Hence <em>correlation measures</em> (lift, all-confidence, cosine, Kulczynski) are used alongside support-confidence to filter out such spurious rules.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.50</span>
+      <span class="entry-term">Define the Lift and Chi-Square (&chi;&sup2;) correlation measures for association rules.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="code-block">Lift(A,B) = P(A U B) / (P(A) * P(B))</div><div class="table-wrap"><table><thead><tr><th>Lift</th><th>Meaning</th></tr></thead><tbody><tr><td>&gt; 1</td><td>A and B positively correlated (occur together more than chance)</td></tr><tr><td>= 1</td><td>A and B independent</td></tr><tr><td>&lt; 1</td><td>A and B negatively correlated</td></tr></tbody></table></div>For the games-videos example: Lift = 0.4/(0.6&times;0.75) = 0.89 &lt; 1, confirming negative correlation despite 66.7% confidence.<br><br>The <strong>&chi;&sup2; test</strong> compares observed vs expected counts in a contingency table of A, B, &not;A, &not;B; a large &chi;&sup2; value (checked against a critical value) indicates A and B are correlated, and the sign of (observed &minus; expected) for the (A,B) cell shows whether the correlation is positive or negative.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.51</span>
+      <span class="entry-term">Define All-Confidence and the Kulczynski measure. What is null-invariance?</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="code-block">all_conf(A,B) = sup(A U B) / max(sup(A), sup(B))
+Kulc(A,B)     = 1/2 * [ P(A|B) + P(B|A) ]</div>A correlation measure is <strong>null-invariant</strong> if its value does not change when the number of transactions containing <em>neither</em> A nor B (the "null" transactions) changes &mdash; important because null transactions usually dominate large sparse datasets and can distort measures like lift and &chi;&sup2;.<br><br>All-confidence, Kulczynski and cosine are null-invariant, so they are preferred over lift/&chi;&sup2; for large transactional databases. Kulczynski is often used together with the <em>Imbalance Ratio (IR)</em> IR(A,B) = |sup(A)&minus;sup(B)| / (sup(A)+sup(B)&minus;sup(AB)) to judge whether A and B occur with similar frequency.
+    </div>
+  </div>
+
+<div class="unit-label">Unit 3 &mdash; Supervised vs Unsupervised Learning</div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.52</span>
+      <span class="entry-term">Define Supervised Learning with examples.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Supervised learning</strong> trains a model on <em>labelled</em> data &mdash; each training example has a known input (features) and a known correct output (class label or numeric target) &mdash; so the algorithm learns a mapping X &rarr; Y that it can apply to new, unseen inputs.<br><br><strong>Examples:</strong> Na&iuml;ve Bayes, Decision Trees, k-NN and SVM for <em>classification</em> (spam/not-spam, disease/no-disease); Linear/Logistic Regression for <em>regression</em> (predicting price, temperature).<br><br>Because the "correct answers" are known during training, model performance can be directly measured using accuracy, precision, recall, etc., against the true labels.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.53</span>
+      <span class="entry-term">Define Unsupervised Learning with examples.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <strong>Unsupervised learning</strong> works on <em>unlabelled</em> data &mdash; there is no predefined class label or target output &mdash; and the algorithm must discover hidden structure, groupings, or patterns in the data on its own.<br><br><strong>Examples:</strong> k-Means and Hierarchical Clustering (grouping customers into segments), Association Rule Mining/Apriori (finding co-occurring items), PCA and Outlier Analysis.<br><br>Since there is no ground truth, performance is judged with internal criteria such as intra-cluster similarity and inter-cluster dissimilarity, rather than accuracy against known labels.
+    </div>
+  </div>
+
+<div class="short-entry">
+    <div class="entry-head">
+      <span class="entry-num star">✱A.54</span>
+      <span class="entry-term">Differentiate Supervised and Unsupervised Learning in a table.</span>
+      <span class="entry-marks">2M</span>
+    </div>
+    <div class="entry-body">
+      <div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Supervised Learning</th><th>Unsupervised Learning</th></tr></thead><tbody><tr><td>Training data</td><td>Labelled (input + known output)</td><td>Unlabelled (input only)</td></tr><tr><td>Goal</td><td>Learn a mapping to predict labels for new data</td><td>Discover hidden structure/groupings</td></tr><tr><td>Feedback</td><td>Direct (error vs true label)</td><td>No direct feedback / ground truth</td></tr><tr><td>Typical tasks</td><td>Classification, Regression</td><td>Clustering, Association Rule Mining, Outlier detection</td></tr><tr><td>Example algorithm</td><td>Na&iuml;ve Bayes, Decision Tree, SVM</td><td>k-Means, Apriori, PCA</td></tr><tr><td>Evaluation</td><td>Accuracy, Precision, Recall, F1, RMSE</td><td>Silhouette score, intra/inter-cluster distance</td></tr></tbody></table></div>Semi-supervised learning sits between the two, using a small amount of labelled data together with a large amount of unlabelled data.
+    </div>
+  </div>
+
+</div>
+<!-- end Part A panel -->
+
+<div id="panel-partB" class="tab-panel">
+  <div class="part-header">
+    <h2>Part B — Detailed Answer Questions</h2>
+    <div class="meta">5&ndash;10 Marks Each &middot; ~300 Words Each</div>
+  </div>
+  <div class="star-note">&#9993; marked questions correspond to topics also covered in the Important Topics tab</div>
+
+<div class="unit-label">Unit 1 &mdash; Introduction &amp; the KDD Process</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.1</span>
+      <span class="q-title">Explain the Knowledge Discovery in Databases (KDD) process in detail, with a diagram.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Data Mining is often treated as a synonym for <strong>Knowledge Discovery from Data (KDD)</strong>; more precisely, data mining is one essential step within the larger, iterative KDD process, which transforms raw data into validated, presentable knowledge.</p><div class="diagram-wrap"><div class="diagram-label">The KDD Pipeline</div><svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;"><g fill="none" stroke="#555" stroke-width="1.5"><rect x="10" y="55" width="80" height="40" rx="3" stroke="#c0392b"/><rect x="110" y="55" width="80" height="40" rx="3" stroke="#c0392b"/><rect x="210" y="55" width="80" height="40" rx="3" stroke="#c0392b"/><rect x="310" y="55" width="80" height="40" rx="3" stroke="#c0392b"/><rect x="410" y="55" width="80" height="40" rx="3" stroke="#e8c19a"/><rect x="510" y="55" width="80" height="40" rx="3"/><rect x="610" y="55" width="80" height="40" rx="3"/></g><text x="50" y="78" fill="#ccc" text-anchor="middle">Cleaning</text><text x="150" y="78" fill="#ccc" text-anchor="middle">Integration</text><text x="250" y="78" fill="#ccc" text-anchor="middle">Selection</text><text x="350" y="78" fill="#ccc" text-anchor="middle">Transform</text><text x="450" y="78" fill="#e8c19a" text-anchor="middle">Data Mining</text><text x="550" y="78" fill="#ccc" text-anchor="middle">Evaluation</text><text x="650" y="78" fill="#ccc" text-anchor="middle">Presentation</text><text x="350" y="30" fill="#666" text-anchor="middle">Steps 1&ndash;4 = Data Preprocessing</text><g stroke="#444" stroke-width="1"><line x1="90" y1="75" x2="108" y2="75"/><line x1="190" y1="75" x2="208" y2="75"/><line x1="290" y1="75" x2="308" y2="75"/><line x1="390" y1="75" x2="408" y2="75"/><line x1="490" y1="75" x2="508" y2="75"/><line x1="590" y1="75" x2="608" y2="75"/></g><g fill="#444"><path d="M108,75 l-6,-3 l0,6 z"/><path d="M208,75 l-6,-3 l0,6 z"/><path d="M308,75 l-6,-3 l0,6 z"/><path d="M408,75 l-6,-3 l0,6 z"/><path d="M508,75 l-6,-3 l0,6 z"/><path d="M608,75 l-6,-3 l0,6 z"/></g><text x="350" y="130" fill="#666" text-anchor="middle">Databases / Data Warehouse &mdash;&gt; Task-Relevant Data &mdash;&gt; Patterns &mdash;&gt; Knowledge</text></svg></div><p class="sub-h">The seven steps</p><div class="table-wrap"><table><thead><tr><th>#</th><th>Step</th><th>Detail</th></tr></thead><tbody><tr><td>1</td><td>Data Cleaning</td><td>Removes noise and inconsistent data (missing values, duplicates, typos)</td></tr><tr><td>2</td><td>Data Integration</td><td>Combines multiple data sources (databases, files, cubes) into one store</td></tr><tr><td>3</td><td>Data Selection</td><td>Retrieves only the data relevant to the current analysis task</td></tr><tr><td>4</td><td>Data Transformation</td><td>Consolidates data into forms appropriate for mining (aggregation, normalization)</td></tr><tr><td>5</td><td>Data Mining</td><td>Applies intelligent algorithms to extract patterns (association, classification, clustering...)</td></tr><tr><td>6</td><td>Pattern Evaluation</td><td>Filters the truly interesting patterns using interestingness measures</td></tr><tr><td>7</td><td>Knowledge Presentation</td><td>Uses visualization/knowledge-representation techniques to present results to the user</td></tr></tbody></table></div><p class="sub-h">Two views of the process</p><p>From the <strong>database/warehousing view</strong>: Databases &rarr; Data Cleaning &rarr; Data Integration &rarr; Data Warehouse &rarr; Selection of task-relevant data &rarr; Data Mining &rarr; Pattern Evaluation &rarr; Knowledge.</p><p>From the <strong>ML/statistics view</strong>: Input Data &rarr; Data Pre-Processing (integration, normalization, feature selection, dimension reduction) &rarr; Data Mining (pattern discovery: association, classification, clustering, outlier analysis) &rarr; Post-Processing (pattern selection, interpretation, visualization) &rarr; Information/Knowledge.</p><p>Because it is <em>iterative</em>, the process may loop back &mdash; e.g., an interesting-but-noisy pattern in step 6 can send the analyst back to step 1 to clean the data further. The data-mining step itself may interact with the user or a knowledge base, and interesting patterns discovered can be stored back into the knowledge base for future use.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.2</span>
+      <span class="q-title">Explain the Data Mining Functionalities in detail, with an example for each.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Data mining functionalities specify the kinds of patterns to be discovered, and are broadly split into <strong>descriptive</strong> (summarize existing data) and <strong>predictive</strong> (infer unknown/future values) functions.</p><p class="sub-h">1. Characterization / Generalization</p><p>Summarizes and contrasts general characteristics of a target class of data, e.g., generalizing and comparing features of a "dry region" vs a "wet region" using data-cube/OLAP techniques.</p><p class="sub-h">2. Association &amp; Correlation Analysis</p><p>Discovers frequent itemsets and rules of the form X &rarr; Y with support and confidence, e.g., <em>Diaper &rarr; Beer [support 0.5%, confidence 75%]</em>. Correlation analysis checks whether strongly-associated items are also statistically correlated (to avoid misleading rules).</p><p class="sub-h">3. Classification &amp; Label Prediction</p><p>Builds a model from labelled training examples to predict class labels for new data, e.g., classifying e-mails as spam/not-spam or cars by gas mileage. Typical methods: decision trees, Na&iuml;ve Bayes, SVM, neural networks.</p><p class="sub-h">4. Cluster Analysis</p><p>Unsupervised grouping of data into clusters that maximize intra-cluster similarity and minimize inter-cluster similarity, without predefined labels &mdash; e.g., clustering houses to find distribution/pricing patterns.</p><p class="sub-h">5. Outlier Analysis</p><p>Identifies data objects that don't comply with the general behaviour of the data; useful for fraud detection and rare-event analysis. One person's "noise" can be another's "treasure" (the actual object of interest).</p><p class="sub-h">6. Regression &amp; Time-Series/Sequential Analysis</p><p>Predicts continuous numeric values (e.g., weather, stock price) and discovers ordered patterns over time (e.g., a customer buys a phone, then a cover, then a charger).</p><p>Together these functionalities let data mining answer both "what happened / what exists" (descriptive) and "what will happen / what class does this belong to" (predictive) questions about a dataset.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.3</span>
+      <span class="q-title">Discuss the Major Issues in Data Mining under mining methodology, user interaction, efficiency/scalability, and diverse data types.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Data mining faces a wide range of practical and research challenges, commonly grouped into four categories.</p><p class="sub-h">1. Mining Methodology</p><div class="table-wrap"><table><thead><tr><th>Issue</th><th>Explanation</th></tr></thead><tbody><tr><td>Mining diverse kinds of knowledge</td><td>Different applications need different functionalities (association, classification, clustering...) in one system</td></tr><tr><td>Multi-dimensional space mining</td><td>Efficiently searching a huge, multi-attribute pattern space</td></tr><tr><td>Interdisciplinary effort</td><td>Combines statistics, ML, databases and domain knowledge</td></tr><tr><td>Handling noise/uncertainty</td><td>Real data is imperfect; algorithms must be robust</td></tr><tr><td>Pattern evaluation</td><td>Filtering genuinely interesting patterns from a potentially huge output</td></tr></tbody></table></div><p class="sub-h">2. User Interaction</p><p>Mining should support <em>interactive</em> querying and refinement, allow incorporation of prior/background knowledge to guide the search, and present results through effective visualization so non-technical users can interpret them.</p><p class="sub-h">3. Efficiency and Scalability</p><p>Algorithms must scale to terabyte-sized datasets; this drives research into parallel, distributed, incremental, and stream-mining methods that avoid repeated full scans of the data.</p><p class="sub-h">4. Diversity of Data Types &amp; Societal Concerns</p><p>Modern data includes graphs, networks, spatial/temporal streams and multimedia &mdash; each needs specialised techniques. Data mining must also address privacy-preserving mining (avoiding re-identification of individuals) and the broader social impact of automated pattern discovery, including invisible/embedded mining inside everyday applications.</p><p>In short, a practical exam-style summary is: <strong>Data Quality, Scalability, High Dimensionality, Data Integration, Privacy &amp; Security, Dynamic/streaming data,</strong> and <strong>Interpretability</strong> of the mined patterns.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Attribute Types &amp; Statistical Description</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.4</span>
+      <span class="q-title">Explain the different types of attributes with examples, allowed operations, and a comparison table.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>An attribute is a data field representing a feature of a data object; database columns correspond to attributes and rows correspond to data objects (tuples). Attributes are classified into four main types.</p><p class="sub-h">1. Nominal Attributes</p><p>Categorical labels with no order (e.g., Colour: red/blue/green; Blood group: A/B/AB/O). Allowed operations: = and &ne; only, plus counting category frequency.</p><p class="sub-h">2. Binary Attributes</p><p>A special nominal case with exactly two states. <em>Symmetric</em> binary attributes have equally important outcomes (Gender). <em>Asymmetric</em> binary attributes have one more significant outcome, usually coded 1 for presence (Disease test result), and similarity measures like Jaccard ignore double-absence (0-0) matches.</p><p class="sub-h">3. Ordinal Attributes</p><p>Values with meaningful rank but unequal/undefined gaps (Education level: primary &lt; secondary &lt; graduate). Allowed operations: comparisons, median, mode; can be mapped to numeric ranks for further processing, but the mean is not strictly meaningful.</p><p class="sub-h">4. Numeric Attributes</p><p>Quantitative, measurable values supporting full arithmetic. <em>Interval-scaled</em> data (temperature in &deg;C) has no true zero; <em>ratio-scaled</em> data (height, weight, income) has a true zero, so ratio statements ("twice as much") are valid.</p><div class="table-wrap"><table><thead><tr><th>Attribute</th><th>Order</th><th>Zero point</th><th>Central tendency measure</th><th>Example</th></tr></thead><tbody><tr><td>Nominal</td><td>No</td><td>N/A</td><td>Mode</td><td>Blood group</td></tr><tr><td>Binary</td><td>No</td><td>N/A</td><td>Mode / proportion</td><td>Gender, disease Y/N</td></tr><tr><td>Ordinal</td><td>Yes (unequal gaps)</td><td>N/A</td><td>Median, Mode</td><td>Satisfaction rating</td></tr><tr><td>Interval</td><td>Yes (equal gaps)</td><td>Not meaningful</td><td>Mean, Median, Mode</td><td>Temperature (&deg;C)</td></tr><tr><td>Ratio</td><td>Yes (equal gaps)</td><td>True zero</td><td>Mean, Median, Mode</td><td>Height, income</td></tr></tbody></table></div><p class="sub-h">Discrete vs Continuous cross-cutting distinction</p><p>Independently of the above, any attribute can be <strong>discrete</strong> (finite/countable values, e.g., number of children) or <strong>continuous</strong> (uncountably infinite values within a range, e.g., height = 165.2cm). Correctly identifying attribute type governs which statistic, which similarity measure, and which visualization is valid &mdash; a very common source of "tricky" exam questions that mix up ordinal vs interval, or symmetric vs asymmetric binary attributes.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.5</span>
+      <span class="q-title">Explain measures of central tendency and dispersion with formulas, and illustrate with a worked dataset.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Basic statistical description summarizes a dataset's central tendency (where values cluster) and dispersion (how spread out they are), and is essential before any deeper mining task.</p><p class="sub-h">Central Tendency</p><div class="table-wrap"><table><thead><tr><th>Measure</th><th>Formula</th><th>Robust to Outliers?</th></tr></thead><tbody><tr><td>Mean (x&#772;)</td><td>(&Sigma;x&#8093;)/n; weighted mean and trimmed mean are variants</td><td>No</td></tr><tr><td>Median</td><td>Middle value of sorted data (avg of two middles if n even)</td><td>Yes</td></tr><tr><td>Mode</td><td>Most frequent value(s); can be unimodal/bimodal/trimodal</td><td>Yes</td></tr></tbody></table></div><p class="sub-h">Dispersion</p><div class="table-wrap"><table><thead><tr><th>Measure</th><th>Formula</th></tr></thead><tbody><tr><td>Range</td><td>Max &minus; Min</td></tr><tr><td>Quartiles / IQR</td><td>Q1 = 25th percentile, Q3 = 75th percentile, IQR = Q3&minus;Q1</td></tr><tr><td>Variance (s&sup2;)</td><td>(1/(n&minus;1)) &Sigma;(x&#8093;&minus;x&#772;)&sup2;</td></tr><tr><td>Standard Deviation</td><td>&radic;(Variance)</td></tr></tbody></table></div><p class="sub-h">Worked example (Haberman-style nodes data)</p><p>From the class dataset in the slides: with mean age &asymp; 52 and median age similar, the age distribution is roughly symmetric. But for "positive axillary nodes": mean &asymp; 4, while the median (50th percentile) is only 1, and Q3 (75th percentile) is 4 &mdash; a large mean&ndash;median gap signals a right-skewed distribution dominated by outliers, exactly the case where the median (not the mean) should be trusted as the "typical" value.</p><div class="code-block">nodes: mean = 4, median = 1, Q3 = 4  -&gt;  mean &gt;&gt; median  =&gt;  positively (right) skewed, outliers pull the mean up</div><p>This combination of central-tendency and dispersion measures is what feeds directly into boxplot construction, outlier detection (1.5&times;IQR rule) and normalization in the preprocessing stage.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.6</span>
+      <span class="q-title">Explain Boxplot Analysis with a worked numeric example and diagram.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>A boxplot graphically displays the <strong>five-number summary</strong> of a distribution: Minimum, Q1, Median, Q3, Maximum.</p><p class="sub-h">Worked example</p><p>Sorted data: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34 (n = 12).</p><div class="code-block">Min = 4
+Q1 (25th pct) = 9
+Median = (21+24)/2 = 22.5
+Q3 (75th pct) = 26
+Max = 34
+IQR = Q3 - Q1 = 26 - 9 = 17
+Outlier fence: below Q1-1.5*IQR = 9-25.5 = -16.5 ; above Q3+1.5*IQR = 26+25.5 = 51.5
+=&gt; no outliers in this sample (all values lie within the fence)</div><div class="diagram-wrap"><div class="diagram-label">Boxplot of the worked example</div><svg viewBox="0 0 400 110" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;"><line x1="20" y1="55" x2="380" y2="55" stroke="#333" stroke-width="1"/><line x1="30" y1="40" x2="30" y2="70" stroke="#666"/><line x1="30" y1="55" x2="88" y2="55" stroke="#666"/><rect x="88" y="35" width="150" height="40" fill="none" stroke="#c0392b" stroke-width="1.5"/><line x1="205" y1="35" x2="205" y2="75" stroke="#e8c19a" stroke-width="1.5"/><line x1="238" y1="55" x2="330" y2="55" stroke="#666"/><line x1="330" y1="40" x2="330" y2="70" stroke="#666"/><text x="30" y="90" fill="#aaa" text-anchor="middle">Min=4</text><text x="88" y="90" fill="#aaa" text-anchor="middle">Q1=9</text><text x="205" y="95" fill="#e8c19a" text-anchor="middle">Med=22.5</text><text x="238" y="90" fill="#aaa" text-anchor="middle">Q3=26</text><text x="330" y="90" fill="#aaa" text-anchor="middle">Max=34</text></svg></div><p>The box spans Q1 to Q3 (its height is the IQR), the line inside marks the median, and whiskers extend to the min/max <em>within</em> the outlier fence &mdash; any point beyond the fence would be drawn individually as an outlier dot.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Data Visualization</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.7</span>
+      <span class="q-title">Explain the categorization of Data Visualization techniques with examples of each.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Data visualization maps information onto graphical primitives to help analysts explore large datasets qualitatively, spot patterns/irregularities, and choose parameters for further quantitative work. Techniques are grouped into five categories.</p><p class="sub-h">1. Pixel-Oriented Techniques</p><p>For m dimensions, create m windows; each record's m values map to m coloured pixels at corresponding screen positions. To save space, pixels can be laid out in concentric circle segments instead of rectangular windows.</p><p class="sub-h">2. Geometric Projection Techniques</p><p>Visualize transformations/projections of data: scatterplot matrices (a grid of pairwise x-y plots), landscapes (data rendered as a 3D terrain), parallel coordinates (n parallel axes, one per attribute, with each record drawn as a connecting polyline), and projection-pursuit techniques that search for "interesting" low-dimensional projections.</p><p class="sub-h">3. Icon-Based Techniques</p><p>Encode data values as visual features of an icon. <strong>Chernoff faces</strong> map attributes to facial features (eye size, eyebrow slant, nose length, mouth shape); <strong>stick figures</strong> map two attributes to axes and the rest to limb angle/length, letting analysts spot patterns through overall "texture".</p><p class="sub-h">4. Hierarchical Techniques</p><p>Partition the screen recursively to reflect a data hierarchy: <em>dimensional stacking</em> nests 2D subspaces inside each other; <em>tree-maps</em> recursively subdivide screen area by attribute value; <em>cone trees</em> and <em>InfoCube</em> use 3D nested/concentric shapes for hierarchical information.</p><p class="sub-h">5. Visualizing Complex Data and Relations</p><p>For non-numeric data such as text and social networks: <em>tag clouds</em> represent term importance via font size/colour; network-graph visualizations show relationships such as who-follows-whom or infection-spread patterns.</p><p>Choosing the right technique depends on dimensionality and data type: pixel-oriented and parallel coordinates scale to many dimensions; Chernoff faces work best for a handful of key attributes; tree-maps and cone trees suit naturally hierarchical data.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.8</span>
+      <span class="q-title">Explain Symmetric and Skewed data distributions with a diagram and their effect on Mean, Median and Mode.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>The shape of a data distribution &mdash; symmetric, positively skewed, or negatively skewed &mdash; determines which central-tendency statistic best represents the "typical" value, and directly affects how a boxplot for that data will look.</p><div class="diagram-wrap"><div class="diagram-label">Symmetric vs Skewed Distributions</div><svg viewBox="0 0 560 170" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;"><path d="M20,150 Q60,20 100,150 T180,150" fill="none" stroke="#666" stroke-width="1.5"/><text x="100" y="165" fill="#aaa" text-anchor="middle">Mean=Median=Mode</text><path d="M210,150 Q230,30 270,60 Q310,90 370,150" fill="none" stroke="#c0392b" stroke-width="1.5"/><text x="290" y="165" fill="#aaa" text-anchor="middle">Mean&gt;Median&gt;Mode</text><path d="M400,150 Q430,90 470,60 Q510,30 530,150" fill="none" stroke="#e8c19a" stroke-width="1.5"/><text x="465" y="165" fill="#aaa" text-anchor="middle">Mean&lt;Median&lt;Mode</text></svg></div><div class="table-wrap"><table><thead><tr><th>Case</th><th>Tail</th><th>Relation</th><th>Real-data example</th></tr></thead><tbody><tr><td>Symmetric</td><td>None</td><td>Mean = Median = Mode</td><td>Patient age at operation (from Haberman EDA)</td></tr><tr><td>Positive skew</td><td>Long right tail</td><td>Mean &gt; Median &gt; Mode</td><td>Positive axillary nodes (few patients have very high node counts)</td></tr><tr><td>Negative skew</td><td>Long left tail</td><td>Mean &lt; Median &lt; Mode</td><td>Time-to-failure data with early failures rare</td></tr></tbody></table></div><p>In practice, box plots of a right-skewed variable show a compressed box near the bottom with a long upper whisker and several individually plotted outlier points above &mdash; exactly the pattern seen for "positive axillary nodes" in the case-study EDA, where isolated high-node patients appear as outliers while most patients cluster at low node counts. Recognising skew is essential before choosing between the mean (misleading under skew) and the median (robust) to summarize such an attribute.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Measuring Similarity and Dissimilarity</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.9</span>
+      <span class="q-title">Explain the Minkowski distance family and compute Manhattan, Euclidean and Supremum distance for a given pair of points.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>The <strong>Minkowski distance</strong> is a generalized metric for p-dimensional numeric data objects i=(x&#8081;&#8321;,...,x&#8081;&#8321;&#8322;) and j=(x&#8081;&#8322;&#8321;,...,x&#8081;&#8322;&#8322;):</p><div class="code-block">d(i,j) = ( sum_k |x_ik - x_jk|^h ) ^ (1/h)</div><p>It reduces to three named metrics depending on h, and is a true metric because it satisfies positive definiteness (d(i,j)&gt;0 for i&ne;j, d(i,i)=0), symmetry (d(i,j)=d(j,i)), and the triangle inequality (d(i,j) &le; d(i,k)+d(k,j)).</p><p class="sub-h">Worked example</p><p>Let two data points be x1 = (1, 2) and x2 = (3, 5) (as used in the slide-style dissimilarity-matrix examples).</p><div class="table-wrap"><table><thead><tr><th>h</th><th>Name</th><th>Computation</th><th>Result</th></tr></thead><tbody><tr><td>1</td><td>Manhattan (L1)</td><td>|1-3| + |2-5| = 2 + 3</td><td>5</td></tr><tr><td>2</td><td>Euclidean (L2)</td><td>&radic;(2&sup2; + 3&sup2;) = &radic;13</td><td>3.606</td></tr><tr><td>&infin;</td><td>Supremum (L&infin;)</td><td>max(|1-3|, |2-5|) = max(2, 3)</td><td>3</td></tr></tbody></table></div><p class="sub-h">Interpretation</p><p><strong>Manhattan distance</strong> sums absolute per-attribute differences (like navigating city blocks); its special case, the <em>Hamming distance</em>, counts differing bits between two binary vectors. <strong>Euclidean distance</strong> is the familiar straight-line distance and is most common for continuous numeric data. <strong>Supremum distance</strong> considers only the single attribute with the largest difference, useful when one dominant dimension should determine dissimilarity.</p><p>Before applying any of these, attributes should usually be standardized (z-score) so that a high-magnitude attribute (e.g., income in thousands) does not unfairly dominate a low-magnitude one (e.g., age in years).</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.10</span>
+      <span class="q-title">Explain Cosine Similarity and compute it for the given term-frequency vectors d1 and d2.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>For high-dimensional, sparse vector data &mdash; most typically term-frequency vectors representing documents &mdash; <strong>cosine similarity</strong> measures the cosine of the angle between two vectors, capturing orientation (topic) rather than magnitude (length):</p><div class="code-block">cos(d1, d2) = (d1 . d2) / ( ||d1|| * ||d2|| )</div><p class="sub-h">Worked example (from slides)</p><p>d1 = (5, 0, 3, 0, 2, 0, 0, 2, 0, 0), d2 = (3, 0, 2, 0, 1, 1, 0, 1, 0, 1)</p><div class="code-block">Dot product:
+d1.d2 = 5*3+0*0+3*2+0*0+2*1+0*1+0*0+2*1+0*0+0*1
+      = 15 + 6 + 2 + 2 = 25
+
+Magnitude of d1:
+||d1|| = sqrt(5^2+3^2+2^2+2^2) = sqrt(25+9+4+4) = sqrt(42) = 6.481
+
+Magnitude of d2:
+||d2|| = sqrt(3^2+2^2+1^2+1^2+1^2+1^2) = sqrt(9+4+1+1+1+1) = sqrt(17) = 4.123
+
+cos(d1,d2) = 25 / (6.481 * 4.123) = 25 / 26.72 = 0.94</div><p class="sub-h">Interpretation</p><p>A cosine similarity of 0.94 (close to the maximum of 1) indicates that documents d1 and d2 are highly similar in content/topic direction, even though their raw term counts (magnitudes) differ. This property &mdash; insensitivity to document length &mdash; is exactly why cosine similarity, not Euclidean distance, is the standard measure for information retrieval, text mining, and gene-expression comparisons.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.11</span>
+      <span class="q-title">Explain proximity measurement for Binary attributes using a contingency table, and compute a worked example.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>For two objects i and j described by binary attributes, a 2&times;2 <strong>contingency table</strong> is built:</p><div class="table-wrap"><table><thead><tr><th></th><th>j = 1</th><th>j = 0</th><th>sum</th></tr></thead><tbody><tr><td>i = 1</td><td>q</td><td>r</td><td>q+r</td></tr><tr><td>i = 0</td><td>s</td><td>t</td><td>s+t</td></tr><tr><td>sum</td><td>q+s</td><td>r+t</td><td>p</td></tr></tbody></table></div><p class="sub-h">Symmetric binary attributes</p><div class="code-block">d(i,j) = (r + s) / (q + r + s + t)</div><p class="sub-h">Asymmetric binary attributes (Jaccard-based)</p><div class="code-block">d(i,j) = (r + s) / (q + r + s)      [t, the 0-0 match, is excluded]
+Jaccard similarity J(i,j) = q / (q + r + s)</div><p class="sub-h">Worked example (from slides)</p><p>Two patients' records include Gender (symmetric) and several disease-test attributes (asymmetric, Y/P=1, N=0). Suppose comparing two patients gives q=2 (both tests positive), r=0, s=1, t=3 for the asymmetric attributes.</p><div class="code-block">d(i,j) = (0+1)/(2+0+1) = 1/3 = 0.33
+J(i,j) = 2/(2+0+1) = 2/3 = 0.67 (similarity)</div><p>Because Gender is symmetric, it is scored using the full contingency table (both 1-1 and 0-0 agreements count); because the disease attributes are asymmetric, only positive (1-1, 1-0, 0-1) agreements matter, since two patients both <em>not</em> having a rare disease is uninformative. Mixing this up is a common exam pitfall.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">B.12</span>
+      <span class="q-title">Explain how dissimilarity is computed for a database with Attributes of Mixed Type.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Real datasets usually contain a mix of nominal, binary, ordinal and numeric attributes together. A single, weighted formula combines all attribute types into one overall dissimilarity:</p><div class="code-block">d(i,j) = ( sum_f  delta_ij^(f) * d_ij^(f) )  /  ( sum_f delta_ij^(f) )</div><p>where the per-attribute contribution d&#8093;&#8134;<sup>(f)</sup> is computed differently depending on the type of attribute f:</p><div class="table-wrap"><table><thead><tr><th>Attribute type f</th><th>Contribution d_ij(f)</th></tr></thead><tbody><tr><td>Binary or Nominal</td><td>0 if x_if = x_jf (match), else 1</td></tr><tr><td>Numeric</td><td>Normalized absolute distance |x_if - x_jf| / range of f</td></tr><tr><td>Ordinal</td><td>Compute rank r_if, normalize z_if = (r_if - 1)/(M_f - 1), then treat as interval-scaled</td></tr></tbody></table></div><p>The indicator &delta;&#8093;&#8134;<sup>(f)</sup> is 0 if either value is missing (or if the attribute is asymmetric binary and both are 0), and 1 otherwise, so missing data is automatically excluded from the average rather than distorting it.</p><p>This mixed-type formula is what allows a single k-NN or clustering distance computation to sensibly combine, say, a patient's Blood Group (nominal), Smoker Y/N (asymmetric binary), Pain Level (ordinal) and Age (numeric) into one comparable dissimilarity score.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Data Preprocessing</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.13</span>
+      <span class="q-title">Explain the Major Tasks in Data Preprocessing in detail, with a pipeline diagram.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Data preprocessing corresponds to the first four steps of the KDD process and is often the most time-consuming stage of a real data mining project, since raw data is rarely analysis-ready.</p><div class="diagram-wrap"><div class="diagram-label">Data Preprocessing Pipeline</div><svg viewBox="0 0 620 130" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;"><rect x="10" y="45" width="130" height="40" rx="3" fill="none" stroke="#c0392b" stroke-width="1.5"/><rect x="170" y="45" width="130" height="40" rx="3" fill="none" stroke="#c0392b" stroke-width="1.5"/><rect x="330" y="45" width="130" height="40" rx="3" fill="none" stroke="#c0392b" stroke-width="1.5"/><rect x="490" y="45" width="130" height="40" rx="3" fill="none" stroke="#e8c19a" stroke-width="1.5"/><text x="75" y="68" fill="#ccc" text-anchor="middle">Data Cleaning</text><text x="235" y="68" fill="#ccc" text-anchor="middle">Data Integration</text><text x="395" y="68" fill="#ccc" text-anchor="middle">Data Reduction</text><text x="555" y="68" fill="#e8c19a" text-anchor="middle">Transform/Discretize</text><g stroke="#444"><line x1="140" y1="65" x2="168" y2="65"/><line x1="300" y1="65" x2="328" y2="65"/><line x1="460" y1="65" x2="488" y2="65"/></g><g fill="#444"><path d="M168,65 l-6,-3 l0,6 z"/><path d="M328,65 l-6,-3 l0,6 z"/><path d="M488,65 l-6,-3 l0,6 z"/></g><text x="310" y="110" fill="#666" text-anchor="middle">Output: clean, integrated, reduced, transformed data ready for mining</text></svg></div><p class="sub-h">1. Data Cleaning</p><p>Fills in missing values, smooths noisy data, identifies/removes outliers, and resolves inconsistencies (e.g., Age="42" but Birthday implies a different age; rating scale changed from "1,2,3" to "A,B,C" mid-dataset).</p><p class="sub-h">2. Data Integration</p><p>Merges multiple databases, cubes, or files, solving the entity-identification problem (matching "cust_id" to "customer_number"), removing redundancy via correlation analysis, and resolving duplicate tuples and value conflicts (e.g., differing units).</p><p class="sub-h">3. Data Reduction</p><p>Obtains a reduced-volume representation via dimensionality reduction (PCA, attribute subset selection, wavelet transform), numerosity reduction (histograms, clustering, sampling, regression models), or data/cube compression &mdash; while preserving analytical integrity.</p><p class="sub-h">4. Data Transformation and Discretization</p><p>Normalizes numeric ranges (min-max, z-score, decimal scaling), discretizes continuous attributes into intervals (binning, histogram or entropy-based), and builds concept hierarchies for nominal data.</p><p>These four tasks are not strictly sequential in practice &mdash; cleaning and integration often iterate together, and reduction/transformation choices depend on which mining algorithm will be applied downstream.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.14</span>
+      <span class="q-title">Explain the methods for handling Missing Data and Noisy Data, with a worked binning example.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Handling Missing Data</p><p>Missing values arise from equipment malfunction, data-entry oversights, or attributes considered unimportant at entry time. Options, from crude to sophisticated:</p><div class="table-wrap"><table><thead><tr><th>Method</th><th>Description</th><th>When used</th></tr></thead><tbody><tr><td>Ignore the tuple</td><td>Drop the entire record</td><td>Class label missing, low missing-rate</td></tr><tr><td>Manual fill-in</td><td>Human enters the correct value</td><td>Small datasets, high-value fields</td></tr><tr><td>Global constant</td><td>Fill with e.g. “Unknown”</td><td>Quick default, but can mislead mining algorithm into treating it as a real category</td></tr><tr><td>Attribute mean</td><td>Fill with the overall column mean</td><td>Numeric data, no class structure</td></tr><tr><td>Class-wise mean</td><td>Fill with the mean for that class only</td><td>Smarter, preserves class-conditional structure</td></tr><tr><td>Most probable value</td><td>Regression, Bayesian inference, or decision tree prediction</td><td>Best accuracy, most computation</td></tr></tbody></table></div><p class="sub-h">Handling Noisy Data</p><p>Noise is random error/variance in a measured attribute (e.g., Salary = “&minus;10”). Four handling strategies: <strong>Binning</strong> (sort &amp; partition into bins, then smooth), <strong>Regression</strong> (fit and follow a regression curve), <strong>Clustering</strong> (detect and remove points that fall outside clusters), and <strong>Combined computer+human inspection</strong> (flag suspicious values for manual review).</p><p class="sub-h">Worked binning example</p><p>Sorted price data: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34</p><div class="code-block">Step 1 - Partition into equal-frequency bins of size 4:
+  Bin 1: 4, 8, 9, 15
+  Bin 2: 21, 21, 24, 25
+  Bin 3: 26, 28, 29, 34
+
+Step 2a - Smoothing by bin MEANS:
+  Bin1 mean=(4+8+9+15)/4=9    -&gt; 9,9,9,9
+  Bin2 mean=(21+21+24+25)/4=23-&gt; 23,23,23,23
+  Bin3 mean=(26+28+29+34)/4=29.25 (~29) -&gt; 29,29,29,29
+
+Step 2b - Smoothing by bin BOUNDARIES (each value replaced by nearest bin edge):
+  Bin1: 4,4,4,15   Bin2: 21,21,25,25   Bin3: 26,26,26,34</div><p>Binning by means gives every value in a bin the same smoothed value; binning by boundaries instead snaps each value to whichever bin edge (min or max) it is closer to, preserving more of the original extremes while still suppressing noise.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.15</span>
+      <span class="q-title">Explain Data Reduction strategies in detail: dimensionality reduction, numerosity reduction, and data compression.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Data reduction obtains a much smaller-volume representation of a dataset that still produces (nearly) the same analytical results, which is critical since mining on huge raw datasets is often computationally infeasible.</p><p class="sub-h">1. Dimensionality Reduction</p><p>Reduces the number of attributes/variables under consideration.</p><div class="table-wrap"><table><thead><tr><th>Technique</th><th>Idea</th></tr></thead><tbody><tr><td>Attribute subset selection</td><td>Drop irrelevant/redundant attributes via stepwise Backward Elimination or Forward Selection</td></tr><tr><td>Wavelet Transform</td><td>Project data onto a wavelet basis, keep only strong coefficients</td></tr><tr><td>Principal Component Analysis (PCA)</td><td>Find orthogonal components capturing maximum variance; use only 3+ dimensional numeric, standardized data</td></tr></tbody></table></div><p><strong>Why it matters:</strong> lower dimensionality means less storage, faster computation, mitigation of multi-collinearity, and often better model performance; it also enables 2D/3D visualization of otherwise high-dimensional data.</p><p class="sub-h">2. Numerosity Reduction</p><p>Replaces the original data with a smaller alternative representation.</p><div class="table-wrap"><table><thead><tr><th>Technique</th><th>Idea</th></tr></thead><tbody><tr><td>Regression / Log-linear models</td><td>Fit data to a function; store only the model parameters</td></tr><tr><td>Histograms</td><td>Bucket values and store frequency counts per bucket</td></tr><tr><td>Clustering</td><td>Store cluster representatives instead of every point</td></tr><tr><td>Sampling</td><td>Mine a representative random subset instead of the full data</td></tr><tr><td>Data Cube Aggregation</td><td>Pre-aggregate data at a higher abstraction level (e.g., yearly instead of daily sales)</td></tr></tbody></table></div><p class="sub-h">3. Data Compression</p><p>Applies transformations to obtain a compressed representation, either lossless (original data can be reconstructed exactly) or lossy (only an approximation is recoverable, as with wavelet transforms and PCA).</p><p class="sub-h">Practical decision rule (from slides)</p><p>With few, mildly correlated variables, skip reduction entirely. With a moderate number of highly correlated variables, simply drop redundant ones. Only with a large number of variables and heavy inter-correlation (e.g., 500 sensor-output features) does formal dimensionality reduction like PCA typically become worthwhile &mdash; often retaining over 90% of the information using just 15&ndash;20% of the original variables.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.16</span>
+      <span class="q-title">Explain Data Transformation by Normalization with worked numeric examples for Min-Max, Z-score, and Decimal Scaling.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Normalization</strong> scales attribute values into a smaller, specified range so that no single attribute dominates a distance-based mining algorithm purely because of its raw magnitude.</p><p class="sub-h">1. Min-Max Normalization</p><div class="code-block">v' = (v - min_A) / (max_A - min_A) * (new_max_A - new_min_A) + new_min_A</div><p><strong>Example:</strong> income range is $12,000 to $98,000, normalized to [0.0, 1.0]. For v = $73,000:</p><div class="code-block">v' = (73000 - 12000) / (98000 - 12000) * (1-0) + 0
+   = 61000 / 86000 = 0.716</div><p class="sub-h">2. Z-score Normalization</p><div class="code-block">v' = (v - mean_A) / stdev_A</div><p><strong>Example:</strong> &mu; = 54,000, &sigma; = 16,000. For v = $73,000:</p><div class="code-block">v' = (73000 - 54000) / 16000 = 19000/16000 = 1.225</div><p class="sub-h">3. Normalization by Decimal Scaling</p><div class="code-block">v' = v / 10^j    where j is the smallest integer such that Max(|v'|) &lt; 1</div><p><strong>Example:</strong> if values range from &minus;986 to 917, the maximum absolute value is 986, so j = 3 (since 986/1000 = 0.986 &lt; 1). A value of &minus;986 normalizes to &minus;0.986.</p><p class="sub-h">When to use which</p><div class="table-wrap"><table><thead><tr><th>Method</th><th>Best for</th></tr></thead><tbody><tr><td>Min-Max</td><td>Known, bounded min/max; preserves relationships exactly, but sensitive to new out-of-range values</td></tr><tr><td>Z-score</td><td>Data with unknown bounds or outliers; centers data at mean 0</td></tr><tr><td>Decimal scaling</td><td>Quick, simple rescaling when only the order of magnitude matters</td></tr></tbody></table></div><p>All three are used before distance-based algorithms (k-NN, k-Means, neural networks) so that, e.g., "income in dollars" does not swamp "age in years" purely due to differing scales.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.17</span>
+      <span class="q-title">Explain Data Discretization methods with a worked equal-frequency binning example.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Discretization</strong> divides the range of a continuous attribute into intervals, replacing actual data values with interval labels &mdash; reducing data size and preparing data for algorithms (like many classifiers) that require categorical input.</p><p class="sub-h">Typical methods (all can be applied recursively)</p><div class="table-wrap"><table><thead><tr><th>Method</th><th>Type</th></tr></thead><tbody><tr><td>Binning</td><td>Unsupervised, top-down split</td></tr><tr><td>Histogram analysis</td><td>Unsupervised, top-down split</td></tr><tr><td>Clustering analysis</td><td>Unsupervised; top-down split or bottom-up merge</td></tr><tr><td>Decision-tree analysis</td><td>Supervised, top-down split (uses entropy to pick split points)</td></tr><tr><td>Correlation (&chi;&sup2;) analysis / ChiMerge</td><td>Supervised, bottom-up merge of similar-distribution neighbouring intervals</td></tr></tbody></table></div><p class="sub-h">Simple binning: Equal-width vs Equal-depth</p><p><strong>Equal-width</strong>: divides the range into N intervals of size W = (B&minus;A)/N, where A, B are the min/max. Simple, but outliers and skew distort the bins.</p><p><strong>Equal-depth (frequency)</strong>: divides the range into N intervals each holding roughly the same number of samples &mdash; better data scaling, but categorical attributes are trickier to bin this way.</p><p class="sub-h">Worked example</p><p>Sorted price data: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34 (n=12, N=3 bins)</p><div class="code-block">Equal-width (W = (34-4)/3 = 10):
+  [4-14): 4,8,9          [14-24): 15,21,21     [24-34]: 24,25,26,28,29,34
+  -&gt; Uneven counts (3, 3, 6) because data is not uniformly spread
+
+Equal-depth (4 values per bin):
+  Bin1: 4,8,9,15   Bin2: 21,21,24,25   Bin3: 26,28,29,34
+  -&gt; Even counts (4, 4, 4), better balanced</div><p>Clustering-based discretization (e.g., k-Means on the 1-D values) typically produces even better-quality bins than either simple method because it groups by natural density rather than a fixed rule, at the cost of extra computation.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 2 &mdash; The Apriori Algorithm</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.18</span>
+      <span class="q-title">Explain the Apriori algorithm and apply it to the given transaction database to generate L1, L2 and L3.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>The <strong>Apriori algorithm</strong> finds frequent itemsets using a candidate-generate-and-test strategy, guided by the <strong>Apriori (downward-closure) property</strong>: every subset of a frequent itemset must itself be frequent, so any candidate with an infrequent subset can be pruned without a database scan.</p><p class="sub-h">Method</p><div class="code-block">L1 = {frequent 1-itemsets}
+for (k = 1; Lk != empty; k++):
+    Ck+1 = candidates generated by self-joining Lk, then pruning
+    scan DB, count support of each candidate in Ck+1
+    Lk+1 = { candidates in Ck+1 with support &gt;= min_sup }
+return union of all Lk</div><p class="sub-h">Worked example</p><p>Database D of 9 transactions; min_sup count = 2 (min_sup = 2/9 &asymp; 22%), min_conf = 70%.</p><div class="table-wrap"><table><thead><tr><th>TID</th><th>Items</th></tr></thead><tbody><tr><td>T101</td><td>I1, I2, I5</td></tr><tr><td>T102</td><td>I2, I4</td></tr><tr><td>T103</td><td>I2, I3</td></tr><tr><td>T104</td><td>I1, I2, I4</td></tr><tr><td>T105</td><td>I1, I3</td></tr><tr><td>T106</td><td>I2, I3</td></tr><tr><td>T107</td><td>I1, I3</td></tr><tr><td>T108</td><td>I1, I2, I3, I5</td></tr><tr><td>T109</td><td>I1, I2, I3</td></tr></tbody></table></div><p class="sub-h">Step 1: L1 (1-itemsets)</p><div class="table-wrap"><table><thead><tr><th>Itemset</th><th>Support Count</th></tr></thead><tbody><tr><td>{I1}</td><td>6</td></tr><tr><td>{I2}</td><td>7</td></tr><tr><td>{I3}</td><td>6</td></tr><tr><td>{I4}</td><td>2</td></tr><tr><td>{I5}</td><td>2</td></tr></tbody></table></div><p>All five items meet min_sup=2, so L1 = {I1,I2,I3,I4,I5}.</p><p class="sub-h">Step 2: L2 (2-itemsets)</p><p>C2 is generated by self-joining L1 (10 candidate pairs); scanning D gives:</p><div class="table-wrap"><table><thead><tr><th>Itemset</th><th>Support</th><th>Kept in L2?</th></tr></thead><tbody><tr><td>{I1,I2}</td><td>4</td><td>Yes</td></tr><tr><td>{I1,I3}</td><td>4</td><td>Yes</td></tr><tr><td>{I1,I4}</td><td>1</td><td>No</td></tr><tr><td>{I1,I5}</td><td>2</td><td>Yes</td></tr><tr><td>{I2,I3}</td><td>4</td><td>Yes</td></tr><tr><td>{I2,I4}</td><td>2</td><td>Yes</td></tr><tr><td>{I2,I5}</td><td>2</td><td>Yes</td></tr><tr><td>{I3,I4}</td><td>0</td><td>No</td></tr><tr><td>{I3,I5}</td><td>1</td><td>No</td></tr><tr><td>{I4,I5}</td><td>0</td><td>No</td></tr></tbody></table></div><p>L2 = {{I1,I2}, {I1,I3}, {I1,I5}, {I2,I3}, {I2,I4}, {I2,I5}}.</p><p class="sub-h">Step 3: L3 (3-itemsets, using the Apriori property)</p><p>C3 = L2 &#10781; L2 = {{I1,I2,I3},{I1,I2,I5},{I1,I3,I5},{I2,I3,I4},{I2,I3,I5},{I2,I4,I5}}. <strong>Pruning:</strong> {I1,I3,I5} is removed because its subset {I3,I5} &notin; L2; {I2,I3,I5} is removed because {I3,I5} &notin; L2; {I2,I3,I4} removed because {I3,I4} &notin; L2; {I2,I4,I5} removed because {I4,I5} &notin; L2. Surviving candidates: {I1,I2,I3}, {I1,I2,I5}.</p><div class="table-wrap"><table><thead><tr><th>Itemset</th><th>Support</th><th>Kept in L3?</th></tr></thead><tbody><tr><td>{I1,I2,I3}</td><td>2</td><td>Yes</td></tr><tr><td>{I1,I2,I5}</td><td>2</td><td>Yes</td></tr></tbody></table></div><p>L3 = {{I1,I2,I3}, {I1,I2,I5}}. Joining L3 with itself would only produce {I1,I2,I3,I5}, which is pruned because its subset {I2,I3,I5} is not frequent &mdash; so C4 = &empty; and the algorithm terminates. The complete frequent-itemset collection is L1 &cup; L2 &cup; L3.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.19</span>
+      <span class="q-title">From the frequent itemset {I1, I2, I5}, generate and evaluate all candidate Association Rules using min_conf = 70%.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Once frequent itemsets are known, <strong>strong association rules</strong> are generated: for every frequent itemset l, and every non-empty proper subset s of l, output the rule <em>s &rarr; (l&minus;s)</em> if its confidence meets min_conf, where:</p><div class="code-block">Confidence(s -&gt; (l-s)) = support_count(l) / support_count(s)</div><p>For l = {I1, I2, I5} with support_count(l) = 2 (from the Apriori worked example), the non-empty subsets are {I1,I2}, {I1,I5}, {I2,I5}, {I1}, {I2}, {I5} with support counts 4, 2, 2, 6, 7, 2 respectively.</p><div class="table-wrap"><table><thead><tr><th>Rule</th><th>Confidence Calculation</th><th>Confidence</th><th>Result (min_conf=70%)</th></tr></thead><tbody><tr><td>I1 &and; I2 &rarr; I5</td><td>2/4</td><td>50%</td><td>Rejected</td></tr><tr><td>I1 &and; I5 &rarr; I2</td><td>2/2</td><td>100%</td><td>Selected</td></tr><tr><td>I2 &and; I5 &rarr; I1</td><td>2/2</td><td>100%</td><td>Selected</td></tr><tr><td>I1 &rarr; I2 &and; I5</td><td>2/6</td><td>33%</td><td>Rejected</td></tr><tr><td>I2 &rarr; I1 &and; I5</td><td>2/7</td><td>29%</td><td>Rejected</td></tr><tr><td>I5 &rarr; I1 &and; I2</td><td>2/2</td><td>100%</td><td>Selected</td></tr></tbody></table></div><p>Three <strong>strong rules</strong> survive: <em>I1&and;I5 &rarr; I2</em>, <em>I2&and;I5 &rarr; I1</em>, and <em>I5 &rarr; I1&and;I2</em>, all at 100% confidence. Notice that rules with a smaller antecedent (like I1&rarr;I2&and;I5) tend to have lower confidence here because the antecedent alone (I1, support 6) occurs much more often without the rest of the itemset than the more specific antecedents do &mdash; a pattern worth recognising: confidence generally rises as the antecedent itemset becomes more specific.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.20</span>
+      <span class="q-title">Explain the methods used to improve the efficiency of the Apriori algorithm.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>The naive Apriori algorithm re-scans the full database at every level and can generate a huge number of candidates, so several optimizations are commonly used together.</p><div class="table-wrap"><table><thead><tr><th>Method</th><th>How it helps</th></tr></thead><tbody><tr><td>Hash-based itemset counting</td><td>While generating C1/C2, hash k-itemsets into buckets; any bucket whose count is below min_sup means every itemset hashed there is guaranteed infrequent, so those candidates can be dropped from C(k+1) before even counting</td></tr><tr><td>Transaction reduction</td><td>A transaction containing no frequent k-itemset can never contain a frequent (k+1)-itemset, so it is removed from consideration in later passes</td></tr><tr><td>Partitioning</td><td>Split the database into n partitions; any itemset frequent in the whole DB must be locally frequent in at least one partition, so partition-local frequent itemsets are a superset of the global candidates, found in just 2 scans</td></tr><tr><td>Sampling</td><td>Mine a random sample of the DB with a slightly lowered support threshold, then verify against the full DB</td></tr><tr><td>Dynamic itemset counting</td><td>Add new candidate itemsets into consideration only once all of their subsets are already estimated to be frequent, instead of waiting for strict level-wise passes</td></tr></tbody></table></div><p>Structurally, candidate itemsets are also stored in a <strong>hash-tree</strong> (leaf nodes hold itemsets+counts, interior nodes hold a hash table) so that, given a transaction, a subset function can quickly find all candidates it contains rather than testing every candidate against every transaction linearly. Together these techniques reduce both the number of database scans and the number of candidates generated &mdash; the two dominant costs of Apriori.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 2 &mdash; The FP-Growth Algorithm</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.21</span>
+      <span class="q-title">Explain the construction of an FP-tree from a transaction database with a worked example.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>FP-Growth</strong> avoids Apriori's costly candidate generation by compressing the database into a <strong>Frequent-Pattern tree (FP-tree)</strong> and mining it via a depth-first, divide-and-conquer strategy, using only two database scans in total.</p><p class="sub-h">Worked example (min_support = 3)</p><div class="table-wrap"><table><thead><tr><th>TID</th><th>Items Bought</th><th>Ordered Frequent Items</th></tr></thead><tbody><tr><td>100</td><td>{f,a,c,d,g,i,m,p}</td><td>{f,c,a,m,p}</td></tr><tr><td>200</td><td>{a,b,c,f,l,m,o}</td><td>{f,c,a,b,m}</td></tr><tr><td>300</td><td>{b,f,h,j,o,w}</td><td>{f,b}</td></tr><tr><td>400</td><td>{b,c,k,s,p}</td><td>{c,b,p}</td></tr><tr><td>500</td><td>{a,f,c,e,l,p,m,n}</td><td>{f,c,a,m,p}</td></tr></tbody></table></div><div class="code-block">Step 1: Scan DB once -&gt; frequent 1-itemsets with counts:
+  f:4  c:4  a:3  b:3  m:3  p:3   (all other items occur &lt;3 times, dropped)
+
+Step 2: Sort by descending frequency -&gt; F-list = f-c-a-b-m-p
+
+Step 3: Reorder each transaction's items by F-list order (column 3 of table above)
+
+Step 4: Scan DB again, insert each ordered transaction into a shared prefix tree,
+        incrementing counts of shared prefixes, creating new branches otherwise.</div><p class="sub-h">Resulting header table</p><div class="table-wrap"><table><thead><tr><th>Item</th><th>Frequency</th><th>Head of node-link chain</th></tr></thead><tbody><tr><td>f</td><td>4</td><td>points to the f:4 root child</td></tr><tr><td>c</td><td>4</td><td>points to first c node</td></tr><tr><td>a</td><td>3</td><td>points to first a node</td></tr><tr><td>b</td><td>3</td><td>points to b nodes (2 branches)</td></tr><tr><td>m</td><td>3</td><td>points to m nodes (2 branches)</td></tr><tr><td>p</td><td>3</td><td>points to p nodes (2 branches)</td></tr></tbody></table></div><p>Because transactions 100 and 500 share the exact ordered prefix f-c-a-m-p, they merge into one branch of the tree with the shared node counts incremented (f:4 c:4 a:3 ... at the appropriate points), which is exactly the compression that makes the FP-tree "never larger than the original database" while still preserving every pattern needed for mining. A <em>node-link</em> from the header table threads together all occurrences of the same item across branches, enabling fast traversal during mining.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.22</span>
+      <span class="q-title">Explain how Conditional Pattern Bases and Conditional FP-trees are derived, and generate frequent patterns for suffix "m".</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Mining proceeds bottom-up through the header table (from least to most frequent item), building for each item a <strong>conditional pattern base</strong> (the prefix paths co-occurring with that item) and then a <strong>conditional FP-tree</strong> from it.</p><p class="sub-h">Conditional pattern bases (from the f-c-a-b-m-p example, min_sup=3)</p><div class="table-wrap"><table><thead><tr><th>Item</th><th>Conditional Pattern Base</th></tr></thead><tbody><tr><td>p</td><td>{f,c,a,m:2}, {c,b:1}</td></tr><tr><td>m</td><td>{f,c,a:2}, {f,c,a,b:1}</td></tr><tr><td>b</td><td>{f,c,a:1}, {f:1}, {c:1}</td></tr><tr><td>a</td><td>{f,c:3}</td></tr><tr><td>c</td><td>{f:3}</td></tr><tr><td>f</td><td>&empty;</td></tr></tbody></table></div><p class="sub-h">Worked derivation for suffix “m”</p><p>m's conditional pattern base is {f,c,a:2} and {f,c,a,b:1}. Accumulating counts per item: f:3, c:3, a:3, b:1 &mdash; since b's count (1) is below min_sup=3, b is dropped, leaving the <strong>m-conditional FP-tree</strong>: a single path f:3&ndash;c:3&ndash;a:3.</p><div class="code-block">m-conditional FP-tree (single path f-c-a, all count 3):
+
+  {} -- f:3 -- c:3 -- a:3
+
+Because this is a SINGLE PATH, all combinations of its nodes are generated
+directly, each concatenated with suffix 'm':
+  m, fm, cm, am, fcm, fam, cam, fcam   (all support 3, all &gt;= min_sup)</div><p class="sub-h">Full result table</p><div class="table-wrap"><table><thead><tr><th>Item</th><th>Cond. Pattern Base</th><th>Cond. FP-tree</th><th>Frequent Patterns Generated</th></tr></thead><tbody><tr><td>p</td><td>{fcam:2},{cb:1}</td><td>{c:3}</td><td>{c,p:3}</td></tr><tr><td>m</td><td>{fca:2},{fcab:1}</td><td>{f,c,a:3}</td><td>m, fm, cm, am, fcm, fam, cam, fcam (all :3)</td></tr><tr><td>b</td><td>{fca:1},{f:1},{c:1}</td><td>&empty;</td><td>(none)</td></tr><tr><td>a</td><td>{fc:3}</td><td>{f,c:3}</td><td>fa:3, ca:3, fca:3</td></tr><tr><td>c</td><td>{f:3}</td><td>{f:3}</td><td>fc:3</td></tr><tr><td>f</td><td>&empty;</td><td>&empty;</td><td>(none)</td></tr></tbody></table></div><p>The <strong>key advantage</strong> demonstrated here: FP-Growth never explicitly generates or tests candidate itemsets the way Apriori does &mdash; it grows long patterns directly from short ones by recursively mining conditional trees, which is why FP-Growth is typically an order of magnitude faster than Apriori on dense datasets.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.23</span>
+      <span class="q-title">Compare the Apriori algorithm and the FP-Growth algorithm.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Apriori</th><th>FP-Growth</th></tr></thead><tbody><tr><td>Search strategy</td><td>Breadth-first, level-wise (generates Ck then Lk for each k)</td><td>Depth-first, divide-and-conquer</td></tr><tr><td>Candidate generation</td><td>Explicitly generates and tests candidate itemsets at every level</td><td>No candidate generation &mdash; grows patterns directly from conditional trees</td></tr><tr><td>Database scans</td><td>One scan per level (k scans for max itemset size k)</td><td>Exactly two scans total</td></tr><tr><td>Data structure</td><td>Hash-tree of candidates</td><td>Compact FP-tree (compressed, shares common prefixes)</td></tr><tr><td>Memory</td><td>Can explode: huge candidate sets for dense/long-pattern data</td><td>FP-tree is never larger than the original DB; more memory-efficient</td></tr><tr><td>Speed</td><td>Slower &mdash; bottlenecked by candidate generation-and-test</td><td>An order of magnitude faster in most benchmark comparisons</td></tr><tr><td>Best suited for</td><td>Sparse data, shorter frequent patterns, simple to implement/teach</td><td>Dense data, long frequent patterns, large transaction databases</td></tr></tbody></table></div><p>Both algorithms rely on the same underlying <strong>Apriori (anti-monotone) property</strong> &mdash; that every subset of a frequent itemset is frequent &mdash; but they exploit it very differently: Apriori uses it to prune candidates <em>before</em> counting, while FP-Growth uses it implicitly by only ever growing patterns from item combinations that are already known to be locally frequent within a conditional tree, eliminating the pattern-matching and candidate-test overhead entirely.</p><p>The trade-off is implementation complexity: Apriori's candidate-generate-and-test loop is conceptually simpler to code and explain, while FP-Growth's recursive conditional-tree construction is more involved but scales far better as the database and pattern lengths grow.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.24</span>
+      <span class="q-title">Apply FP-Growth to a second dataset (6 transactions, support threshold 50%) and construct the FP-tree item ordering.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Dataset:</strong> support threshold = 50% of 6 transactions &rArr; min_sup = 3.</p><div class="table-wrap"><table><thead><tr><th>TID</th><th>Items</th></tr></thead><tbody><tr><td>T1</td><td>I1,I2,I3</td></tr><tr><td>T2</td><td>I2,I3,I4</td></tr><tr><td>T3</td><td>I4,I5</td></tr><tr><td>T4</td><td>I1,I2,I4</td></tr><tr><td>T5</td><td>I1,I2,I3,I5</td></tr><tr><td>T6</td><td>I1,I2,I3,I4</td></tr></tbody></table></div><p class="sub-h">Step 1: Count and sort items</p><div class="table-wrap"><table><thead><tr><th>Item</th><th>Count</th><th>Meets min_sup=3?</th></tr></thead><tbody><tr><td>I2</td><td>5</td><td>Yes</td></tr><tr><td>I1</td><td>4</td><td>Yes</td></tr><tr><td>I3</td><td>4</td><td>Yes</td></tr><tr><td>I4</td><td>4</td><td>Yes</td></tr><tr><td>I5</td><td>2</td><td>No, dropped</td></tr></tbody></table></div><p>F-list (descending frequency) = I2, I1, I3, I4.</p><p class="sub-h">Step 2: Build the FP-tree, inserting transactions in F-list order</p><div class="code-block">T1 (I2,I1,I3): new branch  I2:1 - I1:1 - I3:1
+T2 (I2,I3,I4): I2 shared -&gt; I2:2 ; new I3:1 child of I2 ; I4:1 child of that I3
+T3 (I4,I5): I5 dropped (infrequent) -&gt; new branch I4:1 (separate root branch)
+T4 (I2,I1,I4): I2:3, I1:2 (shares with T1's I1 branch), new I4:1 child of I1
+T5 (I2,I1,I3,I5): I5 dropped -&gt; I2:4, I1:3, new I3:2 child of I1
+T6 (I2,I1,I3,I4): I2:5, I1:4, I3:3 (shares path), new I4:1 child of I3
+
+Final counts along the main branch: I2:5 -- I1:4 -- I3:3 (with I4 branching off at various points)</div><p class="sub-h">Step 3: Mining (summary)</p><p>Following the same bottom-up conditional-pattern-base procedure as the first worked example, I4 (the lowest-frequency surviving item) is processed first, then I3, then I1 &mdash; each contributing frequent patterns such as {I2,I1:4}, {I2,I3:4}, {I2,I1,I3:3} once their conditional FP-trees are built and checked against min_sup=3. This mirrors exactly the procedure demonstrated in detail for the f-c-a-b-m-p dataset, confirming FP-Growth's consistent two-scan, no-candidate-generation approach regardless of dataset size.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 2 &mdash; Multilevel &amp; Multidimensional Associations</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.25</span>
+      <span class="q-title">Explain Multilevel Association Rule mining and the three approaches to setting support thresholds.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Items in real transactional data naturally form <strong>concept hierarchies</strong> (e.g., "Skim Milk" &rarr; "2% Milk" &rarr; "Milk" as a general category), and <strong>multilevel association rules</strong> mine patterns at multiple levels of this hierarchy simultaneously.</p><div class="diagram-wrap"><div class="diagram-label">Concept Hierarchy for Multilevel Mining</div><svg viewBox="0 0 420 140" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;"><text x="210" y="25" fill="#fff" text-anchor="middle">Milk (support=10%)</text><line x1="210" y1="32" x2="120" y2="70" stroke="#555"/><line x1="210" y1="32" x2="300" y2="70" stroke="#555"/><text x="120" y="85" fill="#e8c19a" text-anchor="middle">2% Milk (support=6%)</text><text x="300" y="85" fill="#e8c19a" text-anchor="middle">Skim Milk (support=4%)</text><text x="210" y="120" fill="#666" text-anchor="middle">Level 1 min_sup=5% ; Level 2 min_sup=5% (uniform) or 3% (reduced)</text></svg></div><div class="table-wrap"><table><thead><tr><th>Approach</th><th>Rule</th><th>Trade-off</th></tr></thead><tbody><tr><td>Uniform Support</td><td>Same min-support threshold applied at every level of the hierarchy</td><td>Simple, but if set too high, misses meaningful low-level associations; if too low, generates too many uninteresting high-level rules</td></tr><tr><td>Reduced Support</td><td>Lower min-support at deeper (more specific) levels</td><td>Better captures rare but meaningful specific-item patterns; needs a search strategy (level-by-level independence, level-cross filtering by single item, or by k-itemset) to remain efficient</td></tr><tr><td>Group-based Support</td><td>Domain-expert-set threshold per item/group, independent of hierarchy level</td><td>Lets analysts deliberately focus on commercially important but low-frequency groups (e.g., electronics), at the cost of requiring manual tuning</td></tr></tbody></table></div><p>The core justification for reduced/group-based support is that items lower in a concept hierarchy are naturally rarer (Skim Milk sells less than "Milk" overall), so a single uniform threshold systematically under-represents specific-level patterns unless deliberately relaxed for them.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.26</span>
+      <span class="q-title">Explain Multidimensional Association Rules, distinguishing inter-dimension and hybrid-dimension rules.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>A <strong>single-dimensional</strong> association rule involves only one predicate repeated (e.g., buys(X,"milk") &rArr; buys(X,"bread")). A <strong>multidimensional</strong> rule involves two or more distinct predicates/dimensions.</p><div class="table-wrap"><table><thead><tr><th>Rule Type</th><th>Definition</th><th>Example</th></tr></thead><tbody><tr><td>Inter-dimension rule</td><td>No repeated predicate; each dimension appears once</td><td>age(X,"19-25") &and; occupation(X,"student") &rArr; buys(X,"coke")</td></tr><tr><td>Hybrid-dimension rule</td><td>Contains a repeated predicate</td><td>age(X,"19-25") &and; buys(X,"popcorn") &rArr; buys(X,"coke")</td></tr></tbody></table></div><p class="sub-h">Categorical vs Quantitative attributes</p><p><strong>Categorical attributes</strong> have a finite set of unordered values (handled with a data-cube style approach, counting combinations directly). <strong>Quantitative attributes</strong> are numeric with implicit ordering and must first be <em>discretized</em> before mining, via static discretization (predefined ranges, decided once) or dynamic discretization (ranges adapted based on data distribution, clustering, or gradient-based search).</p><p>Techniques for mining multidimensional rules over quantitative attributes typically use a grid-based approach: the quantitative attribute space is partitioned into a grid of cells, support/confidence is computed for combinations of cells (candidate ranges), and adjacent cells may be merged to find the ranges that yield the strongest rules &mdash; conceptually similar to how discretization is used more generally in preprocessing.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 3 &mdash; Bayesian Classification</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.27</span>
+      <span class="q-title">State and derive Bayes' Theorem; explain prior, likelihood, posterior and evidence with a worked example.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Bayes' Theorem</strong> relates the conditional probability of a hypothesis H given evidence X to the reverse conditional probability, and is the mathematical foundation of Bayesian classification:</p><div class="code-block">P(H|X) = P(X|H) * P(H) / P(X)</div><div class="table-wrap"><table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td>P(H)</td><td>Prior probability &mdash; initial belief in H before seeing evidence</td></tr><tr><td>P(X|H)</td><td>Likelihood &mdash; probability of observing evidence X given H is true</td></tr><tr><td>P(X)</td><td>Evidence &mdash; total (marginal) probability of observing X, over all hypotheses</td></tr><tr><td>P(H|X)</td><td>Posterior probability &mdash; updated belief in H after observing X</td></tr></tbody></table></div><p>Informally: <strong>posterior = (likelihood &times; prior) / evidence</strong>. Classification then predicts that X belongs to the class C&#8093; for which P(C&#8093;|X) is highest among all classes (Maximum A Posteriori, MAP).</p><p class="sub-h">Worked example: defective cars</p><p>Companies B1, B2, B3 produce 30%, 45%, 25% of cars; 2%, 3%, 2% of their respective output is defective. Given a defective car, find P(B&#8081; | Defective) for each company.</p><div class="table-wrap"><table><thead><tr><th>Company</th><th>P(B&#8081;)</th><th>P(D|B&#8081;)</th><th>P(B&#8081;)&times;P(D|B&#8081;)</th><th>P(B&#8081;|D) = ratio/total</th></tr></thead><tbody><tr><td>B1</td><td>0.30</td><td>0.02</td><td>0.0060</td><td>0.0060/0.0245 = 0.245</td></tr><tr><td>B2</td><td>0.45</td><td>0.03</td><td>0.0135</td><td>0.0135/0.0245 = 0.551</td></tr><tr><td>B3</td><td>0.25</td><td>0.02</td><td>0.0050</td><td>0.0050/0.0245 = 0.204</td></tr></tbody></table></div><p>Total P(D) = 0.0060+0.0135+0.0050 = 0.0245. So a defective car is most likely (55.1%) to have come from company B2 &mdash; note this simply reflects that B2 produces the most cars <em>and</em> has the highest defect rate, illustrating how Bayes' theorem combines prior production share with likelihood of defect into one posterior belief.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.28</span>
+      <span class="q-title">Solve using Bayes' Theorem: probability that an e-mail containing the word 'offer' is spam.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Given:</strong> ‘offer’ occurs in 80% of spam e-mails and 10% of desired (non-spam) e-mails; 30% of all received e-mails are spam. Find P(Spam | contains ‘offer’).</p><p class="sub-h">Step 1: Define events</p><p>A1 = e-mail is Spam, P(A1) = 0.3; A2 = e-mail is Desired, P(A2) = 0.7; O = e-mail contains ‘offer’.</p><p class="sub-h">Step 2: Intuition with 100 e-mails</p><div class="code-block">100 e-mails -&gt; 30 spam, 70 desired
+Spam containing 'offer'    = 80% of 30 = 24
+Desired containing 'offer' = 10% of 70 = 7
+Total containing 'offer'   = 24 + 7 = 31</div><p class="sub-h">Step 3: Apply Bayes' Theorem</p><div class="table-wrap"><table><thead><tr><th>Event</th><th>P(A&#8081;)</th><th>P(O|A&#8081;)</th><th>P(A&#8081;)&times;P(O|A&#8081;)</th><th>P(A&#8081;|O)</th></tr></thead><tbody><tr><td>Spam (A1)</td><td>0.3</td><td>0.8</td><td>0.24</td><td>0.24/0.31 = 0.774</td></tr><tr><td>Desired (A2)</td><td>0.7</td><td>0.1</td><td>0.07</td><td>0.07/0.31 = 0.226</td></tr></tbody></table></div><p>P(O) = 0.24+0.07 = 0.31. So P(Spam | ‘offer’) = 0.24/0.31 &asymp; <strong>77.4%</strong> &mdash; even though the base spam rate is only 30%, the strong likelihood ratio for ‘offer’ in spam vs desired mail pushes the posterior sharply upward, exactly the mechanism a Na&iuml;ve Bayes spam filter exploits at scale across many such words simultaneously.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.29</span>
+      <span class="q-title">Solve using Bayes' Theorem: probability a patient who tests positive actually has the disease.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p><strong>Given:</strong> a diagnostic test is 99% accurate; 60% of all people (prevalence) actually have the disease (Covid-19, per the slide example). Find P(Disease | Positive test).</p><p class="sub-h">Step 1: Define events</p><p>A1 = Has disease, P(A1)=0.6; A2 = No disease, P(A2)=0.4; P = tests Positive. Accuracy 99% means P(Positive|Has disease)=0.99 and P(Positive|No disease) = 1&minus;0.99 = 0.01 (false-positive rate).</p><p class="sub-h">Step 2: Apply Bayes' Theorem</p><div class="table-wrap"><table><thead><tr><th>Event</th><th>P(A&#8081;)</th><th>P(P|A&#8081;)</th><th>P(A&#8081;)&times;P(P|A&#8081;)</th><th>P(A&#8081;|P)</th></tr></thead><tbody><tr><td>Has disease (A1)</td><td>0.6</td><td>0.99</td><td>0.594</td><td>0.594/0.598 = 0.9933</td></tr><tr><td>No disease (A2)</td><td>0.4</td><td>0.01</td><td>0.004</td><td>0.004/0.598 = 0.0067</td></tr></tbody></table></div><p>P(P) = 0.594 + 0.004 = 0.598. So P(Has disease | Positive) = 0.594/0.598 &asymp; <strong>99.33%</strong>.</p><p class="sub-h">Interpretation &mdash; why prevalence matters</p><p>This result is high mainly because the disease prevalence (60%) is unusually large; with a rare disease (say prevalence 1%), the same 99%-accurate test would give a far lower posterior probability due to a much larger relative pool of false positives &mdash; a classic illustration of the <em>base-rate fallacy</em> and a favourite "tricky" exam variant where students forget to weight by prior prevalence and just quote the test's raw accuracy.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.30</span>
+      <span class="q-title">Explain the Naive Bayes Classifier and apply it to classify X = (age&le;30, income=medium, student=yes, credit_rating=fair).</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>The <strong>Na&iuml;ve Bayes Classifier</strong> applies Bayes' theorem with a simplifying (“na&iuml;ve”) assumption: all attributes are <em>conditionally independent</em> given the class. This lets P(X|C&#8093;) be computed as a simple product instead of requiring a huge joint-probability table:</p><div class="code-block">P(X|Ci) = P(x1|Ci) * P(x2|Ci) * ... * P(xn|Ci)
+Predict class Ci that maximizes  P(X|Ci) * P(Ci)   (since P(X) is constant across classes)</div><p class="sub-h">Step 1: Prior probabilities (buys_computer training data, 14 tuples)</p><div class="code-block">P(buys_computer=yes) = 9/14 = 0.643
+P(buys_computer=no)  = 5/14 = 0.357</div><p class="sub-h">Step 2: Class-conditional probabilities for X = (age<=30, income=medium, student=yes, credit_rating=fair)</p><div class="table-wrap"><table><thead><tr><th>Attribute = value</th><th>P( . | yes)</th><th>P( . | no)</th></tr></thead><tbody><tr><td>age = “&le;30”</td><td>2/9 = 0.222</td><td>3/5 = 0.600</td></tr><tr><td>income = “medium”</td><td>4/9 = 0.444</td><td>2/5 = 0.400</td></tr><tr><td>student = “yes”</td><td>6/9 = 0.667</td><td>1/5 = 0.200</td></tr><tr><td>credit_rating = “fair”</td><td>6/9 = 0.667</td><td>2/5 = 0.400</td></tr></tbody></table></div><p class="sub-h">Step 3: Multiply out P(X|Ci)</p><div class="code-block">P(X|yes) = 0.222 * 0.444 * 0.667 * 0.667 = 0.044
+P(X|no)  = 0.600 * 0.400 * 0.200 * 0.400 = 0.019</div><p class="sub-h">Step 4: Multiply by the prior and compare</p><div class="code-block">P(X|yes) * P(yes) = 0.044 * 0.643 = 0.028
+P(X|no)  * P(no)  = 0.019 * 0.357 = 0.007
+
+0.028 &gt; 0.007  =&gt;  Predict: buys_computer = YES</div><p>Because 0.028 &gt; 0.007, the classifier predicts <strong>X will buy a computer</strong>. This example is one of the most exam-favoured worked problems in the whole unit &mdash; practise reproducing the four conditional-probability lookups and the two final products without a calculator error.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.31</span>
+      <span class="q-title">Explain the Zero-Probability problem in Naive Bayes and how Laplacian correction resolves it.</span>
+      <span class="q-marks">5M</span>
+    </div>
+    <div class="q-body">
+      <p>Na&iuml;ve Bayes multiplies together every per-attribute conditional probability P(x&#8096;|C&#8093;). If <em>even one</em> of these is zero (because that attribute value never appeared for that class in the training data), the <strong>entire product collapses to zero</strong> &mdash; regardless of how strongly the other attributes support that class. This is the <strong>zero-probability problem</strong>.</p><p class="sub-h">Worked example</p><p>Suppose a dataset of 1000 tuples has income=low (0 tuples), income=medium (990), income=high (10).</p><div class="code-block">Uncorrected: P(income=low) = 0/1000 = 0   &lt;-- would zero out any prediction involving low income
+
+Laplacian correction: add 1 to every count, and add (number of categories) to the denominator:
+  P(income=low)    = (0+1)/(1000+3) = 1/1003
+  P(income=medium) = (990+1)/1003   = 991/1003
+  P(income=high)   = (10+1)/1003    = 11/1003</div><p>The corrected estimates remain very close to the uncorrected ones for the well-populated categories, but no probability is ever exactly zero, so a single unseen attribute-value combination can no longer wipe out an otherwise well-supported prediction. This smoothing technique is also called <strong>add-one smoothing</strong> and is applied uniformly across all categorical attribute values during Na&iuml;ve Bayes training.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.32</span>
+      <span class="q-title">Explain the assumptions behind Naive Bayes, why it is called "naive", and its advantages/disadvantages.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Why “Naïve”?</p><p>It is called “Naïve” because it makes the strong, often unrealistic simplifying assumption that the presence of one feature does not affect any other feature (conditional independence given the class); the “Bayes” part refers to its grounding in Bayes' Theorem.</p><p class="sub-h">Core assumptions</p><div class="table-wrap"><table><thead><tr><th>Assumption</th><th>Explanation</th></tr></thead><tbody><tr><td>Feature independence</td><td>Each attribute contributes to the class prediction independently of all others</td></tr><tr><td>Continuous features normally distributed</td><td>If Ak is continuous-valued, P(xk|Ci) is computed from a Gaussian with class-specific mean &mu; and SD &sigma;</td></tr><tr><td>Discrete features multinomially distributed</td><td>Categorical attributes use simple frequency-ratio estimates</td></tr><tr><td>Features equally important</td><td>No attribute is weighted more heavily than another a priori</td></tr><tr><td>No missing data</td><td>The classifier assumes a complete, unbiased training set</td></tr></tbody></table></div><p class="sub-h">Advantages</p><p>Easy and fast to implement, requires only a single pass to estimate all probabilities, performs comparably to decision trees and some neural networks on many real datasets, handles high-dimensional data (e.g., text classification) very well, and updates incrementally as new labelled examples arrive.</p><p class="sub-h">Disadvantages</p><p>Its core assumption &mdash; class-conditional independence &mdash; rarely holds exactly in practice (e.g., in medical data, “age” and “family history” are correlated, not independent), which causes some loss of accuracy. It also suffers from the zero-probability problem without Laplace smoothing.</p><p class="sub-h">When dependencies matter: Bayesian Belief Networks</p><p>When attribute dependencies are too important to ignore, <strong>Bayesian Belief Networks</strong> generalize Na&iuml;ve Bayes by explicitly modelling a graph of conditional dependencies between attributes (rather than assuming full independence), trading Na&iuml;ve Bayes' simplicity and speed for the ability to represent real inter-attribute relationships accurately.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 2 &mdash; From Association Analysis to Correlation Analysis</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.33</span>
+      <span class="q-title">Explain why Correlation Analysis is needed beyond Support-Confidence, and describe Lift, Chi-Square, and null-invariant measures with a worked example.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>The support-confidence framework used by Apriori/FP-Growth can produce <strong>misleading strong rules</strong>: a rule X &rarr; Y can have high confidence simply because Y is very frequent overall, regardless of any real relationship between X and Y. Correlation analysis supplements association analysis to filter out such spurious rules.</p><p class="sub-h">Worked example (AllElectronics, 10,000 transactions)</p><div class="table-wrap"><table><thead><tr><th>Item</th><th>Count</th><th>Both (game &amp; video)</th></tr></thead><tbody><tr><td>Computer games</td><td>6,000</td><td>4,000</td></tr><tr><td>Videos</td><td>7,500</td><td>4,000</td></tr></tbody></table></div><div class="code-block">Rule: game -&gt; video
+Support(game,video)  = 4000/10000 = 40%
+Confidence(game-&gt;video) = 4000/6000 = 66.7%   (appears to be a strong rule)
+
+But baseline P(video) = 7500/10000 = 75%, which is HIGHER than 66.7%.
+So knowing a customer bought a game actually makes them LESS likely to buy video
+than a random customer -&gt; game and video are negatively correlated.</div><p class="sub-h">Lift</p><div class="code-block">Lift(A,B) = P(A U B) / (P(A) x P(B))
+Lift(game,video) = 0.4 / (0.6 x 0.75) = 0.89  ( &lt; 1 =&gt; negative correlation, confirming the paradox)</div><p class="sub-h">Chi-Square (&chi;&sup2;) Test</p><p>Builds a 2&times;2 contingency table of observed counts for (game,video), (game,&not;video), (&not;game,video), (&not;game,&not;video) and compares them against the counts <em>expected</em> under independence. A large &chi;&sup2; value indicates correlation; the sign of (observed&minus;expected) in the (A,B) cell shows whether it is positive or negative.</p><p class="sub-h">Null-invariant measures: All-Confidence, Cosine, Kulczynski</p><p>Lift and &chi;&sup2; are both distorted by the count of “null transactions” (transactions containing neither item), which typically dominate large sparse datasets. <strong>Null-invariant</strong> measures do not change when this null count changes:</p><div class="code-block">all_conf(A,B) = sup(A U B) / max(sup(A), sup(B))
+cosine(A,B)    = sup(A U B) / sqrt(sup(A) x sup(B))
+Kulc(A,B)      = 1/2 [ P(A|B) + P(B|A) ]</div><p>Because they are unaffected by null transactions, all-confidence, cosine and Kulczynski (often paired with the <em>Imbalance Ratio</em> to check if A and B occur with similar frequency) are generally preferred over lift and &chi;&sup2; for correlation analysis on large, sparse real-world transaction databases such as retail baskets.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 3 &mdash; Supervised vs Unsupervised Learning</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num star">✱B.34</span>
+      <span class="q-title">Explain Supervised and Unsupervised Learning in detail, with a comparison table and examples of algorithms from the syllabus.</span>
+      <span class="q-marks">10M</span>
+    </div>
+    <div class="q-body">
+      <p>Machine learning algorithms are broadly divided into <strong>supervised</strong> and <strong>unsupervised</strong> learning, based on whether the training data carries a known output label.</p><p class="sub-h">Supervised Learning</p><p>The model is trained on labelled data &mdash; every example has both input features X and a known correct output Y (class label or numeric value) &mdash; and learns a function/mapping f: X &rarr; Y that generalizes to new, unseen inputs. Because ground truth is available, the model's predictions can be directly checked against the true labels during training and evaluation.</p><div class="table-wrap"><table><thead><tr><th>Sub-type</th><th>Goal</th><th>Example (from syllabus)</th></tr></thead><tbody><tr><td>Classification</td><td>Predict a discrete class label</td><td>Na&iuml;ve Bayes classifying buys_computer = yes/no</td></tr><tr><td>Regression</td><td>Predict a continuous numeric value</td><td>Predicting sales, temperature, price</td></tr></tbody></table></div><p class="sub-h">Unsupervised Learning</p><p>The model is given only unlabelled data (input features, no known output) and must discover hidden structure, groupings, or relationships on its own, without any “correct answer” to learn from.</p><div class="table-wrap"><table><thead><tr><th>Sub-type</th><th>Goal</th><th>Example (from syllabus)</th></tr></thead><tbody><tr><td>Clustering</td><td>Group similar objects together</td><td>k-Means, k-Medoids, hierarchical clustering</td></tr><tr><td>Association Rule Mining</td><td>Find co-occurring itemsets</td><td>Apriori, FP-Growth (Market Basket Analysis)</td></tr><tr><td>Dimensionality Reduction / Outlier Analysis</td><td>Compress features / find rare points</td><td>PCA; outlier detection</td></tr></tbody></table></div><p class="sub-h">Comparison</p><div class="table-wrap"><table><thead><tr><th>Aspect</th><th>Supervised</th><th>Unsupervised</th></tr></thead><tbody><tr><td>Data</td><td>Labelled (X, Y)</td><td>Unlabelled (X only)</td></tr><tr><td>Objective</td><td>Predict Y for new X</td><td>Discover structure in X</td></tr><tr><td>Feedback during training</td><td>Direct error signal from true label</td><td>No ground truth; uses internal criteria</td></tr><tr><td>Evaluation</td><td>Accuracy, Precision, Recall, F1-score, RMSE</td><td>Silhouette score, intra/inter-cluster distance, support/confidence</td></tr><tr><td>Risk</td><td>Overfitting to labelled training data</td><td>Discovered “patterns” may not be meaningful</td></tr><tr><td>Examples in this syllabus</td><td>Na&iuml;ve Bayes (Unit 3)</td><td>Apriori/FP-Growth (Unit 2), k-Means/DBSCAN (Unit 4)</td></tr></tbody></table></div><p>A third category, <strong>semi-supervised learning</strong>, combines a small labelled dataset with a much larger unlabelled one &mdash; useful when labelling is expensive (e.g., medical images) but unlabelled data is abundant. <strong>Reinforcement learning</strong> is a related but distinct paradigm where an agent learns via rewards/penalties from interacting with an environment, rather than from a fixed labelled or unlabelled dataset.</p>
+    </div>
+  </div>
+
+</div>
+<!-- end Part B panel -->
+
+<footer>Data Mining &middot; C4105 &middot; Units 1&ndash;3 &middot; Preprocessing &middot; Apriori &middot; FP-Growth &middot; Naive Bayes &middot; Exam Reference</footer>
+
+<script>
+function switchTab(tab) {
+  const order = ['important', 'partA', 'partB'];
+  const idx = order.indexOf(tab);
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    b.classList.toggle('active', i === idx);
+  });
+  order.forEach(t => {
+    document.getElementById('panel-' + t).classList.toggle('active', t === tab);
+  });
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cloud Computing — Unit 1 Exam Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #121212;
+    --surface2: #1a1a1a;
+    --surface3: #222222;
+    --border: #2a2a2a;
+    --accent: #dc2626;
+    --amber: #d97706;
+    --amber-light: #fbbf24;
+    --amber-dim: rgba(217,119,6,0.12);
+    --amber-glow: rgba(251,191,36,0.07);
+    --crimson: #dc2626;
+    --crimson-dim: rgba(220,38,38,0.12);
+    --text: #e8e0d4;
+    --text-muted: #9a8f83;
+    --text-dim: #5a5248;
+    --gold: #c9a84c;
+    --star: #f59e0b;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* ─── HEADER ─── */
+  header {
+    background: linear-gradient(135deg, #0f0606 0%, #120e06 50%, #0a0a10 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(220,38,38,0.06), transparent);
+    pointer-events: none;
+  }
+  .header-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid rgba(217,119,6,0.4);
+    padding: 0.25rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+  }
+  header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #f0e6d3;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+  header h1 span { color: var(--amber-light); }
+  header p {
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-style: italic;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ─── NAV TABS ─── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,10,0.97);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    display: flex; overflow-x: auto; gap: 0;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-tab {
+    flex-shrink: 0;
+    padding: 0.9rem 1.4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+    user-select: none;
+  }
+  .nav-tab:hover { color: var(--amber-light); }
+  .nav-tab.active { color: var(--amber-light); border-bottom-color: var(--amber); }
+  .nav-tab.star-tab { color: var(--star); }
+  .nav-tab.star-tab.active { border-bottom-color: var(--star); }
+
+  /* ─── SECTIONS ─── */
+  .section { display: none; padding: 2.5rem 1.5rem; max-width: 960px; margin: 0 auto; }
+  .section.active { display: block; }
+
+  /* ─── QUESTION BANK ─── */
+  .part-header {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.8rem; padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .part-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.1em;
+    padding: 0.3rem 0.8rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .part-a { background: var(--crimson-dim); color: var(--crimson); border: 1px solid rgba(220,38,38,0.25); }
+  .part-b { background: var(--amber-dim); color: var(--amber-light); border: 1px solid rgba(217,119,6,0.25); }
+  .part-header h2 { font-size: 1.1rem; font-weight: 600; color: var(--text); }
+  .part-header small { color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; }
+
+  .q-list { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2.5rem; }
+  .q-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.9rem 1.1rem;
+    display: flex; gap: 0.9rem; align-items: flex-start;
+    transition: border-color 0.2s, background 0.2s;
+    cursor: pointer;
+  }
+  .q-item:hover { border-color: rgba(217,119,6,0.3); background: var(--surface2); }
+  .q-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; color: var(--text-dim);
+    flex-shrink: 0; padding-top: 0.15rem;
+    min-width: 2rem;
+  }
+  .q-text { font-size: 0.97rem; color: var(--text); }
+  .q-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.64rem; color: var(--amber);
+    flex-shrink: 0; margin-left: auto; padding-top: 0.15rem;
+    white-space: nowrap;
+  }
+
+  /* ─── STAR SECTION ─── */
+  .star-intro {
+    background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(220,38,38,0.04));
+    border: 1px solid rgba(245,158,11,0.2);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .star-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; }
+  .star-intro p { font-size: 0.95rem; color: var(--text-muted); font-style: italic; }
+  .star-intro strong { color: var(--amber-light); font-style: normal; }
+
+  .topic-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+  .topic-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 1.4rem;
+    cursor: pointer;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+    user-select: none;
+  }
+  .topic-header:hover { background: var(--surface3); }
+  .topic-title-row { display: flex; align-items: center; gap: 0.8rem; }
+  .topic-star { color: var(--star); font-size: 1rem; }
+  .topic-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--text-dim);
+  }
+  .topic-name { font-size: 1.05rem; font-weight: 600; color: #f0e6d3; }
+  .topic-toggle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem; color: var(--text-dim);
+    transition: transform 0.25s;
+  }
+  .topic-toggle.open { transform: rotate(180deg); }
+  .topic-body { display: none; padding: 1.4rem 1.5rem; }
+  .topic-body.open { display: block; }
+
+  /* ─── CONTENT STYLES ─── */
+  .def-box {
+    background: var(--amber-dim);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 4px 4px 0;
+    padding: 0.9rem 1.2rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.97rem;
+  }
+  .def-box strong { color: var(--amber-light); }
+
+  .keyword-strip {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin: 0.8rem 0 1.2rem;
+  }
+  .kw {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    background: var(--surface3);
+  }
+  .kw.amber { border-color: rgba(217,119,6,0.4); color: var(--amber-light); background: var(--amber-dim); }
+  .kw.red { border-color: rgba(220,38,38,0.4); color: #f87171; background: var(--crimson-dim); }
+
+  h3.sub { font-size: 0.95rem; font-weight: 600; color: var(--amber-light); margin: 1.2rem 0 0.5rem; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; }
+  p.body-text { font-size: 0.97rem; margin-bottom: 0.8rem; color: var(--text); }
+  ul.body-list { margin-left: 1.2rem; margin-bottom: 0.8rem; }
+  ul.body-list li { font-size: 0.96rem; margin-bottom: 0.35rem; }
+  ul.body-list li strong { color: var(--amber-light); }
+
+  .memo-box {
+    background: rgba(245,158,11,0.05);
+    border: 1px dashed rgba(245,158,11,0.25);
+    border-radius: 4px;
+    padding: 0.7rem 1rem;
+    margin: 0.8rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--amber);
+    letter-spacing: 0.02em;
+  }
+  .memo-box::before { content: '★ EXAM TIP: '; color: var(--star); }
+
+  /* ─── TABLES ─── */
+  .tbl-wrap { overflow-x: auto; margin: 1rem 0 1.2rem; border-radius: 4px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  thead tr { background: var(--surface3); }
+  th {
+    padding: 0.65rem 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--amber); text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  td {
+    padding: 0.6rem 0.9rem;
+    border-bottom: 1px solid rgba(42,42,42,0.6);
+    color: var(--text); vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.015); }
+  td:first-child { font-weight: 600; color: var(--amber-light); }
+
+  /* ─── SVG DIAGRAMS ─── */
+  .diagram-wrap {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin: 1rem 0 1.2rem;
+    overflow-x: auto;
+    text-align: center;
+  }
+  .diagram-wrap svg { max-width: 100%; height: auto; }
+  .diagram-caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.67rem; color: var(--text-dim);
+    text-align: center; margin-top: 0.5rem;
+    letter-spacing: 0.04em; text-transform: uppercase;
+  }
+
+  /* ─── EXAM ANSWER ─── */
+  .exam-ans {
+    background: rgba(220,38,38,0.04);
+    border: 1px solid rgba(220,38,38,0.15);
+    border-radius: 4px;
+    padding: 0.9rem 1.1rem;
+    margin: 0.8rem 0;
+  }
+  .exam-ans-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem; color: var(--crimson);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .exam-ans p { font-size: 0.96rem; }
+
+  /* ─── NIST CHARS ─── */
+  .char-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); gap: 0.8rem; margin: 0.8rem 0 1.2rem; }
+  .char-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+  }
+  .char-card h4 { font-size: 0.82rem; font-weight: 600; color: var(--amber-light); margin-bottom: 0.3rem; font-family: 'JetBrains Mono', monospace; }
+  .char-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.55; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+  footer span { color: var(--amber); }
+
+  @media(max-width:640px){
+    header { padding: 2rem 1rem 1.5rem; }
+    .section { padding: 1.5rem 1rem; }
+    .char-grid { grid-template-columns: 1fr; }
+    .topic-name { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-badge">B.Tech CSE-DS · Advanced Cloud Computing</div>
+  <h1>Cloud Computing <span>Unit I</span></h1>
+  <p>Question Bank · Star Topics · Exam-Ready Answers</p>
+</header>
+
+<nav>
+  <div class="nav-tab active" data-tab="parta">Part A — Short</div>
+  <div class="nav-tab" data-tab="partb">Part B — Long</div>
+  <div class="nav-tab star-tab" data-tab="star">⭐ Star Topics</div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════ PART A ═══ -->
+<section class="section active" id="parta">
+  <div class="part-header">
+    <span class="part-badge part-a">Part A</span>
+    <div>
+      <h2>Short Answer Questions</h2>
+      <small>2–3 marks each · 2–4 sentences expected</small>
+    </div>
+  </div>
+
+  <div class="q-list">
+    <div class="q-item"><span class="q-num">Q01</span><span class="q-text">Define Cloud Computing. (NIST definition)</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q02</span><span class="q-text">List the five essential characteristics of Cloud Computing as per NIST.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q03</span><span class="q-text">What is On-demand Self-service in cloud computing?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q04</span><span class="q-text">Define Rapid Elasticity in cloud computing with an example.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q05</span><span class="q-text">What is Measured Service? How does it benefit users?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q06</span><span class="q-text">Distinguish between Traditional Computing and Cloud Computing (any 4 points).</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q07</span><span class="q-text">What are the three Cloud Service Models? Name an example for each.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q08</span><span class="q-text">Define IaaS. Give two examples of IaaS providers.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q09</span><span class="q-text">What is PaaS? How is it different from IaaS?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q10</span><span class="q-text">What is SaaS? Give two real-world examples.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q11</span><span class="q-text">List the four Cloud Deployment Models.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q12</span><span class="q-text">What is a Public Cloud? Give two examples.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q13</span><span class="q-text">Define Private Cloud and state its key advantage.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q14</span><span class="q-text">What is a Hybrid Cloud? In what scenario is it most useful?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q15</span><span class="q-text">What is a Community Cloud? Who uses it?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q16</span><span class="q-text">Define a Hypervisor. Name the two types.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q17</span><span class="q-text">What is the difference between Type 1 and Type 2 Hypervisors?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q18</span><span class="q-text">Define Virtualization and state its role in Cloud Computing.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q19</span><span class="q-text">What is Full Virtualization? How does it differ from Para-Virtualization?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q20</span><span class="q-text">List any four types of Virtualization.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q21</span><span class="q-text">What is Grid Computing? How is it different from Cluster Computing?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q22</span><span class="q-text">Define Distributed Computing and its main goal.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q23</span><span class="q-text">What is Utility Computing? Give one real-life analogy.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q24</span><span class="q-text">What is SOA? List its three core properties.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q25</span><span class="q-text">What does WSDL stand for? What is its purpose in SOA?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q26</span><span class="q-text">What is UDDI in the context of Web Services?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q27</span><span class="q-text">Differentiate between SOA and Service-Oriented Computing (SOC).</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q28</span><span class="q-text">Define Web 2.0. List two key characteristics.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q29</span><span class="q-text">What is the Semantic Web (Web 3.0)? What technology does it use?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q30</span><span class="q-text">What is RDF? Write the structure of an RDF triple.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q31</span><span class="q-text">What is Multicore Technology and why was it introduced?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q32</span><span class="q-text">Define Pervasive Computing. Give one example.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q33</span><span class="q-text">What is Cloud Architecture? Name its two main ends.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q34</span><span class="q-text">What is the Cloud Infrastructure and what does it consist of?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q35</span><span class="q-text">State any four business drivers for adopting Cloud Computing.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q36</span><span class="q-text">What is Vendor Lock-in? In which deployment model is it most common?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q37</span><span class="q-text">What is Cluster Computing? Name any three real-world applications.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q38</span><span class="q-text">What is CCOA (Cloud-Centric SOA)?</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q39</span><span class="q-text">List any four advantages of Cloud Computing.</span><span class="q-marks">2M</span></div>
+    <div class="q-item"><span class="q-num">Q40</span><span class="q-text">What is Data Virtualization? State two benefits.</span><span class="q-marks">2M</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ PART B ═══ -->
+<section class="section" id="partb">
+  <div class="part-header">
+    <span class="part-badge part-b">Part B</span>
+    <div>
+      <h2>Long Answer Questions</h2>
+      <small>5–10 marks each · Diagrams + tables expected where applicable</small>
+    </div>
+  </div>
+
+  <div class="q-list">
+    <div class="q-item"><span class="q-num">Q01</span><span class="q-text">Define Cloud Computing. Explain its essential characteristics as per the NIST model with suitable examples.</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q02</span><span class="q-text">Explain the Cloud Computing Architecture with a neat diagram. Discuss Front End and Back End components.</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q03</span><span class="q-text">Compare and contrast the three Cloud Service Models (IaaS, PaaS, SaaS) with examples, advantages and disadvantages.</span><span class="q-marks">10M</span></div>
+    <div class="q-item"><span class="q-num">Q04</span><span class="q-text">Describe all four Cloud Deployment Models. Compare them using a suitable table (cost, security, scalability, reliability).</span><span class="q-marks">10M</span></div>
+    <div class="q-item"><span class="q-num">Q05</span><span class="q-text">Explain the Evolution of Cloud Computing. Trace the journey from Mainframe → Cluster → Grid → Cloud Computing.</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q06</span><span class="q-text">Explain Virtualization in Cloud Computing. Discuss the types of Virtualization in detail (Full, Para, Hardware-assisted).</span><span class="q-marks">10M</span></div>
+    <div class="q-item"><span class="q-num">Q07</span><span class="q-text">Write a detailed note on Hypervisors. Distinguish between Type 1 and Type 2 Hypervisors with examples.</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q08</span><span class="q-text">Explain SOA as a Technology Driver for Cloud Computing. Discuss the key benefits and technologies of SOA (SOAP, WSDL, UDDI, ESB).</span><span class="q-marks">10M</span></div>
+    <div class="q-item"><span class="q-num">Q09</span><span class="q-text">Compare SOA and Cloud Computing. How does SOA meet Cloud Computing (CCOA – Cloud-Centric SOA)?</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q10</span><span class="q-text">Explain Web 2.0 and Web 3.0 as technology drivers for Cloud Computing. How do they differ from Web 1.0?</span><span class="q-marks">10M</span></div>
+    <div class="q-item"><span class="q-num">Q11</span><span class="q-text">Write a detailed note on Multicore Technology. Explain its role in enabling parallelism in Cloud environments.</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q12</span><span class="q-text">Explain Cluster Computing, Grid Computing and Distributed Computing. Compare all three with a table.</span><span class="q-marks">10M</span></div>
+    <div class="q-item"><span class="q-num">Q13</span><span class="q-text">Discuss the advantages and disadvantages of Cloud Computing with examples for each point.</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q14</span><span class="q-text">Explain the Cloud Reference Model with layers. Map each layer to IaaS, PaaS, and SaaS.</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q15</span><span class="q-text">Write an essay on the business drivers for adopting Cloud Computing (scalability, cost, productivity, efficiency).</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q16</span><span class="q-text">Explain Pervasive Computing as a technology driver. How does it relate to Cloud and IoT?</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q17</span><span class="q-text">Discuss any three Cloud Compute Services (Amazon EC2, Google Compute Engine, Azure VMs). Compare them.</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q18</span><span class="q-text">Explain Cloud Storage Services. Discuss Amazon S3, Google Cloud Storage, and Windows Azure Storage.</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q19</span><span class="q-text">Compare Traditional Computing with Cloud Computing using a detailed table (10 parameters).</span><span class="q-marks">5M</span></div>
+    <div class="q-item"><span class="q-num">Q20</span><span class="q-text">Explain the Layered Model of CCOA. How do the five layers map to cloud and SOA concepts?</span><span class="q-marks">5M</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════ STAR ═══ -->
+<section class="section" id="star">
+
+  <div class="star-intro">
+    <div class="star-icon">⭐</div>
+    <p><strong>High-priority topics with exam-ready answers.</strong> Each card contains a definition, key points, diagrams/tables, exam tips, and keyword chips. Expand a topic to study it.</p>
+  </div>
+
+  <!-- ─── TOPIC 1: Cloud Computing Definition & NIST ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">01</span>
+        <span class="topic-name">Cloud Computing — Definition & NIST Characteristics</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="def-box">
+        <strong>NIST Definition:</strong> Cloud computing is a model for enabling <strong>ubiquitous, convenient, on-demand network access</strong> to a shared pool of configurable computing resources (networks, servers, storage, applications, services) that can be rapidly provisioned and released with minimal management effort or service provider interaction.
+      </div>
+      <div class="keyword-strip">
+        <span class="kw amber">On-demand</span>
+        <span class="kw amber">Broad Network Access</span>
+        <span class="kw amber">Resource Pooling</span>
+        <span class="kw amber">Rapid Elasticity</span>
+        <span class="kw amber">Measured Service</span>
+        <span class="kw">Multi-tenant</span>
+        <span class="kw">Pay-as-you-go</span>
+      </div>
+      <h3 class="sub">Five Essential Characteristics</h3>
+      <div class="char-grid">
+        <div class="char-card">
+          <h4>1. On-demand Self-service</h4>
+          <p>Users provision compute capabilities (storage, CPU) automatically without human interaction with the provider.</p>
+        </div>
+        <div class="char-card">
+          <h4>2. Broad Network Access</h4>
+          <p>Capabilities available over the network, accessed via standard mechanisms — phones, tablets, laptops, workstations.</p>
+        </div>
+        <div class="char-card">
+          <h4>3. Resource Pooling</h4>
+          <p>Provider pools resources to serve multiple consumers (multi-tenant). Physical and virtual resources are dynamically assigned.</p>
+        </div>
+        <div class="char-card">
+          <h4>4. Rapid Elasticity</h4>
+          <p>Capabilities scale out/in rapidly (even automatically) to match demand. Appears unlimited to the consumer.</p>
+        </div>
+        <div class="char-card">
+          <h4>5. Measured Service</h4>
+          <p>Resource usage is monitored, controlled, and reported (metered). Pay-per-use billing for storage, bandwidth, processing.</p>
+        </div>
+      </div>
+      <div class="memo-box">Write all 5 characteristics with one-line explanation each. Memory: <em>O-B-R-R-M → "Orange Bears Really Run Marathons"</em></div>
+      <h3 class="sub">Traditional vs Cloud Computing</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Traditional</th><th>Cloud</th></tr></thead>
+          <tbody>
+            <tr><td>Storage</td><td>Local hard drive</td><td>Cloud/external server</td></tr>
+            <tr><td>Extra Storage</td><td>Buy extra hardware</td><td>Unlimited, no hardware</td></tr>
+            <tr><td>Config</td><td>Hire experts</td><td>Dynamic, no config</td></tr>
+            <tr><td>Cost</td><td>Power + AC + hardware</td><td>Pay for use only</td></tr>
+            <tr><td>Scaling</td><td>Days + extra cost</td><td>Instant, on-demand</td></tr>
+            <tr><td>Security</td><td>High risk, poor isolation</td><td>Managed by provider</td></tr>
+            <tr><td>Backup</td><td>Risky, manual</td><td>Easy, automated</td></tr>
+            <tr><td>Software</td><td>Manual upgrades</td><td>Automatic updates</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 2: Cloud Service Models ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">02</span>
+        <span class="topic-name">Cloud Service Models — IaaS, PaaS, SaaS</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="keyword-strip">
+        <span class="kw amber">IaaS</span><span class="kw amber">PaaS</span><span class="kw amber">SaaS</span>
+        <span class="kw">AWS EC2</span><span class="kw">Google App Engine</span><span class="kw">Gmail</span>
+      </div>
+
+      <!-- Stack Diagram -->
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 500 240" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace">
+          <!-- SaaS -->
+          <rect x="60" y="20" width="380" height="58" rx="5" fill="#2a1010" stroke="#dc2626" stroke-width="1.2"/>
+          <text x="120" y="44" fill="#f87171" font-size="10" font-weight="600" letter-spacing="2">SaaS — Software as a Service</text>
+          <text x="120" y="62" fill="#9a8f83" font-size="9">Gmail · Google Docs · Salesforce · Office 365</text>
+          <text x="70" y="56" fill="#dc2626" font-size="20">☁</text>
+
+          <!-- PaaS -->
+          <rect x="60" y="90" width="380" height="58" rx="5" fill="#1a1506" stroke="#d97706" stroke-width="1.2"/>
+          <text x="120" y="114" fill="#fbbf24" font-size="10" font-weight="600" letter-spacing="2">PaaS — Platform as a Service</text>
+          <text x="120" y="132" fill="#9a8f83" font-size="9">Google App Engine · Heroku · Azure App Services</text>
+          <text x="70" y="126" fill="#d97706" font-size="20">⚙</text>
+
+          <!-- IaaS -->
+          <rect x="60" y="160" width="380" height="58" rx="5" fill="#080f10" stroke="#0ea5e9" stroke-width="1.2"/>
+          <text x="120" y="184" fill="#38bdf8" font-size="10" font-weight="600" letter-spacing="2">IaaS — Infrastructure as a Service</text>
+          <text x="120" y="202" fill="#9a8f83" font-size="9">AWS EC2 · Azure VM · Google Compute Engine</text>
+          <text x="70" y="196" fill="#0ea5e9" font-size="20">🖥</text>
+
+          <!-- Labels right -->
+          <text x="460" y="54" fill="#dc2626" font-size="8" text-anchor="middle">End Users</text>
+          <text x="460" y="124" fill="#d97706" font-size="8" text-anchor="middle">Developers</text>
+          <text x="460" y="194" fill="#0ea5e9" font-size="8" text-anchor="middle">Architects</text>
+        </svg>
+        <div class="diagram-caption">Cloud Computing Stack — IaaS → PaaS → SaaS</div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Aspect</th><th>IaaS</th><th>PaaS</th><th>SaaS</th></tr></thead>
+          <tbody>
+            <tr><td>Definition</td><td>Virtual hardware (servers, storage, network) on rent</td><td>Platform to develop/deploy apps</td><td>Ready-to-use software over internet</td></tr>
+            <tr><td>User Manages</td><td>OS, middleware, apps, data</td><td>Apps and data only</td><td>Nothing — just uses the app</td></tr>
+            <tr><td>Provider Manages</td><td>Infra only</td><td>Infra + Platform</td><td>Everything</td></tr>
+            <tr><td>Examples</td><td>AWS EC2, Azure VM, GCE</td><td>Heroku, App Engine, Azure App</td><td>Gmail, Salesforce, Office 365</td></tr>
+            <tr><td>Used by</td><td>Network architects</td><td>Developers</td><td>End users</td></tr>
+            <tr><td>Billing</td><td>Pay per hour/GB</td><td>Pay per app tier</td><td>Monthly subscription</td></tr>
+            <tr><td>Pros</td><td>Full control, flexible</td><td>Fast dev, no infra worry</td><td>No install, anywhere access</td></tr>
+            <tr><td>Cons</td><td>Security burden on user</td><td>Vendor lock-in</td><td>Limited customization</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="memo-box">Analogy: IaaS = renting a plot → PaaS = renting a house shell → SaaS = renting a furnished apartment</div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 3: Deployment Models ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">03</span>
+        <span class="topic-name">Cloud Deployment Models — Public, Private, Hybrid, Community</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="keyword-strip">
+        <span class="kw amber">Public</span><span class="kw amber">Private</span><span class="kw amber">Hybrid</span><span class="kw amber">Community</span>
+        <span class="kw">AWS</span><span class="kw">Azure</span><span class="kw">OpenStack</span>
+      </div>
+
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" font-size="9">
+          <!-- Public -->
+          <rect x="10" y="20" width="120" height="140" rx="5" fill="#0d1117" stroke="#38bdf8" stroke-width="1.2"/>
+          <text x="70" y="45" fill="#38bdf8" font-size="10" font-weight="700" text-anchor="middle">PUBLIC</text>
+          <text x="70" y="65" fill="#9a8f83" text-anchor="middle">AWS, Azure</text>
+          <text x="70" y="80" fill="#9a8f83" text-anchor="middle">GCP</text>
+          <text x="70" y="100" fill="#5a5248" text-anchor="middle">✔ High scale</text>
+          <text x="70" y="115" fill="#5a5248" text-anchor="middle">✔ Low cost</text>
+          <text x="70" y="130" fill="#dc2626" text-anchor="middle" font-size="8">✗ Low security</text>
+          <text x="70" y="145" fill="#dc2626" text-anchor="middle" font-size="8">✗ Less control</text>
+
+          <!-- Private -->
+          <rect x="145" y="20" width="120" height="140" rx="5" fill="#0d1117" stroke="#a855f7" stroke-width="1.2"/>
+          <text x="205" y="45" fill="#a855f7" font-size="10" font-weight="700" text-anchor="middle">PRIVATE</text>
+          <text x="205" y="65" fill="#9a8f83" text-anchor="middle">OpenStack</text>
+          <text x="205" y="80" fill="#9a8f83" text-anchor="middle">VMware</text>
+          <text x="205" y="100" fill="#5a5248" text-anchor="middle">✔ High security</text>
+          <text x="205" y="115" fill="#5a5248" text-anchor="middle">✔ Full control</text>
+          <text x="205" y="130" fill="#dc2626" text-anchor="middle" font-size="8">✗ Expensive</text>
+          <text x="205" y="145" fill="#dc2626" text-anchor="middle" font-size="8">✗ Complex setup</text>
+
+          <!-- Hybrid -->
+          <rect x="280" y="20" width="120" height="140" rx="5" fill="#0d1117" stroke="#d97706" stroke-width="1.2"/>
+          <text x="340" y="45" fill="#fbbf24" font-size="10" font-weight="700" text-anchor="middle">HYBRID</text>
+          <text x="340" y="65" fill="#9a8f83" text-anchor="middle">Public + Private</text>
+          <text x="340" y="80" fill="#9a8f83" text-anchor="middle">best of both</text>
+          <text x="340" y="100" fill="#5a5248" text-anchor="middle">✔ Flexible</text>
+          <text x="340" y="115" fill="#5a5248" text-anchor="middle">✔ High reliability</text>
+          <text x="340" y="130" fill="#dc2626" text-anchor="middle" font-size="8">✗ Complex mgmt</text>
+          <text x="340" y="145" fill="#dc2626" text-anchor="middle" font-size="8">✗ Higher cost</text>
+
+          <!-- Community -->
+          <rect x="415" y="20" width="130" height="140" rx="5" fill="#0d1117" stroke="#22c55e" stroke-width="1.2"/>
+          <text x="480" y="45" fill="#4ade80" font-size="10" font-weight="700" text-anchor="middle">COMMUNITY</text>
+          <text x="480" y="65" fill="#9a8f83" text-anchor="middle">Shared by orgs</text>
+          <text x="480" y="80" fill="#9a8f83" text-anchor="middle">w/ common goals</text>
+          <text x="480" y="100" fill="#5a5248" text-anchor="middle">✔ High reliability</text>
+          <text x="480" y="115" fill="#5a5248" text-anchor="middle">✔ Shared cost</text>
+          <text x="480" y="130" fill="#dc2626" text-anchor="middle" font-size="8">✗ Fixed scale</text>
+          <text x="480" y="145" fill="#dc2626" text-anchor="middle" font-size="8">✗ Complex setup</text>
+        </svg>
+        <div class="diagram-caption">Four Cloud Deployment Models Comparison</div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Factor</th><th>Public</th><th>Private</th><th>Community</th><th>Hybrid</th></tr></thead>
+          <tbody>
+            <tr><td>Setup</td><td>Easy</td><td>Complex</td><td>Complex</td><td>Complex</td></tr>
+            <tr><td>Scalability</td><td>High</td><td>High</td><td>Fixed</td><td>High</td></tr>
+            <tr><td>Cost</td><td>Low (OpEx)</td><td>High (CapEx)</td><td>Distributed</td><td>Medium</td></tr>
+            <tr><td>Security</td><td>Low</td><td>High</td><td>High</td><td>High</td></tr>
+            <tr><td>Reliability</td><td>Low</td><td>Low</td><td>High</td><td>High</td></tr>
+            <tr><td>Data Privacy</td><td>Low</td><td>High</td><td>High</td><td>High</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="memo-box">Hybrid = Generic data on Public + Critical data on Private. Best of both worlds.</div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 4: Cloud Architecture ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">04</span>
+        <span class="topic-name">Cloud Computing Architecture</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="def-box"><strong>Cloud Architecture</strong> comprises multiple cloud components that are loosely coupled and connected through a network (usually the Internet). It is divided into two parts: <strong>Front End</strong> and <strong>Back End</strong>.</div>
+      <div class="keyword-strip">
+        <span class="kw amber">Front End</span><span class="kw amber">Back End</span>
+        <span class="kw">Hypervisor</span><span class="kw">Management Software</span><span class="kw">Deployment Software</span>
+        <span class="kw">Loosely Coupled</span>
+      </div>
+
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 560 260" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" font-size="9">
+          <!-- Front End -->
+          <rect x="20" y="30" width="200" height="200" rx="6" fill="#0a0f12" stroke="#38bdf8" stroke-width="1.3"/>
+          <text x="120" y="55" fill="#38bdf8" font-size="11" font-weight="700" text-anchor="middle">FRONT END</text>
+          <text x="120" y="72" fill="#5a7a8a" text-anchor="middle">(Client Side)</text>
+
+          <rect x="40" y="90" width="160" height="34" rx="3" fill="#111820" stroke="#1e3a4a"/>
+          <text x="120" y="108" fill="#9a8f83" text-anchor="middle">Web Browsers</text>
+          <text x="120" y="120" fill="#5a5248" text-anchor="middle">(Chrome, Firefox)</text>
+
+          <rect x="40" y="135" width="160" height="34" rx="3" fill="#111820" stroke="#1e3a4a"/>
+          <text x="120" y="153" fill="#9a8f83" text-anchor="middle">Thin / Thick Clients</text>
+          <text x="120" y="165" fill="#5a5248" text-anchor="middle">(Mobile, Desktop)</text>
+
+          <rect x="40" y="180" width="160" height="34" rx="3" fill="#111820" stroke="#1e3a4a"/>
+          <text x="120" y="198" fill="#9a8f83" text-anchor="middle">Client Applications</text>
+          <text x="120" y="210" fill="#5a5248" text-anchor="middle">(SaaS Portals)</text>
+
+          <!-- Internet Arrow -->
+          <rect x="235" y="105" width="90" height="50" rx="4" fill="#12120a" stroke="#d97706" stroke-width="1.2"/>
+          <text x="280" y="128" fill="#d97706" font-size="10" font-weight="700" text-anchor="middle">INTERNET</text>
+          <text x="280" y="145" fill="#5a5248" text-anchor="middle">Network Link</text>
+          <line x1="220" y1="130" x2="235" y2="130" stroke="#38bdf8" stroke-width="1.2" marker-end="url(#arr)"/>
+          <line x1="325" y1="130" x2="340" y2="130" stroke="#a855f7" stroke-width="1.2" marker-end="url(#arr2)"/>
+          <defs>
+            <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#38bdf8"/></marker>
+            <marker id="arr2" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#a855f7"/></marker>
+          </defs>
+
+          <!-- Back End -->
+          <rect x="340" y="30" width="200" height="200" rx="6" fill="#100a14" stroke="#a855f7" stroke-width="1.3"/>
+          <text x="440" y="55" fill="#a855f7" font-size="11" font-weight="700" text-anchor="middle">BACK END</text>
+          <text x="440" y="72" fill="#6a5278" text-anchor="middle">(Cloud / Server Side)</text>
+
+          <rect x="360" y="90" width="160" height="28" rx="3" fill="#180f20" stroke="#3a1f50"/>
+          <text x="440" y="109" fill="#9a8f83" text-anchor="middle">Virtual Machines / Servers</text>
+
+          <rect x="360" y="128" width="160" height="28" rx="3" fill="#180f20" stroke="#3a1f50"/>
+          <text x="440" y="147" fill="#9a8f83" text-anchor="middle">Storage · Databases</text>
+
+          <rect x="360" y="166" width="160" height="28" rx="3" fill="#180f20" stroke="#3a1f50"/>
+          <text x="440" y="185" fill="#9a8f83" text-anchor="middle">Hypervisor · Security</text>
+
+          <rect x="360" y="204" width="160" height="20" rx="3" fill="#180f20" stroke="#3a1f50"/>
+          <text x="440" y="218" fill="#5a5248" text-anchor="middle">Deployment Models</text>
+        </svg>
+        <div class="diagram-caption">Cloud Computing Architecture — Front End ↔ Internet ↔ Back End</div>
+      </div>
+
+      <h3 class="sub">Cloud Infrastructure Components</h3>
+      <ul class="body-list">
+        <li><strong>Hypervisor:</strong> Acts as Virtual Machine Manager; shares physical resources among tenants.</li>
+        <li><strong>Management Software:</strong> Maintains and configures infrastructure.</li>
+        <li><strong>Deployment Software:</strong> Deploys and integrates applications on the cloud.</li>
+        <li><strong>Network:</strong> Connects cloud services; can be delivered as a utility over the Internet.</li>
+        <li><strong>Server:</strong> Handles resource allocation, de-allocation, monitoring, and security.</li>
+        <li><strong>Storage:</strong> Multiple replicas maintained; if one fails, extracted from another.</li>
+      </ul>
+      <div class="memo-box">Keywords: Front End = User-facing. Back End = Cloud itself. Connected by Internet. Loosely coupled components.</div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 5: SOA as Technology Driver ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">05</span>
+        <span class="topic-name">SOA as Technology Driver for Cloud Computing</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="def-box">
+        <strong>SOA (Service-Oriented Architecture)</strong> is an architectural framework where software applications are designed as a collection of <strong>modular, loosely coupled, and interoperable services</strong>. SOA served as the primary technical predecessor of cloud computing — the XaaS models (SaaS/PaaS/IaaS) directly inherit SOA's service-first principles.
+      </div>
+      <div class="keyword-strip">
+        <span class="kw amber">Loose Coupling</span><span class="kw amber">Reusability</span><span class="kw amber">Interoperability</span>
+        <span class="kw">SOAP</span><span class="kw">WSDL</span><span class="kw">UDDI</span><span class="kw">ESB</span><span class="kw">XML</span><span class="kw">REST</span>
+      </div>
+
+      <h3 class="sub">Core Technologies of SOA</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Technology</th><th>Full Form</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>XML / JSON</td><td>Extensible Markup Language</td><td>Standard data format for platform-independent exchange</td></tr>
+            <tr><td>WSDL</td><td>Web Services Description Language</td><td>XML-based contract describing service capabilities and endpoints</td></tr>
+            <tr><td>SOAP</td><td>Simple Object Access Protocol</td><td>Structured XML-based messaging with strict security</td></tr>
+            <tr><td>REST</td><td>Representational State Transfer</td><td>Lightweight, URI-driven stateless Web API interactions</td></tr>
+            <tr><td>UDDI</td><td>Universal Description, Discovery, Integration</td><td>Centralized lookup registry for publishing and discovering services</td></tr>
+            <tr><td>ESB</td><td>Enterprise Service Bus</td><td>Middleware for message routing, protocol translation, orchestration</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Key Benefits of SOA</h3>
+      <ul class="body-list">
+        <li><strong>High Reusability:</strong> Services designed as autonomous units reused across multiple applications.</li>
+        <li><strong>Loose Coupling:</strong> Internal changes don't affect dependent services (hidden behind contracts).</li>
+        <li><strong>Interoperability:</strong> Uses SOAP/REST/HTTP to connect legacy apps with modern cloud systems.</li>
+        <li><strong>Agility & Flexibility:</strong> Rapid service composition for quick response to business changes.</li>
+        <li><strong>Location Transparency:</strong> Consumers access via registries without knowing physical server location.</li>
+        <li><strong>Simplified Maintenance:</strong> Isolated boundaries allow independent updates without system downtime.</li>
+      </ul>
+
+      <h3 class="sub">SOA vs Cloud Computing</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Dimension</th><th>SOA</th><th>Cloud Computing</th></tr></thead>
+          <tbody>
+            <tr><td>Primary Focus</td><td>Application integration, software architecture</td><td>On-demand virtualized resource delivery</td></tr>
+            <tr><td>Scope</td><td>Software application layer</td><td>Infrastructure, Platform, Application (IaaS/PaaS/SaaS)</td></tr>
+            <tr><td>Ownership</td><td>On-premise corporate data centers</td><td>Third-party multi-tenant cloud providers</td></tr>
+            <tr><td>Scalability</td><td>App-level via service orchestration</td><td>Infra-level elastic auto-provisioning</td></tr>
+            <tr><td>Financial Model</td><td>CapEx (upfront investment)</td><td>OpEx (pay-as-you-go)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">CCOA — Cloud-Centric SOA</h3>
+      <div class="def-box">
+        <strong>CCOA</strong> synthesizes traditional SOA governance with elastic cloud capabilities. It enables multi-tenant service instances sharing elastic cloud infrastructure, supports real-time dynamic composition, and combines strict SOA governance with flexible cloud SLA management.
+      </div>
+      <h3 class="sub">Layered Model of CCOA</h3>
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" font-size="9">
+          <rect x="30" y="15" width="420" height="38" rx="4" fill="#150808" stroke="#dc2626" stroke-width="1.2"/>
+          <text x="240" y="31" fill="#f87171" font-size="10" font-weight="600" text-anchor="middle">Layer 1: Application & SaaS Layer (Consumer Layer)</text>
+          <text x="240" y="46" fill="#5a5248" text-anchor="middle">Delivers business apps, mobile interfaces, enterprise workflows to users</text>
+          <text x="455" y="38" fill="#dc2626" font-size="8" text-anchor="end">User Access</text>
+
+          <rect x="30" y="63" width="420" height="38" rx="4" fill="#0d0d14" stroke="#a855f7" stroke-width="1.2"/>
+          <text x="240" y="79" fill="#c084fc" font-size="10" font-weight="600" text-anchor="middle">Layer 2: Service Composition & Orchestration (SOA Core)</text>
+          <text x="240" y="94" fill="#5a5248" text-anchor="middle">Manages business logic, BPEL orchestrations, API gateways, service registries</text>
+          <text x="455" y="86" fill="#a855f7" font-size="8" text-anchor="end">SOA Core</text>
+
+          <rect x="30" y="111" width="420" height="38" rx="4" fill="#100f08" stroke="#d97706" stroke-width="1.2"/>
+          <text x="240" y="127" fill="#fbbf24" font-size="10" font-weight="600" text-anchor="middle">Layer 3: Cloud Platform Layer (PaaS Layer)</text>
+          <text x="240" y="142" fill="#5a5248" text-anchor="middle">Application runtimes, database services, messaging queues, dev tools</text>
+          <text x="455" y="134" fill="#d97706" font-size="8" text-anchor="end">Platform</text>
+
+          <rect x="30" y="159" width="420" height="32" rx="4" fill="#080d10" stroke="#38bdf8" stroke-width="1.2"/>
+          <text x="240" y="175" fill="#7dd3fc" font-size="10" font-weight="600" text-anchor="middle">Layer 4: Virtualized Infrastructure (IaaS Layer)</text>
+          <text x="240" y="188" fill="#5a5248" text-anchor="middle">Elastic virtual machines, virtual storage arrays, software-defined networks</text>
+          <text x="455" y="178" fill="#38bdf8" font-size="8" text-anchor="end">Infra</text>
+
+          <rect x="30" y="201" width="420" height="25" rx="4" fill="#0a0a0a" stroke="#4b5563" stroke-width="1"/>
+          <text x="240" y="218" fill="#6b7280" font-size="9" font-weight="600" text-anchor="middle">Layer 5: Physical Hardware & Data Center (Servers · Storage · Network)</text>
+          <text x="455" y="216" fill="#4b5563" font-size="8" text-anchor="end">Hardware</text>
+        </svg>
+        <div class="diagram-caption">CCOA — 5-Layer Cloud-Centric SOA Model</div>
+      </div>
+      <div class="memo-box">SOA = HOW apps are built (architecture). Cloud = WHERE resources are hosted (delivery). Together = CCOA.</div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 6: Virtualization & Hypervisors ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">06</span>
+        <span class="topic-name">Virtualization & Hypervisors</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="def-box">
+        <strong>Virtualization</strong> is the process of creating a virtual layer over physical hardware, allowing multiple virtual instances to run simultaneously on one physical machine. It is the key technology underlying cloud computing (Amazon EC2, VMware vCloud, etc.).
+      </div>
+      <div class="keyword-strip">
+        <span class="kw amber">Full Virtualization</span><span class="kw amber">Para-Virtualization</span><span class="kw amber">Hardware-assisted</span>
+        <span class="kw">Type 1 Hypervisor</span><span class="kw">Type 2 Hypervisor</span><span class="kw">VMware</span><span class="kw">KVM</span>
+      </div>
+
+      <h3 class="sub">Approaches to Virtualization</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Approach</th><th>Mechanism</th><th>Overhead</th><th>Example</th></tr></thead>
+          <tbody>
+            <tr><td>Full Virtualization</td><td>Binary Translation + Direct Execution; completely abstracts physical hardware</td><td>High (translation overhead)</td><td>VMware Workstation</td></tr>
+            <tr><td>Para-Virtualization (OS-assisted)</td><td>Guest OS modified to use hypercalls instead of privileged instructions</td><td>Medium (modified guest)</td><td>Xen Hypervisor</td></tr>
+            <tr><td>Hardware-assisted Virtualization</td><td>CPU vendor support (Intel VT-x, AMD-V) eliminates binary translation and hypercalls</td><td>Low (hardware handles it)</td><td>KVM, VMware ESXi</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Types of Virtualization</h3>
+      <ul class="body-list">
+        <li><strong>Storage Virtualization:</strong> Multiple physical storages abstracted as multiple logical storage units.</li>
+        <li><strong>Network Virtualization:</strong> Abstracting physical network components into a virtual network (e.g., AWS VPC).</li>
+        <li><strong>Memory Virtualization:</strong> Virtual main memory provided to VMs abstracted from physical RAM.</li>
+        <li><strong>Processor Virtualization:</strong> Physical CPU abstracted into a pool of virtual processors.</li>
+        <li><strong>Application Virtualization:</strong> Users access centrally hosted apps virtually without installation (e.g., Citrix).</li>
+        <li><strong>Data Virtualization:</strong> Unified logical view of data aggregated from heterogeneous sources without moving data.</li>
+      </ul>
+
+      <h3 class="sub">Type 1 vs Type 2 Hypervisors</h3>
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" font-size="9">
+          <!-- Type 1 -->
+          <text x="120" y="18" fill="#fbbf24" font-size="10" font-weight="700" text-anchor="middle">TYPE 1 (Bare-Metal)</text>
+
+          <rect x="30" y="28" width="180" height="25" rx="3" fill="#1a1010" stroke="#dc2626" stroke-width="1"/>
+          <text x="120" y="45" fill="#f87171" text-anchor="middle">VM1   VM2   VM3</text>
+
+          <rect x="30" y="60" width="180" height="25" rx="3" fill="#1a1506" stroke="#d97706" stroke-width="1"/>
+          <text x="120" y="77" fill="#fbbf24" text-anchor="middle">Hypervisor (Type 1)</text>
+
+          <rect x="30" y="92" width="180" height="25" rx="3" fill="#0a0f12" stroke="#38bdf8" stroke-width="1"/>
+          <text x="120" y="109" fill="#7dd3fc" text-anchor="middle">Physical Hardware</text>
+
+          <text x="120" y="135" fill="#5a5248" text-anchor="middle">Direct on hardware</text>
+          <text x="120" y="150" fill="#4ade80" text-anchor="middle">✔ High Performance</text>
+          <text x="120" y="165" fill="#9a8f83" text-anchor="middle">VMware ESXi · KVM · Hyper-V</text>
+          <text x="120" y="180" fill="#5a5248" text-anchor="middle">AWS EC2 · Azure VMs</text>
+
+          <!-- Divider -->
+          <line x1="245" y1="20" x2="245" y2="185" stroke="#2a2a2a" stroke-width="1" stroke-dasharray="4,3"/>
+
+          <!-- Type 2 -->
+          <text x="380" y="18" fill="#c084fc" font-size="10" font-weight="700" text-anchor="middle">TYPE 2 (Hosted)</text>
+
+          <rect x="270" y="28" width="200" height="25" rx="3" fill="#1a1010" stroke="#dc2626" stroke-width="1"/>
+          <text x="370" y="45" fill="#f87171" text-anchor="middle">VM1   VM2   VM3</text>
+
+          <rect x="270" y="60" width="200" height="25" rx="3" fill="#0f0d18" stroke="#a855f7" stroke-width="1"/>
+          <text x="370" y="77" fill="#c084fc" text-anchor="middle">Hypervisor (Type 2)</text>
+
+          <rect x="270" y="92" width="200" height="25" rx="3" fill="#0d1006" stroke="#22c55e" stroke-width="1"/>
+          <text x="370" y="109" fill="#4ade80" text-anchor="middle">Host OS (Windows/Linux)</text>
+
+          <rect x="270" y="124" width="200" height="25" rx="3" fill="#0a0f12" stroke="#38bdf8" stroke-width="1"/>
+          <text x="370" y="141" fill="#7dd3fc" text-anchor="middle">Physical Hardware</text>
+
+          <text x="370" y="165" fill="#dc2626" text-anchor="middle">✗ Lower Performance</text>
+          <text x="370" y="180" fill="#9a8f83" text-anchor="middle">VirtualBox · VMware Workstation</text>
+        </svg>
+        <div class="diagram-caption">Type 1 (Bare-Metal) vs Type 2 (Hosted) Hypervisor Architecture</div>
+      </div>
+      <div class="memo-box">Type 1 = Directly on hardware → Cloud datacenters. Type 2 = On top of OS → Personal/Testing use.</div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 7: Computing Paradigms ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">07</span>
+        <span class="topic-name">Computing Paradigms — Cluster, Grid, Distributed, Utility</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+
+      <!-- Evolution Timeline SVG -->
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 560 80" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" font-size="9">
+          <line x1="40" y1="35" x2="520" y2="35" stroke="#2a2a2a" stroke-width="1.5"/>
+          <!-- Points -->
+          <circle cx="70" cy="35" r="7" fill="#1a1a1a" stroke="#38bdf8" stroke-width="2"/>
+          <text x="70" y="18" fill="#38bdf8" text-anchor="middle" font-size="8">1950s</text>
+          <text x="70" y="55" fill="#9a8f83" text-anchor="middle">Mainframe</text>
+          <text x="70" y="66" fill="#5a5248" text-anchor="middle">Centralized</text>
+
+          <circle cx="180" cy="35" r="7" fill="#1a1a1a" stroke="#a855f7" stroke-width="2"/>
+          <text x="180" y="18" fill="#a855f7" text-anchor="middle" font-size="8">1980s</text>
+          <text x="180" y="55" fill="#9a8f83" text-anchor="middle">Cluster</text>
+          <text x="180" y="66" fill="#5a5248" text-anchor="middle">LAN-based</text>
+
+          <circle cx="290" cy="35" r="7" fill="#1a1a1a" stroke="#d97706" stroke-width="2"/>
+          <text x="290" y="18" fill="#d97706" text-anchor="middle" font-size="8">1990s</text>
+          <text x="290" y="55" fill="#9a8f83" text-anchor="middle">Grid</text>
+          <text x="290" y="66" fill="#5a5248" text-anchor="middle">WAN-based</text>
+
+          <circle cx="400" cy="35" r="7" fill="#1a1a1a" stroke="#22c55e" stroke-width="2"/>
+          <text x="400" y="18" fill="#22c55e" text-anchor="middle" font-size="8">2000s</text>
+          <text x="400" y="55" fill="#9a8f83" text-anchor="middle">Utility</text>
+          <text x="400" y="66" fill="#5a5248" text-anchor="middle">Pay-per-use</text>
+
+          <circle cx="500" cy="35" r="9" fill="#1a0a0a" stroke="#dc2626" stroke-width="2.5"/>
+          <text x="500" y="18" fill="#dc2626" text-anchor="middle" font-size="8">2000s+</text>
+          <text x="500" y="55" fill="#f87171" text-anchor="middle" font-weight="600">Cloud</text>
+          <text x="500" y="66" fill="#5a5248" text-anchor="middle">Internet-based</text>
+        </svg>
+        <div class="diagram-caption">Evolution Timeline: Mainframe → Cluster → Grid → Utility → Cloud</div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Paradigm</th><th>Definition</th><th>Location</th><th>Resource Mgmt</th><th>Use Case</th></tr></thead>
+          <tbody>
+            <tr><td>Cluster Computing</td><td>Bunch of homogeneous computers connected via LAN acting as one machine</td><td>Same location</td><td>Single manager</td><td>Google Search, Weather Forecasting</td></tr>
+            <tr><td>Grid Computing</td><td>Heterogeneous computers geographically dispersed connected via WAN/Internet</td><td>Multiple locations</td><td>Each node has own manager</td><td>SETI@home, scientific research</td></tr>
+            <tr><td>Distributed Computing</td><td>Multiple computers networked to solve a single problem; appears as one entity</td><td>Networked anywhere</td><td>Middleware-coordinated</td><td>BitTorrent, CDN, databases</td></tr>
+            <tr><td>Utility Computing</td><td>Computing as a metered service; pay-per-use like electricity or water</td><td>Provider-hosted</td><td>Provider-managed</td><td>AWS, Azure — the pay model itself</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Types of Cluster Computing</h3>
+      <ul class="body-list">
+        <li><strong>Load-Balancing Clusters:</strong> Distribute workload evenly across nodes.</li>
+        <li><strong>High Availability (HA) Clusters:</strong> Redundant operation; if one node fails, another continues.</li>
+        <li><strong>High Performance (HP) Clusters:</strong> Use supercomputers to solve advanced computation problems.</li>
+      </ul>
+
+      <h3 class="sub">Types of Grid Computing</h3>
+      <ul class="body-list">
+        <li><strong>Computational Grid:</strong> Resources of many computers focused on one problem at a time.</li>
+        <li><strong>Data Grid:</strong> Controlled sharing and management of large distributed data.</li>
+        <li><strong>Collaborative Grid:</strong> Solves collaborative problems across organizations.</li>
+      </ul>
+      <div class="memo-box">Grid = Cloud's predecessor. "Cloud computing is often referred to as the Successor of Grid Computing."</div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 8: Web 2.0 & Web 3.0 ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">08</span>
+        <span class="topic-name">Web 1.0 → Web 2.0 → Web 3.0 as Technology Drivers</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Dimension</th><th>Web 1.0</th><th>Web 2.0</th><th>Web 3.0</th></tr></thead>
+          <tbody>
+            <tr><td>Era</td><td>1990–2004</td><td>2004–2015</td><td>2015–present</td></tr>
+            <tr><td>User Role</td><td>Passive consumer (read-only)</td><td>Active creator / participant (read-write)</td><td>Owner / contributor (read-write-execute)</td></tr>
+            <tr><td>Content</td><td>Static HTML pages</td><td>Dynamic, AJAX/REST, user-generated</td><td>Semantic, machine-readable, AI-driven</td></tr>
+            <tr><td>Data Flow</td><td>One-directional</td><td>Bi-directional, social</td><td>Decentralized, peer-to-peer</td></tr>
+            <tr><td>Platform</td><td>Personal websites, directories</td><td>Social media, wikis, SaaS</td><td>Blockchain, IPFS, Semantic Web</td></tr>
+            <tr><td>Tech</td><td>HTML, FTP</td><td>AJAX, REST, JSON, CSS3</td><td>RDF, OWL, SPARQL, Smart Contracts</td></tr>
+            <tr><td>Example</td><td>Yahoo Directory, AltaVista</td><td>Facebook, YouTube, Wikipedia</td><td>Ethereum DApps, decentralized search</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Web 2.0 Key Characteristics</h3>
+      <ul class="body-list">
+        <li><strong>User-Generated Content (UGC):</strong> Blogs, videos, posts, reviews (YouTube, Wikipedia, Medium).</li>
+        <li><strong>Folksonomy & Tagging:</strong> Collaborative categorization via hashtags.</li>
+        <li><strong>Rich User Experience:</strong> AJAX, DOM manipulation, Single-Page Applications (SPAs).</li>
+        <li><strong>Cloud Synergy:</strong> Web 2.0 apps generate massive user spikes → cloud auto-scaling, S3 object storage.</li>
+        <li><strong>SaaS Enabler:</strong> Established browser as OS → Google Docs, Figma, Salesforce.</li>
+      </ul>
+
+      <h3 class="sub">Web 3.0 (Semantic Web) Architecture</h3>
+      <div class="def-box">Web 3.0 structures internet data into standardized, <strong>machine-readable formats</strong> using <strong>RDF, OWL, and SPARQL</strong> so machines understand context and entity relationships — from keyword matching ("strings") to concept understanding ("things").</div>
+      <ul class="body-list">
+        <li><strong>RDF (Resource Description Framework):</strong> Represents data as Subject–Predicate–Object triples. e.g., (Amber) → (studies) → (Cloud Computing)</li>
+        <li><strong>OWL (Ontologies):</strong> Defines precise domain logic and relationship rules.</li>
+        <li><strong>SPARQL:</strong> Query language for RDF data.</li>
+        <li><strong>Intelligent Agents:</strong> Autonomous programs executing complex query reasoning across systems.</li>
+        <li><strong>Decentralization:</strong> Data moves from centralized servers to peer-to-peer ledger protocols (IPFS, Ethereum).</li>
+      </ul>
+      <div class="memo-box">Web 3.0 + Cloud: IPFS/Ethereum need massive compute → cloud hyperscalers. Managed blockchain RPC nodes, AI model hosting, decentralized storage gateways.</div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 9: Multicore Technology ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">09</span>
+        <span class="topic-name">Multicore Technology & Parallelism in Cloud</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="def-box">When single-core frequency scaling hit thermal power limits (<strong>"frequency wall"</strong>), processor vendors transitioned to placing <strong>multiple execution cores on a single physical die</strong>. Each core executes threads autonomously with L1/L2 caches; cores share L3 cache and memory controllers.</div>
+
+      <div class="keyword-strip">
+        <span class="kw amber">Task Parallelism</span><span class="kw amber">Data Parallelism</span>
+        <span class="kw">SMP</span><span class="kw">NUMA</span><span class="kw">vCPU</span><span class="kw">Hypervisor</span>
+        <span class="kw">MapReduce</span><span class="kw">Spark</span>
+      </div>
+
+      <h3 class="sub">Types of Parallelism in Cloud</h3>
+      <ul class="body-list">
+        <li><strong>Task Parallelism:</strong> Large computations decomposed into discrete independent subtasks executed simultaneously across multiple CPU cores.</li>
+        <li><strong>Data Parallelism:</strong> Massive datasets partitioned (MapReduce, Apache Spark) to execute identical operations on separate data chunks concurrently.</li>
+        <li><strong>High Throughput:</strong> Simultaneously handling thousands of web requests, microservice API calls, and tenant workloads without I/O starvation.</li>
+      </ul>
+
+      <h3 class="sub">Hypervisor & VM Scalability</h3>
+      <ul class="body-list">
+        <li>Modern hypervisors (KVM, ESXi, Hyper-V) map <strong>virtual CPUs (vCPUs)</strong> directly to physical cores and hardware threads (Hyper-Threading).</li>
+        <li>Multicore architectures allow VMs to scale vertically by dynamically assigning <strong>32+ vCPUs</strong> to heavy workloads like database engines.</li>
+        <li><strong>NUMA (Non-Uniform Memory Access):</strong> Arranges cores and memory into local nodes to maximize bandwidth and minimize cross-socket latency.</li>
+      </ul>
+
+      <h3 class="sub">Enterprise Deployments</h3>
+      <ul class="body-list">
+        <li><strong>AWS Graviton3 & AMD EPYC:</strong> 64–128 core CPUs powering compute-optimized instances (c7g, c6a).</li>
+        <li><strong>Container Orchestration (Kubernetes):</strong> CPU pin allocation for microservices — prevents noisy-neighbor bottlenecks.</li>
+        <li><strong>AI & Big Data:</strong> Multicore systems feed high-speed memory channels for parallel LLM inference and distributed SQL.</li>
+      </ul>
+      <div class="memo-box">Why multicore → cloud? Scaling CPU density increases throughput near-linearly while drastically reducing server footprint and energy per virtual guest.</div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 10: Cloud Pros & Cons + Business Drivers ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">10</span>
+        <span class="topic-name">Advantages, Disadvantages & Business Drivers</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" font-size="9">
+          <!-- Pros -->
+          <rect x="20" y="10" width="240" height="280" rx="6" fill="#060d06" stroke="#22c55e" stroke-width="1.3"/>
+          <text x="140" y="32" fill="#4ade80" font-size="11" font-weight="700" text-anchor="middle">ADVANTAGES</text>
+          <!-- list -->
+          <text x="35" y="56" fill="#4ade80">✔</text><text x="52" y="56" fill="#9a8f83">No infrastructure cost</text>
+          <text x="35" y="76" fill="#4ade80">✔</text><text x="52" y="76" fill="#9a8f83">Minimum management cost</text>
+          <text x="35" y="96" fill="#4ade80">✔</text><text x="52" y="96" fill="#9a8f83">Easy accessibility (anywhere)</text>
+          <text x="35" y="116" fill="#4ade80">✔</text><text x="52" y="116" fill="#9a8f83">Pay-per-use model</text>
+          <text x="35" y="136" fill="#4ade80">✔</text><text x="52" y="136" fill="#9a8f83">High reliability / redundancy</text>
+          <text x="35" y="156" fill="#4ade80">✔</text><text x="52" y="156" fill="#9a8f83">Automatic backup & recovery</text>
+          <text x="35" y="176" fill="#4ade80">✔</text><text x="52" y="176" fill="#9a8f83">Scalability & elasticity</text>
+          <text x="35" y="196" fill="#4ade80">✔</text><text x="52" y="196" fill="#9a8f83">Global scale (CDN, edge)</text>
+          <text x="35" y="216" fill="#4ade80">✔</text><text x="52" y="216" fill="#9a8f83">Auto software updates</text>
+          <text x="35" y="236" fill="#4ade80">✔</text><text x="52" y="236" fill="#9a8f83">Collaboration efficiency</text>
+          <text x="35" y="256" fill="#4ade80">✔</text><text x="52" y="256" fill="#9a8f83">Business continuity</text>
+          <text x="35" y="276" fill="#4ade80">✔</text><text x="52" y="276" fill="#9a8f83">Huge cloud storage</text>
+
+          <!-- Cons -->
+          <rect x="300" y="10" width="240" height="280" rx="6" fill="#0d0606" stroke="#dc2626" stroke-width="1.3"/>
+          <text x="420" y="32" fill="#f87171" font-size="11" font-weight="700" text-anchor="middle">DISADVANTAGES</text>
+          <text x="315" y="56" fill="#dc2626">✗</text><text x="332" y="56" fill="#9a8f83">Needs high-speed internet</text>
+          <text x="315" y="76" fill="#dc2626">✗</text><text x="332" y="76" fill="#9a8f83">Downtime risk (outages)</text>
+          <text x="315" y="96" fill="#dc2626">✗</text><text x="332" y="96" fill="#9a8f83">Limited infrastructure control</text>
+          <text x="315" y="116" fill="#dc2626">✗</text><text x="332" y="116" fill="#9a8f83">Restricted flexibility / lock-in</text>
+          <text x="315" y="136" fill="#dc2626">✗</text><text x="332" y="136" fill="#9a8f83">Ongoing costs (no one-time)</text>
+          <text x="315" y="156" fill="#dc2626">✗</text><text x="332" y="156" fill="#9a8f83">Security & data privacy risks</text>
+          <text x="315" y="176" fill="#dc2626">✗</text><text x="332" y="176" fill="#9a8f83">Vendor lock-in (migration hard)</text>
+          <text x="315" y="196" fill="#dc2626">✗</text><text x="332" y="196" fill="#9a8f83">Technical support issues</text>
+          <text x="315" y="216" fill="#dc2626">✗</text><text x="332" y="216" fill="#9a8f83">Compliance / legal issues</text>
+        </svg>
+        <div class="diagram-caption">Cloud Computing — Advantages vs Disadvantages</div>
+      </div>
+
+      <h3 class="sub">Business Drivers for Cloud Adoption</h3>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Driver</th><th>Explanation</th></tr></thead>
+          <tbody>
+            <tr><td>Business Hike</td><td>Growth in business drives organizations to adopt cloud to match scaling demands quickly.</td></tr>
+            <tr><td>Balanced Cost Structure</td><td>Eliminates CapEx on infrastructure; turns IT cost into predictable OpEx with pay-per-use.</td></tr>
+            <tr><td>Improvised Productivity</td><td>Eliminating IT management tasks allows teams to focus on core business objectives.</td></tr>
+            <tr><td>Efficiency</td><td>Streamlines processes, removes unnecessary steps, reduces errors.</td></tr>
+            <tr><td>Scalability</td><td>Organizations can scale services up/down based on actual demand without new hardware.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="memo-box">Business Drivers mnemonic: <em>B-B-P-E-S → "Big Business Pushes Efficient Scaling"</em></div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 11: Cloud Reference Model ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">11</span>
+        <span class="topic-name">Cloud Reference Model & Cloud Management</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="diagram-wrap">
+        <svg viewBox="0 0 500 265" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" font-size="9">
+          <!-- Layer 6 - Applications (SaaS) -->
+          <rect x="30" y="12" width="380" height="36" rx="4" fill="#1a0808" stroke="#dc2626" stroke-width="1.2"/>
+          <text x="220" y="27" fill="#f87171" font-size="10" font-weight="700" text-anchor="middle">Applications Layer (SaaS)</text>
+          <text x="220" y="42" fill="#5a5248" text-anchor="middle">Email · Cloud Storage · Productivity Apps · Customer Portals</text>
+          <text x="420" y="33" fill="#dc2626" font-size="9" text-anchor="end">SaaS</text>
+
+          <!-- Layer 5 - Service Management -->
+          <rect x="30" y="56" width="380" height="36" rx="4" fill="#15100a" stroke="#d97706" stroke-width="1.2"/>
+          <text x="220" y="71" fill="#fbbf24" font-size="10" font-weight="700" text-anchor="middle">Service Management Layer</text>
+          <text x="220" y="86" fill="#5a5248" text-anchor="middle">APIs for requesting, managing, and monitoring cloud resources</text>
+
+          <!-- Layer 4 - Platform & Middleware (PaaS) -->
+          <rect x="30" y="100" width="380" height="36" rx="4" fill="#0d120d" stroke="#22c55e" stroke-width="1.2"/>
+          <text x="220" y="115" fill="#4ade80" font-size="10" font-weight="700" text-anchor="middle">Platform & Middleware Layer (PaaS)</text>
+          <text x="220" y="130" fill="#5a5248" text-anchor="middle">DB services · Queuing · App frameworks · Monitoring · Analytics</text>
+          <text x="420" y="121" fill="#22c55e" font-size="9" text-anchor="end">PaaS</text>
+
+          <!-- Layer 3 - Virtualization -->
+          <rect x="30" y="144" width="380" height="36" rx="4" fill="#0d0d18" stroke="#a855f7" stroke-width="1.2"/>
+          <text x="220" y="159" fill="#c084fc" font-size="10" font-weight="700" text-anchor="middle">Virtualization Layer</text>
+          <text x="220" y="174" fill="#5a5248" text-anchor="middle">Partitions physical hardware into virtual resources · Resource Pooling</text>
+
+          <!-- Layer 2 - Hardware (IaaS) -->
+          <rect x="30" y="188" width="380" height="36" rx="4" fill="#080d12" stroke="#38bdf8" stroke-width="1.2"/>
+          <text x="220" y="203" fill="#7dd3fc" font-size="10" font-weight="700" text-anchor="middle">Hardware Layer (IaaS)</text>
+          <text x="220" y="218" fill="#5a5248" text-anchor="middle">Physical Compute · Network · Storage Hardware</text>
+          <text x="420" y="209" fill="#38bdf8" font-size="9" text-anchor="end">IaaS</text>
+
+          <!-- Layer 1 - Infrastructure & Facilities -->
+          <rect x="30" y="232" width="380" height="28" rx="4" fill="#0a0a0a" stroke="#4b5563" stroke-width="1"/>
+          <text x="220" y="250" fill="#6b7280" font-size="9" font-weight="700" text-anchor="middle">Infrastructure & Facilities Layer (Datacenters · Power · Cooling)</text>
+        </svg>
+        <div class="diagram-caption">Cloud Reference Model — 6-Layer Stack mapped to IaaS / PaaS / SaaS</div>
+      </div>
+      <div class="memo-box">Bottom-up: Datacenters → Hardware (IaaS) → Virtualization → Platform (PaaS) → Service Mgmt → Apps (SaaS)</div>
+    </div>
+  </div>
+
+  <!-- ─── TOPIC 12: Pervasive Computing ─── -->
+  <div class="topic-card">
+    <div class="topic-header" onclick="toggleTopic(this)">
+      <div class="topic-title-row">
+        <span class="topic-star">⭐</span>
+        <span class="topic-num">12</span>
+        <span class="topic-name">Other Technology Drivers — Pervasive Computing & OS</span>
+      </div>
+      <span class="topic-toggle">▼</span>
+    </div>
+    <div class="topic-body">
+      <div class="def-box">
+        <strong>Pervasive Computing (Ubiquitous Computing):</strong> Computing embedded into everyday objects and environments — seamless access across IoT devices, edge nodes, AR/VR environments, and pervasive computing frameworks. Drives the need for cloud as the backbone infrastructure.
+      </div>
+      <div class="keyword-strip">
+        <span class="kw amber">IoT</span><span class="kw amber">Edge Computing</span><span class="kw amber">Fog Computing</span>
+        <span class="kw">Ubiquitous</span><span class="kw">AR/VR</span><span class="kw">Sensors</span>
+      </div>
+      <h3 class="sub">Pervasive Computing Characteristics</h3>
+      <ul class="body-list">
+        <li><strong>Ubiquity:</strong> Computing available everywhere — on phones, wearables, smart appliances.</li>
+        <li><strong>Invisibility:</strong> Technology fades into background; users interact naturally.</li>
+        <li><strong>Context-Awareness:</strong> Devices adapt behavior based on location, time, user identity.</li>
+        <li><strong>Connectivity:</strong> Constant network connectivity (WiFi, 5G, Bluetooth).</li>
+      </ul>
+      <h3 class="sub">Cloud as OS</h3>
+      <p class="body-text">Web 2.0 established the <strong>web browser as an operating system environment</strong>, enabling SaaS applications like Google Docs, Figma, and Salesforce where users access full-featured software without any local installation. The cloud OS concept extends this — resource management, scheduling, security all handled at cloud scale.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Traditional OS</th><th>Cloud OS Equivalent</th></tr></thead>
+          <tbody>
+            <tr><td>Process Scheduling</td><td>Hypervisor vCPU Scheduling</td></tr>
+            <tr><td>Memory Management</td><td>Virtual Memory / NUMA Management</td></tr>
+            <tr><td>File System</td><td>Distributed Object Storage (S3, GCS)</td></tr>
+            <tr><td>Security / IAM</td><td>AWS IAM, Azure Active Directory</td></tr>
+            <tr><td>Package Management</td><td>Container Registries (Docker Hub, ECR)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="memo-box">Pervasive Computing → billions of devices → massive data → cloud as the backend infrastructure = virtuous cycle driving cloud growth.</div>
+    </div>
+  </div>
+
+</section><!-- end star -->
+
+<footer>
+  <span>Engg.Prep</span> · Cloud Computing Unit I · B.Tech CSE-DS · JNTUH · Built with ♥
+</footer>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.tab).classList.add('active');
+      window.scrollTo(0, 0);
+    });
+  });
+
+  // Topic accordion
+  function toggleTopic(header) {
+    const body = header.nextElementSibling;
+    const toggle = header.querySelector('.topic-toggle');
+    const isOpen = body.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.topic-body').forEach(b => b.classList.remove('open'));
+    document.querySelectorAll('.topic-toggle').forEach(t => t.classList.remove('open'));
+
+    // Open clicked if was closed
+    if (!isOpen) {
+      body.classList.add('open');
+      toggle.classList.add('open');
+      header.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+</script>
+</body>
+</html>
