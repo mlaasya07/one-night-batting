@@ -338,6 +338,7 @@
 
 <nav class="tab-nav">
   <button class="tab-btn active" onclick="switchTab('important')">&#9993; Important Topics (Mids)</button>
+  <button class="tab-btn" onclick="switchTab('problems')">&#8942; Problems &amp; Numericals</button>
   <button class="tab-btn" onclick="switchTab('partA')">Part A — Short Answers</button>
   <button class="tab-btn" onclick="switchTab('partB')">Part B — Detailed Answers</button>
 </nav>
@@ -494,6 +495,367 @@ Predict Ci that maximizes  P(X|Ci) * P(Ci)</div><p class="sub-h">Mini worked exa
 
 </div>
 <!-- end Important Topics panel -->
+
+<div id="panel-problems" class="tab-panel">
+  <div class="part-header">
+    <h2>Problems &amp; Numericals</h2>
+    <div class="meta">Every Worked Numerical &middot; Problem &rarr; Step-by-Step Solution</div>
+  </div>
+  <div class="star-note">All numericals in one place: KDD/statistics, distance measures, Apriori/FP-Growth, correlation/lift, and Bayes/Na&iuml;ve Bayes. Items tagged <span class="mem-tag">NEW / similar practice problem</span> are either pulled fresh from your uploaded PDFs or written as extra practice variants &mdash; everything else is condensed from Part B (see there for the full derivation).</div>
+
+<div class="unit-label">Unit 1 &mdash; KDD Process</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P1</span>
+      <span class="q-title">A bank stores loan-applicant data with duplicate customer IDs, missing "annual_income" values, inconsistent date formats, and records from three different branch databases. Walk through how the KDD process would handle this end-to-end.</span>
+      <span class="q-marks">Applied scenario</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="table-wrap"><table><thead><tr><th>Step</th><th>Applied to this bank dataset</th></tr></thead><tbody><tr><td>1. Data Cleaning</td><td>Remove duplicate customer ID rows; fill missing annual_income using class-wise mean (grouped by loan-approval outcome); standardize all dates to YYYY-MM-DD</td></tr><tr><td>2. Data Integration</td><td>Merge the three branch databases; resolve the entity-identification problem (e.g., "cust_no" in Branch A = "customer_id" in Branch B)</td></tr><tr><td>3. Data Selection</td><td>Retrieve only fields relevant to the loan-default prediction task (drop irrelevant columns like branch manager name)</td></tr><tr><td>4. Data Transformation</td><td>Normalize income and loan-amount to [0,1] via min-max; discretize age into bins (young/middle/senior)</td></tr><tr><td>5. Data Mining</td><td>Apply a classifier (e.g., Na&iuml;ve Bayes / Decision Tree) to predict loan default risk</td></tr><tr><td>6. Pattern Evaluation</td><td>Keep only rules/patterns with support and confidence above threshold; discard trivial ones</td></tr><tr><td>7. Knowledge Presentation</td><td>Visualize default-risk factors as a dashboard for loan officers</td></tr></tbody></table></div><p>This is the standard exam format for a “KDD process with example” question &mdash; state each of the 7 steps and map at least one concrete action from the scenario onto it.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 1 &mdash; Statistics, Boxplot &amp; Normalization</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P2</span>
+      <span class="q-title">Find the Mean, Median, Mode, Range, Variance and Standard Deviation of: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34 (n = 12).</span>
+      <span class="q-marks">From class dataset</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">Sum = 4+8+9+15+21+21+24+25+26+28+29+34 = 244
+Mean = 244 / 12 = 20.33
+
+Sorted, n=12 (even) -&gt; Median = avg of 6th &amp; 7th values = (21+24)/2 = 22.5
+Mode = 21 (only value that repeats)
+Range = Max - Min = 34 - 4 = 30
+
+Sum of squared deviations from mean (20.33) ~= 964.4
+Variance (sample, n-1=11) = 964.4 / 11 ~= 87.7
+Standard Deviation = sqrt(87.7) ~= 9.36</div><p>Since Mean (20.33) is slightly below the Median (22.5), this data is very mildly <strong>negatively skewed</strong>; a large mean-median gap would indicate stronger skew (see the Haberman axillary-nodes example in Part B, where mean=4 but median=1, indicating strong positive skew from outliers).</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P3</span>
+      <span class="q-title">For the same data (4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34), find the Five-Number Summary, IQR, and check for outliers using the 1.5&times;IQR rule.</span>
+      <span class="q-marks">From class dataset</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">Min = 4
+Q1 (25th pct) = 9
+Median = 22.5
+Q3 (75th pct) = 26
+Max = 34
+IQR = Q3 - Q1 = 26 - 9 = 17
+
+Lower fence = Q1 - 1.5*IQR = 9 - 25.5 = -16.5
+Upper fence = Q3 + 1.5*IQR = 26 + 25.5 = 51.5
+
+All 12 values lie within [-16.5, 51.5] =&gt; NO outliers in this sample</div><div class="diagram-wrap"><div class="diagram-label">Boxplot</div><svg viewBox="0 0 400 90" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;"><line x1="20" y1="45" x2="380" y2="45" stroke="#333"/><line x1="30" y1="30" x2="30" y2="60" stroke="#666"/><line x1="30" y1="45" x2="88" y2="45" stroke="#666"/><rect x="88" y="25" width="150" height="40" fill="none" stroke="#c0392b" stroke-width="1.5"/><line x1="205" y1="25" x2="205" y2="65" stroke="#e8c19a" stroke-width="1.5"/><line x1="238" y1="45" x2="330" y2="45" stroke="#666"/><line x1="330" y1="30" x2="330" y2="60" stroke="#666"/><text x="30" y="78" fill="#aaa" text-anchor="middle">4</text><text x="88" y="78" fill="#aaa" text-anchor="middle">9</text><text x="205" y="83" fill="#e8c19a" text-anchor="middle">22.5</text><text x="238" y="78" fill="#aaa" text-anchor="middle">26</text><text x="330" y="78" fill="#aaa" text-anchor="middle">34</text></svg></div>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P4</span>
+      <span class="q-title">Income range is $12,000 to $98,000, with &mu;=$54,000, &sigma;=$16,000. Normalize (a) $73,000 and (b) $16,000 using Min-Max (to [0,1]) and Z-score.<span class="mem-tag">NEW / similar practice problem</span></span>
+      <span class="q-marks">Textbook + variant</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">Min-Max:  v' = (v - min)/(max - min)
+
+(a) v=73000:  v' = (73000-12000)/(98000-12000) = 61000/86000 = 0.716
+(b) v=16000:  v' = (16000-12000)/(98000-12000) = 4000/86000  = 0.047
+
+Z-score:  z = (v - mu)/sigma
+
+(a) v=73000:  z = (73000-54000)/16000 = 19000/16000 = 1.225
+(b) v=16000:  z = (16000-54000)/16000 = -38000/16000 = -2.375</div><p>Note how the two methods agree on direction (both values above/below-mean map to positive/negative) but give very different numeric scales &mdash; Min-Max always lands in [0,1], while Z-score is unbounded and centered at 0.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P5</span>
+      <span class="q-title">Sorted price data: 4, 8, 9, 15, 21, 21, 24, 25, 26, 28, 29, 34. Partition into 3 equal-frequency bins and smooth by (a) bin means and (b) bin boundaries.</span>
+      <span class="q-marks">From class dataset</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">Equal-frequency bins (4 values each):
+  Bin 1: 4, 8, 9, 15       Bin 2: 21, 21, 24, 25      Bin 3: 26, 28, 29, 34
+
+(a) Smoothing by BIN MEANS:
+  Bin1 mean = (4+8+9+15)/4 = 9      -&gt; 9, 9, 9, 9
+  Bin2 mean = (21+21+24+25)/4 = 23  -&gt; 23, 23, 23, 23
+  Bin3 mean = (26+28+29+34)/4 = 29.25 (~29) -&gt; 29, 29, 29, 29
+
+(b) Smoothing by BIN BOUNDARIES (each value -&gt; nearest bin edge):
+  Bin1: 4, 4, 4, 15     Bin2: 21, 21, 25, 25     Bin3: 26, 26, 26, 34</div>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 1 &mdash; Similarity &amp; Distance</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P6</span>
+      <span class="q-title">Find the Manhattan, Euclidean and Supremum distance between (a) x1=(1,2), x2=(3,5) and (b) x1=(2,4), x2=(5,1).<span class="mem-tag">NEW / similar practice problem</span></span>
+      <span class="q-marks">Textbook + variant</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="table-wrap"><table><thead><tr><th>h</th><th>Name</th><th>(a) (1,2) vs (3,5)</th><th>(b) (2,4) vs (5,1)</th></tr></thead><tbody><tr><td>1</td><td>Manhattan</td><td>|1-3|+|2-5| = 2+3 = 5</td><td>|2-5|+|4-1| = 3+3 = 6</td></tr><tr><td>2</td><td>Euclidean</td><td>&radic;(2&sup2;+3&sup2;) = &radic;13 = 3.606</td><td>&radic;(3&sup2;+3&sup2;) = &radic;18 = 4.243</td></tr><tr><td>&infin;</td><td>Supremum</td><td>max(2,3) = 3</td><td>max(3,3) = 3</td></tr></tbody></table></div><p>Notice in (b) the two points are equally far apart on both axes (3 and 3), so Euclidean and Manhattan differ more than usual from Supremum &mdash; a good check-your-understanding case.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P7</span>
+      <span class="q-title">Find cosine similarity between (a) d1=(5,0,3,0,2,0,0,2,0,0), d2=(3,0,2,0,1,1,0,1,0,1) and (b) d1=(3,0,0,2), d2=(1,0,1,1).<span class="mem-tag">NEW / similar practice problem</span></span>
+      <span class="q-marks">Textbook + variant</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">(a) d1.d2 = 5x3+3x2+2x1+2x1 = 15+6+2+2 = 25
+    ||d1|| = sqrt(25+9+4+4) = sqrt(42) = 6.481
+    ||d2|| = sqrt(9+4+1+1+1+1) = sqrt(17) = 4.123
+    cos = 25/(6.481x4.123) = 0.94   (highly similar)
+
+(b) d1.d2 = 3x1+0x0+0x1+2x1 = 3+0+0+2 = 5
+    ||d1|| = sqrt(9+4) = sqrt(13) = 3.606
+    ||d2|| = sqrt(1+1+1) = sqrt(3) = 1.732
+    cos = 5/(3.606x1.732) = 5/6.246 = 0.80   (moderately similar)</div>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P8</span>
+      <span class="q-title">Two patients share Gender (symmetric) and disease-test attributes (asymmetric, Y/P=1, N=0), giving contingency counts q=2 (both positive), r=0, s=1, t=3 for the asymmetric attributes. Find the dissimilarity and the Jaccard similarity.</span>
+      <span class="q-marks">Textbook</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">Asymmetric binary dissimilarity: d(i,j) = (r+s)/(q+r+s) = (0+1)/(2+0+1) = 1/3 = 0.33
+Jaccard similarity: J(i,j) = q/(q+r+s) = 2/(2+0+1) = 2/3 = 0.67</div><p>The 0-0 match (t=3, both patients testing negative on other diseases) is deliberately excluded from both formulas since, for asymmetric attributes, agreeing on absence carries little information.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 2 &mdash; Apriori &amp; FP-Growth</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P9</span>
+      <span class="q-title">Database D has 9 transactions over items I1&ndash;I5. min_sup count = 2, min_conf = 70%. Find all frequent itemsets (L1, L2, L3) and the resulting strong association rules.</span>
+      <span class="q-marks">Textbook (I1&ndash;I5 dataset)</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="table-wrap"><table><thead><tr><th>Step</th><th>Result</th></tr></thead><tbody><tr><td>L1</td><td>{I1}:6, {I2}:7, {I3}:6, {I4}:2, {I5}:2  (all pass min_sup=2)</td></tr><tr><td>C2 &rarr; L2</td><td>{I1,I2}:4, {I1,I3}:4, {I1,I5}:2, {I2,I3}:4, {I2,I4}:2, {I2,I5}:2  ({I1,I4}:1, {I3,I4}:0, {I3,I5}:1, {I4,I5}:0 fail)</td></tr><tr><td>C3 &rarr; L3</td><td>Join+prune leaves {I1,I2,I3}:2, {I1,I2,I5}:2  (others pruned: a 2-item subset was not in L2)</td></tr><tr><td>C4</td><td>Only candidate {I1,I2,I3,I5} is pruned (subset {I2,I3,I5} not frequent) &rArr; C4 = &empty;, algorithm stops</td></tr></tbody></table></div><p class="sub-h">Strong rules from {I1,I2,I5} (support_count=2), min_conf=70%</p><div class="table-wrap"><table><thead><tr><th>Rule</th><th>Confidence</th><th>Result</th></tr></thead><tbody><tr><td>I1&and;I2 &rarr; I5</td><td>2/4 = 50%</td><td>Rejected</td></tr><tr><td>I1&and;I5 &rarr; I2</td><td>2/2 = 100%</td><td>Selected</td></tr><tr><td>I2&and;I5 &rarr; I1</td><td>2/2 = 100%</td><td>Selected</td></tr><tr><td>I5 &rarr; I1&and;I2</td><td>2/2 = 100%</td><td>Selected</td></tr></tbody></table></div><p>(Full step-by-step derivation with every candidate table is in Part B, questions B.18&ndash;B.19.)</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P10</span>
+      <span class="q-title">Build the FP-tree for 5 transactions (min_sup=3) and find all frequent patterns for suffix "m".</span>
+      <span class="q-marks">Textbook (f-c-a-b-m-p dataset)</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">TIDs (ordered by F-list f-c-a-b-m-p):
+100: f,c,a,m,p    200: f,c,a,b,m    300: f,b    400: c,b,p    500: f,c,a,m,p
+
+m's conditional pattern base: {f,c,a:2}, {f,c,a,b:1}
+-&gt; m-conditional FP-tree (b dropped, count 1 &lt; min_sup): single path f:3-c:3-a:3
+
+Since it's a SINGLE PATH, all combinations + suffix 'm' are frequent:
+  m, fm, cm, am, fcm, fam, cam, fcam   (all support = 3)</div><p>(Full FP-tree construction, header table, and all six conditional pattern bases are in Part B, questions B.21&ndash;B.22.)</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P11</span>
+      <span class="q-title">6 transactions over I1&ndash;I5, support threshold = 50% (min_sup=3). Build the FP-tree and state the F-list.</span>
+      <span class="q-marks">Textbook (I1&ndash;I5 dataset, 6 transactions)</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">Counts: I2:5, I1:4, I3:4, I4:4, I5:2(dropped, &lt;3)
+F-list = I2-I1-I3-I4
+
+Final tree (main branch): I2:5 -- I1:4 -- I3:3  (I4 branches off at various points)
+Frequent 2-itemsets found while mining: {I2,I1:4}, {I2,I3:4}, {I2,I1,I3:3}</div><p>(Full transaction-by-transaction tree construction is in Part B, question B.24.)</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P12</span>
+      <span class="q-title">NEW dataset: T1={E,K,M,N,O,Y}, T2={D,E,K,N,O,Y}, T3={A,E,K,M}, T4={C,K,M,U,Y}, T5={C,E,I,K,O}. min_sup = 3. Build the FP-tree and find all frequent patterns.<span class="mem-tag">From your notes</span></span>
+      <span class="q-marks">From your uploaded fpgrowthalgorithmexampleproblems.pdf</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <p class="sub-h">Step 1: Item frequencies & F-list</p><div class="code-block">A:1  C:2  D:1  E:4  I:1  K:5  M:3  N:2  O:3  U:1  Y:3
+L = {K:5, E:4, M:3, O:3, Y:3}   (all others &lt; min_sup=3, dropped)</div><p class="sub-h">Step 2: Ordered-item sets (keep only L items, in L order)</p><div class="table-wrap"><table><thead><tr><th>TID</th><th>Items</th><th>Ordered (F-list order)</th></tr></thead><tbody><tr><td>T1</td><td>E,K,M,N,O,Y</td><td>K,E,M,O,Y</td></tr><tr><td>T2</td><td>D,E,K,N,O,Y</td><td>K,E,O,Y</td></tr><tr><td>T3</td><td>A,E,K,M</td><td>K,E,M</td></tr><tr><td>T4</td><td>C,K,M,U,Y</td><td>K,M,Y</td></tr><tr><td>T5</td><td>C,E,I,K,O</td><td>K,E,O</td></tr></tbody></table></div><div class="diagram-wrap"><div class="diagram-label">Final FP-tree</div><svg viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;"><rect x="170" y="8" width="60" height="26" rx="3" fill="none" stroke="#666"/><text x="200" y="26" fill="#ccc" text-anchor="middle">null</text><line x1="200" y1="34" x2="200" y2="55" stroke="#555"/><rect x="170" y="55" width="60" height="26" rx="3" fill="none" stroke="#c0392b"/><text x="200" y="73" fill="#e8c19a" text-anchor="middle">K:5</text><line x1="185" y1="81" x2="120" y2="102" stroke="#555"/><line x1="215" y1="81" x2="290" y2="102" stroke="#555"/><rect x="90" y="102" width="60" height="26" rx="3" fill="none" stroke="#c0392b"/><text x="120" y="120" fill="#ccc" text-anchor="middle">E:4</text><rect x="260" y="102" width="60" height="26" rx="3" fill="none" stroke="#666"/><text x="290" y="120" fill="#ccc" text-anchor="middle">M:1</text><line x1="105" y1="128" x2="75" y2="149" stroke="#555"/><line x1="135" y1="128" x2="165" y2="149" stroke="#555"/><line x1="290" y1="128" x2="290" y2="149" stroke="#555"/><rect x="40" y="149" width="60" height="26" rx="3" fill="none" stroke="#666"/><text x="70" y="167" fill="#ccc" text-anchor="middle">M:2</text><rect x="140" y="149" width="60" height="26" rx="3" fill="none" stroke="#666"/><text x="170" y="167" fill="#ccc" text-anchor="middle">O:2</text><rect x="260" y="149" width="60" height="26" rx="3" fill="none" stroke="#666"/><text x="290" y="167" fill="#ccc" text-anchor="middle">Y:1</text><line x1="70" y1="175" x2="70" y2="196" stroke="#555"/><line x1="170" y1="175" x2="170" y2="196" stroke="#555"/><rect x="40" y="196" width="60" height="26" rx="3" fill="none" stroke="#666"/><text x="70" y="214" fill="#ccc" text-anchor="middle">O:1</text><rect x="140" y="196" width="60" height="26" rx="3" fill="none" stroke="#666"/><text x="170" y="214" fill="#ccc" text-anchor="middle">Y:1</text></svg></div><p>(The O:1 node under M has its own Y:1 child, omitted above for space &mdash; giving the full path K-E-M-O-Y:1 from T1.)</p><p class="sub-h">Step 3: Conditional pattern bases & frequent patterns</p><div class="table-wrap"><table><thead><tr><th>Item</th><th>Conditional Pattern Base</th><th>Cond. FP-tree</th><th>Frequent Patterns</th></tr></thead><tbody><tr><td>Y</td><td>{K,E,M,O:1}, {K,E,O:1}, {K,M:1}</td><td>{K:3}</td><td>{K,Y:3}</td></tr><tr><td>O</td><td>{K,E,M:1}, {K,E:2}</td><td>{K,E:3}</td><td>{K,O:3}, {E,O:3}, {K,E,O:3}</td></tr><tr><td>M</td><td>{K,E:2}, {K:1}</td><td>{K:3}</td><td>{K,M:3}</td></tr><tr><td>E</td><td>{K:4}</td><td>{K:4}</td><td>{K,E:4}</td></tr><tr><td>K</td><td>&empty;</td><td>&empty;</td><td>&mdash;</td></tr></tbody></table></div><p>For each row, two candidate rules exist (e.g., for Y: K&rarr;Y and Y&rarr;K) &mdash; whichever direction meets min_conf is retained. This is a complete, self-contained third FP-Growth worked example, structurally identical in method to the f-c-a-b-m-p and I1-I5 examples but with fresh numbers &mdash; good for timed practice.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 2 &mdash; Correlation &amp; Lift</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P13</span>
+      <span class="q-title">6,000 of 10,000 customers buy games, 7,500 buy videos, 4,000 buy both. Compute Support, Confidence and Lift for game&rarr;video, and interpret.</span>
+      <span class="q-marks">Textbook (AllElectronics)</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">Support(game,video)    = 4000/10000 = 40%
+Confidence(game-&gt;video) = 4000/6000  = 66.7%
+Lift = 0.40 / (0.60 x 0.75) = 0.40/0.45 = 0.89</div><p>Even though confidence looks “strong” at 66.7%, Lift &lt; 1 reveals game and video are actually <strong>negatively correlated</strong> &mdash; because P(video)=75% alone already exceeds the rule's confidence.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P14</span>
+      <span class="q-title">5 transactions: T1={Bread,Milk}, T2={Bread,Diaper,Beer,Eggs}, T3={Milk,Diaper,Beer,Coke}, T4={Bread,Milk,Diaper,Beer}, T5={Bread,Milk,Diaper,Coke}. For the rule {Milk,Diaper}&rarr;{Beer}, find Support, Confidence and Lift.<span class="mem-tag">From your notes</span></span>
+      <span class="q-marks">From your uploaded Association_to_correlations.pdf</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">Transactions containing {Milk,Diaper,Beer} together: T3, T4  -&gt; count = 2
+Support({Milk,Diaper}-&gt;Beer) = 2/5 = 40%
+
+Transactions containing {Milk,Diaper} (regardless of Beer): T3, T4, T5 -&gt; count = 3
+Confidence = 2/3 = 66.7%
+
+P(Beer) = transactions with Beer (T2,T3,T4) / 5 = 3/5 = 60%
+Lift = Confidence / P(Beer) = 0.667/0.60 = 1.11   (&gt;1, so POSITIVE association)</div><p>A lift just above 1 means Milk+Diaper and Beer co-occur slightly more than random chance would predict &mdash; a mild but genuine positive correlation, unlike the games/videos case above.</p>
+    </div>
+  </div>
+
+<div class="unit-label">Unit 3 &mdash; Bayes Theorem &amp; Na&iuml;ve Bayes</div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P15</span>
+      <span class="q-title">Companies B1, B2, B3 make 30%, 45%, 25% of cars; 2%, 3%, 2% of each is defective. A car is defective &mdash; find P(B1|D), P(B2|D), P(B3|D).</span>
+      <span class="q-marks">Textbook</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="table-wrap"><table><thead><tr><th>Company</th><th>P(B&#8081;)</th><th>P(D|B&#8081;)</th><th>P(B&#8081;)&times;P(D|B&#8081;)</th><th>P(B&#8081;|D)</th></tr></thead><tbody><tr><td>B1</td><td>0.30</td><td>0.02</td><td>0.0060</td><td>0.0060/0.0245 = 0.245</td></tr><tr><td>B2</td><td>0.45</td><td>0.03</td><td>0.0135</td><td>0.0135/0.0245 = 0.551</td></tr><tr><td>B3</td><td>0.25</td><td>0.02</td><td>0.0050</td><td>0.0050/0.0245 = 0.204</td></tr></tbody></table></div><p>P(D) = 0.0245. Most likely source: <strong>B2 (55.1%)</strong>.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P16</span>
+      <span class="q-title">'Offer' appears in 80% of spam, 10% of desired mail; 30% of all mail is spam. A new mail contains 'offer' &mdash; find P(Spam | 'offer').</span>
+      <span class="q-marks">Textbook</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="table-wrap"><table><thead><tr><th>Event</th><th>P(A&#8081;)</th><th>P(O|A&#8081;)</th><th>Product</th><th>P(A&#8081;|O)</th></tr></thead><tbody><tr><td>Spam</td><td>0.3</td><td>0.8</td><td>0.24</td><td>0.24/0.31 = 77.4%</td></tr><tr><td>Desired</td><td>0.7</td><td>0.1</td><td>0.07</td><td>0.07/0.31 = 22.6%</td></tr></tbody></table></div><p>P(O) = 0.31. <strong>P(Spam|offer) &asymp; 77.4%</strong>.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P17</span>
+      <span class="q-title">A diagnostic test is 99% accurate; 60% of people have the disease. A patient tests positive &mdash; find P(Disease|Positive).</span>
+      <span class="q-marks">Textbook</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="table-wrap"><table><thead><tr><th>Event</th><th>P(A&#8081;)</th><th>P(P|A&#8081;)</th><th>Product</th><th>P(A&#8081;|P)</th></tr></thead><tbody><tr><td>Has disease</td><td>0.6</td><td>0.99</td><td>0.594</td><td>0.594/0.598 = 99.33%</td></tr><tr><td>No disease</td><td>0.4</td><td>0.01</td><td>0.004</td><td>0.004/0.598 = 0.67%</td></tr></tbody></table></div><p>P(P) = 0.598. <strong>P(Disease|Positive) &asymp; 99.33%</strong> &mdash; high mainly because prevalence (60%) is unusually large; a rarer disease would give a much lower posterior for the same 99%-accurate test (the base-rate fallacy).</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P18</span>
+      <span class="q-title">Machines A, B, C produce 25%, 35%, 40% of a factory’s output; their defect rates are 5%, 4%, 2%. A random item is found defective &mdash; find P(A|D), P(B|D), P(C|D).<span class="mem-tag">NEW / similar practice problem</span></span>
+      <span class="q-marks">Similar practice problem</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="table-wrap"><table><thead><tr><th>Machine</th><th>P(M&#8081;)</th><th>P(D|M&#8081;)</th><th>Product</th><th>P(M&#8081;|D)</th></tr></thead><tbody><tr><td>A</td><td>0.25</td><td>0.05</td><td>0.0125</td><td>0.0125/0.0345 = 36.2%</td></tr><tr><td>B</td><td>0.35</td><td>0.04</td><td>0.0140</td><td>0.0140/0.0345 = 40.6%</td></tr><tr><td>C</td><td>0.40</td><td>0.02</td><td>0.0080</td><td>0.0080/0.0345 = 23.2%</td></tr></tbody></table></div><p>P(D) = 0.0345. Most likely source: <strong>Machine B (40.6%)</strong> &mdash; note B is neither the highest-output nor highest-defect-rate machine alone, but the <em>product</em> of the two makes it the top contributor, exactly the kind of trap this problem style is designed to test.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P19</span>
+      <span class="q-title">Classify X=(age&le;30, income=medium, student=yes, credit=fair) using Na&iuml;ve Bayes on the standard 14-row buys_computer training set.</span>
+      <span class="q-marks">Textbook (buys_computer dataset)</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">P(yes)=9/14=0.643   P(no)=5/14=0.357
+
+P(age&lt;=30|yes)=0.222   P(age&lt;=30|no)=0.600
+P(income=medium|yes)=0.444   P(income=medium|no)=0.400
+P(student=yes|yes)=0.667   P(student=yes|no)=0.200
+P(credit=fair|yes)=0.667   P(credit=fair|no)=0.400
+
+P(X|yes)=0.222x0.444x0.667x0.667=0.044   P(X|yes)xP(yes)=0.028
+P(X|no) =0.600x0.400x0.200x0.400=0.019   P(X|no)xP(no) =0.007
+
+0.028 &gt; 0.007  =&gt;  Predict: buys_computer = YES</div>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P20</span>
+      <span class="q-title">NEW dataset (the classic 'Play Golf' weather data, 14 rows: 9 Yes / 5 No): classify X=(Outlook=Sunny, Temperature=Cool, Humidity=High, Windy=True).<span class="mem-tag">Similar practice problem</span></span>
+      <span class="q-marks">From your Unit-3 Part-1.pptx weather dataset</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">P(Yes)=9/14=0.643   P(No)=5/14=0.357</div><div class="table-wrap"><table><thead><tr><th>Attribute=Value</th><th>P( . | Yes)</th><th>P( . | No)</th></tr></thead><tbody><tr><td>Outlook = Sunny</td><td>2/9 = 0.222</td><td>3/5 = 0.600</td></tr><tr><td>Temperature = Cool</td><td>3/9 = 0.333</td><td>1/5 = 0.200</td></tr><tr><td>Humidity = High</td><td>3/9 = 0.333</td><td>4/5 = 0.800</td></tr><tr><td>Windy = True</td><td>3/9 = 0.333</td><td>3/5 = 0.600</td></tr></tbody></table></div><div class="code-block">P(X|Yes) = 0.222 x 0.333 x 0.333 x 0.333 = 0.0082
+P(X|No)  = 0.600 x 0.200 x 0.800 x 0.600 = 0.0576
+
+P(X|Yes) x P(Yes) = 0.0082 x 0.643 = 0.0053
+P(X|No)  x P(No)  = 0.0576 x 0.357 = 0.0206
+
+0.0206 &gt; 0.0053  =&gt;  Predict: Play Golf = NO</div><p>Makes intuitive sense too: sunny + hot/humid + windy is exactly the combination least favourable for golf. This uses a completely different dataset from P19 &mdash; good for testing whether you understand the <em>method</em> rather than having memorized one dataset's numbers.</p>
+    </div>
+  </div>
+
+<div class="q-block">
+    <div class="q-head">
+      <span class="q-num">P21</span>
+      <span class="q-title">A 1000-tuple dataset has income=low (0 tuples), income=medium (990), income=high (10). Why is this a problem for Na&iuml;ve Bayes, and how does Laplacian correction fix it?</span>
+      <span class="q-marks">Textbook</span>
+    </div>
+    <div class="q-body">
+      <p class="sub-h">Solution</p>
+      <div class="code-block">Uncorrected: P(income=low) = 0/1000 = 0  -&gt; zeroes out ANY prediction needing this value
+
+Laplacian correction (add 1 to each count, add #categories=3 to denominator):
+  P(low)    = (0+1)/(1000+3)  = 1/1003
+  P(medium) = (990+1)/1003    = 991/1003
+  P(high)   = (10+1)/1003     = 11/1003</div><p>No probability is ever exactly zero after correction, while well-populated categories barely change &mdash; this is also called <strong>add-one smoothing</strong>.</p>
+    </div>
+  </div>
+
+</div>
+<!-- end Problems panel -->
 
 <div id="panel-partA" class="tab-panel">
   <div class="part-header">
@@ -1629,7 +1991,7 @@ Kulc(A,B)      = 1/2 [ P(A|B) + P(B|A) ]</div><p>Because they are unaffected by 
 
 <script>
 function switchTab(tab) {
-  const order = ['important', 'partA', 'partB'];
+  const order = ['important', 'problems', 'partA', 'partB'];
   const idx = order.indexOf(tab);
   document.querySelectorAll('.tab-btn').forEach((b, i) => {
     b.classList.toggle('active', i === idx);
