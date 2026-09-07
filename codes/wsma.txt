@@ -1,0 +1,178 @@
+1. stopword removal . py 
+# Initial NLTK Setup
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('omw-1.4')
+nltk.download('punkt_tab')
+
+
+# Lab 1a: Stopword Elimination
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+
+# Sample text
+text = "This is a sample document for text preprocessing. We will remove stopwords from this text."
+
+# Tokenize the text
+tokens = word_tokenize(text.lower())
+
+# Get English stopwords
+stop_words = set(stopwords.words('english'))
+
+# Remove stopwords
+filtered_tokens = [word for word in tokens if word not in stop_words and word.isalpha()]
+
+print("Original tokens:", tokens)
+print("Filtered tokens:", filtered_tokens)
+
+
+----
+2. stemming . py
+from nltk.stem import PorterStemmer
+from nltk.tokenize import word_tokenize
+
+# Initialize stemmer
+stemmer = PorterStemmer()
+
+# Sample text
+text = "running runs ran runner easily fairly"
+tokens = word_tokenize(text)
+
+# Apply stemming
+stemmed_words = [stemmer.stem(word) for word in tokens]
+
+print("Original words:", tokens)
+print("Stemmed words:", stemmed_words)
+
+
+----
+
+3. lemmatizer . py
+import nltk
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize import word_tokenize
+
+# Download necessary NLTK resources
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
+# Initialize lemmatizer
+lemmatizer = WordNetLemmatizer()
+
+# Sample text
+text = "running runs ran runner easily fairly better"
+tokens = word_tokenize(text)
+
+# Apply lemmatization without POS
+lemmatized_words = [lemmatizer.lemmatize(word) for word in tokens]
+
+print("Original words:", tokens)
+print("Lemmatized words:", lemmatized_words)
+
+# With POS tagging for better results
+pos_tags = nltk.pos_tag(tokens)
+lemmatized_with_pos = []
+
+for word, pos in pos_tags:
+    if pos.startswith('V'):
+        lemmatized_with_pos.append(lemmatizer.lemmatize(word, pos='v'))
+    elif pos.startswith('N'):
+        lemmatized_with_pos.append(lemmatizer.lemmatize(word, pos='n'))
+    elif pos.startswith('R'):
+        lemmatized_with_pos.append(lemmatizer.lemmatize(word, pos='r'))
+    elif pos.startswith('J'):  # Adjective
+        lemmatized_with_pos.append(lemmatizer.lemmatize(word, pos='a'))
+    else:
+        lemmatized_with_pos.append(lemmatizer.lemmatize(word))
+
+print("Lemmatized with POS:", lemmatized_with_pos)
+
+---
+
+4. pos-tagging . py
+import nltk
+from nltk.tokenize import word_tokenize
+
+# Sample text
+text = "The quick brown fox jumps over the lazy dog"
+tokens = word_tokenize(text)
+
+# POS tagging
+pos_tags = nltk.pos_tag(tokens)
+
+print("POS Tags:", pos_tags)
+
+# Explanation of common POS tags
+pos_explanations = {
+    'DT': 'Determiner',
+    'JJ': 'Adjective',
+    'NN': 'Noun, singular',
+    'NNS': 'Noun, plural',
+    'VBZ': 'Verb, 3rd person singular present',
+    'IN': 'Preposition',
+    'RB': 'Adverb'
+}
+
+for word, pos in pos_tags:
+    explanation = pos_explanations.get(pos, 'Other')
+    print(f"{word}: {pos} ({explanation})")
+
+
+----
+5. lexical . py
+
+import nltk
+from nltk.tokenize import word_tokenize, sent_tokenize
+from collections import Counter
+import re
+
+def lexical_analysis(text):
+    # Basic statistics
+    sentences = sent_tokenize(text)
+    words = word_tokenize(text.lower())
+    
+    # Remove punctuation
+    words = [word for word in words if word.isalpha()]
+    
+    # Analysis
+    num_sentences = len(sentences)
+    num_words = len(words)
+    num_unique_words = len(set(words))
+    avg_word_length = sum(len(word) for word in words) / len(words)
+    
+    # Word frequency
+    word_freq = Counter(words)
+    most_common = word_freq.most_common(10)
+    
+    # Lexical diversity
+    lexical_diversity = num_unique_words / num_words
+    
+    print(f"Number of sentences: {num_sentences}")
+    print(f"Number of words: {num_words}")
+    print(f"Number of unique words: {num_unique_words}")
+    print(f"Average word length: {avg_word_length:.2f}")
+    print(f"Lexical diversity: {lexical_diversity:.2f}")
+    print(f"Most common words: {most_common}")
+    
+    return {
+        'sentences': num_sentences,
+        'words': num_words,
+        'unique_words': num_unique_words,
+        'avg_word_length': avg_word_length,
+        'lexical_diversity': lexical_diversity,
+        'word_frequency': word_freq
+    }
+
+# Sample text
+sample_text = """
+Natural language processing is a fascinating field of study. 
+It combines computer science, artificial intelligence, and linguistics. 
+The goal is to enable computers to understand and process human language.
+"""
+
+analysis_results = lexical_analysis(sample_text)
