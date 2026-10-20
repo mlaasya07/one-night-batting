@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDA Exam Prep — JNTUH</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--bg2:#111111;--bg3:#1a1a1a;--bg4:#222222;--red:#e02020;--red2:#ff3333;--red3:#c01010;--red-dim:rgba(224,32,32,0.12);--red-glow:rgba(224,32,32,0.25);--green:#22c55e;--green-dim:rgba(34,197,94,0.1);--white:#f5f5f5;--white2:#cccccc;--white3:#888888;--border:rgba(255,255,255,0.08);--border-red:rgba(224,32,32,0.4)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Roboto Mono',monospace;min-height:100vh;overflow-x:hidden}
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1.5rem}
+.header-inner{max-width:1300px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px}
+.logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);white-space:nowrap}.logo span{color:var(--red)}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav-btn{background:none;border:none;color:var(--white3);font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;cursor:pointer;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-btn:hover,.nav-btn.active{background:var(--red-dim);color:var(--red2)}
+.timer-bar{background:var(--bg2);border-bottom:1px solid var(--border);padding:6px 1.5rem;text-align:center;font-size:12px;letter-spacing:.06em}
+.timer-value{color:var(--green);font-size:15px;font-weight:500}.timer-value.warn{color:#f59e0b}.timer-value.danger{color:var(--red);animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+.main{max-width:1300px;margin:0 auto;padding:1.5rem;position:relative;z-index:1}
+.page-title{margin-bottom:1.5rem}
+.page-title h1{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1.2;margin-bottom:4px}
+.page-title h1 em{font-style:italic;color:var(--red)}
+.page-title p{font-size:10px;color:var(--white3);letter-spacing:.08em;text-transform:uppercase}
+.div-line{height:1px;background:linear-gradient(90deg,var(--red),transparent);margin-bottom:1.5rem;opacity:.4}
+.section-tabs{display:flex;gap:10px;margin-bottom:1.5rem;flex-wrap:wrap}
+.stab{flex:1;min-width:180px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;cursor:pointer;transition:all .25s;text-align:left}
+.stab:hover{border-color:var(--border-red);background:var(--bg3)}
+.stab.active{border-color:var(--red);background:var(--red-dim);box-shadow:0 0 20px var(--red-glow)}
+.stab-label{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--white3);margin-bottom:3px}
+.stab-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white)}
+.stab.active .stab-title{color:var(--red2)}.stab-marks{font-size:10px;color:var(--white3);margin-top:3px}
+.mode-tabs{display:flex;gap:8px;margin-bottom:1.5rem}
+.mtab{background:var(--bg2);border:1px solid var(--border);color:var(--white3);font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:7px 18px;cursor:pointer;border-radius:4px;transition:all .2s}
+.mtab:hover{color:var(--white);border-color:rgba(255,255,255,.2)}.mtab.active{background:var(--red);border-color:var(--red);color:#fff}
+.unit-filter{display:flex;gap:5px;margin-bottom:1.2rem;flex-wrap:wrap}
+.ufbtn{background:var(--bg3);border:1px solid var(--border);color:var(--white3);font-family:'Roboto Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;cursor:pointer;border-radius:3px;transition:all .15s}
+.ufbtn:hover{border-color:var(--border-red);color:var(--white)}.ufbtn.active{background:var(--red-dim);border-color:var(--red);color:var(--red2)}
+.cpanel{display:none}.cpanel.active{display:block}
+.stats-bar{display:flex;gap:12px;margin-bottom:1.2rem;flex-wrap:wrap}
+.stat{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:8px 14px;display:flex;flex-direction:column;gap:2px}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--red2)}.stat-l{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--white3)}
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.fc{perspective:1000px;height:220px;cursor:pointer}
+.fc-inner{position:relative;width:100%;height:100%;transition:transform .5s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;padding:1.2rem;display:flex;flex-direction:column;justify-content:space-between}
+.fc-front{background:var(--bg2);border:1px solid var(--border)}.fc-front:hover{border-color:var(--border-red)}
+.fc-back{background:var(--bg3);border:1px solid var(--red);transform:rotateY(180deg)}
+.fc-tag{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.fc-q{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--white);line-height:1.5;flex:1;display:flex;align-items:center}
+.fc-hint{font-size:9px;color:var(--white3);letter-spacing:.06em}
+.fc-ans{font-size:10px;color:var(--white2);line-height:1.6;overflow-y:auto;flex:1}
+.fc-ans .formula{color:var(--red2);display:block;margin:3px 0;font-size:9px}
+.fc-unit{font-size:9px;color:var(--white3);letter-spacing:.1em;text-transform:uppercase}
+.fc-count{font-size:10px;color:var(--white3);text-align:center;margin-top:.8rem}
+.exam-wrap{max-width:820px;margin:0 auto}
+.exam-header{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.2rem 1.5rem;margin-bottom:1.2rem}
+.exam-header h2{font-family:'Playfair Display',serif;font-size:1.2rem;margin-bottom:.4rem}
+.exam-header p{font-size:10px;color:var(--white3);line-height:1.7}
+.exam-score-bar{display:flex;gap:16px;margin-top:.8rem;flex-wrap:wrap}
+.escore{text-align:center}
+.escore-n{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--red2)}
+.escore-l{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--white3)}
+.part-header{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin:1.5rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid var(--border-red)}
+.parta-q{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem;margin-bottom:10px;transition:all .2s}
+.parta-q:hover{border-color:var(--border-red)}
+.parta-meta{display:flex;justify-content:space-between;margin-bottom:.5rem}
+.parta-num{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--red)}
+.parta-marks{font-size:9px;color:var(--white3)}
+.parta-text{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--white);line-height:1.5;margin-bottom:.7rem}
+.parta-opts{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.parta-opt{background:var(--bg3);border:1px solid var(--border);border-radius:5px;padding:8px 12px;cursor:pointer;font-size:10px;color:var(--white2);transition:all .2s;text-align:left;line-height:1.4}
+.parta-opt:hover:not(.locked){border-color:rgba(255,255,255,.2);color:var(--white)}
+.parta-opt.selected{border-color:var(--red2);background:var(--red-dim);color:var(--white)}
+.parta-opt.correct{border-color:var(--green)!important;background:var(--green-dim)!important;color:#86efac!important}
+.parta-opt.wrong{border-color:var(--red)!important;background:var(--red-dim)!important;color:#fca5a5!important}
+.parta-opt.locked{cursor:default}
+.parta-explain{background:var(--bg3);border-left:3px solid var(--border-red);padding:8px 12px;margin-top:.4rem;font-size:10px;color:var(--white2);line-height:1.6;border-radius:0 4px 4px 0;display:none}
+.parta-explain.show{display:block}
+.parta-explain .why-wrong{color:#fca5a5;font-size:9px;margin-top:.3rem}
+.partb-q{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.2rem;margin-bottom:16px}
+.partb-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:.8rem}
+.partb-num{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:500}
+.partb-marks{font-size:9px;color:var(--white3)}
+.pair-selector{display:flex;gap:6px;margin-bottom:.8rem;flex-wrap:wrap}
+.pair-btn{background:var(--bg3);border:1px solid var(--border);color:var(--white3);font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;cursor:pointer;border-radius:4px;transition:all .2s}
+.pair-btn:hover{border-color:var(--border-red);color:var(--white)}.pair-btn.active{background:var(--red-dim);border-color:var(--red);color:var(--red2)}
+.pair-questions{display:none}.pair-questions.active{display:block}
+.sub-q{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:1rem;margin-bottom:10px}
+.sub-q-label{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:5px}
+.sub-q-text{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--white);line-height:1.5;margin-bottom:.5rem}
+.sub-opts{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:7px}
+.sub-opt{background:var(--bg2);border:1px solid var(--border);border-radius:4px;padding:7px 10px;cursor:pointer;font-size:10px;color:var(--white2);transition:all .2s;text-align:left}
+.sub-opt:hover:not(.locked){border-color:rgba(255,255,255,.2);color:var(--white)}
+.sub-opt.selected{border-color:var(--red2);background:var(--red-dim);color:var(--white)}
+.sub-opt.correct{border-color:var(--green)!important;background:var(--green-dim)!important;color:#86efac!important}
+.sub-opt.wrong{border-color:var(--red)!important;background:var(--red-dim)!important;color:#fca5a5!important}
+.sub-opt.locked{cursor:default}
+.sub-explain{background:rgba(0,0,0,.3);border-left:3px solid var(--border-red);padding:7px 10px;margin-top:5px;font-size:10px;color:var(--white2);line-height:1.6;border-radius:0 4px 4px 0;display:none}
+.sub-explain.show{display:block}
+.sub-explain .why-wrong{color:#fca5a5;font-size:9px;margin-top:.2rem}
+.mid-partb-info{background:var(--red-dim);border:1px solid var(--border-red);border-radius:6px;padding:8px 14px;margin-bottom:.8rem;font-size:10px;color:var(--red2)}
+.exam-actions{display:flex;gap:8px;margin-top:1.5rem;flex-wrap:wrap}
+.btn{font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:9px 20px;border-radius:4px;cursor:pointer;transition:all .2s;border:none}
+.btn-red{background:var(--red);color:#fff}.btn-red:hover{background:var(--red2)}
+.btn-outline{background:none;border:1px solid var(--border);color:var(--white3)}.btn-outline:hover{border-color:var(--border-red);color:var(--white)}
+.result-panel{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-top:1.5rem;animation:fadeUp .4s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.result-big{font-family:'Playfair Display',serif;font-size:3.5rem;color:var(--red);line-height:1;text-align:center}
+.result-sub{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--white3);text-align:center;margin:.4rem 0 1.2rem}
+.result-breakdown{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.2rem}
+.rb{text-align:center}.rb-n{font-family:'Playfair Display',serif;font-size:1.8rem}.rb-l{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--white3)}
+.result-msg{text-align:center;font-size:12px;color:var(--white2);max-width:450px;margin:0 auto 1.2rem;line-height:1.7}
+.mistake-item{background:var(--bg3);border:1px solid rgba(224,32,32,.25);border-radius:8px;padding:.8rem 1rem;margin-bottom:8px}
+.mistake-q{font-family:'Playfair Display',serif;font-size:.9rem;color:var(--white);margin-bottom:.5rem}
+.mistake-row{font-size:10px;margin-bottom:3px}.m-you{color:#fca5a5}.m-correct{color:#86efac}
+.m-explain{color:var(--white3);line-height:1.5;margin-top:.2rem;font-size:10px}
+.m-why{color:#f59e0b;font-size:9px;margin-top:.2rem}
+.empty{text-align:center;padding:2.5rem;color:var(--white3);font-size:12px}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--red3);border-radius:2px}
+@media(max-width:600px){.parta-opts,.sub-opts{grid-template-columns:1fr}.section-tabs{flex-direction:column}.fc-grid{grid-template-columns:1fr}.pair-selector{flex-direction:column}.header-inner{flex-wrap:wrap;height:auto;padding:8px 0}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">BDA <span>·</span> JNTUH</div>
+    <nav class="nav">
+      <button class="nav-btn active" id="navMid1" onclick="showSection('mid1')">Mid 1</button>
+      <button class="nav-btn" id="navMid2" onclick="showSection('mid2')">Mid 2</button>
+      <button class="nav-btn" id="navSem" onclick="showSection('sem')">Semester</button>
+    </nav>
+  </div>
+</div>
+<div class="timer-bar">
+  Timer &nbsp;|&nbsp; <span class="timer-value" id="timerDisplay">3:00:00</span>
+  &nbsp;|&nbsp; <button class="btn btn-outline" style="padding:2px 8px;font-size:9px" onclick="resetTimer()">Reset</button>
+  &nbsp;|&nbsp; <button class="btn btn-outline" style="padding:2px 8px;font-size:9px" onclick="setTimer(30)">30M</button>
+  &nbsp;|&nbsp; <button class="btn btn-outline" style="padding:2px 8px;font-size:9px" onclick="setTimer(180)">3H</button>
+</div>
+<div class="main">
+  <div class="page-title">
+    <h1>Big Data <em>Analytics</em></h1>
+    <p>JNTUH · 5 Units · Mid 1 · Mid 2 · Semester · Flashcards + Exam Mode</p>
+  </div>
+  <div class="div-line"></div>
+  <div class="section-tabs">
+    <div class="stab active" id="stab-mid1" onclick="showSection('mid1')">
+      <div class="stab-label">Section 1</div>
+      <div class="stab-title">Mid 1</div>
+      <div class="stab-marks">30M · Units 1, 2, Unit 3 (first half — MapReduce)</div>
+    </div>
+    <div class="stab" id="stab-mid2" onclick="showSection('mid2')">
+      <div class="stab-label">Section 2</div>
+      <div class="stab-title">Mid 2</div>
+      <div class="stab-marks">30M · Unit 3 (NoSQL), Unit 4 (MongoDB), Unit 5 (R)</div>
+    </div>
+    <div class="stab" id="stab-sem" onclick="showSection('sem')">
+      <div class="stab-label">Section 3</div>
+      <div class="stab-title">Semester</div>
+      <div class="stab-marks">60M · All 5 Units · Part A (10×1M) + Part B (5×10M)</div>
+    </div>
+  </div>
+
+  <!-- MID 1 -->
+  <div class="cpanel active" id="panel-mid1">
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('mid1','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('mid1','exam')">Exam Mode</button>
+    </div>
+    <div class="unit-filter" id="uf-mid1">
+      <button class="ufbtn active" onclick="filterUnit('mid1','all')">All</button>
+      <button class="ufbtn" onclick="filterUnit('mid1','1')">Unit I</button>
+      <button class="ufbtn" onclick="filterUnit('mid1','2')">Unit II</button>
+      <button class="ufbtn" onclick="filterUnit('mid1','3a')">Unit III-A</button>
+    </div>
+    <div class="stats-bar" id="stats-mid1"></div>
+    <div class="cpanel active" id="mid1-flash"><div class="fc-grid" id="fc-mid1"></div><div class="fc-count" id="fc-count-mid1"></div></div>
+    <div class="cpanel" id="mid1-exam"><div class="exam-wrap" id="mid1-exam-body"></div></div>
+  </div>
+
+  <!-- MID 2 -->
+  <div class="cpanel" id="panel-mid2">
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('mid2','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('mid2','exam')">Exam Mode</button>
+    </div>
+    <div class="unit-filter" id="uf-mid2">
+      <button class="ufbtn active" onclick="filterUnit('mid2','all')">All</button>
+      <button class="ufbtn" onclick="filterUnit('mid2','3b')">Unit III-B</button>
+      <button class="ufbtn" onclick="filterUnit('mid2','4')">Unit IV</button>
+      <button class="ufbtn" onclick="filterUnit('mid2','5')">Unit V</button>
+    </div>
+    <div class="stats-bar" id="stats-mid2"></div>
+    <div class="cpanel active" id="mid2-flash"><div class="fc-grid" id="fc-mid2"></div><div class="fc-count" id="fc-count-mid2"></div></div>
+    <div class="cpanel" id="mid2-exam"><div class="exam-wrap" id="mid2-exam-body"></div></div>
+  </div>
+
+  <!-- SEM -->
+  <div class="cpanel" id="panel-sem">
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('sem','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('sem','exam')">Exam Mode</button>
+    </div>
+    <div class="unit-filter" id="uf-sem">
+      <button class="ufbtn active" onclick="filterUnit('sem','all')">All</button>
+      <button class="ufbtn" onclick="filterUnit('sem','1')">Unit I</button>
+      <button class="ufbtn" onclick="filterUnit('sem','2')">Unit II</button>
+      <button class="ufbtn" onclick="filterUnit('sem','3a')">III-A</button>
+      <button class="ufbtn" onclick="filterUnit('sem','3b')">III-B</button>
+      <button class="ufbtn" onclick="filterUnit('sem','4')">Unit IV</button>
+      <button class="ufbtn" onclick="filterUnit('sem','5')">Unit V</button>
+    </div>
+    <div class="stats-bar" id="stats-sem"></div>
+    <div class="cpanel active" id="sem-flash"><div class="fc-grid" id="fc-sem"></div><div class="fc-count" id="fc-count-sem"></div></div>
+    <div class="cpanel" id="sem-exam"><div class="exam-wrap" id="sem-exam-body"></div></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// TIMER
+// ============================================================
+let timerSecs=3*60*60,timerInterval=null;
+function startTimer(){if(timerInterval)return;timerInterval=setInterval(()=>{timerSecs--;updateTimerDisplay();if(timerSecs<=0){clearInterval(timerInterval);alert('Time is up!');}},1000);}
+function updateTimerDisplay(){const h=Math.floor(timerSecs/3600),m=Math.floor((timerSecs%3600)/60),s=timerSecs%60;const el=document.getElementById('timerDisplay');el.textContent=`${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;el.className='timer-value'+(timerSecs<600?' danger':timerSecs<1800?' warn':'');}
+function resetTimer(){clearInterval(timerInterval);timerInterval=null;timerSecs=3*60*60;updateTimerDisplay();}
+function setTimer(mins){clearInterval(timerInterval);timerInterval=null;timerSecs=mins*60;updateTimerDisplay();startTimer();}
+
+// ============================================================
+// FLASHCARD DATA BANK
+// Units: 1, 2, 3a (MapReduce), 3b (NoSQL), 4 (MongoDB), 5 (R)
+// ============================================================
+const FLASHCARDS=[
+// ===== UNIT 1 =====
+{u:'1',tag:'Definition',q:'What is Structured Data? Give examples.',a:'Highly organized data stored in predefined rows/columns format. Managed using RDBMS and SQL queries.\nExamples: Customer records (Name, Email, Address), financial transactions, employee HR data, inventory management.',f:'Structured → SQL → RDBMS → High accuracy, Limited flexibility'},
+{u:'1',tag:'Definition',q:'What is Unstructured Data? Give examples.',a:'Data with no predefined schema or format. Requires NLP, Image Recognition or AI/ML for analysis.\nExamples: Emails, chat logs, social media posts, video/audio files, sensor data from IoT devices.',f:'~80% of world\'s data is unstructured'},
+{u:'1',tag:'Definition',q:'What is Semi-Structured Data? Give examples.',a:'Data with partial organization via tags/metadata but no rigid schema. Bridges structured and unstructured.\nExamples: JSON, XML, YAML, log files, email headers, HTML. Used in APIs and NoSQL databases.',f:'Semi-structured = tags + flexibility (JSON, XML)'},
+{u:'1',tag:'Comparison',q:'Compare Structured vs Unstructured vs Semi-structured data.',a:'Structured: fixed schema, SQL, RDBMS, easy to analyze, low volume. Unstructured: no schema, AI/ML needed, rich info, ~80% of data. Semi-structured: partial schema via tags, JSON/XML, flexible, used in NoSQL and APIs.',f:'Structured(SQL) → Semi(JSON/XML) → Unstructured(AI needed)'},
+{u:'1',tag:'Definition',q:'What is Big Data? Define with examples.',a:'Data that cannot be organized, analyzed or visualized by traditional methods due to its massive Volume, Velocity, and Variety.\nExamples: Google processes 20 PB/day, Facebook 2.5 PB user data + 15 TB/day, CERN LHC 15 PB/year.',f:'Big Data = too big/fast/varied for traditional DB'},
+{u:'1',tag:'Definition',q:'Explain the 5 V\'s (and 7 V\'s) of Big Data.',a:'Volume: massive size (PB scale). Velocity: speed of generation and processing. Variety: structured+semi+unstructured. Veracity: data quality and accuracy. Value: business usefulness.\nAdditional: Variability (changing meaning over time), Visualization (making it understandable).',f:'Core 4: Volume, Velocity, Variety, Veracity'},
+{u:'1',tag:'Comparison',q:'Distinguish Traditional BI vs Big Data Analytics across key dimensions.',a:'Data Volume: GB-TB vs PB+. Data Type: structured only vs all types. Processing: batch only vs real-time+batch. Analytics: descriptive/diagnostic vs predictive/prescriptive. Infrastructure: centralized DW vs distributed. Cost: expensive licenses vs open-source. Scalability: vertical vs horizontal.',f:'BI=what happened | BDA=why+what will happen+what to do'},
+{u:'1',tag:'Concept',q:'What is the Coexistence of Big Data and Data Warehouse?',a:'Data Warehouses (DWH) handle structured historical data for reporting/BI. Big Data platforms handle unstructured, real-time, high-volume data for ML and predictive analytics. They coexist: DWH for compliance+reporting, Hadoop/Spark for exploration+ML. Data Lakes complement DWH.',f:'DWH + Hadoop/Spark = best of both worlds'},
+{u:'1',tag:'Classification',q:'Name and explain the 4 Types of Analytics.',a:'Descriptive: What happened? — dashboards, KPIs, reports. Diagnostic: Why did it happen? — drill-down, root cause analysis, correlation. Predictive: What will happen? — ML models, regression, forecasting. Prescriptive: What should we do? — optimization, decision automation, AI recommendations.',f:'Complexity: Descriptive→Diagnostic→Predictive→Prescriptive'},
+{u:'1',tag:'Definition',q:'What is Descriptive Analytics? Tools and examples.',a:'Answers "What happened?" using historical data. Methods: aggregation, data mining, reporting. Tools: Tableau, Power BI, Excel, SQL, SAS. Examples: Monthly sales reports, website traffic dashboards, COVID case count charts, social media engagement summaries.',f:'Descriptive = rearview mirror (what happened)'},
+{u:'1',tag:'Definition',q:'What is Diagnostic Analytics? Tools and examples.',a:'Answers "Why did it happen?" by identifying root causes and correlations. Techniques: drill-down analysis, data discovery, data mining, correlation analysis. Tools: SAS, Python (Pandas, NumPy), R (ggplot2, dplyr), Apache Spark. Examples: Customer churn analysis, healthcare diagnostics.',f:'Diagnostic = investigate the cause of trends/anomalies'},
+{u:'1',tag:'Definition',q:'What is Predictive Analytics? Tools and examples.',a:'Answers "What will happen?" using ML, statistical modeling and forecasting. Uses: AI/ML algorithms (regression, decision trees, time-series). Tools: Python (scikit-learn), R, TensorFlow. Examples: Credit score prediction, demand forecasting, fraud detection, stock price prediction.',f:'Predictive = forecasting future using historical patterns'},
+{u:'1',tag:'Definition',q:'What is Prescriptive Analytics? Examples.',a:'Answers "What should we do?" — goes beyond prediction to recommend optimal actions using optimization algorithms and AI. Examples: GPS routing (optimal route), supply chain optimization, dynamic pricing (airlines/Uber), personalized treatment plans in healthcare.',f:'Prescriptive = recommend the best course of action'},
+{u:'1',tag:'Concept',q:'What are the Greatest Challenges Preventing Big Data Adoption?',a:'1. Data Storage & Management at scale. 2. Real-time processing speed. 3. Data Quality and Veracity (cleaning noisy data). 4. Security and Privacy (GDPR, HIPAA). 5. Integration of diverse data sources. 6. Cost of infrastructure. 7. Lack of skilled talent (data scientists). 8. Organizational culture resistance.',f:'Technical + Organizational + Regulatory challenges'},
+{u:'1',tag:'Definition',q:'What is Data Science? Key terminologies.',a:'Interdisciplinary field combining statistics, CS, and domain expertise to extract insights from data. Key terminologies: Data Mining (finding patterns), Machine Learning (automated learning), ETL (Extract-Transform-Load), Data Lake (raw storage), Data Warehouse (structured storage), Feature Engineering, Model Training/Validation.',f:'Data Science = Statistics + CS + Domain Expertise'},
+{u:'1',tag:'Concept',q:'Explain Big Data Value Chain.',a:'Collection → Ingestion → Discovery & Cleansing → Integration → Analysis → Delivery.\nCollection: multi-source data. Ingestion: loading onto single store. Cleansing: understanding format+cleaning. Integration: entity resolution+indexing. Analysis: ML+statistics. Delivery: visualization+real-time querying.',f:'Each step needs standardized approaches'},
+
+// ===== UNIT 2 (Hadoop) =====
+{u:'2',tag:'Definition',q:'What is Hadoop? Key features.',a:'Open-source Apache framework for distributed storage and processing of large datasets. Written in Java. Key features: scalable (commodity hardware), fault-tolerant (data replication), distributed processing, handles structured+unstructured data, cost-effective (open-source), HDFS+MapReduce+YARN core.',f:'Hadoop = HDFS + MapReduce + YARN'},
+{u:'2',tag:'History',q:'Briefly trace the History of Hadoop.',a:'2003: Google GFS paper published. 2004: Google MapReduce paper. 2006: Doug Cutting joins Yahoo, Hadoop splits from Nutch. Apr 2007: Yahoo on 1000-node cluster. Jan 2008: Top-level Apache project. 2012: Hadoop 2.0 with YARN. 2017: Hadoop 3.0 with erasure coding, GPU support.',f:'Google papers (2003-04) → Nutch → Yahoo → Apache'},
+{u:'2',tag:'Comparison',q:'Compare RDBMS vs Hadoop across key dimensions.',a:'Data Type: structured only vs all types. Schema: schema-on-write vs schema-on-read. Scaling: vertical (expensive) vs horizontal (commodity HW). Processing: ACID transactions vs batch/streaming. Cost: high licenses vs open-source. Best for: OLTP/reporting vs Big Data analytics/ML.',f:'RDBMS=structured+ACID | Hadoop=all types+scale'},
+{u:'2',tag:'Definition',q:'What are the Key Advantages of Hadoop?',a:'1. Scalability: add nodes without downtime. 2. Fault Tolerance: 3x replication by default. 3. Cost-effective: commodity hardware + open-source. 4. Flexibility: handles structured, semi, unstructured. 5. Data Locality: processes data where it\'s stored. 6. Parallel processing: divide-and-conquer across nodes.',f:'Scale + Fault Tolerance + Flexibility = Hadoop advantages'},
+{u:'2',tag:'Concept',q:'What are the Distributed Computing Challenges Hadoop solves?',a:'1. Partial failure: Hadoop masks node failures, reassigns tasks. 2. Scalability: add nodes for more capacity. 3. Data bottleneck: data locality (compute where data lives). 4. Coordination: YARN manages resources. 5. Complexity: MapReduce abstraction hides network programming.',f:'Hadoop: move compute to data, not data to compute'},
+{u:'2',tag:'Definition',q:'Explain HDFS Architecture — NameNode and DataNodes.',a:'NameNode (Master): stores metadata — file names, locations, permissions, block mappings. Does NOT store actual data. Single point of metadata. DataNodes (Workers): store actual 128MB data blocks. Handle read/write operations. Report block status to NameNode via heartbeats.',f:'NameNode=brain(metadata) | DataNode=muscle(data)'},
+{u:'2',tag:'Definition',q:'Explain HDFS Block Size and Replication.',a:'Default block size: 128MB (or 256MB). Large blocks reduce NameNode metadata overhead. Each block is replicated 3 times by default across different DataNodes (rack-aware). Ensures fault tolerance — if 1-2 nodes fail, data still available.',f:'Block=128MB | Replication=3 | Rack-aware placement'},
+{u:'2',tag:'Concept',q:'What is Rack Awareness in HDFS?',a:'HDFS places replicas across different racks to ensure fault tolerance. Default strategy: 1st replica on same node as writer, 2nd replica on different rack, 3rd replica on same rack as 2nd but different node. Benefits: reduces network traffic, survives rack failures, improves data availability.',f:'Rack failure ≠ data loss due to cross-rack replication'},
+{u:'2',tag:'Process',q:'Explain the HDFS Read Operation step by step.',a:'1. Client calls open() on DistributedFileSystem. 2. DFS calls NameNode via RPC to get block locations. 3. DFS returns FSDataInputStream wrapping DFSInputStream. 4. Client calls read() — data streams from nearest DataNode. 5. If error on one DataNode, DFSInputStream tries next closest DataNode automatically.',f:'Client→NameNode(metadata)→DataNode(data)→Client'},
+{u:'2',tag:'Process',q:'Explain the HDFS Write Operation step by step.',a:'1. Client calls create() on DistributedFileSystem. 2. DFS makes RPC to NameNode to create file entry. 3. DFS returns FSDataOutputStream. 4. Data split into packets, streamed through pipeline of 3 DataNodes. 5. Ack queue tracks acknowledgments from each DataNode. 6. Client calls close() — flushes remaining packets, notifies NameNode.',f:'Data pipeline: Client→DN1→DN2→DN3 (3 replicas)'},
+{u:'2',tag:'Definition',q:'What is YARN? Explain its components.',a:'YARN = Yet Another Resource Negotiator. Manages cluster resources and job scheduling. Components: ResourceManager (master — allocates CPU/memory cluster-wide), NodeManager (worker — manages resources on each node), ApplicationMaster (per-job — negotiates resources, monitors tasks), Container (unit of resource allocation).',f:'YARN = ResourceManager + NodeManager + ApplicationMaster'},
+{u:'2',tag:'Process',q:'Explain YARN Job Submission workflow.',a:'1. Client submits job to ResourceManager. 2. RM assigns ApplicationMaster in a container. 3. AM registers with RM. 4. AM requests containers from RM for tasks. 5. AM tells NodeManagers to launch containers. 6. Tasks execute in containers. 7. Client monitors via RM/AM. 8. AM deregisters when job completes.',f:'RM allocates → AM coordinates → NM executes'},
+{u:'2',tag:'Definition',q:'What are the Two Schedulers in YARN?',a:'Capacity Scheduler: divides cluster into queues with guaranteed capacity. Organizations share cluster with predictable performance. Each queue gets minimum resources. Fair Scheduler: all jobs get equal share of resources over time. Small jobs complete quickly, large jobs use remaining capacity. Netflix, Twitter use Fair Scheduler.',f:'Capacity=predictable per-team | Fair=equal sharing'},
+{u:'2',tag:'Definition',q:'What is MapReduce? Explain with Word Count example.',a:'Programming model for parallel processing. Two phases: Map (split input into key-value pairs, process locally) and Reduce (aggregate results by key). Word Count: Map emits (word, 1) for each word. Shuffle groups all 1s by word. Reduce sums all values per word to get final count.',f:'Input → Map(k,v) → Shuffle/Sort → Reduce(k,sum) → Output'},
+{u:'2',tag:'Concept',q:'Explain MapReduce Fault Tolerance mechanism.',a:'Master (ApplicationMaster) monitors all tasks. If a task fails: AM detects missing heartbeat, re-schedules task on a different node. Restarting one task does not affect others. If a node fails mid-job, its tasks are reassigned. AM can run speculative execution — duplicate slow tasks to avoid straggler nodes.',f:'Heartbeat missing → task re-scheduled on different node'},
+{u:'2',tag:'Features',q:'What are the Features of Hadoop YARN?',a:'1. High compatibility: MapReduce apps run without modification. 2. Better cluster utilization: dynamic, efficient resource allocation. 3. Scalability: handles growing node count seamlessly. 4. Multi-tenancy: multiple engines (Spark, MapReduce, Tez) share same cluster. 5. Fault recovery: RM restart with work-preserving failover.',f:'YARN enables Hadoop to support multiple computation engines'},
+
+// ===== UNIT 3A (MapReduce Programming) =====
+{u:'3a',tag:'Definition',q:'What is the Mapper in MapReduce? Explain its role.',a:'Mapper processes each input record independently and emits zero or more key-value pairs. Input: (key, value) from InputFormat (usually line offset + line content). Output: intermediate (key, value) pairs. Mapper runs in parallel on each data split. Example: Word Count mapper emits (word, 1) for each word.',f:'Mapper: (k1,v1) → list of (k2,v2) — parallel, stateless'},
+{u:'3a',tag:'Definition',q:'What is the Reducer in MapReduce? Explain its role.',a:'Reducer processes all values for a single key (after shuffle/sort). Input: (key, list_of_values). Output: zero or more final (key, value) pairs. Usually one output per input key. Example: Word Count reducer sums all 1s for each word. Reducers run in parallel for different keys.',f:'Reducer: (k2, list<v2>) → list of (k3,v3)'},
+{u:'3a',tag:'Definition',q:'What is the Combiner in MapReduce? Why is it used?',a:'Mini-reducer that runs locally on each mapper node BEFORE data is sent over the network. Reduces network traffic by pre-aggregating mapper output. Optional optimization — not always applicable (only when reduce function is associative+commutative like sum, max, min). Example: Word Count combiner locally sums counts before shuffle.',f:'Combiner = local Reducer (reduces network I/O by ~90%)'},
+{u:'3a',tag:'Definition',q:'What is the Partitioner in MapReduce?',a:'Controls which Reducer receives which keys. Default HashPartitioner: partition = hash(key) % numReducers. Ensures all values for the same key go to the same Reducer. Custom Partitioner: when you need specific keys to specific reducers (e.g., range partitioning for sorted output). Affects load balancing across reducers.',f:'Partitioner: key → reducer number (default: hash(key)%R)'},
+{u:'3a',tag:'Process',q:'Explain the complete MapReduce execution flow.',a:'1. Input split into chunks (InputFormat). 2. Map tasks run on each split (data locality). 3. Mapper outputs buffered in memory. 4. Combiner runs locally (optional). 5. Shuffle: mapper output transferred to reducers. 6. Sort: reducer input sorted by key. 7. Reduce function processes each key+values. 8. Output written to HDFS.',f:'Split→Map→Combine→Shuffle→Sort→Reduce→Output'},
+{u:'3a',tag:'Concept',q:'What is Shuffle and Sort in MapReduce?',a:'Shuffle: process of transferring mapper output to the appropriate Reducer node based on partition key. Sort: on the reducer side, all received key-value pairs are sorted by key before reduce() is called. This ensures all values for the same key are adjacent and processed together. Most expensive phase (network I/O).',f:'Shuffle=network transfer | Sort=ordered by key before reduce'},
+
+// ===== UNIT 3B (NoSQL) =====
+{u:'3b',tag:'Definition',q:'What is NoSQL? Why was it developed?',a:'NoSQL = "Not Only SQL" — databases designed for horizontal scaling, flexible schemas, and handling unstructured/semi-structured data. Developed because RDBMS cannot scale horizontally on commodity hardware, has rigid schema, and struggles with unstructured data types. Trades ACID for scalability (BASE).',f:'NoSQL = horizontal scale + flexible schema + BASE'},
+{u:'3b',tag:'Classification',q:'Name and explain the 4 Types of NoSQL Databases.',a:'1. Document Store: stores JSON/BSON documents (MongoDB, CouchDB). 2. Key-Value Store: simple hash map (Redis, DynamoDB, Riak). 3. Column-Family (Wide-Column): data in columns grouped by families (Cassandra, HBase). 4. Graph Database: nodes and edges for relationships (Neo4j, ArangoDB).',f:'Document | Key-Value | Column-Family | Graph'},
+{u:'3b',tag:'Definition',q:'Explain Document Store NoSQL databases.',a:'Stores self-describing documents (usually JSON/BSON). No fixed schema — each document can have different fields. Supports rich queries on document fields. Examples: MongoDB (most popular), CouchDB, Amazon DocumentDB. Use cases: e-commerce catalogs, content management, user profiles, real-time analytics.',f:'MongoDB: {_id, name, email, orders:[...]} — no schema required'},
+{u:'3b',tag:'Definition',q:'Explain Key-Value Store NoSQL databases.',a:'Simplest NoSQL type — stores data as (key → value) pairs, like a distributed hash map. Extremely fast lookups by key. Values are opaque (DB doesn\'t know the structure). Examples: Redis (in-memory, caching), DynamoDB (AWS managed), Riak, Voldemort. Use cases: session management, caching, shopping carts, real-time leaderboards.',f:'O(1) lookup | Redis: SET user:1 "Alice" → GET user:1'},
+{u:'3b',tag:'Definition',q:'Explain Column-Family (Wide-Column) NoSQL databases.',a:'Data stored in column families rather than rows. Each row can have different columns. Optimized for write-heavy workloads and time-series data. Examples: Apache Cassandra, HBase (on HDFS). Structure: Partition Key → Row → Column Families → Columns. Use cases: IoT sensor data, Netflix preferences, time-series logs.',f:'Cassandra: best for write-heavy + time-series + global scale'},
+{u:'3b',tag:'Definition',q:'Explain Graph NoSQL databases.',a:'Stores data as nodes (entities) and edges (relationships) with properties. Efficient for traversing relationships. Examples: Neo4j, ArangoDB, Amazon Neptune. Use cases: social networks (friend-of-friend), fraud detection, recommendation engines, knowledge graphs. Query language: Cypher (Neo4j). Relationship traversal is O(1) per hop.',f:'Node(person)→Edge(knows)→Node(person) — O(1) per hop'},
+{u:'3b',tag:'Concept',q:'Explain the CAP Theorem.',a:'A distributed system can guarantee at most 2 of 3: Consistency (all nodes see same data at same time), Availability (every request gets a response), Partition Tolerance (system works despite network failures). CA: traditional RDBMS (no partitions). CP: HBase, MongoDB. AP: Cassandra, DynamoDB, CouchDB.',f:'CAP: pick 2 | Real systems always need P → choose C or A'},
+{u:'3b',tag:'Concept',q:'What is BASE in NoSQL? Compare with ACID.',a:'ACID (RDBMS): Atomicity, Consistency, Isolation, Durability — strong guarantees, complex, slower. BASE (NoSQL): Basically Available (system appears available), Soft-state (state may change without input), Eventually Consistent (will be consistent after some time). NoSQL trades strong consistency for availability and scale.',f:'ACID=strong+slow | BASE=available+eventually consistent'},
+{u:'3b',tag:'Comparison',q:'Compare SQL vs NoSQL vs NewSQL.',a:'SQL: ACID, fixed schema, vertical scale, structured data, mature ecosystem. NoSQL: BASE, flexible schema, horizontal scale, all data types, diverse query models. NewSQL: ACID like SQL + horizontal scale like NoSQL (VoltDB, CockroachDB, Spanner). NewSQL: best of both worlds but more complex.',f:'SQL=ACID+rigid | NoSQL=BASE+flexible | NewSQL=ACID+scale'},
+{u:'3b',tag:'Definition',q:'What are the Advantages of NoSQL?',a:'1. Horizontal scalability (commodity servers). 2. Flexible/dynamic schema — no migrations needed. 3. High availability and fault tolerance. 4. Handles unstructured/semi-structured data. 5. Optimized for specific use cases (time-series, graphs, caching). 6. Open-source, cost-effective. 7. Geo-distribution support.',f:'NoSQL wins at: scale, flexibility, varied data types'},
+{u:'3b',tag:'Use Cases',q:'Name industry use cases of NoSQL databases.',a:'MongoDB: e-commerce catalogs (eBay), content management (Forbes). Redis: caching (Twitter timeline), session management. Cassandra: IoT time-series (Apple iCloud), messaging (Discord). HBase: real-time analytics on Hadoop (Facebook Messenger). Neo4j: fraud detection (banks), social graphs (LinkedIn connections).',f:'Right tool for right job — no single NoSQL fits all'},
+
+// ===== UNIT 4 (MongoDB) =====
+{u:'4',tag:'Definition',q:'What is MongoDB? Why is it necessary?',a:'MongoDB is a document-oriented NoSQL database that stores data in BSON (Binary JSON) format. Necessity: handles dynamic schemas (no migrations), stores complex nested data naturally, horizontal scaling via sharding, flexible querying on all fields, ideal for agile development and unstructured data.',f:'MongoDB = Document store + BSON + flexible schema + scale'},
+{u:'4',tag:'Comparison',q:'Map MongoDB terminology to RDBMS equivalents.',a:'Database → Database. Collection → Table. Document → Row/Record. Field → Column. _id → Primary Key. Embedded Document → JOIN (denormalized). Index → Index. $lookup → JOIN. Replica Set → Replication. Shard → Partition. Mongod → MySQL Server. Mongo Shell → SQL CLI.',f:'Collection=Table | Document=Row | Field=Column | _id=PK'},
+{u:'4',tag:'Architecture',q:'Explain MongoDB Architecture components.',a:'Cluster: one or more servers working together. Replica Set: 3+ nodes — 1 Primary (reads+writes) + 2+ Secondaries (replicas). Automatic failover if primary fails. Shards: horizontal partitioning — each shard holds subset of data. Shard key determines routing. Database: logical grouping of collections. Collection: group of documents (no fixed schema). Document: BSON object, max 16 MB.',f:'Replica Set=HA | Sharding=scale out | Collection=flexible table'},
+{u:'4',tag:'Data Types',q:'Name all Scalar Data Types in MongoDB.',a:'String: UTF-8, most common (names, emails). Integer: Int32 or Int64 — use NumberLong() for large. Double: 64-bit float — default numeric literal. Decimal128: NumberDecimal() for financial precision. Boolean: true/false. Null: explicit absence of value. ObjectId: 12-byte unique _id (timestamp+machine+process+counter). Date: ISODate() milliseconds since Unix epoch.',f:'_id: ObjectId("64a1f2b3c4d5...") — auto-generated unique ID'},
+{u:'4',tag:'Data Types',q:'Name Complex/Embedded Data Types in MongoDB.',a:'Array: ordered list of values — ["a","b","c"] or [{},{}]. Embedded Document (Sub-document): nested document within a document — {address: {city:"Hyd", pin:500001}}. BinData: binary data (images, files). Regular Expression: /pattern/flags. Timestamp: special internal type for replication. MinKey/MaxKey: sentinel values for range queries.',f:'Embedding avoids JOINs — denormalization for performance'},
+{u:'4',tag:'MQL',q:'Explain MongoDB CRUD — Insert operations.',a:'Insert one: db.students.insertOne({name:"Ravi", branch:"CSE", cgpa:8.5})\nInsert many: db.students.insertMany([{...},{...}])\n_id auto-generated as ObjectId if not specified.\ninsertOne returns {acknowledged:true, insertedId:ObjectId(...)}\ninsertMany returns {insertedIds:[...]}',f:'insertOne() | insertMany() | _id auto-generated'},
+{u:'4',tag:'MQL',q:'Explain MongoDB Read operations — find, findOne, projections.',a:'Find all: db.students.find({})\nFilter: db.students.find({branch:"CSE"})\nFirst match: db.students.findOne({branch:"CSE"})\nLimit: db.students.find({}).limit(5)\nProjection (include): db.students.find({},{name:1,cgpa:1,_id:0})\nProjection: 1=include, 0=exclude. Cannot mix include+exclude (except _id).',f:'find(filter, projection).sort({cgpa:-1}).limit(10)'},
+{u:'4',tag:'MQL',q:'Explain MongoDB Update operations.',a:'Update one: db.students.updateOne({name:"Ravi"},{$set:{cgpa:9.0}})\nUpdate many: db.students.updateMany({branch:"CSE"},{$inc:{cgpa:0.1}})\nReplace: db.students.replaceOne({name:"Ravi"},{name:"Ravi",cgpa:9.5})\nUpsert: db.students.updateOne({name:"New"},{$set:{cgpa:7}},{upsert:true})\nOperators: $set, $unset, $inc, $push, $pull, $addToSet',f:'$set=update field | $inc=increment | $push=add to array'},
+{u:'4',tag:'MQL',q:'Explain MongoDB Delete operations.',a:'Delete one: db.students.deleteOne({name:"Ravi"})\nDelete many: db.students.deleteMany({branch:"ECE"})\nDelete all: db.students.deleteMany({})\nDrop collection: db.students.drop()\nDrop database: db.dropDatabase()\nNote: deleteOne removes first matching document, deleteMany removes all matching.',f:'deleteOne() | deleteMany() | drop() (entire collection)'},
+{u:'4',tag:'MQL',q:'Explain MongoDB Query Operators.',a:'Comparison: $eq, $ne, $gt, $gte, $lt, $lte, $in, $nin\nLogical: $and, $or, $not, $nor\nElement: $exists, $type\nArray: $elemMatch, $size, $all\nRegex: {name: /^Ra/i}\nExample: db.students.find({cgpa:{$gte:8.0}, branch:{$in:["CSE","IT"]}})',f:'{field:{$gt:val}} | {$and:[{},{}]} | {$or:[{},{}]}'},
+{u:'4',tag:'MQL',q:'Explain MongoDB Cursor methods — sort, limit, skip, count.',a:'Sort: .sort({cgpa:-1}) — 1=ASC, -1=DESC\nLimit: .limit(10) — return at most 10\nSkip: .skip(20) — skip first 20 (pagination)\nCount: .countDocuments({branch:"CSE"}) — count matching\nChain: db.students.find({}).sort({cgpa:-1}).skip(0).limit(10)\nPagination: page N → skip((N-1)*pageSize).limit(pageSize)',f:'sort → skip → limit (order matters for pagination)'},
+{u:'4',tag:'MQL',q:'What are MongoDB Aggregation Pipelines?',a:'Multi-stage data processing pipeline. Stages: $match (filter), $group (aggregate), $project (reshape), $sort, $limit, $skip, $lookup (join), $unwind (flatten arrays).\nExample: db.orders.aggregate([{$match:{status:"paid"}},{$group:{_id:"$branch",total:{$sum:"$amount"}}}])\nMore powerful than find() for complex analytics.',f:'Aggregate: $match→$group→$project→$sort'},
+
+// ===== UNIT 5 (R Programming) =====
+{u:'5',tag:'Definition',q:'What is R? Key features and packages.',a:'Free, open-source language for statistical computing and graphics. Created by Ross Ihaka & Robert Gentleman. Features: 19,000+ CRAN packages, vectorized operations, built-in statistical functions, ggplot2 visualization, matrix/data frame support, RStudio IDE. Key packages: ggplot2, dplyr, tidyr, caret, shiny.',f:'r-project.org | CRAN = Comprehensive R Archive Network'},
+{u:'5',tag:'R Code',q:'Explain Operators in R — arithmetic, relational, logical.',a:'Arithmetic: + - * / ^ %% %/% (modulo, integer division)\nRelational: == != > < >= <=\nLogical element-wise: & | !\nLogical scalar (short-circuit): && ||\nSpecial: %in% (membership), : (sequence), <- (assignment)\nExample: 5 %% 3 = 2 | 2^3 = 8 | c(1,5)>3 → FALSE TRUE',f:'<- is standard assignment | == for comparison (not =)'},
+{u:'5',tag:'R Code',q:'Explain if-else, ifelse(), and switch() in R.',a:'if(x>0){ "pos" } else if(x==0){ "zero" } else{ "neg" }\nVectorized ifelse: ifelse(v>0, "positive", "non-positive") — applies to whole vector\nswitch(day, "Mon"="Start", "Fri"="End", "Middle")\nNested ifelse: ifelse(x>8, "A", ifelse(x>6, "B", "C"))',f:'ifelse() is vectorized; if() evaluates single condition'},
+{u:'5',tag:'R Code',q:'Explain all loop types in R — for, while, repeat.',a:'For: for(i in 1:5){ print(i) } or for(item in mylist){}\nWhile: x<-1; while(x<=5){ print(x); x<-x+1 }\nRepeat: repeat{ x<-x+1; if(x>5) break }\nControl: break (exit loop) | next (skip iteration, like continue)\nNote: R loops are slow — prefer vectorized ops or apply family.',f:'next=skip iteration | break=exit loop | prefer apply()'},
+{u:'5',tag:'R Code',q:'Explain Functions in R — writing, scope, default arguments.',a:'Define: my_fn <- function(x, n=2){ return(x^n) }\nDefault args: my_fn(3) → 9 | my_fn(3,3) → 27\nImplicit return: last expression is returned automatically\nLexical scoping: local vars don\'t affect global\nGlobal assign: x <<- 10 modifies parent/global env\nAnonymous: (function(x) x*2)(5) → 10',f:'<<- superassignment | <- local assignment'},
+{u:'5',tag:'R Code',q:'Explain Recursion in R with examples.',a:'Function calling itself with base case to stop.\nFactorial: fact<-function(n){ if(n<=1) 1 else n*fact(n-1) }\nFibonacci: fib<-function(n){ if(n<=1) n else fib(n-1)+fib(n-2) }\nfact(5)→120 | fib(7)→13\nWarning: deep recursion causes stack overflow. R has limited recursion depth (~1000).',f:'Base case prevents infinite recursion → stack overflow'},
+{u:'5',tag:'R Code',q:'Explain Vectors in R — creation, naming, subsetting.',a:'Create: v <- c(10,20,30,40)\nNamed: v <- c(a=10,b=20) or names(v)<-c("x","y")\nArithmetic (vectorized): v+5 | v*2 | v1+v2\nSubset by index: v[1] | v[c(1,3)] | v[-1] (all except 1st)\nSubset by logic: v[v>20] | v[v%%2==0]\nSubset by name: v["a"]\nFunctions: length(), sum(), mean(), max(), min()',f:'R is 1-indexed | c() = combine | v[condition] logical subset'},
+{u:'5',tag:'R Code',q:'Explain Matrices in R — creation, naming, operations.',a:'Create: m <- matrix(1:9, nrow=3, ncol=3, byrow=FALSE)\nbyrow=TRUE fills row-by-row\nName: rownames(m)<-c("r1","r2","r3") | colnames(m)<-c("c1","c2","c3")\nSubset: m[1,2] | m[1,] (row) | m[,2] (col)\nOps: t(m) transpose | m %*% n matrix multiplication\napply(m, 1, sum) → row sums | apply(m, 2, mean) → col means',f:'matrix(data, nrow, ncol, byrow) | dim(m) → c(rows,cols)'},
+{u:'5',tag:'R Code',q:'Explain Lists in R — creation, access, manipulation.',a:'Create: lst <- list(name="Bob", scores=c(80,90), pass=TRUE)\nAccess: lst$name | lst[[1]] | lst[["scores"]]\nModify: lst$name <- "Alice"\nRemove: lst$age <- NULL\nConvert: unlist(lst) → named vector\nApply: lapply(lst, func) → list | sapply(lst, func) → vector\nLength: length(lst)',f:'List = heterogeneous | [[ ]] for element | [ ] for sublist'},
+{u:'5',tag:'R Code',q:'Explain Data Frames in R — create, subset, sort, merge.',a:'Create: df <- data.frame(name=c("A","B"), score=c(85,92))\nSubset: df$name | df[1,] | df[,2] | df[df$score>90,]\nAdd column: df$grade <- c("B","A")\nSort: df[order(df$score, decreasing=TRUE),]\nMerge: merge(df1, df2, by="id")\nImport: read.csv("file.csv") | Export: write.csv(df,"out.csv")\nInspect: str(df) | summary(df) | head(df,6)',f:'df[condition, ] → filter rows | df[,cols] → select columns'},
+{u:'5',tag:'R Code',q:'Explain Factors in R — ordered and unordered.',a:'Create: f <- factor(c("red","blue","red")) — 2 levels, unordered\nOrdered: factor(c("Low","Med","High"), levels=c("Low","Med","High"), ordered=TRUE)\nFunctions: levels(f) | nlevels(f) | table(f) → frequency\nOrdered comparison: f[1] < f[2] → TRUE (for ordered factors)\nIn models: factors auto dummy-coded. Summary(f) shows counts.',f:'Ordered factors allow >, <, >= comparisons between levels'},
+{u:'5',tag:'R Code',q:'Explain Tables in R — table(), xtabs(), prop.table().',a:'1D table: table(df$branch) → frequency of each branch\n2D table: table(df$branch, df$grade) → cross-tabulation\nxtabs: xtabs(~branch+grade, data=df) — formula-based\nprop.table(t): convert counts to proportions (0-1)\nmargin.table(t, 1): row totals | margin.table(t, 2): col totals\naddmargins(t): add row+col total margins',f:'table() = frequency count | prop.table() = proportions'},
+{u:'5',tag:'R Code',q:'Explain the R Apply Family functions.',a:'apply(m, 1, func): apply func to each ROW of matrix (1=row, 2=col)\nlapply(lst, func): apply func to each element of list → returns list\nsapply(lst, func): same as lapply but simplifies output → vector/matrix\ntapply(v, idx, func): apply func to groups (like GROUP BY)\nvapply(lst, func, type): type-safe sapply\nmapply(func, ...): multivariate sapply',f:'apply=matrix | lapply=list→list | sapply=list→vector'},
+{u:'5',tag:'R Code',q:'Explain all chart types in R with syntax.',a:'Pie: pie(c(30,50,20), labels=c("A","B","C"), main="Title")\nBar: barplot(v, names.arg=c("X","Y"), col="blue", horiz=FALSE)\nHistogram: hist(data, breaks=10, col="red", freq=TRUE)\nBox Plot: boxplot(data ~ group, col="green")\nLine: plot(x,y,type="l",col="blue"); lines(x2,y2,col="red")\nScatter: plot(x,y,pch=16,col="navy")\nLegend: legend("topright", legend=c("A","B"), col=c("red","blue"), lty=1)',f:'par(mfrow=c(2,2)) → 4 plots | main,xlab,ylab for labels'},
+{u:'5',tag:'R Code',q:'Explain Accessing Input/Output in R.',a:'Read CSV: df <- read.csv("file.csv", header=TRUE, sep=",")\nRead text: readLines("file.txt")\nWrite CSV: write.csv(df, "out.csv", row.names=FALSE)\nWrite text: writeLines(text, "out.txt")\nKeyboard input: x <- readline("Enter value: ")\nPrint: print(x) | cat("Value:", x, "\\n")\nConsole: message() for stderr | sprintf() for formatting',f:'read.csv() / write.csv() — most common I/O functions'},
+{u:'5',tag:'R Code',q:'Explain Mathematical Functions in R.',a:'abs(-5)=5 | sqrt(16)=4 | exp(1)=e≈2.718 | log(e)=1\nlog10(100)=2 | log2(8)=3 | log(x,base=b)\nfloor(3.7)=3 | ceiling(3.2)=4 | round(3.567,2)=3.57\ncumsum(c(1,2,3))=c(1,3,6) | cumprod(c(2,3,4))=c(2,6,24)\nfactorial(5)=120 | choose(5,2)=10\nStatistical: sum,mean,median,var,sd,range,quantile',f:'Vectorized: abs(c(-1,-2,3)) → c(1,2,3)'},
+];
+
+// ============================================================
+// QUESTION BANKS
+// ============================================================
+
+// MID 1 Part A — Unit 1, 2, 3a
+const MID1_PARTA=[
+{id:'m1a1',u:'1',q:'Structured data is stored in:',opts:['JSON and XML files','Predefined rows and columns (RDBMS)','Graph nodes and edges','Binary video files'],ans:1,exp:'Structured data has a predefined schema with rows and columns, managed by RDBMS and queried using SQL.',wr:['JSON/XML = semi-structured','Graphs = graph NoSQL databases','Binary video = unstructured data']},
+{id:'m1a2',u:'1',q:'Which type of analytics answers "Why did it happen?"',opts:['Descriptive','Prescriptive','Diagnostic','Predictive'],ans:2,exp:'Diagnostic Analytics identifies root causes and correlations behind trends. Descriptive=what happened, Predictive=what will happen, Prescriptive=what to do.',wr:['Descriptive = what happened (dashboards, KPIs)','Prescriptive = what to do (optimization, AI recommendations)','Predictive = what will happen (forecasting, ML models)']},
+{id:'m1a3',u:'1',q:'Which is NOT a characteristic V of Big Data?',opts:['Volume','Velocity','Variety','Verbosity'],ans:3,exp:'Verbosity is not a V of Big Data. The core 5 V\'s are: Volume, Velocity, Variety, Veracity, Value (with Variability and Visualization as additions).',wr:['Volume = scale of data (PBs)','Velocity = speed of data generation','Variety = diverse data types']},
+{id:'m1a4',u:'1',q:'Big Data and Data Warehouses:',opts:['Are the same technology','Cannot coexist in an organization','Coexist — DWH for structured reporting, Big Data for ML/unstructured','Big Data completely replaces DWH'],ans:2,exp:'They coexist complementarily. Data Warehouses handle structured historical data for compliance+BI. Big Data platforms handle unstructured, real-time data for ML and predictive analytics.',wr:['They use completely different technologies','Many enterprises use both in a modern data architecture','Big Data extends DWH capabilities rather than replacing them']},
+{id:'m1a5',u:'1',q:'Prescriptive Analytics is used in:',opts:['Generating monthly sales reports','GPS navigation (recommending optimal route)','Counting website page views','Identifying why sales dropped last quarter'],ans:1,exp:'GPS navigation uses prescriptive analytics — it recommends the optimal route (action) based on real-time traffic data. Sales reports=descriptive, page views=descriptive, why sales dropped=diagnostic.',wr:['Monthly sales reports = descriptive analytics','Counting page views = descriptive analytics','Identifying why sales dropped = diagnostic analytics']},
+{id:'m1a6',u:'1',q:'Datafication refers to:',opts:['Converting data to binary format','Transforming real-world activities into quantifiable, trackable data','Encrypting sensitive data','Deleting duplicate data records'],ans:1,exp:'Datafication = converting aspects of social and physical life into data (GPS tracking movement, fitness trackers recording health, social media capturing opinions).',wr:['Binary conversion is data encoding/compression','Encryption is a data security technique','Removing duplicates is data deduplication/cleansing']},
+{id:'m1a7',u:'2',q:'In HDFS, the NameNode is responsible for:',opts:['Storing actual data blocks','Storing file metadata (locations, permissions)','Running MapReduce jobs','Managing network switches'],ans:1,exp:'NameNode stores metadata — file names, block locations, permissions, block mappings. DataNodes store actual data. NameNode does NOT store file content itself.',wr:['DataNodes store the actual 128MB data blocks','ResourceManager/ApplicationMaster run MapReduce jobs','Network management is outside Hadoop\'s scope']},
+{id:'m1a8',u:'2',q:'Default block size in HDFS is:',opts:['4 MB','64 KB','128 MB','1 GB'],ans:2,exp:'HDFS default block size is 128MB (can be configured to 256MB). Larger blocks reduce NameNode metadata overhead and are optimal for sequential reads of large files.',wr:['4 MB is too small — would create too many blocks','64 KB is a traditional OS block size, not HDFS','1 GB is larger than typical HDFS configuration']},
+{id:'m1a9',u:'2',q:'YARN stands for:',opts:['Yet Another Recursive Network','Yet Another Resource Negotiator','Your Agile Resource Node','Yielded And Replicated Network'],ans:1,exp:'YARN = Yet Another Resource Negotiator. It manages cluster resources (CPU, memory) and job scheduling, allowing multiple computation engines (MapReduce, Spark, Tez) to share one Hadoop cluster.',wr:['Not a network acronym','Resource Negotiator refers to cluster resource management','No such Hadoop concept']},
+{id:'m1a10',u:'2',q:'In the HDFS write operation, data flows through a:',opts:['Single DataNode at a time','Pipeline of 3 DataNodes (for default replication=3)','The NameNode first, then DataNodes','Broadcasting to all DataNodes simultaneously'],ans:1,exp:'Data flows through a pipeline: Client→DataNode1→DataNode2→DataNode3. Each DN passes data to next while acknowledging to previous. This creates 3 replicas efficiently in a single pipeline pass.',wr:['Data goes through all 3 DataNodes in a pipeline','NameNode only manages metadata, not data transfer','Broadcasting would waste bandwidth — pipelining is efficient']},
+{id:'m1a11',u:'2',q:'The Combiner in MapReduce is used to:',opts:['Sort the final output','Reduce network traffic by local pre-aggregation','Split the input into chunks','Assign tasks to nodes'],ans:1,exp:'Combiner is a mini-reducer that runs locally on each mapper node before data is shuffled over the network. Reduces network traffic significantly (up to 90% for word count).',wr:['Sorting happens during the Shuffle & Sort phase','InputFormat/RecordReader splits input into chunks','YARN ResourceManager/ApplicationMaster assigns tasks']},
+{id:'m1a12',u:'2',q:'Rack Awareness in Hadoop refers to:',opts:['Only using one rack','Placing replicas across different racks to survive rack failures','Limiting data to premium server racks','Sorting data by rack number'],ans:1,exp:'Rack Awareness: 1st replica local, 2nd on different rack, 3rd on same rack as 2nd but different node. If an entire rack fails, data is still available on the other rack.',wr:['Using one rack creates a single point of failure','Rack awareness is about failure tolerance, not server quality','Data placement is based on availability, not sorting']},
+{id:'m1a13',u:'3a',q:'The Partitioner in MapReduce determines:',opts:['How to split the input file','Which Reducer a key goes to','How many Map tasks to run','When to trigger the Reducer'],ans:1,exp:'Partitioner routes each mapper output key to a specific Reducer. Default: partition = hash(key) % numReducers. Ensures all values for same key go to same Reducer.',wr:['InputFormat/RecordReader splits the input file','Number of Map tasks = number of input splits (set by framework)','Reducers trigger after all Map+Shuffle phases complete']},
+{id:'m1a14',u:'3a',q:'The Shuffle and Sort phase in MapReduce occurs:',opts:['Before the Map phase','Between Map output and Reducer input','After the Reducer writes output','In parallel with the Map phase'],ans:1,exp:'Shuffle transfers mapper output to appropriate Reducer nodes. Sort orders key-value pairs by key so the Reducer receives all values for a key in sorted, grouped order. Happens between Map and Reduce.',wr:['Map phase happens first, then Shuffle','Output writing happens after Reduce, not before','Shuffle starts only after Mappers complete their output']},
+{id:'m1a15',u:'3a',q:'In MapReduce Word Count, the Reducer:',opts:['Splits sentences into words','Emits (word, 1) for each word','Sums up all values for each word key','Sorts the words alphabetically'],ans:2,exp:'The Reducer receives (word, [1,1,1,...]) for each unique word and sums all the 1s to produce the final word count. Splitting and emitting (word,1) is done by the Mapper.',wr:['Splitting sentences is done by Tokenizer in the Mapper','Emitting (word,1) is the Mapper\'s job','Alphabetical sorting happens in the Shuffle/Sort phase, not the Reducer output']},
+];
+
+// MID 1 Part B — 6 questions from Units 1, 2, 3a
+const MID1_PARTB=[
+{id:'m1b1',qnum:1,label:'Q1 (Unit I)',
+ a:{q:'(a) Explain the classification of Digital Data with examples and a comparison of advantages/disadvantages.',
+   opts:['Structured (RDBMS, easy queries, rigid schema), Unstructured (AI/ML needed, 80% of data, rich info), Semi-structured (JSON/XML, flexible tags). Each has distinct storage and processing requirements.','All digital data is structured','Only binary and text data types exist','Unstructured data cannot be stored digitally'],
+   ans:0,exp:'Three types: Structured (predefined schema, SQL, RDBMS — banking, ERP; high accuracy, limited flexibility). Unstructured (no schema, NLP/CV needed — social media, videos; rich info, hard to analyze). Semi-structured (partial schema via tags, JSON/XML — APIs, logs; flexible, bridges both types).',
+   wr:['Digital data has 3 distinct types with different processing needs','Binary vs text is a storage encoding distinction, not a data classification','Unstructured data is stored in object storage, NoSQL, data lakes — just harder to query']},
+ b:{q:'(b) Explain Traditional Business Intelligence vs Big Data Analytics — compare across 5 dimensions.',
+   opts:['Data Volume (GB-TB vs PB+), Data Type (structured only vs all), Processing (batch vs real-time+batch), Analytics (descriptive vs predictive), Infrastructure (centralized DW vs distributed Hadoop/Spark)','Traditional BI and Big Data are identical','Big Data replaced Traditional BI completely in 2015','Traditional BI handles unstructured data natively'],
+   ans:0,exp:'BI: structured data, GB-TB scale, batch processing, descriptive/diagnostic analytics, on-premise DW, expensive SQL licenses. BDA: all data types, PB+ scale, real-time+batch, predictive/prescriptive, distributed computing (Hadoop, Spark), open-source, horizontal scaling. They coexist in modern enterprises.',
+   wr:['BI uses SQL DW; BDA uses distributed computing — fundamentally different','Most enterprises now use both BI (for reporting) and BDA (for ML/advanced analytics)','Traditional BI requires structured data — handling unstructured requires AI/NLP tools']}
+},
+{id:'m1b2',qnum:2,label:'Q2 (Unit I)',
+ a:{q:'(a) Explain the 5 types of Analytics with examples and tools for each.',
+   opts:['Descriptive(what happened, Tableau), Diagnostic(why, SAS/Python), Predictive(ML forecasting, scikit-learn), Prescriptive(optimization, AI recommendations), Cognitive(NLP/AI, IBM Watson)','Only two types: Basic and Advanced','All analytics use the same tools','Analytics types are not well-defined in industry'],
+   ans:0,exp:'Descriptive: summarizes past (dashboards, KPIs) — Tableau, Power BI. Diagnostic: root cause analysis — Python Pandas, SAS. Predictive: ML forecasting (fraud detection, demand forecasting) — scikit-learn, R, TensorFlow. Prescriptive: recommends optimal actions (GPS routing, dynamic pricing) — optimization algorithms, AI. Cognitive: NLP+AI (chatbots) — IBM Watson.',
+   wr:['There are 4-5 recognized types of analytics on a complexity spectrum','Different analytics types require different tools and expertise levels','Industry widely recognizes the 4-5 level analytics classification']},
+ b:{q:'(b) Explain Big Data terminologies: Data Science, Data Mining, Machine Learning, ETL, Data Lake, Data Warehouse.',
+   opts:['Data Science=interdisciplinary insights from data; Mining=finding patterns; ML=automated learning from data; ETL=Extract-Transform-Load pipeline; Data Lake=raw unprocessed storage; DWH=structured processed storage for reporting','All these terms mean the same thing','ETL means real-time data streaming','Data Lake and Data Warehouse are identical'],
+   ans:0,exp:'Data Science: interdisciplinary field (stats+CS+domain). Data Mining: discovering hidden patterns in large datasets. Machine Learning: algorithms that learn from data automatically. ETL: pipeline — Extract from sources, Transform (clean, format), Load into DWH. Data Lake: stores raw data in native format (cheap, flexible). DWH: structured, processed data for BI queries.',
+   wr:['Each term has a distinct meaning in the Big Data ecosystem','ETL (batch) vs streaming (Kafka, Spark) are different data movement approaches','Data Lake = raw storage; DWH = processed, structured — fundamentally different architectures']}
+},
+{id:'m1b3',qnum:3,label:'Q3 (Unit II)',
+ a:{q:'(a) Explain HDFS Architecture — NameNode, DataNodes, block storage, replication and Rack Awareness.',
+   opts:['NameNode=metadata master (file names, block locations), DataNodes=data storage (128MB blocks, 3 replicas), Rack Awareness=cross-rack replica placement for fault tolerance and network efficiency','HDFS stores data on a single server','NameNode stores all the actual file data','Block replication is optional in HDFS'],
+   ans:0,exp:'HDFS: NameNode holds all metadata (no actual data). DataNodes store 128MB blocks, send heartbeats to NameNode. Replication=3 by default — DataNodes on different racks. Rack Awareness: 1st replica local, 2nd different rack, 3rd same rack as 2nd (different node). Benefits: fault tolerance against rack failure, reduced network traffic for reads.',
+   wr:['HDFS distributes data across many nodes — that is its primary purpose','NameNode stores metadata only; DataNodes store actual data blocks','Replication (default 3) is essential for HDFS fault tolerance']},
+ b:{q:'(b) Explain the YARN Architecture and job execution workflow in detail.',
+   opts:['ResourceManager(cluster-wide resource allocation), NodeManager(per-node monitoring), ApplicationMaster(per-job coordination). Workflow: submit→AM launched→AM requests containers→NM launches containers→tasks execute→AM deregisters','YARN only runs MapReduce jobs','YARN runs on a single node','ResourceManager and NodeManager are the same component'],
+   ans:0,exp:'ResourceManager: master, allocates cluster CPU/memory, has Scheduler and ApplicationsManager. NodeManager: on each worker node, manages containers, reports to RM. ApplicationMaster: one per job, negotiates resources from RM, coordinates tasks via NM. Containers: unit of resource allocation. Supports MapReduce, Spark, Tez, Flink on same cluster.',
+   wr:['YARN supports multiple computation engines: MapReduce, Spark, Tez, Storm','YARN is designed for distributed clusters of hundreds/thousands of nodes','ResourceManager is the master; NodeManager runs on every worker node']}
+},
+{id:'m1b4',qnum:4,label:'Q4 (Unit II)',
+ a:{q:'(a) Explain the MapReduce programming model with the Word Count example — map, shuffle, reduce phases.',
+   opts:['Input→splits; Map emits (word,1) for each word; Shuffle groups all (word,[1,1,...]) by key; Reduce sums values → (word, count); Output written to HDFS. Combiner can locally pre-aggregate.','MapReduce only has a Map phase, no Reduce','Shuffle happens before Map','The Reducer runs on the same node as the Mapper always'],
+   ans:0,exp:'Word Count flow: Input file split into chunks. Each Map task tokenizes lines, emits (word,1) for each word. Optional Combiner sums locally: (the,3). Shuffle transfers mapper output to Reducers (same key → same Reducer). Sort orders by key. Reduce sums all counts: (the,150). Output saved to HDFS.',
+   wr:['MapReduce requires both Map and Reduce phases','Shuffle transfers mapper output AFTER Map phase completes','Reducers run on potentially different nodes from Mappers — that\'s the whole point of shuffle']},
+ b:{q:'(b) Explain the Combiner and Partitioner — role, necessity, and when to use each.',
+   opts:['Combiner=local mini-Reducer on mapper node, reduces network traffic (valid for associative+commutative functions: sum, max, min). Partitioner=routes keys to specific Reducers (hash(key)%R by default, custom for range/specific routing).','Combiner is mandatory in all MapReduce jobs','Partitioner sends all data to one Reducer','Combiner and Partitioner do the same thing'],
+   ans:0,exp:'Combiner: optional optimization. Runs after Map, before Shuffle. Pre-aggregates locally to reduce data sent over network (can save up to 90% for Word Count). Only valid when the operation is associative and commutative (sum, max, min — not average). Partitioner: determines which Reducer gets which keys. Default HashPartitioner. Custom Partitioner for range queries or when specific keys must go together.',
+   wr:['Combiner is optional and cannot be used for all operations (not for average)','Partitioner distributes keys across ALL Reducers based on hash or custom logic','Combiner reduces data before Shuffle; Partitioner determines destination Reducer']}
+},
+{id:'m1b5',qnum:5,label:'Q5 (Unit II+I)',
+ a:{q:'(a) Compare RDBMS vs Hadoop across 6 dimensions with use cases.',
+   opts:['Data(structured vs all types), Schema(write vs read), Scale(vertical vs horizontal), ACID(yes vs BASE), Cost(expensive vs open-source), Use case(OLTP/reporting vs Big Data analytics/ML)','RDBMS and Hadoop are identical systems','Hadoop replaced RDBMS completely','RDBMS is better for Big Data than Hadoop'],
+   ans:0,exp:'RDBMS: structured data, schema-on-write, vertical scaling (expensive HW), full ACID, high license costs, best for OLTP+reporting (banking, ERP). Hadoop: all data types, schema-on-read (flexible), horizontal scaling (commodity HW), BASE properties, open-source, best for batch analytics+ML+unstructured data (log analysis, social data).',
+   wr:['They serve fundamentally different purposes and data types','Both are widely used — they complement each other in modern data architectures','RDBMS and Hadoop have different strengths; Hadoop excels at scale and variety']},
+ b:{q:'(b) Explain Hadoop HDFS Read and Write operations step by step.',
+   opts:['Read: Client→NameNode(block locations)→DataNode(nearest)→Client. Write: Client→NameNode(create entry)→pipeline of 3 DataNodes (packets+ack queue)→NameNode(complete signal).','Read and Write both go through the NameNode for actual data','Write only uses one DataNode','NameNode stores and transfers the actual file data'],
+   ans:0,exp:'Read: open()→DistributedFileSystem→NameNode RPC(block locations)→FSDataInputStream→read() from nearest DataNode. On error, tries next closest DN. Write: create()→NameNode RPC→FSDataOutputStream→packets streamed through 3-DN pipeline. Ack queue tracks confirmations. close()→flushes+waits for all acks→signals NameNode file complete.',
+   wr:['NameNode provides block locations only; DataNodes transfer actual data','Write creates 3 replicas via a pipeline (one write, 3 copies)','NameNode manages metadata only — never touches actual data bytes']}
+},
+{id:'m1b6',qnum:6,label:'Q6 (Unit III-A)',
+ a:{q:'(a) Explain the complete MapReduce execution flow including all phases and fault tolerance.',
+   opts:['Input→InputFormat(splits)→Map(local, key-value pairs)→Combiner(optional)→Partitioner(route keys)→Shuffle(network transfer)→Sort(by key)→Reduce(aggregate)→OutputFormat(HDFS). Fault: heartbeat monitoring, task re-execution.','MapReduce runs on a single node','There is no fault tolerance in MapReduce','Combiner runs after Reduce'],
+   ans:0,exp:'Full flow: 1.Input split (InputFormat). 2.RecordReader reads records. 3.Map() processes each record, emits (k,v). 4.Combiner locally aggregates (optional). 5.Partitioner assigns to Reducer. 6.Shuffle — network transfer of mapper output. 7.Sort — Reducer input sorted by key. 8.Reduce() called per key. 9.OutputFormat writes to HDFS. Fault tolerance: AM detects missing heartbeats, re-schedules failed tasks.',
+   wr:['MapReduce is DISTRIBUTED across many nodes','ApplicationMaster monitors heartbeats and re-executes failed tasks automatically','Combiner runs between Map output and Shuffle — locally on mapper node']},
+ b:{q:'(b) Explain the Hadoop Ecosystem — name and describe at least 6 components.',
+   opts:['HDFS(distributed storage), MapReduce(batch processing), YARN(resource management), Hive(SQL interface), Pig(scripting), HBase(real-time NoSQL), Spark(fast in-memory), Kafka(streaming), ZooKeeper(coordination)','Hadoop only has HDFS and MapReduce','All components must be used together','Hadoop Ecosystem components are all developed by the same company'],
+   ans:0,exp:'HDFS: distributed fault-tolerant storage. MapReduce: batch processing model. YARN: resource management for multiple engines. Hive: SQL-like queries on Hadoop (HiveQL). Pig: data flow scripting (Pig Latin). HBase: real-time NoSQL database on HDFS. Apache Spark: 100× faster in-memory processing. Kafka: distributed streaming platform. ZooKeeper: distributed coordination service.',
+   wr:['Hadoop ecosystem has 20+ components across storage, processing, and management','YARN, Hive, Pig, HBase, Spark are all separate but integrated Hadoop ecosystem projects','Different Apache projects contribute different components to the ecosystem']}
+},
+];
+
+// MID 2 Part A — Unit 3b, 4, 5
+const MID2_PARTA=[
+{id:'m2a1',u:'3b',q:'NoSQL stands for:',opts:['"No SQL at all" — SQL is forbidden','Not Only SQL — also supports non-relational models','New Optimized SQL','Non-Operational Storage Layer'],ans:1,exp:'NoSQL = "Not Only SQL" — meaning these databases may support some query capabilities but extend beyond relational SQL model. They are not necessarily anti-SQL.',wr:['"No SQL" is a misconception — some NoSQL DBs do support SQL-like queries','New Optimized SQL would be NewSQL, a different category','Not a real expansion of the acronym']},
+{id:'m2a2',u:'3b',q:'Which NoSQL type is best for social network relationship traversal?',opts:['Key-Value Store','Column-Family Store','Graph Database','Document Store'],ans:2,exp:'Graph databases (Neo4j, Amazon Neptune) store data as nodes and edges, making relationship traversal O(1) per hop. Ideal for friend-of-friend queries, fraud detection, recommendation engines.',wr:['Key-Value stores (Redis) are best for caching and session management','Column-Family (Cassandra) is best for time-series and write-heavy workloads','Document stores (MongoDB) are best for hierarchical/nested data']},
+{id:'m2a3',u:'3b',q:'CAP Theorem states that a distributed system can guarantee at most:',opts:['All 3: Consistency, Availability, Partition Tolerance','2 of 3: Consistency, Availability, Partition Tolerance','Only 1 of the three properties at any time','All or nothing — no partial guarantees'],ans:1,exp:'CAP: a distributed system cannot simultaneously guarantee all three. Since Partition Tolerance is unavoidable in real networks, systems choose between Consistency (CP: HBase, MongoDB) or Availability (AP: Cassandra, DynamoDB).',wr:['Proving all 3 simultaneously is impossible according to the CAP theorem proof','Systems always need Partition Tolerance, so they choose between C and A','CAP guarantees 2 of 3 — not just 1']},
+{id:'m2a4',u:'3b',q:'Which is an example of a Column-Family NoSQL database?',opts:['MongoDB','Redis','Apache Cassandra','Neo4j'],ans:2,exp:'Cassandra is a Column-Family (wide-column) NoSQL database optimized for write-heavy workloads and time-series data. MongoDB=document, Redis=key-value, Neo4j=graph.',wr:['MongoDB is a Document store (JSON/BSON documents)','Redis is a Key-Value store (in-memory, caching)','Neo4j is a Graph database (nodes and edges)']},
+{id:'m2a5',u:'3b',q:'BASE in NoSQL stands for:',opts:['Basic Application Storage Engine','Basically Available, Soft-state, Eventually Consistent','Binary Automated Storage Execution','Batch Asynchronous Scalable Engine'],ans:1,exp:'BASE = Basically Available (system appears available), Soft-state (state may change without input during replication), Eventually Consistent (will reach consistency after some time). Contrasts with ACID.',wr:['Not a real storage engine acronym','Not a real NoSQL term','Not a real Big Data term']},
+{id:'m2a6',u:'4',q:'In MongoDB, a Collection is equivalent to a RDBMS:',opts:['Row','Column','Table','Database'],ans:2,exp:'MongoDB Collection = RDBMS Table. Collection holds multiple Documents (=Rows). Fields (=Columns) can vary per document. Collections have no fixed schema.',wr:['Document (not Collection) is equivalent to a Row','Field (not Collection) is equivalent to a Column','Database in MongoDB also maps to Database in RDBMS']},
+{id:'m2a7',u:'4',q:'MongoDB\'s default primary key field is:',opts:['id','primary_key','_id','docId'],ans:2,exp:'MongoDB automatically creates the _id field as the primary key if not specified. Default value is an ObjectId — a 12-byte BSON type encoding timestamp, machine ID, process ID, and counter.',wr:['id (without underscore) is not MongoDB\'s default','primary_key is an RDBMS concept, not used in MongoDB','docId is not a MongoDB reserved field name']},
+{id:'m2a8',u:'4',q:'Which MongoDB operator is used to update a specific field?',opts:['$update','$modify','$set','$change'],ans:2,exp:'$set updates or adds specific fields without replacing the entire document. Example: {$set: {cgpa: 9.0}} — only changes cgpa field. Other update operators: $inc, $push, $pull, $unset.',wr:['$update is not a valid MongoDB operator','$modify is not a valid MongoDB operator','$change is not a valid MongoDB operator']},
+{id:'m2a9',u:'4',q:'Which MongoDB query finds all students with cgpa > 8.0?',opts:['db.students.find({cgpa: 8.0})','db.students.find({cgpa: {$gt: 8.0}})','db.students.find({cgpa > 8.0})','db.students.select(cgpa > 8)'],ans:1,exp:'MongoDB uses operator syntax: {field: {$gt: value}}. $gt = greater than. Other comparison operators: $gte, $lt, $lte, $eq, $ne, $in, $nin.',wr:['This finds exact match (cgpa == 8.0), not greater than','JavaScript-style comparison syntax is not valid MongoDB query syntax','SELECT syntax is SQL, not MongoDB Query Language (MQL)']},
+{id:'m2a10',u:'4',q:'In MongoDB projections, {name:1, cgpa:1, _id:0} means:',opts:['Return all fields except name, cgpa and _id','Return only name and cgpa, hide _id','Return only _id field','Return nothing'],ans:1,exp:'In projection: 1=include, 0=exclude. You cannot mix include and exclude (except for _id). This projection includes name and cgpa, explicitly excludes _id (which is included by default).',wr:['1 means include, not exclude — you have it backwards','_id:0 is the exception that allows mixing include with excluding _id','Projections control which fields are returned, not whether to return documents']},
+{id:'m2a11',u:'5',q:'In R, c(1,2,3) + 10 results in:',opts:['Error: cannot add vector and scalar','c(11, 12, 13)','10','c(1,2,3,10)'],ans:1,exp:'R uses vectorized arithmetic — operations are applied element-by-element. c(1,2,3)+10 adds 10 to each element: c(11,12,13). This is a fundamental R design principle.',wr:['R is vectorized — adding scalar to vector is valid and common','10 would be the sum only if you used sum(c(1,2,3)+10)','c(1,2,3,10) would be appending, which uses c(c(1,2,3),10)']},
+{id:'m2a12',u:'5',q:'In R, df[df$score > 80, ] returns:',opts:['Column where score > 80','Number of rows with score > 80','All rows where score > 80 with all columns','An error — logical subsetting not supported'],ans:2,exp:'df[condition, ] subsets rows. df$score>80 creates a logical vector (TRUE/FALSE). df[logical_vector, ] returns rows where TRUE. Blank after comma = all columns.',wr:['Column subsetting uses df[,colname] or df$colname','sum(df$score>80) or nrow(df[df$score>80,]) counts rows','Logical subsetting is a core R feature — no error']},
+{id:'m2a13',u:'5',q:'Which R function applies a function to each element of a list and returns a list?',opts:['apply()','sapply()','lapply()','tapply()'],ans:2,exp:'lapply(lst, func) applies func to each element and ALWAYS returns a list. sapply() simplifies output (returns vector/matrix). apply() is for matrix rows/columns. tapply() is for grouped operations.',wr:['apply() operates on matrix rows or columns (2D)','sapply() simplifies lapply output — returns vector, not always a list','tapply() applies to groups (like GROUP BY)']},
+{id:'m2a14',u:'5',q:'In R, factor() is primarily used for:',opts:['Fast numeric computation','Representing categorical data with defined levels','Matrix decomposition','Reading CSV files'],ans:1,exp:'factor() creates categorical variables with a fixed set of possible values (levels). Essential for statistical modeling — R uses factors for group comparisons, one-way ANOVA, regression dummy coding.',wr:['Numeric operations use numeric vectors, not factors','Matrix decomposition uses svd(), qr(), eigen()','Reading CSV files uses read.csv()']},
+{id:'m2a15',u:'5',q:'Which R function creates a histogram?',opts:['barplot()','pie()','hist()','boxplot()'],ans:2,exp:'hist(x) creates a histogram — shows distribution of a single numeric variable by dividing values into bins and counting frequency in each bin. barplot() compares categories, pie() shows proportions, boxplot() shows spread and outliers.',wr:['barplot() compares discrete categories (not distribution)','pie() shows proportions/percentages of a whole','boxplot() shows median, IQR, and outliers — not frequency distribution']},
+];
+
+// MID 2 Part B — 6 questions from Units 3b, 4, 5
+const MID2_PARTB=[
+{id:'m2b1',qnum:1,label:'Q1 (Unit III-B)',
+ a:{q:'(a) Explain the 4 types of NoSQL databases with examples, structure, and use cases.',
+   opts:['Document(MongoDB-JSON docs, e-commerce), Key-Value(Redis-hash map, caching), Column-Family(Cassandra-column groups, IoT/time-series), Graph(Neo4j-nodes+edges, social networks)','All NoSQL databases use the same data model','NoSQL databases can only store text','Column-Family and Document stores are the same'],
+   ans:0,exp:'Document: JSON/BSON docs, flexible schema, rich queries — MongoDB, CouchDB (e-commerce, CMS). Key-Value: simple hash (key→value), O(1) lookup — Redis, DynamoDB (sessions, caching, shopping carts). Column-Family: grouped columns, write-optimized — Cassandra, HBase (IoT, time-series). Graph: nodes+edges, relationship traversal — Neo4j (social networks, fraud detection).',
+   wr:['Each NoSQL type has a fundamentally different data model optimized for different use cases','NoSQL stores JSON, BSON, binary, graph structures, etc. — not just text','Column-Family groups data by columns; Document stores full JSON documents']},
+ b:{q:'(b) Compare SQL vs NoSQL vs NewSQL across key dimensions.',
+   opts:['SQL(ACID, fixed schema, vertical scale), NoSQL(BASE, flexible, horizontal scale), NewSQL(ACID+horizontal scale, VoltDB/CockroachDB). Each fits different use cases.','All three are identical','NewSQL is just a rebranded name for NoSQL','SQL cannot handle any form of scaling'],
+   ans:0,exp:'SQL: strong ACID, fixed schema-on-write, vertical scaling, best for OLTP/reporting (Oracle, MySQL). NoSQL: BASE, flexible schema-on-read, horizontal scaling, all data types, diverse query models (MongoDB, Cassandra). NewSQL: combines ACID guarantees with horizontal scaling on shared-nothing clusters, SQL interface — VoltDB, CockroachDB, Google Spanner. Trade-off: NewSQL has higher operational complexity.',
+   wr:['They have distinct ACID/BASE trade-offs, schemas, and scaling models','NewSQL is a distinct category with ACID + horizontal scale','SQL has vertical scaling and some read replicas — horizontal write scaling requires NewSQL/NoSQL']}
+},
+{id:'m2b2',qnum:2,label:'Q2 (Unit III-B)',
+ a:{q:'(a) Explain the CAP Theorem and BASE properties with examples of which category popular NoSQL databases fall into.',
+   opts:['CAP: choose 2 of Consistency+Availability+Partition Tolerance. CP=HBase/MongoDB(consistent+tolerates partitions). AP=Cassandra/DynamoDB(available+tolerates partitions). BASE=Basically Available+Soft-state+Eventually Consistent.','CAP allows all 3 simultaneously','All NoSQL databases are AP','BASE means strong ACID compliance'],
+   ans:0,exp:'CAP theorem (Eric Brewer): distributed system guarantees at most 2 of 3. P is unavoidable in real networks so choice is C vs A. CP databases: HBase, MongoDB (prefer consistency — banking-like). AP databases: Cassandra, CouchDB, DynamoDB (prefer availability — social media, DNS). BASE = NoSQL\'s answer to ACID: accept eventual consistency for better availability and performance.',
+   wr:['The CAP theorem mathematically proves you cannot have all 3','All NoSQL DBs require Partition Tolerance but differ on C vs A trade-off','BASE is the opposite of strict ACID — it relaxes consistency for availability']},
+ b:{q:'(b) Explain the advantages of NoSQL and its industry use cases.',
+   opts:['Advantages: horizontal scale, flexible schema, high availability, diverse data types, open-source. Use cases: MongoDB(eBay catalog), Redis(Twitter caching), Cassandra(Apple iCloud), Neo4j(LinkedIn graphs).','NoSQL has no advantages over SQL','NoSQL is only used by small startups','NoSQL databases are only for social media'],
+   ans:0,exp:'Advantages: 1.Horizontal scaling (commodity servers, auto-sharding). 2.No schema migrations needed (agile development). 3.High availability (built-in replication). 4.Handles all data types. 5.Open-source (cost-effective). 6.Global distribution. Industry: MongoDB (eBay product catalog, Craigslist), Redis (Twitter timeline cache, session management), Cassandra (Apple iCloud, Netflix, Discord messages), HBase (Facebook Messenger), Neo4j (LinkedIn recommendations).',
+   wr:['NoSQL has significant advantages for scale, variety, and agility','Facebook, Twitter, Amazon, Google, Netflix all rely heavily on NoSQL','NoSQL is used in banking, healthcare, IoT, gaming — across all industries']}
+},
+{id:'m2b3',qnum:3,label:'Q3 (Unit IV)',
+ a:{q:'(a) Explain MongoDB Architecture — Replica Sets, Sharding, and the necessity of MongoDB.',
+   opts:['Replica Set=3 nodes(1 Primary+2 Secondary) for HA+failover. Sharding=horizontal partitioning by shard key for scale. Necessary because: dynamic schema, nested docs, horizontal scale, rich queries.','MongoDB runs on a single server only','Replica sets require manual failover','Sharding in MongoDB requires downtime'],
+   ans:0,exp:'Necessity: flexible schema for agile development, BSON stores complex nested data naturally (no JOINs), horizontal scaling via auto-sharding, rich queries on any field, high availability via replica sets. Replica Set: Primary handles all writes, Secondaries replicate asynchronously, automatic failover if Primary fails (elections take ~10s). Sharding: shard key routes documents to specific shards, enables petabyte-scale storage.',
+   wr:['MongoDB is designed for distributed multi-node deployment','Replica sets provide automatic failover via election protocol','MongoDB supports zero-downtime rolling upgrades and resharding']},
+ b:{q:'(b) Explain MongoDB Data Types — scalar types and complex types with examples.',
+   opts:['Scalar: String, Integer(Int32/Int64), Double(64-bit), Decimal128, Boolean, Null, ObjectId(12-byte _id), Date(ISODate). Complex: Array, Embedded Document. Each has specific BSON encoding.','MongoDB only stores strings','All numeric values are stored as text','MongoDB has no date data type'],
+   ans:0,exp:'Scalar types: String (UTF-8, most common), Integer (Int32 for normal, NumberLong for Int64), Double (64-bit float, default for decimals), Decimal128 (NumberDecimal for financial precision), Boolean (true/false), Null (explicit absence), ObjectId (12-byte: 4B timestamp + 5B machine+process + 3B counter), Date (ISODate, milliseconds since epoch). Complex: Array ([1,2,3] or [{},{}]), Embedded Document ({address:{city:"Hyd"}}).',
+   wr:['BSON (Binary JSON) supports rich type system beyond just strings','MongoDB stores proper numeric types — BSON encodes them as binary','ISODate() stores dates as milliseconds since Unix epoch']}
+},
+{id:'m2b4',qnum:4,label:'Q4 (Unit IV)',
+ a:{q:'(a) Explain MongoDB CRUD operations with syntax — insertOne, find with filter+projection, updateOne with $set, deleteOne.',
+   opts:['insertOne({doc}), find({filter},{projection}), updateOne({filter},{$set:{field:val}}), deleteOne({filter}). Each returns acknowledgment with affected count/id.','MongoDB uses SQL for CRUD operations','find() returns a single document only','$set replaces the entire document'],
+   ans:0,exp:'Insert: db.col.insertOne({name:"Alice",cgpa:9.0}) → {acknowledged:true,insertedId:ObjectId(...)}. Read: db.col.find({branch:"CSE"},{name:1,_id:0}) → projection controls fields. Update: db.col.updateOne({name:"Alice"},{$set:{cgpa:9.5}}) → only modifies cgpa. Delete: db.col.deleteOne({name:"Alice"}) → removes first matching document.',
+   wr:['MongoDB uses MQL (MongoDB Query Language), not SQL','find() returns a cursor — use findOne() for single document','$set modifies only specified fields — replaceOne() replaces the whole document']},
+ b:{q:'(b) Explain MongoDB Query Operators — comparison, logical, element, array operators with examples.',
+   opts:['Comparison($gt,$gte,$lt,$lte,$eq,$ne,$in,$nin), Logical($and,$or,$not,$nor), Element($exists,$type), Array($elemMatch,$size,$all). Example: {age:{$gte:18},branch:{$in:["CSE","IT"]}}','MongoDB has no query operators','All comparison uses JavaScript syntax in {}','$in checks if value is greater than array'],
+   ans:0,exp:'Comparison: {cgpa:{$gte:8.0}} — cgpa ≥ 8.0. {age:{$in:[20,21,22]}} — age is 20, 21, or 22. Logical: {$and:[{cgpa:{$gt:7}},{branch:"CSE"}]}. {$or:[{branch:"CSE"},{branch:"IT"}]}. Element: {phone:{$exists:true}} — doc has phone field. Array: {scores:{$elemMatch:{$gt:90}}} — any score > 90. {tags:{$all:["db","nosql"]}} — has all tags.',
+   wr:['MongoDB has a rich set of query operators for all data types','MQL uses BSON/JSON syntax with $ prefixed operators — not JavaScript expressions','$in checks if field value is one of the array values — not a comparison']}
+},
+{id:'m2b5',qnum:5,label:'Q5 (Unit V)',
+ a:{q:'(a) Explain Vectors, Matrices, and Lists in R — creation, operations, and access methods.',
+   opts:['Vector: c(), vectorized arithmetic, logical/index subsetting. Matrix: matrix(data,nrow,ncol), m[r,c]/m[r,]/m[,c], apply(). List: list(), heterogeneous, lst[[1]]/lst$name, lapply().','R does not support matrices','Lists can only hold one data type in R','Vectors in R are 0-indexed'],
+   ans:0,exp:'Vector: v<-c(1,2,3); v+10→c(11,12,13); v[v>2]; names(v). Matrix: m<-matrix(1:9,nrow=3); m[2,3]; t(m) transpose; m%*%n matrix multiply; apply(m,1,sum). List: lst<-list(a=1,b="x"); lst$a; lst[[2]]; lapply(lst, func); unlist(lst). Key: vectors are atomic (one type), lists are heterogeneous (mixed types).',
+   wr:['matrix() creates 2D data structures with rownames/colnames support','Lists are R\'s most flexible structure — can hold any mix of types','R is 1-indexed (first element is [1], not [0])']},
+ b:{q:'(b) Explain Data Frames and Factors in R — creation, manipulation, ordered factors, and apply family.',
+   opts:['DataFrame: data.frame(), df$col, df[cond,], merge(), read.csv(). Factor: factor(x, levels, ordered=TRUE), levels(), table(). Apply: apply(matrix,1,func), lapply(list,func), sapply(simplified).','Data frames can only have numeric columns','Factors and character vectors are identical in R','apply() only works on vectors'],
+   ans:0,exp:'Data Frame: df<-data.frame(name=c("A","B"),score=c(85,92)); subset: df[df$score>90,]; add column: df$grade<-"A"; sort: df[order(df$score),]; merge(df1,df2,by="id"). Factor: f<-factor(c("Low","Med","High"),levels=c("Low","Med","High"),ordered=TRUE); f[1]<f[2] is valid. Apply family: apply(m,1,sum)=row sums; lapply(lst,func)=list output; sapply(lst,func)=simplified; tapply(x,grp,mean)=group means.',
+   wr:['Data frames support multiple column types: numeric, character, logical, factor','Factors store integer codes with labels + defined levels — structurally different from character','apply() works on arrays/matrices with specified margin (1=row, 2=col)']}
+},
+{id:'m2b6',qnum:6,label:'Q6 (Unit V)',
+ a:{q:'(a) Explain Control Structures and Functions in R — if/else, loops, function definition, scope, recursion.',
+   opts:['if/else for branching; for/while/repeat for iteration; next/break for control; function(args,default=val){body}; lexical scoping; <<- for global; recursion needs base case.','R does not support functions','While loops are not available in R','All R variables are automatically global'],
+   ans:0,exp:'Conditions: if(x>0){...}else if(x==0){...}else{...}. Loops: for(i in 1:10), while(x<5){x<-x+1}, repeat{if(cond)break}. Functions: fn<-function(x,n=2){x^n}. Default args, implicit return. Scoping: local vars don\'t leak. <<- superassignment. Recursion: fact<-function(n){if(n<=1)1 else n*fact(n-1)}. Base case prevents infinite recursion.',
+   wr:['Functions are a core R concept — fn<-function(args){body}','while, repeat, for are all supported loop types in R','R uses lexical scoping — function variables are local unless <<- is used']},
+ b:{q:'(b) Explain Graphics in R — pie, bar, histogram, boxplot, line, scatter. Include customization options.',
+   opts:['pie(x,labels): proportions. barplot(h,names.arg): categories. hist(x,breaks): distribution. boxplot(x~grp): spread+outliers. plot(x,y,type="l"): line/trends. plot(x,y,pch): scatter. Customize: col,main,xlab,ylab,lty,pch,par(mfrow).','All R charts use the same function','Charts cannot be customized in R','R cannot produce pie charts'],
+   ans:0,exp:'pie(c(40,30,30),labels=c("A","B","C"),col=rainbow(3),main="Distribution"). barplot(v,names.arg=c("X","Y"),col="blue",horiz=FALSE). hist(data,breaks=15,col="red",freq=TRUE). boxplot(score~branch,data=df,col="green"). plot(x,y,type="l",col="navy",lwd=2). plot(x,y,pch=16). Customization: legend("topright",legend,col,lty). par(mfrow=c(2,3)) for 6-chart grid.',
+   wr:['pie(), barplot(), hist(), boxplot(), plot() are separate dedicated functions','R has extensive customization: color, labels, titles, legends, layout','R\'s base graphics fully supports pie charts via pie()']}
+},
+];
+
+// SEM Part A — all units
+const SEM_PARTA=[
+{id:'sa1',u:'1',q:'~80% of the world\'s data is:',opts:['Structured','Semi-structured','Unstructured','Quantitative'],ans:2,exp:'Approximately 80% of data generated is unstructured — social media posts, videos, audio, emails, sensor readings. Only ~20% is structured data in databases.',wr:['Structured data is only ~20% of total data','Semi-structured (JSON, XML) is a smaller subset','Quantitative vs qualitative is a different classification']},
+{id:'sa2',u:'1',q:'The "Veracity" V of Big Data refers to:',opts:['Speed of data generation','Diversity of data formats','Reliability and quality of data','Business value of data'],ans:2,exp:'Veracity = trustworthiness and quality of data. Noisy, inconsistent, inaccurate data reduces veracity. Key challenge: ensuring data is meaningful for the problem being analyzed.',wr:['Velocity = speed of data generation and processing','Variety = diversity of data formats (structured, unstructured, semi-structured)','Value = business usefulness and ROI of data']},
+{id:'sa3',u:'1',q:'Prescriptive Analytics is characterized by:',opts:['Describing what happened in the past','Identifying why something happened','Predicting what might happen','Recommending the best course of action'],ans:3,exp:'Prescriptive analytics answers "What should we do?" — it recommends optimal actions using optimization and AI. It is the most advanced and actionable form of analytics.',wr:['Describing past = Descriptive analytics (dashboards, KPIs)','Identifying causes = Diagnostic analytics (root cause analysis)','Predicting future = Predictive analytics (ML models, forecasting)']},
+{id:'sa4',u:'2',q:'Hadoop\'s default data replication factor is:',opts:['1','2','3','5'],ans:2,exp:'HDFS replicates each block 3 times by default (configurable). This ensures data availability even if 2 DataNodes fail simultaneously. Rack-aware placement ensures cross-rack fault tolerance.',wr:['Replication of 1 means no fault tolerance','Replication of 2 means only one node failure is tolerated','Replication of 5 would waste too much storage for most use cases']},
+{id:'sa5',u:'2',q:'In YARN, the ApplicationMaster is responsible for:',opts:['Allocating cluster-wide resources','Managing data on DataNodes','Coordinating and monitoring a specific application\'s tasks','Storing HDFS metadata'],ans:2,exp:'ApplicationMaster (one per application/job) negotiates resources from the ResourceManager, tells NodeManagers to launch containers, and monitors the progress and health of individual tasks.',wr:['ResourceManager allocates cluster-wide resources','NodeManagers manage data containers on individual nodes','NameNode stores HDFS metadata']},
+{id:'sa6',u:'3a',q:'The Combiner in MapReduce is functionally a:',opts:['Second MapReduce job','Local mini-Reducer on the mapper node','Network routing component','Input file splitter'],ans:1,exp:'Combiner = local Reducer running on mapper node. Pre-aggregates mapper output before shuffle to reduce network traffic. Only valid for associative+commutative operations.',wr:['Combiner is an optimization within a single job, not a second job','Partitioner handles network routing of keys to Reducers','InputFormat/RecordReader splits input files']},
+{id:'sa7',u:'3b',q:'Redis is an example of which NoSQL type?',opts:['Document Store','Key-Value Store','Column-Family Store','Graph Database'],ans:1,exp:'Redis is an in-memory Key-Value store — extremely fast (O(1) lookup), used for caching, session management, leaderboards. Stores data as key→value pairs in RAM.',wr:['Document Store = MongoDB, CouchDB (JSON documents)','Column-Family = Cassandra, HBase (wide-column)','Graph = Neo4j, Amazon Neptune (nodes and edges)']},
+{id:'sa8',u:'3b',q:'NewSQL databases aim to provide:',opts:['NoSQL flexibility without any ACID','ACID properties with horizontal scalability','Better performance than traditional SQL only vertically','Graph-based query processing'],ans:1,exp:'NewSQL combines the best of both worlds: ACID transactions (like SQL) + horizontal scalability on commodity hardware (like NoSQL). Examples: VoltDB, CockroachDB, Google Spanner.',wr:['NewSQL maintains ACID — it does not abandon ACID properties','NewSQL scales horizontally, not just vertically like traditional RDBMS','NewSQL is not specifically about graph processing']},
+{id:'sa9',u:'4',q:'BSON in MongoDB stands for:',opts:['Big Simple Object Notation','Binary JSON','Basic Schema Object Node','Balanced Serialized Object Notation'],ans:1,exp:'BSON = Binary JSON. MongoDB stores documents internally as BSON, which is a binary-encoded serialization of JSON-like documents. BSON supports additional data types (ObjectId, Date, Binary) beyond JSON.',wr:['Not a real expansion','BSON is the binary form of JSON used internally by MongoDB','Not a real term','Not a real MongoDB term']},
+{id:'sa10',u:'4',q:'The MongoDB aggregation stage $group is equivalent to SQL\'s:',opts:['WHERE clause','JOIN operation','GROUP BY clause','ORDER BY clause'],ans:2,exp:'$group in aggregation pipeline groups documents by a specified field and can apply aggregate functions ($sum, $avg, $max, $min, $count). Equivalent to SQL\'s GROUP BY with aggregate functions.',wr:['$match is equivalent to SQL WHERE clause','$lookup is equivalent to SQL JOIN','$sort is equivalent to SQL ORDER BY']},
+{id:'sa11',u:'5',q:'In R, sapply() differs from lapply() because:',opts:['sapply() only works on matrices','sapply() simplifies output to vector/matrix if possible','sapply() is faster than lapply() always','sapply() cannot handle custom functions'],ans:1,exp:'lapply() always returns a list. sapply() tries to simplify the result — if all elements are scalars, returns a named vector; if all are vectors of same length, returns a matrix. Use lapply() when you need list output guaranteed.',wr:['Both sapply() and lapply() work on lists and vectors','Simplification makes sapply() slightly slower due to type-checking','Both accept custom functions: sapply(lst, function(x) x^2)']},
+{id:'sa12',u:'5',q:'In R, which correctly subsets rows where age > 25 from data frame df?',opts:['df[df$age > 25]','df[df$age > 25, ]','df$age[25]','df.filter(age > 25)'],ans:1,exp:'df[condition, ] — the comma separates row condition from column selection. Blank after comma means all columns. df[df$age>25] without comma returns a data frame subsetted by column index (wrong).',wr:['Missing comma — df[condition] without comma does column indexing, not row filtering','This returns the 25th element of the age column, not rows where age>25','R uses $ notation for column access, not .filter() — that\'s Python/dplyr syntax']},
+{id:'sa13',u:'1',q:'The Big Data Value Chain includes all EXCEPT:',opts:['Collection','Ingestion','Discovery and Cleansing','Data Monetization'],ans:3,exp:'Big Data Value Chain: Collection → Ingestion → Discovery & Cleansing → Integration → Analysis → Delivery. Data Monetization is a business outcome, not a step in the technical value chain.',wr:['Collection is the first step — gathering multi-source data','Ingestion is loading data onto a single data store','Discovery & Cleansing is understanding format and cleaning data']},
+{id:'sa14',u:'2',q:'The NameNode in HDFS is a single point of failure for:',opts:['Data storage','Metadata management','MapReduce execution','Network routing'],ans:1,exp:'The NameNode is the single master for metadata. If it fails, the filesystem becomes inaccessible (though data on DataNodes is safe). Hadoop 2+ supports Standby NameNode (High Availability) to address this.',wr:['Data storage is distributed across many DataNodes — no single point of failure','MapReduce is managed by YARN ResourceManager/ApplicationMaster','Network routing is managed by the network infrastructure, not Hadoop'],},
+{id:'sa15',u:'4',q:'db.students.find({}).sort({cgpa:-1}).limit(5) returns:',opts:['5 students with lowest CGPA','5 students with highest CGPA','All students sorted descending with a limit','5 random students'],ans:1,exp:'-1 in sort means descending order. Combined with limit(5), this returns the top 5 students by CGPA (highest first). 1 would sort ascending (lowest first).',wr:['sort({cgpa:1}).limit(5) would return the 5 lowest CGPA students','Correct — all students are sorted descending, then first 5 are returned (top 5)','limit() is deterministic when combined with sort() — not random']},
+{id:'sa16',u:'3a',q:'How many Reducers are used in MapReduce by default?',opts:['0','1','Equal to number of Mappers','Equal to number of DataNodes'],ans:1,exp:'Default number of Reducers is 1. Can be configured higher. If 0 is set, no Reduce phase (map-only jobs). Number of Mappers = number of input splits (determined by InputFormat).',wr:['0 reducers is valid for map-only jobs but not the default','1 is the default number of Reducers in Hadoop MapReduce','Number of Mappers and Reducers are independent in MapReduce']},
+{id:'sa17',u:'5',q:'R\'s <<- operator is used to:',opts:['Compare two values for equality','Assign a value to the global environment from inside a function','Append elements to a vector','Read from a file'],ans:1,exp:'<<- (superassignment) modifies a variable in the parent/enclosing environment, allowing functions to modify global variables. <- creates a local variable within the function scope.',wr:['== is the equality comparison operator in R','c(v, newval) appends elements to a vector','read.csv() or readLines() reads from files']},
+{id:'sa18',u:'3b',q:'MongoDB falls under which CAP category?',opts:['CA (Consistent + Available)','CP (Consistent + Partition Tolerant)','AP (Available + Partition Tolerant)','None of the above'],ans:1,exp:'MongoDB is primarily CP — it prioritizes Consistency over Availability when network partitions occur. Write operations require acknowledgment from primary. Read concern options allow tuning this behavior.',wr:['CA is impossible in distributed systems with real network partitions','Correct — MongoDB is CP by default','AP systems (like Cassandra) prioritize availability — MongoDB\'s default write concern requires primary ack']},
+];
+
+// SEM Part B — 5 questions covering all units
+const SEM_PARTB=[
+{id:'sb1',qnum:1,label:'Q1',
+ pairAB:{
+   a:{q:'1a) Explain the Classification of Digital Data — Structured, Unstructured, Semi-structured. Compare advantages, disadvantages, examples, and storage technologies.',
+     opts:['Structured(RDBMS,SQL,rigid schema,banking), Unstructured(NLP/AI,no schema,~80%,social media), Semi-structured(JSON/XML,tags,APIs,logs). Each differs in storage, analysis tools, and flexibility.','All digital data has the same properties','Only structured data can be analyzed','Semi-structured = mixture of two random formats'],
+     ans:0,exp:'Structured: predefined schema (rows+columns), SQL queries, RDBMS (MySQL, Oracle). Adv: high accuracy, easy search. Disadv: rigid, can\'t handle multimedia. Examples: banking transactions, HR data. Unstructured: no schema, needs NLP/CV/ML. Adv: rich information. Disadv: hard to analyze, needs AI. Examples: emails, videos, social media. Semi-structured: partial schema via tags (JSON, XML, YAML, logs). Bridges the gap, used in APIs, NoSQL, web services.',
+     wr:['Three categories with fundamentally different characteristics','~80% of world data is unstructured — it needs AI/ML to be analyzed','Semi-structured has specific organizational elements (tags/keys) that distinguish it']},
+   b:{q:'1b) Explain Big Data Analytics — definition, types of analytics (Descriptive, Diagnostic, Predictive, Prescriptive) with examples and tools.',
+     opts:['BDA examines large complex datasets. Descriptive(what happened,Tableau), Diagnostic(why,Python/R), Predictive(ML forecasting,sklearn/TensorFlow), Prescriptive(what to do,optimization/AI). Increasing complexity.','Big Data Analytics = traditional BI','Only Descriptive and Predictive analytics exist','All analytics types use the same tools'],
+     ans:0,exp:'BDA: goes beyond traditional BI using distributed computing to handle Volume+Velocity+Variety simultaneously. Descriptive: summarizes history (Power BI, Tableau, SQL). Diagnostic: root cause (data mining, correlation — Python Pandas, SAS). Predictive: ML forecasting, classification, regression (scikit-learn, R, Spark MLlib). Prescriptive: optimal action recommendations (optimization algorithms, AI, reinforcement learning). Complexity and value increase from descriptive to prescriptive.',
+     wr:['BDA handles real-time, unstructured, petabyte-scale data — beyond traditional BI','Four recognized analytics types on an ascending complexity+value spectrum','Different analytics types require specialized tools appropriate to their complexity']}
+ },
+ pairCD:{
+   c:{q:'1c) Explain the 7 V\'s of Big Data with real-world examples for each V.',
+     opts:['Volume(FB 2.5PB user data), Velocity(Twitter 500M tweets/day), Variety(structured+video+logs), Veracity(fake reviews challenge), Value(customer behavior insights), Variability(seasonal shopping patterns), Visualization(COVID dashboards).','Big Data has only 3 V\'s','All 7 V\'s are equally challenging for all organizations','The V\'s only apply to internet companies'],
+     ans:0,exp:'Volume: massive scale — Google 20PB/day, CERN LHC 15PB/year. Velocity: real-time generation — Twitter 6000 tweets/sec, stock market ticks. Variety: structured (transactions), semi (JSON logs), unstructured (videos, social media). Veracity: data quality — fake news, sensor errors, incomplete records. Value: actionable insights — targeted advertising, fraud detection. Variability: patterns change — holiday shopping spikes, viral content. Visualization: making sense of it — interactive dashboards.',
+     wr:['Originally 3 V\'s (Gartner), expanded to 5, 7, and sometimes more','Different industries face different V challenges — IoT=velocity, healthcare=veracity','7 V\'s apply to healthcare, finance, government, retail — all data-intensive sectors']},
+   d:{q:'1d) Explain Greatest Challenges of Big Data and the Coexistence of Big Data with Data Warehouses.',
+     opts:['Challenges: storage scale, processing speed, data quality, security/privacy, integration, cost, talent shortage. Coexistence: DWH handles structured reporting+compliance, Big Data handles ML+unstructured. Data Lakes complement DWH.','Big Data has no challenges','Big Data replaces Data Warehouses completely','Data Warehouses and Big Data platforms cannot be integrated'],
+     ans:0,exp:'Challenges: 1.Storage at petabyte scale (HDFS, S3). 2.Real-time processing (Spark, Flink, Kafka). 3.Data quality/veracity (ETL, validation, data governance). 4.Security (encryption, GDPR, HIPAA compliance). 5.Multi-source integration (data lakes, ETL pipelines). 6.Cost of infrastructure. 7.Shortage of data science talent. Coexistence: DWH (Redshift, Snowflake) for structured historical reporting; Big Data (Hadoop, Spark) for ML+unstructured. Modern architecture: Data Lake → ETL → DWH → BI Tools.',
+     wr:['Big Data challenges are real and actively being addressed by industry','Modern data architecture uses both DWH and Big Data platforms together','Enterprise data architectures commonly integrate DWH with Hadoop/Spark platforms']}
+ }
+},
+{id:'sb2',qnum:2,label:'Q2',
+ pairAB:{
+   a:{q:'2a) Explain Hadoop HDFS in detail — architecture, NameNode, DataNodes, block storage, replication, and Read/Write operations.',
+     opts:['NameNode=metadata master, DataNodes=128MB block storage(rep=3), Rack Awareness. Read: Client→NameNode(locations)→DataNode. Write: Client→NameNode(create)→3-DN pipeline with ack queue.','HDFS stores data on one machine','NameNode stores all file content','Write operation uses only one DataNode'],
+     ans:0,exp:'HDFS Architecture: NameNode (master) — stores metadata (namespace tree, block mappings, permissions), does NOT store data. DataNodes (workers) — store 128MB blocks, send heartbeats+block reports to NameNode. Replication=3 (rack-aware). Read: DFS.open()→NameNode RPC (block locations)→FSDataInputStream→read() from nearest DN, auto-failover on error. Write: DFS.create()→NameNode→FSDataOutputStream→packets through 3-DN pipeline→ack queue→close()→NameNode(complete).',
+     wr:['HDFS is distributed across many commodity servers','NameNode stores only metadata (file names, block locations) — DataNodes store data','Write creates 3 replicas via a sequential pipeline — not just one DataNode']},
+   b:{q:'2b) Explain Hadoop MapReduce programming model — Mapper, Reducer, Combiner, Partitioner and the complete execution flow.',
+     opts:['Mapper(input→key-value pairs, parallel), Combiner(local pre-aggregation, optional), Partitioner(key→reducer routing), Shuffle/Sort, Reducer(key+all-values→output). Fault tolerance via heartbeat+re-execution.','MapReduce has only Map phase','Combiner is mandatory','All keys go to the same Reducer'],
+     ans:0,exp:'Mapper: processes each input record, emits (k,v) pairs, runs in parallel on data splits. Combiner (optional): mini-reducer on mapper node, reduces network traffic (valid for sum, max, min). Partitioner: hash(key)%R routes keys to specific Reducers. Shuffle: transfers mapper output over network. Sort: groups by key before Reduce. Reducer: called once per unique key with list of all values, emits final output. Fault tolerance: ApplicationMaster monitors heartbeats, re-executes failed tasks.',
+     wr:['Shuffle, Sort, and Reduce phases follow Map and Combiner phases','Combiner is optional and only valid for commutative+associative operations','Each Reducer gets a specific subset of keys based on Partitioner routing']}
+ },
+ pairCD:{
+   c:{q:'2c) Explain YARN Architecture — ResourceManager, NodeManager, ApplicationMaster, Containers, and job submission workflow.',
+     opts:['ResourceManager=master(global allocation), NodeManager=per-node(local resources), ApplicationMaster=per-job(task coordination), Container=resource unit. Workflow: submit→AM launched→AM requests containers→NM executes→AM deregisters.','YARN runs on a single machine','ResourceManager handles actual data processing','All jobs share one ApplicationMaster'],
+     ans:0,exp:'ResourceManager: cluster master — has Scheduler (allocates resources based on policies) and ApplicationsManager (manages app lifecycle). NodeManager: on every worker node — manages container lifecycle, monitors CPU/memory, reports to RM. ApplicationMaster: one per application — registers with RM, requests containers, monitors tasks. Container: isolated resource allocation (CPU+memory). Workflow: Client→RM (job submit)→AM container→AM→RM (resource request)→NM (launch)→task execution.',
+     wr:['YARN is distributed — ResourceManager master + NodeManager on each worker','NodeManagers execute tasks in containers; ResourceManager manages resource allocation only','Each application gets its own ApplicationMaster for independent management']},
+   d:{q:'2d) Compare RDBMS vs Hadoop vs NoSQL — data types, schema, scaling, ACID/BASE, use cases.',
+     opts:['RDBMS(structured,schema-on-write,vertical,ACID,OLTP), Hadoop(all types,schema-on-read,horizontal,BASE,batch analytics), NoSQL(all types,flexible,horizontal,BASE,varied use cases). Each has specific strengths.','All three systems are identical','RDBMS is obsolete due to Hadoop','NoSQL always outperforms RDBMS'],
+     ans:0,exp:'RDBMS: structured data only, strict schema-on-write, vertical scaling (expensive), full ACID, mature ecosystem — best for OLTP, financial transactions, reporting. Hadoop: handles all data types, schema-on-read (flexible), horizontal scaling (commodity HW), BASE properties, open-source — best for batch analytics, ML, large-scale ETL. NoSQL: all data types, flexible/no schema, horizontal scaling, BASE — best for specific use cases (real-time, social, IoT). Modern architectures use all three.',
+     wr:['Each system is optimized for different workloads and data types','RDBMS is still dominant for OLTP and structured data — Hadoop complements it','NoSQL has specific strengths; RDBMS still wins for ACID transactions and complex JOINs']}
+ }
+},
+{id:'sb3',qnum:3,label:'Q3',
+ pairAB:{
+   a:{q:'3a) Explain NoSQL Database Types — Document, Key-Value, Column-Family, Graph. Compare with SQL.',
+     opts:['Document(MongoDB-JSON,e-commerce), KV(Redis-O(1)caching,sessions), Column-Family(Cassandra-time-series,IoT), Graph(Neo4j-relationships,social). vs SQL: NoSQL=horizontal+flexible+BASE, SQL=vertical+rigid+ACID.','All NoSQL types have the same data model','NoSQL cannot support queries','SQL and NoSQL are interchangeable'],
+     ans:0,exp:'Document: self-describing JSON/BSON docs, flexible schema, rich queries on fields — MongoDB (product catalogs, user profiles). Key-Value: hash map, O(1) by key, values opaque — Redis/DynamoDB (sessions, cache). Column-Family: column groups, write-optimized, distributed — Cassandra/HBase (IoT logs, time-series). Graph: nodes+edges, O(1) per relationship hop — Neo4j/Neptune (social networks, fraud). SQL: ACID, fixed schema, joins, vertical scale.',
+     wr:['Four types with fundamentally different data models and strengths','NoSQL supports query mechanisms (MQL, CQL, Gremlin) — just not SQL syntax','They serve different purposes: SQL for OLTP, NoSQL for specific high-scale patterns']},
+   b:{q:'3b) Explain CAP Theorem, BASE properties, and Advantages of NoSQL with industry examples.',
+     opts:['CAP: choose 2(CP=HBase/Mongo, AP=Cassandra/Dynamo). BASE=Basically Available+Soft-state+Eventually Consistent. Advantages: horizontal scale, flexible schema, HA, open-source. Examples: Redis(Twitter), Cassandra(Apple), Neo4j(LinkedIn).','CAP allows all 3 simultaneously','BASE = ACID renamed','NoSQL has no advantages over RDBMS'],
+     ans:0,exp:'CAP Theorem: cannot guarantee Consistency+Availability+Partition Tolerance simultaneously. P is unavoidable → choose C or A. CP (sacrifice availability in partitions): HBase, MongoDB. AP (sacrifice consistency in partitions): Cassandra, DynamoDB, CouchDB. BASE: Basically Available (system responds, may show stale data), Soft-state (state may change during replication), Eventually Consistent (reaches consistency after some time). Advantages: horizontal scale, no schema migrations, high availability, diverse data types, global distribution.',
+     wr:['CAP theorem (mathematically proven): distributed systems can guarantee at most 2','BASE is the opposite of ACID — relaxes consistency guarantees for availability','Netflix, Twitter, Amazon all rely heavily on NoSQL for specific high-scale workloads']}
+ },
+ pairCD:{
+   c:{q:'3c) Explain the complete MapReduce execution with fault tolerance — how does it handle node failures?',
+     opts:['Input splits → Map(parallel) → Combine(local) → Shuffle(network) → Sort(by key) → Reduce(aggregate) → HDFS output. Fault: AM heartbeat monitoring → re-schedule on failure → speculative execution for slow tasks.','MapReduce cannot handle failures','All tasks restart if one node fails','Fault tolerance requires manual intervention'],
+     ans:0,exp:'Execution: 1.InputFormat splits file into chunks. 2.Map tasks (data local) process records, emit (k,v). 3.Combiner locally aggregates (optional). 4.Partitioner assigns keys to reducers. 5.Shuffle transfers data over network. 6.Sort orders by key. 7.Reduce processes (key, values) list. 8.OutputFormat writes to HDFS. Fault tolerance: AM sends periodic heartbeats. Missing heartbeat → node failed → AM re-schedules tasks on alive nodes. Speculative execution: AM duplicates slow tasks to avoid straggler nodes. Data safety: HDFS replication ensures block availability.',
+     wr:['Hadoop MapReduce has built-in fault tolerance — a key design goal','Only failed tasks are re-executed — other tasks continue unaffected','Automatic fault recovery is a core Hadoop feature requiring no manual intervention']},
+   d:{q:'3d) Explain SQL vs NoSQL vs NewSQL with a detailed comparison table of at least 6 dimensions.',
+     opts:['Schema(rigid/flexible/rigid+scale), ACID(yes/BASE/yes), Scale(vertical/horizontal/horizontal), Query(SQL/varies/SQL), Consistency(strong/eventual/strong), Use case(OLTP/BigData+varied/OLTP+scale). NewSQL=VoltDB,CockroachDB,Spanner.','SQL, NoSQL and NewSQL are the same','NewSQL is just rebranded SQL','NoSQL has the same schema requirements as SQL'],
+     ans:0,exp:'SQL: fixed schema (DDL required), full ACID, vertical scale, SQL query language, strong consistency, use case: banking/ERP/OLTP. NoSQL: flexible/no schema, BASE properties, horizontal scale, varied query models (MQL/CQL/Gremlin), eventual consistency, use case: social media/IoT/real-time. NewSQL: structured schema + flexible deployment, full ACID, horizontal scale on sharded commodity HW, SQL, strong consistency, use case: high-throughput OLTP needing scale (Google Spanner, CockroachDB). Trade-off: NewSQL has higher operational complexity.',
+     wr:['Three distinct database categories with different trade-offs','NewSQL is a distinct category combining SQL ACID with NoSQL horizontal scaling','NoSQL deliberately relaxes schema constraints for developer agility and flexibility']}
+ }
+},
+{id:'sb4',qnum:4,label:'Q4',
+ pairAB:{
+   a:{q:'4a) Explain MongoDB in detail — necessity, architecture, terminology vs RDBMS, and data types.',
+     opts:['Necessity(dynamic schema,nested docs,horizontal scale). Architecture(Cluster,Replica Set=3nodes,Shards). Terminology(Collection=Table,Document=Row,Field=Column,_id=PK). Types(String,Int,Double,Boolean,ObjectId,Date,Array,Embedded).','MongoDB uses SQL for queries','MongoDB has a fixed schema like MySQL','MongoDB can only store flat key-value data'],
+     ans:0,exp:'Necessity: dynamic schema (no ALTER TABLE), stores complex nested data in single document (no JOINs for simple queries), horizontal scaling via sharding, rich queries on any field. Architecture: Cluster (deployment), Replica Set (3 nodes: 1 Primary+2 Secondaries, auto-failover), Shards (horizontal partitioning by shard key). Terms: Database=Database, Collection=Table, Document=Row, Field=Column, _id=PK (ObjectId by default). Data types: String, Int32/Int64, Double, Decimal128, Boolean, Null, ObjectId (12-byte unique id), ISODate, Array, Embedded Document.',
+     wr:['MongoDB uses MQL (MongoDB Query Language), not SQL','MongoDB is schema-less / schema-flexible — documents in same collection can differ','BSON supports complex nested documents, arrays, and rich data types']},
+   b:{q:'4b) Explain MongoDB CRUD operations — INSERT, FIND with projection, UPDATE with operators, DELETE, and cursor methods.',
+     opts:['insertOne/Many, find({filter},{projection}), updateOne/Many({filter},{$set/$inc/$push}), deleteOne/Many. Cursor: sort({field:±1}), limit(n), skip(n), countDocuments(). Aggregation: $match,$group,$project.','MongoDB has no delete operation','All MongoDB queries return all documents','Projection in MongoDB uses SELECT syntax'],
+     ans:0,exp:'Insert: insertOne({name:"A",score:85}); insertMany([...]). Find: find({branch:"CSE"},{name:1,_id:0}).sort({score:-1}).limit(5). Update: updateOne({name:"A"},{$set:{score:90}}); updateMany({branch:"CSE"},{$inc:{score:5}}); $push adds to array. Delete: deleteOne({name:"A"}); deleteMany({score:{$lt:40}}). Cursor: .sort(1=ASC,-1=DESC), .limit(n), .skip(n) for pagination. Aggregation pipeline: [{$match:{...}},{$group:{_id:"$branch",avg:{$avg:"$score"}}}].',
+     wr:['deleteOne() and deleteMany() and drop() are deletion operations in MongoDB','MongoDB queries return cursors that iterate over matching documents','Projection uses {field:1/0} notation — not SQL SELECT syntax']}
+ },
+ pairCD:{
+   c:{q:'4c) Explain MongoDB Query Operators — Comparison, Logical, Element, Array operators with detailed examples.',
+     opts:['Comparison($gt,$gte,$lt,$lte,$eq,$ne,$in,$nin), Logical($and,$or,$not,$nor), Element($exists,$type), Array($elemMatch,$size,$all). Example: {$and:[{cgpa:{$gte:7.5}},{branch:{$in:["CSE","IT"]}}]}','MongoDB has no query operators','All MongoDB queries are exact matches','Logical operators in MongoDB use JavaScript syntax like &&'],
+     ans:0,exp:'Comparison: {cgpa:{$gt:7.5}} — cgpa>7.5; {age:{$in:[20,21]}} — age is 20 or 21; {name:{$ne:"Bob"}} — not Bob. Logical: {$and:[{cgpa:{$gte:7}},{branch:"CSE"}]}; {$or:[{branch:"CSE"},{branch:"IT"}]}; {name:{$not:/^A/}}. Element: {phone:{$exists:true}} — has phone field; {age:{$type:"int"}}. Array: {scores:{$elemMatch:{$gt:90}}} — any element>90; {tags:{$all:["db","cloud"]}} — has all tags; {courses:{$size:3}} — exactly 3 courses.',
+     wr:['MongoDB Query Language (MQL) has a rich set of operators','MongoDB supports range queries, text search, geospatial, and more operator types','MQL uses BSON/JSON with $-prefixed operators, not JavaScript && or || syntax']},
+   d:{q:'4d) Explain MongoDB Aggregation Pipeline — stages $match, $group, $project, $sort, $lookup with examples.',
+     opts:['Pipeline stages transform documents sequentially. $match(filter), $group(aggregate by field), $project(reshape), $sort(order), $lookup(join). Example: total sales per branch.','Aggregation is the same as find()','$group and $match can only be used separately','Aggregation pipeline cannot join collections'],
+     ans:0,exp:'Aggregation pipeline: sequence of stages that transform documents. $match: {$match:{status:"active"}} — filter (like WHERE). $group: {$group:{_id:"$branch",count:{$sum:1},avgScore:{$avg:"$cgpa"}}} — GROUP BY+aggregate. $project: {$project:{name:1,grade:{$cond:[{$gte:["$cgpa",9]},"A","B"]}}} — reshape/compute. $sort: {$sort:{avgScore:-1}} — ORDER BY. $lookup: left outer join between collections. Example: [{$match:{year:2024}},{$group:{_id:"$dept",total:{$sum:"$sales"}}},{$sort:{total:-1}}]',
+     wr:['Aggregation pipeline is more powerful than find() for analytics and transformations','Stages are composable — $match, $group, $project can be combined in any order','$lookup performs left outer join between collections by matching fields']}
+ }
+},
+{id:'sb5',qnum:5,label:'Q5',
+ pairAB:{
+   a:{q:'5a) Explain R data structures — Vectors, Matrices, Lists, Data Frames, Factors, Tables — creation, operations and use cases.',
+     opts:['Vector(c(),atomic,1D), Matrix(matrix(),2D same type), List(list(),heterogeneous), DataFrame(data.frame(),2D mixed types), Factor(factor(),categorical+levels), Table(table(),frequency counts)','R only has vectors and lists','All R structures hold only numeric data','Data frames and matrices are identical in R'],
+     ans:0,exp:'Vector: c(1,2,3), atomic (one type), vectorized arithmetic, logical subsetting. Matrix: matrix(1:9,nrow=3), 2D same type, m[r,c], apply(). List: list(a=1,b="x"), heterogeneous, lst[[1]], lapply(). Data Frame: data.frame(), 2D mixed types per column, df$col, df[cond,], most common for datasets. Factor: factor(x,levels,ordered), categorical with levels, table() for frequency. Table: table(df$col) for frequency counts, xtabs() for cross-tabulation.',
+     wr:['R has 6 primary data structures with different properties and use cases','R structures hold numeric, character, logical, factor, and complex data','Matrix = 2D same type; Data Frame = 2D mixed types — fundamentally different']},
+   b:{q:'5b) Explain R graphics — all chart types with syntax, customization, and the apply family (apply, lapply, sapply, tapply).',
+     opts:['Charts: pie(proportions), barplot(categories), hist(distribution), boxplot(spread+outliers), plot(type="l" for trends, pch for scatter). Customize: col,main,xlab,legend. Apply: apply(matrix,margin,func), lapply(list,func)→list, sapply(simplified), tapply(grouped).','R has only one plotting function','R charts cannot be customized','apply() and lapply() are identical'],
+     ans:0,exp:'Charts: pie(c(40,30,30),labels=c("A","B","C"),col=rainbow(3)) — proportions. barplot(v,names.arg=,col=) — categories. hist(x,breaks=10,col="red") — distribution. boxplot(score~branch,data=df) — by groups. plot(x,y,type="l",lwd=2) — line/trends; lines() to add more. plot(x,y,pch=16,col="navy") — scatter; abline(lm(y~x)) for regression line. Customization: main="title", xlab/ylab, legend("topright",...), par(mfrow=c(2,2)) for grid. Apply: apply(m,1,sum) rows; lapply(lst,func)→list; sapply→vector; tapply(x,grp,mean)→group means.',
+     wr:['R has dedicated functions for each chart type: pie,barplot,hist,boxplot,plot','Extensive customization via graphical parameters (par): col,pch,lty,lwd,main','apply() works on 2D objects; lapply() on 1D lists — different dimensions']}
+ },
+ pairCD:{
+   c:{q:'5c) Explain R Control Structures — if/else, ifelse(), for, while, repeat, functions with scope and recursion.',
+     opts:['if(cond){...}else if{...}else{...}; vectorized ifelse(); for(i in seq){}: while(cond){}: repeat{break}; next(skip); function(args,default=v){body}; <<- for global; recursion with base case.','R does not support loops','if/else and ifelse() are identical','Functions cannot have default arguments in R'],
+     ans:0,exp:'Branching: if(x>0){"pos"}else if(x==0){"zero"}else{"neg"}. Vectorized: ifelse(v>0,"pos","neg") applies to all elements. For: for(i in 1:n){...} or for(item in list). While: while(x<10){x<-x+1}. Repeat: repeat{x<-x+1;if(x>5)break}. Control: next skips iteration, break exits. Functions: fn<-function(x,n=2){x^n}. Scope: local by default; <<- for global. Recursion: fact<-function(n){if(n<=1)1 else n*fact(n-1)} — base case prevents infinite recursion.',
+     wr:['for, while, and repeat are all supported loop types in R','ifelse() is vectorized (applies to whole vector); if() evaluates single scalar condition','Default arguments are a core R function feature: function(x, n=2)']},
+   d:{q:'5d) Explain R operators (arithmetic, relational, logical), I/O operations, and mathematical functions.',
+     opts:['Arithmetic(+,-,*,/,^,%%,%/%); Relational(==,!=,>,<,>=,<=); Logical(&,|,!,&&,||); I/O(read.csv,write.csv,readLines,print,cat); Math(abs,sqrt,exp,log,floor,ceiling,round,sum,mean,sd).','R has no I/O operations','& and && are identical in R','log() in R only computes log base 10'],
+     ans:0,exp:'Arithmetic: +,-,*,/,^(power),5%%3=2(modulo),7%/%2=3(integer div). Relational: ==,!=,>,<,>=,<=; result is logical. Logical element-wise: & (vectorized), | (vectorized), !. Scalar short-circuit: && (stops early), ||. I/O: df<-read.csv("f.csv",header=TRUE); write.csv(df,"out.csv",row.names=FALSE); readLines("f.txt"); print(x); cat("val:",x,"\\n"); sprintf("pi=%.2f",3.14159). Math: abs(-5)=5; sqrt(16)=4; exp(1)=e; log(x)(natural); log10(x); log2(x); floor(3.7)=3; ceiling(3.2)=4; round(3.567,2)=3.57; cumsum(),cumprod().',
+     wr:['read.csv, write.csv, readLines, print, cat are all R I/O functions','& is vectorized (applies element-by-element to vectors); && is scalar (for single values only)','log() computes natural log by default; log10() is base-10; log(x,base=b) for any base']}
+ }
+},
+];
+
+// ============================================================
+// STATE
+// ============================================================
+let state={
+  section:'mid1',
+  mid1:{mode:'flash',unit:'all'},
+  mid2:{mode:'flash',unit:'all'},
+  sem:{mode:'flash',unit:'all'},
+  mid1Exam:{partA:{},partB:{},shown:false,partBAttempts:new Set(),submitted:false,mistakes:[]},
+  mid2Exam:{partA:{},partB:{},shown:false,partBAttempts:new Set(),submitted:false,mistakes:[]},
+  semExam:{partA:{},partB:{},pairSelections:{},shown:false,submitted:false,mistakes:[]}
+};
+
+const MID1_UNITS=['1','2','3a'];
+const MID2_UNITS=['3b','4','5'];
+const SEM_UNITS=['1','2','3a','3b','4','5'];
+
+function shuffle(arr){const a=[...arr];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function showSection(s){
+  state.section=s;
+  ['mid1','mid2','sem'].forEach(x=>{
+    document.getElementById('panel-'+x).classList.toggle('active',x===s);
+    document.getElementById('stab-'+x).classList.toggle('active',x===s);
+    document.getElementById('nav'+x.charAt(0).toUpperCase()+x.slice(1)).classList.toggle('active',x===s);
+  });
+  renderAll(s);
+  startTimer();
+}
+
+function setMode(sec,mode){
+  state[sec].mode=mode;
+  ['flash','exam'].forEach(m=>{document.getElementById(sec+'-'+m).classList.toggle('active',m===mode);});
+  document.querySelectorAll('#panel-'+sec+' .mtab').forEach((b,i)=>{b.classList.toggle('active',(i===0&&mode==='flash')||(i===1&&mode==='exam'));});
+  if(mode==='exam') buildExam(sec);
+  else renderFlashcards(sec);
+  startTimer();
+}
+
+function filterUnit(sec,unit){
+  state[sec].unit=unit;
+  document.querySelectorAll('#uf-'+sec+' .ufbtn').forEach(b=>{
+    const m=b.getAttribute('onclick').match(/'([^']+)'\)$/);
+    if(m) b.classList.toggle('active',m[1]===unit);
+  });
+  renderFlashcards(sec);
+}
+
+function getFlashData(sec){
+  let validUnits=sec==='mid1'?MID1_UNITS:sec==='mid2'?MID2_UNITS:SEM_UNITS;
+  let data=FLASHCARDS.filter(d=>validUnits.includes(d.u));
+  if(state[sec].unit!=='all') data=data.filter(d=>d.u===state[sec].unit);
+  return data;
+}
+
+function renderFlashcards(sec){
+  const data=shuffle(getFlashData(sec));
+  const grid=document.getElementById('fc-'+sec);
+  const cnt=document.getElementById('fc-count-'+sec);
+  updateStats(sec,data);
+  if(!data.length){grid.innerHTML='<div class="empty">No flashcards match filter.</div>';cnt.textContent='';return;}
+  grid.innerHTML=data.map(d=>`
+    <div class="fc" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div><div class="fc-tag">${d.tag} · Unit ${d.u.toUpperCase()}</div><div class="fc-q">${d.q}</div></div>
+          <div class="fc-hint">tap to reveal ↓</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-tag">Answer</div>
+          <div class="fc-ans">${d.a.replace(/\n/g,'<br>')}${d.f?'<span class="formula">→ '+d.f+'</span>':''}</div>
+          <div class="fc-unit">Unit ${d.u.toUpperCase()}</div>
+        </div>
+      </div>
+    </div>`).join('');
+  cnt.textContent=data.length+' flashcards · shuffled · click to flip';
+}
+
+function updateStats(sec,data){
+  const bar=document.getElementById('stats-'+sec);
+  const validUnits=sec==='mid1'?MID1_UNITS:sec==='mid2'?MID2_UNITS:SEM_UNITS;
+  let html=`<div class="stat"><div class="stat-n">${data.length}</div><div class="stat-l">Total Cards</div></div>`;
+  validUnits.forEach(u=>{const c=data.filter(d=>d.u===u).length;if(c>0)html+=`<div class="stat"><div class="stat-n">${c}</div><div class="stat-l">Unit ${u.toUpperCase()}</div></div>`;});
+  bar.innerHTML=html;
+}
+
+// ============================================================
+// BUILD EXAM
+// ============================================================
+function buildExam(sec){
+  if(sec==='mid1') buildMidExam('mid1', MID1_PARTA, MID1_PARTB);
+  else if(sec==='mid2') buildMidExam('mid2', MID2_PARTA, MID2_PARTB);
+  else buildSemExam();
+}
+
+function buildMidExam(sec, partABank, partBBank){
+  const st=state[sec+'Exam'];
+  st.partA={};st.partB={};st.shown=true;st.partBAttempts=new Set();st.submitted=false;st.mistakes=[];
+  const partAQs=shuffle(partABank).slice(0,5);
+  const partBQs=shuffle(partBBank);
+
+  let html=`
+  <div class="exam-header">
+    <h2>Mid Examination — 30 Marks</h2>
+    <p>Part A: All 5 questions (2M each = 10M) · Part B: 6 questions, attempt any 4 (a+b sub-parts, 5M each = 20M)</p>
+    <div class="exam-score-bar">
+      <div class="escore"><div class="escore-n" id="${sec}-score-a">—</div><div class="escore-l">Part A /10</div></div>
+      <div class="escore"><div class="escore-n" id="${sec}-score-b">—</div><div class="escore-l">Part B /20</div></div>
+      <div class="escore"><div class="escore-n" id="${sec}-score-total">—/30</div><div class="escore-l">Total</div></div>
+    </div>
+  </div>
+  <div class="part-header">PART A — 5 × 2 Marks = 10 Marks</div>`;
+
+  partAQs.forEach((q,i)=>{
+    st.partA[q.id]=null;
+    html+=`<div class="parta-q">
+      <div class="parta-meta"><div class="parta-num">Q${i+1} · Unit ${q.u.toUpperCase()}</div><div class="parta-marks">2 Marks</div></div>
+      <div class="parta-text">${q.q}</div>
+      <div class="parta-opts">${q.opts.map((o,j)=>`<button class="parta-opt" id="${sec}-pa-${q.id}-${j}" onclick="selectMidPartA('${sec}','${q.id}',${j})">${o}</button>`).join('')}</div>
+      <div class="parta-explain" id="${sec}-exp-${q.id}"></div>
+    </div>`;
+  });
+
+  html+=`<div class="part-header">PART B — Attempt ANY 4 of 6 Questions × 5 Marks each = 20 Marks</div>
+  <div class="mid-partb-info" id="${sec}-attempt-info">✦ Attempted: 0/4</div>`;
+
+  partBQs.forEach(q=>{
+    st.partB[q.id]={a:null,b:null,selected:false};
+    html+=`<div class="partb-q" id="${sec}-pbq-${q.id}">
+      <div class="partb-meta">
+        <div class="partb-num">${q.label}</div>
+        <div class="partb-marks">5M + 5M</div>
+      </div>
+      <div style="margin-bottom:10px">
+        <button class="pair-btn" id="${sec}-sel-${q.id}" onclick="toggleMidPartB('${sec}','${q.id}')">+ Select this question</button>
+      </div>
+      <div id="${sec}-pb-content-${q.id}" style="display:none">
+        <div class="sub-q">
+          <div class="sub-q-label">Part (a)</div>
+          <div class="sub-q-text">${q.a.q}</div>
+          <div class="sub-opts">${q.a.opts.map((o,j)=>`<button class="sub-opt" id="${sec}-sa-${q.id}-${j}" onclick="selectMidSubQ('${sec}','${q.id}','a',${j})">${o}</button>`).join('')}</div>
+          <div class="sub-explain" id="${sec}-sea-${q.id}"></div>
+        </div>
+        <div class="sub-q">
+          <div class="sub-q-label">Part (b)</div>
+          <div class="sub-q-text">${q.b.q}</div>
+          <div class="sub-opts">${q.b.opts.map((o,j)=>`<button class="sub-opt" id="${sec}-sb-${q.id}-${j}" onclick="selectMidSubQ('${sec}','${q.id}','b',${j})">${o}</button>`).join('')}</div>
+          <div class="sub-explain" id="${sec}-seb-${q.id}"></div>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  html+=`<div class="exam-actions">
+    <button class="btn btn-red" onclick="submitMidExam('${sec}')">Submit & Score</button>
+    <button class="btn btn-outline" onclick="buildExam('${sec}')">New Random Exam</button>
+  </div><div id="${sec}-result"></div>`;
+
+  document.getElementById(sec+'-exam-body').innerHTML=html;
+  document.getElementById(sec+'-exam-body')._partAQs=partAQs;
+  document.getElementById(sec+'-exam-body')._partBQs=partBQs;
+}
+
+function toggleMidPartB(sec,qid){
+  const st=state[sec+'Exam'];
+  const attempts=st.partBAttempts;
+  if(attempts.has(qid)){
+    attempts.delete(qid);st.partB[qid].selected=false;
+    document.getElementById(sec+'-pb-content-'+qid).style.display='none';
+    document.getElementById(sec+'-sel-'+qid).textContent='+ Select this question';
+    document.getElementById(sec+'-sel-'+qid).classList.remove('active');
+  } else {
+    if(attempts.size>=4){alert('You can only attempt 4 Part B questions. Deselect one first.');return;}
+    attempts.add(qid);st.partB[qid].selected=true;
+    document.getElementById(sec+'-pb-content-'+qid).style.display='block';
+    document.getElementById(sec+'-sel-'+qid).textContent='✓ Selected';
+    document.getElementById(sec+'-sel-'+qid).classList.add('active');
+  }
+  document.getElementById(sec+'-attempt-info').textContent=`✦ Attempted: ${attempts.size}/4 — ${attempts.size<4?'Select '+(4-attempts.size)+' more':'All 4 selected!'}`;
+}
+
+function selectMidPartA(sec,qid,chosen){
+  const st=state[sec+'Exam'];
+  if(st.submitted)return;
+  st.partA[qid]=chosen;
+  const bank=sec==='mid1'?MID1_PARTA:MID2_PARTA;
+  const q=bank.find(x=>x.id===qid);
+  q.opts.forEach((_,j)=>{const el=document.getElementById(sec+'-pa-'+qid+'-'+j);if(el)el.classList.toggle('selected',j===chosen);});
+}
+
+function selectMidSubQ(sec,qid,part,chosen){
+  if(state[sec+'Exam'].submitted)return;
+  state[sec+'Exam'].partB[qid][part]=chosen;
+  const bank=sec==='mid1'?MID1_PARTB:MID2_PARTB;
+  const q=bank.find(x=>x.id===qid);
+  q[part].opts.forEach((_,j)=>{const el=document.getElementById(sec+'-s'+part+'-'+qid+'-'+j);if(el)el.classList.toggle('selected',j===chosen);});
+}
+
+function submitMidExam(sec){
+  const st=state[sec+'Exam'];
+  if(st.submitted)return;
+  const body=document.getElementById(sec+'-exam-body');
+  const partAQs=body._partAQs;
+  const partBQs=body._partBQs;
+  const bank=sec==='mid1'?MID1_PARTA:MID2_PARTA;
+
+  const unansweredA=partAQs.filter(q=>st.partA[q.id]===null);
+  if(unansweredA.length>0){if(!confirm(`${unansweredA.length} Part A question(s) unanswered. Submit anyway?`))return;}
+  if(st.partBAttempts.size<4&&st.partBAttempts.size>0){if(!confirm(`Only ${st.partBAttempts.size}/4 Part B questions selected. Submit?`))return;}
+  if(st.partBAttempts.size===0){if(!confirm('No Part B questions selected. Submit with 0/20?'))return;}
+
+  st.submitted=true;st.mistakes=[];
+  let scoreA=0,scoreB=0;
+
+  partAQs.forEach(q=>{
+    const chosen=st.partA[q.id];
+    const correct=chosen===q.ans;
+    if(correct)scoreA+=2;
+    q.opts.forEach((_,j)=>{const el=document.getElementById(sec+'-pa-'+q.id+'-'+j);if(el){el.classList.add('locked');el.classList.remove('selected');if(j===q.ans)el.classList.add('correct');else if(j===chosen)el.classList.add('wrong');}});
+    const expEl=document.getElementById(sec+'-exp-'+q.id);
+    if(expEl){const wrongMsg=chosen!==null&&chosen!==q.ans?`<div class="why-wrong">✗ You chose: "${q.opts[chosen]}" — ${q.wr&&q.wr[chosen]?q.wr[chosen]:'Incorrect.'}</div>`:'';expEl.innerHTML=`<strong>${correct?'✓ Correct!':chosen===null?'⚠ Not answered':'✗ Incorrect.'}</strong> ${q.exp}${wrongMsg}`;expEl.classList.add('show');}
+    if(!correct)st.mistakes.push({q:q.q,yours:chosen!==null?q.opts[chosen]:'Not answered',correct:q.opts[q.ans],exp:q.exp,why:chosen!==null&&q.wr?q.wr[chosen]||'':''});
+  });
+
+  const partBBank=sec==='mid1'?MID1_PARTB:MID2_PARTB;
+  partBQs.forEach(q=>{
+    if(!st.partBAttempts.has(q.id))return;
+    ['a','b'].forEach(part=>{
+      const chosen=st.partB[q.id][part];
+      const subQ=q[part];
+      const correct=chosen===subQ.ans;
+      if(correct)scoreB+=5;
+      subQ.opts.forEach((_,j)=>{const el=document.getElementById(sec+'-s'+part+'-'+q.id+'-'+j);if(el){el.classList.add('locked');el.classList.remove('selected');if(j===subQ.ans)el.classList.add('correct');else if(j===chosen)el.classList.add('wrong');}});
+      const expEl=document.getElementById(sec+'-se'+part+'-'+q.id);
+      if(expEl){const wrongMsg=chosen!==null&&chosen!==subQ.ans?`<div class="why-wrong">✗ You chose: "${subQ.opts[chosen]}"${subQ.wr&&subQ.wr[chosen]?' — '+subQ.wr[chosen]:''}</div>`:'';expEl.innerHTML=`<strong>${correct?'✓ Correct!':chosen===null?'⚠ Not answered':'✗ Incorrect.'}</strong> ${subQ.exp}${wrongMsg}`;expEl.classList.add('show');}
+      if(!correct)st.mistakes.push({q:subQ.q,yours:chosen!==null?subQ.opts[chosen]:'Not answered',correct:subQ.opts[subQ.ans],exp:subQ.exp,why:chosen!==null&&subQ.wr?subQ.wr[chosen]||'':''});
+    });
+  });
+
+  const total=scoreA+scoreB;
+  document.getElementById(sec+'-score-a').textContent=scoreA+'/10';
+  document.getElementById(sec+'-score-b').textContent=scoreB+'/'+(st.partBAttempts.size*10||20);
+  document.getElementById(sec+'-score-total').textContent=total+'/30';
+  const pct=Math.round((total/30)*100);
+  const msg=pct>=80?'Outstanding! You\'re ready for the exam.':pct>=60?'Good work — review mistakes below.':pct>=40?'Keep practising. Use flashcards for weak units.':'Start with flashcards, then retake.';
+  renderResult(sec,pct,scoreA,scoreB,total,'/30',msg,st.mistakes);
+}
+
+function buildSemExam(){
+  const st=state.semExam;
+  st.partA={};st.partB={};st.pairSelections={};st.shown=true;st.submitted=false;st.mistakes=[];
+  const partAQs=shuffle(SEM_PARTA).slice(0,10);
+  const partBQs=shuffle(SEM_PARTB);
+
+  let html=`
+  <div class="exam-header">
+    <h2>Semester Examination — 60 Marks</h2>
+    <p>Part A: All 10 questions (1M each = 10M) · Part B: All 5 questions, each with 2 pairs. Choose ONE pair per question (a+b OR c+d). 10M per question = 50M.</p>
+    <div class="exam-score-bar">
+      <div class="escore"><div class="escore-n" id="sem-score-a">—</div><div class="escore-l">Part A /10</div></div>
+      <div class="escore"><div class="escore-n" id="sem-score-b">—</div><div class="escore-l">Part B /50</div></div>
+      <div class="escore"><div class="escore-n" id="sem-score-total">—/60</div><div class="escore-l">Total</div></div>
+    </div>
+  </div>
+  <div class="part-header">PART A — 10 × 1 Mark = 10 Marks (Attempt All)</div>`;
+
+  partAQs.forEach((q,i)=>{
+    st.partA[q.id]=null;
+    html+=`<div class="parta-q">
+      <div class="parta-meta"><div class="parta-num">Q${i+1} · Unit ${q.u.toUpperCase()}</div><div class="parta-marks">1 Mark</div></div>
+      <div class="parta-text">${q.q}</div>
+      <div class="parta-opts">${q.opts.map((o,j)=>`<button class="parta-opt" id="sem-pa-${q.id}-${j}" onclick="selectSemPartA('${q.id}',${j})">${o}</button>`).join('')}</div>
+      <div class="parta-explain" id="sem-exp-${q.id}"></div>
+    </div>`;
+  });
+
+  html+=`<div class="part-header">PART B — 5 Questions × 10 Marks = 50 Marks (Attempt ALL — Choose ONE pair per question)</div>`;
+
+  partBQs.forEach(q=>{
+    st.partB[q.id]={pairAB:{a:null,b:null},pairCD:{c:null,d:null}};
+    st.pairSelections[q.id]=null;
+    html+=`<div class="partb-q">
+      <div class="partb-meta"><div class="partb-num">${q.label} — Choose (a+b) OR (c+d)</div><div class="partb-marks">10 Marks (5+5)</div></div>
+      <div class="pair-selector">
+        <button class="pair-btn" id="sem-pair-${q.id}-AB" onclick="selectSemPair('${q.id}','AB')">Answer (a) + (b)</button>
+        <button class="pair-btn" id="sem-pair-${q.id}-CD" onclick="selectSemPair('${q.id}','CD')">Answer (c) + (d)</button>
+      </div>
+      <div class="pair-questions" id="sem-pq-${q.id}-AB">
+        <div class="sub-q">
+          <div class="sub-q-label">Part (a)</div>
+          <div class="sub-q-text">${q.pairAB.a.q}</div>
+          <div class="sub-opts">${q.pairAB.a.opts.map((o,j)=>`<button class="sub-opt" id="sem-sa-${q.id}-${j}" onclick="selectSemSubQ('${q.id}','a',${j},'AB')">${o}</button>`).join('')}</div>
+          <div class="sub-explain" id="sem-sea-${q.id}"></div>
+        </div>
+        <div class="sub-q">
+          <div class="sub-q-label">Part (b)</div>
+          <div class="sub-q-text">${q.pairAB.b.q}</div>
+          <div class="sub-opts">${q.pairAB.b.opts.map((o,j)=>`<button class="sub-opt" id="sem-sb-${q.id}-${j}" onclick="selectSemSubQ('${q.id}','b',${j},'AB')">${o}</button>`).join('')}</div>
+          <div class="sub-explain" id="sem-seb-${q.id}"></div>
+        </div>
+      </div>
+      <div class="pair-questions" id="sem-pq-${q.id}-CD">
+        <div class="sub-q">
+          <div class="sub-q-label">Part (c)</div>
+          <div class="sub-q-text">${q.pairCD.c.q}</div>
+          <div class="sub-opts">${q.pairCD.c.opts.map((o,j)=>`<button class="sub-opt" id="sem-sc-${q.id}-${j}" onclick="selectSemSubQ('${q.id}','c',${j},'CD')">${o}</button>`).join('')}</div>
+          <div class="sub-explain" id="sem-sec-${q.id}"></div>
+        </div>
+        <div class="sub-q">
+          <div class="sub-q-label">Part (d)</div>
+          <div class="sub-q-text">${q.pairCD.d.q}</div>
+          <div class="sub-opts">${q.pairCD.d.opts.map((o,j)=>`<button class="sub-opt" id="sem-sd-${q.id}-${j}" onclick="selectSemSubQ('${q.id}','d',${j},'CD')">${o}</button>`).join('')}</div>
+          <div class="sub-explain" id="sem-sed-${q.id}"></div>
+        </div>
+      </div>
+    </div>`;
+  });
+
+  html+=`<div class="exam-actions">
+    <button class="btn btn-red" onclick="submitSemExam()">Submit & Score</button>
+    <button class="btn btn-outline" onclick="buildSemExam()">New Random Exam</button>
+  </div><div id="sem-result"></div>`;
+
+  document.getElementById('sem-exam-body').innerHTML=html;
+  document.getElementById('sem-exam-body')._partAQs=partAQs;
+  document.getElementById('sem-exam-body')._partBQs=partBQs;
+}
+
+function selectSemPartA(qid,chosen){
+  if(state.semExam.submitted)return;
+  state.semExam.partA[qid]=chosen;
+  const q=SEM_PARTA.find(x=>x.id===qid);
+  q.opts.forEach((_,j)=>{const el=document.getElementById('sem-pa-'+qid+'-'+j);if(el)el.classList.toggle('selected',j===chosen);});
+}
+
+function selectSemPair(qid,pair){
+  if(state.semExam.submitted)return;
+  state.semExam.pairSelections[qid]=pair;
+  ['AB','CD'].forEach(p=>{
+    const el=document.getElementById('sem-pq-'+qid+'-'+p);
+    const btn=document.getElementById('sem-pair-'+qid+'-'+p);
+    if(el)el.classList.toggle('active',p===pair);
+    if(btn)btn.classList.toggle('active',p===pair);
+  });
+}
+
+function selectSemSubQ(qid,part,chosen,pair){
+  if(state.semExam.submitted)return;
+  const pKey='pair'+pair;
+  state.semExam.partB[qid][pKey][part]=chosen;
+  const q=SEM_PARTB.find(x=>x.id===qid);
+  const pairObj=pair==='AB'?q.pairAB:q.pairCD;
+  pairObj[part].opts.forEach((_,j)=>{const el=document.getElementById('sem-s'+part+'-'+qid+'-'+j);if(el)el.classList.toggle('selected',j===chosen);});
+}
+
+function submitSemExam(){
+  const st=state.semExam;
+  if(st.submitted)return;
+  const body=document.getElementById('sem-exam-body');
+  const partAQs=body._partAQs;
+  const partBQs=body._partBQs;
+  st.submitted=true;st.mistakes=[];
+  let scoreA=0,scoreB=0;
+
+  partAQs.forEach(q=>{
+    const chosen=st.partA[q.id];
+    const correct=chosen===q.ans;
+    if(correct)scoreA+=1;
+    q.opts.forEach((_,j)=>{const el=document.getElementById('sem-pa-'+q.id+'-'+j);if(el){el.classList.add('locked');el.classList.remove('selected');if(j===q.ans)el.classList.add('correct');else if(j===chosen)el.classList.add('wrong');}});
+    const expEl=document.getElementById('sem-exp-'+q.id);
+    if(expEl){const wrongMsg=chosen!==null&&chosen!==q.ans?`<div class="why-wrong">✗ You chose: "${q.opts[chosen]}"${q.wr&&q.wr[chosen]?' — '+q.wr[chosen]:''}</div>`:'';expEl.innerHTML=`<strong>${correct?'✓ Correct!':chosen===null?'⚠ Not answered':'✗ Incorrect.'}</strong> ${q.exp}${wrongMsg}`;expEl.classList.add('show');}
+    if(!correct)st.mistakes.push({q:q.q,yours:chosen!==null?q.opts[chosen]:'Not answered',correct:q.opts[q.ans],exp:q.exp,why:chosen!==null&&q.wr?q.wr[chosen]||'':''});
+  });
+
+  partBQs.forEach(q=>{
+    const pair=st.pairSelections[q.id];
+    if(!pair)return;
+    const pairObj=pair==='AB'?q.pairAB:q.pairCD;
+    const pKey='pair'+pair;
+    const parts=pair==='AB'?['a','b']:['c','d'];
+    parts.forEach(part=>{
+      const chosen=st.partB[q.id][pKey][part];
+      const subQ=pairObj[part];
+      const correct=chosen===subQ.ans;
+      if(correct)scoreB+=5;
+      subQ.opts.forEach((_,j)=>{const el=document.getElementById('sem-s'+part+'-'+q.id+'-'+j);if(el){el.classList.add('locked');el.classList.remove('selected');if(j===subQ.ans)el.classList.add('correct');else if(j===chosen)el.classList.add('wrong');}});
+      const expEl=document.getElementById('sem-se'+part+'-'+q.id);
+      if(expEl){const wrongMsg=chosen!==null&&chosen!==subQ.ans?`<div class="why-wrong">✗ You chose: "${subQ.opts[chosen]}"${subQ.wr&&subQ.wr[chosen]?' — '+subQ.wr[chosen]:''}</div>`:'';expEl.innerHTML=`<strong>${correct?'✓ Correct!':chosen===null?'⚠ Not answered':'✗ Incorrect.'}</strong> ${subQ.exp}${wrongMsg}`;expEl.classList.add('show');}
+      if(!correct)st.mistakes.push({q:subQ.q,yours:chosen!==null?subQ.opts[chosen]:'Not answered',correct:subQ.opts[subQ.ans],exp:subQ.exp,why:chosen!==null&&subQ.wr?subQ.wr[chosen]||'':''});
+    });
+  });
+
+  const total=scoreA+scoreB;
+  document.getElementById('sem-score-a').textContent=scoreA+'/10';
+  document.getElementById('sem-score-b').textContent=scoreB+'/50';
+  document.getElementById('sem-score-total').textContent=total+'/60';
+  const pct=Math.round((total/60)*100);
+  const msg=pct>=80?'Excellent! Semester ready.':pct>=60?'Good — review mistakes and you\'re set.':pct>=40?'Needs improvement — revise weak units with flashcards.':'Keep going — flashcards first, then retake.';
+  renderResult('sem',pct,scoreA,scoreB,total,'/60',msg,st.mistakes);
+}
+
+function renderResult(sec,pct,scoreA,scoreB,total,maxStr,msg,mistakes){
+  let mistakeHTML='';
+  if(mistakes.length>0){
+    mistakeHTML=`<div class="part-header">Mistakes to Review (${mistakes.length})</div>`;
+    mistakes.forEach(m=>{
+      mistakeHTML+=`<div class="mistake-item">
+        <div class="mistake-q">${m.q}</div>
+        <div class="mistake-row"><span class="m-you">✗ You: ${m.yours}</span></div>
+        <div class="mistake-row"><span class="m-correct">✓ Correct: ${m.correct}</span></div>
+        <div class="m-explain">${m.exp}</div>
+        ${m.why?`<div class="m-why">Why wrong: ${m.why}</div>`:''}
+      </div>`;
+    });
+  } else {
+    mistakeHTML='<div style="text-align:center;padding:1rem;color:var(--green)">🎉 Perfect score!</div>';
+  }
+  document.getElementById(sec+'-result').innerHTML=`
+  <div class="result-panel">
+    <div class="result-big">${pct}%</div>
+    <div class="result-sub">Score: ${total}${maxStr}</div>
+    <div class="result-breakdown">
+      <div class="rb"><div class="rb-n" style="color:var(--green)">${scoreA}</div><div class="rb-l">Part A</div></div>
+      <div class="rb"><div class="rb-n" style="color:var(--red2)">${scoreB}</div><div class="rb-l">Part B</div></div>
+      <div class="rb"><div class="rb-n">${total}${maxStr}</div><div class="rb-l">Total</div></div>
+    </div>
+    <div class="result-msg">${msg}</div>
+    ${mistakeHTML}
+    <div class="exam-actions" style="justify-content:center;margin-top:1.5rem">
+      <button class="btn btn-red" onclick="buildExam('${sec}')">New Random Exam</button>
+      <button class="btn btn-outline" onclick="setMode('${sec}','flash')">Review Flashcards</button>
+    </div>
+  </div>`;
+  document.getElementById(sec+'-result').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderAll(sec){renderFlashcards(sec);}
+
+// INIT
+renderFlashcards('mid1');
+renderFlashcards('mid2');
+renderFlashcards('sem');
+startTimer();
+</script>
+</body>
+</html>

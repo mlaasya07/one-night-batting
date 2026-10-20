@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNS Exam Prep — AIMSCS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --bg4: #222222;
+  --red: #e02020;
+  --red2: #ff3333;
+  --red3: #c01010;
+  --red-dim: rgba(224,32,32,0.12);
+  --red-glow: rgba(224,32,32,0.25);
+  --white: #f5f5f5;
+  --white2: #cccccc;
+  --white3: #888888;
+  --border: rgba(255,255,255,0.08);
+  --border-red: rgba(224,32,32,0.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Roboto Mono',monospace;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.5}
+
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);letter-spacing:0.02em}
+.logo span{color:var(--red)}
+.logo a{color:var(--white3);text-decoration:none;font-size:11px;font-family:'Roboto Mono',monospace;letter-spacing:0.06em}
+.logo a:hover{color:var(--red2)}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav-btn{background:none;border:none;color:var(--white3);font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;cursor:pointer;border-radius:4px;transition:all .2s}
+.nav-btn:hover,.nav-btn.active{background:var(--red-dim);color:var(--red2)}
+
+.main{max-width:1200px;margin:0 auto;padding:2rem;position:relative;z-index:1}
+
+.section-tabs{display:flex;gap:12px;margin-bottom:2rem;flex-wrap:wrap}
+.stab{flex:1;min-width:180px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.5rem;cursor:pointer;transition:all .25s;text-align:left}
+.stab:hover{border-color:var(--border-red);background:var(--bg3)}
+.stab.active{border-color:var(--red);background:var(--red-dim);box-shadow:0 0 24px var(--red-glow)}
+.stab-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white3);margin-bottom:4px}
+.stab-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--white)}
+.stab.active .stab-title{color:var(--red2)}
+.stab-marks{font-size:10px;color:var(--white3);margin-top:4px;line-height:1.5}
+
+.mode-tabs{display:flex;gap:8px;margin-bottom:1.5rem}
+.mtab{background:var(--bg2);border:1px solid var(--border);color:var(--white3);font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 20px;cursor:pointer;border-radius:4px;transition:all .2s}
+.mtab:hover{color:var(--white);border-color:rgba(255,255,255,0.2)}
+.mtab.active{background:var(--red);border-color:var(--red);color:#fff}
+
+.filter-row{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:flex-start}
+.unit-filter{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.ufbtn{background:var(--bg3);border:1px solid var(--border);color:var(--white3);font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;cursor:pointer;border-radius:3px;transition:all .15s}
+.ufbtn:hover{border-color:var(--border-red);color:var(--white)}
+.ufbtn.active{background:var(--red-dim);border-color:var(--red);color:var(--red2)}
+
+.mark-filter{display:flex;gap:6px;flex-wrap:wrap}
+
+.cpanel{display:none}.cpanel.active{display:block}
+
+/* PATTERN INFO BOX */
+.pattern-box{background:var(--bg2);border:1px solid var(--border-red);border-radius:8px;padding:1rem 1.5rem;margin-bottom:1.5rem;font-size:11px;color:var(--white3);line-height:1.8}
+.pattern-box strong{color:var(--red2)}
+.pattern-box .part{color:var(--white2)}
+
+/* FLASHCARDS */
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.fc{perspective:1000px;height:230px;cursor:pointer}
+.fc.tall{height:290px}
+.fc-inner{position:relative;width:100%;height:100%;transition:transform 0.55s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between}
+.fc-front{background:var(--bg2);border:1px solid var(--border)}
+.fc-front:hover{border-color:var(--border-red)}
+.fc-back{background:var(--bg3);border:1px solid var(--red);transform:rotateY(180deg)}
+.fc-tag{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.fc-mark-badge{display:inline-block;background:var(--red-dim);border:1px solid var(--border-red);color:var(--red2);font-size:9px;letter-spacing:0.1em;padding:2px 7px;border-radius:3px;margin-left:6px}
+.fc-q{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);line-height:1.5;flex:1;display:flex;align-items:center}
+.fc-hint{font-size:10px;color:var(--white3);letter-spacing:0.06em}
+.fc-ans{font-size:11.5px;color:var(--white2);line-height:1.65;font-family:'Roboto Mono',monospace;overflow-y:auto;flex:1}
+.fc-ans .formula{color:var(--red2);display:block;margin:4px 0;font-size:11px}
+.fc-unit{font-size:9px;color:var(--white3);letter-spacing:0.1em;text-transform:uppercase}
+.fc-count{font-size:10px;color:var(--white3);text-align:center;margin-top:1rem}
+
+/* QUIZ */
+.quiz-wrap{max-width:720px;margin:0 auto}
+.quiz-progress{display:flex;gap:4px;margin-bottom:2rem;flex-wrap:wrap}
+.qp-dot{width:8px;height:8px;border-radius:50%;background:var(--bg4);border:1px solid var(--border);transition:all .2s}
+.qp-dot.done{background:var(--red3);border-color:var(--red)}
+.qp-dot.correct{background:#22c55e;border-color:#22c55e}
+.qp-dot.wrong{background:var(--red);border-color:var(--red)}
+.qp-dot.current{background:none;border-color:var(--red2);box-shadow:0 0 6px var(--red2)}
+.quiz-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:2rem;margin-bottom:1.5rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.quiz-meta{display:flex;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:6px}
+.quiz-num{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--red)}
+.quiz-unit{font-size:10px;color:var(--white3);letter-spacing:0.06em}
+.quiz-q{font-family:'Playfair Display',serif;font-size:1.15rem;line-height:1.55;color:var(--white);margin-bottom:1.5rem}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px 16px;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:12px;color:var(--white2);transition:all .2s;text-align:left;line-height:1.5}
+.opt:hover:not(.disabled){border-color:rgba(255,255,255,0.25);background:var(--bg4);color:var(--white)}
+.opt.correct{border-color:#22c55e;background:rgba(34,197,94,0.1);color:#86efac}
+.opt.wrong{border-color:var(--red);background:var(--red-dim);color:#fca5a5}
+.opt.disabled{cursor:default}
+.quiz-explain{background:var(--bg3);border-left:3px solid var(--red);border-radius:0 6px 6px 0;padding:12px 16px;margin-top:1rem;font-size:12px;color:var(--white2);line-height:1.6;animation:fadeUp .25s ease}
+.quiz-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:1.5rem}
+.btn{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 24px;border-radius:4px;cursor:pointer;transition:all .2s;border:none}
+.btn-outline{background:none;border:1px solid var(--border);color:var(--white3)}
+.btn-outline:hover{border-color:var(--border-red);color:var(--white)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red2)}
+.quiz-result{text-align:center;padding:3rem 2rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;animation:fadeUp .4s ease}
+.result-score{font-family:'Playfair Display',serif;font-size:5rem;color:var(--red);line-height:1}
+.result-label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white3);margin:8px 0 1.5rem}
+.result-breakdown{display:flex;gap:2rem;justify-content:center;margin:1.5rem 0;flex-wrap:wrap}
+.rb-item{text-align:center}
+.rb-num{font-family:'Playfair Display',serif;font-size:2rem}
+.rb-lbl{font-size:10px;color:var(--white3);letter-spacing:0.08em;text-transform:uppercase}
+.result-msg{font-size:13px;color:var(--white2);margin:1.5rem auto;line-height:1.6;max-width:400px}
+
+.stats-bar{display:flex;gap:10px;margin-bottom:1.5rem;flex-wrap:wrap}
+.stat{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:2px}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--red2)}
+.stat-l{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--white3)}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--red3);border-radius:2px}
+.empty{text-align:center;padding:4rem;color:var(--white3);font-size:13px}
+
+@media(max-width:600px){.options{grid-template-columns:1fr}.section-tabs{flex-direction:column}.fc-grid{grid-template-columns:1fr}}
+
+.page-title{margin-bottom:2rem}
+.page-title h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1.2;margin-bottom:6px}
+.page-title h1 em{font-style:italic;color:var(--red)}
+.page-title p{font-size:11px;color:var(--white3);letter-spacing:0.08em;text-transform:uppercase}
+.div-line{height:1px;background:linear-gradient(90deg,var(--red),transparent);margin-bottom:2rem;opacity:0.4}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <a href="index.html">← Home</a>
+      &nbsp;&nbsp;Engg<span>.</span>Prep <span style="font-size:.75rem;color:var(--white3);font-family:'Roboto Mono',monospace;font-weight:300">— CNS</span>
+    </div>
+    <nav class="nav">
+      <button class="nav-btn active" onclick="showSection('mid1')">Mid 1 · 30M</button>
+      <button class="nav-btn" onclick="showSection('mid2')">Mid 2 · 30M</button>
+      <button class="nav-btn" onclick="showSection('sem')">Sem · 60M</button>
+    </nav>
+  </div>
+</div>
+
+<div class="main">
+  <div class="page-title">
+    <h1>Cryptography and<br><em>Network Security</em></h1>
+    <p>JNTUH Syllabus · Units I–V · Mid 1 · Mid 2 · Semester</p>
+  </div>
+  <div class="div-line"></div>
+
+  <div class="section-tabs">
+    <div class="stab active" id="stab-mid1" onclick="showSection('mid1')">
+      <div class="stab-label">Mid 1 · 30 Marks</div>
+      <div class="stab-title">Units I, II, III (first half)</div>
+      <div class="stab-marks"><strong style="color:var(--red2)">Part A:</strong> 5 × 2M = 10M · Answer all<br><strong style="color:var(--red2)">Part B:</strong> Attempt any 4 of 6 × 5M = 20M</div>
+    </div>
+    <div class="stab" id="stab-mid2" onclick="showSection('mid2')">
+      <div class="stab-label">Mid 2 · 30 Marks</div>
+      <div class="stab-title">Units III (second half), IV, V</div>
+      <div class="stab-marks"><strong style="color:var(--red2)">Part A:</strong> 5 × 2M = 10M · Answer all<br><strong style="color:var(--red2)">Part B:</strong> Attempt any 4 of 6 × 5M = 20M</div>
+    </div>
+    <div class="stab" id="stab-sem" onclick="showSection('sem')">
+      <div class="stab-label">Semester · 60 Marks</div>
+      <div class="stab-title">All 5 Units</div>
+      <div class="stab-marks"><strong style="color:var(--red2)">Part A:</strong> 10 × 1M = 10M · Answer all<br><strong style="color:var(--red2)">Part B:</strong> 5Q × (a+b OR c+d) × 5M = 50M</div>
+    </div>
+  </div>
+
+  <!-- ============== MID 1 ============== -->
+  <div class="cpanel active" id="panel-mid1">
+    <div class="pattern-box">
+      <span class="part">Part A (2M each):</span> Short 2-mark questions — define, distinguish, state. Answer <strong>all 5</strong>. &nbsp;|&nbsp;
+      <span class="part">Part B (5M each):</span> Attempt <strong>any 4</strong> out of 6 descriptive questions. Each carries 5 marks.
+      &nbsp;|&nbsp; <strong>Coverage:</strong> Unit I · Unit II · Unit III (Hash Functions & Auth Codes)
+    </div>
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('mid1','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('mid1','quiz')">Quiz</button>
+    </div>
+    <div class="filter-row">
+      <div class="unit-filter" id="uf-mid1">
+        <button class="ufbtn active" onclick="filterUnit('mid1','all')">All Units</button>
+        <button class="ufbtn" onclick="filterUnit('mid1','1')">Unit I</button>
+        <button class="ufbtn" onclick="filterUnit('mid1','2')">Unit II</button>
+        <button class="ufbtn" onclick="filterUnit('mid1','3a')">Unit III-A</button>
+      </div>
+      <div class="mark-filter">
+        <button class="ufbtn active" id="mid1-mb-2" onclick="filterMark('mid1','2')">2M (Part A)</button>
+        <button class="ufbtn active" id="mid1-mb-5" onclick="filterMark('mid1','5')">5M (Part B)</button>
+      </div>
+    </div>
+    <div class="stats-bar" id="stats-mid1"></div>
+    <div class="cpanel active" id="mid1-flash"><div class="fc-grid" id="fc-mid1"></div><div class="fc-count" id="fc-count-mid1"></div></div>
+    <div class="cpanel" id="mid1-quiz"><div class="quiz-wrap"><div class="quiz-progress" id="qprog-mid1"></div><div id="qbody-mid1"></div></div></div>
+  </div>
+
+  <!-- ============== MID 2 ============== -->
+  <div class="cpanel" id="panel-mid2">
+    <div class="pattern-box">
+      <span class="part">Part A (2M each):</span> Short 2-mark questions — define, distinguish, state. Answer <strong>all 5</strong>. &nbsp;|&nbsp;
+      <span class="part">Part B (5M each):</span> Attempt <strong>any 4</strong> out of 6 descriptive questions. Each carries 5 marks.
+      &nbsp;|&nbsp; <strong>Coverage:</strong> Unit III (Key Mgmt, Digital Sig) · Unit IV · Unit V
+    </div>
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('mid2','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('mid2','quiz')">Quiz</button>
+    </div>
+    <div class="filter-row">
+      <div class="unit-filter" id="uf-mid2">
+        <button class="ufbtn active" onclick="filterUnit('mid2','all')">All Units</button>
+        <button class="ufbtn" onclick="filterUnit('mid2','3b')">Unit III-B</button>
+        <button class="ufbtn" onclick="filterUnit('mid2','4')">Unit IV</button>
+        <button class="ufbtn" onclick="filterUnit('mid2','5')">Unit V</button>
+      </div>
+      <div class="mark-filter">
+        <button class="ufbtn active" id="mid2-mb-2" onclick="filterMark('mid2','2')">2M (Part A)</button>
+        <button class="ufbtn active" id="mid2-mb-5" onclick="filterMark('mid2','5')">5M (Part B)</button>
+      </div>
+    </div>
+    <div class="stats-bar" id="stats-mid2"></div>
+    <div class="cpanel active" id="mid2-flash"><div class="fc-grid" id="fc-mid2"></div><div class="fc-count" id="fc-count-mid2"></div></div>
+    <div class="cpanel" id="mid2-quiz"><div class="quiz-wrap"><div class="quiz-progress" id="qprog-mid2"></div><div id="qbody-mid2"></div></div></div>
+  </div>
+
+  <!-- ============== SEM ============== -->
+  <div class="cpanel" id="panel-sem">
+    <div class="pattern-box">
+      <span class="part">Part A (1M each):</span> 10 one-mark questions — Answer <strong>all 10</strong>. &nbsp;|&nbsp;
+      <span class="part">Part B (5M each):</span> 5 questions, answer <strong>all</strong>. Each Q has sub-parts: answer <strong>a+b OR c+d</strong> (not a+c or b+d). Each sub-part = 5M.
+      &nbsp;|&nbsp; <strong>Coverage:</strong> All 5 Units
+    </div>
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('sem','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('sem','quiz')">Quiz</button>
+    </div>
+    <div class="filter-row">
+      <div class="unit-filter" id="uf-sem">
+        <button class="ufbtn active" onclick="filterUnit('sem','all')">All</button>
+        <button class="ufbtn" onclick="filterUnit('sem','1')">Unit I</button>
+        <button class="ufbtn" onclick="filterUnit('sem','2')">Unit II</button>
+        <button class="ufbtn" onclick="filterUnit('sem','3')">Unit III</button>
+        <button class="ufbtn" onclick="filterUnit('sem','4')">Unit IV</button>
+        <button class="ufbtn" onclick="filterUnit('sem','5')">Unit V</button>
+      </div>
+      <div class="mark-filter">
+        <button class="ufbtn active" id="sem-mb-1" onclick="filterMark('sem','1')">1M (Part A)</button>
+        <button class="ufbtn active" id="sem-mb-5" onclick="filterMark('sem','5')">5M (Part B)</button>
+      </div>
+    </div>
+    <div class="stats-bar" id="stats-sem"></div>
+    <div class="cpanel active" id="sem-flash"><div class="fc-grid" id="fc-sem"></div><div class="fc-count" id="fc-count-sem"></div></div>
+    <div class="cpanel" id="sem-quiz"><div class="quiz-wrap"><div class="quiz-progress" id="qprog-sem"></div><div id="qbody-sem"></div></div></div>
+  </div>
+</div>
+
+<script>
+// =====================================================================
+// MID 1 FLASHCARDS — Units 1, 2, 3a (Hash Functions & MACs)
+// marks: '2' = Part A type | '5' = Part B type
+// =====================================================================
+const MID1_FLASHCARDS = [
+  // ---- UNIT 1 · 2M ----
+  {unit:'1',marks:'2',tag:'Definition',q:'Define Confidentiality.',a:'Ensures information is accessible only to those authorized to access it. Prevents unauthorized disclosure of sensitive data.',formula:'Only authorized entities can read data'},
+  {unit:'1',marks:'2',tag:'Definition',q:'Define Integrity in network security.',a:'Ensures data has not been altered or tampered with by unauthorized parties. Any modification must be detectable.',formula:'Data remains unaltered and trustworthy'},
+  {unit:'1',marks:'2',tag:'Definition',q:'Define Availability as a security principle.',a:'Guarantees that systems, networks, and data are accessible to authorized users when needed. Threatened by Denial-of-Service attacks.',formula:'Services accessible to authorized users on demand'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is Authentication?',a:'The process of verifying the identity of a user, process, or device before granting access. Confirms "you are who you claim to be".',formula:'Methods: passwords, certificates, biometrics, OTP'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is Non-repudiation?',a:'Ensures that the sender of a message cannot later deny having sent it, and the receiver cannot deny having received it. Achieved via digital signatures.',formula:'Digital signatures → non-repudiation'},
+  {unit:'1',marks:'2',tag:'Comparison',q:'Distinguish between Active and Passive attacks.',a:'Passive: observer reads/monitors data without modification (eavesdropping, traffic analysis). Hard to detect.\nActive: attacker modifies, disrupts, or fabricates data (masquerade, replay, modification, DoS). Detectable but causes damage.',formula:'Passive = read only | Active = modify/disrupt'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is a Security Mechanism?',a:'A mechanism designed to detect, prevent, or recover from a security attack. Examples: encryption, digital signatures, access control, authentication exchange, traffic padding.',formula:'Detect | Prevent | Recover'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is Cryptography?',a:'The science of transforming readable data (plaintext) into an unreadable form (ciphertext) using mathematical algorithms and keys, so only authorized parties can read it.',formula:'C = E(K, P)  ←→  P = D(K, C)'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is Steganography?',a:'The practice of hiding secret data within ordinary, non-secret data or a physical object to avoid detection. Unlike cryptography, it hides the existence of the message.',formula:'e.g., hiding data in image LSBs'},
+  {unit:'1',marks:'2',tag:'Definition',q:'Distinguish between Substitution and Transposition ciphers.',a:'Substitution: replaces each character with another (e.g., Caesar cipher). The position stays but symbol changes.\nTransposition: rearranges the positions of characters without changing them. The symbol stays but position changes.',formula:'Caesar: shift by k | Rail fence: rearrange'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is a Brute Force attack?',a:'An attack that tries every possible key until the correct one is found. Feasibility depends on key size — a 56-bit key has 2^56 possible keys.',formula:'2^56 ≈ 7.2 × 10^16 keys for DES'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is a replay attack?',a:'An active attack where an attacker captures a valid data transmission (like an authentication message) and maliciously retransmits it to gain unauthorized access.',formula:'Prevented by: timestamps, nonces, sequence numbers'},
+  // ---- UNIT 1 · 5M ----
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Explain the five security services: Confidentiality, Integrity, Availability, Authentication, and Non-repudiation with examples.',a:'1. Confidentiality: Only authorized entities can read data. Example: encrypted emails.\n2. Integrity: Data not altered in transit. Example: hash verification of downloaded files.\n3. Availability: Services accessible when needed. Example: RAID for fault tolerance.\n4. Authentication: Verify communicating parties. Example: login with password + OTP.\n5. Non-repudiation: Sender cannot deny sending. Example: digital signature on contracts.\nTogether they form the CIA triad + Authentication + Non-repudiation, the foundation of information security.',formula:'CIA Triad: C + I + A (extended with Auth + NR)'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Explain types of security attacks with examples: passive vs active attacks.',a:'Passive Attacks (read only — hard to detect):\n1. Eavesdropping (interception): Attacker captures transmitted data.\n2. Traffic Analysis: Even if encrypted, patterns reveal information.\nActive Attacks (modify/disrupt — detectable):\n1. Masquerade: Pretend to be a legitimate entity.\n2. Replay: Re-send captured valid messages.\n3. Message Modification: Alter the content of a message.\n4. Denial of Service (DoS): Prevent legitimate users from accessing service.\nCountermeasures: Encryption (vs passive), authentication + integrity (vs active).',formula:'Passive = threat to confidentiality | Active = threat to all'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Explain substitution techniques in classical cryptography: Caesar, Monoalphabetic, Vigenere ciphers.',a:'1. Caesar Cipher: Shifts each letter by fixed amount k. C = (P + k) mod 26. Simple, easily broken by brute force (only 25 keys).\n2. Monoalphabetic Cipher: Each letter mapped to a fixed unique letter. Key space = 26! ≈ 4 × 10^26. Vulnerable to frequency analysis.\n3. Playfair Cipher: Encrypts digrams (letter pairs) using a 5×5 matrix. Harder than monoalphabetic but still breakable.\n4. Vigenere Cipher: Uses a keyword repeated over the plaintext. Each letter shifted by different amount. C_i = (P_i + K_i) mod 26. Polyalphabetic — harder to break.',formula:'Caesar: C=(P+3) mod 26 | Vigenere: multiple shifts'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Explain the model for network security and the role of cryptographic systems.',a:'Network Security Model (Stallings):\nParties: Principal A (sender), Principal B (receiver), Trusted Third Party (TTP).\nComponents:\n1. Message to be protected (plaintext M).\n2. Security transformation: encryption algorithm with key K.\n3. Secure channel for key exchange (via TTP).\n4. Opponent: attempts to intercept or modify.\nProcess: A encrypts M using key K to produce ciphertext C. C is sent over insecure channel. B decrypts C using K to recover M.\nRole of Cryptography: Provides confidentiality (encryption), integrity (hash/MAC), authentication (digital signatures), non-repudiation (asymmetric signatures).',formula:'Security = Algorithm + Key + Protocol'},
+  // ---- UNIT 2 · 2M ----
+  {unit:'2',marks:'2',tag:'Definition',q:'What is a Block Cipher?',a:'A symmetric encryption algorithm that encrypts data in fixed-size blocks (e.g., 64 or 128 bits at a time) using a symmetric key.',formula:'DES: 64-bit block | AES: 128-bit block'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is DES (Data Encryption Standard)?',a:'Symmetric block cipher encrypting 64-bit blocks with a 56-bit key using 16 rounds of Feistel network. Developed by IBM, published 1977. Now considered insecure due to short key.',formula:'Block: 64-bit | Key: 56-bit | Rounds: 16'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is AES (Advanced Encryption Standard)?',a:'Symmetric block cipher, current NIST standard (2001). Block size: 128-bit. Key sizes: 128/192/256 bits → 10/12/14 rounds respectively. Uses SubBytes, ShiftRows, MixColumns, AddRoundKey.',formula:'Block: 128-bit | Keys: 128/192/256-bit'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is Triple DES (3DES)?',a:'Applies DES three times with two or three different keys: Encrypt with K1 → Decrypt with K2 → Encrypt with K3. Effective key length = 112 or 168 bits.',formula:'C = E(K3, D(K2, E(K1, P)))'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is the Feistel Cipher structure?',a:'A symmetric cipher structure dividing the block into two halves L and R. Each round: L_i = R_{i-1}, R_i = L_{i-1} ⊕ F(R_{i-1}, K_i). Used in DES. Decryption is same algorithm with reversed keys.',formula:'L_i = R_{i-1}   R_i = L_{i-1} ⊕ F(R_{i-1}, K_i)'},
+  {unit:'2',marks:'2',tag:'Comparison',q:'Compare ECB and CBC modes of block cipher operation.',a:'ECB (Electronic Codebook): Each block encrypted independently. Same plaintext → same ciphertext. Insecure — reveals patterns.\nCBC (Cipher Block Chaining): Each block XORed with previous ciphertext before encryption. Hides patterns. Requires IV. More secure.',formula:'CBC: C_i = E(K, P_i ⊕ C_{i-1})'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is RC4?',a:'A stream cipher that generates a pseudorandom keystream byte-by-byte and XORs it with plaintext. Variable key size (40–2048 bits). Fast, but has weaknesses (used in old WEP/WPA).',formula:'Keystream ⊕ Plaintext = Ciphertext'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is a Stream Cipher?',a:'Encrypts plaintext one bit or byte at a time by XOR-ing with a pseudorandom keystream. Faster than block ciphers for continuous data. Examples: RC4, ChaCha20.',formula:'C_i = P_i ⊕ K_i (keystream)'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is Blowfish?',a:'A symmetric block cipher designed by Bruce Schneier in 1993. Block size: 64-bit. Key size: 32–448 bits. Uses 16 rounds of Feistel network. Fast and free to use.',formula:'Block: 64-bit | Key: up to 448-bit | Rounds: 16'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is IDEA (International Data Encryption Algorithm)?',a:'Symmetric block cipher with 64-bit block size and 128-bit key, operating over 8 rounds. Uses combination of XOR, modular addition, and modular multiplication. Used in PGP.',formula:'Block: 64-bit | Key: 128-bit | Rounds: 8'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is a public key (asymmetric) cryptosystem?',a:'Uses a pair of mathematically related keys: public key (for encryption, shared openly) and private key (for decryption, kept secret). Solves key distribution problem.',formula:'Encrypt: C = E(pubK, M) | Decrypt: M = D(privK, C)'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is the RSA algorithm based on?',a:'RSA security is based on the computational difficulty of factoring the product of two large prime numbers. Given n = p × q, finding p and q from n alone is infeasible for large values.',formula:'Hard problem: factoring n = p × q'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is Diffie-Hellman Key Exchange?',a:'A protocol allowing two parties to establish a shared secret over an insecure channel. Neither party transmits the secret directly. Based on discrete logarithm hardness.',formula:'A = g^a mod p | B = g^b mod p | Secret = g^ab mod p'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is the Knapsack Algorithm?',a:'One of the earliest public-key cryptosystems, based on the subset-sum (knapsack) problem. A superincreasing knapsack is easy to solve; a general one is NP-hard. Proposed by Merkle-Hellman.',formula:'Select subset of weights summing to ciphertext'},
+  // ---- UNIT 2 · 5M ----
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain DES (Data Encryption Standard) structure and working with its key generation.',a:'DES Overview:\n• Block size: 64-bit | Key: 56-bit (64 with parity) | Rounds: 16\nInitial Permutation (IP) applied to plaintext.\nFeistel Rounds (16):\n  L_i = R_{i-1}\n  R_i = L_{i-1} ⊕ F(R_{i-1}, K_i)\nFunction F: Expansion (32→48 bits) → XOR with subkey → 8 S-boxes (48→32 bits) → P-box permutation.\nKey Schedule: 56-bit key → split into two 28-bit halves → circular shifts each round → PC-2 permutation → 48-bit subkeys.\nFinal Permutation (IP⁻¹) applied.\nSecurity issue: 56-bit key is too short (brute-forceable). Replaced by AES.',formula:'DES Key Schedule: 56-bit → 16 × 48-bit subkeys'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain AES (Advanced Encryption Standard) structure, rounds, and operations.',a:'AES State: 128-bit block arranged as 4×4 byte matrix.\nKey Sizes: 128-bit (10 rounds), 192-bit (12 rounds), 256-bit (14 rounds).\nEach Round (except last) has 4 operations:\n1. SubBytes: Non-linear byte substitution using S-Box.\n2. ShiftRows: Row 0 unchanged; rows 1,2,3 shifted left by 1,2,3 positions.\n3. MixColumns: Each column multiplied by fixed polynomial in GF(2^8). NOT in final round.\n4. AddRoundKey: XOR state with 128-bit round key derived from key schedule.\nFinal round: SubBytes + ShiftRows + AddRoundKey (no MixColumns).\nAES is fast, secure, and the current worldwide standard.',formula:'128-bit block | Up to 14 rounds | Resistant to known attacks'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain RSA algorithm with key generation, encryption, and decryption with a numerical example.',a:'RSA Key Generation:\n1. Choose two large primes p and q.\n2. Compute n = p × q.\n3. Compute φ(n) = (p-1)(q-1).\n4. Choose e such that 1 < e < φ(n) and gcd(e, φ(n)) = 1.\n5. Compute d = e⁻¹ mod φ(n) (modular inverse).\n6. Public Key: (n, e) | Private Key: (n, d).\nEncryption: C = M^e mod n.\nDecryption: M = C^d mod n.\nExample: p=61, q=53 → n=3233, φ(n)=3120, e=17, d=2753.\nC = M^17 mod 3233 | M = C^2753 mod 3233.\nSecurity: Factoring n is computationally infeasible for large primes.',formula:'Public(n,e): Encrypt | Private(n,d): Decrypt'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain Diffie-Hellman Key Exchange protocol and its vulnerability.',a:'Protocol:\n1. Agree on public parameters: large prime p and primitive root g (public).\n2. Alice chooses secret integer a, computes A = g^a mod p, sends A to Bob.\n3. Bob chooses secret integer b, computes B = g^b mod p, sends B to Alice.\n4. Alice computes shared secret: S = B^a mod p = g^ab mod p.\n5. Bob computes shared secret: S = A^b mod p = g^ab mod p.\nBoth arrive at same S without ever transmitting it!\nSecurity: Based on discrete logarithm — given g, p, and g^a mod p, computing a is infeasible.\nVulnerability: Man-in-the-Middle (MitM) attack — no authentication. Mallory can intercept A and B and substitute own values.',formula:'S = g^ab mod p | Vulnerable to MitM without authentication'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain block cipher modes of operation: ECB, CBC, CFB, OFB, and CTR.',a:'1. ECB (Electronic Codebook): Each block encrypted independently. Simple but insecure — identical plaintext blocks produce identical ciphertext.\n2. CBC (Cipher Block Chaining): C_i = E(K, P_i ⊕ C_{i-1}). Hides patterns. Needs IV. Serial operation.\n3. CFB (Cipher Feedback): Stream-cipher-like. C_i = P_i ⊕ E(K, C_{i-1}). Allows encrypting smaller units.\n4. OFB (Output Feedback): Keystream pre-generated and XORed with plaintext. Errors don\'t propagate. Needs IV.\n5. CTR (Counter): Encrypts sequential counter values to generate keystream. C_i = P_i ⊕ E(K, counter_i). Parallelizable, fast.\nMost secure modern modes: CBC, CTR, GCM.',formula:'CTR: parallelizable | CBC: serial | OFB: error-safe'},
+  // ---- UNIT 3a · 2M ----
+  {unit:'3a',marks:'2',tag:'Definition',q:'What is a cryptographic Hash Function?',a:'A function that maps data of arbitrary length to a fixed-size hash (digest). One-way: easy to compute H(M), computationally infeasible to find M from h.',formula:'h = H(M) — fixed length, one-way'},
+  {unit:'3a',marks:'2',tag:'Definition',q:'List the properties of a cryptographic hash function.',a:'1. Preimage resistance: Given h, hard to find M s.t. H(M)=h.\n2. Second preimage resistance: Given M1, hard to find M2≠M1 with H(M1)=H(M2).\n3. Collision resistance: Hard to find any M1≠M2 with H(M1)=H(M2).',formula:'One-way + Collision-resistant'},
+  {unit:'3a',marks:'2',tag:'Definition',q:'What is SHA-512?',a:'Secure Hash Algorithm 512: produces a 512-bit (64-byte) message digest. Processes message in 1024-bit blocks over 80 rounds. Part of the SHA-2 family. Currently secure.',formula:'Input: any size | Output: 512-bit digest | Rounds: 80'},
+  {unit:'3a',marks:'2',tag:'Definition',q:'What is Message Authentication?',a:'A mechanism to verify that a message was not altered in transit and came from the claimed sender. Uses a MAC (Message Authentication Code) or digital signature.',formula:'Provides: Integrity + Authentication (not encryption)'},
+  {unit:'3a',marks:'2',tag:'Definition',q:'What is HMAC?',a:'Hash-based Message Authentication Code. Combines a hash function with a secret key. HMAC(K, M) = H((K⊕opad) ‖ H((K⊕ipad) ‖ M)). Provides integrity and authentication.',formula:'HMAC = H((K⊕opad) ‖ H((K⊕ipad) ‖ M))'},
+  {unit:'3a',marks:'2',tag:'Definition',q:'What is CMAC?',a:'Cipher-based Message Authentication Code. Uses a block cipher (AES) rather than a hash function to generate a MAC. Approved by NIST. Provides integrity and authentication.',formula:'Based on AES-CBC mode with final block processing'},
+  {unit:'3a',marks:'2',tag:'Comparison',q:'Distinguish between MAC and Hash function.',a:'Hash: No key involved; anyone can compute H(M). Provides integrity but NOT authentication.\nMAC: Uses a secret key; only key-holder can generate/verify. Provides both integrity and authentication.\nMAC requires shared secret key between sender and receiver.',formula:'Hash = keyless | MAC = keyed hash'},
+  // ---- UNIT 3a · 5M ----
+  {unit:'3a',marks:'5',tag:'Long Answer',q:'Explain SHA-512 algorithm: message padding, processing, and compression function.',a:'SHA-512 Overview:\n• Output: 512-bit digest | Block size: 1024-bit | Rounds: 80\nStep 1 — Padding:\nAppend bit "1" then "0"s until length ≡ 896 mod 1024. Append 128-bit length field.\nStep 2 — Initialization:\n8 hash values H0–H7 initialized with fractional parts of square roots of first 8 primes.\nStep 3 — Processing each 1024-bit block:\nMessage schedule: expand 16 × 64-bit words to 80 × 64-bit words.\n80 rounds using constants K_t (cube roots of first 80 primes), mixing operations (Ch, Maj, Σ, σ, +).\nStep 4 — Output:\nFinal hash = concatenation of H0 through H7 (512 bits total).',formula:'512-bit output | Resistant to collision & preimage attacks'},
+  {unit:'3a',marks:'5',tag:'Long Answer',q:'Explain HMAC — structure, working, and why it is more secure than just hashing the key and message.',a:'Why not H(K ‖ M)?: Vulnerable to length extension attacks — attacker can append data and compute valid hash without knowing K.\nHMAC Structure:\nHMAC(K, M) = H((K⊕opad) ‖ H((K⊕ipad) ‖ M))\n• ipad = 0x36 repeated | opad = 0x5C repeated\nWorking:\n1. Pad key K to block size b.\n2. Compute inner hash: inner = H((K⊕ipad) ‖ M).\n3. Compute outer hash: HMAC = H((K⊕opad) ‖ inner).\nSecurity: Two-level keying prevents length extension; security proofs reduce to hash function security. Widely used in TLS, IPSec, SSH.',formula:'Two-level keying protects against extension attacks'},
+];
+
+// =====================================================================
+// MID 2 FLASHCARDS — Units 3b, 4, 5
+// Unit 3b = Key Management, Distribution, Digital Signatures
+// =====================================================================
+const MID2_FLASHCARDS = [
+  // ---- UNIT 3b · 2M ----
+  {unit:'3b',marks:'2',tag:'Definition',q:'What is a Digital Signature?',a:'A cryptographic mechanism where a sender signs a message using their private key. The receiver verifies using the sender\'s public key. Provides authentication, integrity, and non-repudiation.',formula:'Sign: S = E(privK, H(M)) | Verify: D(pubK, S) = H(M)'},
+  {unit:'3b',marks:'2',tag:'Definition',q:'What is the ElGamal Digital Signature Scheme?',a:'A public-key signature scheme based on Diffie-Hellman. Signer uses private key x and a random k to produce signature (r, s). Verifier checks using public key y = g^x mod p.',formula:'r = g^k mod p | s = (H(M) - xr) · k⁻¹ mod (p-1)'},
+  {unit:'3b',marks:'2',tag:'Definition',q:'What is Key Distribution?',a:'The process of securely sharing cryptographic keys between communicating parties. Critical challenge: keys must reach recipients without interception or alteration.',formula:'Methods: manual, KDC, public-key encryption, DH'},
+  {unit:'3b',marks:'2',tag:'Definition',q:'What is a Key Distribution Center (KDC)?',a:'A trusted central server that manages and distributes symmetric session keys to communicating parties. Each user shares a master key with the KDC. Used in Kerberos.',formula:'KDC shares secret key with each user'},
+  {unit:'3b',marks:'2',tag:'Definition',q:'What is Kerberos?',a:'A network authentication protocol using a trusted third-party KDC. Uses symmetric keys and tickets to allow nodes to prove their identity. Provides SSO (single sign-on).',formula:'Client → AS → TGS → Service Server'},
+  {unit:'3b',marks:'2',tag:'Definition',q:'What is X.509 Authentication Service?',a:'An ITU-T standard defining the format for digital certificates. Specifies authentication framework using public-key certificates issued by Certificate Authorities (CAs). Basis for PKI and TLS.',formula:'Certificate: {Version, Serial, Subject, PublicKey, CA Sig}'},
+  {unit:'3b',marks:'2',tag:'Definition',q:'What is PKI (Public Key Infrastructure)?',a:'A framework of policies, hardware, software, and procedures for creating, managing, distributing, and revoking digital certificates. Core: CA, RA, CRL, Certificate Repository.',formula:'CA → issues cert | CRL → revoked list'},
+  {unit:'3b',marks:'2',tag:'Definition',q:'What is a Certificate Authority (CA)?',a:'A trusted entity that issues and digitally signs digital certificates, binding a public key to an identity. Users trust certificates signed by a CA they trust.',formula:'CA signs certificate → users trust public key'},
+  // ---- UNIT 3b · 5M ----
+  {unit:'3b',marks:'5',tag:'Long Answer',q:'Explain Digital Signature generation and verification process with security properties.',a:'Digital Signature Process:\nGeneration (Sender A):\n1. Compute message digest: h = H(M) using SHA.\n2. Encrypt digest with sender\'s private key: S = E(privK_A, h).\n3. Send (M, S) to receiver.\nVerification (Receiver B):\n1. Decrypt signature with sender\'s public key: h\' = D(pubK_A, S).\n2. Independently compute H(M).\n3. If h\' = H(M) → signature is valid; else reject.\nSecurity Properties Provided:\n• Authentication: Only A\'s private key produces valid S.\n• Integrity: Any change in M → H(M) changes → mismatch.\n• Non-repudiation: A cannot deny signing since only A has privK_A.\nNote: Digital signatures encrypt the hash, not the full message (efficiency).',formula:'S = E(privK, H(M)) | Valid if D(pubK,S) = H(M)'},
+  {unit:'3b',marks:'5',tag:'Long Answer',q:'Explain Kerberos authentication protocol — components, tickets, and working.',a:'Kerberos Components:\n• AS (Authentication Server): Verifies user identity.\n• TGS (Ticket Granting Server): Issues service tickets.\n• Client: Wants to access service.\n• Service Server: The resource client wants.\nWorking:\n1. Client → AS: "I am Alice." AS verifies and returns TGT (Ticket Granting Ticket) encrypted with Alice\'s key.\n2. Alice decrypts TGT using her password-derived key.\n3. Client → TGS: Present TGT + "I want Service S." TGS returns Service Ticket.\n4. Client → Service Server: Present Service Ticket.\n5. Service Server verifies ticket and grants access.\nAdvantages: Single Sign-On, no plaintext passwords over network.\nLimitations: Single point of failure (KDC), clocks must be synchronized.',formula:'TGT → TGS → Service Ticket → Server access'},
+  {unit:'3b',marks:'5',tag:'Long Answer',q:'Explain X.509 Certificate format and Public Key Infrastructure (PKI) components.',a:'X.509 Certificate Fields:\n• Version (V1/V2/V3)\n• Serial Number\n• Signature Algorithm (e.g., SHA-256 with RSA)\n• Issuer (CA Name)\n• Validity Period (Not Before / Not After)\n• Subject (Owner Name)\n• Subject Public Key Info\n• Extensions (V3): key usage, SAN, etc.\n• CA\'s Digital Signature\nPKI Components:\n1. CA (Certificate Authority): Issues and signs certs.\n2. RA (Registration Authority): Verifies identity before cert issuance.\n3. Certificate Repository: Directory of valid certs (LDAP).\n4. CRL (Certificate Revocation List): List of revoked certs.\n5. End Entities: Users and servers holding certs.\nTrust Chain: Root CA → Intermediate CA → End Entity cert.',formula:'Trust chain: Root CA → Intermediate CA → End Entity'},
+  // ---- UNIT 4 · 2M ----
+  {unit:'4',marks:'2',tag:'Definition',q:'What is SSL (Secure Sockets Layer)?',a:'A protocol providing encrypted, authenticated communication between a client and server over a network. Predecessor to TLS. Operates between Transport and Application layers.',formula:'Client ↔ Server: Handshake → Session Key → Encrypted data'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What is TLS (Transport Layer Security)?',a:'The updated, more secure version of SSL. Provides confidentiality (encryption), authentication (certificates), and integrity (MAC) for network communications. Used in HTTPS.',formula:'TLS 1.3 is current version — faster, more secure'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What is HTTPS?',a:'Hypertext Transfer Protocol Secure — HTTP running over TLS/SSL. Encrypts web traffic between browser and server. Uses port 443. Identified by padlock icon in browser.',formula:'HTTPS = HTTP + TLS | Port: 443'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What is SSH (Secure Shell)?',a:'A cryptographic network protocol for secure remote login and command execution over an unsecured network. Replaces insecure Telnet. Uses public-key authentication and symmetric encryption.',formula:'SSH = authentication + encrypted channel | Port: 22'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What are Web security considerations?',a:'Key concerns: 1. Server-side threats (DoS, web app exploits)\n2. Client-side threats (malicious scripts, drive-by downloads)\n3. Communication threats (eavesdropping, MitM)\n4. Integrity threats (XSS, SQL injection)',formula:'Protect: communication + client + server'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What is IEEE 802.11i?',a:'A IEEE standard for wireless LAN security, also known as WPA2. Provides robust security through AES-CCMP for encryption and 802.1X/EAP for authentication. Replaced WEP.',formula:'802.11i = WPA2 | AES-CCMP + 802.1X auth'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What is WEP and why was it replaced?',a:'Wired Equivalent Privacy — original 802.11 wireless security protocol. Used RC4 with 40-bit keys and static IVs. Critically flawed: IVs repeat, allowing key recovery. Replaced by WPA2.',formula:'WEP broken in minutes | Replaced by WPA2/802.11i'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What is Mobile Device Security?',a:'Protection of smartphones, tablets, etc. against threats like malware, unauthorized access, data theft. Includes MDM, encryption, remote wipe, screen lock, and app sandboxing.',formula:'MDM + Encryption + Authentication + Remote Wipe'},
+  // ---- UNIT 4 · 5M ----
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Explain TLS/SSL handshake process step by step.',a:'TLS Handshake Steps:\n1. Client Hello: Client sends TLS version, supported cipher suites, client random.\n2. Server Hello: Server chooses cipher suite, sends server random + certificate.\n3. Certificate Verification: Client verifies server certificate with CA.\n4. Key Exchange: Client generates pre-master secret, encrypts with server\'s public key, sends it.\n5. Session Key Generation: Both client and server independently derive the same symmetric session keys from: client random + server random + pre-master secret.\n6. Client Finished: Client sends "Finished" encrypted with session key.\n7. Server Finished: Server sends "Finished" encrypted with session key.\n8. Secure Channel: All application data now encrypted with symmetric session keys.\nNote: Asymmetric crypto only in steps 3–4; symmetric (faster) used for all data.',formula:'Asymmetric = key exchange only | Symmetric = bulk data'},
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Explain SSH (Secure Shell) architecture, authentication methods, and services.',a:'SSH Architecture (Three Layers):\n1. SSH Transport Layer Protocol: Negotiates encryption algorithm, key exchange (DH), host authentication, provides confidentiality/integrity.\n2. SSH User Authentication Protocol: Authenticates the client to the server.\n3. SSH Connection Protocol: Multiplexes encrypted tunnel into logical channels (shell, port forwarding, SCP).\nAuthentication Methods:\n• Password: Username + password (encrypted in transit).\n• Public Key: Client provides digital signature; server checks against authorized_keys.\n• Host-Based: Trusted host relationship.\nServices Provided:\n• Secure remote login (replaces Telnet)\n• Secure file transfer (SFTP, SCP)\n• Port forwarding / tunneling\nKey Exchange: Uses Diffie-Hellman. After exchange, symmetric keys used for session.',formula:'DH key exchange → AES encryption → integrity MAC'},
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Explain IEEE 802.11i (WPA2) wireless security — authentication and encryption.',a:'IEEE 802.11i (WPA2) Security Framework:\n\nAuthentication:\n• Uses 802.1X / EAP (Extensible Authentication Protocol) for enterprise.\n• PSK (Pre-Shared Key) for home use (WPA2-Personal).\n• 4-Way Handshake: After 802.1X auth, client and AP derive PTK (Pairwise Transient Key) using PMK, nonces.\n\nEncryption: CCMP (Counter Mode with CBC-MAC Protocol):\n• Based on AES in CCM mode.\n• Provides both encryption (confidentiality) and MIC (integrity).\n• 128-bit AES key.\n• Replaced RC4-based TKIP (WPA1).\n\nKey Hierarchy:\n• MSK → PMK → PTK (unicast) + GTK (broadcast/multicast)\n\nAttacks on WPA2: KRACK (Key Reinstallation Attack). Patched in WPA3.',formula:'WPA2 = AES-CCMP + 4-Way Handshake + 802.1X'},
+  // ---- UNIT 5 · 2M ----
+  {unit:'5',marks:'2',tag:'Definition',q:'What is PGP (Pretty Good Privacy)?',a:'Email encryption software using public-key cryptography for encryption and digital signatures. Uses Web of Trust (no central CA). Created by Phil Zimmermann. Now OpenPGP standard.',formula:'Sign with privK | Encrypt with recipient pubK'},
+  {unit:'5',marks:'2',tag:'Definition',q:'What is S/MIME?',a:'Secure/Multipurpose Internet Mail Extensions — standard for public-key encrypted and digitally signed email. Uses X.509 certificates (unlike PGP\'s web of trust). Supported in Outlook, Apple Mail.',formula:'S/MIME = X.509 certs + MIME email security'},
+  {unit:'5',marks:'2',tag:'Definition',q:'What is IPSec?',a:'A suite of protocols for securing IP communications at the network layer. Provides authentication (AH), confidentiality (ESP), and key management (IKE). Used in VPNs.',formula:'AH: auth only | ESP: encrypt + auth | IKE: key mgmt'},
+  {unit:'5',marks:'2',tag:'Definition',q:'Distinguish between AH and ESP in IPSec.',a:'AH (Authentication Header): Provides data origin authentication and integrity for IP header + payload. Does NOT encrypt.\nESP (Encapsulating Security Payload): Provides confidentiality (encryption) of payload + optional authentication. AH+ESP can be combined.',formula:'AH = no encryption | ESP = encryption + optional auth'},
+  {unit:'5',marks:'2',tag:'Definition',q:'What are Transport and Tunnel modes in IPSec?',a:'Transport Mode: Encrypts only the IP payload (data). Original IP header preserved. Used for host-to-host communication.\nTunnel Mode: Encrypts the entire original IP packet and adds a new IP header. Used for VPNs (gateway-to-gateway).',formula:'Transport = payload only | Tunnel = entire packet'},
+  {unit:'5',marks:'2',tag:'Definition',q:'What is IKE (Internet Key Exchange)?',a:'Protocol used in IPSec to establish Security Associations (SAs) and negotiate cryptographic parameters (algorithms, keys) between communicating parties. Uses DH for key exchange.',formula:'IKE Phase 1: ISAKMP SA | Phase 2: IPSec SA'},
+  {unit:'5',marks:'2',tag:'Definition',q:'What is Cross-Site Scripting (XSS)?',a:'A web security vulnerability where attackers inject malicious scripts into trusted websites. When victims view the page, the script executes in their browser, stealing cookies or session tokens.',formula:'Reflected XSS | Stored XSS | DOM XSS'},
+  {unit:'5',marks:'2',tag:'Definition',q:'What is Single Sign-On (SSO)?',a:'An authentication scheme allowing a user to log in once and gain access to multiple related systems without re-authenticating. Examples: Kerberos, OAuth, SAML.',formula:'Login once → access many services'},
+  // ---- UNIT 5 · 5M ----
+  {unit:'5',marks:'5',tag:'Long Answer',q:'Explain PGP (Pretty Good Privacy) — services, working, and message format.',a:'PGP Services:\n1. Authentication: Using digital signatures (DSS or RSA).\n2. Confidentiality: Encrypt with session key (3DES/AES), then encrypt session key with recipient\'s public key.\n3. Compression: Compress before encryption using ZIP.\n4. Email Compatibility: Base64 (Radix-64) encoding for binary data in email.\nWorking (Sending an encrypted+signed email):\n1. Hash message M → Sign with sender\'s private key (signature S).\n2. Compress M + S.\n3. Generate one-time session key KS.\n4. Encrypt compressed data with KS.\n5. Encrypt KS with recipient\'s public key.\n6. Concatenate encrypted KS + encrypted data → Radix-64 encode.\nPGP Trust: Web of Trust — users sign each other\'s keys; no central CA.\nOpenPGP is the standardized, interoperable version.',formula:'Session key + asymmetric key + hash = full PGP'},
+  {unit:'5',marks:'5',tag:'Long Answer',q:'Explain IPSec architecture, protocols (AH & ESP), modes, and Security Associations.',a:'IPSec Overview: Secures IP layer communication.\nComponents:\n1. AH (Authentication Header, Protocol 51):\n   • Provides: Integrity + Origin Authentication (HMAC of header+payload).\n   • Does NOT provide: Confidentiality.\n2. ESP (Encapsulating Security Payload, Protocol 50):\n   • Provides: Confidentiality (AES/3DES) + optional Integrity + Authentication.\n   • More widely used than AH alone.\nModes:\n• Transport Mode: Protects payload; IP header unchanged. End-to-end between hosts.\n• Tunnel Mode: Wraps entire IP packet with new IP header. Gateway-to-gateway VPN.\nSecurity Association (SA):\n• Unidirectional logical connection defining: algorithm, key, lifetime, SPI.\n• Bidirectional communication needs 2 SAs.\nKey Management: IKE protocol (Phase 1: establish secure channel; Phase 2: negotiate IPSec SAs).',formula:'SA = {SPI + algorithm + key} | IKE manages SAs'},
+  {unit:'5',marks:'5',tag:'Long Answer',q:'Explain case studies: Secure Multiparty Computation and Virtual Elections.',a:'Secure Multiparty Computation (SMC):\n• Multiple parties compute a function over private inputs without revealing inputs to each other.\n• Example: Millionaires\' Problem (Yao, 1982): Two millionaires want to know who is richer without revealing exact wealth.\n• Techniques: Secret sharing, garbled circuits, homomorphic encryption.\n• Applications: Private auctions, medical data aggregation, collaborative ML.\nVirtual (Electronic) Elections:\n• Goal: Security properties of paper voting + convenience of electronic.\n• Requirements:\n  1. Eligibility: Only registered voters can vote.\n  2. Unforgeability: No fake votes.\n  3. Privacy/Anonymity: Votes cannot be linked to voters.\n  4. Verifiability: Voters can check their vote was counted.\n  5. Fairness: No partial results before close.\n• Techniques: Blind signatures, mix-nets, homomorphic tallying.\n• Challenge: Achieving all properties simultaneously is very hard.',formula:'SMC: compute f(x1,...,xn) without revealing xi'},
+];
+
+// =====================================================================
+// SEM FLASHCARDS — All 5 Units, 1M and 5M
+// =====================================================================
+const SEM_FLASHCARDS = [
+  // UNIT 1 — 1M
+  {unit:'1',marks:'1',tag:'Definition',q:'Define Confidentiality.',a:'Property ensuring information is accessible only to authorized entities. Prevents unauthorized disclosure.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is a passive attack?',a:'An attack where attacker only observes/monitors transmissions without modifying data. Example: eavesdropping, traffic analysis. Hard to detect.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is a masquerade attack?',a:'An active attack where an entity pretends to be a different, legitimate entity to gain unauthorized access.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'Define cryptanalysis.',a:'The science of analyzing and breaking cryptographic systems without knowing the key. Uses statistical analysis, brute force, etc.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is a Caesar cipher?',a:'A simple substitution cipher shifting each plaintext letter by a fixed number k. C = (P + k) mod 26. Only 25 possible keys.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is the CIA triad?',a:'The three core security principles: Confidentiality (secrecy), Integrity (accuracy), and Availability (accessibility).'},
+  {unit:'1',marks:'1',tag:'Definition',q:'Define Non-repudiation.',a:'Security service ensuring neither sender nor receiver can deny their participation in a communication. Achieved via digital signatures.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is Steganography?',a:'The art of hiding the existence of a message within ordinary data (image, audio, etc.) rather than encrypting it.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is a Denial of Service (DoS) attack?',a:'An active attack that floods a system/server with traffic to exhaust resources, preventing legitimate users from accessing services.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is the key size in a cipher?',a:'The length (in bits) of the cryptographic key. Larger key size → more possible keys → harder to brute force.'},
+  // UNIT 1 — 5M
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Explain security attacks, services, and mechanisms as per OSI security architecture.',a:'OSI Security Architecture (X.800):\nSecurity Attacks: Actions compromising security.\n• Passive: Eavesdropping, Traffic Analysis.\n• Active: Masquerade, Replay, Modification, DoS.\nSecurity Services: Capabilities countering attacks:\n1. Confidentiality: Against eavesdropping.\n2. Authentication: Against masquerade.\n3. Integrity: Against modification.\n4. Non-repudiation: Against denial.\n5. Access Control: Against unauthorized access.\n6. Availability: Against DoS.\nSecurity Mechanisms: Techniques implementing services:\n• Encipherment (encryption), Digital Signatures, Access Control, Data Integrity checks, Authentication Exchange, Traffic Padding, Routing Control, Notarization.',formula:'Attack → Service → Mechanism (X.800 framework)'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Explain classical encryption techniques: substitution and transposition with examples.',a:'Substitution Techniques:\n1. Caesar: Shift by k. C=(P+3)mod 26. Easy to break (25 keys).\n2. Monoalphabetic: Each letter → fixed unique letter. 26! keys, vulnerable to frequency analysis.\n3. Vigenere: Keyword used repeatedly. Polyalphabetic, harder to break. C_i = (P_i + K_i) mod 26.\n4. Playfair: Encrypt letter pairs using 5×5 matrix. 25 letters, I=J.\nTransposition Techniques:\n1. Rail Fence: Write in zigzag across "rails", read row by row.\n2. Row Transposition: Write in rows, read columns in permuted order.\nKey insight: Substitution changes symbols; transposition rearranges positions. Both can be combined (product cipher) for stronger security.',formula:'Vigenere: polyalphabetic | Rail Fence: transposition'},
+  // UNIT 2 — 1M
+  {unit:'2',marks:'1',tag:'Definition',q:'What is AES block size?',a:'AES always uses a 128-bit block size regardless of key length (128, 192, or 256 bits).'},
+  {unit:'2',marks:'1',tag:'Definition',q:'How many rounds does AES-128 use?',a:'AES-128 uses 10 rounds. AES-192 uses 12 rounds. AES-256 uses 14 rounds.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is the DES key size?',a:'DES takes a 64-bit key input, but 8 bits are parity bits — effective key length is 56 bits.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is the Feistel cipher?',a:'A symmetric structure splitting block into two halves (L, R). Each round: L_i = R_{i-1}, R_i = L_{i-1} ⊕ F(R_{i-1}, K_i). Decryption uses same structure with reversed subkeys.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is RC4?',a:'A stream cipher generating pseudorandom keystream byte-by-byte, XORed with plaintext. Variable key size. Used in old SSL/WEP (now deprecated).'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is the Initialization Vector (IV)?',a:'A random value XORed with the first plaintext block in CBC mode (or used as seed) to ensure same message encrypted differently each time.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is ElGamal cryptography?',a:'An asymmetric encryption scheme based on DH discrete logarithm. Produces two ciphertext values (C1, C2). C1=g^k mod p, C2=M·y^k mod p.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is the Knapsack algorithm?',a:'One of the earliest public-key systems based on the subset-sum problem. Proposed by Merkle-Hellman. Now broken.'},
+  // UNIT 2 — 5M
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain AES algorithm structure — rounds, operations, and key schedule.',a:'AES State: 128-bit block as 4×4 byte matrix.\nKey Sizes → Rounds: 128-bit → 10, 192-bit → 12, 256-bit → 14.\nEach Round (except last) performs:\n1. SubBytes: Non-linear S-Box substitution on each byte.\n2. ShiftRows: Rows shifted left cyclically (row i by i positions).\n3. MixColumns: GF(2^8) matrix multiplication on each column. Provides diffusion.\n4. AddRoundKey: XOR state with round key.\nFinal Round: SubBytes + ShiftRows + AddRoundKey (no MixColumns).\nKey Expansion: Original key expanded into (Nr+1) × 128-bit round keys using SubWord, RotWord, Rcon.\nAES Security: Resistant to all known attacks for 128+ bit keys. NIST standard since 2001.',formula:'10/12/14 rounds | 4 operations per round | S-Box nonlinearity'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain principles of public-key cryptography and compare with symmetric cryptography.',a:'Symmetric (Secret Key) Cryptography:\n• Same key for encryption and decryption.\n• Fast: suitable for bulk data.\n• Problem: Key distribution — how to securely share the key?\n• Examples: AES, DES, RC4.\nPublic Key (Asymmetric) Cryptography:\n• Key pair: Public key (distributed freely) + Private key (kept secret).\n• Solves key distribution: encrypt with recipient\'s public key.\n• Slower: not suitable for bulk data directly.\n• Also used for digital signatures and key exchange.\n• Examples: RSA, ElGamal, ECC.\nRequirements (Diffie-Hellman conditions):\n1. Easy to generate key pair.\n2. Easy to encrypt/sign with public key.\n3. Easy to decrypt/verify with private key.\n4. Computationally infeasible to derive private from public.\nHybrid: Use asymmetric to exchange a session key, then symmetric for data.',formula:'Symmetric = fast | Asymmetric = key distribution + signatures'},
+  // UNIT 3 — 1M
+  {unit:'3',marks:'1',tag:'Definition',q:'What is SHA-1 output size?',a:'SHA-1 produces a 160-bit (20-byte) message digest. Deprecated due to collision vulnerabilities found in 2005.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is SHA-256 output size?',a:'SHA-256 produces a 256-bit (32-byte) digest. Part of SHA-2 family. Currently secure and widely used.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is a MAC?',a:'Message Authentication Code — a keyed hash providing both integrity and authentication. Requires a shared secret key.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is HMAC?',a:'Hash-based MAC combining hash function with secret key to provide integrity and authentication. HMAC(K,M) = H((K⊕opad)‖H((K⊕ipad)‖M)).'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is a CRL?',a:'Certificate Revocation List — a CA-maintained list of digital certificates revoked before their expiry date.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is Kerberos?',a:'A network authentication protocol using a KDC (Key Distribution Center) to issue tickets for SSO authentication using symmetric keys.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is X.509?',a:'ITU-T standard defining the format for public-key certificates. Used in PKI, TLS/SSL, email security. Specifies certificate fields and validation chain.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What does a Certificate Authority (CA) do?',a:'A trusted entity that verifies identities and issues digitally signed X.509 certificates, binding public keys to identities.'},
+  // UNIT 3 — 5M
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Explain RSA algorithm — key generation, encryption, decryption, and security basis.',a:'RSA Key Generation:\n1. Select two large primes p and q.\n2. n = p × q.\n3. φ(n) = (p-1)(q-1).\n4. Choose e: 1 < e < φ(n), gcd(e, φ(n)) = 1.\n5. d = e⁻¹ mod φ(n).\n6. Public Key: (n, e) | Private Key: (n, d).\nEncryption: C = M^e mod n\nDecryption: M = C^d mod n\nNumerical Example: p=61, q=53, n=3233, φ(n)=3120, e=17, d=2753.\nC = M^17 mod 3233 | M = C^2753 mod 3233.\nSecurity: Based on integer factorization — given n, finding p and q is computationally infeasible for large primes (2048+ bits recommended today).',formula:'C=M^e mod n | M=C^d mod n | Security: factoring n'},
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Explain PKI — structure, components, certificate lifecycle, and trust models.',a:'PKI (Public Key Infrastructure) Components:\n1. CA (Certificate Authority): Root of trust. Issues and digitally signs certificates.\n2. RA (Registration Authority): Verifies user identity before cert issuance.\n3. Certificate Repository: LDAP directory storing valid certificates.\n4. CRL / OCSP: Certificate Revocation List / Online Certificate Status Protocol — for revoked certs.\n5. End Entities: Users, servers holding certificates.\nCertificate Lifecycle:\nRequest → RA verifies → CA signs & issues → Deployment → Renewal → Revocation.\nTrust Models:\n• Single CA: Simple, single point of failure.\n• Hierarchical (most common): Root CA → Intermediate CAs → End Entities.\n• Web of Trust (PGP): Decentralized, users vouch for each other.\nApplications: HTTPS (TLS), email security (S/MIME), VPN, code signing.',formula:'Root CA → Intermediate CA → End Entity (chain of trust)'},
+  // UNIT 4 — 1M
+  {unit:'4',marks:'1',tag:'Definition',q:'What is HTTPS?',a:'HTTP over TLS/SSL. Provides encrypted, authenticated web communication. Uses port 443. Identified by the padlock icon in browsers.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What port does SSH use?',a:'SSH uses port 22 by default for secure remote login and command execution.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What is WPA2?',a:'Wi-Fi Protected Access 2 — based on IEEE 802.11i standard. Uses AES-CCMP for encryption. Current wireless security standard.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What replaced WEP?',a:'WEP was replaced first by WPA (TKIP/RC4), then WPA2 (AES-CCMP / IEEE 802.11i), and now WPA3.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What is 802.1X?',a:'An IEEE standard for port-based network access control. Provides authentication framework used in WPA2-Enterprise wireless networks.'},
+  // UNIT 4 — 5M
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Explain SSL/TLS — record protocol, handshake protocol, and services.',a:'TLS Sub-protocols:\n1. Record Protocol: Lowest layer — fragments, compresses, MACs, and encrypts data.\n2. Handshake Protocol: Negotiates algorithms, authenticates server (and optionally client), establishes session keys.\n3. Change Cipher Spec Protocol: Signals switch to negotiated cipher.\n4. Alert Protocol: Error and warning messages.\nHandshake Steps:\n1. Client Hello (versions, random, cipher suites).\n2. Server Hello (chosen suite, random, certificate).\n3. Client verifies certificate with CA.\n4. Key exchange (client sends encrypted pre-master secret).\n5. Both sides derive symmetric session keys.\n6. Both send Finished messages encrypted with session keys.\nServices: Confidentiality (symmetric encryption), Authentication (certificates), Integrity (HMAC).',formula:'Handshake (asymmetric) → Session Keys → Record (symmetric)'},
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Explain IEEE 802.11i wireless security — 4-way handshake, CCMP, and key hierarchy.',a:'802.11i (WPA2) Security Layers:\n\n1. Authentication (802.1X/EAP for enterprise, PSK for home):\n   • Client authenticates to RADIUS server via AP.\n   • On success, both derive PMK (Pairwise Master Key).\n\n2. 4-Way Handshake:\n   • AP and client exchange nonces (ANonce, SNonce).\n   • Both derive PTK = PRF(PMK, ANonce, SNonce, MACs).\n   • AP sends GTK (Group Temporal Key) encrypted under PTK.\n   • PTK = EAPOL-Key Confirmation Key + Encryption Key + Temporal Key.\n\n3. CCMP (Encryption using AES):\n   • Counter Mode for confidentiality.\n   • CBC-MAC for integrity (MIC — Message Integrity Code).\n   • 128-bit AES key. Packet Number as IV (replay protection).\n\nKey Hierarchy: MSK → PMK → PTK (unicast) + GTK (multicast/broadcast).',formula:'PTK = PRF(PMK, ANonce, SNonce) | AES-CCMP encryption'},
+  // UNIT 5 — 1M
+  {unit:'5',marks:'1',tag:'Definition',q:'What is VPN?',a:'Virtual Private Network — creates an encrypted tunnel over a public network, enabling secure remote access as if on a private LAN.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What does TLS stand for?',a:'Transport Layer Security — protocol providing encrypted, authenticated communication between network endpoints (successor to SSL).'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is ESP in IPSec?',a:'Encapsulating Security Payload — IPSec protocol providing confidentiality (AES encryption) plus optional authentication for IP packets.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is AH in IPSec?',a:'Authentication Header — IPSec protocol providing data origin authentication and integrity for IP header and payload. Does NOT encrypt.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is IKE?',a:'Internet Key Exchange — protocol used in IPSec to negotiate Security Associations (SAs) and exchange cryptographic keys using Diffie-Hellman.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is S/MIME?',a:'Secure/Multipurpose Internet Mail Extensions — standard for encrypted and digitally signed email using X.509 certificates.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is XSS?',a:'Cross-Site Scripting — web vulnerability where attackers inject malicious scripts into web pages viewed by other users.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is Single Sign-On?',a:'Authentication scheme allowing a user to log in once and gain access to multiple systems without re-authenticating. Example: Kerberos, OAuth.'},
+  // UNIT 5 — 5M
+  {unit:'5',marks:'5',tag:'Long Answer',q:'Explain IPSec — AH, ESP, Transport and Tunnel modes with diagrams.',a:'IPSec Protocol Suite:\nAH (Authentication Header, Protocol 51):\n• Covers: Integrity + Origin Auth (HMAC over header + payload).\n• Does NOT encrypt.\n• Use: Verify data not tampered + from correct source.\nESP (Encapsulating Security Payload, Protocol 50):\n• Covers: Confidentiality (AES/3DES) + optional auth.\n• Encrypts payload (and optionally header in tunnel mode).\nModes:\n• Transport Mode: Inserts AH/ESP between IP header and payload. Original header intact. Host-to-host.\n  Original: [IP Hdr | Data]\n  Transport: [IP Hdr | AH/ESP | Data]\n• Tunnel Mode: Entire packet encapsulated with new IP header. Gateway-to-gateway VPN.\n  Tunnel: [New IP Hdr | ESP | Original IP Hdr | Data]\nSecurity Associations (SA): Unidirectional. Contains: SPI, algorithm, key, lifetime.\nIKE (Internet Key Exchange): Establishes SAs in two phases.\n• Phase 1: ISAKMP SA (main or aggressive mode).\n• Phase 2: Quick mode — negotiate IPSec SA.',formula:'Tunnel mode: entire packet encrypted → VPN use'},
+  {unit:'5',marks:'5',tag:'Long Answer',q:'Explain email security using PGP and S/MIME — differences and working.',a:'PGP (Pretty Good Privacy):\nServices: Authentication (digital sig), Confidentiality (symmetric enc + pub key wrap), Compression, Radix-64 encoding.\nMessage Processing:\n1. Sign M with sender\'s private key (DSS or RSA).\n2. Compress (M + signature).\n3. Generate session key KS, encrypt data with KS.\n4. Encrypt KS with recipient\'s public key.\n5. Radix-64 encode the output.\nTrust Model: Web of Trust — decentralized; users vouch for each other.\nS/MIME:\n• Secure/Multipurpose Internet Mail Extensions.\n• Uses X.509 certificates (centralized CA trust).\n• Integrated in email clients: Outlook, Apple Mail.\n• Services: Signed data, Enveloped data (encrypted), Signed + Encrypted.\nKey Difference:\n• PGP: Web of Trust, used by individuals, open-source.\n• S/MIME: Hierarchical CA trust, used in enterprise email.',formula:'PGP = web of trust | S/MIME = CA hierarchy'},
+];
+
+// =====================================================================
+// MID 1 QUIZ
+// =====================================================================
+const MID1_QUIZ = [
+  // Unit 1 — 2M type
+  {unit:'1',marks:'2',q:'Which security principle ensures data has not been modified in transit?',opts:['Confidentiality','Integrity','Availability','Non-repudiation'],ans:1,explain:'Integrity ensures data has not been modified by unauthorized parties during transit. Confidentiality is about secrecy, not modification.'},
+  {unit:'1',marks:'2',q:'An eavesdropping attack where the attacker only reads data without modification is:',opts:['Active attack','Passive attack','Masquerade','Replay attack'],ans:1,explain:'Eavesdropping and traffic analysis are passive attacks — the attacker observes but does not modify. Hard to detect.'},
+  {unit:'1',marks:'2',q:'Non-repudiation is best achieved using:',opts:['Symmetric encryption','Hash functions alone','Digital signatures','Firewalls'],ans:2,explain:'Digital signatures provide non-repudiation. Only the private key holder can produce a valid signature, so they cannot deny having sent it.'},
+  {unit:'1',marks:'2',q:'Steganography differs from cryptography in that it:',opts:['Scrambles data so it is unreadable','Hides the existence of the message entirely','Requires a public key','Uses a longer key'],ans:1,explain:'Steganography hides the fact that a message exists by concealing it within ordinary data (e.g., image LSBs). Cryptography makes the message unreadable but does not hide its existence.'},
+  {unit:'1',marks:'2',q:'In the Vigenere cipher, what makes it harder to break than a simple Caesar cipher?',opts:['It uses a 256-bit key','It is polyalphabetic — same letter encrypted differently at different positions','It uses transposition','It cannot be brute-forced'],ans:1,explain:'Vigenere uses a keyword repeated over the plaintext. The same plaintext letter maps to different ciphertext letters depending on position, defeating simple frequency analysis.'},
+  // Unit 2 — 2M type
+  {unit:'2',marks:'2',q:'AES operates on a block size of:',opts:['56 bits','64 bits','128 bits','256 bits'],ans:2,explain:'AES always uses a 128-bit block size regardless of key length (128, 192, or 256 bits). DES uses 64-bit blocks.'},
+  {unit:'2',marks:'2',q:'In the Feistel cipher structure, decryption:',opts:['Requires a different algorithm from encryption','Uses the same algorithm but with subkeys in reverse order','Only works with DES','Requires the entire key to be reversed'],ans:1,explain:'The Feistel structure is invertible — decryption applies the same operations as encryption but with round subkeys in reverse order. Same hardware/software can both encrypt and decrypt.'},
+  {unit:'2',marks:'2',q:'CBC mode of operation differs from ECB in that CBC:',opts:['Uses a shorter key','XORs each block with the previous ciphertext block before encryption','Encrypts blocks in parallel','Requires no initialization vector'],ans:1,explain:'In CBC, each plaintext block is XORed with the previous ciphertext block before encryption. This hides patterns — identical plaintext blocks produce different ciphertexts.'},
+  {unit:'2',marks:'2',q:'Triple DES (3DES) with two keys has an effective key strength of:',opts:['56 bits','112 bits','168 bits','128 bits'],ans:1,explain:'3DES with 2 keys uses K1, K2, K1. The meet-in-the-middle attack reduces its effective strength, giving 112 bits of security (not full 112).'},
+  {unit:'2',marks:'2',q:'RSA security is based on the difficulty of:',opts:['Discrete logarithm problem','Factoring large integers','Finding hash collisions','Solving the knapsack problem'],ans:1,explain:'RSA security relies on the computational difficulty of factoring the product n = p × q of two large prime numbers. Given n, finding p and q is infeasible for large values.'},
+  // Unit 3a — 2M type
+  {unit:'3a',marks:'2',q:'Collision resistance in a hash function means:',opts:['Given h, hard to find M','Given M1, hard to find M2 with same hash','Hard to find any two different inputs with same hash','The hash always produces different output'],ans:2,explain:'Collision resistance: computationally infeasible to find ANY two distinct inputs M1 ≠ M2 such that H(M1) = H(M2). This is the strongest of the three hash security properties.'},
+  {unit:'3a',marks:'2',q:'HMAC provides which security properties?',opts:['Confidentiality only','Integrity and authentication','Non-repudiation only','Availability'],ans:1,explain:'HMAC uses a shared secret key with a hash function to provide message integrity (data not changed) and authentication (message came from someone with the key). It does NOT provide confidentiality.'},
+  {unit:'3a',marks:'2',q:'SHA-512 produces a digest of:',opts:['160 bits','256 bits','384 bits','512 bits'],ans:3,explain:'SHA-512 (part of the SHA-2 family) produces a 512-bit (64-byte) message digest. It processes messages in 1024-bit blocks over 80 rounds.'},
+  {unit:'3a',marks:'2',q:'CMAC differs from HMAC in that CMAC:',opts:['Uses a hash function as its base','Uses a block cipher (AES) as its base','Provides encryption in addition to MAC','Requires no key'],ans:1,explain:'CMAC (Cipher-based MAC) is built using a block cipher (typically AES) rather than a hash function. HMAC uses a hash function. Both are NIST-approved for message authentication.'},
+];
+
+// =====================================================================
+// MID 2 QUIZ
+// =====================================================================
+const MID2_QUIZ = [
+  // Unit 3b — 2M
+  {unit:'3b',marks:'2',q:'A digital signature is created using the sender\'s:',opts:['Public key','Shared symmetric key','Private key','Certificate only'],ans:2,explain:'The sender creates a signature by encrypting the message hash with their private key. The receiver verifies using the sender\'s public key. Only the private key holder can create a valid signature.'},
+  {unit:'3b',marks:'2',q:'Kerberos uses which type of cryptography for ticket exchange?',opts:['Asymmetric (public-key) only','Symmetric key cryptography','Hash functions only','No cryptography'],ans:1,explain:'Kerberos primarily uses symmetric key cryptography. Tickets are encrypted using shared secret keys between the KDC and each party. This provides mutual authentication without transmitting passwords.'},
+  {unit:'3b',marks:'2',q:'X.509 certificates are the basis for:',opts:['PGP Web of Trust','PKI and TLS certificate validation','Kerberos ticket granting','IPSec AH headers'],ans:1,explain:'X.509 defines the standard digital certificate format used in PKI. TLS/SSL uses X.509 certificates to authenticate servers. It specifies fields like subject, issuer, public key, validity period, and CA signature.'},
+  {unit:'3b',marks:'2',q:'In PKI, the entity that verifies identity before certificate issuance is the:',opts:['CA (Certificate Authority)','RA (Registration Authority)','CRL Server','End Entity'],ans:1,explain:'The RA (Registration Authority) verifies the identity of the requestor before forwarding the certificate request to the CA. The CA then issues and signs the certificate.'},
+  // Unit 4 — 2M
+  {unit:'4',marks:'2',q:'HTTPS uses which port by default?',opts:['80','443','22','8080'],ans:1,explain:'HTTPS (HTTP over TLS/SSL) uses port 443 by default. Plain HTTP uses port 80. The browser shows a padlock icon for HTTPS connections.'},
+  {unit:'4',marks:'2',q:'In TLS handshake, asymmetric cryptography is used:',opts:['To encrypt all application data','Only during the handshake for key exchange','Instead of symmetric encryption','For hashing messages only'],ans:1,explain:'Asymmetric cryptography (RSA/ECDH) is used only during the TLS handshake to exchange keys securely. Once session keys are established, faster symmetric encryption (AES) is used for all application data.'},
+  {unit:'4',marks:'2',q:'WEP was replaced because:',opts:['RC4 is too slow','IVs are short and repeat, enabling key recovery','It used asymmetric encryption','It lacked a MAC'],ans:1,explain:'WEP\'s critical flaw was its use of short (24-bit) IVs that repeat frequently. Attackers could collect enough IV repeats to recover the RC4 key using statistical attacks (in minutes).'},
+  {unit:'4',marks:'2',q:'IEEE 802.11i (WPA2) uses which encryption algorithm?',opts:['RC4 (TKIP)','DES-CBC','AES-CCMP','3DES'],ans:2,explain:'WPA2 (IEEE 802.11i) uses AES-CCMP (Counter Mode CBC-MAC Protocol) for encryption and integrity. This replaced the vulnerable RC4-based TKIP used in WPA1.'},
+  // Unit 5 — 2M
+  {unit:'5',marks:'2',q:'In IPSec, the protocol that provides both encryption AND authentication is:',opts:['AH (Authentication Header)','ESP (Encapsulating Security Payload)','IKE','TLS'],ans:1,explain:'ESP provides confidentiality via AES encryption plus optional origin authentication and integrity. AH provides only authentication/integrity with no encryption.'},
+  {unit:'5',marks:'2',q:'IPSec Tunnel Mode differs from Transport Mode in that Tunnel Mode:',opts:['Only encrypts the payload','Encrypts the entire original IP packet and adds a new header','Uses AH instead of ESP','Is used between two hosts only'],ans:1,explain:'In Tunnel Mode, the entire original IP packet (header + payload) is encrypted and encapsulated with a new IP header. Used for VPNs between gateways. Transport Mode only encrypts the payload.'},
+  {unit:'5',marks:'2',q:'PGP uses which trust model for certificate validation?',opts:['Centralized CA hierarchy','Blockchain','Web of Trust','Kerberos tickets'],ans:2,explain:'PGP uses a decentralized "Web of Trust" — users vouch for each other\'s public keys by signing them. This contrasts with S/MIME and TLS which use a hierarchical CA structure.'},
+  {unit:'5',marks:'2',q:'Cross-Site Scripting (XSS) allows an attacker to:',opts:['Intercept network packets','Inject malicious scripts into web pages seen by other users','Brute-force login credentials','Perform SQL injection'],ans:1,explain:'XSS injects malicious client-side scripts (JavaScript) into trusted websites. When victims view the page, the script runs in their browser, potentially stealing cookies, session tokens, or redirecting them.'},
+];
+
+// =====================================================================
+// SEM QUIZ
+// =====================================================================
+const SEM_QUIZ = [
+  // 1-mark type
+  {unit:'1',marks:'1',q:'CIA triad stands for:',opts:['Confidentiality, Integrity, Availability','Cryptography, IDS, Authentication','Cipher, Integrity, Access','Control, Integrity, Authorization'],ans:0,explain:'The CIA triad is the foundation of information security: Confidentiality (only authorized access), Integrity (data unaltered), Availability (services accessible when needed).'},
+  {unit:'2',marks:'1',q:'AES key size options are:',opts:['56, 112, 168 bits','64, 128, 256 bits','128, 192, 256 bits','128, 256, 512 bits'],ans:2,explain:'AES supports three key sizes: 128-bit (10 rounds), 192-bit (12 rounds), and 256-bit (14 rounds). Block size is always 128-bit.'},
+  {unit:'3',marks:'1',q:'A digital signature is computed using the sender\'s:',opts:['Public key','Shared key','Private key','Certificate'],ans:2,explain:'The sender signs with their private key. The receiver verifies using the sender\'s public key. This proves the sender\'s identity since only they hold the private key.'},
+  {unit:'4',marks:'1',q:'HTTPS runs on port:',opts:['80','443','22','21'],ans:1,explain:'HTTPS (HTTP over TLS) uses port 443. Plain HTTP uses port 80. SSH uses 22. FTP uses 21.'},
+  {unit:'5',marks:'1',q:'ESP in IPSec provides:',opts:['Authentication only','Encryption only','Both encryption and optional authentication','Neither'],ans:2,explain:'ESP provides confidentiality (AES encryption) plus optional origin authentication and integrity, making it more comprehensive than AH alone.'},
+  {unit:'1',marks:'1',q:'Which attack involves retransmitting a previously captured valid message?',opts:['Masquerade','Replay attack','Traffic analysis','DoS'],ans:1,explain:'A replay attack captures a legitimate message (e.g., auth token) and retransmits it to deceive the system. Prevented by timestamps and nonces.'},
+  {unit:'2',marks:'1',q:'The operation NOT performed in AES final round is:',opts:['SubBytes','ShiftRows','MixColumns','AddRoundKey'],ans:2,explain:'MixColumns is omitted in the final AES round. All other operations (SubBytes, ShiftRows, AddRoundKey) are performed in every round including the last.'},
+  {unit:'3',marks:'1',q:'HMAC requires:',opts:['Only a hash function','A shared secret key + hash function','A public-private key pair','A block cipher only'],ans:1,explain:'HMAC requires both a hash function and a shared secret key. The key prevents anyone without the key from generating or verifying the MAC.'},
+  // 5-mark type
+  {unit:'1',marks:'5',q:'The network security model involves which core elements?',opts:['Only sender and receiver','Message, security transformation, key, secure channel, opponent','Just encryption and decryption','OS-level firewalls only'],ans:1,explain:'The network security model (Stallings) includes: parties A and B, the message, a security transformation (encryption), a key, a secure channel for key distribution (via TTP), and an opponent trying to compromise security.'},
+  {unit:'2',marks:'5',q:'In CBC mode, what is the purpose of the Initialization Vector (IV)?',opts:['Encrypt the first block without XOR','Ensure identical plaintexts produce different ciphertexts','Store the session key','Replace the round key'],ans:1,explain:'The IV is XORed with the first plaintext block before encryption. This ensures that encrypting the same message twice with the same key produces different ciphertexts, preventing pattern analysis.'},
+  {unit:'3',marks:'5',q:'In Diffie-Hellman, security relies on:',opts:['Factoring large integers','Discrete logarithm problem','Hash collision resistance','Elliptic curve solving'],ans:1,explain:'DH security is based on the discrete logarithm problem: given g^x mod p, computing x is computationally infeasible for large prime p. This makes it safe to publicly exchange g^a and g^b.'},
+  {unit:'4',marks:'5',q:'What distinguishes HMAC from a plain hash for message authentication?',opts:['HMAC uses a public key','HMAC incorporates a secret key making it unforgeable without that key','HMAC is faster than hash','HMAC produces longer output'],ans:1,explain:'A plain hash H(M) can be recomputed by anyone. HMAC(K,M) requires the secret key K, so only parties with the key can generate or verify it. This provides authentication in addition to integrity.'},
+  {unit:'5',marks:'5',q:'PGP\'s trust model differs from TLS in that PGP uses:',opts:['Centralized Certificate Authorities','Blockchain-based trust','Web of Trust — users sign each other\'s keys','No trust model at all'],ans:2,explain:'PGP uses a decentralized Web of Trust where users directly sign each other\'s public keys. TLS/HTTPS uses a hierarchical CA structure. Both models aim to bind public keys to identities but in different ways.'},
+  {unit:'2',marks:'5',q:'The Feistel structure ensures that:',opts:['Only the right half is encrypted','Decryption uses same algorithm with reversed subkeys','No key schedule is needed','Each round fully changes the block'],ans:1,explain:'The Feistel structure is invertible — decryption uses the same algorithm as encryption but applies round subkeys in reverse order. This elegant symmetry means the same hardware/software can encrypt and decrypt.'},
+  {unit:'4',marks:'5',q:'In the 4-way handshake of WPA2, the PTK is derived from:',opts:['The AP MAC address alone','PMK + ANonce + SNonce + both MAC addresses','The user password directly','The IV and session key'],ans:1,explain:'PTK (Pairwise Transient Key) = PRF(PMK, ANonce, SNonce, Client MAC, AP MAC). Both ANonce (from AP) and SNonce (from client) are included so neither party can predetermine the PTK. Provides forward secrecy.'},
+  {unit:'3',marks:'5',q:'In Kerberos, the TGT (Ticket Granting Ticket) is:',opts:['Sent in plaintext to the user','Encrypted with the user\'s long-term key derived from their password','Stored permanently on the KDC','Signed with the user\'s private key'],ans:1,explain:'The AS encrypts the TGT with the user\'s long-term key (derived from password). The user decrypts it using their password hash. This proves identity without sending the password over the network.'},
+];
+
+// =====================================================================
+// STATE
+// =====================================================================
+let state = {
+  section: 'mid1',
+  mid1: { mode:'flash', unit:'all', marks:['2','5'], quizIdx:0, quizAnswered:false, quizDone:false, score:0, quizList:[], correctLog:[] },
+  mid2: { mode:'flash', unit:'all', marks:['2','5'], quizIdx:0, quizAnswered:false, quizDone:false, score:0, quizList:[], correctLog:[] },
+  sem:  { mode:'flash', unit:'all', marks:['1','5'], quizIdx:0, quizAnswered:false, quizDone:false, score:0, quizList:[], correctLog:[] }
+};
+
+function getDataMap(sec) {
+  if(sec==='mid1') return { flash: MID1_FLASHCARDS, quiz: MID1_QUIZ };
+  if(sec==='mid2') return { flash: MID2_FLASHCARDS, quiz: MID2_QUIZ };
+  return { flash: SEM_FLASHCARDS, quiz: SEM_QUIZ };
+}
+
+// =====================================================================
+// SECTION SWITCH
+// =====================================================================
+function showSection(s) {
+  state.section = s;
+  ['mid1','mid2','sem'].forEach(x=>{
+    document.getElementById('panel-'+x).classList.toggle('active', x===s);
+    document.getElementById('stab-'+x).classList.toggle('active', x===s);
+  });
+  document.querySelectorAll('.nav-btn').forEach((b,i)=>{
+    b.classList.toggle('active', (i===0&&s==='mid1')||(i===1&&s==='mid2')||(i===2&&s==='sem'));
+  });
+  renderAll(s);
+}
+
+function setMode(sec, mode) {
+  state[sec].mode = mode;
+  const flash = document.getElementById(sec+'-flash');
+  const quiz  = document.getElementById(sec+'-quiz');
+  flash.classList.toggle('active', mode==='flash');
+  quiz.classList.toggle('active',  mode==='quiz');
+  document.querySelectorAll('#panel-'+sec+' .mtab').forEach((b,i)=>{
+    b.classList.toggle('active',(i===0&&mode==='flash')||(i===1&&mode==='quiz'));
+  });
+  if(mode==='quiz') buildQuiz(sec);
+}
+
+function filterUnit(sec, unit) {
+  state[sec].unit = unit;
+  document.querySelectorAll('#uf-'+sec+' .ufbtn').forEach(b=>{
+    const m = b.getAttribute('onclick').match(/'([^']+)'\)$/);
+    if(m) b.classList.toggle('active', m[1]===unit);
+  });
+  if(state[sec].mode==='flash') renderFlashcards(sec);
+  else buildQuiz(sec);
+}
+
+function filterMark(sec, m) {
+  const arr = state[sec].marks;
+  const i = arr.indexOf(m);
+  if(i>-1){ if(arr.length>1) arr.splice(i,1); }
+  else arr.push(m);
+  // update buttons
+  const btnIds = sec==='sem' ? ['1','5'] : ['2','5'];
+  btnIds.forEach(mk=>{
+    const el = document.getElementById(sec+'-mb-'+mk);
+    if(el) el.classList.toggle('active', arr.includes(mk));
+  });
+  if(state[sec].mode==='flash') renderFlashcards(sec);
+  else buildQuiz(sec);
+}
+
+// =====================================================================
+// FLASHCARDS
+// =====================================================================
+function getFlashData(sec) {
+  const s = state[sec];
+  let data = getDataMap(sec).flash;
+  if(s.unit!=='all') data = data.filter(d=>d.unit===s.unit);
+  data = data.filter(d=>s.marks.includes(d.marks));
+  return data;
+}
+
+function renderFlashcards(sec) {
+  const data = getFlashData(sec);
+  const grid = document.getElementById('fc-'+sec);
+  const cnt  = document.getElementById('fc-count-'+sec);
+  updateStats(sec, data);
+  if(!data.length){grid.innerHTML='<div class="empty">No flashcards match current filter.</div>';cnt.textContent='';return;}
+  grid.innerHTML = data.map((d,i)=>`
+    <div class="fc${d.marks==='5'?' tall':''}" id="fc${sec}${i}" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div>
+            <div class="fc-tag">${d.tag} · Unit ${d.unit}<span class="fc-mark-badge">${d.marks}M</span></div>
+            <div class="fc-q">${d.q}</div>
+          </div>
+          <div class="fc-hint">tap to reveal answer ↓</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-tag">Answer · ${d.marks}M</div>
+          <div class="fc-ans">${d.a.replace(/\n/g,'<br>')}${d.formula?'<span class="formula">'+d.formula+'</span>':''}</div>
+          <div class="fc-unit">Unit ${d.unit} · ${d.tag}</div>
+        </div>
+      </div>
+    </div>`).join('');
+  cnt.textContent = data.length + ' flashcards · click any card to flip';
+}
+
+function updateStats(sec, data) {
+  const bar = document.getElementById('stats-'+sec);
+  const units = [...new Set(data.map(d=>d.unit))].sort();
+  const twoM = data.filter(d=>d.marks==='2').length;
+  const fiveM = data.filter(d=>d.marks==='5').length;
+  const oneM = data.filter(d=>d.marks==='1').length;
+  let html = `<div class="stat"><div class="stat-n">${data.length}</div><div class="stat-l">Total Cards</div></div>`;
+  if(sec==='sem') {
+    html += `<div class="stat"><div class="stat-n">${oneM}</div><div class="stat-l">1M (Part A)</div></div>`;
+    html += `<div class="stat"><div class="stat-n">${fiveM}</div><div class="stat-l">5M (Part B)</div></div>`;
+  } else {
+    html += `<div class="stat"><div class="stat-n">${twoM}</div><div class="stat-l">2M (Part A)</div></div>`;
+    html += `<div class="stat"><div class="stat-n">${fiveM}</div><div class="stat-l">5M (Part B)</div></div>`;
+  }
+  units.forEach(u=>{
+    const c = data.filter(d=>d.unit===u).length;
+    html += `<div class="stat"><div class="stat-n">${c}</div><div class="stat-l">Unit ${u}</div></div>`;
+  });
+  bar.innerHTML = html;
+}
+
+// =====================================================================
+// QUIZ
+// =====================================================================
+function buildQuiz(sec) {
+  const s = state[sec];
+  let data = getDataMap(sec).quiz;
+  if(s.unit!=='all') data = data.filter(d=>d.unit===s.unit);
+  data = data.filter(d=>s.marks.includes(d.marks));
+  data = shuffle([...data]);
+  s.quizList = data;
+  s.quizIdx = 0;
+  s.score = 0;
+  s.quizAnswered = false;
+  s.quizDone = false;
+  s.correctLog = [];
+  renderQuiz(sec);
+}
+
+function shuffle(arr) {
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
+}
+
+function renderQuiz(sec) {
+  const s = state[sec];
+  const data = s.quizList;
+  const prog = document.getElementById('qprog-'+sec);
+  const body = document.getElementById('qbody-'+sec);
+  if(!data.length){body.innerHTML='<div class="empty">No quiz questions match current filter.</div>';prog.innerHTML='';return;}
+  prog.innerHTML = data.map((_,i)=>{
+    let cls='qp-dot';
+    if(i<s.quizIdx) cls+=' '+(s.correctLog[i]?'correct':'wrong');
+    else if(i===s.quizIdx&&!s.quizDone) cls+=' current';
+    return `<div class="${cls}"></div>`;
+  }).join('');
+  if(s.quizDone){renderResult(sec);return;}
+  const q = data[s.quizIdx];
+  const markLabel = q.marks==='2' ? '2M · Part A' : q.marks==='5' ? '5M · Part B' : q.marks+'M · Part A';
+  const optHTML = q.opts.map((o,oi)=>`
+    <button class="opt" id="${sec}opt${oi}" onclick="answerQuiz('${sec}',${oi})">${o}</button>
+  `).join('');
+  body.innerHTML = `
+    <div class="quiz-card">
+      <div class="quiz-meta">
+        <div class="quiz-num">Q${s.quizIdx+1} / ${data.length}</div>
+        <div class="quiz-unit">Unit ${q.unit} · ${markLabel}</div>
+      </div>
+      <div class="quiz-q">${q.q}</div>
+      <div class="options">${optHTML}</div>
+      <div id="${sec}-explain"></div>
+    </div>
+    <div class="quiz-actions">
+      <button class="btn btn-outline" onclick="buildQuiz('${sec}')">Restart</button>
+      <button class="btn btn-red" id="${sec}-next" style="display:none" onclick="nextQ('${sec}')">Next →</button>
+    </div>`;
+}
+
+function answerQuiz(sec, chosen) {
+  const s = state[sec];
+  if(s.quizAnswered) return;
+  s.quizAnswered = true;
+  const q = s.quizList[s.quizIdx];
+  const correct = chosen===q.ans;
+  if(correct) s.score++;
+  s.correctLog[s.quizIdx] = correct;
+  q.opts.forEach((_,i)=>{
+    const el=document.getElementById(sec+'opt'+i);
+    if(!el)return;
+    el.classList.add('disabled');
+    if(i===q.ans) el.classList.add('correct');
+    else if(i===chosen) el.classList.add('wrong');
+  });
+  document.getElementById(sec+'-explain').innerHTML = `
+    <div class="quiz-explain">
+      <strong>${correct?'✓ Correct!':'✗ Incorrect.'}</strong> ${q.explain}
+    </div>`;
+  document.getElementById(sec+'-next').style.display='inline-block';
+  renderQuizProg(sec);
+}
+
+function renderQuizProg(sec) {
+  const s = state[sec];
+  const prog = document.getElementById('qprog-'+sec);
+  prog.innerHTML = s.quizList.map((_,i)=>{
+    let cls='qp-dot';
+    if(i<s.quizIdx) cls+=' '+(s.correctLog[i]?'correct':'wrong');
+    else if(i===s.quizIdx) cls+=' '+(s.quizAnswered?(s.correctLog[i]?'correct':'wrong'):'current');
+    return `<div class="${cls}"></div>`;
+  }).join('');
+}
+
+function nextQ(sec) {
+  const s = state[sec];
+  s.quizAnswered = false;
+  s.quizIdx++;
+  if(s.quizIdx>=s.quizList.length) s.quizDone=true;
+  renderQuiz(sec);
+}
+
+function renderResult(sec) {
+  const s = state[sec];
+  const total = s.quizList.length;
+  const pct = Math.round((s.score/total)*100);
+  let msg='';
+  if(pct>=80) msg='Outstanding! You have a strong grasp of CNS. Review any wrong answers briefly.';
+  else if(pct>=60) msg='Good effort. Focus on the questions you got wrong and revisit those topics.';
+  else if(pct>=40) msg='Needs work. Go back to flashcards for topics you struggled with, then retake.';
+  else msg='Keep going. Use the flashcards to build your foundation, then attempt the quiz again.';
+  document.getElementById('qbody-'+sec).innerHTML = `
+    <div class="quiz-result">
+      <div class="result-score">${pct}%</div>
+      <div class="result-label">Final Score</div>
+      <div class="result-breakdown">
+        <div class="rb-item"><div class="rb-num" style="color:#22c55e">${s.score}</div><div class="rb-lbl">Correct</div></div>
+        <div class="rb-item"><div class="rb-num" style="color:var(--red)">${total-s.score}</div><div class="rb-lbl">Wrong</div></div>
+        <div class="rb-item"><div class="rb-num">${total}</div><div class="rb-lbl">Total</div></div>
+      </div>
+      <div class="result-msg">${msg}</div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-red" onclick="buildQuiz('${sec}')">Retake Quiz</button>
+        <button class="btn btn-outline" onclick="setMode('${sec}','flash')">Review Flashcards</button>
+      </div>
+    </div>`;
+}
+
+function renderAll(sec) {
+  renderFlashcards(sec);
+  if(state[sec].mode==='quiz') buildQuiz(sec);
+}
+
+// INIT
+renderFlashcards('mid1');
+renderFlashcards('mid2');
+renderFlashcards('sem');
+</script>
+</body>
+</html>

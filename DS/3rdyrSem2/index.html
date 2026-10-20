@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engg.Prep — AIMSCS 3rd Year</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --bg4: #222222;
+  --red: #e02020;
+  --red2: #ff3333;
+  --red3: #c01010;
+  --red-dim: rgba(224,32,32,0.12);
+  --red-glow: rgba(224,32,32,0.25);
+  --white: #f5f5f5;
+  --white2: #cccccc;
+  --white3: #888888;
+  --border: rgba(255,255,255,0.08);
+  --border-red: rgba(224,32,32,0.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Roboto Mono',monospace;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.5}
+
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);letter-spacing:0.02em}
+.logo span{color:var(--red)}
+.logo-sub{font-size:.75rem;color:var(--white3);font-family:'Roboto Mono',monospace;font-weight:300}
+
+.main{max-width:1200px;margin:0 auto;padding:3rem 2rem;position:relative;z-index:1}
+
+.hero{margin-bottom:3rem;text-align:center}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;line-height:1.15;margin-bottom:1rem}
+.hero h1 em{font-style:italic;color:var(--red)}
+.hero p{font-size:12px;color:var(--white3);letter-spacing:0.1em;text-transform:uppercase}
+.hero-badges{display:flex;gap:8px;justify-content:center;margin-top:1.2rem;flex-wrap:wrap}
+.badge{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--white3)}
+
+.div-line{height:1px;background:linear-gradient(90deg,transparent,var(--red),transparent);margin:2rem 0;opacity:0.4}
+
+.section-label{font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--white3);margin-bottom:1.2rem}
+
+.subjects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:3rem}
+
+.subject-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:1.5rem;cursor:pointer;transition:all .25s;text-decoration:none;display:block;position:relative;overflow:hidden}
+.subject-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--red-dim),transparent);opacity:0;transition:opacity .3s}
+.subject-card:hover{border-color:var(--border-red);transform:translateY(-2px);box-shadow:0 8px 32px rgba(224,32,32,0.12)}
+.subject-card:hover::before{opacity:1}
+.subject-card.locked{opacity:0.45;cursor:not-allowed}
+.subject-card.locked:hover{transform:none;box-shadow:none;border-color:var(--border)}
+.subject-card.locked:hover::before{opacity:0}
+
+.sc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;position:relative;z-index:1}
+.sc-code{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red)}
+.sc-status{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+.sc-status.ready{background:rgba(34,197,94,0.12);color:#86efac;border:1px solid rgba(34,197,94,0.3)}
+.sc-status.soon{background:var(--bg3);color:var(--white3);border:1px solid var(--border)}
+
+.sc-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--white);margin-bottom:4px;position:relative;z-index:1}
+.sc-full{font-size:10px;color:var(--white3);letter-spacing:0.04em;margin-bottom:1rem;position:relative;z-index:1}
+
+.sc-meta{display:flex;gap:8px;flex-wrap:wrap;position:relative;z-index:1}
+.sc-chip{font-size:9px;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px;border:1px solid var(--border);color:var(--white3)}
+
+.sc-arrow{position:absolute;bottom:1.5rem;right:1.5rem;color:var(--red);opacity:0;transition:all .25s;font-size:1.2rem;z-index:1}
+.subject-card:not(.locked):hover .sc-arrow{opacity:1;transform:translateX(4px)}
+
+.info-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:3rem}
+.info-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1rem 1.2rem}
+.info-card h3{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:.5rem;color:var(--white)}
+.info-card p{font-size:10px;color:var(--white3);line-height:1.7;letter-spacing:0.03em}
+.info-card .accent{color:var(--red2)}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--red3);border-radius:2px}
+
+@media(max-width:600px){.subjects-grid{grid-template-columns:1fr}.hero h1{font-size:2rem}}
+
+.back-link { font-size: 10px; color: var(--white3); text-decoration: none; letter-spacing: 0.08em; transition: color .2s; }
+.back-link:hover { color: var(--red); }
+.back-link span { margin-right: 4px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">Engg<span>.</span>Prep <span class="logo-sub">— AIMSCS 3rd Year</span></div>
+    <a class="back-link" href="../index.html"><span>←</span> Switch Year</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="hero">
+    <h1>Your Exam<br><em>Command Centre</em></h1>
+    <p>JNTUH · 3rd Year · Flashcards & Quizzes · Mid + Sem Patterns</p>
+    <div class="hero-badges">
+      <span class="badge">Mid · 30 Marks</span>
+      <span class="badge">Sem · 60 Marks</span>
+      <span class="badge">Flashcards</span>
+      <span class="badge">MCQ Quiz</span>
+    </div>
+  </div>
+
+  <div class="div-line"></div>
+
+  <!-- EXAM PATTERN GUIDE -->
+  <div class="section-label">Exam Pattern Reference</div>
+  <div class="info-row">
+    <div class="info-card">
+      <h3>Mid — 30 Marks</h3>
+      <p><span class="accent">Part A:</span> 5 × 2M = 10M<br>Answer all 5 short questions.<br><span class="accent">Part B:</span> 6 questions, attempt any 4.<br>Each Q further split into sub-parts.<br>4 × 5M = 20M</p>
+    </div>
+    <div class="info-card">
+      <h3>Sem — 60 Marks</h3>
+      <p><span class="accent">Part A:</span> 10 × 1M = 10M<br>Answer all 10, one-mark each.<br><span class="accent">Part B:</span> 5 questions, attempt all.<br>Each Q has (a+b) or (c+d) choice.<br>a=b=c=d=5M per sub-question.</p>
+    </div>
+    <div class="info-card">
+      <h3>Sem Part B Rule</h3>
+      <p>In Sem Part B each question gives options like:<br><span class="accent">Q1: a) or b)</span><br><span class="accent">Q1: c) or d)</span><br>You answer either <b>a+b</b> OR <b>c+d</b> — not a+c or b+d.</p>
+    </div>
+    <div class="info-card">
+      <h3>How to Use</h3>
+      <p>Pick a subject below. Use <span class="accent">Flashcards</span> to review, then switch to <span class="accent">Quiz</span> mode to test yourself. Filter by unit and mark type.</p>
+    </div>
+  </div>
+
+  <div class="div-line"></div>
+
+  <div class="section-label">Select Subject</div>
+  <div class="subjects-grid">
+
+    <!-- ML — READY -->
+    <a class="subject-card" href="ml.html">
+      <div class="sc-top">
+        <div class="sc-code">ML</div>
+        <div class="sc-status ready">Ready</div>
+      </div>
+      <div class="sc-title">Machine Learning</div>
+      <div class="sc-full">Units I – V · GMM, PCA, SVM, RL, HMM</div>
+      <div class="sc-meta">
+        <span class="sc-chip">Mid · 30M</span>
+        <span class="sc-chip">Sem · 60M</span>
+        <span class="sc-chip">Flashcards</span>
+        <span class="sc-chip">Quiz</span>
+      </div>
+      <div class="sc-arrow">→</div>
+    </a>
+
+    <!-- CNS — READY -->
+    <a class="subject-card" href="cns.html">
+      <div class="sc-top">
+        <div class="sc-code">CNS</div>
+        <div class="sc-status ready">Ready</div>
+      </div>
+      <div class="sc-title">Cryptography and Network Security</div>
+      <div class="sc-full">AES, RSA, Hash, SSL, IPSec, PKI</div>
+      <div class="sc-meta">
+        <span class="sc-chip">Mid · 30M</span>
+        <span class="sc-chip">Sem · 60M</span>
+        <span class="sc-chip">Flashcards</span>
+        <span class="sc-chip">Quiz</span>
+      </div>
+      <div class="sc-arrow">→</div>
+    </a>
+
+    <!-- ATCD — READY -->
+    <a class="subject-card" href="atcd.html">
+      <div class="sc-top">
+        <div class="sc-code">ATCD</div>
+        <div class="sc-status ready">Ready</div>
+      </div>
+      <div class="sc-title">Automata Theory and Compiler Design</div>
+      <div class="sc-full">DFA, NFA, TM, CFG, Parsing, Compilers</div>
+      <div class="sc-meta">
+        <span class="sc-chip">Mid · 30M</span>
+        <span class="sc-chip">Sem · 60M</span>
+        <span class="sc-chip">Flashcards</span>
+        <span class="sc-chip">Quiz</span>
+      </div>
+      <div class="sc-arrow">→</div>
+    </a>
+
+    <!-- FLAT -->
+     <a class="subject-card" href="flat.html">
+      <div class="sc-top">
+        <div class="sc-code">FLAT</div>
+        <div class="sc-status ready">Ready</div>
+      </div>
+      <div class="sc-title">Formal Language and Automata Theory</div>
+      <div class="sc-full">DFA, NFA, CFG, PDA, Turing Machines</div>
+      <div class="sc-meta">
+        <span class="sc-chip">Mid · 30M</span>
+        <span class="sc-chip">Sem · 60M</span>
+        <span class="sc-chip">Flashcards</span>
+        <span class="sc-chip">Full Notes</span>
+      </div>
+      <div class="sc-arrow">→</div>
+    </a>
+
+    <!-- BDA — READY -->
+    <a class="subject-card" href="bda.html">
+      <div class="sc-top">
+        <div class="sc-code">BDA</div>
+        <div class="sc-status ready">Ready</div>
+      </div>
+      <div class="sc-title">Big Data Analytics</div>
+      <div class="sc-full">Data Science, Hadoop, NoSQL, R Programming</div>
+      <div class="sc-meta">
+        <span class="sc-chip">Mid · 30M</span>
+        <span class="sc-chip">Sem · 60M</span>
+        <span class="sc-chip">Flashcards</span>
+        <span class="sc-chip">Quiz</span>
+      </div>
+      <div class="sc-arrow">→</div>
+    </a>
+
+
+
+    <!-- AI -->
+    <a class="subject-card" href="ai.html">
+      <div class="sc-top">
+        <div class="sc-code">AI</div>
+        <div class="sc-status ready">Ready</div>
+      </div>
+      <div class="sc-title">Artificial Intelligence</div>
+      <div class="sc-full">Knapsack, Travelling Salesman, Search Algorithms</div>
+      <div class="sc-meta">
+        <span class="sc-chip">Mid · 30M</span>
+        <span class="sc-chip">Sem · 60M</span>
+        <span class="sc-chip">Flashcards</span>
+        <span class="sc-chip">Quiz</span>
+      </div>
+      <div class="sc-arrow">→</div>
+    </a>
+
+    <a class="subject-card" href="dt.html">
+      <div class="sc-top">
+        <div class="sc-code">DT</div>
+        <div class="sc-status ready">Ready</div>
+      </div>
+      <div class="sc-title">Design Thinking</div>
+      <div class="sc-full">Knapsack, Travelling Salesman, Search Algorithms</div>
+      <div class="sc-meta">
+        <span class="sc-chip">Mid · 30M</span>
+        <span class="sc-chip">Sem · 60M</span>
+        <span class="sc-chip">Flashcards</span>
+        <span class="sc-chip">Quiz</span>
+      </div>
+      <div class="sc-arrow">→</div>
+    </a>
+
+
+        <!-- FSD -->
+    <div class="subject-card locked">
+      <div class="sc-top">
+        <div class="sc-code">FSD</div>
+        <div class="sc-status soon">Coming Soon</div>
+      </div>
+      <div class="sc-title">Full Stack Development</div>
+      <div class="sc-full">React, Node.js, Express, MongoDB</div>
+      <div class="sc-meta">
+        <span class="sc-chip">Mid · 30M</span>
+        <span class="sc-chip">Sem · 60M</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

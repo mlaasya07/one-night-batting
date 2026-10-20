@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Thinking Exam Key</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #000000;
+    color: #ddd;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header {
+    padding: 64px 0 40px;
+    border-bottom: 2px solid #111;
+    margin-bottom: 48px;
+  }
+  .course-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  header p {
+    font-size: 1rem;
+    color: #aaa;
+    max-width: 580px;
+    font-style: italic;
+  }
+  .part-header {
+    margin: 64px 0 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #111;
+  }
+  .part-header h2 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 600;
+  }
+  .part-header .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #666;
+    margin-top: 6px;
+  }
+  /* Short answer entries */
+  .short-entry {
+    padding: 28px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .short-entry:last-child { border-bottom: none; }
+  .entry-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .entry-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #666;
+    flex-shrink: 0;
+  }
+  .entry-term {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .entry-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .entry-body {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+  }
+  .entry-body p { margin-bottom: 12px; }
+  .entry-body p:last-child { margin-bottom: 0; }
+  .entry-body ul, .entry-body ol {
+    padding-left: 24px;
+    margin: 10px 0 14px;
+  }
+  .entry-body li {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 4px;
+  }
+  .entry-body li strong { color: #fff; }
+  /* Long answer blocks */
+  .q-block {
+    padding: 44px 0;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .q-block:last-child { border-bottom: none; }
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+  }
+  .q-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #666;
+    flex-shrink: 0;
+  }
+  .q-title {
+    font-size: clamp(1.05rem, 3vw, 1.3rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .q-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .q-body p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 14px;
+  }
+  .q-body p:last-child { margin-bottom: 0; }
+  .sub-h {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #fff;
+    margin: 22px 0 8px;
+    display: block;
+  }
+  .q-body ul, .q-body ol { padding-left: 24px; margin: 10px 0 14px; }
+  .q-body li {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 4px;
+  }
+  .q-body li strong { color: #fff; }
+  .table-wrap {
+    overflow-x: auto;
+    margin: 18px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  table {
+    width: 100%;
+    min-width: 440px;
+    border-collapse: collapse;
+    font-size: 0.87rem;
+  }
+  th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #aaa;
+    padding: 10px 14px;
+    text-align: left;
+    border-top: 2px solid #222;
+    border-bottom: 1px solid #222;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #1a1a1a;
+    color: #ccc;
+    vertical-align: top;
+    font-size: 0.87rem;
+    line-height: 1.6;
+  }
+  tr:last-child td { border-bottom: 2px solid #222; }
+  td:first-child {
+    color: #fff;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.81rem;
+  }
+  .rule-box {
+    border-left: 3px solid #333;
+    padding: 10px 18px;
+    margin: 14px 0;
+    background: #080808;
+  }
+  .rule-box p { margin-bottom: 0 !important; font-size: 0.95rem !important; color: #bbb !important; }
+  .diagram-wrap { margin: 18px 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .diagram-wrap svg { display: block; max-width: 100%; height: auto; }
+  .diagram-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  footer {
+    border-top: 2px solid #111;
+    padding: 32px 0 48px;
+    margin-top: 64px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #444;
+    text-transform: uppercase;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 0 16px; }
+    .entry-marks, .q-marks { display: none; }
+    table { min-width: 360px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="course-code">xams &middot; Exam Key &middot; All Units</div>
+  <h1>Design Thinking<br>Complete Exam Answer Key</h1>
+  <p>Units I–V &mdash; Fundamentals, Ideation, CX, Sustainability &amp; Capstone. Common questions from both PDFs.</p>
+</header>
+
+<!-- ═══════════════════════════════════════════════════ PART A -->
+<div class="part-header">
+  <h2>Part A &mdash; Short Answer Questions</h2>
+  <div class="meta">2 Marks Each &middot; Short-answer commons</div>
+</div>
+
+<!-- Q1 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.01</span>
+    <span class="entry-term">What is the need of Design Thinking in Engineering?</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p>Engineers traditionally focus on technical correctness, but complex real-world problems require solutions centred on human needs. <strong>Design Thinking</strong> bridges this gap by providing a structured, empathy-driven process for innovation.</p>
+    <ul>
+      <li><strong>Human-centred solutions:</strong> Ensures products are built for actual user needs, not assumed ones.</li>
+      <li><strong>Handles ambiguity:</strong> Provides a framework to define ill-structured problems before solving them.</li>
+      <li><strong>Iterative refinement:</strong> Prototyping and testing cycles reduce costly late-stage failures.</li>
+      <li><strong>Cross-disciplinary collaboration:</strong> Enables teams from different fields to converge on a shared problem definition.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.02</span>
+    <span class="entry-term">List any two features of Design Thinking.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <ul>
+      <li><strong>Empathy-driven:</strong> Design Thinking begins by deeply understanding the user's perspective, emotions, and context — not by assuming requirements. This ensures solutions address real, felt needs.</li>
+      <li><strong>Iterative and non-linear:</strong> The process cycles through stages (Empathise → Define → Ideate → Prototype → Test) multiple times. Insights from testing feed back into earlier stages, continuously improving the solution.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.03</span>
+    <span class="entry-term">List the steps of the design process.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p>The standard Engineering Design Thinking process consists of seven stages:</p>
+    <ol>
+      <li><strong>Ask</strong> — Define the problem, understand context and constraints.</li>
+      <li><strong>Research / Empathise</strong> — Observe and engage with users to gather insights.</li>
+      <li><strong>Imagine / Ideate</strong> — Generate a wide range of possible solutions without judgement.</li>
+      <li><strong>Plan</strong> — Select the best idea and develop a detailed plan.</li>
+      <li><strong>Prototype</strong> — Build a low-fidelity model to make the idea tangible.</li>
+      <li><strong>Test</strong> — Evaluate the prototype with real users and gather feedback.</li>
+      <li><strong>Improve / Iterate</strong> — Refine based on test results and repeat as needed.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.04</span>
+    <span class="entry-term">Describe the seven steps of the Engineering Design Thinking process in brief.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <div class="table-wrap"><table>
+      <thead><tr><th>Step</th><th>Brief Description</th></tr></thead>
+      <tbody>
+        <tr><td>Ask</td><td>Identify and frame the problem clearly; understand what needs to be solved</td></tr>
+        <tr><td>Research</td><td>Gather data through observation, interviews, and user immersion (Empathise)</td></tr>
+        <tr><td>Imagine</td><td>Brainstorm divergent solutions without constraints; quantity over quality at this stage</td></tr>
+        <tr><td>Plan</td><td>Select the most promising idea and map out how to build it</td></tr>
+        <tr><td>Prototype</td><td>Create a quick, inexpensive physical or digital model of the solution</td></tr>
+        <tr><td>Test</td><td>Expose the prototype to target users and observe how they interact with it</td></tr>
+        <tr><td>Improve</td><td>Incorporate feedback, iterate on the design, and repeat the cycle as needed</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.05</span>
+    <span class="entry-term">Discuss the principles of Design Thinking and their role in solving complex problems.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <ul>
+      <li><strong>Human-centredness:</strong> Every decision is filtered through the lens of user needs, ensuring the solution is desirable and adopted.</li>
+      <li><strong>Collaboration:</strong> Diverse perspectives (engineering, business, arts) are combined — complex problems rarely have single-discipline solutions.</li>
+      <li><strong>Experimentation:</strong> Rapid prototyping and testing allow teams to learn cheaply from failure before full-scale investment.</li>
+      <li><strong>Optimism:</strong> Believing that every constraint is solvable encourages ambitious thinking rather than incremental fixes.</li>
+      <li><strong>Embrace of ambiguity:</strong> Complex problems are ill-defined; DT treats uncertainty as a creative opportunity rather than a blocker.</li>
+    </ul>
+    <p>Together these principles allow teams to reframe poorly-understood problems, explore the solution space broadly, and converge on validated, implementable innovations.</p>
+  </div>
+</div>
+
+<!-- Q6 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.06</span>
+    <span class="entry-term">Discuss the empathy process and its importance in understanding user needs.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Empathy</strong> in Design Thinking means putting yourself in the user's position to understand their feelings, frustrations, and aspirations — not just their stated requirements. It is the first and most critical stage.</p>
+    <p><strong>Methods:</strong></p>
+    <ul>
+      <li><strong>Observe:</strong> Watch users interact with existing solutions in their natural environment without intervening.</li>
+      <li><strong>Engage:</strong> Conduct open-ended interviews to surface latent needs users cannot articulate.</li>
+      <li><strong>Immerse:</strong> Experience the user's situation firsthand (e.g., using a wheelchair to design accessibility features).</li>
+    </ul>
+    <p><strong>Importance:</strong> Without empathy, engineers solve the wrong problem. Empathy uncovers the gap between what users <em>say</em> they want and what they actually <em>need</em> — the foundation for truly impactful design.</p>
+  </div>
+</div>
+
+<!-- Q7 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.07</span>
+    <span class="entry-term">Discuss the importance of Design Thinking in engineering with examples.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p>Design Thinking transforms engineering from a purely technical discipline into one that produces human-relevant solutions.</p>
+    <ul>
+      <li><strong>Healthcare:</strong> IDEO redesigned hospital patient experience by observing patients' anxiety during procedures — leading to redesigned MRI machines that feel less intimidating, reducing sedation rates in children by 80%.</li>
+      <li><strong>Sanitation:</strong> Engineers applying DT in rural India discovered women would not use community toilets lacking doors with inside locks — a need invisible to technical designers. Adding simple locks dramatically improved sanitation outcomes.</li>
+      <li><strong>Software:</strong> Google's Material Design emerged from DT principles — observing how users instinctively interact with physical objects to create intuitive digital interfaces.</li>
+    </ul>
+    <p>In each case, DT prevented engineers from building technically correct but humanly irrelevant solutions.</p>
+  </div>
+</div>
+
+<!-- Q8 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.08</span>
+    <span class="entry-term">Explain the role of creative thinking and innovation in Design Thinking.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Creative thinking</strong> is the fuel of the Ideation stage — it enables teams to move beyond obvious, incremental improvements and generate novel solution concepts.</p>
+    <ul>
+      <li><strong>Divergent thinking:</strong> Generating the widest possible range of ideas, including wild and impractical ones, to avoid premature convergence on mediocre solutions.</li>
+      <li><strong>Lateral thinking:</strong> Approaching problems from unexpected angles — borrowing ideas from unrelated domains (e.g., applying packaging design principles to surgery prep trays).</li>
+      <li><strong>Innovation role:</strong> DT provides the structured conditions for innovation — psychological safety to propose impractical ideas, rapid prototyping to test them cheaply, and user feedback to validate them before scale.</li>
+    </ul>
+    <p>Creative thinking without DT's structure produces ideas with no validation. DT without creative thinking produces incremental, predictable outcomes. Together they enable breakthrough innovations.</p>
+  </div>
+</div>
+
+<!-- Q9 — Unit 2 short answers -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.09</span>
+    <span class="entry-term">Define brainstorming as an ideation technique.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Brainstorming</strong> is a group ideation technique in which participants generate a large number of ideas in a short time without criticism or judgement. Introduced by Alex Osborn (1953), it operates on the principle that quantity of ideas precedes quality.</p>
+    <p><strong>Four rules of classical brainstorming:</strong></p>
+    <ul>
+      <li><strong>Defer judgement</strong> — no idea is criticised during generation.</li>
+      <li><strong>Encourage wild ideas</strong> — unusual ideas often lead to breakthroughs.</li>
+      <li><strong>Build on others' ideas</strong> — combine and extend suggestions ("Yes, and…").</li>
+      <li><strong>Go for quantity</strong> — the more ideas, the more options to evaluate.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q10 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.10</span>
+    <span class="entry-term">Define / Describe Systematic Inventive Thinking (SIT).</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Systematic Inventive Thinking (SIT)</strong> is a structured creativity method developed by Roni Horowitz and Jacob Goldenberg that identifies patterns common to successful innovations and applies them deliberately to generate new product or service ideas from an existing system.</p>
+    <p><strong>Five SIT operators (patterns):</strong></p>
+    <ul>
+      <li><strong>Subtraction</strong> — remove an essential component and ask what value can emerge (e.g., cordless drill).</li>
+      <li><strong>Task Unification</strong> — assign an additional task to an existing component (e.g., shampoo with conditioner).</li>
+      <li><strong>Multiplication</strong> — add a modified copy of an existing component (e.g., razor with multiple blades).</li>
+      <li><strong>Division</strong> — separate a component spatially or temporally and reconfigure (e.g., split air conditioner).</li>
+      <li><strong>Attribute Dependency</strong> — create or remove dependency between two attributes (e.g., photochromic lenses that darken in sunlight).</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q11 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.11</span>
+    <span class="entry-term">What is linear innovation? / Why is linear innovation important?</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Linear innovation</strong> refers to incremental, step-by-step improvement of an existing product, process, or service along a predictable, continuous trajectory — building steadily on what already exists without radical disruption.</p>
+    <p><strong>Importance:</strong></p>
+    <ul>
+      <li><strong>Reliability:</strong> Organisations can plan investments and roadmaps with predictable outcomes.</li>
+      <li><strong>Optimisation:</strong> Cumulative small improvements compound into significant gains over time (e.g., annual smartphone processor improvements).</li>
+      <li><strong>Risk management:</strong> Lower risk than disruptive innovation — each step is validated before the next.</li>
+      <li><strong>Foundation:</strong> Linear innovation maintains product competitiveness while radical (Box 3) innovation is being developed in parallel.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q12 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.12</span>
+    <span class="entry-term">What is meant by latent needs in problem articulation?</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Latent needs</strong> are unexpressed, often unconscious user requirements that users cannot articulate when asked directly — either because they have normalised a frustration, lack the vocabulary to describe it, or cannot envision a better alternative.</p>
+    <p><strong>Henry Ford's articulation:</strong> "If I had asked customers what they wanted, they would have said faster horses." The latent need was <em>faster personal transportation</em>, not literally horses.</p>
+    <p><strong>How to surface latent needs:</strong></p>
+    <ul>
+      <li>Observation in context (ethnographic research)</li>
+      <li>Asking "why" multiple times (5 Whys technique)</li>
+      <li>Empathy mapping — noting what users <em>do</em> vs. what they <em>say</em></li>
+    </ul>
+    <p>Articulating latent needs correctly is the most valuable output of the Empathise and Define stages.</p>
+  </div>
+</div>
+
+<!-- Q13 — Unit 3 short answers -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.13</span>
+    <span class="entry-term">What is meant by Customer Experience (CX)?</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Customer Experience (CX)</strong> is the sum of all interactions, perceptions, and emotions a customer has with a company or product across every touchpoint — from first awareness through purchase, use, and post-purchase support.</p>
+    <ul>
+      <li><strong>Cognitive:</strong> What customers think about the brand or product.</li>
+      <li><strong>Emotional:</strong> How they feel during each interaction.</li>
+      <li><strong>Behavioural:</strong> How they act in response (loyalty, advocacy, complaints).</li>
+    </ul>
+    <p>CX is distinct from customer service (a single touchpoint) — it encompasses the entire journey. Companies that design CX intentionally (e.g., Apple Stores, Swiggy's delivery tracking) achieve higher loyalty, NPS scores, and revenue.</p>
+  </div>
+</div>
+
+<!-- Q14 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.14</span>
+    <span class="entry-term">What is meant by an Affinity Diagram?</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p>An <strong>Affinity Diagram</strong> (KJ Method, developed by Jiro Kawakita) is a bottom-up synthesis tool that organises a large volume of qualitative data — observations, ideas, user quotes, research notes — into natural thematic clusters to reveal patterns.</p>
+    <p><strong>Process:</strong></p>
+    <ol>
+      <li>Write each data point or observation on a separate sticky note.</li>
+      <li>Silently group related notes together without debate.</li>
+      <li>Create header cards that capture the theme of each cluster.</li>
+      <li>Identify relationships between clusters to form a higher-level picture.</li>
+    </ol>
+    <p><strong>Use:</strong> After user research interviews, an affinity diagram transforms hundreds of raw observations into 5–8 actionable insight themes that can drive problem definition.</p>
+  </div>
+</div>
+
+<!-- Q15 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.15</span>
+    <span class="entry-term">What is an empathy map? / Draw an Empathy Map.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p>An <strong>Empathy Map</strong> is a visual tool that captures and synthesises what is known about a specific user persona across four dimensions to build a shared understanding of user experience.</p>
+    <div class="diagram-wrap"><div class="diagram-label">Empathy Map — Four Quadrants</div>
+    <svg viewBox="0 0 480 220" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+      <line x1="240" y1="10" x2="240" y2="210" stroke="#333" stroke-width="1.5"/>
+      <line x1="10" y1="110" x2="470" y2="110" stroke="#333" stroke-width="1.5"/>
+      <rect x="10"  y="10"  width="225" height="95"  rx="2" fill="#111" stroke="#ff9" stroke-width="1.2"/>
+      <text x="122" y="40"  text-anchor="middle" fill="#ff9" font-size="11">THINK &amp; FEEL</text>
+      <text x="122" y="58"  text-anchor="middle" fill="#666" font-size="9">What matters most?</text>
+      <text x="122" y="72"  text-anchor="middle" fill="#666" font-size="9">Worries, aspirations,</text>
+      <text x="122" y="84"  text-anchor="middle" fill="#666" font-size="9">inner feelings not shared</text>
+      <rect x="245" y="10"  width="225" height="95"  rx="2" fill="#111" stroke="#6cf" stroke-width="1.2"/>
+      <text x="358" y="40"  text-anchor="middle" fill="#6cf" font-size="11">SEE</text>
+      <text x="358" y="58"  text-anchor="middle" fill="#666" font-size="9">Environment, friends,</text>
+      <text x="358" y="72"  text-anchor="middle" fill="#666" font-size="9">market offerings,</text>
+      <text x="358" y="84"  text-anchor="middle" fill="#666" font-size="9">what surrounds them</text>
+      <rect x="10"  y="115" width="225" height="95"  rx="2" fill="#111" stroke="#f88" stroke-width="1.2"/>
+      <text x="122" y="145" text-anchor="middle" fill="#f88" font-size="11">SAY &amp; DO</text>
+      <text x="122" y="163" text-anchor="middle" fill="#666" font-size="9">Public behaviour,</text>
+      <text x="122" y="177" text-anchor="middle" fill="#666" font-size="9">what they tell others,</text>
+      <text x="122" y="191" text-anchor="middle" fill="#666" font-size="9">observed actions</text>
+      <rect x="245" y="115" width="225" height="95"  rx="2" fill="#111" stroke="#8f8" stroke-width="1.2"/>
+      <text x="358" y="145" text-anchor="middle" fill="#8f8" font-size="11">HEAR</text>
+      <text x="358" y="163" text-anchor="middle" fill="#666" font-size="9">Friends, colleagues,</text>
+      <text x="358" y="177" text-anchor="middle" fill="#666" font-size="9">influencers, media —</text>
+      <text x="358" y="191" text-anchor="middle" fill="#666" font-size="9">what reaches them</text>
+      <circle cx="240" cy="110" r="20" fill="#111" stroke="#fff" stroke-width="1.5"/>
+      <text x="240" y="114" text-anchor="middle" fill="#fff" font-size="9">User</text>
+    </svg></div>
+    <p>The bottom of the map also captures <strong>Pains</strong> (fears, frustrations, obstacles) and <strong>Gains</strong> (wants, needs, success measures) for the persona.</p>
+  </div>
+</div>
+
+<!-- Q16 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.16</span>
+    <span class="entry-term">Define customer journey map.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p>A <strong>Customer Journey Map</strong> is a visual narrative that tracks a customer's end-to-end experience with a product or service — from first awareness through to post-purchase — highlighting their actions, thoughts, emotions, and pain points at each stage.</p>
+    <p><strong>Key components:</strong></p>
+    <ul>
+      <li><strong>Stages / Phases</strong> — the sequential steps (Awareness → Consideration → Purchase → Use → Loyalty)</li>
+      <li><strong>Touchpoints</strong> — every interaction point between the customer and the organisation</li>
+      <li><strong>Actions</strong> — what the customer does at each stage</li>
+      <li><strong>Thoughts &amp; Emotions</strong> — the customer's mental state (frustration, delight, confusion)</li>
+      <li><strong>Pain Points &amp; Opportunities</strong> — where experience breaks down and where improvement is possible</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q17 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.17</span>
+    <span class="entry-term">What is the service experience cycle?</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p>The <strong>Service Experience Cycle</strong> describes the complete, closed loop of a customer's interaction with a service — from initial contact to completion and follow-up — including every touchpoint that shapes the overall perception.</p>
+    <p><strong>Stages:</strong></p>
+    <ol>
+      <li><strong>Pre-service</strong> — Awareness, search, booking/reservation</li>
+      <li><strong>Arrival</strong> — First physical or digital contact, reception</li>
+      <li><strong>Core service delivery</strong> — The main service interaction</li>
+      <li><strong>Supplementary services</strong> — Support elements (billing, assistance, amenities)</li>
+      <li><strong>Departure</strong> — Checkout, completion</li>
+      <li><strong>Post-service</strong> — Follow-up, feedback, loyalty programmes</li>
+    </ol>
+    <p><strong>Example:</strong> A hospital patient cycle includes appointment booking → reception → consultation → treatment → discharge → follow-up call. A breakdown at any stage damages the overall experience.</p>
+  </div>
+</div>
+
+<!-- Q18 — Unit 4 short answers -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.18</span>
+    <span class="entry-term">Define sustainable design.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Sustainable design</strong> (also called eco-design or green design) is the practice of designing products, systems, and services that meet present human needs without compromising the ability of future generations to meet their own — minimising environmental impact across the entire product lifecycle.</p>
+    <p><strong>Three pillars (Triple Bottom Line):</strong></p>
+    <ul>
+      <li><strong>Environmental:</strong> Minimise resource consumption, pollution, waste, and carbon footprint.</li>
+      <li><strong>Social:</strong> Ensure safe, equitable, and inclusive outcomes for users and communities.</li>
+      <li><strong>Economic:</strong> Maintain viability and long-term value — sustainability must be cost-effective to be adopted at scale.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q19 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.19</span>
+    <span class="entry-term">What is recycling in design? / State importance of recycling in design.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Recycling in design</strong> refers to intentionally designing products so that materials can be recovered and reprocessed at end-of-life — either to make new products of the same type (closed-loop) or new products of lower specification (open-loop).</p>
+    <p><strong>Importance:</strong></p>
+    <ul>
+      <li><strong>Resource conservation:</strong> Reduces demand for virgin raw materials (metals, polymers, glass).</li>
+      <li><strong>Energy savings:</strong> Recycled aluminium requires only 5% of the energy needed to produce primary aluminium.</li>
+      <li><strong>Landfill reduction:</strong> Extends the useful life of materials, reducing waste and associated pollution.</li>
+      <li><strong>Design for disassembly:</strong> Encourages modular design with fewer material types, making products easier to repair and upgrade.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q20 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.20</span>
+    <span class="entry-term">What is eco-friendly design?</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Eco-friendly design</strong> is the intentional creation of products, services, and systems that have a minimal negative impact on the natural environment throughout their entire lifecycle — from raw material extraction through manufacturing, use, and disposal.</p>
+    <p><strong>Key principles:</strong></p>
+    <ul>
+      <li>Use of renewable, biodegradable, or recycled materials</li>
+      <li>Energy-efficient manufacturing and operation</li>
+      <li>Design for longevity and repairability (vs. planned obsolescence)</li>
+      <li>Elimination or reduction of toxic substances</li>
+      <li>Minimal packaging using compostable materials</li>
+    </ul>
+    <p><strong>Example:</strong> Fairphone designs modular smartphones with replaceable components — users can swap a broken screen or battery without professional help, dramatically extending device life.</p>
+  </div>
+</div>
+
+<!-- Q21 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.21</span>
+    <span class="entry-term">What is Design for Environment (DFE)?</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Design for Environment (DFE)</strong> is a systematic engineering approach that integrates environmental considerations into the product design and development process from the earliest stages — rather than addressing environmental issues as an afterthought during manufacturing or disposal.</p>
+    <p><strong>Core DFE strategies:</strong></p>
+    <ul>
+      <li><strong>Design for disassembly:</strong> Components can be easily separated for repair or recycling.</li>
+      <li><strong>Material selection:</strong> Preference for recyclable, non-toxic, low-impact materials.</li>
+      <li><strong>Life Cycle Assessment (LCA):</strong> Quantifying environmental impact across all lifecycle stages.</li>
+      <li><strong>Energy minimisation:</strong> Reduce energy consumption during manufacture and use.</li>
+      <li><strong>Take-back programmes:</strong> Design products for manufacturer-managed end-of-life recovery.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Q22 — Unit 5 short answers -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.22</span>
+    <span class="entry-term">What is prototyping in design thinking?</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <p><strong>Prototyping</strong> in Design Thinking is the process of creating quick, inexpensive, tangible representations of ideas to test hypotheses and gather user feedback before full-scale development. It makes abstract concepts concrete and testable.</p>
+    <p><strong>Fidelity spectrum:</strong></p>
+    <ul>
+      <li><strong>Low-fidelity:</strong> Paper sketches, cardboard models, role-play scripts — used early to test core concepts cheaply.</li>
+      <li><strong>Medium-fidelity:</strong> Foam models, wireframes, clickable mockups — test specific interactions.</li>
+      <li><strong>High-fidelity:</strong> Functional prototypes close to the final product — validate technical feasibility and user experience.</li>
+    </ul>
+    <p><strong>Principle:</strong> "Prototype to think, not to prove." The goal is learning, not perfection. A prototype that fails teaches more than a hypothesis that was never tested.</p>
+  </div>
+</div>
+
+<!-- Q23 -->
+<div class="short-entry">
+  <div class="entry-head">
+    <span class="entry-num">Q.23</span>
+    <span class="entry-term">List challenges in diverse team collaboration.</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">
+    <ul>
+      <li><strong>Communication barriers:</strong> Different disciplines use domain-specific jargon that creates misunderstandings between, say, engineers and marketing professionals.</li>
+      <li><strong>Conflicting priorities:</strong> Team members from different functions may have different success metrics (technical robustness vs. business viability vs. user desirability).</li>
+      <li><strong>Cultural and cognitive differences:</strong> Diverse backgrounds bring varied problem-solving approaches — valuable but requiring active facilitation to prevent friction.</li>
+      <li><strong>Power dynamics:</strong> Dominant voices from senior members or technical experts can suppress creative contributions from others.</li>
+      <li><strong>Coordination overhead:</strong> More perspectives mean more alignment meetings and decision complexity, slowing iteration cycles.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ PART B -->
+<div class="part-header">
+  <h2>Part B &mdash; Long Answer Questions</h2>
+  <div class="meta">10 Marks Each &middot; Unit I–V Commons</div>
+</div>
+
+<!-- ══ LQ1 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.01</span><span class="q-title">Describe the seven steps of the Engineering Design Thinking process in detail.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>The Engineering Design Thinking process is a human-centred, iterative framework that guides teams from problem discovery to validated solutions. Unlike linear engineering design, it embraces ambiguity, iteration, and empathy at every stage.</p>
+    <div class="diagram-wrap"><div class="diagram-label">7-Step Engineering Design Thinking Process</div>
+    <svg viewBox="0 0 560 70" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+      <defs><marker id="d1" markerWidth="5" markerHeight="5" refX="3" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#fff"/></marker></defs>
+      <rect x="2"   y="20" width="68" height="30" rx="3" fill="#111" stroke="#ff9"  stroke-width="1.3"/><text x="36"  y="38" text-anchor="middle" fill="#ff9" >Ask</text>
+      <line x1="70"  y1="35" x2="82"  y2="35" stroke="#fff" stroke-width="1" marker-end="url(#d1)"/>
+      <rect x="83"  y="20" width="68" height="30" rx="3" fill="#111" stroke="#fca"  stroke-width="1.3"/><text x="117" y="38" text-anchor="middle" fill="#fca">Research</text>
+      <line x1="151" y1="35" x2="163" y2="35" stroke="#fff" stroke-width="1" marker-end="url(#d1)"/>
+      <rect x="164" y="20" width="68" height="30" rx="3" fill="#111" stroke="#6cf"  stroke-width="1.3"/><text x="198" y="38" text-anchor="middle" fill="#6cf">Imagine</text>
+      <line x1="232" y1="35" x2="244" y2="35" stroke="#fff" stroke-width="1" marker-end="url(#d1)"/>
+      <rect x="245" y="20" width="68" height="30" rx="3" fill="#111" stroke="#8f8"  stroke-width="1.3"/><text x="279" y="38" text-anchor="middle" fill="#8f8">Plan</text>
+      <line x1="313" y1="35" x2="325" y2="35" stroke="#fff" stroke-width="1" marker-end="url(#d1)"/>
+      <rect x="326" y="20" width="68" height="30" rx="3" fill="#111" stroke="#f88"  stroke-width="1.3"/><text x="360" y="38" text-anchor="middle" fill="#f88">Prototype</text>
+      <line x1="394" y1="35" x2="406" y2="35" stroke="#fff" stroke-width="1" marker-end="url(#d1)"/>
+      <rect x="407" y="20" width="68" height="30" rx="3" fill="#111" stroke="#aaf"  stroke-width="1.3"/><text x="441" y="38" text-anchor="middle" fill="#aaf">Test</text>
+      <line x1="475" y1="35" x2="487" y2="35" stroke="#fff" stroke-width="1" marker-end="url(#d1)"/>
+      <rect x="488" y="20" width="70" height="30" rx="3" fill="#111" stroke="#fa8"  stroke-width="1.3"/><text x="523" y="38" text-anchor="middle" fill="#fa8">Improve</text>
+      <path d="M523,50 Q523,62 36,62 Q36,55 36,50" fill="none" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+      <text x="280" y="70" text-anchor="middle" fill="#555" font-size="8">← Iterative feedback loop →</text>
+    </svg></div>
+    <span class="sub-h">Step 1 — Ask (Problem Definition)</span>
+    <p>The Ask phase transforms a broad, vague challenge into a focused, actionable problem statement. Teams ask: <em>What is the actual problem? Who is affected? What are the constraints?</em> Techniques include stakeholder interviews, scope mapping, and constraint analysis. A well-framed problem statement prevents the team from solving the wrong problem — the most expensive mistake in engineering.</p>
+    <span class="sub-h">Step 2 — Research / Empathise</span>
+    <p>Teams immerse themselves in the user's world through observation, contextual interviews, shadowing, and immersive experience. The goal is to uncover latent needs — the unstated frustrations and aspirations users cannot articulate. Outputs include interview notes, empathy maps, personas, and user journey maps that capture the full human context.</p>
+    <span class="sub-h">Step 3 — Imagine / Ideate</span>
+    <p>With a deep understanding of user needs, teams generate the widest possible range of solution concepts using techniques such as brainstorming, SCAMPER, SIT (Systematic Inventive Thinking), mind mapping, and bodystorming. Judgement is deferred — quantity precedes quality. A team should aim for 50–100 ideas before evaluating any.</p>
+    <span class="sub-h">Step 4 — Plan</span>
+    <p>The most promising ideas (selected through dot-voting, impact-feasibility matrices, or user feedback) are developed into a detailed implementation plan. This includes defining materials, components, timelines, and resource requirements. The plan bridges ideation and physical creation — it answers "how exactly will we build this?"</p>
+    <span class="sub-h">Step 5 — Prototype</span>
+    <p>A tangible, low-cost representation of the solution is built rapidly. Prototypes can be physical (cardboard, foam, 3D print), digital (wireframe, interactive mockup), or experiential (service blueprint enacted by team members). The prototype's only purpose is to test hypotheses and provoke feedback — it does not need to be functional or beautiful.</p>
+    <span class="sub-h">Step 6 — Test</span>
+    <p>The prototype is placed in the hands of real target users in realistic conditions. Teams observe — not guide — how users interact with it. Key questions: Does it solve the user's problem? What causes confusion? What delights them unexpectedly? What breaks? Testing generates the highest-quality insights of any DT stage.</p>
+    <span class="sub-h">Step 7 — Improve / Iterate</span>
+    <p>Findings from testing feed back into earlier stages. Minor issues → refine the prototype. Major misalignments → return to Ideate or even Empathise. This iterative cycle continues until the solution reliably solves the user's problem. In practice, multiple rounds of prototype-test-improve are completed before development begins.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Step</th><th>Primary Output</th><th>Key Tool</th></tr></thead>
+      <tbody>
+        <tr><td>Ask</td><td>Problem statement / HMW question</td><td>Stakeholder interviews, 5 Whys</td></tr>
+        <tr><td>Research</td><td>Empathy map, personas, user insights</td><td>Contextual interviews, observation</td></tr>
+        <tr><td>Imagine</td><td>Idea bank (50–100+ ideas)</td><td>Brainstorming, SIT, mind maps</td></tr>
+        <tr><td>Plan</td><td>Implementation blueprint</td><td>Impact-feasibility matrix</td></tr>
+        <tr><td>Prototype</td><td>Low-fidelity model</td><td>Cardboard, foam, Figma, role-play</td></tr>
+        <tr><td>Test</td><td>User feedback, pain points identified</td><td>Observation, usability testing</td></tr>
+        <tr><td>Improve</td><td>Refined prototype or revised concept</td><td>Iteration loops, A/B testing</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ══ LQ2 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.02</span><span class="q-title">Describe the 3-Box framework and Box-3 Ideation, highlighting role in future-oriented innovation.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>The <strong>3-Box Framework</strong>, developed by Vijay Govindarajan (Dartmouth), is a strategic innovation model that explains why successful companies struggle with radical innovation and provides a structure for managing it alongside existing operations simultaneously.</p>
+    <span class="sub-h">The Three Boxes</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Box</th><th>Name</th><th>Focus</th><th>Time Horizon</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Box 1</td><td>Manage the Present</td><td>Optimise and maximise the value of the current business model through linear innovation</td><td>Today (0–2 years)</td><td>Improving fuel efficiency of an existing car engine</td></tr>
+        <tr><td>Box 2</td><td>Selectively Forget the Past</td><td>Identify and abandon capabilities, values, and beliefs that block future growth — even profitable ones</td><td>Transition (1–3 years)</td><td>A newspaper abandoning print-first thinking to embrace digital</td></tr>
+        <tr><td>Box 3</td><td>Create the Future</td><td>Develop breakthrough innovations and new business models by experimenting with weak signals of future trends</td><td>Future (3–10 years)</td><td>Toyota developing hydrogen fuel cell vehicles while still selling petrol cars</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">The Core Tension</span>
+    <p>Box 1 activities are performance-driven — they reward predictability, efficiency, and risk avoidance. Box 3 activities are exploration-driven — they require tolerance for ambiguity, experimentation, and failure. Most companies unconsciously allocate 90%+ of resources to Box 1, starving future innovation. The framework explicitly allocates separate leadership, budgets, and metrics for each box.</p>
+    <span class="sub-h">Box-3 Ideation Process</span>
+    <ol>
+      <li><strong>Scan for weak signals:</strong> Identify emerging trends, technologies, or social changes at the periphery of the current business that could reshape the industry in 5–10 years.</li>
+      <li><strong>Challenge Box 1 assumptions:</strong> Ask "What if our core product became irrelevant? What value would we still provide?"</li>
+      <li><strong>Hypothesis experiments:</strong> Run low-cost experiments (probes) to test assumptions about future states — not to build a product, but to learn.</li>
+      <li><strong>Forget selectively (Box 2):</strong> Identify which current capabilities and mental models must be deliberately abandoned to allow Box 3 to succeed.</li>
+      <li><strong>Incubate separately:</strong> Protect Box 3 projects from Box 1 performance metrics — evaluate them on learning milestones, not revenue.</li>
+    </ol>
+    <div class="diagram-wrap"><div class="diagram-label">3-Box Model — Simultaneous Innovation Management</div>
+    <svg viewBox="0 0 520 130" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+      <rect x="10"  y="30" width="140" height="70" rx="4" fill="#111" stroke="#ff9" stroke-width="1.8"/>
+      <text x="80"  y="58" text-anchor="middle" fill="#ff9" font-size="11">Box 1</text>
+      <text x="80"  y="74" text-anchor="middle" fill="#aaa" font-size="9">Manage Present</text>
+      <text x="80"  y="87" text-anchor="middle" fill="#555" font-size="8">Optimise core</text>
+      <rect x="190" y="30" width="140" height="70" rx="4" fill="#111" stroke="#888" stroke-width="1.5" stroke-dasharray="4,2"/>
+      <text x="260" y="58" text-anchor="middle" fill="#888" font-size="11">Box 2</text>
+      <text x="260" y="74" text-anchor="middle" fill="#aaa" font-size="9">Selectively Forget</text>
+      <text x="260" y="87" text-anchor="middle" fill="#555" font-size="8">Abandon blockers</text>
+      <rect x="370" y="30" width="140" height="70" rx="4" fill="#111" stroke="#6cf" stroke-width="2"/>
+      <text x="440" y="58" text-anchor="middle" fill="#6cf" font-size="11">Box 3</text>
+      <text x="440" y="74" text-anchor="middle" fill="#aaa" font-size="9">Create Future</text>
+      <text x="440" y="87" text-anchor="middle" fill="#555" font-size="8">Breakthrough ideas</text>
+      <text x="80"  y="18" text-anchor="middle" fill="#ff9" font-size="9">Today</text>
+      <text x="260" y="18" text-anchor="middle" fill="#888" font-size="9">Transition</text>
+      <text x="440" y="18" text-anchor="middle" fill="#6cf" font-size="9">Future (3–10 yrs)</text>
+      <line x1="150" y1="65" x2="190" y2="65" stroke="#555" stroke-width="1" stroke-dasharray="3,2"/>
+      <line x1="330" y1="65" x2="370" y2="65" stroke="#555" stroke-width="1" stroke-dasharray="3,2"/>
+    </svg></div>
+    <span class="sub-h">Role in Future-Oriented Innovation</span>
+    <p>The 3-Box framework addresses the <em>innovator's dilemma</em> — the phenomenon where market-leading companies are disrupted by innovations they could have invented themselves, but didn't because short-term financial incentives prevented investment. By institutionalising Box 3 as a permanent, separately-resourced function, companies like GE (Ecomagination), Amazon (AWS originated as Box 3), and Reliance (Jio was Box 3 for a petroleum conglomerate) created entirely new revenue streams that eventually exceeded their original businesses.</p>
+  </div>
+</div>
+
+<!-- ══ LQ3 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.03</span><span class="q-title">Explain the SIT methods (Addition, Subtraction, Multiplication, Division, Task Unification) with examples.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p><strong>Systematic Inventive Thinking (SIT)</strong> is built on the insight that most successful innovations share a small set of structural patterns, called <em>thinking tools</em>. By deliberately applying these patterns to an existing product or service — working within the closed world of its components — designers can generate novel, implementable ideas systematically rather than randomly.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>SIT Tool</th><th>Operation</th><th>Product Example</th><th>Service Example</th></tr></thead>
+      <tbody>
+        <tr><td>Subtraction</td><td>Remove a component that seems essential and imagine what new benefit or product results</td><td>Cordless drill (remove the cord) → greater portability; Seedless watermelon (remove seeds)</td><td>Self-checkout (remove cashier) → faster throughput; Vending machine (remove salesperson)</td></tr>
+        <tr><td>Task Unification</td><td>Assign an additional task to an existing internal or external component</td><td>Shampoo + conditioner in one bottle; Tyre rim designed to also seal a puncture (run-flat tyre)</td><td>ATM that also accepts deposits; Nurse who also schedules follow-up appointments during consultation</td></tr>
+        <tr><td>Multiplication</td><td>Copy a component, then modify the copy — not just add a duplicate</td><td>Multi-blade razor (multiple blades at different angles progressively lift the hair); Bifocal lenses (modified copy of the lens for near/far vision)</td><td>Express lane + standard lane in supermarkets (modified copy of the checkout experience)</td></tr>
+        <tr><td>Division</td><td>Divide a component into parts, then rearrange spatially or temporally</td><td>Split air conditioner (compressor outside, blower inside — separated spatially); Timed-release capsule medication (temporally divided dosage)</td><td>Hospital triage (divide patient flow by urgency); Pre-check-in online (temporally divide hotel check-in)</td></tr>
+        <tr><td>Attribute Dependency</td><td>Create or destroy a dependency between two variable attributes</td><td>Photochromic eyeglass lenses (dependency: light intensity → lens darkness); Noise-cancelling headphones (dependency: ambient noise → active cancellation)</td><td>Dynamic pricing — Uber surge pricing (dependency: demand level → price); Loyalty tiers (dependency: purchase frequency → service level)</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">The Closed-World Principle</span>
+    <p>A key insight of SIT is the <strong>Closed World principle</strong>: the best innovations are typically found by working within the existing components and environment of the product — not by adding entirely new technologies or resources from outside. This constraint forces creativity and ensures feasibility. When engineers say "we need to add a new sensor," SIT asks: "Which existing component could perform that sensing function if reassigned?"</p>
+    <span class="sub-h">Worked Example — Smart Classroom Design Using SIT</span>
+    <ul>
+      <li><strong>Subtraction:</strong> Remove the physical textbook → students access content through tablets; reduces weight and enables dynamic updates.</li>
+      <li><strong>Task Unification:</strong> Assign the classroom desk the additional task of charging devices wirelessly — the surface becomes a Qi charging pad.</li>
+      <li><strong>Division:</strong> Divide the lecture temporally — pre-recorded content at home (flipped classroom), classroom time used only for discussion and problem-solving.</li>
+      <li><strong>Attribute Dependency:</strong> Create dependency between student attention (detected via eye-tracking) and content delivery speed — the system slows down when attention drops.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ LQ4 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.04</span><span class="q-title">Differentiate between linear and non-linear innovation with examples.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <div class="table-wrap"><table>
+      <thead><tr><th>Dimension</th><th>Linear Innovation</th><th>Non-linear Innovation</th></tr></thead>
+      <tbody>
+        <tr><td>Definition</td><td>Incremental, step-by-step improvement of an existing product, process, or service along a predictable trajectory</td><td>Radical, discontinuous change that creates entirely new value systems, markets, or business models — often displacing incumbents</td></tr>
+        <tr><td>Scope of change</td><td>Within the existing paradigm — improves what already exists</td><td>Changes the paradigm itself — redefines what a product or service can be</td></tr>
+        <tr><td>Risk</td><td>Low — small, validated steps; easy to reverse</td><td>High — requires experimentation, tolerance for failure, large upfront investment</td></tr>
+        <tr><td>Speed</td><td>Gradual — fits within existing R&amp;D cycles</td><td>Can be sudden once the innovation achieves critical mass (e.g., smartphones replacing cameras, GPS, watches)</td></tr>
+        <tr><td>Knowledge base</td><td>Builds on existing knowledge and competencies</td><td>Often requires learning entirely new skills; may render existing expertise obsolete</td></tr>
+        <tr><td>Market impact</td><td>Strengthens existing market position</td><td>Creates new markets or destroys existing ones (creative destruction)</td></tr>
+        <tr><td>Management</td><td>Managed within existing business processes (Box 1)</td><td>Requires separate management, metrics, and culture (Box 3)</td></tr>
+        <tr><td>Example</td><td>Annual improvement of diesel engine efficiency from 40% to 42% thermal efficiency</td><td>Electric vehicles replacing the entire powertrain paradigm — no engine, gearbox, exhaust system</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Industry Examples</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Industry</th><th>Linear Innovation</th><th>Non-linear Innovation</th></tr></thead>
+      <tbody>
+        <tr><td>Photography</td><td>Kodak improving film grain quality and developing faster shutter cameras year after year</td><td>Digital photography eliminating film entirely — Kodak's linear innovations became worthless</td></tr>
+        <tr><td>Retail</td><td>Supermarkets adding self-checkout lanes, loyalty cards, and mobile apps to existing stores</td><td>Amazon Go — removing the checkout entirely using computer vision and sensor fusion</td></tr>
+        <tr><td>Transport</td><td>Taxi companies adding GPS dispatch, apps to book, and rating systems</td><td>Uber/Ola asset-light model — no cars owned, drivers' assets leveraged via a platform</td></tr>
+        <tr><td>Communication</td><td>Nokia improving battery life, antenna signal, and form factor of mobile phones</td><td>iPhone integrating phone, internet browser, camera, and app ecosystem in one device</td></tr>
+      </tbody>
+    </table></div>
+    <p>The Kodak example is a cautionary lesson taught in every business school: a company can execute linear innovation brilliantly and still be destroyed by non-linear innovation from outside their mental model. Design Thinking's Box 3 framework exists precisely to prevent this.</p>
+  </div>
+</div>
+
+<!-- ══ LQ5 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.05</span><span class="q-title">Explain the concepts of weak signals and future innovation strategies.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>A <strong>weak signal</strong> (term from Ansoff, 1975) is an early, ambiguous, fragmented indicator of an emerging trend, technology, or social change that has not yet become mainstream — but which, if correctly interpreted, could represent a major future opportunity or threat. Weak signals are the raw material of Box 3 / non-linear innovation.</p>
+    <span class="sub-h">Characteristics of Weak Signals</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Property</th><th>Weak Signal</th><th>Strong Signal</th></tr></thead>
+      <tbody>
+        <tr><td>Clarity</td><td>Ambiguous, incomplete, contradictory</td><td>Clear, confirmed, widely reported</td></tr>
+        <tr><td>Timing</td><td>5–15 years before mainstream impact</td><td>Currently visible in the market</td></tr>
+        <tr><td>Source</td><td>Fringe researchers, startups, marginal users</td><td>Major companies, mainstream media</td></tr>
+        <tr><td>Response window</td><td>Wide — time to experiment and position</td><td>Narrow — competitors already responding</td></tr>
+        <tr><td>Risk of misinterpretation</td><td>High — most weak signals never materialise</td><td>Low — impact is evident</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Historical Examples of Weak Signals</span>
+    <ul>
+      <li><strong>Internet (1989):</strong> The WWW was a weak signal visible only to academics — companies like Amazon and Google that read it correctly built trillion-dollar businesses. Retailers who dismissed it were disrupted.</li>
+      <li><strong>Mobile payments (2005–2008):</strong> M-Pesa in Kenya was a weak signal about mobile money transfer — Indian banks that read it early developed UPI infrastructure that now processes 10 billion transactions/month.</li>
+      <li><strong>Plant-based protein (2010):</strong> A fringe food movement was a weak signal — companies like Beyond Meat that acted early now supply McDonald's and KFC globally.</li>
+    </ul>
+    <span class="sub-h">Future Innovation Strategies Based on Weak Signals</span>
+    <ol>
+      <li><strong>Environmental scanning:</strong> Systematically monitor fringe publications, startup activity, academic research, and social media at the periphery of your industry to detect signals early.</li>
+      <li><strong>Scenario planning:</strong> Develop 3–4 plausible future scenarios based on detected weak signals. For each scenario, ask: "What capabilities would we need? What threats would we face?"</li>
+      <li><strong>Small experiments (probes):</strong> Rather than betting the company on a weak signal, run small, cheap experiments to test whether it is amplifying. If it is, scale; if not, abandon with minimal loss.</li>
+      <li><strong>Platform building:</strong> Develop modular capabilities that can be quickly reconfigured as signals clarify — rather than rigid, signal-specific products.</li>
+      <li><strong>Ecosystem monitoring:</strong> Track which startups are attracting venture capital in adjacent spaces — VC funding patterns often amplify weak signals 5–7 years before mainstream adoption.</li>
+    </ol>
+    <div class="rule-box"><p>The strategic imperative: companies should allocate 10–15% of innovation investment to weak signal exploration. The 90% that don't materialise are the cost of not missing the 10% that transform industries.</p></div>
+  </div>
+</div>
+
+<!-- ══ LQ6 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.06</span><span class="q-title">Describe the brainstorming process and its role in generating innovative solutions.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>Brainstorming, introduced by advertising executive Alex Osborn in 1953, is the most widely used ideation technique in Design Thinking. It is a structured group creativity process designed to generate the maximum quantity and diversity of ideas within a short time frame by suspending critical judgement.</p>
+    <span class="sub-h">Complete Brainstorming Process</span>
+    <ol>
+      <li><strong>Preparation (before the session):</strong> Define and clearly display the problem statement ("How Might We…" format). Assemble a diverse team (5–8 people from different disciplines). Prepare materials: sticky notes, markers, large wall space or whiteboard. Set a time limit (30–45 minutes for idea generation).</li>
+      <li><strong>Warm-up (5 minutes):</strong> Run a quick creative warm-up exercise (e.g., "list 30 uses for a brick in 2 minutes") to switch participants from analytical to generative thinking mode and create psychological safety.</li>
+      <li><strong>Idea generation (20–30 minutes):</strong> Each participant writes one idea per sticky note and places it on the wall or announces it to the group. The facilitator enforces the four rules (no judgement, go for quantity, wild ideas welcome, build on others' ideas). The facilitator also re-stimulates with provocations: "What if cost was not a constraint?" "What would a child do?" "What is the opposite of the problem?"</li>
+      <li><strong>Clustering (10 minutes):</strong> Group similar or related ideas into themes — this is where an Affinity Diagram is created from the raw output.</li>
+      <li><strong>Selection (10 minutes):</strong> Use dot-voting (each participant gets 3–5 dots) to identify the most promising ideas for further development. The top ideas are shortlisted for prototyping.</li>
+    </ol>
+    <span class="sub-h">Variants of Brainstorming</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Variant</th><th>Description</th><th>When to Use</th></tr></thead>
+      <tbody>
+        <tr><td>Brainwriting (6-3-5)</td><td>6 participants each write 3 ideas, then pass the sheet to the right for 5 rounds — building on others' ideas silently. Produces 108 ideas in 30 minutes.</td><td>When dominant voices suppress quieter participants</td></tr>
+        <tr><td>Reverse brainstorming</td><td>Ask "How could we make this problem worse?" then reverse each answer — often reveals non-obvious solutions</td><td>When teams are stuck and conventional brainstorming is exhausted</td></tr>
+        <tr><td>SCAMPER</td><td>Systematic prompts: Substitute, Combine, Adapt, Modify/Magnify, Put to other uses, Eliminate, Reverse</td><td>When brainstorming a modification to an existing product</td></tr>
+        <tr><td>Bodystorming</td><td>Role-play the problem situation physically — participants act as users in the actual environment</td><td>Service design; spatial/experience design problems</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Role in Generating Innovative Solutions</span>
+    <p>Brainstorming's power lies in three mechanisms: <strong>cognitive diversity</strong> (different backgrounds produce non-overlapping idea spaces), <strong>idea mutation</strong> (one person's half-formed idea triggers a complete idea in another's mind), and <strong>psychological safety</strong> (the no-judgement rule allows impractical ideas — which are often the seeds of breakthrough solutions — to survive long enough to be refined). Research by IDEO confirms that the best solutions in design projects almost never come from the first round of brainstorming; they emerge from combining and mutating ideas across multiple sessions.</p>
+  </div>
+</div>
+
+<!-- ══ LQ7 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.07</span><span class="q-title">Explain the Empathy Map as a tool in Design Thinking — components and significance.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>The <strong>Empathy Map</strong>, developed by Dave Gray (XPLANE), is a collaborative visualisation tool that captures and organises what a design team knows about a specific user persona — externalising tacit observations into a shared, actionable format. It is the primary output of the Empathise stage and the foundation of the Define stage.</p>
+    <span class="sub-h">Six Components of the Updated Empathy Map</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Component</th><th>Question Answered</th><th>Data Sources</th><th>Example (Healthcare Patient)</th></tr></thead>
+      <tbody>
+        <tr><td>Who are we empathising with?</td><td>Name, age, role, situation — establish the persona clearly so all participants share the same user in mind</td><td>Demographic research, interview screener</td><td>"Rekha, 52, diabetic patient, rural Telangana, visits PHC monthly"</td></tr>
+        <tr><td>What do they need to DO?</td><td>The tasks, behaviours, and activities this person must accomplish — the functional goals they are trying to achieve</td><td>Observation, task analysis</td><td>Monitor blood sugar, obtain insulin refills, track diet — without smartphone literacy</td></tr>
+        <tr><td>What do they THINK and FEEL?</td><td>Inner beliefs, worries, and aspirations — the emotional and cognitive experience they don't openly express</td><td>Projective interviewing, laddering technique</td><td>Fears her family will be burdened; worried about losing eyesight; proud of maintaining her fasting sugar</td></tr>
+        <tr><td>What do they HEAR?</td><td>Information and influences reaching them from their environment — doctors, family, media, community leaders</td><td>Social network mapping, media audit</td><td>Doctor says "control your diet"; husband says "it's too expensive"; TV shows diet commercials</td></tr>
+        <tr><td>What do they SEE?</td><td>Their visual environment, the products they observe others using, market offerings available to them</td><td>Contextual observation, photo ethnography</td><td>Neighbours using older glucometers; long queues at PHC; no pharmacy nearby; poor road to hospital</td></tr>
+        <tr><td>What do they SAY and DO?</td><td>Observable public behaviours and what they tell others — which may contradict what they think and feel</td><td>Direct observation, diary studies</td><td>Says "I follow the diet" (to doctor) but observed eating rice at lunch; skips monitoring on days she feels well</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Pains and Gains (Synthesis Layer)</span>
+    <p>Below the four quadrants, the team synthesises:</p>
+    <ul>
+      <li><strong>Pains:</strong> Obstacles, fears, frustrations, and risks experienced by the user. "The glucometer strips are too expensive" / "The PHC is only open weekday mornings when she is working."</li>
+      <li><strong>Gains:</strong> Wants, needs, measures of success, and aspirations. "Wants to see her grandchildren grow up healthy" / "Needs a system that works without internet."</li>
+    </ul>
+    <span class="sub-h">Significance in Design Thinking</span>
+    <ul>
+      <li><strong>Creates shared understanding:</strong> Replaces individual assumptions about the user with a collectively validated picture — all team members work from the same mental model.</li>
+      <li><strong>Reveals contradictions:</strong> The gap between what users Say/Do vs. Think/Feel is the richest source of latent need insights. Rekha says she follows the diet but doesn't — why? That "why" is the design opportunity.</li>
+      <li><strong>Drives problem definition:</strong> The empathy map's pains and gains feed directly into the Point-of-View (POV) statement: "[User] needs a [need] because [insight]."</li>
+      <li><strong>Prevents assumption-based design:</strong> Without an empathy map, engineers design for a stereotypical user. With it, they design for a specific, real, complex human being.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ LQ8 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.08</span><span class="q-title">Discuss the Service Design and Development Process with a neat flow diagram.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p><strong>Service Design</strong> is the application of Design Thinking principles specifically to the design of service experiences — ensuring that every touchpoint is useful, usable, efficient, and delightful from the customer's perspective and deliverable, effective, and distinctive from the organisation's perspective.</p>
+    <span class="sub-h">Service Design Process — Six Stages</span>
+    <div class="diagram-wrap"><div class="diagram-label">Service Design and Development Process</div>
+    <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+      <defs><marker id="sd" markerWidth="5" markerHeight="5" refX="3" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#fff"/></marker></defs>
+      <!-- Row 1: 3 boxes -->
+      <rect x="10"  y="20" width="150" height="50" rx="3" fill="#111" stroke="#ff9" stroke-width="1.5"/>
+      <text x="85"  y="42" text-anchor="middle" fill="#ff9" font-size="10">1. Discovery &amp; Research</text>
+      <text x="85"  y="57" text-anchor="middle" fill="#666" font-size="8">User interviews, observation</text>
+      <text x="85"  y="67" text-anchor="middle" fill="#666" font-size="8">journey mapping, empathy</text>
+      <line x1="160" y1="45" x2="192" y2="45" stroke="#fff" stroke-width="1.1" marker-end="url(#sd)"/>
+      <rect x="193" y="20" width="150" height="50" rx="3" fill="#111" stroke="#fca" stroke-width="1.5"/>
+      <text x="268" y="42" text-anchor="middle" fill="#fca" font-size="10">2. Define &amp; Synthesise</text>
+      <text x="268" y="57" text-anchor="middle" fill="#666" font-size="8">Affinity diagrams, personas</text>
+      <text x="268" y="67" text-anchor="middle" fill="#666" font-size="8">POV statement, HMW questions</text>
+      <line x1="343" y1="45" x2="375" y2="45" stroke="#fff" stroke-width="1.1" marker-end="url(#sd)"/>
+      <rect x="376" y="20" width="150" height="50" rx="3" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+      <text x="451" y="42" text-anchor="middle" fill="#6cf" font-size="10">3. Ideation</text>
+      <text x="451" y="57" text-anchor="middle" fill="#666" font-size="8">Brainstorming, SIT</text>
+      <text x="451" y="67" text-anchor="middle" fill="#666" font-size="8">Service concept generation</text>
+      <!-- Curved connector right-down -->
+      <path d="M451,70 Q451,90 451,100" fill="none" stroke="#fff" stroke-width="1.1" marker-end="url(#sd)"/>
+      <!-- Row 2: 3 boxes (right to left flow) -->
+      <rect x="376" y="100" width="150" height="50" rx="3" fill="#111" stroke="#8f8" stroke-width="1.5"/>
+      <text x="451" y="122" text-anchor="middle" fill="#8f8" font-size="10">4. Service Blueprint</text>
+      <text x="451" y="137" text-anchor="middle" fill="#666" font-size="8">Frontstage + backstage</text>
+      <text x="451" y="147" text-anchor="middle" fill="#666" font-size="8">touchpoints + processes</text>
+      <line x1="376" y1="125" x2="344" y2="125" stroke="#fff" stroke-width="1.1" marker-end="url(#sd)"/>
+      <rect x="193" y="100" width="150" height="50" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="268" y="122" text-anchor="middle" fill="#f88" font-size="10">5. Prototype &amp; Pilot</text>
+      <text x="268" y="137" text-anchor="middle" fill="#666" font-size="8">Role-play, service staging</text>
+      <text x="268" y="147" text-anchor="middle" fill="#666" font-size="8">limited user group test</text>
+      <line x1="193" y1="125" x2="161" y2="125" stroke="#fff" stroke-width="1.1" marker-end="url(#sd)"/>
+      <rect x="10"  y="100" width="150" height="50" rx="3" fill="#111" stroke="#aaf" stroke-width="1.5"/>
+      <text x="85"  y="122" text-anchor="middle" fill="#aaf" font-size="10">6. Implement &amp; Scale</text>
+      <text x="85"  y="137" text-anchor="middle" fill="#666" font-size="8">Staff training, SOP creation</text>
+      <text x="85"  y="147" text-anchor="middle" fill="#666" font-size="8">KPI monitoring, iteration</text>
+    </svg></div>
+    <span class="sub-h">Stage-by-Stage Detail</span>
+    <p><strong>Stage 1 — Discovery and Research:</strong> Teams conduct contextual user research — shadowing customers through their service journey, interviewing frontline staff, and mapping current pain points. Service Safari (experiencing competitor services as a customer) is a key tool here.</p>
+    <p><strong>Stage 2 — Define and Synthesise:</strong> Raw research is organised into affinity clusters, personas are created, and a Point-of-View (POV) statement is written: "[Persona] needs [need] because [insight]." How-Might-We (HMW) questions are generated to frame the design challenge.</p>
+    <p><strong>Stage 3 — Ideation:</strong> Service concept ideas are generated using brainstorming and SIT. Ideas are not just features — they are complete service interaction concepts (e.g., "What if the hospital sent a reminder SMS with a map the evening before, reducing appointment no-shows?").</p>
+    <p><strong>Stage 4 — Service Blueprint:</strong> The selected concept is mapped in a Service Blueprint — a two-layer diagram showing the <em>customer journey</em> (frontstage) aligned with <em>supporting processes, systems, and staff actions</em> (backstage). The line of visibility separates what customers see from what they don't.</p>
+    <p><strong>Stage 5 — Prototype and Pilot:</strong> The service is staged with a small group of real users — staff role-play service interactions, and users give feedback. Paper prototypes of digital interfaces (booking systems, wayfinding) are tested in parallel.</p>
+    <p><strong>Stage 6 — Implement and Scale:</strong> Staff training materials and SOPs are created based on the prototype learnings. KPIs are established (NPS, wait time, complaint rate). The service is launched, monitored, and continuously improved through ongoing feedback loops.</p>
+  </div>
+</div>
+
+<!-- ══ LQ9 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.09</span><span class="q-title">Explain the concept of a mind map and its role in idea generation.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>A <strong>mind map</strong> is a non-linear, radial visual diagram that organises information and ideas around a central concept, branching outward into related sub-topics and associations — mirroring how the brain naturally stores and connects information.</p>
+    <span class="sub-h">Structure of a Mind Map</span>
+    <div class="diagram-wrap"><div class="diagram-label">Mind Map Structure — Smart Healthcare App</div>
+    <svg viewBox="0 0 540 300" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+      <!-- Centre -->
+      <ellipse cx="270" cy="150" rx="55" ry="30" fill="#111" stroke="#fff" stroke-width="2"/>
+      <text x="270" y="147" text-anchor="middle" fill="#fff" font-size="10">Healthcare</text>
+      <text x="270" y="160" text-anchor="middle" fill="#fff" font-size="10">App</text>
+      <!-- Branch 1 -->
+      <line x1="225" y1="130" x2="130" y2="75" stroke="#ff9" stroke-width="1.5"/>
+      <ellipse cx="105" cy="65" rx="55" ry="22" fill="#111" stroke="#ff9" stroke-width="1.5"/>
+      <text x="105" y="69" text-anchor="middle" fill="#ff9">Patient Data</text>
+      <line x1="105" y1="43" x2="95" y2="18" stroke="#ff9" stroke-width="1"/><text x="80" y="14" fill="#666">EHR sync</text>
+      <line x1="75"  y1="60" x2="40" y2="58" stroke="#ff9" stroke-width="1"/><text x="10" y="62" fill="#666">Privacy</text>
+      <!-- Branch 2 -->
+      <line x1="270" y1="120" x2="270" y2="38" stroke="#6cf" stroke-width="1.5"/>
+      <ellipse cx="270" cy="22" rx="60" ry="20" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+      <text x="270" y="26" text-anchor="middle" fill="#6cf">Reminders</text>
+      <line x1="240" y1="22" x2="180" y2="10" stroke="#6cf" stroke-width="1"/><text x="140" y="10" fill="#666">Medication</text>
+      <line x1="300" y1="22" x2="360" y2="10" stroke="#6cf" stroke-width="1"/><text x="365" y="10" fill="#666">Appointments</text>
+      <!-- Branch 3 -->
+      <line x1="315" y1="130" x2="400" y2="75" stroke="#f88" stroke-width="1.5"/>
+      <ellipse cx="430" cy="65" rx="60" ry="22" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="430" y="69" text-anchor="middle" fill="#f88">Teleconsult</text>
+      <line x1="470" y1="55" x2="510" y2="38" stroke="#f88" stroke-width="1"/><text x="512" y="35" fill="#666">Video</text>
+      <line x1="475" y1="75" x2="515" y2="88" stroke="#f88" stroke-width="1"/><text x="518" y="90" fill="#666">Chat</text>
+      <!-- Branch 4 -->
+      <line x1="315" y1="168" x2="400" y2="218" stroke="#8f8" stroke-width="1.5"/>
+      <ellipse cx="430" cy="232" rx="62" ry="22" fill="#111" stroke="#8f8" stroke-width="1.5"/>
+      <text x="430" y="236" text-anchor="middle" fill="#8f8">Monitoring</text>
+      <line x1="470" y1="242" x2="510" y2="258" stroke="#8f8" stroke-width="1"/><text x="512" y="261" fill="#666">Wearable</text>
+      <line x1="475" y1="224" x2="515" y2="218" stroke="#8f8" stroke-width="1"/><text x="517" y="215" fill="#666">IoT sensor</text>
+      <!-- Branch 5 -->
+      <line x1="225" y1="168" x2="130" y2="218" stroke="#aaf" stroke-width="1.5"/>
+      <ellipse cx="100" cy="232" rx="62" ry="22" fill="#111" stroke="#aaf" stroke-width="1.5"/>
+      <text x="100" y="236" text-anchor="middle" fill="#aaf">Community</text>
+      <line x1="65"  y1="242" x2="30" y2="260" stroke="#aaf" stroke-width="1"/><text x="2" y="262" fill="#666">Forums</text>
+      <line x1="60"  y1="224" x2="25" y2="215" stroke="#aaf" stroke-width="1"/><text x="0" y="213" fill="#666">Gamify</text>
+      <!-- Branch 6 -->
+      <line x1="270" y1="180" x2="270" y2="265" stroke="#fa8" stroke-width="1.5"/>
+      <ellipse cx="270" cy="280" rx="60" ry="20" fill="#111" stroke="#fa8" stroke-width="1.5"/>
+      <text x="270" y="284" text-anchor="middle" fill="#fa8">Analytics</text>
+      <line x1="240" y1="280" x2="195" y2="292" stroke="#fa8" stroke-width="1"/><text x="155" y="295" fill="#666">Reports</text>
+      <line x1="300" y1="280" x2="345" y2="292" stroke="#fa8" stroke-width="1"/><text x="348" y="295" fill="#666">AI insights</text>
+    </svg></div>
+    <span class="sub-h">How to Create a Mind Map</span>
+    <ol>
+      <li>Write the central problem or concept in the middle of a blank page.</li>
+      <li>Draw thick branches radiating outward for major themes or categories.</li>
+      <li>Add thinner sub-branches for specific ideas, associations, or sub-categories.</li>
+      <li>Use colours, images, and keywords (not sentences) — the brain responds to visual cues.</li>
+      <li>Let associations flow freely — connect branches if two ideas are related.</li>
+    </ol>
+    <span class="sub-h">Role in Idea Generation</span>
+    <p><strong>Overcoming linear thinking:</strong> Unlike lists or outlines, mind maps externalise the brain's associative structure. Ideas that are spatially near often combine unexpectedly — the branch "Reminders" next to "Community" might spark the idea of peer accountability reminders for medication adherence.</p>
+    <p><strong>Divergent expansion:</strong> Mind maps encourage "yes, and" thinking — each node can be expanded indefinitely without disrupting the whole structure. This prevents premature closure on the first good idea.</p>
+    <p><strong>Team convergence:</strong> A collaborative mind map created on a whiteboard during a DT session makes everyone's associations visible to the whole team, triggering cross-pollination of ideas across disciplinary boundaries.</p>
+    <p><strong>Problem reframing:</strong> Sometimes the most valuable outcome of a mind map is discovering that the problem was framed too narrowly — branches that feel distant from the centre often reveal the actual root cause or a broader opportunity.</p>
+  </div>
+</div>
+
+<!-- ══ LQ10 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.10</span><span class="q-title">Describe the service experience cycle with a suitable example.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>The <strong>Service Experience Cycle</strong> is a circular model representing the complete sequence of customer interactions with a service — from initial awareness to post-service follow-up — acknowledging that each stage influences the next and that the cycle repeats for returning customers.</p>
+    <span class="sub-h">Stages of the Service Experience Cycle</span>
+    <div class="diagram-wrap"><div class="diagram-label">Service Experience Cycle — Hospital OPD Example</div>
+    <svg viewBox="0 0 360 340" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+      <circle cx="180" cy="170" r="120" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <text x="180" y="166" text-anchor="middle" fill="#555" font-size="10">Service</text>
+      <text x="180" y="180" text-anchor="middle" fill="#555" font-size="10">Experience</text>
+      <!-- 6 nodes on the circle -->
+      <circle cx="180" cy="50"  r="30" fill="#111" stroke="#ff9" stroke-width="1.8"/>
+      <text x="180" y="47" text-anchor="middle" fill="#ff9" font-size="9">Pre-</text>
+      <text x="180" y="59" text-anchor="middle" fill="#ff9" font-size="9">service</text>
+      <circle cx="290" cy="110" r="30" fill="#111" stroke="#6cf" stroke-width="1.8"/>
+      <text x="290" y="107" text-anchor="middle" fill="#6cf" font-size="9">Arrival</text>
+      <text x="290" y="120" text-anchor="middle" fill="#6cf" font-size="9">&amp; Entry</text>
+      <circle cx="290" cy="230" r="30" fill="#111" stroke="#f88" stroke-width="1.8"/>
+      <text x="290" y="225" text-anchor="middle" fill="#f88" font-size="9">Core</text>
+      <text x="290" y="237" text-anchor="middle" fill="#f88" font-size="9">Service</text>
+      <circle cx="180" cy="290" r="30" fill="#111" stroke="#8f8" stroke-width="1.8"/>
+      <text x="180" y="285" text-anchor="middle" fill="#8f8" font-size="9">Supple-</text>
+      <text x="180" y="297" text-anchor="middle" fill="#8f8" font-size="9">mentary</text>
+      <circle cx="70"  cy="230" r="30" fill="#111" stroke="#aaf" stroke-width="1.8"/>
+      <text x="70"  y="225" text-anchor="middle" fill="#aaf" font-size="9">Depar-</text>
+      <text x="70"  y="237" text-anchor="middle" fill="#aaf" font-size="9">ture</text>
+      <circle cx="70"  cy="110" r="30" fill="#111" stroke="#fa8" stroke-width="1.8"/>
+      <text x="70"  y="107" text-anchor="middle" fill="#fa8" font-size="9">Post-</text>
+      <text x="70"  y="119" text-anchor="middle" fill="#fa8" font-size="9">service</text>
+      <!-- Arrows -->
+      <defs><marker id="cy" markerWidth="5" markerHeight="5" refX="3" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#444"/></marker></defs>
+      <path d="M205,65 A120,120 0 0,1 262,95" fill="none" stroke="#444" stroke-width="1.2" marker-end="url(#cy)"/>
+      <path d="M290,140 A120,120 0 0,1 290,200" fill="none" stroke="#444" stroke-width="1.2" marker-end="url(#cy)"/>
+      <path d="M262,252 A120,120 0 0,1 205,278" fill="none" stroke="#444" stroke-width="1.2" marker-end="url(#cy)"/>
+      <path d="M152,278 A120,120 0 0,1 95,252" fill="none" stroke="#444" stroke-width="1.2" marker-end="url(#cy)"/>
+      <path d="M70,200 A120,120 0 0,1 70,140" fill="none" stroke="#444" stroke-width="1.2" marker-end="url(#cy)"/>
+      <path d="M95,90 A120,120 0 0,1 152,63" fill="none" stroke="#444" stroke-width="1.2" marker-end="url(#cy)"/>
+    </svg></div>
+    <span class="sub-h">Example — Hospital Outpatient Department (OPD)</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Stage</th><th>Customer Actions</th><th>Touchpoints</th><th>Pain Points (if poorly designed)</th></tr></thead>
+      <tbody>
+        <tr><td>Pre-service</td><td>Patient searches for hospital online, calls to book appointment, receives confirmation</td><td>Website, call centre, WhatsApp bot, SMS confirmation</td><td>Unclear working hours; no online booking; no confirmation message → patient doesn't know if appointment is confirmed</td></tr>
+        <tr><td>Arrival &amp; Entry</td><td>Finds hospital, parks, locates OPD, registers at front desk</td><td>Signage, parking, reception desk, registration form</td><td>No clear parking signage; long registration queue; paper forms that duplicate information already given over phone</td></tr>
+        <tr><td>Core Service</td><td>Waits for doctor, enters consultation room, receives diagnosis and prescription</td><td>Waiting area, consultation room, doctor, diagnostic equipment</td><td>2-hour wait with no status updates; consultation feels rushed at 5 minutes; prescription is handwritten and illegible</td></tr>
+        <tr><td>Supplementary</td><td>Gets lab tests done, collects medicines from pharmacy, pays bill</td><td>Diagnostic lab, pharmacy counter, billing desk</td><td>Lab and pharmacy are on different floors with no clear routing; billing has separate queue from pharmacy</td></tr>
+        <tr><td>Departure</td><td>Receives discharge instructions, exits building</td><td>Discharge desk, exit signage</td><td>No written discharge summary; patient unsure of medication schedule; no one explains when to return</td></tr>
+        <tr><td>Post-service</td><td>Follows up on lab results, books review appointment, gives feedback</td><td>Patient portal, WhatsApp, review call, feedback form</td><td>Lab results arrive by post after 5 days; no portal to view them; no follow-up call; feedback form is never shared</td></tr>
+      </tbody>
+    </table></div>
+    <p>Mapping the full cycle reveals that the hospital's core clinical service (Stage 3) may be excellent, but the poor pre-service booking experience and post-service neglect destroy the patient's overall perception and loyalty. Design Thinking applied to the service experience cycle identifies the highest-impact improvement opportunities across all stages — not just the core service.</p>
+  </div>
+</div>
+
+<!-- ══ LQ11 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.11</span><span class="q-title">Explain the concept and importance of a customer journey map.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>A <strong>Customer Journey Map (CJM)</strong> is a visual document that narrates the end-to-end experience of a specific customer persona interacting with a product or service — from first awareness through to the point of loyalty or abandonment — aligned with the organisation's touchpoints, processes, and emotional high/low points.</p>
+    <span class="sub-h">Components of a Customer Journey Map</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Component</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Persona</td><td>The specific user archetype this journey represents — not all customers, but one well-researched type (e.g., "Priya, 28, first-time home buyer")</td></tr>
+        <tr><td>Stages / Phases</td><td>The high-level steps of the journey (Awareness → Consideration → Purchase → Onboarding → Use → Renewal / Exit)</td></tr>
+        <tr><td>Customer Actions</td><td>What the customer does at each stage (searches Google, visits website, calls support, downloads app)</td></tr>
+        <tr><td>Touchpoints</td><td>Every point of interaction between the customer and the organisation (website, sales rep, invoice email, product packaging)</td></tr>
+        <tr><td>Thoughts</td><td>What the customer is thinking at each stage ("Is this company trustworthy?" / "Why is this form so long?")</td></tr>
+        <tr><td>Emotions / Sentiment curve</td><td>A line graph showing emotional highs and lows across the journey — visually highlights the moments of delight and frustration</td></tr>
+        <tr><td>Pain Points</td><td>Specific moments where the experience breaks down or frustrates the customer</td></tr>
+        <tr><td>Opportunities</td><td>Design interventions that could eliminate pain points or create unexpected delight</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Sample — Customer Journey: Booking a Train Ticket on IRCTC</span>
+    <div class="diagram-wrap"><div class="diagram-label">Sentiment Curve — IRCTC Booking Journey</div>
+    <svg viewBox="0 0 560 120" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+      <!-- Stages -->
+      <text x="50"  y="108" text-anchor="middle" fill="#aaa">Search</text>
+      <text x="130" y="108" text-anchor="middle" fill="#aaa">Select</text>
+      <text x="210" y="108" text-anchor="middle" fill="#aaa">Login</text>
+      <text x="290" y="108" text-anchor="middle" fill="#aaa">Fill Form</text>
+      <text x="370" y="108" text-anchor="middle" fill="#aaa">Payment</text>
+      <text x="450" y="108" text-anchor="middle" fill="#aaa">Confirm</text>
+      <!-- Neutral line -->
+      <line x1="20" y1="65" x2="540" y2="65" stroke="#222" stroke-width="1" stroke-dasharray="4,2"/>
+      <text x="8" y="68" fill="#555" font-size="8">😐</text>
+      <!-- Sentiment curve -->
+      <polyline points="50,40 130,30 210,75 290,85 370,90 450,25" fill="none" stroke="#6cf" stroke-width="2"/>
+      <circle cx="50"  cy="40" r="4" fill="#ff9"/>
+      <circle cx="130" cy="30" r="4" fill="#8f8"/>
+      <circle cx="210" cy="75" r="4" fill="#fa8"/>
+      <circle cx="290" cy="85" r="4" fill="#f88"/>
+      <circle cx="370" cy="90" r="4" fill="#f44"/>
+      <circle cx="450" cy="25" r="4" fill="#8f8"/>
+      <text x="50"  y="25" text-anchor="middle" fill="#ff9" font-size="8">😊</text>
+      <text x="130" y="18" text-anchor="middle" fill="#8f8" font-size="8">😄</text>
+      <text x="210" y="65" text-anchor="middle" fill="#fa8" font-size="8">😐</text>
+      <text x="290" y="96" text-anchor="middle" fill="#f88" font-size="8">😟</text>
+      <text x="370" y="102" text-anchor="middle" fill="#f44" font-size="8">😤</text>
+      <text x="450" y="14" text-anchor="middle" fill="#8f8" font-size="8">😊</text>
+    </svg></div>
+    <p>The sentiment curve reveals that the <strong>Payment stage is the lowest emotional point</strong> — IRCTC's payment gateway failures, Captcha loops, and session timeouts cause maximum frustration despite the journey starting positively. The journey map makes this obvious and directs design effort to the highest-impact fix.</p>
+    <span class="sub-h">Importance of Customer Journey Mapping</span>
+    <ul>
+      <li><strong>System-level view:</strong> Prevents over-investment in a single touchpoint while ignoring adjacent ones. A beautifully designed login screen is irrelevant if the confirmation email goes to spam.</li>
+      <li><strong>Cross-functional alignment:</strong> Journey maps make visible the hand-offs between departments (marketing → sales → product → support). Breakdowns at hand-offs are the most common source of poor CX.</li>
+      <li><strong>Prioritisation:</strong> The sentiment curve's lowest points reveal where investment in improvement will yield the highest customer satisfaction gain. This guides the DT team's problem definition.</li>
+      <li><strong>Empathy at scale:</strong> Allows an entire organisation — not just the design team — to experience what customers experience, building organisation-wide motivation to improve.</li>
+      <li><strong>Measuring improvement:</strong> After redesign, re-running the journey map with new user research verifies whether pain points were actually resolved or merely relocated.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══ LQ12 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.12</span><span class="q-title">Discuss how combining ideas leads to complex innovation concepts with examples.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>One of the most powerful and underappreciated principles of Design Thinking ideation is that the most innovative solutions rarely come from a single idea — they emerge from the <strong>combination, collision, and fusion</strong> of multiple partial ideas. This is sometimes called "combinatorial innovation."</p>
+    <span class="sub-h">Why Combination Drives Innovation</span>
+    <p>The history of technology is largely the history of ideas recombined: the iPhone combined an iPod + phone + internet communicator. Uber combined GPS + smartphones + excess car capacity + payments. The printing press combined a screw press (used for wine) with movable type. None of these required invention of a new fundamental technology — they required the creative recombination of existing concepts.</p>
+    <span class="sub-h">Mechanisms of Idea Combination in DT</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Mechanism</th><th>How It Works</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Direct combination</td><td>Two separate product/service ideas are merged into one that serves both needs simultaneously</td><td>Café + co-working space + bookstore (Third Wave Coffee) — combines three separate concepts into one experience</td></tr>
+        <tr><td>Cross-domain borrowing</td><td>A solution from one industry is applied to solve a problem in a completely different domain</td><td>Hospital adopted pit-stop crew coordination from Formula 1 racing → redesigned ICU procedures to reduce patient handover errors by 40%</td></tr>
+        <tr><td>Analogical transfer</td><td>The structure of a solution to a known problem is transferred to solve an analogous, unrelated problem</td><td>Wikipedia's collaborative editing model (from open-source software development) applied to encyclopaedia content creation</td></tr>
+        <tr><td>Feature fusion (SIT Task Unification)</td><td>A component of one product is given the function of another component from a different product</td><td>Camera added to phone → smartphone; Microphone added to headphone → hands-free calling headset</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Worked DT Example — Smart Rural Health Kiosk</span>
+    <p>Suppose a DT team is working on healthcare access in rural areas. Their brainstorming produces these separate ideas: (A) Telemedicine video calls to city doctors; (B) ATM-style self-service machines for government services; (C) Community health workers who visit villages; (D) WhatsApp-based appointment booking; (E) Point-of-care diagnostic devices (glucometer, BP monitor).</p>
+    <p>Individually, none of these ideas solves the problem completely. But <strong>combining A + B + D + E</strong> yields: a solar-powered village health kiosk (B) with a touchscreen for WhatsApp booking (D), video consultation screen (A), and attached diagnostic devices (E) operated by the community health worker (C) — a complex, integrated solution that none of the individual ideas could achieve.</p>
+    <span class="sub-h">Techniques for Facilitating Idea Combination</span>
+    <ul>
+      <li><strong>Forced association:</strong> Randomly pair two unrelated ideas and ask "How could these work together?" The constraint forces creative connection.</li>
+      <li><strong>Morphological matrix:</strong> List key parameters of the design across rows and different options for each parameter across columns. Select one option per row in non-obvious combinations.</li>
+      <li><strong>Concept mash-up cards:</strong> Write each idea on a card and physically shuffle and pair them — teams explore every combination systematically.</li>
+      <li><strong>"Yes, and" building:</strong> In a group, each participant adds to the previous person's idea without negating it — ideas accrete into complex concepts organically.</li>
+    </ul>
+    <p>The implication for DT practice: teams should resist selecting the "best single idea" too early. The optimal strategy is to generate 50–100 ideas, then invest in exploring 10–15 promising combinations before converging on a solution concept.</p>
+  </div>
+</div>
+
+<!-- ══ LQ13 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.13</span><span class="q-title">Discuss the importance of customer experience in product and service design.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>Customer Experience (CX) has become the primary competitive battleground in both products and services. In markets where features and price are easily replicated, the quality of the end-to-end human experience determines which companies win loyalty and command premium pricing.</p>
+    <span class="sub-h">Why CX is Central to Design</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Business Metric</th><th>Impact of CX Investment</th><th>Evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Customer retention</td><td>A 5% increase in retention increases profit by 25–95%</td><td>Bain &amp; Company research; acquiring a new customer costs 5–7× more than retaining one</td></tr>
+        <tr><td>Brand advocacy</td><td>Customers with excellent CX are 4× more likely to recommend the brand</td><td>Temkin Group; word-of-mouth is the highest-ROI marketing channel</td></tr>
+        <tr><td>Price premium</td><td>86% of buyers pay more for a great experience</td><td>PwC Future of CX report; Apple commands 40% margin on hardware through experience design</td></tr>
+        <tr><td>Complaint reduction</td><td>Proactively designed CX reduces support ticket volume and resolution cost</td><td>Companies with best-in-class CX achieve 50% lower support costs than industry average</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">CX in Product Design</span>
+    <p>In product design, CX encompasses every human interaction with the object — from unboxing (Apple's packaging design is as considered as the device itself) through first use, daily use, and eventually disposal or upgrade. Design Thinking embeds CX at every product decision: ergonomics (physical comfort in use), onboarding (time-to-first-value), reliability (frustration when things break), and end-of-life (ease of recycling or resale).</p>
+    <p><strong>Example — Swiggy:</strong> The product design decision to show a live map with the delivery partner's location was not a technical requirement — it was a CX decision. Research showed that customer anxiety about "where is my order" was the #1 driver of support calls. The map reduced this anxiety, cutting support volume and increasing repeat orders.</p>
+    <span class="sub-h">CX in Service Design</span>
+    <p>In services, CX is even more critical because services are co-created between provider and customer in real time — there is no physical product to inspect before purchase. Every staff interaction, waiting time, communication design, and environmental detail contributes to the customer's assessment of value.</p>
+    <p><strong>Example — OYO Rooms:</strong> OYO standardised budget hotel CX across thousands of inconsistent properties. By defining non-negotiable experience standards (clean linen, working WiFi, transparent pricing, mobile check-in), they made the unpredictable predictable. Customers chose OYO over cheaper alternatives because the CX consistency reduced anxiety about unknown hotels.</p>
+    <span class="sub-h">Design Thinking Tools for CX Improvement</span>
+    <ul>
+      <li><strong>Customer Journey Maps:</strong> Identify the highest-impact pain points across the full experience.</li>
+      <li><strong>Service Blueprints:</strong> Align backstage processes to frontstage customer experience — good CX requires both.</li>
+      <li><strong>NPS Measurement:</strong> Net Promoter Score as a feedback loop that feeds back into DT cycles for continuous improvement.</li>
+      <li><strong>Empathy Maps:</strong> Ensure designs are validated against actual user emotional needs, not assumed preferences.</li>
+    </ul>
+    <p>Conclusion: CX is not a cosmetic layer added to a finished product — it is the fundamental design objective. When a DT team defines the problem as "deliver an exceptional experience for [user]" rather than "build feature X," every subsequent design decision is made with the right north star.</p>
+  </div>
+</div>
+
+<!-- ══ LQ14 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.14</span><span class="q-title">Describe the five stages of the product life cycle in detail.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>The <strong>Product Life Cycle (PLC)</strong> model describes the sequential stages a product passes through from its introduction to market through its eventual decline and withdrawal — each stage characterised by different levels of sales, competition, profitability, and strategic priorities.</p>
+    <div class="diagram-wrap"><div class="diagram-label">Product Life Cycle — Sales &amp; Profit Curve</div>
+    <svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+      <!-- Axes -->
+      <line x1="30" y1="120" x2="540" y2="120" stroke="#333" stroke-width="1.5"/>
+      <line x1="30" y1="120" x2="30"  y2="20"  stroke="#333" stroke-width="1.5"/>
+      <text x="285" y="138" text-anchor="middle" fill="#555">Time →</text>
+      <text x="14"  y="70"  fill="#555" transform="rotate(-90,14,70)" text-anchor="middle" font-size="8">Revenue / Profit</text>
+      <!-- Stage dividers -->
+      <line x1="130" y1="22" x2="130" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="250" y1="22" x2="250" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="390" y1="22" x2="390" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+      <line x1="480" y1="22" x2="480" y2="120" stroke="#222" stroke-width="1" stroke-dasharray="3,3"/>
+      <!-- Stage labels -->
+      <text x="80"  y="16" text-anchor="middle" fill="#ff9"  font-size="10">Intro</text>
+      <text x="190" y="16" text-anchor="middle" fill="#8f8"  font-size="10">Growth</text>
+      <text x="320" y="16" text-anchor="middle" fill="#6cf"  font-size="10">Maturity</text>
+      <text x="435" y="16" text-anchor="middle" fill="#fa8"  font-size="10">Saturation</text>
+      <text x="510" y="16" text-anchor="middle" fill="#f88"  font-size="10">Decline</text>
+      <!-- Sales curve -->
+      <polyline points="30,115 80,108 130,95 250,45 390,35 480,38 540,80" fill="none" stroke="#6cf" stroke-width="2.5"/>
+      <!-- Profit curve (starts below zero, rises later) -->
+      <polyline points="30,120 80,122 130,118 190,95 250,65 390,55 480,65 540,100" fill="none" stroke="#f88" stroke-width="1.5" stroke-dasharray="5,2"/>
+      <!-- Legend -->
+      <line x1="350" y1="130" x2="375" y2="130" stroke="#6cf" stroke-width="2.5"/>
+      <text x="378" y="133" fill="#6cf">Sales</text>
+      <line x1="420" y1="130" x2="445" y2="130" stroke="#f88" stroke-width="1.5" stroke-dasharray="5,2"/>
+      <text x="448" y="133" fill="#f88">Profit</text>
+    </svg></div>
+    <span class="sub-h">Stage 1 — Introduction</span>
+    <p>The product enters the market. Sales are low because awareness is limited and customers are uncertain about the new offering. Costs are high — R&amp;D costs are being amortised, marketing spend is heavy to build awareness, and production volumes are low so unit costs are high. Profit is typically negative. The design challenge here is <em>communicating value</em> and ensuring <em>ease of first use</em> to overcome adoption resistance. <strong>Example:</strong> Electric vehicles in 2010 — low sales, heavy Tesla investment in showrooms and test drive experiences to overcome scepticism.</p>
+    <span class="sub-h">Stage 2 — Growth</span>
+    <p>Sales accelerate as word-of-mouth spreads and early adopters endorse the product. Competitors enter the market, attracted by the growing opportunity. Profits increase rapidly as production volume drives unit cost down. Design priority shifts to <em>feature differentiation</em> and <em>scaling the experience</em> to serve a larger, more mainstream audience. <strong>Example:</strong> Smartphones 2008–2012 — explosive sales growth; multiple competitors entering; constant feature innovation.</p>
+    <span class="sub-h">Stage 3 — Maturity</span>
+    <p>Sales growth slows as the market becomes saturated. Competition intensifies — multiple products offer similar features. Profit margins compress as companies cut prices to maintain share. Design focus shifts to <em>cost efficiency</em>, <em>incremental improvements</em>, and <em>user experience refinement</em> rather than breakthrough features. <strong>Example:</strong> Laptops 2015–2022 — incremental improvements in battery life and weight; market share battles between Dell, HP, Lenovo, and Apple.</p>
+    <span class="sub-h">Stage 4 — Saturation</span>
+    <p>The market is fully penetrated — virtually all potential buyers already own the product. Replacement demand is the primary driver of sales. Price competition is intense. Companies attempt market extension through new segments, geographies, or product variations. Design Thinking is critical here for <em>product reinvention</em> — using DT's empathise-ideate cycle to find the next non-linear innovation before decline sets in. <strong>Example:</strong> Petrol car market in developed countries — manufacturers now pivoting to EVs to avoid decline.</p>
+    <span class="sub-h">Stage 5 — Decline</span>
+    <p>Sales fall as newer technologies or changing consumer preferences make the product obsolete. Companies must decide whether to <em>harvest</em> (reduce investment, extract remaining cash), <em>divest</em> (sell the product line), or <em>niche</em> (serve a small loyal segment that still needs the product). DT's role here is in <em>sustainability design</em> — managing end-of-life responsibly through recycling programmes and Design for Environment principles. <strong>Example:</strong> Film cameras after digital photography; landline telephones; physical encyclopaedias.</p>
+  </div>
+</div>
+
+<!-- ══ LQ15 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.15</span><span class="q-title">Discuss the concern for environment and sustainability in product design.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>The integration of environmental sustainability into product design has transitioned from a voluntary ethical choice to a business imperative — driven by regulatory pressure (EU Green Deal, India's EPR mandates), consumer demand for responsible brands, and the measurable financial risks of unsustainable supply chains.</p>
+    <span class="sub-h">Environmental Concerns in Product Design</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Concern</th><th>Impact</th><th>Design Response</th></tr></thead>
+      <tbody>
+        <tr><td>Raw material extraction</td><td>Mining for rare-earth metals (lithium, cobalt, coltan) causes deforestation, water pollution, and community displacement</td><td>Material substitution (LFP batteries avoiding cobalt); closed-loop material recovery from end-of-life products</td></tr>
+        <tr><td>Energy-intensive manufacturing</td><td>Industrial production contributes 20–25% of global CO₂ emissions</td><td>Renewable energy procurement; process efficiency; relocating production close to raw materials to reduce transport emissions</td></tr>
+        <tr><td>Product use-phase energy</td><td>For appliances, electronics, and vehicles, 80%+ of lifetime environmental impact occurs during the use phase, not manufacture</td><td>Energy efficiency design; standby power reduction; smart power management systems</td></tr>
+        <tr><td>Packaging waste</td><td>Single-use plastic packaging generates 380 million tonnes of plastic waste annually</td><td>Minimal packaging design; compostable materials; refillable containers; package-free retail models</td></tr>
+        <tr><td>End-of-life waste</td><td>Global e-waste reached 57.4 million tonnes in 2021; only 17.4% was formally recycled</td><td>Design for disassembly; take-back programmes; modular upgradeable designs</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Sustainable Design Frameworks</span>
+    <p><strong>Cradle-to-Cradle (C2C):</strong> Designed by William McDonough and Michael Braungart, C2C reframes waste as a design flaw. Products are designed to exist in either a biological cycle (compostable materials returning to nature) or a technical cycle (materials recaptured and remanufactured at full quality indefinitely). C2C certification has been earned by Nike's Flyknit shoes, Herman Miller's Embody chair, and Steelcase office furniture.</p>
+    <p><strong>Circular Economy:</strong> The Ellen MacArthur Foundation's model replaces the "take-make-dispose" linear economy with a closed loop: design products to last longer, enable reuse and repair, and recover materials at end-of-life. Renault remanufactures 80% of automotive components in its Flins factory — selling remanufactured engines at 50% lower carbon footprint and 30% lower price than new.</p>
+    <span class="sub-h">Role of Engineers in Sustainable Design</span>
+    <p>Engineers make thousands of small decisions in a product's design — choice of material, joint type, finish, packaging, power supply — each with environmental consequences. The Design Thinking process provides the framework for engineers to:</p>
+    <ul>
+      <li>Conduct Life Cycle Assessments (LCA) early in the design process — not as an afterthought</li>
+      <li>Apply DFE principles: design for disassembly, material minimisation, toxicity elimination</li>
+      <li>Prototype with sustainability metrics alongside performance metrics — a material's carbon footprint should appear on the same design scorecard as its tensile strength</li>
+      <li>Involve end-users and waste processors in the empathy and co-design process — they know what actually gets recycled vs. what ends up in landfill</li>
+    </ul>
+    <p>The most sustainable product is the one that was never made — but for products that must exist, Design Thinking integrated with DFE and circular economy principles minimises harm while maximising human value.</p>
+  </div>
+</div>
+
+<!-- ══ LQ16 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.16</span><span class="q-title">Explain the role of engineers in promoting sustainable design practices.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>Engineers sit at the intersection of scientific knowledge, technical capability, and design decisions — making them uniquely positioned to either perpetuate unsustainable practices or systematically replace them with sustainable alternatives. The engineering profession's decisions collectively determine how much material is extracted, energy consumed, and waste generated by every product in existence.</p>
+    <span class="sub-h">Key Roles of Engineers in Sustainable Design</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Role</th><th>Actions</th><th>Impact</th></tr></thead>
+      <tbody>
+        <tr><td>Material selection</td><td>Choosing recycled, renewable, or low-embodied-carbon materials; specifying non-toxic substances; applying material minimisation principles</td><td>Reduces upstream extraction impact; enables downstream recycling; eliminates hazardous waste streams</td></tr>
+        <tr><td>Energy systems design</td><td>Specifying energy-efficient motors, LED lighting, variable-frequency drives; designing for passive thermal management; optimising standby power draw</td><td>Product use-phase accounts for 60–80% of lifetime energy; engineer-specified efficiency directly determines this impact</td></tr>
+        <tr><td>Design for Disassembly</td><td>Using reversible fasteners instead of adhesive bonds; minimising material types per component; labelling materials; designing snap-fit joints that can be released without tools</td><td>Enables repair, reuse, and recycling — keeps materials in the technical cycle instead of landfill</td></tr>
+        <tr><td>Life Cycle Assessment</td><td>Conducting LCA from concept stage; using tools like SimaPro, OpenLCA, or GaBi to quantify carbon, water, and land impacts across all lifecycle stages</td><td>Makes environmental trade-offs visible during design — before they are locked in by component selection</td></tr>
+        <tr><td>Process optimisation</td><td>Redesigning manufacturing processes to reduce material scrap, process energy, and effluent; implementing lean manufacturing principles; reducing packaging in logistics</td><td>Manufacturing-phase improvements can reduce embodied carbon by 15–40% without changing the final product</td></tr>
+        <tr><td>Advocacy and standards</td><td>Advocating for sustainability requirements in product specifications; participating in standards development; refusing to compromise on environmental criteria under cost pressure</td><td>Engineers who institutionalise sustainability standards prevent future engineers from reverting to cheap, unsustainable defaults</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Engineers in the Design Thinking Sustainability Loop</span>
+    <p>In a DT process applied to sustainable design, engineers play specific roles at each stage:</p>
+    <ul>
+      <li><strong>Empathise:</strong> Interview not just end-users but also waste collectors, recycling plant operators, and supply chain workers to understand the full human impact of the product's lifecycle.</li>
+      <li><strong>Define:</strong> Frame the problem as "deliver [value] with [environmental constraint]" — e.g., "How might we provide rural households with clean cooking fuel that generates zero in-home particulate emissions and uses no fossil fuels?"</li>
+      <li><strong>Ideate:</strong> Apply SIT and biomimicry (solutions from nature) to generate ideas that decouple value from resource consumption.</li>
+      <li><strong>Prototype:</strong> Build prototypes with actual recycled or sustainable materials — not placeholder conventional materials — so the prototype accurately represents the sustainable design's performance characteristics.</li>
+      <li><strong>Test:</strong> Measure both user experience and environmental performance metrics simultaneously — a solution that users love but that leaches toxic chemicals fails both tests.</li>
+    </ul>
+    <div class="rule-box"><p>Engineers have a professional obligation under the NSPE Code of Ethics to "hold paramount the safety, health, and welfare of the public" — and in the 21st century, environmental sustainability is inseparable from public welfare. A product that causes environmental damage is an engineering failure, regardless of its technical performance metrics.</p></div>
+  </div>
+</div>
+
+<!-- ══ LQ17 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.17</span><span class="q-title">Define sustainable design and explain its importance in modern engineering.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p><strong>Sustainable design</strong> is the intentional practice of creating products, systems, buildings, and services that meet current human needs while preserving natural resources and environmental quality for future generations — operationalising the Brundtland Commission's 1987 definition of sustainable development within the engineering design process.</p>
+    <span class="sub-h">Three Dimensions of Sustainable Design</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Dimension</th><th>Engineering Focus</th><th>Metrics</th></tr></thead>
+      <tbody>
+        <tr><td>Environmental</td><td>Minimise material extraction, energy consumption, emissions, and waste across the full product lifecycle</td><td>Carbon footprint (kg CO₂e), water usage (litres), material recycled content (%), toxic substance elimination</td></tr>
+        <tr><td>Social</td><td>Ensure products are safe, accessible, equitable, and beneficial to the communities in their supply chain and user base</td><td>Worker safety incidents, accessibility compliance, child labour audit results, community impact assessments</td></tr>
+        <tr><td>Economic</td><td>Deliver financial viability — sustainable design must be economically competitive or it will not be adopted at scale</td><td>Total cost of ownership (sustainable often cheaper over lifecycle), circular economy revenue (repair, remanufacture), avoided regulatory fines</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Importance in Modern Engineering</span>
+    <p><strong>1. Regulatory imperative:</strong> The EU's Ecodesign Regulation mandates product repairability scores and minimum recycled content for electronics sold in the EU market. India's Extended Producer Responsibility (EPR) rules require manufacturers to collect and recycle a minimum percentage of their product at end-of-life. Engineers who cannot design to these standards cannot sell in these markets.</p>
+    <p><strong>2. Resource scarcity:</strong> Global demand for lithium (essential for batteries) is projected to exceed supply by 2025 without circular economy interventions. Engineers who design for material recovery — rather than single-use and disposal — will be the ones who can still access materials in constrained future supply chains.</p>
+    <p><strong>3. Climate change imperatives:</strong> To limit warming to 1.5°C, global emissions must halve by 2030. The built environment and manufactured products account for 45% of global emissions. Engineers designing net-zero buildings, zero-emission vehicles, and circular products are not peripheral specialists — they are delivering the core of what modern engineering must accomplish.</p>
+    <p><strong>4. Business value:</strong> Unilever's Sustainable Living brands grew 69% faster than the rest of the business and delivered 75% of company growth in 2018. Tesla's total valuation exceeded all traditional automakers combined partly because its sustainable product proposition attracted premium valuations from investors and customers who anticipated the energy transition.</p>
+    <p><strong>5. Engineering ethics:</strong> The professional engineering codes of IEI (India), IEEE, and NSPE explicitly require engineers to consider long-term social and environmental consequences of their designs. Sustainable design is not an elective module — it is a professional obligation.</p>
+    <span class="sub-h">Design Thinking as the Vehicle for Sustainable Engineering</span>
+    <p>Sustainable design cannot be retrofitted onto a finished engineering design — it must be embedded from the first empathy interview. When the DT team asks "What does the user need?" they must also ask "What does the environment need?" and "What will happen to this product in 10 years?" When they prototype, they must prototype with sustainable materials. When they test, environmental performance must be a test criterion alongside usability. This integration — not separate sustainability audits bolted onto the end of a conventional design process — is what modern engineering demands.</p>
+  </div>
+</div>
+
+<!-- ══ LQ18 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.18</span><span class="q-title">Discuss Design for Environment (DFE) with suitable case studies.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p><strong>Design for Environment (DFE)</strong> is a proactive, systematic engineering methodology that integrates environmental considerations into every stage of product design and development — treating environmental performance as a design specification alongside cost, safety, and functionality.</p>
+    <span class="sub-h">DFE Principles and Tools</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>DFE Strategy</th><th>Description</th><th>Tool</th></tr></thead>
+      <tbody>
+        <tr><td>Material minimisation</td><td>Reduce total material weight — less material means less extraction energy, lower transport emissions, and less waste</td><td>Topology optimisation (FEA), Design for Minimum Material</td></tr>
+        <tr><td>Toxic substance elimination</td><td>Replace hazardous substances (lead, mercury, hexavalent chromium, PBBs) with safer alternatives — mandated by EU RoHS Directive</td><td>Substance database (IEC 62474), material substitution analysis</td></tr>
+        <tr><td>Design for disassembly</td><td>Structure assemblies so components can be separated quickly for repair, reuse, or material recovery — standardised screws instead of adhesive bonds, single-material components</td><td>Disassembly time analysis, Design for Serviceability guidelines</td></tr>
+        <tr><td>Energy efficiency</td><td>Minimise energy consumption in the use phase — typically the largest portion of lifetime environmental impact</td><td>Thermal simulation, motor sizing, standby power budgeting</td></tr>
+        <tr><td>Life Cycle Assessment (LCA)</td><td>Quantify environmental impacts across all lifecycle stages — raw material, manufacture, transport, use, and end-of-life — to make informed trade-off decisions</td><td>SimaPro, OpenLCA, GaBi software; ISO 14040/14044 methodology</td></tr>
+        <tr><td>Design for recyclability</td><td>Select materials that are technically recyclable at end-of-life; minimise incompatible material combinations; provide material labels for sorting</td><td>Material compatibility charts, recycler engagement, marking standards (ISO 11469)</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Case Study 1 — Fairphone (Smartphones)</span>
+    <p>Fairphone applied DFE principles comprehensively to create the world's most repairable smartphone. Key design decisions: (1) Modular design — 10 components replaceable by users without tools (screen, battery, camera, speaker). (2) Material transparency — the company publishes the full supply chain audit for cobalt, tin, tantalum, and gold — four conflict minerals. (3) Software longevity — Fairphone guarantees 8–10 years of software updates, extending product life 3× vs the industry average of 2.5 years. (4) Take-back programme — end-of-life phones are returned and modules are refurbished or recycled. Result: A Fairphone 3 generates 30% less CO₂ than a conventional smartphone over its extended lifetime.</p>
+    <span class="sub-h">Case Study 2 — Renault Circular Manufacturing</span>
+    <p>Renault's Flins factory in France became the first automotive circular economy site. DFE decisions: (1) Products are disassembled (not shredded) to recover components at full quality. (2) Engines are remanufactured (worn surfaces re-machined, seals replaced) at 80% lower energy than making a new engine. (3) Plastic bumpers are granulated and re-moulded into new bumpers on-site — zero landfill for thermoplastics. (4) Upholstery fabric is woven from recovered plastic bottles. Result: 80% of materials used in production are recovered and reused; new parts in each car contain 30% recycled material by weight.</p>
+    <span class="sub-h">Case Study 3 — Unilever Packaging Redesign</span>
+    <p>Unilever applied DFE to packaging: (1) Concentrated Surf washing powder in smaller packaging — same number of washes, 50% less material. (2) Compressed deodorant aerosols — 50% less propellant, 25% less aluminium per can. (3) Switching shampoo bottles from virgin HDPE to 100% recycled HDPE — same performance, 75% lower carbon footprint per bottle. Result: Unilever reduced packaging material by 100,000 tonnes per year while maintaining identical consumer performance — proving DFE delivers both environmental and cost benefits.</p>
+  </div>
+</div>
+
+<!-- ══ LQ19 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.19</span><span class="q-title">Discuss the environmental considerations during manufacturing.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>Manufacturing is one of the most environmentally impactful phases of a product's lifecycle — accounting for approximately 20–25% of global greenhouse gas emissions, 70% of global freshwater withdrawal (industrial use), and generating millions of tonnes of hazardous waste annually. Design Thinking applied to manufacturing processes can systematically reduce these impacts without compromising product quality.</p>
+    <span class="sub-h">Key Environmental Considerations in Manufacturing</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Environmental Factor</th><th>Source in Manufacturing</th><th>Engineering Solutions</th></tr></thead>
+      <tbody>
+        <tr><td>Energy consumption and GHG emissions</td><td>Heating/cooling processes, CNC machining, injection moulding, forging, electroplating baths, compressed air systems (typically 30% inefficient)</td><td>Electrification of thermal processes; waste heat recovery; variable-speed drives; renewable energy procurement; process sequencing to minimise thermal cycling</td></tr>
+        <tr><td>Water consumption and wastewater</td><td>Cooling water, cleaning baths, wet chemical processing, electroplating, food/beverage manufacturing</td><td>Closed-loop cooling water systems; dry process alternatives for metal finishing; biological treatment of effluents; zero liquid discharge systems</td></tr>
+        <tr><td>Solid waste and scrap material</td><td>Machining swarf (metal chips), rejected parts, packaging, trimming scrap from stamping/cutting</td><td>Additive manufacturing (near-net-shape, minimal swarf); near-net forging; scrap remelting in-plant; design tolerances calibrated to actual requirements (not conservative)</td></tr>
+        <tr><td>Hazardous chemical use</td><td>Solvents (cleaning, degreasing), electroplating chemicals (cyanide, chromium VI), paints and coatings, adhesives, flame retardants</td><td>Solvent substitution with aqueous or CO₂ cleaning; trivalent chromium plating replacing hexavalent; powder coatings replacing solvent-borne paints; closed-loop solvent recovery systems</td></tr>
+        <tr><td>Air emissions and VOCs</td><td>Painting and coating operations, soldering/welding fumes, foundry emissions, chemical vapours</td><td>LEV (Local Exhaust Ventilation); catalytic oxidisers for VOC abatement; lead-free soldering (RoHS compliance); enclosed arc welding with fume extraction</td></tr>
+        <tr><td>Noise and vibration</td><td>Press shops, pneumatic tools, high-speed machining, compressors</td><td>Acoustic enclosures; anti-vibration mounts; maintenance programmes to prevent wear-related noise increases; scheduling high-noise operations within defined time windows</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Design Thinking Applied to Manufacturing Environmental Improvement</span>
+    <p><strong>Empathise:</strong> Interview factory floor workers, environmental health officers, and local community members — not just production managers. Workers often know where emissions are highest and where waste is preventable. Communities near factories experience the air and water quality impacts that production engineers inside the building do not.</p>
+    <p><strong>Define:</strong> Use value stream mapping and emissions mapping together — overlay the production process map with CO₂, water, and waste data to identify which process steps generate disproportionate impact relative to their value contribution.</p>
+    <p><strong>Ideate:</strong> Apply lean manufacturing principles (Toyota Production System) combined with DFE — "muda" (waste) in lean includes material and energy waste, not just time and motion. Circular material flows within the factory (one process's waste is another's raw material) are an ideation target.</p>
+    <p><strong>Prototype:</strong> Pilot process changes on a single production line before factory-wide rollout — measure actual environmental performance, not just theoretical projections from simulations.</p>
+    <p><strong>Test and Improve:</strong> Use ISO 50001 (Energy Management) and ISO 14001 (Environmental Management) certified measurement systems to establish baselines and track improvements — creating the feedback data that drives further iteration.</p>
+    <p>The Tata Steel plant in Jamshedpur achieved a 34% reduction in specific energy consumption over 15 years through systematic application of these principles — proof that manufacturing environmental performance and economic competitiveness are not opposites but reinforcing objectives.</p>
+  </div>
+</div>
+
+<!-- ══ LQ20 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.20</span><span class="q-title">What is integrative design?</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p><strong>Integrative design</strong> (also called integrated design or whole-systems design) is a design philosophy and process that considers all elements of a system simultaneously and holistically — rather than optimising each component independently — to achieve synergistic outcomes that exceed the performance achievable through sequential, specialist-by-specialist design.</p>
+    <span class="sub-h">Contrast with Conventional Fragmented Design</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Dimension</th><th>Fragmented (Conventional) Design</th><th>Integrative Design</th></tr></thead>
+      <tbody>
+        <tr><td>Process</td><td>Sequential: architect designs → structural engineer adapts → MEP engineer adds systems → contractor builds</td><td>Concurrent: all disciplines collaborate from concept stage; trade-offs resolved early when changes are cheap</td></tr>
+        <tr><td>Optimisation target</td><td>Each subsystem optimised independently; HVAC engineer minimises HVAC cost without knowing the thermal design of the envelope</td><td>Whole system optimised together; a better-insulated building envelope (architecture) allows a smaller HVAC system — total cost lower</td></tr>
+        <tr><td>Trade-off resolution</td><td>Conflicts between disciplines resolved late (during construction or commissioning) — expensive changes</td><td>Conflicts resolved in collaborative workshops during design — cheap to change</td></tr>
+        <tr><td>Result</td><td>Technically functional but suboptimal — each part is "good enough" but the system underperforms the sum of its parts</td><td>Emergent performance — the integrated system achieves outcomes (energy use, cost, user experience) not possible by any individual discipline alone</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Application in Building Design (Net-Zero Architecture)</span>
+    <p>The Bullitt Center in Seattle (net-zero energy, net-zero water) demonstrates integrative design: the building orientation was decided in a combined session by the architect (daylighting), structural engineer (wind loading), mechanical engineer (passive ventilation), and solar engineer (PV optimisation). The roof was designed as a single surface that simultaneously carries structural load, supports solar panels, collects rainwater, and provides a green roof — one element serving four functions. This would be impossible in fragmented design where each specialist designs their own roof component.</p>
+    <span class="sub-h">Application in Product Design</span>
+    <p>Tesla's integrative design of the Model S demonstrates the concept at product scale. Rather than adapting an existing car chassis to carry a battery, the battery pack was designed simultaneously with the chassis — becoming a structural element of the floor, lowering the centre of gravity, eliminating the transmission tunnel, and enabling the flat interior floor. The battery simultaneously serves energy storage, structural, and interior design functions — an integrative design outcome that no sequential specialist design process could have produced.</p>
+    <span class="sub-h">Integrative Design and Design Thinking</span>
+    <p>Design Thinking naturally enables integrative design through:</p>
+    <ul>
+      <li><strong>Cross-disciplinary teams:</strong> DT explicitly assembles teams from different fields, creating the conditions for integrated problem-solving.</li>
+      <li><strong>Systems-level problem framing:</strong> The "How Might We" question targets the whole user experience, not a single component — preventing the team from prematurely narrowing to one subsystem.</li>
+      <li><strong>Co-creation of prototypes:</strong> When engineers, architects, and users build a prototype together, they naturally discover interdependencies that are invisible when each discipline prototypes separately.</li>
+    </ul>
+    <p>Integrative design is not a technique to be applied at a single stage — it is a mindset that must pervade the entire DT process from problem definition to final testing. Its adoption is the defining difference between organisations that produce good products and those that produce exceptional ones.</p>
+  </div>
+</div>
+
+<!-- ══ LQ21 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.21</span><span class="q-title">Illustrate the complete DT process for a Smart Traffic Management System.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>A Smart Traffic Management System (STMS) for a congested urban intersection in Hyderabad (Secunderabad X roads) is used to illustrate the complete 7-step DT process applied to a real engineering problem.</p>
+    <span class="sub-h">Step 1 — Ask (Problem Definition)</span>
+    <p><strong>Problem statement:</strong> "How might we reduce vehicle wait time and accident risk at Secunderabad X roads while improving traffic flow for all road users — including pedestrians, cyclists, and emergency vehicles?"</p>
+    <p>Initial constraints identified: existing traffic signal infrastructure, Rs 15 lakh budget, 90-day implementation timeline, 6 intersecting roads.</p>
+    <span class="sub-h">Step 2 — Research / Empathise</span>
+    <p>Field observation (7 AM–9 AM, 5 PM–8 PM) reveals: average wait time = 4.2 minutes per cycle; emergency vehicles blocked an average 8.3 minutes per incident; pedestrians cross against red lights 67% of the time (because cycles are too long); auto-rickshaw drivers cut signal by entering the box junction. Interviews with traffic constables reveal they override automated signals manually during school hours — a latent system need the automated design ignores.</p>
+    <span class="sub-h">Step 3 — Imagine / Ideate</span>
+    <p>Brainstorming generates 60+ ideas. Selected top concepts after affinity clustering:</p>
+    <ul>
+      <li>Adaptive signal control using computer vision to count vehicle queues per lane in real time</li>
+      <li>Emergency vehicle preemption using GPS and siren detection</li>
+      <li>Countdown pedestrian timers with audible alerts</li>
+      <li>Variable signal timing based on time-of-day and real-time queue length</li>
+      <li>Connected vehicle notification (V2I) for approaching ambulances</li>
+    </ul>
+    <span class="sub-h">Step 4 — Plan</span>
+    <p>System architecture defined: (1) 8 CCTV cameras per intersection with edge AI counting vehicles per lane. (2) Central STMS server receiving real-time data, running queue-minimisation algorithm. (3) Emergency vehicle preemption module receiving GPS feeds from EMRI ambulances. (4) Existing signal heads retrofitted with countdown displays. (5) Integration with Hyderabad traffic management centre dashboard.</p>
+    <span class="sub-h">Step 5 — Prototype</span>
+    <p>Software prototype: a simulation model of the intersection using real traffic count data runs the adaptive algorithm vs. the existing fixed-timing scheme for comparison. Physical prototype: one intersection retrofitted with a computer vision counting system and laptop running the adaptive algorithm — tested for 2 weeks without changing signal output (shadow mode) to validate counting accuracy (≥92% accuracy achieved).</p>
+    <span class="sub-h">Step 6 — Test</span>
+    <p>Live pilot at one intersection over 30 days: Average wait time reduced from 4.2 to 2.6 minutes (38% reduction). Emergency vehicle clearance time reduced from 8.3 to 3.1 minutes. Pedestrian red-light violations reduced 44% (longer walk phases aligned with actual gaps in vehicle flow). Traffic constable override during school hours retained as a system override mode — implemented after they flagged this gap during user testing.</p>
+    <span class="sub-h">Step 7 — Improve</span>
+    <p>Feedback reveals: the system fails during heavy rain (camera occlusion). Iteration: add radar vehicle detection as a backup to camera counting. Pedestrian crossing audio alerts insufficient for visually impaired users → add tactile warning surface and vibrating pole mount. System scaled to 12 additional intersections in Phase 2.</p>
+    <div class="diagram-wrap"><div class="diagram-label">STMS Architecture</div>
+    <svg viewBox="0 0 540 110" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+      <defs><marker id="tm" markerWidth="5" markerHeight="5" refX="3" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="#fff"/></marker></defs>
+      <rect x="10"  y="35" width="95" height="40" rx="3" fill="#111" stroke="#ff9" stroke-width="1.5"/>
+      <text x="58"  y="53" text-anchor="middle" fill="#ff9">CCTV</text>
+      <text x="58"  y="66" text-anchor="middle" fill="#555">+ Edge AI</text>
+      <line x1="105" y1="55" x2="130" y2="55" stroke="#fff" stroke-width="1.1" marker-end="url(#tm)"/>
+      <rect x="131" y="20" width="110" height="70" rx="3" fill="#111" stroke="#6cf" stroke-width="1.8"/>
+      <text x="186" y="48" text-anchor="middle" fill="#6cf">STMS Server</text>
+      <text x="186" y="62" text-anchor="middle" fill="#555">Adaptive algo</text>
+      <text x="186" y="75" text-anchor="middle" fill="#555">+ Dashboard</text>
+      <rect x="10"  y="78" width="95" height="30" rx="3" fill="#111" stroke="#8f8" stroke-width="1.3"/>
+      <text x="58"  y="96" text-anchor="middle" fill="#8f8">Ambulance GPS</text>
+      <line x1="105" y1="83" x2="131" y2="72" stroke="#fff" stroke-width="1.1" marker-end="url(#tm)"/>
+      <line x1="241" y1="55" x2="270" y2="55" stroke="#fff" stroke-width="1.1" marker-end="url(#tm)"/>
+      <rect x="271" y="35" width="100" height="40" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="321" y="53" text-anchor="middle" fill="#f88">Signal Heads</text>
+      <text x="321" y="66" text-anchor="middle" fill="#555">+ Countdown</text>
+      <line x1="371" y1="55" x2="400" y2="55" stroke="#fff" stroke-width="1.1" marker-end="url(#tm)"/>
+      <rect x="401" y="35" width="130" height="40" rx="3" fill="#111" stroke="#aaf" stroke-width="1.5"/>
+      <text x="466" y="53" text-anchor="middle" fill="#aaf">Traffic Control</text>
+      <text x="466" y="66" text-anchor="middle" fill="#555">Centre</text>
+    </svg></div>
+  </div>
+</div>
+
+<!-- ══ LQ22 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.22</span><span class="q-title">Describe the complete DT process for a Smart Irrigation System for farmers.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>A Smart Irrigation System for smallholder farmers in semi-arid Telangana is used to demonstrate the complete DT process applied to a socially impactful engineering problem.</p>
+    <span class="sub-h">Step 1 — Ask</span>
+    <p><strong>HMW statement:</strong> "How might we help small-scale farmers in Nalgonda district irrigate their crops more efficiently to reduce water waste and improve yield — using technology they can operate and maintain themselves?"</p>
+    <p>Key constraints: farmers have feature phones (not smartphones), operate on less than Rs 5,000 disposable income/month, wells are borewells 200–300 feet deep, major crops are cotton and paddy.</p>
+    <span class="sub-h">Step 2 — Research / Empathise</span>
+    <p>Field visits to 20 farms over three weeks reveal latent needs. Farmers wake at 4 AM to start pumps manually, losing sleep. They irrigate based on schedule ("Monday and Thursday"), not soil moisture — leading to over-irrigation during monsoon and under-irrigation during peak summer. Women bear most of the manual labour of managing irrigation channels. Electricity to run pumps is only available 6 hours/day (night hours) — farmers miss these windows when they oversleep. Mobile signal is weak but SMS works reliably.</p>
+    <span class="sub-h">Step 3 — Ideate</span>
+    <ul>
+      <li>Soil moisture sensors triggering automatic pump start/stop</li>
+      <li>SMS alerts to farmers when soil moisture falls below threshold</li>
+      <li>Scheduled pump control via SMS commands (farmer texts "START" to activate pump)</li>
+      <li>Solar-powered sensors to eliminate dependency on grid power for sensing</li>
+      <li>Shared community-level sensor dashboard maintained by an agri-extension officer</li>
+      <li>IFFCO Kisan integration to deliver crop-specific irrigation advice via SMS</li>
+    </ul>
+    <span class="sub-h">Step 4 — Plan</span>
+    <p>System design: (1) Capacitive soil moisture sensor buried at crop root depth, solar-powered. (2) GSM module transmits sensor reading to cloud server twice daily. (3) Cloud server sends SMS alert to farmer's feature phone when moisture falls below crop-specific threshold. (4) Farmer replies by SMS to activate borewell pump via GSM-controlled relay. (5) Pump auto-shuts off after calculated duration based on field area and sensor reading. (6) Agricultural extension officer receives weekly summary report.</p>
+    <span class="sub-h">Step 5 — Prototype</span>
+    <p>Low-fidelity: A manual demonstration using a chart showing how moisture levels change with irrigation, walked through with farmers in a chaupal session — validates that the concept matches their mental model. Hardware prototype: one farmer's plot equipped with sensor, GSM module, and relay. Run for 4 weeks with farmer receiving daily SMS — compare water use and yield against adjacent un-equipped plot.</p>
+    <span class="sub-h">Step 6 — Test</span>
+    <p>Pilot results: 34% reduction in water use (critical — the borewell was running dry); 22% increase in cotton yield (soil not oscillating between over-wet and over-dry). Key failure: farmers did not always reply to SMS within the required window — pump did not activate, crop stressed. Discovery: farmers wanted automatic pump activation, not manual confirmation via SMS — they trusted the system after 2 weeks. Two farmers could not read the SMS — needed audio call alert. Women farmers reported the system eliminated the need to wake at 4 AM.</p>
+    <span class="sub-h">Step 7 — Improve</span>
+    <p>Iteration: (1) Added auto-activation mode — farmer confirms once ("I want auto-mode") and system activates pump automatically when moisture threshold is breached. (2) Added IVR (interactive voice response) alert — phone call with pre-recorded message for low-literacy users. (3) Added OTP confirmation for pump start to prevent accidental activation. System scaled to 150 farms in Phase 2 through NABARD grant funding.</p>
+  </div>
+</div>
+
+<!-- ══ LQ23 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.23</span><span class="q-title">Discuss concept of modular design and prototype development in interdisciplinary projects.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p><strong>Modular design</strong> is an engineering approach that partitions a complex system into self-contained, interchangeable modules with standardised interfaces — each module performing a specific, well-defined function that can be designed, tested, and improved independently of other modules.</p>
+    <span class="sub-h">Principles of Modular Design</span>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Principle</th><th>Description</th><th>Benefit</th></tr></thead>
+      <tbody>
+        <tr><td>Functional decomposition</td><td>System is divided into modules each responsible for one clearly bounded function — single responsibility principle</td><td>Simplifies design, testing, and maintenance; failures are isolated to the module</td></tr>
+        <tr><td>Standardised interfaces</td><td>Modules connect through defined, standardised physical or logical interfaces — any compatible module can be substituted</td><td>Enables parallel development by different teams; modules can be upgraded independently</td></tr>
+        <tr><td>Independence</td><td>Changing one module's internal design should not require changes to other modules — low coupling, high cohesion</td><td>Reduces coordination overhead; enables specialisation by discipline</td></tr>
+        <tr><td>Reusability</td><td>Modules developed for one product can be reused in another if interfaces are compatible</td><td>Amortises development cost; reduces time-to-market for product variants</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Modular Design in Interdisciplinary DT Projects</span>
+    <p>In an interdisciplinary capstone project (e.g., a Smart Healthcare Wearable involving ECE, CS, Mechanical, and Biomedical Engineering students), modular design enables each discipline to own a clearly bounded module:</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Module</th><th>Responsible Discipline</th><th>Interface to Other Modules</th></tr></thead>
+      <tbody>
+        <tr><td>Sensor array (ECG, SpO₂, temperature)</td><td>ECE</td><td>Standardised ADC output protocol; I2C/SPI bus interface</td></tr>
+        <tr><td>Signal processing and ML inference</td><td>CS / AI</td><td>Receives raw ADC data; outputs classified health event flags</td></tr>
+        <tr><td>Wearable enclosure and ergonomics</td><td>Mechanical Engineering</td><td>Defines physical dimensions and mounting points that ECE sensor PCB must fit</td></tr>
+        <tr><td>Clinical validation and alert thresholds</td><td>Biomedical Engineering</td><td>Defines threshold values used by CS module for alarm generation</td></tr>
+        <tr><td>Mobile application and data storage</td><td>CS</td><td>Receives BLE data from ECE module; stores to cloud; displays to cardiologist</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Prototype Development Strategy for Modular Interdisciplinary Projects</span>
+    <ol>
+      <li><strong>Interface specification first:</strong> Before any module is built, all teams define and agree on the interfaces between modules. This contract allows parallel development — ECE builds the sensor module while CS builds the processing algorithm, both working to the same data format specification.</li>
+      <li><strong>Module-level prototypes:</strong> Each team builds and tests their module independently — ECE validates sensor accuracy on a bench test rig; CS validates the ML model on pre-recorded datasets; Mechanical validates ergonomics with foam mockups and user fitting sessions.</li>
+      <li><strong>Integration prototype:</strong> Modules are assembled for the first time — integration testing reveals interface incompatibilities (e.g., the CS module expects 250 Hz sampling but ECE module delivers 200 Hz). These are resolved at integration, not during full-system design.</li>
+      <li><strong>User prototype:</strong> The integrated system is worn by real users (healthcare volunteers, not team members) in realistic conditions — sitting, exercising, sleeping. Observations that no module-level test can reveal (the strap chafes after 4 hours; the app crashes when phone locks; the alarm is too quiet in a hospital setting) are captured and fed into the next iteration.</li>
+    </ol>
+    <p>Modular prototyping in DT interdisciplinary projects is not just an engineering convenience — it is the social architecture that makes diverse teams function. When each discipline has a clearly bounded scope, the collaboration becomes productive rather than territorial.</p>
+  </div>
+</div>
+
+<!-- ══ LQ24 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.24</span><span class="q-title">Explain the stages of a DT capstone project for a Smart Healthcare Monitoring System.</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>A Smart Healthcare Monitoring System (SHMS) for post-discharge cardiac patients — enabling remote monitoring from home with automatic escalation to their cardiologist — is used as the capstone project context for all five DT units.</p>
+    <span class="sub-h">Stage 1 — Empathise (Unit 1)</span>
+    <p>The interdisciplinary team (ECE, CS, Biomedical, Mechanical, Design students) spends two weeks in Apollo Hospital's cardiology ward — observing patients, shadowing nurses, and interviewing cardiologists. Key insights: 40% of readmissions happen within 30 days of discharge; patients do not monitor themselves at home because existing devices are confusing; families are anxious but don't know when to be alarmed; cardiologists have no visibility into patients between appointments. Empathy maps are created for three personas: post-MI patient (60 M, low tech literacy), family caregiver (35 F, moderate smartphone user), and cardiologist (limited time, needs actionable summaries).</p>
+    <span class="sub-h">Stage 2 — Define (Unit 1)</span>
+    <p>Point-of-View statements: "Ramu, 60-year-old post-MI patient, needs a monitoring system that tells him 'you're okay' without requiring him to interpret numbers — because his fear of bad news makes him avoid checking." "Dr. Rao needs a daily patient status summary that alerts him only when action is required — because he sees 50 patients/day and cannot check dashboards between consultations." These POV statements drive all subsequent design decisions.</p>
+    <span class="sub-h">Stage 3 — Ideate (Unit 2)</span>
+    <p>Brainstorming generates 75 ideas. Top concepts after dot-voting: (1) A wristband with a simple traffic light display — green/yellow/red — patient never sees numbers. (2) Daily "health score" SMS to patient and family — a single number (0–100) replacing raw ECG data. (3) Automatic escalation: if the health score drops below threshold for 48 hours, system sends alert to cardiologist's pager. (4) Family view: a simple mobile app showing only the traffic light and last 7-day trend. Ideas are combined using SIT Task Unification — the wristband also serves as a fall detector (accelerometer already present).</p>
+    <span class="sub-h">Stage 4 — Prototype (Unit 5)</span>
+    <p>Three parallel prototypes:</p>
+    <ul>
+      <li><strong>Physical:</strong> Mechanical team builds a foam + cardboard wristband mockup in 3 hours. Tested with 8 patients for comfort and strap closure usability — 3 design iterations on strap buckle before reaching acceptable solution.</li>
+      <li><strong>Digital UI:</strong> CS team creates Figma clickable prototype of family app. Tested with 5 family caregivers — all could read the traffic light; 3 did not understand the 7-day chart format → simplified to just "Better/Same/Worse" compared to yesterday.</li>
+      <li><strong>Algorithm:</strong> Biomedical team validates the health-score algorithm on 100 de-identified patient records from Apollo — tests sensitivity (correctly identifies deteriorating patients) and specificity (does not alarm unnecessarily).</li>
+    </ul>
+    <span class="sub-h">Stage 5 — Test and Iterate (Unit 5)</span>
+    <p>System pilot with 15 discharged patients over 6 weeks: 2 patients had their cardiologist alerted by the system → both confirmed by cardiologist to be genuine deteriorations that would have otherwise been undetected until symptoms became severe. 3 patients stopped wearing the device after Week 2 → exit interview revealed strap was irritating during sleep → design change: removable night strap.</p>
+    <span class="sub-h">Sustainability and Environmental Considerations (Unit 4)</span>
+    <p>Device casing designed from recycled ABS; battery swappable by user (Design for Disassembly); take-back programme for end-of-life device with hospital as collection point; no mercury components (RoHS compliant).</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>DT Stage</th><th>Key Output</th><th>Team</th></tr></thead>
+      <tbody>
+        <tr><td>Empathise</td><td>3 detailed persona empathy maps; 12 patient interview transcripts</td><td>All disciplines (field visits)</td></tr>
+        <tr><td>Define</td><td>3 POV statements; 8 HMW questions</td><td>Biomedical + Design lead</td></tr>
+        <tr><td>Ideate</td><td>75 raw ideas → 8 concept clusters → 1 integrated concept</td><td>Full team brainstorm</td></tr>
+        <tr><td>Prototype</td><td>Physical mockup + UI prototype + validated algorithm</td><td>Mechanical / CS / Biomedical</td></tr>
+        <tr><td>Test</td><td>6-week pilot; 15 patients; 2 confirmed early detections</td><td>Full team + Apollo Hospital</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+
+<!-- ══ LQ25 -->
+<div class="q-block">
+  <div class="q-head"><span class="q-num">Q.25</span><span class="q-title">What are the common challenges in diverse teams? How can they be resolved?</span><span class="q-marks">10 marks</span></div>
+  <div class="q-body">
+    <p>Interdisciplinary Design Thinking teams — combining engineers, designers, clinicians, social scientists, and business professionals — produce the most innovative solutions but also generate the most friction. Understanding and systematically resolving these challenges is a core DT leadership competency.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Challenge</th><th>Root Cause</th><th>Manifestation</th><th>Resolution Strategy</th></tr></thead>
+      <tbody>
+        <tr><td>Language and jargon barriers</td><td>Each discipline develops domain-specific vocabulary; terms mean different things across fields ("architecture" to an engineer vs. a software developer vs. an actual architect)</td><td>Miscommunication, misaligned expectations, silent confusion that surfaces as errors during integration</td><td>Create a shared project glossary at kickoff. Use visual communication (diagrams, prototypes) rather than text for cross-discipline concepts. Run "translate this to a 10-year-old" exercises to expose jargon.</td></tr>
+        <tr><td>Competing success metrics</td><td>Different disciplines are trained to value different outcomes — engineers prioritise reliability and efficiency; designers prioritise aesthetics and user delight; business members prioritise margin and speed to market</td><td>Endless debates about design decisions with no common evaluative framework; decisions made by the loudest voice rather than best reasoning</td><td>Co-create an explicit decision criteria matrix at the project start — listing all dimensions (technical performance, user experience, cost, environmental impact) and agreeing on relative weights. Evaluate every key decision against the same matrix.</td></tr>
+        <tr><td>Power dynamics and dominant voices</td><td>Hierarchical habits from professional contexts; senior members or technical experts unconsciously suppress junior or non-technical team members' contributions</td><td>Brainwriting sessions dominated by one voice; quieter participants disengage and contribute their best ideas in private rather than in sessions</td><td>Brainwriting (silent individual idea generation before group discussion) equalises participation. Rotating facilitation ensures no single personality controls session direction. Anonymous dot-voting prevents social influence on idea selection.</td></tr>
+        <tr><td>Cognitive style conflicts</td><td>Disciplines attract different cognitive types — engineers tend toward convergent, analytical thinking; designers and social scientists tend toward divergent, associative thinking</td><td>Analytical team members want to evaluate and filter ideas prematurely ("but that won't work because…"); creative members are frustrated by premature closure</td><td>Clearly separate and time-box divergent phases (no judgement, quantity focused) from convergent phases (evaluation, selection). Teach the team to recognise and name which mode they are in. Use "yes, and" as a required phrase during divergent phases.</td></tr>
+        <tr><td>Trust and respect deficits</td><td>Professional identity leads to devaluation of other disciplines ("that's just a soft skill," "designers don't understand engineering constraints")</td><td>Dismissive reactions to other disciplines' contributions; reluctance to defer to domain experts outside your own field</td><td>Early project activities that demonstrate each discipline's unique contribution to a shared challenge — a rapid empathy exercise where engineers discover insights that technical analysis never would have found. Shared success celebrations that attribute outcomes to team collaboration, not individual disciplines.</td></tr>
+        <tr><td>Role ambiguity in non-hierarchical DT teams</td><td>DT teams are designed to be non-hierarchical, but without clear role definition, individuals are uncertain about decision rights and responsibilities</td><td>Duplicated work; critical tasks falling through gaps; conflict over who has final say on design decisions</td><td>Define the RACI matrix (Responsible, Accountable, Consulted, Informed) for each project decision type. Assign a rotating DT facilitator role — not the "boss," but the keeper of process and time. Define clear module ownership in modular designs.</td></tr>
+      </tbody>
+    </table></div>
+    <span class="sub-h">Structural Practices for High-Functioning Diverse Teams</span>
+    <ul>
+      <li><strong>Psychological safety:</strong> Amy Edmondson's research (Google Project Aristotle) found psychological safety — the belief that it is safe to take interpersonal risks — is the single strongest predictor of team performance. Establishing "all ideas are valid here" norms from day one is the DT team leader's primary responsibility.</li>
+      <li><strong>Regular retrospectives:</strong> Weekly 15-minute team retrospectives ("What's working? What's not? What should we try?") surface process problems before they become team fractures.</li>
+      <li><strong>Physical co-location:</strong> When possible, co-locating diverse team members in a shared design studio dramatically accelerates trust and informal communication — reducing the coordination cost of diversity.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>Design Thinking Exam Key &middot; Units I–V &middot; 23 Short Answers + 25 Long Answers &middot; Common Questions from Both PDFs</footer>
+
+</body>
+</html>

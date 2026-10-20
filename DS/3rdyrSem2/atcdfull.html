@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xams · ATCD</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #000000;
+    color: #ddd;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header {
+    padding: 64px 0 40px;
+    border-bottom: 2px solid #111;
+    margin-bottom: 48px;
+  }
+  .course-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  header p {
+    font-size: 1rem;
+    color: #fff;
+    max-width: 560px;
+    font-style: italic;
+  }
+  .part-header {
+    margin: 64px 0 32px;
+  }
+  .part-header h2 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .part-header .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-top: 6px;
+  }
+  .unit-divider {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #555;
+    padding: 18px 0 4px;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 16px;
+  }
+  .short-entry {
+    padding: 28px 0;
+    border-bottom: 1px solid #1c1c1c;
+  }
+  .short-entry:last-child { border-bottom: none; }
+  .entry-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .entry-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .entry-term {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .entry-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #444;
+    flex-shrink: 0;
+  }
+  .entry-body {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+  }
+  .q-block {
+    padding: 36px 0;
+    border-bottom: 1px solid #1c1c1c;
+  }
+  .q-block:last-child { border-bottom: none; }
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .q-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .q-title {
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .q-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #444;
+    flex-shrink: 0;
+  }
+  .q-body p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .q-body p:last-child { margin-bottom: 0; }
+  .sub-h {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #fff;
+    margin: 24px 0 8px;
+  }
+  .q-body ul, .q-body ol {
+    padding-left: 24px;
+    margin: 12px 0 16px;
+  }
+  .q-body li {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 4px;
+  }
+  .q-body li strong { color: #fff; }
+  .entry-body ul, .entry-body ol { padding-left: 24px; margin: 8px 0; }
+  .entry-body li { font-size: 1rem; color: #ccc; line-height: 1.8; margin-bottom: 2px; }
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  table {
+    width: 100%;
+    min-width: 460px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #aaa;
+    padding: 10px 14px;
+    text-align: left;
+    border-top: 2px solid #222;
+    border-bottom: 1px solid #333;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #1c1c1c;
+    color: #ccc;
+    vertical-align: top;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  tr:last-child td { border-bottom: 2px solid #222; }
+  td:first-child {
+    color: #fff;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+  }
+  .code-block {
+    background: #050505;
+    border: 1px solid #222;
+    border-left: 3px solid #444;
+    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.9;
+    color: #ccc;
+    overflow-x: auto;
+    margin: 16px 0;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rule-box {
+    border-left: 3px solid #333;
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: #060606;
+  }
+  .rule-box p {
+    margin-bottom: 0 !important;
+    font-size: 0.95rem !important;
+    color: #ccc !important;
+  }
+  .diagram-wrap {
+    margin: 20px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diagram-wrap svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  .diagram-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  footer {
+    border-top: 2px solid #111;
+    padding: 32px 0 48px;
+    margin-top: 64px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #444;
+    text-transform: uppercase;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 0 16px; }
+    header { padding: 40px 0 28px; }
+    .part-header { margin: 48px 0 28px; }
+    .q-block, .short-entry { padding: 22px 0; }
+    .entry-marks, .q-marks { display: none; }
+    .code-block { font-size: 0.72rem; padding: 12px 14px; }
+    table { min-width: 380px; }
+    td, th { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="course-code">xams &middot; Exam Key</div>
+  <h1>Automata Theory &amp; Compiler Design</h1>
+  <p>Complete answer key &mdash; 2-mark and 5-mark questions across all five units. 60 marks total.</p>
+</header>
+
+<div class="part-header" id="part-a">
+  <h2>Part A &mdash; Short Answer Questions</h2>
+  <div class="meta">2 Marks Each</div>
+</div>
+<div id="short-container"></div>
+
+<div class="part-header" id="part-b">
+  <h2>Part B &mdash; Detailed Questions</h2>
+  <div class="meta">5 Marks Each</div>
+</div>
+<div id="detailed-container"></div>
+
+<footer>Automata Theory &middot; Compiler Design &middot; Exam Reference &middot; All 5 Units</footer>
+
+<script>
+const shortAnswers = [
+
+// ── UNIT I ──────────────────────────────────────────────────────────────
+{ unit: "UNIT I — Finite Automata, NFA, DFA, ε-NFA", term: "What is an Alphabet, String, Language, and Problem?",
+body: `An <strong>alphabet (Σ)</strong> is a finite, non-empty set of symbols (e.g. Σ = {0,1}). A <strong>string</strong> is a finite sequence of symbols from Σ; the empty string is <em>ε</em>. A <strong>language</strong> is any set of strings over Σ (finite or infinite). A <strong>problem</strong> in automata theory is a language — given a string, decide whether it belongs to the language.
+<div class="table-wrap"><table>
+  <thead><tr><th>Concept</th><th>Definition</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>Alphabet Σ</td><td>Finite non-empty symbol set</td><td>{0, 1}, {a, b, c}</td></tr>
+    <tr><td>String w</td><td>Finite sequence over Σ</td><td>01101, ε (empty)</td></tr>
+    <tr><td>Language L</td><td>Set of strings over Σ</td><td>L = {w | w ends in 01}</td></tr>
+    <tr><td>Σ*</td><td>All strings incl. ε</td><td>ε, 0, 1, 00, 01, …</td></tr>
+    <tr><td>Σ+</td><td>Σ* minus ε</td><td>0, 1, 00, 01, …</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "Define DFA. What is the language of a DFA?",
+body: `A <strong>DFA</strong> is a 5-tuple M = (Q, Σ, δ, q₀, F) where Q = finite states, Σ = alphabet, δ: Q×Σ→Q = transition function, q₀ = start state, F ⊆ Q = final states. It reads input left-to-right, deterministically changing state. The <strong>language L(M)</strong> is the set of all strings that lead the DFA from q₀ to some state in F.
+<div class="diagram-wrap"><div class="diagram-label">DFA — accepts strings ending in 01</div>
+<svg viewBox="0 0 380 110" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+  <defs><marker id="a1" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888"/></marker></defs>
+  <circle cx="60"  cy="55" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text x="60"  y="59" text-anchor="middle" fill="#ccc" font-size="10">q₀</text>
+  <circle cx="180" cy="55" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text x="180" y="59" text-anchor="middle" fill="#ccc" font-size="10">q₁</text>
+  <circle cx="300" cy="55" r="22" fill="none" stroke="#aaa" stroke-width="1.5"/>
+  <circle cx="300" cy="55" r="18" fill="none" stroke="#aaa" stroke-width="1"/>
+  <text x="300" y="59" text-anchor="middle" fill="#fff" font-size="10">q₂</text>
+  <line x1="10" y1="55" x2="36" y2="55" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <line x1="82" y1="55" x2="156" y2="55" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="119" y="48" text-anchor="middle" fill="#888" font-size="9">0</text>
+  <line x1="202" y1="55" x2="276" y2="55" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="239" y="48" text-anchor="middle" fill="#888" font-size="9">1</text>
+  <path d="M60,33 A30,30 0 1,1 80,33" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="60" y="12" text-anchor="middle" fill="#888" font-size="9">1</text>
+  <path d="M180,33 A30,30 0 1,1 200,33" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="180" y="12" text-anchor="middle" fill="#888" font-size="9">0</text>
+  <path d="M300,77 Q260,110 180,77" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="240" y="108" text-anchor="middle" fill="#888" font-size="9">0</text>
+  <path d="M300,33 Q340,10 340,55 Q340,100 322,70" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="355" y="58" fill="#888" font-size="9">1</text>
+</svg></div>` },
+
+{ term: "Define NFA. How does it differ from DFA?",
+body: `An <strong>NFA</strong> is a 5-tuple (Q, Σ, δ, q₀, F) where δ: Q×Σ → 2^Q (transition function returns a <em>set</em> of states). A string is <strong>accepted</strong> if at least one computation path ends in a final state.
+<div class="table-wrap"><table>
+  <thead><tr><th>Feature</th><th>DFA</th><th>NFA</th></tr></thead>
+  <tbody>
+    <tr><td>Transitions</td><td>Exactly one per (state, input)</td><td>Zero, one, or many</td></tr>
+    <tr><td>δ range</td><td>Single state</td><td>Set of states (2^Q)</td></tr>
+    <tr><td>ε-moves</td><td>Not allowed</td><td>Allowed (in ε-NFA)</td></tr>
+    <tr><td>Acceptance</td><td>Unique path must reach final state</td><td>Any path reaching final state</td></tr>
+    <tr><td>Power</td><td>Equivalent — both accept Regular Languages</td><td>Same</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "What is ε-closure? What is ε-NFA?",
+body: `An <strong>ε-NFA</strong> is an NFA with explicit ε-transitions — state changes that consume no input symbol. They introduce non-determinism and simplify construction.
+
+<strong>ε-closure(q)</strong> = the set of all states reachable from q using only ε-transitions (including q itself).
+<div class="table-wrap"><table>
+  <thead><tr><th>State</th><th>ECLOSE</th><th>Reason</th></tr></thead>
+  <tbody>
+    <tr><td>q'₀</td><td>{q'₀, q₀}</td><td>q'₀ has ε-transition to q₀</td></tr>
+    <tr><td>q₀</td><td>{q₀}</td><td>No outgoing ε-transitions</td></tr>
+    <tr><td>q₁</td><td>{q₁}</td><td>No outgoing ε-transitions</td></tr>
+    <tr><td>q₂</td><td>{q₂}</td><td>No outgoing ε-transitions</td></tr>
+  </tbody>
+</table></div>
+To simulate a transition: (1) go to all immediate destination states, (2) take the ε-closure of each.` },
+
+{ term: "NFA to DFA Conversion (Subset Construction)",
+body: `The <strong>subset construction</strong> converts an NFA to an equivalent DFA. Each DFA state is a <em>subset</em> of NFA states.
+<ol>
+  <li>Start state of DFA = ECLOSE(q₀) of NFA.</li>
+  <li>For each DFA state S and each input a, compute δ_D(S, a) = ECLOSE(∪ δ_N(p, a) for p ∈ S).</li>
+  <li>A DFA state is final if it contains at least one NFA final state.</li>
+  <li>Repeat until no new states are generated.</li>
+</ol>
+Worst case: an n-state NFA may produce 2ⁿ DFA states. DFA ≡ NFA — both accept exactly the Regular Languages.` },
+
+{ term: "What is a Regular Language?",
+body: `A <strong>regular language</strong> is any language accepted by a DFA (equivalently NFA or ε-NFA). Regular languages are precisely those describable by <strong>regular expressions</strong>. They form the lowest level of the Chomsky hierarchy.
+<div class="table-wrap"><table>
+  <thead><tr><th>Chomsky Level</th><th>Language Class</th><th>Machine</th></tr></thead>
+  <tbody>
+    <tr><td>Type 3</td><td>Regular</td><td>DFA / NFA</td></tr>
+    <tr><td>Type 2</td><td>Context-Free</td><td>PDA</td></tr>
+    <tr><td>Type 1</td><td>Context-Sensitive</td><td>LBA</td></tr>
+    <tr><td>Type 0</td><td>Recursively Enumerable</td><td>Turing Machine</td></tr>
+  </tbody>
+</table></div>` },
+
+// ── UNIT II ─────────────────────────────────────────────────────────────
+{ unit: "UNIT II — Regular Expressions, Pumping Lemma, CFG", term: "What is a Regular Expression? State its operations.",
+body: `A <strong>regular expression (RE)</strong> over alphabet Σ is built from: basis symbols (∅, ε, single symbols) combined using three operations:
+<ol>
+  <li><strong>Union (R+S or R|S)</strong> — strings in R or S.</li>
+  <li><strong>Concatenation (RS)</strong> — strings of R followed by strings of S.</li>
+  <li><strong>Kleene Star (R*)</strong> — zero or more concatenations of R.</li>
+</ol>
+<strong>Precedence:</strong> * (highest) → concatenation → + (lowest). By Kleene's theorem, a language is regular ⟺ it has a regular expression.` },
+
+{ term: "State the Pumping Lemma for Regular Languages.",
+body: `If L is a regular language, then there exists a <strong>pumping length n</strong> such that every string w ∈ L with |w| ≥ n can be written as w = xyz satisfying:
+<ol>
+  <li>|xy| ≤ n</li>
+  <li>|y| ≥ 1 (y is non-empty)</li>
+  <li>For all k ≥ 0, xy<sup>k</sup>z ∈ L</li>
+</ol>
+<strong>Use:</strong> To prove a language is <em>not</em> regular, assume it is, choose w, and show some pumped string xy<sup>k</sup>z ∉ L — a contradiction. Note: passing the lemma does not prove regularity.` },
+
+{ term: "Prove L = {0ⁿ1ⁿ | n ≥ 0} is not regular.",
+body: `<strong>Proof by contradiction:</strong> Assume L is regular with pumping length n. Choose w = 0ⁿ1ⁿ ∈ L, |w| = 2n ≥ n. Write w = xyz with |xy| ≤ n and |y| ≥ 1. Since |xy| ≤ n, both x and y consist only of 0s. Say y = 0<sup>k</sup>, k ≥ 1. Pump up: xy²z = 0<sup>n+k</sup>1ⁿ. Since k ≥ 1, the number of 0s exceeds the number of 1s, so xy²z ∉ L. <strong>Contradiction.</strong> Therefore L is not regular. ∎` },
+
+{ term: "Define Context-Free Grammar (CFG).",
+body: `A <strong>CFG</strong> is a 4-tuple G = (V, T, P, S) where:
+<div class="table-wrap"><table>
+  <thead><tr><th>Component</th><th>Meaning</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>V</td><td>Variables (non-terminals)</td><td>{S, E, T}</td></tr>
+    <tr><td>T</td><td>Terminals (alphabet symbols)</td><td>{a, b, +, *}</td></tr>
+    <tr><td>P</td><td>Productions A → α, A∈V, α∈(V∪T)*</td><td>E → E+T | T</td></tr>
+    <tr><td>S</td><td>Start variable</td><td>S or E</td></tr>
+  </tbody>
+</table></div>
+A <strong>derivation</strong> replaces a variable using a production. <strong>Leftmost</strong>: always replace the leftmost variable. <strong>Rightmost</strong>: always replace the rightmost variable. L(G) = all terminal strings derivable from S.` },
+
+{ term: "What is an Ambiguous Grammar?",
+body: `A grammar G is <strong>ambiguous</strong> if some string w ∈ L(G) has <strong>two or more distinct parse trees</strong> (equivalently, two distinct leftmost derivations). Example: <code>E → E+E | E*E | id</code> is ambiguous — <em>id+id*id</em> has two parse trees (+ applied first vs * applied first). In compiler design, ambiguity must be resolved by rewriting the grammar or using precedence/associativity rules.` },
+
+// ── UNIT III ────────────────────────────────────────────────────────────
+{ unit: "UNIT III — PDA, Turing Machines, Undecidability", term: "Define a Pushdown Automaton (PDA).",
+body: `A <strong>PDA</strong> is a 7-tuple P = (Q, Σ, Γ, δ, q₀, Z₀, F) where:
+<div class="table-wrap"><table>
+  <thead><tr><th>Component</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>Q</td><td>Finite set of states</td></tr>
+    <tr><td>Σ</td><td>Input alphabet</td></tr>
+    <tr><td>Γ</td><td>Stack alphabet</td></tr>
+    <tr><td>δ</td><td>Transition: Q × (Σ∪{ε}) × Γ → 2^(Q×Γ*)</td></tr>
+    <tr><td>q₀</td><td>Start state</td></tr>
+    <tr><td>Z₀</td><td>Initial stack symbol</td></tr>
+    <tr><td>F</td><td>Set of final states</td></tr>
+  </tbody>
+</table></div>
+Key difference from NFA: the PDA has an unbounded <strong>stack</strong>, enabling it to accept context-free languages like {0ⁿ1ⁿ}.` },
+
+{ term: "Acceptance by Final State vs. Acceptance by Empty Stack",
+body: `A PDA can accept a string in two equivalent ways:
+<div class="table-wrap"><table>
+  <thead><tr><th>Mode</th><th>Condition for Acceptance</th></tr></thead>
+  <tbody>
+    <tr><td>Final State</td><td>Input is fully consumed AND current state ∈ F</td></tr>
+    <tr><td>Empty Stack</td><td>Input is fully consumed AND stack is empty</td></tr>
+  </tbody>
+</table></div>
+Both modes accept exactly the <strong>Context-Free Languages</strong>. Any PDA accepting by final state can be converted to one accepting by empty stack, and vice versa. PDAs are equivalent to CFGs — every CFL has a PDA and every PDA language is a CFL.` },
+
+{ term: "Define a Turing Machine (TM).",
+body: `A <strong>TM</strong> is a 7-tuple M = (Q, Σ, Γ, δ, q₀, B, F) where Γ is the tape alphabet (Σ ⊂ Γ), B ∈ Γ is the blank symbol, and δ: Q×Γ → Q×Γ×{L,R}. It operates on an infinite tape, reading/writing symbols and moving left or right.
+<div class="table-wrap"><table>
+  <thead><tr><th>Acceptance Mode</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>Accept</td><td>TM halts in an accepting state</td></tr>
+    <tr><td>Reject</td><td>TM halts in a non-accepting state</td></tr>
+    <tr><td>Loop</td><td>TM runs forever (no halt)</td></tr>
+  </tbody>
+</table></div>
+A language is <strong>recursively enumerable (RE)</strong> if accepted by some TM. It is <strong>recursive (decidable)</strong> if a TM always halts on all inputs.` },
+
+{ term: "What is the Halting Problem? Why is it undecidable?",
+body: `The <strong>Halting Problem</strong>: given a TM M and input w, does M halt on w? This is <strong>undecidable</strong> — no TM can always correctly answer this.
+
+<strong>Proof sketch (Diagonalization):</strong> Assume a TM H solves the Halting Problem. Build a TM D that on input ⟨M⟩: runs H on ⟨M, ⟨M⟩⟩; if H says "halts" → D loops; if H says "loops" → D halts. Now ask: what does D do on input ⟨D⟩? D halts ⟺ D loops — a contradiction. Therefore H cannot exist. The Halting Problem is undecidable. ∎` },
+
+{ term: "Recursive vs Recursively Enumerable Languages",
+body: `<div class="table-wrap"><table>
+  <thead><tr><th>Property</th><th>Recursive (Decidable)</th><th>RE (Semi-decidable)</th></tr></thead>
+  <tbody>
+    <tr><td>TM behaviour</td><td>Always halts (accept or reject)</td><td>Halts on accept; may loop on reject</td></tr>
+    <tr><td>Complement</td><td>Also recursive</td><td>Not necessarily RE</td></tr>
+    <tr><td>Example</td><td>Any regular/CFL language</td><td>Acceptance problem A_TM</td></tr>
+    <tr><td>Decidable?</td><td>Yes</td><td>Not necessarily</td></tr>
+  </tbody>
+</table></div>
+Containment: Recursive ⊂ RE ⊂ all languages. A non-RE language is one where no TM can even enumerate its members (e.g., complement of A_TM).` },
+
+// ── UNIT IV ─────────────────────────────────────────────────────────────
+{ unit: "UNIT IV — Compiler Introduction, Lexical Analysis, Syntax Analysis", term: "What is a Compiler? List its Phases.",
+body: `A <strong>compiler</strong> translates a high-level source program into machine code (or equivalent). Unlike an interpreter, it processes the entire program before execution.
+<div class="table-wrap"><table>
+  <thead><tr><th>Phase</th><th>Input → Output</th></tr></thead>
+  <tbody>
+    <tr><td>Lexical Analysis</td><td>Characters → Tokens</td></tr>
+    <tr><td>Syntax Analysis</td><td>Tokens → Parse Tree</td></tr>
+    <tr><td>Semantic Analysis</td><td>Parse Tree → Annotated Tree</td></tr>
+    <tr><td>Intermediate Code Gen</td><td>Annotated Tree → IR (TAC)</td></tr>
+    <tr><td>Code Optimization</td><td>IR → Optimized IR</td></tr>
+    <tr><td>Code Generation</td><td>Optimized IR → Machine Code</td></tr>
+  </tbody>
+</table></div>
+The <strong>Symbol Table</strong> and <strong>Error Handler</strong> support all phases throughout.` },
+
+{ term: "Define Token, Lexeme, Pattern.",
+body: `<div class="table-wrap"><table>
+  <thead><tr><th>Term</th><th>Definition</th><th>Example for <code>int sum = a + b;</code></th></tr></thead>
+  <tbody>
+    <tr><td>Token</td><td>Category + attribute pair &lt;name, value&gt;</td><td>&lt;keyword, int&gt;, &lt;id, sum&gt;, &lt;op, =&gt;</td></tr>
+    <tr><td>Lexeme</td><td>Actual character sequence in source</td><td>int, sum, =, a, +, b, ;</td></tr>
+    <tr><td>Pattern</td><td>Rule (regex) describing valid lexemes for a token</td><td>Identifier: letter(letter|digit)*</td></tr>
+  </tbody>
+</table></div>
+The lexical analyzer (scanner) reads source characters, matches patterns, and produces a token stream for the parser.` },
+
+{ term: "What is Input Buffering? Two-Buffer Scheme?",
+body: `Reading source one character at a time is slow. <strong>Input buffering</strong> pre-loads large chunks into memory for fast access. The <strong>two-buffer scheme</strong> uses two fixed-size buffers (each ~4096 chars) loaded alternately. Two pointers are maintained:
+<ul>
+  <li><strong>lexemeBegin</strong> — start of current lexeme being scanned.</li>
+  <li><strong>forward</strong> — scans ahead looking for end of token.</li>
+</ul>
+Each buffer ends with a <strong>sentinel (EOF)</strong> character to detect buffer end without extra checks. When forward hits EOF, the other buffer is loaded.` },
+
+{ term: "What is the Lex Tool?",
+body: `<strong>Lex</strong> (or Flex) is a tool that automatically generates a lexical analyzer from a specification of token patterns written as regular expressions.
+<div class="code-block">/* Structure of a Lex program */
+%{ C declarations %}
+%%
+pattern1  { action1 }
+pattern2  { action2 }
+%%
+C routines</div>
+<strong>Workflow:</strong> Write <code>tokenizer.l</code> → run <code>flex tokenizer.l</code> (generates <code>lex.yy.c</code>) → compile with <code>gcc lex.yy.c -o tokenizer</code> → run <code>./tokenizer input.txt</code>. Lex reduces manual coding and integrates with YACC/Bison for full parsers.` },
+
+{ term: "What is Top-Down vs Bottom-Up Parsing?",
+body: `<div class="table-wrap"><table>
+  <thead><tr><th>Feature</th><th>Top-Down</th><th>Bottom-Up</th></tr></thead>
+  <tbody>
+    <tr><td>Direction</td><td>Start symbol → terminals</td><td>Terminals → start symbol</td></tr>
+    <tr><td>Method</td><td>Predictive / recursive descent</td><td>Shift-reduce</td></tr>
+    <tr><td>Derivation</td><td>Leftmost</td><td>Rightmost (in reverse)</td></tr>
+    <tr><td>Parser type</td><td>LL(k)</td><td>LR(k), SLR, LALR, CLR</td></tr>
+    <tr><td>Handles</td><td>Simpler grammars</td><td>Wider class of grammars</td></tr>
+  </tbody>
+</table></div>
+LR parsers are more powerful than LL parsers and are used in most production compilers.` },
+
+{ term: "What is an LR Parser? SLR vs LALR vs CLR?",
+body: `An <strong>LR parser</strong> is a bottom-up, shift-reduce parser that uses a stack and a parsing table (ACTION + GOTO).
+<div class="table-wrap"><table>
+  <thead><tr><th>Type</th><th>Lookahead Construction</th><th>Power</th></tr></thead>
+  <tbody>
+    <tr><td>SLR(1)</td><td>Uses FOLLOW sets</td><td>Weakest — many conflicts</td></tr>
+    <tr><td>LALR(1)</td><td>Merges LR(1) items with same core</td><td>Middle — used in YACC</td></tr>
+    <tr><td>CLR(1)</td><td>Full LR(1) items</td><td>Strongest — largest tables</td></tr>
+  </tbody>
+</table></div>
+All use 1-symbol lookahead. LALR(1) is the practical choice — as powerful as CLR for most real grammars but with smaller tables.` },
+
+// ── UNIT V ──────────────────────────────────────────────────────────────
+{ unit: "UNIT V — SDD, Intermediate Code, Run-Time Environments", term: "What is a Syntax-Directed Definition (SDD)?",
+body: `An <strong>SDD</strong> attaches semantic rules to CFG productions. Each grammar symbol has <em>attributes</em>; rules specify how to compute them.
+<div class="table-wrap"><table>
+  <thead><tr><th>Attribute Type</th><th>Definition</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>Synthesized</td><td>Computed from children's attributes</td><td>E.val = E₁.val + T.val</td></tr>
+    <tr><td>Inherited</td><td>Passed down from parent/siblings</td><td>T.type = E.type</td></tr>
+  </tbody>
+</table></div>
+An <strong>S-attributed SDD</strong> uses only synthesized attributes (works with bottom-up parsers). An <strong>L-attributed SDD</strong> also allows inherited attributes that depend only on left siblings or parent (works with top-down parsers).` },
+
+{ term: "What is Three-Address Code (TAC)?",
+body: `<strong>Three-address code (TAC)</strong> is an intermediate representation where each instruction has at most one operator and three addresses (two operands + one result): <code>x = y op z</code>.
+<div class="code-block">/* Source: a = b * c + b * d */
+t1 = b * c
+t2 = b * d
+t3 = t1 + t2
+a  = t3</div>
+<div class="table-wrap"><table>
+  <thead><tr><th>Representation</th><th>Structure</th><th>Advantage</th></tr></thead>
+  <tbody>
+    <tr><td>Quadruple</td><td>(op, arg1, arg2, result)</td><td>Easy to rearrange</td></tr>
+    <tr><td>Triple</td><td>(op, arg1, arg2) — result implicit</td><td>Saves space</td></tr>
+    <tr><td>Indirect Triple</td><td>Array of pointers to triples</td><td>Easy code movement</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "What is an Activation Record?",
+body: `An <strong>activation record (stack frame)</strong> is the memory block allocated on the run-time stack for each function call. It contains:
+<div class="table-wrap"><table>
+  <thead><tr><th>Field</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td>Return Value</td><td>Space for function's return value</td></tr>
+    <tr><td>Actual Parameters</td><td>Arguments passed by caller</td></tr>
+    <tr><td>Control Link</td><td>Pointer to caller's activation record</td></tr>
+    <tr><td>Access Link</td><td>Pointer to enclosing scope's record</td></tr>
+    <tr><td>Saved Machine Status</td><td>Registers, program counter</td></tr>
+    <tr><td>Local Data</td><td>Local variables</td></tr>
+    <tr><td>Temporaries</td><td>Intermediate computation values</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "Stack Allocation vs Heap Allocation",
+body: `<div class="table-wrap"><table>
+  <thead><tr><th>Aspect</th><th>Stack</th><th>Heap</th></tr></thead>
+  <tbody>
+    <tr><td>Structure</td><td>LIFO — grows/shrinks on calls/returns</td><td>Unstructured — dynamic allocation</td></tr>
+    <tr><td>Speed</td><td>Very fast (just move stack pointer)</td><td>Slower (memory manager needed)</td></tr>
+    <tr><td>Size</td><td>Fixed at compile time (per frame)</td><td>Determined at run time</td></tr>
+    <tr><td>Lifetime</td><td>Until function returns</td><td>Until explicitly freed / GC'd</td></tr>
+    <tr><td>Used for</td><td>Local variables, parameters</td><td>Dynamic objects, malloc/new</td></tr>
+    <tr><td>Management</td><td>Automatic</td><td>Manual or GC</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "What is Garbage Collection?",
+body: `<strong>Garbage collection (GC)</strong> is automatic reclamation of heap memory that is no longer reachable by the program.
+<div class="table-wrap"><table>
+  <thead><tr><th>Strategy</th><th>How It Works</th><th>Drawback</th></tr></thead>
+  <tbody>
+    <tr><td>Reference Counting</td><td>Free when count drops to 0</td><td>Cannot handle cycles</td></tr>
+    <tr><td>Mark-and-Sweep</td><td>Mark reachable objects; sweep unmarked</td><td>Stop-the-world pauses</td></tr>
+    <tr><td>Copying GC</td><td>Copy live objects to new region</td><td>Wastes half the memory</td></tr>
+    <tr><td>Generational GC</td><td>Frequent collection of young objects</td><td>Complex implementation</td></tr>
+  </tbody>
+</table></div>` },
+
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 5-MARK DETAILED QUESTIONS
+// ─────────────────────────────────────────────────────────────────────────────
+const detailedQuestions = [
+{
+  id:"q1", num:"Q.1", unit:"UNIT I",
+  title:"Explain Central Concepts of Automata Theory — Alphabets, Strings, Languages, Problems",
+  body:`<p>Automata theory studies abstract computing devices (automata) and the problems they can solve. Its central concepts are the mathematical objects that all machines operate on.</p>
+  <p class="sub-h">Alphabet (Σ)</p>
+  <p>A finite, non-empty set of symbols. Examples: Σ = {0,1} (binary), Σ = {a,b,…,z} (English). Operations on alphabets give rise to strings.</p>
+  <p class="sub-h">Strings</p>
+  <p>A <strong>string (word)</strong> over Σ is a finite sequence of symbols from Σ. The <strong>empty string ε</strong> has length 0. |w| denotes the length of w. Σ* is the set of all strings including ε; Σ⁺ = Σ* \ {ε}.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Σ = {0,1}</th><th>Members</th></tr></thead>
+    <tbody>
+      <tr><td>Σ⁰</td><td>{ε}</td></tr>
+      <tr><td>Σ¹</td><td>{0, 1}</td></tr>
+      <tr><td>Σ²</td><td>{00, 01, 10, 11}</td></tr>
+      <tr><td>Σ*</td><td>ε, 0, 1, 00, 01, 10, 11, 000, …</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Languages</p>
+  <p>A <strong>language L</strong> is any subset of Σ*. It may be finite or infinite. Examples: L₁ = {ε, 0, 00, 000, …} = {0ⁿ | n ≥ 0} (infinite), L₂ = {101, 111} (finite). Language operations: union (L₁ ∪ L₂), concatenation (L₁L₂), Kleene closure (L*).</p>
+  <p class="sub-h">Problems</p>
+  <p>In automata theory, a <strong>problem</strong> is a language — the set of strings (inputs) for which the answer is "yes." For example, the problem "does a binary string encode a prime?" is the language {w | w in binary is a prime number}. Automata are the machines that decide (accept or reject) such problems.</p>
+  <p class="sub-h">Structural Representations of Automata</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Representation</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td>Transition Diagram</td><td>Directed graph — nodes=states, edges=transitions</td></tr>
+      <tr><td>Transition Table</td><td>2D table — rows=states, columns=inputs, cells=next states</td></tr>
+      <tr><td>Formal 5-tuple</td><td>Mathematical specification (Q, Σ, δ, q₀, F)</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q2", num:"Q.2", unit:"UNIT I",
+  title:"DFA: Definition, How It Processes Strings, Language of a DFA — with Construction Examples",
+  body:`<p>A <strong>Deterministic Finite Automaton (DFA)</strong> is a 5-tuple M = (Q, Σ, δ, q₀, F):</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Component</th><th>Meaning</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Q</td><td>Finite set of states</td><td>{q₀, q₁, q₂}</td></tr>
+      <tr><td>Σ</td><td>Input alphabet</td><td>{0, 1}</td></tr>
+      <tr><td>δ: Q×Σ→Q</td><td>Transition function (total)</td><td>δ(q₀,0)=q₁</td></tr>
+      <tr><td>q₀ ∈ Q</td><td>Start state</td><td>q₀</td></tr>
+      <tr><td>F ⊆ Q</td><td>Set of accepting states</td><td>{q₂}</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">How a DFA Processes a String</p>
+  <p>Starting in q₀, read w = a₁a₂…aₙ one symbol at a time, applying δ. The <strong>extended transition function</strong> δ̂(q,ε) = q and δ̂(q, wa) = δ(δ̂(q,w), a). String w is <strong>accepted</strong> if δ̂(q₀, w) ∈ F.</p>
+  <p class="sub-h">Construction — DFA for strings containing "01" as substring</p>
+  <div class="diagram-wrap"><div class="diagram-label">DFA — L = {w | w contains 01}</div>
+  <svg viewBox="0 0 460 120" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+    <defs><marker id="ar" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888"/></marker></defs>
+    <circle cx="70"  cy="60" r="24" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="70"  y="64" text-anchor="middle" fill="#ccc" font-size="10">q₀</text>
+    <circle cx="210" cy="60" r="24" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="210" y="64" text-anchor="middle" fill="#ccc" font-size="10">q₁</text>
+    <circle cx="360" cy="60" r="24" fill="none" stroke="#aaa" stroke-width="2"/>
+    <circle cx="360" cy="60" r="19" fill="none" stroke="#aaa" stroke-width="1"/>
+    <text x="360" y="64" text-anchor="middle" fill="#fff" font-size="10">q₂</text>
+    <line x1="10" y1="60" x2="44" y2="60" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <line x1="94" y1="60" x2="184" y2="60" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="139" y="52" text-anchor="middle" fill="#888" font-size="9">0</text>
+    <line x1="234" y1="60" x2="334" y2="60" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="284" y="52" text-anchor="middle" fill="#888" font-size="9">1</text>
+    <path d="M70,36 A35,35 0 1,1 95,36" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="70" y="10" text-anchor="middle" fill="#888" font-size="9">1</text>
+    <path d="M210,36 A35,35 0 1,1 235,36" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="210" y="10" text-anchor="middle" fill="#888" font-size="9">0</text>
+    <path d="M360,36 A35,35 0 1,1 385,36" fill="none" stroke="#aaa" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="368" y="10" text-anchor="middle" fill="#aaa" font-size="9">0,1</text>
+    <path d="M210,84 Q140,115 94,74" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="148" y="115" text-anchor="middle" fill="#888" font-size="9">1→q₀</text>
+  </svg></div>
+  <p class="sub-h">Transition Table</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>State</th><th>0</th><th>1</th></tr></thead>
+    <tbody>
+      <tr><td>→ q₀</td><td>q₁</td><td>q₀</td></tr>
+      <tr><td>q₁</td><td>q₁</td><td>q₂</td></tr>
+      <tr><td>* q₂</td><td>q₂</td><td>q₂</td></tr>
+    </tbody>
+  </table></div>
+  <p>Trace of w = 1001: q₀ →¹ q₀ →⁰ q₁ →⁰ q₁ →¹ q₂ ∈ F → <strong>Accepted</strong>.</p>`
+},
+{
+  id:"q3", num:"Q.3", unit:"UNIT I",
+  title:"NFA — Definition, Text Search Application, and NFA→DFA Conversion",
+  body:`<p>An <strong>NFA</strong> (Q, Σ, δ, q₀, F) differs from a DFA in that δ: Q×(Σ∪{ε}) → 2^Q. Multiple transitions on the same symbol are allowed; missing transitions map to ∅. A string is accepted if <em>any</em> computation path reaches a final state.</p>
+  <p class="sub-h">Application: Text Search</p>
+  <p>NFAs power pattern matching in text editors, grep, and lexical analyzers. To find pattern P = "ab" in text T: build an NFA where state 0 loops on all characters, state 1 is reached on 'a', and state 2 (final) is reached from state 1 on 'b'. Run the NFA simultaneously across all starting positions.</p>
+  <div class="diagram-wrap"><div class="diagram-label">NFA for pattern "ab" in text (Aho-Corasick style)</div>
+  <svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+    <defs><marker id="a3" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888"/></marker></defs>
+    <circle cx="60" cy="45" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="60" y="49" text-anchor="middle" fill="#ccc" font-size="10">s₀</text>
+    <circle cx="170" cy="45" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="170" y="49" text-anchor="middle" fill="#ccc" font-size="10">s₁</text>
+    <circle cx="280" cy="45" r="22" fill="none" stroke="#aaa" stroke-width="2"/>
+    <circle cx="280" cy="45" r="17" fill="none" stroke="#aaa"/>
+    <text x="280" y="49" text-anchor="middle" fill="#fff" font-size="10">s₂</text>
+    <line x1="10" y1="45" x2="36" y2="45" stroke="#888" stroke-width="1.5" marker-end="url(#a3)"/>
+    <line x1="82" y1="45" x2="146" y2="45" stroke="#888" stroke-width="1.5" marker-end="url(#a3)"/>
+    <text x="114" y="38" text-anchor="middle" fill="#888" font-size="9">a</text>
+    <line x1="192" y1="45" x2="256" y2="45" stroke="#888" stroke-width="1.5" marker-end="url(#a3)"/>
+    <text x="224" y="38" text-anchor="middle" fill="#888" font-size="9">b</text>
+    <path d="M60,23 A28,28 0 1,1 82,23" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a3)"/>
+    <text x="60" y="4" text-anchor="middle" fill="#888" font-size="9">Σ</text>
+  </svg></div>
+  <p class="sub-h">NFA→DFA Subset Construction</p>
+  <p>Each DFA state is a <em>set</em> of NFA states. Start: ECLOSE(q₀). Compute transitions by: (1) apply NFA δ to each state in the set, (2) take ECLOSE of results. A DFA state is final if it contains any NFA final state.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>DFA State</th><th>NFA States</th><th>On 0</th><th>On 1</th><th>Final?</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>{q₀}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>No</td></tr>
+      <tr><td>B</td><td>{q₀,q₁}</td><td>{q₀,q₁}</td><td>{q₀,q₂}</td><td>No</td></tr>
+      <tr><td>C</td><td>{q₀,q₂}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>Yes (q₂∈F)</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q4", num:"Q.4", unit:"UNIT I",
+  title:"ε-NFA — ε-closure, Simulation, and Conversion to DFA",
+  body:`<p>An <strong>ε-NFA</strong> allows transitions on ε (no input consumed). This makes it easier to build automata by composing smaller ones, but it is equivalent in power to DFA — both accept exactly the Regular Languages.</p>
+  <p class="sub-h">ε-closure Definition</p>
+  <p>ECLOSE(q) = the set of all states reachable from q by zero or more ε-transitions (always includes q itself). Computed via BFS/DFS on ε-edges.</p>
+  <p class="sub-h">Example ε-NFA (L = {w | empty OR ends in 01})</p>
+  <div class="diagram-wrap"><div class="diagram-label">ε-NFA — states q'₀, q₀, q₁, q₂</div>
+  <svg viewBox="0 0 420 130" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+    <defs><marker id="a4" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888"/></marker></defs>
+    <circle cx="60"  cy="65" r="22" fill="none" stroke="#aaa" stroke-width="2"/>
+    <circle cx="60"  cy="65" r="17" fill="none" stroke="#aaa"/>
+    <text x="60"  y="69" text-anchor="middle" fill="#fff" font-size="9">q'₀</text>
+    <circle cx="180" cy="65" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="180" y="69" text-anchor="middle" fill="#ccc" font-size="10">q₀</text>
+    <circle cx="300" cy="65" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="300" y="69" text-anchor="middle" fill="#ccc" font-size="10">q₁</text>
+    <circle cx="390" cy="65" r="22" fill="none" stroke="#aaa" stroke-width="2"/>
+    <circle cx="390" cy="65" r="17" fill="none" stroke="#aaa"/>
+    <text x="390" y="69" text-anchor="middle" fill="#fff" font-size="10">q₂</text>
+    <line x1="10" y1="65" x2="36" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <line x1="82" y1="65" x2="156" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <text x="119" y="57" text-anchor="middle" fill="#888" font-size="9">ε</text>
+    <line x1="202" y1="65" x2="276" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <text x="239" y="57" text-anchor="middle" fill="#888" font-size="9">0</text>
+    <line x1="322" y1="65" x2="366" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <text x="344" y="57" text-anchor="middle" fill="#888" font-size="9">1</text>
+    <path d="M180,43 A30,30 0 1,1 202,43" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <text x="180" y="20" text-anchor="middle" fill="#888" font-size="9">0,1</text>
+  </svg></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>State</th><th>ECLOSE</th></tr></thead>
+    <tbody>
+      <tr><td>q'₀</td><td>{q'₀, q₀}</td></tr>
+      <tr><td>q₀</td><td>{q₀}</td></tr>
+      <tr><td>q₁</td><td>{q₁}</td></tr>
+      <tr><td>q₂</td><td>{q₂}</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Conversion Algorithm (ε-NFA → DFA)</p>
+  <p>1. Start state = ECLOSE(q₀ of ε-NFA). 2. For each subset S and symbol a: compute R = ∪{δₑ(p,a) | p∈S}, then δ_D(S,a) = ECLOSE(R). 3. Final states = subsets containing at least one ε-NFA final state. 4. Repeat until no new subsets.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>DFA State</th><th>0</th><th>1</th><th>Final?</th></tr></thead>
+    <tbody>
+      <tr><td>* {q'₀,q₀}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>Yes (q'₀)</td></tr>
+      <tr><td>{q₀,q₁}</td><td>{q₀,q₁}</td><td>{q₀,q₂}</td><td>No</td></tr>
+      <tr><td>{q₀}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>No</td></tr>
+      <tr><td>* {q₀,q₂}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>Yes (q₂)</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q5", num:"Q.5", unit:"UNIT II",
+  title:"Regular Expressions — Kleene's Theorem, Algebraic Laws, and RE→ε-NFA Conversion",
+  body:`<p>A <strong>regular expression (RE)</strong> defines a regular language using three operations on symbols: union (+), concatenation, and Kleene star (*). By <strong>Kleene's Theorem</strong>, a language is regular ⟺ it can be described by a regular expression ⟺ it is accepted by some DFA.</p>
+  <p class="sub-h">Important Algebraic Laws</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Law</th><th>Statement</th></tr></thead>
+    <tbody>
+      <tr><td>Commutativity</td><td>L + M = M + L</td></tr>
+      <tr><td>Associativity</td><td>(L+M)+N = L+(M+N)</td></tr>
+      <tr><td>Identity for +</td><td>L + ∅ = L</td></tr>
+      <tr><td>Annihilator for ·</td><td>∅L = L∅ = ∅</td></tr>
+      <tr><td>Identity for ·</td><td>εL = Lε = L</td></tr>
+      <tr><td>Distributivity</td><td>L(M+N) = LM + LN</td></tr>
+      <tr><td>Idempotent</td><td>L + L = L</td></tr>
+      <tr><td>Star of star</td><td>(L*)* = L*</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Thompson's Construction — RE to ε-NFA</p>
+  <p>Build NFAs for basis cases (ε, ∅, single symbol), then combine using:</p>
+  <ul>
+    <li><strong>Union R+S:</strong> New start state with ε to both, new final state with ε from both.</li>
+    <li><strong>Concatenation RS:</strong> Connect final states of R to start state of S via ε.</li>
+    <li><strong>Star R*:</strong> New start/final state, ε-loop back from old final to old start.</li>
+  </ul>
+  <p class="sub-h">Common Regular Expressions</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Language</th><th>Regular Expression</th></tr></thead>
+    <tbody>
+      <tr><td>All binary strings</td><td>(0+1)*</td></tr>
+      <tr><td>Strings ending in 01</td><td>(0+1)*01</td></tr>
+      <tr><td>Strings containing 11</td><td>(0+1)*11(0+1)*</td></tr>
+      <tr><td>Strings with even # of 0s</td><td>(1*01*0)*1*</td></tr>
+      <tr><td>Strings not containing bb over {a,b}</td><td>(a+ba)*(b+ε)</td></tr>
+      <tr><td>Length multiple of 3</td><td>((0+1)(0+1)(0+1))*</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q6", num:"Q.6", unit:"UNIT II",
+  title:"Pumping Lemma — Proof that L = {aⁿbⁿcⁿ | n ≥ 0} is Not Regular",
+  body:`<p>The <strong>Pumping Lemma</strong> is the standard tool for proving a language is not regular. It states: if L is regular with pumping length n, then every w ∈ L with |w| ≥ n can be written as w = xyz with |xy| ≤ n, |y| ≥ 1, and xy<sup>k</sup>z ∈ L for all k ≥ 0.</p>
+  <p class="sub-h">Method (Adversarial Game)</p>
+  <ol>
+    <li>Assume L is regular (for contradiction).</li>
+    <li>Let n be the pumping length. <em>We</em> choose w ∈ L with |w| ≥ n.</li>
+    <li><em>Adversary</em> chooses any split w = xyz with |xy| ≤ n, |y| ≥ 1.</li>
+    <li><em>We</em> find k ≥ 0 such that xy<sup>k</sup>z ∉ L. This contradicts the lemma, so L is not regular.</li>
+  </ol>
+  <p class="sub-h">Proof: L = {0ⁿ1ⁿ | n ≥ 0} is not regular</p>
+  <p>Choose w = 0ⁿ1ⁿ (|w| = 2n ≥ n). Since |xy| ≤ n, both x and y lie within the first n 0s. So y = 0<sup>k</sup> for some k ≥ 1. Pump up: xy²z = 0<sup>n+k</sup>1ⁿ. Since k ≥ 1, the counts differ → ∉ L. Contradiction. ∎</p>
+  <p class="sub-h">Additional Proofs</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Language</th><th>Chosen w</th><th>Contradiction</th></tr></thead>
+    <tbody>
+      <tr><td>{aⁱbʲ | i &gt; j}</td><td>aⁿ⁺¹bⁿ</td><td>y = aᵏ → pump down: xy⁰z = aⁿ⁺¹⁻ᵏbⁿ with n+1−k ≤ n</td></tr>
+      <tr><td>{ww | w∈{a,b}*}</td><td>aⁿbⁿaⁿbⁿ</td><td>y lies in first aⁿ → pumped string is not of the form ww</td></tr>
+      <tr><td>{0ᵖ | p prime}</td><td>0ᵖ where p ≥ n</td><td>0ᵖ⁺⁽ᵖ⁻¹⁾ᵏ = 0ᵖ⁽¹⁺ᵏ⁻¹⁾ — composite for most k</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q7", num:"Q.7", unit:"UNIT II",
+  title:"Context-Free Grammars — Derivations, Parse Trees, Ambiguity",
+  body:`<p>A <strong>CFG</strong> G = (V, T, P, S) generates strings by applying production rules. A string w ∈ T* is in L(G) if S ⇒* w.</p>
+  <p class="sub-h">Example Grammar</p>
+  <div class="code-block">E → E + T  |  T
+T → T * F  |  F
+F → ( E )  |  id</div>
+  <p class="sub-h">Leftmost Derivation of id + id * id</p>
+  <div class="code-block">E ⇒ E + T ⇒ T + T ⇒ F + T ⇒ id + T ⇒ id + T*F ⇒ id + F*F ⇒ id + id*F ⇒ id + id*id</div>
+  <p class="sub-h">Rightmost Derivation of id + id * id</p>
+  <div class="code-block">E ⇒ E + T ⇒ E + T*F ⇒ E + T*id ⇒ E + F*id ⇒ E + id*id ⇒ T + id*id ⇒ F + id*id ⇒ id + id*id</div>
+  <p class="sub-h">Ambiguity</p>
+  <p>A grammar is <strong>ambiguous</strong> if a string has two distinct parse trees (or two distinct leftmost derivations). The grammar E → E+E | E*E | id is ambiguous for id+id*id — the + can be the root (treating + as lower precedence) or * can be the root (treating * as lower precedence). To resolve: use the unambiguous grammar above, where precedence is encoded in the grammar levels (F has highest precedence, E has lowest).</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Derivation Type</th><th>Rule</th><th>Used In</th></tr></thead>
+    <tbody>
+      <tr><td>Leftmost</td><td>Always expand leftmost non-terminal</td><td>Top-down (LL) parsing</td></tr>
+      <tr><td>Rightmost</td><td>Always expand rightmost non-terminal</td><td>Bottom-up (LR) parsing (reversed)</td></tr>
+      <tr><td>Parse Tree</td><td>Unique tree showing full derivation structure</td><td>Basis for semantic analysis</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q8", num:"Q.8", unit:"UNIT III",
+  title:"Pushdown Automata — Definition, PDA for {0ⁿ1ⁿ}, PDA↔CFG Equivalence",
+  body:`<p>A <strong>PDA</strong> extends an NFA with a stack. Transitions are of the form δ(q, a, A) = {(p, γ)} meaning: in state q, reading input a (or ε), replace stack top A with string γ, move to state p.</p>
+  <p class="sub-h">PDA for L = {0ⁿ1ⁿ | n ≥ 0} — Acceptance by Empty Stack</p>
+  <div class="code-block">States: {q₀, q₁, q₂}   Stack alphabet: {Z, 0}   Start stack: Z
+
+δ(q₀, 0, Z) = {(q₀, 0Z)}   // push 0, keep Z
+δ(q₀, 0, 0) = {(q₀, 00)}   // push another 0
+δ(q₀, 1, 0) = {(q₁, ε)}    // switch: pop one 0 for each 1
+δ(q₁, 1, 0) = {(q₁, ε)}    // continue popping
+δ(q₁, ε, Z) = {(q₂, ε)}    // pop Z — stack empty = accept</div>
+  <p><strong>Trace on 0011:</strong> (q₀,0011,Z) ⊢ (q₀,011,0Z) ⊢ (q₀,11,00Z) ⊢ (q₁,1,0Z) ⊢ (q₁,ε,Z) ⊢ (q₂,ε,ε) ✓ Accepted.</p>
+  <p class="sub-h">Acceptance Modes</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Mode</th><th>Accepted when…</th><th>Equivalence</th></tr></thead>
+    <tbody>
+      <tr><td>Final State</td><td>Input exhausted AND in final state</td><td>Both accept exactly CFLs</td></tr>
+      <tr><td>Empty Stack</td><td>Input exhausted AND stack is empty</td><td>Same power as final state</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">PDA ↔ CFG Equivalence</p>
+  <p>Every CFL has a PDA (convert grammar G to PDA by pushing grammar rules onto the stack and matching terminals). Conversely, every PDA language has a CFG (states become non-terminals, stack transitions become productions). This proves that PDAs accept exactly the Context-Free Languages.</p>`
+},
+{
+  id:"q9", num:"Q.9", unit:"UNIT III",
+  title:"Turing Machines — Definition, TM for {0ⁿ1ⁿ}, Recursive vs RE Languages",
+  body:`<p>A <strong>Turing Machine</strong> M = (Q, Σ, Γ, δ, q₀, B, F) has an infinite tape and a read/write head. δ: Q×Γ → Q×Γ×{L,R} specifies: given current state and tape symbol, write a symbol, move left or right, and change state.</p>
+  <p class="sub-h">TM for L = {0ⁿ1ⁿ | n ≥ 0}</p>
+  <div class="code-block">Strategy: Repeatedly mark one 0 (→ X) and one 1 (→ Y) until all matched.
+
+States: q₀(scan right for 0), q₁(scan right for 1), 
+        q₂(scan left to find X), q₃(check complete), qₐ(accept)
+
+Key transitions:
+δ(q₀, 0) = (q₁, X, R)   // mark 0, go find matching 1
+δ(q₁, 0) = (q₁, 0, R)   // skip over 0s
+δ(q₁, 1) = (q₂, Y, L)   // mark 1, go back left
+δ(q₂, 0) = (q₂, 0, L)   // scan left over 0s
+δ(q₂, X) = (q₀, X, R)   // found X: start next round
+δ(q₀, Y) = (q₃, Y, R)   // no more 0s: verify only Ys left
+δ(q₃, Y) = (q₃, Y, R)   // skip Ys
+δ(q₃, B) = (qₐ, B, R)   // blank → accept</div>
+  <p><strong>Trace on 0011:</strong> Mark 0→X, scan for 1→Y, go back, mark 0→X, scan for 1→Y. Both 0s and 1s marked. q₃ sees only Ys and blank → accept.</p>
+  <p class="sub-h">Recursive vs Recursively Enumerable Languages</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Class</th><th>TM Behaviour</th><th>Complement</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Recursive</td><td>Always halts (accept or reject)</td><td>Also recursive</td><td>All regular/CFL languages</td></tr>
+      <tr><td>RE</td><td>Halts on accept; may loop on reject</td><td>May not be RE</td><td>A_TM = {⟨M,w⟩ | M accepts w}</td></tr>
+      <tr><td>Non-RE</td><td>No TM can enumerate it</td><td>RE</td><td>Complement of A_TM</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q10", num:"Q.10", unit:"UNIT III",
+  title:"Undecidability — Halting Problem Proof, A_TM, and Reduction",
+  body:`<p>A problem is <strong>decidable</strong> if a TM always halts with "yes" or "no." It is <strong>undecidable</strong> if no such TM exists.</p>
+  <p class="sub-h">Proof: Halting Problem is Undecidable</p>
+  <ol>
+    <li>Assume TM H exists that decides: H(⟨M,w⟩) = accept if M halts on w; reject otherwise.</li>
+    <li>Construct TM D: on input ⟨M⟩, run H on ⟨M,⟨M⟩⟩. If H accepts → D loops. If H rejects → D accepts.</li>
+    <li>Ask: what does D do on input ⟨D⟩?
+      <ul>
+        <li>If D halts on ⟨D⟩ → H accepts ⟨D,⟨D⟩⟩ → D loops. Contradiction.</li>
+        <li>If D loops on ⟨D⟩ → H rejects ⟨D,⟨D⟩⟩ → D accepts (halts). Contradiction.</li>
+      </ul>
+    </li>
+    <li>Both cases lead to contradiction → H cannot exist → Halting Problem is undecidable. ∎</li>
+  </ol>
+  <p class="sub-h">Undecidable Problems about TMs</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Problem</th><th>Statement</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td>A_TM</td><td>Does TM M accept input w?</td><td>RE but undecidable</td></tr>
+      <tr><td>HALT_TM</td><td>Does TM M halt on w?</td><td>RE but undecidable</td></tr>
+      <tr><td>E_TM</td><td>Is L(M) = ∅ ?</td><td>co-RE, undecidable</td></tr>
+      <tr><td>EQ_TM</td><td>Is L(M₁) = L(M₂)?</td><td>Undecidable</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Reduction</p>
+  <p>To show problem B is undecidable: reduce a known undecidable problem A to B. That is, show that if B were decidable, then A would be too — contradicting A's undecidability. This is the standard technique: A ≤_m B (A reduces to B).</p>`
+},
+{
+  id:"q11", num:"Q.11", unit:"UNIT IV",
+  title:"Phases of a Compiler — Full Trace of position = initial + rate * 60",
+  body:`<p>A compiler translates source code through six sequential phases, supported by the Symbol Table and Error Handler throughout.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Phase</th><th>Output for: position = initial + rate * 60</th></tr></thead>
+    <tbody>
+      <tr><td>Lexical Analysis</td><td>&lt;id,1&gt; &lt;=&gt; &lt;id,2&gt; &lt;+&gt; &lt;id,3&gt; &lt;*&gt; &lt;num,60&gt;</td></tr>
+      <tr><td>Syntax Analysis</td><td>Parse tree rooted at "assignment" with subtrees for + and *</td></tr>
+      <tr><td>Semantic Analysis</td><td>Type-checked annotated parse tree; 60 promoted to float if needed</td></tr>
+      <tr><td>Intermediate Code Gen</td><td>t₁=inttofloat(60); t₂=id3*t₁; t₃=id2+t₂; id1=t₃</td></tr>
+      <tr><td>Code Optimization</td><td>t₁=id3*60.0; id1=id2+t₁ (fold int→float at compile time)</td></tr>
+      <tr><td>Code Generation</td><td>LDF R2, id3; MULF R2, R2, #60.0; ADDF R1, id2, R2; STF id1, R1</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Symbol Table — for this statement</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>ID</th><th>Name</th><th>Type</th><th>Location</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>position</td><td>float</td><td>0x100</td></tr>
+      <tr><td>2</td><td>initial</td><td>float</td><td>0x104</td></tr>
+      <tr><td>3</td><td>rate</td><td>float</td><td>0x108</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Symbol Table Role</p>
+  <p>The symbol table is a data structure (typically a hash table) that stores identifier name, type, scope, memory location, and other attributes. It is populated during lexical analysis, used for type checking in semantic analysis, and referenced during code generation for address assignment. Operations: insert (new declaration), lookup (usage), update (type assignment), delete (scope exit).</p>`
+},
+{
+  id:"q12", num:"Q.12", unit:"UNIT IV",
+  title:"Lexical Analysis — Input Buffering, Token Recognition, Lex Tool",
+  body:`<p>Lexical analysis is the first compiler phase. It reads the source as a character stream and produces a token stream. Each token is a pair ⟨token-name, attribute⟩.</p>
+  <p class="sub-h">Input Buffering — Two-Buffer Scheme</p>
+  <p>Reading character-by-character is slow. The two-buffer scheme pre-loads two N-character blocks (e.g., N = 4096). Each ends with a sentinel EOF. Two pointers:</p>
+  <ul>
+    <li><strong>lexemeBegin</strong>: marks the start of the current lexeme.</li>
+    <li><strong>forward</strong>: scans ahead to find the token end.</li>
+  </ul>
+  <div class="code-block">Buffer 1: [ I | n | t |   | c | o | u | n | t | EOF ]
+Buffer 2: [ ; | \n| …  …  …  …  …  …  …  … | EOF ]
+           ↑                ↑
+      lexemeBegin         forward</div>
+  <p>When forward hits EOF at end of buffer 1, buffer 2 is loaded. lexemeBegin is reset. The token "Int" is extracted from lexemeBegin to just before forward.</p>
+  <p class="sub-h">Token Recognition using Finite Automata</p>
+  <p>Each token type has a regular expression → converted to a DFA. The lexer runs all DFAs simultaneously (or a combined NFA). The <strong>longest match</strong> rule applies: take the longest possible lexeme.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Token</th><th>Pattern (RE)</th><th>Example Lexeme</th></tr></thead>
+    <tbody>
+      <tr><td>id</td><td>letter (letter | digit)*</td><td>sum, rate, x1</td></tr>
+      <tr><td>number</td><td>digit+ (. digit+)?</td><td>60, 3.14</td></tr>
+      <tr><td>keyword</td><td>if | else | int | while | …</td><td>int, while</td></tr>
+      <tr><td>operator</td><td>+ | - | * | / | = | == | …</td><td>+, ==</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">The Lex Tool</p>
+  <p>Lex (Flex) auto-generates a scanner from regex rules. Structure of a .l file: <em>declarations</em> → <em>rules (pattern {action})</em> → <em>C procedures</em>. Commands: <code>flex tokenizer.l</code> generates lex.yy.c; <code>gcc lex.yy.c -o scanner</code> compiles it. Used with YACC/Bison for complete parsers. Advantage: changing token rules requires only editing the .l file — no manual DFA updates.</p>`
+},
+{
+  id:"q13", num:"Q.13", unit:"UNIT IV",
+  title:"LR Parsing — SLR, LALR, CLR; LR(0) Automaton and Parsing Table",
+  body:`<p>LR parsing is a bottom-up, shift-reduce strategy. The parser uses a <strong>stack</strong>, <strong>ACTION table</strong> (shift/reduce/accept/error), and <strong>GOTO table</strong> (for non-terminals).</p>
+  <p class="sub-h">LR Parsing Algorithm</p>
+  <ol>
+    <li>Push start state. Set input pointer to w$.</li>
+    <li>If ACTION[top, a] = shift s: push s, advance input.</li>
+    <li>If ACTION[top, a] = reduce A→β: pop |β| states, push GOTO[new top, A].</li>
+    <li>If ACTION[top, $] = accept: success.</li>
+    <li>Else: error.</li>
+  </ol>
+  <p class="sub-h">Three Types Compared</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Type</th><th>Items Used</th><th>Lookahead Source</th><th>Table Size</th><th>Power</th></tr></thead>
+    <tbody>
+      <tr><td>SLR(1)</td><td>LR(0) items</td><td>FOLLOW sets</td><td>Smallest</td><td>Weakest</td></tr>
+      <tr><td>LALR(1)</td><td>LR(1) items merged</td><td>Precise lookahead per item</td><td>Medium</td><td>Middle (YACC uses this)</td></tr>
+      <tr><td>CLR(1)</td><td>Full LR(1) items</td><td>Precise lookahead per item</td><td>Largest</td><td>Strongest</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">LR(0) Construction for S → aAb, A → c | d</p>
+  <div class="code-block">Augmented: S' → S
+
+I₀: S' → •S,  S → •aAb
+I₁: S' → S•           (goto S from I₀)
+I₂: S → a•Ab, A → •c, A → •d  (shift a from I₀)
+I₃: S → aA•b          (goto A from I₂)
+I₄: A → c•            (shift c from I₂)
+I₅: A → d•            (shift d from I₂)
+I₆: S → aAb•          (shift b from I₃)</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>State</th><th>a</th><th>b</th><th>c</th><th>d</th><th>$</th><th>S</th><th>A</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>s2</td><td></td><td></td><td></td><td></td><td>1</td><td></td></tr>
+      <tr><td>1</td><td></td><td></td><td></td><td></td><td>acc</td><td></td><td></td></tr>
+      <tr><td>2</td><td></td><td></td><td>s4</td><td>s5</td><td></td><td></td><td>3</td></tr>
+      <tr><td>3</td><td></td><td>s6</td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>4</td><td></td><td></td><td></td><td></td><td>r(A→c)</td><td></td><td></td></tr>
+      <tr><td>5</td><td></td><td></td><td></td><td></td><td>r(A→d)</td><td></td><td></td></tr>
+      <tr><td>6</td><td></td><td></td><td></td><td></td><td>r(S→aAb)</td><td></td><td></td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q14", num:"Q.14", unit:"UNIT V",
+  title:"Syntax-Directed Translation — SDDs, SDTs, S-attributed and L-attributed",
+  body:`<p>A <strong>Syntax-Directed Definition (SDD)</strong> augments a CFG with semantic rules. Each symbol has attributes; rules compute attribute values.</p>
+  <p class="sub-h">Example SDD — Desk Calculator</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Production</th><th>Semantic Rule</th></tr></thead>
+    <tbody>
+      <tr><td>L → E n</td><td>print(E.val)</td></tr>
+      <tr><td>E → E₁ + T</td><td>E.val = E₁.val + T.val</td></tr>
+      <tr><td>E → T</td><td>E.val = T.val</td></tr>
+      <tr><td>T → T₁ * F</td><td>T.val = T₁.val × F.val</td></tr>
+      <tr><td>T → F</td><td>T.val = F.val</td></tr>
+      <tr><td>F → ( E )</td><td>F.val = E.val</td></tr>
+      <tr><td>F → digit</td><td>F.val = digit.lexval</td></tr>
+    </tbody>
+  </table></div>
+  <p>All attributes here are <strong>synthesized</strong> (computed bottom-up from children). This is an <strong>S-attributed SDD</strong> — safe for use with bottom-up (LR) parsers.</p>
+  <p class="sub-h">Syntax-Directed Translation Schemes (SDT)</p>
+  <p>An SDT embeds <em>actions</em> (code fragments) directly into grammar productions. For infix to postfix:</p>
+  <div class="code-block">E → E₁ + T { print('+') }
+E → T
+T → T₁ * F { print('*') }
+T → F
+F → ( E )
+F → id      { print(id.name) }</div>
+  <p class="sub-h">L-attributed SDDs</p>
+  <p>An <strong>L-attributed SDD</strong> allows inherited attributes that depend only on attributes of symbols to the <em>left</em> of the current symbol in the same production (or on the parent's inherited attributes). L-attributed SDDs can be implemented in a single left-to-right pass (suitable for top-down / recursive-descent parsers).</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Type</th><th>Attributes</th><th>Evaluation</th><th>Parser</th></tr></thead>
+    <tbody>
+      <tr><td>S-attributed</td><td>Synthesized only</td><td>Bottom-up</td><td>LR</td></tr>
+      <tr><td>L-attributed</td><td>Synthesized + inherited (left-to-right)</td><td>Single L→R pass</td><td>LL / recursive descent</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q15", num:"Q.15", unit:"UNIT V",
+  title:"Intermediate Code Generation — TAC, Quadruples, Triples, and DAGs",
+  body:`<p><strong>Intermediate code</strong> bridges the source-level and machine-level. It is machine-independent, enabling portability and optimization. The most common form is <strong>Three-Address Code (TAC)</strong>.</p>
+  <p class="sub-h">Three-Address Code for a = (b+c)*(b+c) − d</p>
+  <div class="code-block">t1 = b + c
+t2 = b + c       // common subexpression — DAG can eliminate
+t3 = t1 * t2
+t4 = t3 - d
+a  = t4</div>
+  <p class="sub-h">Quadruple Representation</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>op</th><th>arg1</th><th>arg2</th><th>result</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>+</td><td>b</td><td>c</td><td>t1</td></tr>
+      <tr><td>1</td><td>+</td><td>b</td><td>c</td><td>t2</td></tr>
+      <tr><td>2</td><td>*</td><td>t1</td><td>t2</td><td>t3</td></tr>
+      <tr><td>3</td><td>−</td><td>t3</td><td>d</td><td>t4</td></tr>
+      <tr><td>4</td><td>=</td><td>t4</td><td>–</td><td>a</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Triple Representation</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>#</th><th>op</th><th>arg1</th><th>arg2</th></tr></thead>
+    <tbody>
+      <tr><td>(0)</td><td>+</td><td>b</td><td>c</td></tr>
+      <tr><td>(1)</td><td>+</td><td>b</td><td>c</td></tr>
+      <tr><td>(2)</td><td>*</td><td>(0)</td><td>(1)</td></tr>
+      <tr><td>(3)</td><td>−</td><td>(2)</td><td>d</td></tr>
+      <tr><td>(4)</td><td>=</td><td>a</td><td>(3)</td></tr>
+    </tbody>
+  </table></div>
+  <p>In <strong>indirect triples</strong>, an array of pointers to triples allows reordering without renumbering references.</p>
+  <p class="sub-h">DAG for Common Subexpression Elimination</p>
+  <p>A <strong>DAG</strong> is like an AST but with sharing — nodes with identical labels and children are merged. In the example, <em>b+c</em> appears twice: a DAG creates one node for it, referenced by both uses. This detects common subexpressions automatically, reducing redundant computations.</p>
+  <div class="diagram-wrap"><div class="diagram-label">DAG — a = (b+c)*(b+c)−d</div>
+  <svg viewBox="0 0 280 200" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+    <defs><marker id="da" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888"/></marker></defs>
+    <!-- assign -->
+    <rect x="110" y="10" width="60" height="28" rx="3" fill="#111" stroke="#aaa" stroke-width="1.5"/>
+    <text x="140" y="28" text-anchor="middle" fill="#fff" font-size="11">= (a)</text>
+    <!-- minus -->
+    <rect x="110" y="65" width="60" height="28" rx="3" fill="#111" stroke="#888" stroke-width="1.5"/>
+    <text x="140" y="83" text-anchor="middle" fill="#ccc" font-size="11">−</text>
+    <!-- multiply -->
+    <rect x="60" y="120" width="60" height="28" rx="3" fill="#111" stroke="#888" stroke-width="1.5"/>
+    <text x="90" y="138" text-anchor="middle" fill="#ccc" font-size="11">*</text>
+    <!-- d -->
+    <rect x="190" y="120" width="40" height="28" rx="3" fill="#111" stroke="#555" stroke-width="1"/>
+    <text x="210" y="138" text-anchor="middle" fill="#888" font-size="11">d</text>
+    <!-- plus (shared) -->
+    <rect x="60" y="170" width="60" height="28" rx="3" fill="#111" stroke="#aaa" stroke-width="1.5"/>
+    <text x="90" y="188" text-anchor="middle" fill="#fff" font-size="11">+ (b+c)</text>
+    <!-- edges -->
+    <line x1="140" y1="38" x2="140" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#da)"/>
+    <line x1="128" y1="93" x2="100" y2="120" stroke="#888" stroke-width="1.5" marker-end="url(#da)"/>
+    <line x1="152" y1="93" x2="210" y2="120" stroke="#888" stroke-width="1.5" marker-end="url(#da)"/>
+    <line x1="78"  y1="148" x2="78"  y2="170" stroke="#888" stroke-width="1.5" marker-end="url(#da)"/>
+    <line x1="102" y1="148" x2="102" y2="170" stroke="#888" stroke-width="1.5" marker-end="url(#da)"/>
+    <text x="68" y="162" fill="#555" font-size="9">both refs shared</text>
+  </svg></div>`
+},
+{
+  id:"q16", num:"Q.16", unit:"UNIT V",
+  title:"Run-Time Environments — Stack Allocation, Activation Records, Heap Management",
+  body:`<p>At run time, memory is organized into code, stack, and heap regions. The <strong>stack</strong> handles procedure calls; the <strong>heap</strong> handles dynamic allocation.</p>
+  <p class="sub-h">Activation Record (Stack Frame)</p>
+  <p>Each function call pushes an <strong>activation record</strong> onto the stack:</p>
+  <div class="diagram-wrap"><div class="diagram-label">Stack during fact(3) calling fact(2) calling fact(1)</div>
+  <svg viewBox="0 0 320 280" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+    <!-- fact(1) - top -->
+    <rect x="80" y="10" width="200" height="70" rx="3" fill="#111" stroke="#fff" stroke-width="1.5"/>
+    <text x="180" y="28" text-anchor="middle" fill="#fff" font-size="11">fact(1)</text>
+    <line x1="80" y1="38" x2="280" y2="38" stroke="#333"/>
+    <text x="88" y="52" fill="#888" font-size="9">return value: 1</text>
+    <text x="88" y="66" fill="#888" font-size="9">param n=1 | ctrl link ↓</text>
+    <!-- fact(2) - middle -->
+    <rect x="80" y="90" width="200" height="70" rx="3" fill="#111" stroke="#888" stroke-width="1.5"/>
+    <text x="180" y="108" text-anchor="middle" fill="#ccc" font-size="11">fact(2)</text>
+    <line x1="80" y1="118" x2="280" y2="118" stroke="#333"/>
+    <text x="88" y="132" fill="#888" font-size="9">return value: 2</text>
+    <text x="88" y="146" fill="#888" font-size="9">param n=2 | ctrl link ↓</text>
+    <!-- fact(3) - bottom -->
+    <rect x="80" y="170" width="200" height="70" rx="3" fill="#111" stroke="#666" stroke-width="1.5"/>
+    <text x="180" y="188" text-anchor="middle" fill="#aaa" font-size="11">fact(3)</text>
+    <line x1="80" y1="198" x2="280" y2="198" stroke="#333"/>
+    <text x="88" y="212" fill="#888" font-size="9">return value: 6</text>
+    <text x="88" y="226" fill="#888" font-size="9">param n=3 | ctrl link ↓</text>
+    <!-- arrows -->
+    <line x1="200" y1="80" x2="200" y2="90" stroke="#555" stroke-width="1.5"/>
+    <line x1="200" y1="160" x2="200" y2="170" stroke="#555" stroke-width="1.5"/>
+    <text x="10" y="50" fill="#888" font-size="9">SP→</text>
+    <text x="10" y="260" fill="#555" font-size="9">main frame</text>
+  </svg></div>
+  <p class="sub-h">Activation Record Fields</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Field</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td>Return Value</td><td>Space for computed result</td></tr>
+      <tr><td>Parameters</td><td>Arguments from caller</td></tr>
+      <tr><td>Control Link</td><td>Pointer to caller's frame (for return)</td></tr>
+      <tr><td>Access Link</td><td>Pointer to enclosing scope (for nonlocal vars)</td></tr>
+      <tr><td>Saved Status</td><td>Saved registers, return address (PC)</td></tr>
+      <tr><td>Local Data</td><td>Local variables declared in this function</td></tr>
+      <tr><td>Temporaries</td><td>Compiler-generated temp values</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Heap Management</p>
+  <p>The heap serves dynamic allocation (malloc/new). The memory manager maintains a <strong>free list</strong>. Strategies: <strong>first-fit</strong> (take first block large enough — fast), <strong>best-fit</strong> (smallest suitable block — minimizes waste), <strong>worst-fit</strong> (largest block — leaves large remainders). Fragmentation: <em>internal</em> (wasted within an allocated block) and <em>external</em> (free space too fragmented to satisfy large requests). Garbage collection (mark-and-sweep, reference counting) reclaims unreachable objects automatically.</p>`
+},
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────────────────────────────────────
+const shortContainer = document.getElementById('short-container');
+let currentUnit = '';
+shortAnswers.forEach((item, i) => {
+  if (item.unit && item.unit !== currentUnit) {
+    currentUnit = item.unit;
+    const div = document.createElement('div');
+    div.className = 'unit-divider';
+    div.textContent = item.unit;
+    shortContainer.appendChild(div);
+  }
+  const el = document.createElement('div');
+  el.className = 'short-entry';
+  el.innerHTML = `<div class="entry-head"><span class="entry-num">Q.${String(i+1).padStart(2,'0')}</span><span class="entry-term">${item.term}</span><span class="entry-marks">2 marks</span></div><div class="entry-body">${item.body}</div>`;
+  shortContainer.appendChild(el);
+});
+
+const detContainer = document.getElementById('detailed-container');
+let currentDetUnit = '';
+detailedQuestions.forEach(q => {
+  if (q.unit && q.unit !== currentDetUnit) {
+    currentDetUnit = q.unit;
+    const div = document.createElement('div');
+    div.className = 'unit-divider';
+    div.textContent = q.unit;
+    detContainer.appendChild(div);
+  }
+  const el = document.createElement('div');
+  el.className = 'q-block';
+  el.id = q.id;
+  el.innerHTML = `<div class="q-head"><span class="q-num">${q.num}</span><span class="q-title">${q.title}</span><span class="q-marks">5 marks</span></div><div class="q-body">${q.body}</div>`;
+  detContainer.appendChild(el);
+});
+</script>
+</body>
+</html>
