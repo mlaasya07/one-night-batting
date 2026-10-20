@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One Night Batting | AIMSCS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --bg4: #222222;
+  --red: #e02020;
+  --red2: #ff3333;
+  --red3: #c01010;
+  --red-dim: rgba(224,32,32,0.12);
+  --red-glow: rgba(224,32,32,0.25);
+  --white: #f5f5f5;
+  --white2: #cccccc;
+  --white3: #888888;
+  --border: rgba(255,255,255,0.08);
+  --border-red: rgba(224,32,32,0.4);
+  --amber: #f59e0b;
+  --amber-dim: rgba(245,158,11,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Roboto Mono', monospace;
+  min-height: 100vh;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  gap: 1rem;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--white);
+}
+.logo span { color: var(--red); }
+.logo-sub {
+  font-size: .75rem;
+  color: var(--white3);
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 300;
+}
+
+.main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem 3rem;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.12;
+  margin-bottom: 1.2rem;
+}
+.hero h1 em { font-style: italic; color: var(--red); }
+.hero p {
+  font-size: 11px;
+  color: var(--white3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.hero-prompt {
+  font-size: 13px;
+  color: var(--white2);
+  margin-top: 2.5rem;
+  letter-spacing: 0.04em;
+}
+
+.div-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+  margin: 2.5rem 0;
+  opacity: 0.35;
+}
+
+.year-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.year-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  cursor: pointer;
+  transition: all .3s;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+.year-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--red-dim), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.year-card:hover {
+  border-color: var(--border-red);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(224,32,32,0.15);
+}
+.year-card:hover::before { opacity: 1; }
+.year-card.new-year::before {
+  background: linear-gradient(135deg, var(--amber-dim), transparent);
+}
+.year-card.new-year:hover {
+  border-color: rgba(245,158,11,0.4);
+  box-shadow: 0 12px 40px rgba(245,158,11,0.12);
+}
+
+.year-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: .5rem;
+  position: relative;
+  z-index: 1;
+}
+.year-card:not(.new-year) .year-number { color: var(--red); }
+.year-card.new-year .year-number { color: var(--amber); }
+
+.year-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--white3);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+.year-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: .5rem;
+  position: relative;
+  z-index: 1;
+}
+.year-sub {
+  font-size: 10px;
+  color: var(--white3);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+.year-chips {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+.chip {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+  color: var(--white3);
+}
+.chip.red { border-color: rgba(224,32,32,0.3); color: #f87171; }
+.chip.amber { border-color: rgba(245,158,11,0.3); color: #fcd34d; }
+.chip.green { border-color: rgba(34,197,94,0.3); color: #86efac; }
+
+.year-arrow {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  color: var(--red);
+  font-size: 1.1rem;
+  opacity: 0;
+  transition: all .25s;
+  z-index: 1;
+}
+.year-card.new-year .year-arrow { color: var(--amber); }
+.year-card:hover .year-arrow { opacity: 1; transform: translateX(4px); }
+
+.notice {
+  max-width: 700px;
+  margin: 3rem auto 0;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font-size: 10px;
+  color: var(--white3);
+  line-height: 1.8;
+  letter-spacing: 0.04em;
+}
+.notice strong { color: var(--white2); }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--red3); border-radius: 2px; }
+
+@media(max-width:600px) {
+  .year-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">One<span>Night</span>Batting<span class="logo-sub">AIMSCS</span></div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="hero">
+    <h1>Choose Your<br><em>Section</em></h1>
+    <p class="hero-prompt">Select your section to access the right resources →</p>
+  </div>
+
+  <div class="div-line"></div>
+
+  <div class="year-grid">
+
+    <!-- CSE -->
+    <a class="year-card" href="CSE/index.html">
+      <div class="year-number">CSE</div>
+      <div class="year-title">Computer Science</div>
+      <div class="year-sub">CNS. ATCD. <br>BDA · AI · Design Thinking</div>
+      <div class="year-chips">
+        <span class="chip amber">PPTs</span>
+        <span class="chip green">Pdfs</span>
+        <span class="chip amber">Printable Notes</span> 
+      </div>
+      <div class="year-arrow">→</div>
+    </a>
+
+    <!-- CSE - DS  -->
+    <a class="year-card new-year" href="DS/index.html">
+      <div class="year-number">CSE-DS</div>
+      <div class="year-title">Data Science</div>
+      <div class="year-sub">PA · CC · DM<br>NLP · WSMA </div>
+      <div class="year-chips">
+        <span class="chip amber">PPTs</span>
+        <span class="chip green">Pdfs</span>
+        <span class="chip amber">Printable Notes</span> 
+      </div>
+      <div class="year-arrow">→</div>
+    </a>
+<!--
+    <!-- AI/ML
+    <a class="year-card new-year" href="AIML/index.html">
+      <div class="year-number">AIML</div>
+      <div class="year-title">AIML</div>
+      <div class="year-sub">PA · CC · DM<br>NLP · WSMA </div>
+      <div class="year-chips">
+        <span class="chip amber">PPTs</span>
+        <span class="chip green">Pdfs</span>
+        <span class="chip amber">Printable Notes</span> 
+      </div>
+      <div class="year-arrow">→</div>
+    </a>
+
+    <!-- CSE - DS 
+    <a class="year-card new-year" href="/index.html">
+      <div class="year-number">CSE-DS</div>
+      <div class="year-title">Data Science</div>
+      <div class="year-sub">PA · CC · DM<br>NLP · WSMA </div>
+      <div class="year-chips">
+        <span class="chip amber">PPTs</span>
+        <span class="chip green">Pdfs</span>
+        <span class="chip amber">Printable Notes</span> 
+      </div>
+      <div class="year-arrow">→</div>
+    </a>
+-->
+  </div>
+
+  <!-- 
+  <div class="notice">
+    <strong>Quick note:</strong> The 3rd Year hub has your existing flashcard + quiz tools for ML, CNS, ATCD, FLAT, BDA, AI and Design Thinking. The 4th Year hub adds a full-screen slide viewer for your uploaded PPTs plus a Mid 1 mock quiz.
+  </div>
+  -->
+</div>
+
+</body>
+</html>
