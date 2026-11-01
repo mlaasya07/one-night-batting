@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Thinking Exam Prep</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --bg4: #222222;
+  --red: #e02020;
+  --red2: #ff3333;
+  --red3: #c01010;
+  --red-dim: rgba(224,32,32,0.12);
+  --red-glow: rgba(224,32,32,0.25);
+  --white: #f5f5f5;
+  --white2: #cccccc;
+  --white3: #888888;
+  --border: rgba(255,255,255,0.08);
+  --border-red: rgba(224,32,32,0.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Roboto Mono',monospace;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.5}
+
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);letter-spacing:0.02em}
+.logo span{color:var(--red)}
+.logo a{color:var(--white3);text-decoration:none;font-size:11px;font-family:'Roboto Mono',monospace;letter-spacing:0.06em}
+.logo a:hover{color:var(--red2)}
+.nav{display:flex;gap:4px;flex-wrap:wrap}
+.nav-btn{background:none;border:none;color:var(--white3);font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;cursor:pointer;border-radius:4px;transition:all .2s}
+.nav-btn:hover,.nav-btn.active{background:var(--red-dim);color:var(--red2)}
+
+.main{max-width:1200px;margin:0 auto;padding:2rem;position:relative;z-index:1}
+
+.section-tabs{display:flex;gap:12px;margin-bottom:2rem;flex-wrap:wrap}
+.stab{flex:1;min-width:180px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.5rem;cursor:pointer;transition:all .25s;text-align:left}
+.stab:hover{border-color:var(--border-red);background:var(--bg3)}
+.stab.active{border-color:var(--red);background:var(--red-dim);box-shadow:0 0 24px var(--red-glow)}
+.stab-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white3);margin-bottom:4px}
+.stab-title{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--white)}
+.stab.active .stab-title{color:var(--red2)}
+.stab-marks{font-size:10px;color:var(--white3);margin-top:4px;line-height:1.5}
+
+.mode-tabs{display:flex;gap:8px;margin-bottom:1.5rem}
+.mtab{background:var(--bg2);border:1px solid var(--border);color:var(--white3);font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 20px;cursor:pointer;border-radius:4px;transition:all .2s}
+.mtab:hover{color:var(--white);border-color:rgba(255,255,255,0.2)}
+.mtab.active{background:var(--red);border-color:var(--red);color:#fff}
+
+.filter-row{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:flex-start}
+.unit-filter{display:flex;gap:6px;flex-wrap:wrap;flex:1}
+.ufbtn{background:var(--bg3);border:1px solid var(--border);color:var(--white3);font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;cursor:pointer;border-radius:3px;transition:all .15s}
+.ufbtn:hover{border-color:var(--border-red);color:var(--white)}
+.ufbtn.active{background:var(--red-dim);border-color:var(--red);color:var(--red2)}
+
+.mark-filter{display:flex;gap:6px;flex-wrap:wrap}
+
+.cpanel{display:none}.cpanel.active{display:block}
+
+.pattern-box{background:var(--bg2);border:1px solid var(--border-red);border-radius:8px;padding:1rem 1.5rem;margin-bottom:1.5rem;font-size:11px;color:var(--white3);line-height:1.8}
+.pattern-box strong{color:var(--red2)}
+.pattern-box .part{color:var(--white2)}
+
+/* FLASHCARDS */
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.fc{perspective:1000px;height:230px;cursor:pointer}
+.fc.tall{height:310px}
+.fc-inner{position:relative;width:100%;height:100%;transition:transform 0.55s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between}
+.fc-front{background:var(--bg2);border:1px solid var(--border)}
+.fc-front:hover{border-color:var(--border-red)}
+.fc-back{background:var(--bg3);border:1px solid var(--red);transform:rotateY(180deg)}
+.fc-tag{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.fc-mark-badge{display:inline-block;background:var(--red-dim);border:1px solid var(--border-red);color:var(--red2);font-size:9px;letter-spacing:0.1em;padding:2px 7px;border-radius:3px;margin-left:6px}
+.fc-q{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);line-height:1.5;flex:1;display:flex;align-items:center}
+.fc-hint{font-size:10px;color:var(--white3);letter-spacing:0.06em}
+.fc-ans{font-size:11.5px;color:var(--white2);line-height:1.65;font-family:'Roboto Mono',monospace;overflow-y:auto;flex:1}
+.fc-ans .formula{color:var(--red2);display:block;margin:4px 0;font-size:11px}
+.fc-unit{font-size:9px;color:var(--white3);letter-spacing:0.1em;text-transform:uppercase}
+.fc-count{font-size:10px;color:var(--white3);text-align:center;margin-top:1rem}
+
+/* QUIZ */
+.quiz-wrap{max-width:720px;margin:0 auto}
+.quiz-progress{display:flex;gap:4px;margin-bottom:2rem;flex-wrap:wrap}
+.qp-dot{width:8px;height:8px;border-radius:50%;background:var(--bg4);border:1px solid var(--border);transition:all .2s}
+.qp-dot.done{background:var(--red3);border-color:var(--red)}
+.qp-dot.correct{background:#22c55e;border-color:#22c55e}
+.qp-dot.wrong{background:var(--red);border-color:var(--red)}
+.qp-dot.current{background:none;border-color:var(--red2);box-shadow:0 0 6px var(--red2)}
+.quiz-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:2rem;margin-bottom:1.5rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.quiz-meta{display:flex;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:6px}
+.quiz-num{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--red)}
+.quiz-unit{font-size:10px;color:var(--white3);letter-spacing:0.06em}
+.quiz-q{font-family:'Playfair Display',serif;font-size:1.15rem;line-height:1.55;color:var(--white);margin-bottom:1.5rem}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px 16px;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:12px;color:var(--white2);transition:all .2s;text-align:left;line-height:1.5}
+.opt:hover:not(.disabled){border-color:rgba(255,255,255,0.25);background:var(--bg4);color:var(--white)}
+.opt.correct{border-color:#22c55e;background:rgba(34,197,94,0.1);color:#86efac}
+.opt.wrong{border-color:var(--red);background:var(--red-dim);color:#fca5a5}
+.opt.disabled{cursor:default}
+.quiz-explain{background:var(--bg3);border-left:3px solid var(--red);border-radius:0 6px 6px 0;padding:12px 16px;margin-top:1rem;font-size:12px;color:var(--white2);line-height:1.6;animation:fadeUp .25s ease}
+.quiz-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:1.5rem}
+.btn{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 24px;border-radius:4px;cursor:pointer;transition:all .2s;border:none}
+.btn-outline{background:none;border:1px solid var(--border);color:var(--white3)}
+.btn-outline:hover{border-color:var(--border-red);color:var(--white)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red2)}
+.quiz-result{text-align:center;padding:3rem 2rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;animation:fadeUp .4s ease}
+.result-score{font-family:'Playfair Display',serif;font-size:5rem;color:var(--red);line-height:1}
+.result-label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white3);margin:8px 0 1.5rem}
+.result-breakdown{display:flex;gap:2rem;justify-content:center;margin:1.5rem 0;flex-wrap:wrap}
+.rb-item{text-align:center}
+.rb-num{font-family:'Playfair Display',serif;font-size:2rem}
+.rb-lbl{font-size:10px;color:var(--white3);letter-spacing:0.08em;text-transform:uppercase}
+.result-msg{font-size:13px;color:var(--white2);margin:1.5rem auto;line-height:1.6;max-width:400px}
+
+.stats-bar{display:flex;gap:10px;margin-bottom:1.5rem;flex-wrap:wrap}
+.stat{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:2px}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--red2)}
+.stat-l{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--white3)}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--red3);border-radius:2px}
+.empty{text-align:center;padding:4rem;color:var(--white3);font-size:13px}
+
+@media(max-width:600px){.options{grid-template-columns:1fr}.section-tabs{flex-direction:column}.fc-grid{grid-template-columns:1fr}}
+
+.page-title{margin-bottom:2rem}
+.page-title h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1.2;margin-bottom:6px}
+.page-title h1 em{font-style:italic;color:var(--red)}
+.page-title p{font-size:11px;color:var(--white3);letter-spacing:0.08em;text-transform:uppercase}
+.div-line{height:1px;background:linear-gradient(90deg,var(--red),transparent);margin-bottom:2rem;opacity:0.4}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">
+      Engg<span>.</span>Prep <span style="font-size:.75rem;color:var(--white3);font-family:'Roboto Mono',monospace;font-weight:300">— Design Thinking</span>
+    </div>
+    <nav class="nav">
+      <button class="nav-btn active" onclick="showSection('mid1')">Mid 1 · 30M</button>
+      <button class="nav-btn" onclick="showSection('mid2')">Mid 2 · 30M</button>
+      <button class="nav-btn" onclick="showSection('sem')">Sem · 60M</button>
+    </nav>
+  </div>
+</div>
+
+<div class="main">
+  <div class="page-title">
+    <h1>Design<br><em>Thinking</em></h1>
+    <p>JNTUH Syllabus · Units I–V · Mid 1 · Mid 2 · Semester</p>
+  </div>
+  <div class="div-line"></div>
+
+  <div class="section-tabs">
+    <div class="stab active" id="stab-mid1" onclick="showSection('mid1')">
+      <div class="stab-label">Mid 1 · 30 Marks</div>
+      <div class="stab-title">Units I & II</div>
+      <div class="stab-marks"><strong style="color:var(--red2)">Part A:</strong> 5 × 2M = 10M · Answer all<br><strong style="color:var(--red2)">Part B:</strong> Attempt any 4 of 6 × 5M = 20M</div>
+    </div>
+    <div class="stab" id="stab-mid2" onclick="showSection('mid2')">
+      <div class="stab-label">Mid 2 · 30 Marks</div>
+      <div class="stab-title">Units III & IV</div>
+      <div class="stab-marks"><strong style="color:var(--red2)">Part A:</strong> 5 × 2M = 10M · Answer all<br><strong style="color:var(--red2)">Part B:</strong> Attempt any 4 of 6 × 5M = 20M</div>
+    </div>
+    <div class="stab" id="stab-sem" onclick="showSection('sem')">
+      <div class="stab-label">Semester · 60 Marks</div>
+      <div class="stab-title">All 5 Units</div>
+      <div class="stab-marks"><strong style="color:var(--red2)">Part A:</strong> 10 × 1M = 10M · Answer all<br><strong style="color:var(--red2)">Part B:</strong> 5Q × (a+b OR c+d) × 5M = 50M</div>
+    </div>
+    <div class="stab" id="stab-essays" onclick="window.location.href='dt-ans.html'">
+      <div class="stab-label">Answer Key</div>
+      <div class="stab-title">All Units</div>
+      <div class="stab-marks"><strong style="color:var(--red2)">Answer Key:</strong> Comprehensive solutions to all questions</div>
+    </div>  
+  </div>
+
+  <!-- ============== MID 1 ============== -->
+  <div class="cpanel active" id="panel-mid1">
+    <div class="pattern-box">
+      <span class="part">Part A (2M each):</span> Short questions — define, list, state. Answer <strong>all 5</strong>. &nbsp;|&nbsp;
+      <span class="part">Part B (5M each):</span> Descriptive questions — explain, discuss, describe. Attempt any <strong>4 of 6</strong>.
+    </div>
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('mid1','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('mid1','quiz')">Quiz</button>
+    </div>
+    <div id="flash-mid1">
+      <div class="filter-row">
+        <div class="unit-filter">
+          <button class="ufbtn active" onclick="setUnit('mid1','all')">All Units</button>
+          <button class="ufbtn" onclick="setUnit('mid1','1')">Unit 1</button>
+          <button class="ufbtn" onclick="setUnit('mid1','2')">Unit 2</button>
+        </div>
+        <div class="mark-filter">
+          <button class="ufbtn active" onclick="toggleMark('mid1','2')">2M</button>
+          <button class="ufbtn active" onclick="toggleMark('mid1','5')">5M</button>
+        </div>
+      </div>
+      <div class="stats-bar" id="stats-mid1"></div>
+      <div class="fc-grid" id="fcgrid-mid1"></div>
+      <div class="fc-count" id="fccount-mid1"></div>
+    </div>
+    <div id="quiz-mid1" style="display:none">
+      <div class="filter-row">
+        <div class="unit-filter">
+          <button class="ufbtn active" onclick="setUnit('mid1','all')">All Units</button>
+          <button class="ufbtn" onclick="setUnit('mid1','1')">Unit 1</button>
+          <button class="ufbtn" onclick="setUnit('mid1','2')">Unit 2</button>
+        </div>
+        <div class="mark-filter">
+          <button class="ufbtn active" onclick="toggleMark('mid1','2')">2M</button>
+          <button class="ufbtn active" onclick="toggleMark('mid1','5')">5M</button>
+        </div>
+      </div>
+      <div class="quiz-wrap">
+        <div class="quiz-progress" id="qprog-mid1"></div>
+        <div id="qbody-mid1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== MID 2 ============== -->
+  <div class="cpanel" id="panel-mid2">
+    <div class="pattern-box">
+      <span class="part">Part A (2M each):</span> Short questions — define, list, state. Answer <strong>all 5</strong>. &nbsp;|&nbsp;
+      <span class="part">Part B (5M each):</span> Descriptive questions — explain, discuss, describe. Attempt any <strong>4 of 6</strong>.
+    </div>
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('mid2','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('mid2','quiz')">Quiz</button>
+    </div>
+    <div id="flash-mid2">
+      <div class="filter-row">
+        <div class="unit-filter">
+          <button class="ufbtn active" onclick="setUnit('mid2','all')">All Units</button>
+          <button class="ufbtn" onclick="setUnit('mid2','3')">Unit 3</button>
+          <button class="ufbtn" onclick="setUnit('mid2','4')">Unit 4</button>
+        </div>
+        <div class="mark-filter">
+          <button class="ufbtn active" onclick="toggleMark('mid2','2')">2M</button>
+          <button class="ufbtn active" onclick="toggleMark('mid2','5')">5M</button>
+        </div>
+      </div>
+      <div class="stats-bar" id="stats-mid2"></div>
+      <div class="fc-grid" id="fcgrid-mid2"></div>
+      <div class="fc-count" id="fccount-mid2"></div>
+    </div>
+    <div id="quiz-mid2" style="display:none">
+      <div class="filter-row">
+        <div class="unit-filter">
+          <button class="ufbtn active" onclick="setUnit('mid2','all')">All Units</button>
+          <button class="ufbtn" onclick="setUnit('mid2','3')">Unit 3</button>
+          <button class="ufbtn" onclick="setUnit('mid2','4')">Unit 4</button>
+        </div>
+        <div class="mark-filter">
+          <button class="ufbtn active" onclick="toggleMark('mid2','2')">2M</button>
+          <button class="ufbtn active" onclick="toggleMark('mid2','5')">5M</button>
+        </div>
+      </div>
+      <div class="quiz-wrap">
+        <div class="quiz-progress" id="qprog-mid2"></div>
+        <div id="qbody-mid2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== SEM ============== -->
+  <div class="cpanel" id="panel-sem">
+    <div class="pattern-box">
+      <span class="part">Part A (1M each):</span> Very short — define/state. Answer <strong>all 10</strong>. &nbsp;|&nbsp;
+      <span class="part">Part B (5M each):</span> 5 questions, each with internal choice. Attempt <strong>5 × 5M = 25M</strong>.
+    </div>
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('sem','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('sem','quiz')">Quiz</button>
+    </div>
+    <div id="flash-sem">
+      <div class="filter-row">
+        <div class="unit-filter">
+          <button class="ufbtn active" onclick="setUnit('sem','all')">All</button>
+          <button class="ufbtn" onclick="setUnit('sem','1')">U1</button>
+          <button class="ufbtn" onclick="setUnit('sem','2')">U2</button>
+          <button class="ufbtn" onclick="setUnit('sem','3')">U3</button>
+          <button class="ufbtn" onclick="setUnit('sem','4')">U4</button>
+          <button class="ufbtn" onclick="setUnit('sem','5')">U5</button>
+        </div>
+        <div class="mark-filter">
+          <button class="ufbtn active" onclick="toggleMark('sem','1')">1M</button>
+          <button class="ufbtn active" onclick="toggleMark('sem','5')">5M</button>
+        </div>
+      </div>
+      <div class="stats-bar" id="stats-sem"></div>
+      <div class="fc-grid" id="fcgrid-sem"></div>
+      <div class="fc-count" id="fccount-sem"></div>
+    </div>
+    <div id="quiz-sem" style="display:none">
+      <div class="filter-row">
+        <div class="unit-filter">
+          <button class="ufbtn active" onclick="setUnit('sem','all')">All</button>
+          <button class="ufbtn" onclick="setUnit('sem','1')">U1</button>
+          <button class="ufbtn" onclick="setUnit('sem','2')">U2</button>
+          <button class="ufbtn" onclick="setUnit('sem','3')">U3</button>
+          <button class="ufbtn" onclick="setUnit('sem','4')">U4</button>
+          <button class="ufbtn" onclick="setUnit('sem','5')">U5</button>
+        </div>
+        <div class="mark-filter">
+          <button class="ufbtn active" onclick="toggleMark('sem','1')">1M</button>
+          <button class="ufbtn active" onclick="toggleMark('sem','5')">5M</button>
+        </div>
+      </div>
+      <div class="quiz-wrap">
+        <div class="quiz-progress" id="qprog-sem"></div>
+        <div id="qbody-sem"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// =====================================================================
+// MID 1 DATA — Units 1 & 2
+// =====================================================================
+const MID1_FLASHCARDS = [
+  // UNIT 1 — 2M
+  {unit:'1',marks:'2',tag:'Definition',q:'Define Design Thinking.',a:'Design Thinking is a human-centered problem-solving approach that focuses on understanding user needs, generating creative ideas, building prototypes, and testing solutions to create innovative and practical results.'},
+  {unit:'1',marks:'2',tag:'Short',q:'List any two features of Design Thinking.',a:'1. Human-centered approach — focuses on user needs and problems.\n2. Problem reframing — redefines problems to discover deeper insights and better solutions.'},
+  {unit:'1',marks:'2',tag:'Short',q:'What is the need of Design Thinking in Engineering?',a:'Design Thinking connects theoretical engineering knowledge with real-world applications. It is needed to create solutions that are human-centred, functional, safe, and cost-efficient.'},
+  {unit:'1',marks:'2',tag:'Short',q:'List the steps of the Engineering Design Process.',a:'The steps are: Define, Ask, Imagine, Plan, Prototype, Test, and Improve.'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is empathy in Design Thinking?',a:'Empathy is the ability to understand and share the feelings, needs, and experiences of users. It is the first and most important step in Design Thinking, helping designers uncover real problems and hidden (latent) needs.'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is meant by problem reframing in Design Thinking?',a:'Problem reframing is the process of questioning and redefining the original problem statement to discover deeper insights, hidden needs, and better solution directions — avoiding wrong or incomplete solutions.'},
+  // UNIT 1 — 5M
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Describe the Seven Steps of the Engineering Design Thinking Process.',a:'The 7-step engineering design thinking process:\n1. Define: Identify the problem clearly — user needs, goals, constraints (cost, time, material, performance).\n2. Ask: Collect information via research, observation, surveys, studying existing solutions.\n3. Imagine: Generate possible solutions via brainstorming, sketching, and creative thinking.\n4. Plan: Select the best solution; prepare plan with design details, materials, tools, steps.\n5. Prototype: Build a simple model to check how the solution works in practice.\n6. Test: Evaluate prototype for performance, functionality, reliability; collect feedback.\n7. Improve: Refine based on test results and feedback; repeat until best result is achieved.',formula:'Define → Ask → Imagine → Plan → Prototype → Test → Improve'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Discuss the principles of Design Thinking and their role in solving complex problems.',a:'Design Thinking Principles:\n• Human-centered: Focuses on user needs so solutions are more useful and practical.\n• Empathy: Understand what users feel, need, and experience.\n• Clear problem definition: Identify the real problem before solving — avoids wrong solutions.\n• Creative thinking: Encourages generating many ideas and exploring different solutions.\n• Collaboration: Teamwork from diverse backgrounds brings better ideas.\n• Prototyping: Simple models created to test ideas before final development.\n• Testing & feedback: Solutions tested and improved based on user feedback.\n• Iteration: Design improved again and again until best solution is reached.\n\nRole in Complex Problems: These principles help by understanding real user needs, identifying root causes, encouraging innovative ideas, improving teamwork, testing early, and refining continuously.',formula:'Empathize → Define → Ideate → Prototype → Test (iterate)'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Explain the Empathy Process for deep understanding of challenges and practical ingenuity.',a:'The Empathy Process (3 core stages):\n\n1. Immersion & Observation: Designers enter the user\'s environment and observe behavior without bias. Look for workarounds and frustrations (unmet needs). Study extreme users — their difficulties highlight problems more clearly. Use physical immersion to experience situations like the user.\n\n2. Deep Engagement & Inquiry: Conduct empathy interviews using open-ended questions. Keep asking "Why?" to uncover deeper motivations. Use the What–How–Why framework to convert observations into insights. Collect authentic context data using photo/video journals.\n\n3. Synthesis & Practical Ingenuity: Convert collected data into useful insights. Create empathy maps (Says, Thinks, Does, Feels). Identify latent needs — hidden user needs not directly expressed. Frame problems using "How Might We" (HMW) questions to guide solution ideas.',formula:'Observe → Engage → Synthesize → HMW questions'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Define Design Thinking and explain its key features in engineering applications.',a:'Design Thinking is a human-centred and creative problem-solving approach combining empathy, innovation, and experimentation to create practical and user-friendly solutions.\n\nKey Features:\n• Human-Centred Approach: Starts with understanding users — needs, problems, emotions, behaviour.\n• Problem Reframing: Redefines problems to discover deeper insights.\n• Collaborative & Multidisciplinary: Involves teamwork from engineering, business, design.\n• Iterative & Flexible: Solutions improved continuously through repeated prototyping and testing.\n• Action-Oriented Mindset: Focuses on doing and experimenting, not just planning.\n• Experimentation & Prototyping: Early prototypes built to quickly test ideas.\n\nExample — Mobile App for Farmers:\nEmpathy: Interviewed rural farmers to understand real daily problems.\nInsight: Discovered farmers had low literacy and little smartphone experience (latent need).\nSolution: Built a voice-based app with local language support instead of text-heavy app.',formula:'Human-centred → Creative → Iterative → Practical'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Discuss the importance of Design Thinking in engineering with examples.',a:'Design Thinking is important in engineering because it helps create solutions that are technically correct, useful, practical, and user-friendly.\n\nImportance:\n• Focuses on user needs: Helps engineers understand what users actually need.\n• Improves problem-solving: Clearly defines problems and finds practical solutions.\n• Encourages innovation: Promotes creative thinking and new ideas.\n• Supports prototyping & testing: Build, test, and improve before final production — saves cost.\n• Improves teamwork: Supports collaboration between different engineering disciplines.\n• Reduces risk: Early testing reduces failure in the final product.\n\nExamples:\n• Smart Irrigation System: Engineers use DT to understand farmer problems, build sensor-based irrigation, test, and improve water usage.\n• Smart Healthcare Monitoring: Engineers study patient needs, design wearable monitoring devices, test them, and improve health tracking.',formula:'DT = user focus + creativity + prototyping + iteration'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Explain the role of creative thinking and innovation in Design Thinking.',a:'Creative thinking and innovation are important parts of Design Thinking.\n\nCreative Thinking:\n• Generates ideas: Helps designers think in different ways and create many possible solutions.\n• Encourages new approaches: Goes beyond common solutions to explore fresh, original ideas.\n• Supports problem-solving: Helps look at problems from different angles.\n\nInnovation:\n• Turns ideas into solutions: Takes creative ideas and develops them into practical products, services, or systems.\n• Improves value: Makes solutions more useful, effective, and meaningful for users.\n• Drives better design: Helps build solutions that are new AND user-friendly.\n\nTogether in Design Thinking:\nCreative thinking provides the raw ideas → Innovation refines them into real, working solutions. Without creative thinking, ideas are limited. Without innovation, ideas never become useful products.',formula:'Creative Thinking → Ideas → Innovation → Solutions'},
+  // UNIT 2 — 2M
+  {unit:'2',marks:'2',tag:'Definition',q:'Define brainstorming as an ideation technique.',a:'Brainstorming is an ideation technique used to generate many ideas quickly for solving a problem by encouraging spontaneous thinking and free sharing of ideas in a group. It is a form of divergent thinking.'},
+  {unit:'2',marks:'2',tag:'Definition',q:'Define the 3-Box Model.',a:'The 3-box model is a strategic innovation framework used to manage the present (Box 1), selectively forget the past (Box 2), and create the future (Box 3) for long-term growth and innovation.'},
+  {unit:'2',marks:'2',tag:'Definition',q:'Define Systematic Inventive Thinking (SIT).',a:'SIT is an ideation method that generates innovative solutions by applying structured thinking patterns such as subtraction, division, multiplication, task unification, and attribute dependency. It follows the "Closed World" principle — thinking inside the box.'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is linear innovation?',a:'Linear innovation is the gradual, step-by-step improvement of existing products, processes, or technologies by making small incremental changes that improve performance, efficiency, or quality. It is predictable, low-risk, and builds on existing knowledge.'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is meant by latent needs in problem articulation?',a:'Latent needs are the hidden or unspoken needs of users that are not directly expressed but can be identified through observation, empathy, and deeper understanding of user behavior. They represent real needs users may not even be aware of.'},
+  {unit:'2',marks:'2',tag:'Short',q:'List the five SIT patterns/methods.',a:'The five SIT patterns are:\n1. Subtraction — remove a seemingly essential component\n2. Division — split a product into parts and rearrange\n3. Multiplication — copy a component and give copies different roles\n4. Task Unification — give an existing component an extra job\n5. Attribute Dependency — make two unrelated attributes depend on each other'},
+  // UNIT 2 — 5M
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Describe the 3-Box Framework and Box-3 Ideation, highlighting their role in future-oriented innovation.',a:'The 3-Box Framework divides organisational work into three boxes:\n\nBox 1 — Manage the Present:\n• Focuses on improving and optimising current business.\n• Uses linear (incremental) innovation.\n• Aims at efficiency and profitability.\n• Example: Improving fuel efficiency of an engine.\n\nBox 2 — Selectively Forget the Past:\n• Focuses on removing outdated practices and methods that block future growth.\n• Creates space for innovation.\n• Example: Moving away from wired communication systems.\n\nBox 3 — Create the Future:\n• Focuses on inventing new business models and breakthrough technologies.\n• Uses non-linear and disruptive innovation.\n• High uncertainty but high long-term impact.\n• Examples: Electric vehicles, AI-driven systems.\n\nBox-3 Ideation (Future-Focused Innovation):\n• Weak Signals: Uses early signs of future change in technology, markets, or user behaviour to predict non-linear shifts.\n• Non-Linear Thinking: Encourages experimentation and hypothesis testing instead of only following best practices.\n• Strategic Resource Allocation: Resources divided across all three boxes to close the opportunity gap (future growth), not just the performance gap (present efficiency).',formula:'Box 1: Optimize | Box 2: Forget | Box 3: Create → long-term value'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain the Systematic Inventive Thinking (SIT) methods with suitable examples.',a:'SIT is based on the Closed World principle — innovative solutions come from resources already available within the product or nearby environment. It overcomes functional fixedness.\n\n1. Subtraction: Remove a seemingly essential component.\n• Balance bikes: Removing pedals helps children learn balance first.\n• Smartphones: Removing headphone jack led to wireless earbuds.\n\n2. Division: Split a product into parts and rearrange in space or time.\n• Detachable laptop keyboards: One device works as both laptop and tablet.\n• Modern refrigerators: Separate drawers give faster access and save energy.\n\n3. Multiplication: Copy a component and give each copy a different role.\n• Smartphone cameras: Multiple lenses — wide, zoom, and standard shots.\n• Double-door security screens: Extra door layer gives more protection.\n\n4. Task Unification: Give an existing component an additional job.\n• Smartphone flashlight: Camera flash also works as a torch.\n• Litmus paper: Already-existing material changes color based on acidity.\n\n5. Attribute Dependency: Make two previously unrelated attributes depend on each other.\n• Litmus paper: Color changes based on acidity level.\n• Automatic street lights: Light turns on/off depending on ambient light.',formula:'SIT: Closed World principle → structured creativity → innovation'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Differentiate between linear innovation and non-linear innovation with examples.',a:'Linear Innovation:\n• Definition: Step-by-step, incremental improvement of existing products/processes.\n• Nature: Predictable, based on what is already known.\n• Focus: Short-term performance improvement.\n• Risk: Low — builds on existing systems.\n• Market Impact: Strengthens current market position.\n• Examples: Improving fuel efficiency of IC engines; increasing smartphone battery life; minor software upgrades.\n• Limitation: Rarely produces breakthrough results; vulnerable to sudden disruptions.\n\nNon-Linear Innovation:\n• Definition: Radical and disruptive changes that redefine markets or industries.\n• Nature: Unpredictable, not step-by-step.\n• Focus: Long-term vision or new technology.\n• Risk: High risk, but rewards can be very high.\n• Market Impact: Creates new markets; changes industry rules; gives strong competitive advantage.\n• Examples: Electric vehicles replacing IC engines; streaming replacing DVDs; smartphones replacing feature phones.\n• Challenge: Needs high investment; high uncertainty; faces resistance to change.',formula:'Linear = incremental, safe | Non-linear = disruptive, high-reward'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain the concepts of weak signals and future innovation strategies.',a:'Weak Signals:\nWeak signals are small, early signs of change that may seem unimportant today but can grow into major trends in the future. They appear in changing user behaviour, technology, society, or market needs.\n• They are early indicators of future change.\n• May appear small at present but can become important later.\n• Help identify future opportunities, risks, and changing needs.\n• Important because they help organizations think ahead and prepare for changes before they become obvious.\n• Example: Early interest in electric scooters was a weak signal of urban EV adoption.\n\nFuture Innovation Strategies:\nMethods used to create solutions for future challenges and opportunities. Focus on long-term thinking, emerging trends, and future needs.\n• Help organizations prepare for future change.\n• Focus on long-term growth and innovation.\n• Support future-ready and competitive solutions.\n\nTwo key strategies:\n• 3-box thinking: Manage present, discard outdated practices, create future opportunities.\n• Box-3 ideation: Generate breakthrough ideas for the future using weak signals and creative foresight.',formula:'Weak signals → early detection → future innovation → competitive advantage'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Describe the brainstorming process and its role in generating innovative solutions.',a:'Brainstorming is a creative group technique used in the Imagine/Ideate phase of engineering design. It generates many possible solutions quickly through divergent thinking.\n\nRules of Brainstorming:\n• Defer Judgement: No criticism during idea generation.\n• Encourage Wild Ideas: Unusual and "crazy" ideas are welcome.\n• Build on Others\' Ideas: Members expand and improve ideas suggested by others.\n• Go for Quantity: Focus on producing many ideas, not judging quality yet.\n• Stay Focused on the Topic: Discussion must stay on the defined problem.\n• One Conversation at a Time: Only one person speaks at a time.\n• Be Visual: Sketch or outline ideas to make them clearer.\n• Set a Time Limit: Fixed time keeps energy and speed high.\n\nRole in Innovation:\n• Generates many possible ideas quickly, increasing chances of finding effective solutions.\n• Allows team members to explore different perspectives and approaches.\n• Encourages unusual and original ideas that can lead to innovation.\n• Improves collaboration by allowing members to build on each other\'s ideas.\n• Helps teams move beyond common thinking and discover creative solutions.',formula:'Brainstorming = divergent thinking + defer judgment + quantity → quality'},
+];
+
+// =====================================================================
+// MID 2 DATA — Units 3 & 4
+// =====================================================================
+const MID2_FLASHCARDS = [
+  // UNIT 3 — 2M
+  {unit:'3',marks:'2',tag:'Definition',q:'What is meant by Customer Experience (CX)?',a:'Customer Experience (CX) is the overall perception and emotional response a customer has while interacting with a product, service, or organization across all touchpoints — before, during, and after use. It covers emotions, satisfaction, usability, and post-purchase support.'},
+  {unit:'3',marks:'2',tag:'Definition',q:'What is an Affinity Diagram?',a:'An Affinity Diagram is a design thinking tool used to organize large amounts of data, ideas, or observations into meaningful groups based on their similarity. It helps identify patterns, relationships, and key problem areas from scattered information.'},
+  {unit:'3',marks:'2',tag:'Definition',q:'What is an Empathy Map?',a:'An Empathy Map is a visual design thinking tool used to understand the user more deeply by capturing their thoughts, emotions, behaviors, and needs. It has four quadrants: Says, Thinks, Does, Feels.'},
+  {unit:'3',marks:'2',tag:'Definition',q:'Define Customer Journey Map.',a:'A Customer Journey Map is a visual representation of the complete experience a customer has while interacting with a product, service, or organization over time — showing actions, thoughts, emotions, and pain points at each stage.'},
+  {unit:'3',marks:'2',tag:'Definition',q:'What is the Service Experience Cycle?',a:'The Service Experience Cycle is the complete sequence of interactions a customer goes through while using a service, from beginning to completion and follow-up. It has three stages: Pre-Service, Service, and Post-Service.'},
+  {unit:'3',marks:'2',tag:'Definition',q:'What is a Mind Map?',a:'A Mind Map is a visual thinking tool used to organize ideas around a central concept. It starts with a central idea, from which related ideas branch out into sub-topics and further detailed ideas. Used in brainstorming and idea generation.'},
+  // UNIT 3 — 5M
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Explain the Empathy Map as a tool in Design Thinking.',a:'An Empathy Map is a visual and collaborative tool to convert user research data into a clear understanding of the user\'s experiences, thoughts, and motivations. It bridges the Empathy stage (user research) and the Define stage (problem definition).\n\nCore Quadrants:\n• Says: Direct quotes and statements from the user about needs and problems.\n• Thinks: Internal thoughts, worries, beliefs, and expectations not spoken directly.\n• Does: Actions and behaviors, including workarounds and habits.\n• Feels: Emotions such as frustration, fear, confusion, or satisfaction.\n\nExtended Sections (Pains & Gains):\n• Pain: User\'s fears, frustrations, and obstacles.\n• Gain: User\'s goals, desires, and measures of success.\n\nRole in Innovation:\n• Uncover Latent Needs: Comparing what users say vs do reveals hidden needs for breakthrough ideas.\n• Shared Team Understanding: Gives team a common human-centered view, reducing bias.\n• Problem Reframing: Insights help create "How Might We" (HMW) questions.\n• Evidence-Based Decisions: Design choices supported with real user quotes and observed behaviour.',formula:'Says + Thinks + Does + Feels → Latent Needs → HMW Questions'},
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Explain the concept and importance of a Customer Journey Map.',a:'A Customer Journey Map is a visual representation of the complete experience a customer has while interacting with a product, service, or brand across different stages and touchpoints.\n\nComponents:\n1. Stages: Major steps in the customer journey.\n2. Actions: What the customer does at each stage.\n3. Emotions: What the customer feels during each step.\n4. Pain Points: Problems or frustrations faced by the customer.\n5. Opportunities: Areas where the service can be improved.\n\nImportance:\n1. Understands Customer Experience: Helps organizations see the service from the customer\'s perspective.\n2. Identifies Pain Points: Highlights where customers face confusion, delay, or frustration.\n3. Improves Customer Satisfaction: Fixing pain points creates smoother, better experiences.\n4. Finds Improvement Opportunities: Identifies areas where innovation and redesign are needed.\n5. Supports Customer-Centered Design: Ensures services are designed based on real customer needs and experiences.',formula:'Stages → Actions → Emotions → Pain Points → Opportunities'},
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Explain the concept of a Mind Map and its role in idea generation.',a:'A Mind Map is a visual thinking tool used to organize ideas around a central concept. The diagram starts with a central idea placed in the middle, from which related ideas branch out into sub-topics and further detailed ideas. It is a non-linear way of organizing thoughts.\n\nThree Main Parts:\n1. Central Idea: The main topic or problem placed at the center.\n2. Branches: Major related ideas connected to the central idea.\n3. Sub-branches: Smaller supporting ideas connected to each branch.\n\nRole in Idea Generation:\n1. Encourages Brainstorming: Allows many ideas to be generated freely around one central problem.\n2. Expands Creative Thinking: Each branch can grow into several sub-ideas, helping explore multiple solutions.\n3. Shows Connections: Reveals relationships between ideas that may not be obvious in a normal list.\n4. Organizes Ideas Clearly: Ideas are visually grouped, making them easier to understand and analyze.\n5. Supports Innovation: By combining branches and sub-ideas, new and creative solutions can be formed.\n\nMind Maps make it easier to see relationships, break large topics into smaller parts, think more creatively, and explore multiple directions at once.',formula:'Central Idea → Branches → Sub-branches → Innovation'},
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Discuss how combining ideas leads to complex innovation concepts with examples.',a:'Combining ideas is the process of merging multiple simple ideas, concepts, or features to create a more advanced and innovative solution. In Design Thinking, innovation often comes from combining existing ideas in creative ways.\n\nProcess of Combining Ideas:\n1. Generate Multiple Ideas: Created through brainstorming, mind maps, and observation.\n2. Identify Useful Connections: Related ideas examined to find how they work together.\n3. Merge Complementary Features: Ideas with compatible strengths combined into one concept.\n4. Build a Complex Solution: The combined concept becomes a more advanced innovation with multiple benefits.\n5. Refine and Improve: The final innovation is tested and improved for practical use.\n\nExamples:\n1. Smart Helmet: Combines safety helmet + Bluetooth communication + GPS tracking + accident sensors → a normal helmet becomes a smart safety device.\n\n2. Smartphone: Combines phone + camera + GPS + internet + music player + calculator → one integrated device solving many needs.\n\n3. Smart Irrigation System: Combines soil sensors + microcontroller + wireless communication + mobile app → automated irrigation saving water and improving crop yield.',formula:'Idea 1 + Idea 2 + Idea 3 → Complex Innovation'},
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Discuss the importance of Customer Experience in product and service design.',a:'Customer Experience (CX) refers to the overall impression and feeling a customer has while interacting with a product, service, or brand. It includes every interaction before, during, and after use.\n\nImportance in Design:\n1. Helps Understand Customer Needs: By studying customer interactions, designers can create products that solve real problems.\n2. Improves Customer Satisfaction: Products designed around customer needs become easier and more enjoyable to use.\n3. Identifies Pain Points: Reveals areas where users face confusion, delay, or frustration — designers can fix these.\n4. Supports Customer-Centered Design: Ensures products are designed from the customer\'s perspective, not just the company\'s.\n5. Increases Product and Service Value: Better CX increases value because customers find it more useful, convenient, and reliable.\n6. Builds Customer Loyalty: Positive experiences make customers more likely to trust the brand, return, and recommend it to others.\n7. Encourages Innovation: Studying CX reveals unmet needs and new opportunities for innovative improvements.',formula:'CX = Touchpoints + Emotions + Usability + Support → Satisfaction → Loyalty'},
+  // UNIT 4 — 2M
+  {unit:'4',marks:'2',tag:'Definition',q:'Define Sustainable Design.',a:'Sustainable Design is the approach of designing products and services that minimize environmental impact, conserve resources, and promote long-term ecological balance. It aims to meet present needs without affecting the ability of future generations to meet their needs.'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What is recycling in design?',a:'Recycling in design means designing products so that their materials can be recovered, reused, and converted into new products after the product reaches end of life. It reduces waste, saves resources, and lowers environmental damage.'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What is eco-friendly design?',a:'Eco-friendly design is the approach of designing products or services in a way that causes minimal harm to the environment. It focuses on reducing waste, saving energy, using sustainable materials, and lowering pollution.'},
+  {unit:'4',marks:'2',tag:'Definition',q:'What is Design for Environment (DFE)?',a:'Design for Environment (DFE) is a design approach that integrates environmental considerations into product and service design to minimize environmental impact throughout the product life cycle. Also called Eco-design or Green Design.'},
+  {unit:'4',marks:'2',tag:'Short',q:'State the importance of recycling in design.',a:'Recycling in design is important because it:\n1. Reduces waste and landfill burden\n2. Conserves natural resources\n3. Saves energy compared to new material production\n4. Lowers pollution and carbon emissions\n5. Supports sustainable product development'},
+  {unit:'4',marks:'2',tag:'Short',q:'Name the five stages of the Product Life Cycle.',a:'The five stages of the Product Life Cycle (PLC) are:\n1. Development — product researched and designed\n2. Introduction — product launched into market\n3. Growth — rapid increase in sales\n4. Maturity — market saturated, sales stabilize\n5. Decline — sales fall due to new technologies or changing preferences'},
+  // UNIT 4 — 5M
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Discuss the five stages of the Product Life Cycle in detail.',a:'The Product Life Cycle (PLC) describes the stages a product goes through from initial development to decline in the market.\n\n1. Development Stage:\n• Product idea researched and designed; prototypes created and tested.\n• High investment costs, no revenue yet.\n• Focus on research, innovation, and testing.\n• Example: Development of a new electric vehicle model before launch.\n\n2. Introduction Stage:\n• Product launched into the market; sales begin slowly (low awareness).\n• High promotion and marketing expenses; limited competition.\n• Example: First launch of a new smartphone model.\n\n3. Growth Stage:\n• Rapid increase in sales and market acceptance.\n• Competitors start entering the market; product improvements occur.\n• Profits increase significantly.\n• Example: Increasing adoption of smartwatches after initial launch.\n\n4. Maturity Stage:\n• Market becomes saturated; sales growth slows or stabilizes.\n• Competition becomes intense; companies focus on differentiation and cost reduction.\n• Example: Conventional LED televisions in the consumer market.\n\n5. Decline Stage:\n• Sales decrease due to new technologies or changing customer preferences.\n• Profits decline; companies may discontinue or redesign the product.\n• Example: DVD players declining due to streaming services.',formula:'Development → Introduction → Growth → Maturity → Decline'},
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Discuss the concern for environment and sustainability in product design.',a:'Concern for environment and sustainability in product design means creating products in a way that reduces environmental harm, conserves natural resources, and supports long-term ecological balance.\n\nWhy It Is Important:\nTraditional product design often causes: pollution, resource depletion, waste generation, high energy consumption, and carbon emissions. As industries grow, poorly designed products increase environmental damage.\n\nPrinciples of Sustainable Product Design:\n1. Life Cycle Thinking: Consider environmental impact at every stage — from material extraction to disposal.\n2. Reduce, Reuse, Recycle: Use fewer resources; design for reuse; enable recycling at end of life.\n3. Energy Efficiency: Products should consume less energy during production and use.\n4. Material Optimization: Use fewer materials; choose materials with low environmental impact.\n5. Renewable Resource Usage: Prefer renewable and biodegradable materials.\n6. Low Carbon Emissions: Reduce greenhouse gas emissions during production, transport, and use.\n\nExamples:\n• Bamboo water bottles: Biodegradable, reusable, reduce plastic waste.\n• Eco-friendly packaging: Recyclable paper and biodegradable materials replace plastic.',formula:'Reduce + Reuse + Recycle + Renewable → Sustainable Design'},
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Discuss Design for Environment (DFE) with suitable case studies.',a:'Design for Environment (DFE) is a design approach that integrates environmental considerations into product and service design to minimize environmental impact throughout the product life cycle.\n\nMain Objectives:\n• Reduce environmental impact of products\n• Use eco-friendly materials\n• Improve energy efficiency\n• Minimize waste generation\n• Promote reuse and recycling\n• Extend product life span\n\nAdvantages: Reduced environmental pollution, improved product sustainability, reduced operational costs, better compliance with environmental laws, increased customer acceptance.\n\nChallenges: High initial design cost, limited availability of eco-friendly materials, lack of awareness in industries, technological limitations.\n\nCase Study 1 — Electric Vehicles (EVs):\nProblem: Air pollution and fossil fuel dependence.\nDFE Decision: Use electric powertrain, regenerative braking, lightweight materials.\nResult: Zero tailpipe emissions, reduced fuel dependency.\n\nCase Study 2 — Sustainable Packaging:\nProblem: Plastic waste accumulation.\nDFE Decision: Biodegradable packaging, recyclable paper materials, reduced packaging size.\nResult: Reduced landfill waste, lower transportation emissions.',formula:'DFE = environmental considerations at every stage of product life cycle'},
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Explain the role of engineers in promoting sustainable design practices.',a:'Engineers play a major role in promoting sustainable design by designing products, systems, and processes that reduce environmental impact, conserve resources, and improve long-term sustainability.\n\nRole of Engineers:\n1. Selecting Sustainable Materials: Choose recyclable, renewable, non-toxic, eco-friendly materials.\n2. Designing Energy-Efficient Products: Design products/systems consuming less energy during manufacturing and use.\n3. Reducing Waste: Design products with minimal material waste; promote reuse and recycling.\n4. Applying Life Cycle Thinking: Consider environmental impact from raw material extraction to disposal.\n5. Improving Product Durability: Create durable products that last longer — reduces waste from frequent replacement.\n6. Supporting Recycling and Reuse: Design products easy to disassemble, repair, and recycle at end of life.\n7. Reducing Pollution: Improve manufacturing processes to reduce emissions and environmental pollution.\n8. Promoting Green Innovation: Develop eco-friendly technologies like renewable energy systems and biodegradable products.\n\nExample:\nAn engineer designing an electric vehicle promotes sustainability by:\n• Reducing fuel dependency and lowering emissions.\n• Improving energy efficiency.\n• Supporting cleaner transportation.',formula:'Engineer\'s Role: Select green materials + Energy efficiency + Life Cycle thinking'},
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Define sustainable design and explain its importance in modern engineering.',a:'Sustainable Design is the approach of designing products, systems, or services in a way that minimizes environmental impact, conserves resources, and meets present needs without affecting the ability of future generations to meet their needs.\n\nImportance in Modern Engineering:\n1. Reduces Environmental Impact: Helps reduce pollution, waste, carbon emissions, and damage to ecosystems.\n2. Conserves Natural Resources: Promotes efficient use of raw materials, energy, and water.\n3. Improves Energy Efficiency: Creates products and systems that consume less energy and perform more efficiently.\n4. Supports Recycling and Reuse: Encourages recyclable materials and reuse/recovery at end of product life.\n5. Reduces Long-Term Cost: Efficient materials, lower energy use, and waste reduction reduce operating costs.\n6. Encourages Innovation: Drives development of eco-friendly technologies, renewable energy systems, and better materials.\n7. Meets Modern Environmental Needs: Addresses climate change, resource depletion, and pollution responsibly.\n8. Supports Future Generations: Ensures engineering solutions remain useful without harming future environmental and human needs.',formula:'Sustainable Design = Functionality + Environmental Responsibility + Future Thinking'},
+];
+
+// =====================================================================
+// SEM FLASHCARDS — All 5 Units
+// =====================================================================
+const SEM_FLASHCARDS = [
+  // UNIT 1 — 1M
+  {unit:'1',marks:'1',tag:'Definition',q:'Define Design Thinking.',a:'A human-centered problem-solving approach focusing on understanding user needs, generating creative ideas, building prototypes, and testing solutions.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is the first step of the Engineering Design Process?',a:'Define — Identify the problem clearly by understanding user needs, design goals, and constraints such as cost, time, materials, and performance.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is empathy in Design Thinking?',a:'Empathy is the ability to understand and share the feelings, needs, and experiences of users — the foundation of human-centered design.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'List two features of Design Thinking.',a:'1. Human-centered approach\n2. Problem reframing'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is problem reframing?',a:'Redefining the original problem statement to discover deeper insights, hidden needs, and better solution directions — avoiding wrong solutions.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is a latent need?',a:'A hidden or unspoken user need that is not directly expressed but can be identified through observation and deep empathy.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is the "Improve" step in the design process?',a:'Refine the design based on test results and feedback; make necessary changes and repeat until the best result is achieved.'},
+  {unit:'1',marks:'1',tag:'Definition',q:'Name the three stages of the Empathy Process.',a:'1. Immersion & Observation\n2. Deep Engagement & Inquiry\n3. Synthesis & Practical Ingenuity'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is a "How Might We" (HMW) question?',a:'A question framing technique in Design Thinking used to turn problem insights into opportunity spaces that guide creative solution generation. E.g., "How might we make irrigation easier for rural farmers?"'},
+  {unit:'1',marks:'1',tag:'Definition',q:'What is iterative design?',a:'A design approach where solutions are improved continuously through repeated cycles of prototyping, testing, and refinement until the best result is achieved.'},
+  // UNIT 1 — 5M
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Describe the Seven Steps of the Engineering Design Thinking Process.',a:'1. Define: Identify the problem — user needs, goals, constraints (cost, time, material, performance).\n2. Ask: Collect information via research, observation, surveys, studying existing solutions.\n3. Imagine: Generate possible solutions via brainstorming and creative thinking.\n4. Plan: Select best solution; prepare plan with design details, materials, tools, steps.\n5. Prototype: Build a simple model to check how the solution works in practice.\n6. Test: Evaluate prototype for performance, functionality, reliability; collect feedback.\n7. Improve: Refine based on test results; repeat until best result is achieved.',formula:'Define → Ask → Imagine → Plan → Prototype → Test → Improve'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Discuss the principles of Design Thinking and their role in solving complex problems.',a:'Principles: Human-centered, Empathy, Clear problem definition, Creative thinking, Collaboration, Prototyping, Testing & feedback, Iteration.\n\nEach principle contributes to solving complex problems:\n• Human-centered → solutions are useful and practical\n• Empathy → understands what users really feel and need\n• Clear problem definition → avoids wrong solutions\n• Creative thinking → generates multiple possible approaches\n• Collaboration → diverse perspectives improve solutions\n• Prototyping → tests ideas before final development\n• Testing & feedback → real-world validation\n• Iteration → continuous improvement',formula:'Empathize → Define → Ideate → Prototype → Test → Iterate'},
+  {unit:'1',marks:'5',tag:'Long Answer',q:'Explain the Empathy Process for deep understanding of challenges and practical ingenuity.',a:'Three Core Stages:\n\n1. Immersion & Observation: Enter the user\'s environment and observe without bias. Look for workarounds (unmet needs). Study extreme users — they highlight problems more clearly.\n\n2. Deep Engagement & Inquiry: Conduct empathy interviews with open-ended questions. Keep asking "Why?" — uses What–How–Why framework. Collect authentic context data via photo/video journals.\n\n3. Synthesis & Practical Ingenuity: Create empathy maps (Says, Thinks, Does, Feels). Identify latent needs. Frame problems as "How Might We" questions to guide solution ideas.',formula:'Observe → Engage → Synthesize → HMW'},
+  // UNIT 2 — 1M
+  {unit:'2',marks:'1',tag:'Definition',q:'Define brainstorming.',a:'A creative group technique to generate many ideas quickly by encouraging spontaneous thinking and free sharing in a group. A form of divergent thinking.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is the 3-Box Model?',a:'A strategic innovation framework: Box 1 = Manage the Present (optimize), Box 2 = Selectively Forget the Past (discard outdated), Box 3 = Create the Future (invent new).'},
+  {unit:'2',marks:'1',tag:'Definition',q:'Define SIT (Systematic Inventive Thinking).',a:'An ideation method generating innovative solutions by applying structured patterns (subtraction, division, multiplication, task unification, attribute dependency) within the existing system — "thinking inside the box."'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is linear innovation?',a:'Gradual, step-by-step improvement of existing products or processes through small incremental changes. Predictable, low-risk, builds on existing knowledge.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is a weak signal in innovation?',a:'A small, early sign of change in technology, markets, or user behaviour that may seem unimportant today but can grow into a major future trend.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is non-linear innovation?',a:'Radical and disruptive changes that redefine markets or industries. High risk, high reward, vision-driven, creates new markets. Example: EVs replacing IC engines.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is the Closed World principle in SIT?',a:'Solutions should be created using resources already available within the product, system, or nearby environment. It overcomes "functional fixedness."'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is functional fixedness?',a:'The tendency to see objects only in their usual, traditional use — limiting creative thinking. SIT methods help overcome this.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is the "Subtraction" pattern in SIT?',a:'Remove a component that seems essential from a product and see how the system can still work or improve. Example: Removing pedals from a bike → balance bike.'},
+  {unit:'2',marks:'1',tag:'Definition',q:'What is divergent thinking?',a:'A thinking process used to generate many possible ideas or solutions in response to a problem. The opposite of convergent thinking (narrowing down to one solution). Brainstorming uses divergent thinking.'},
+  // UNIT 2 — 5M
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Explain the Systematic Inventive Thinking (SIT) methods with examples.',a:'SIT uses the Closed World principle — innovate using existing resources.\n\n1. Subtraction: Remove a seemingly essential component.\n• Balance bikes (no pedals), smartphones (no headphone jack → earbuds)\n\n2. Division: Split a product into parts, rearrange in space or time.\n• Detachable laptop keyboard (laptop + tablet), modern fridge with separate drawers\n\n3. Multiplication: Copy a component; give copies different roles.\n• Smartphone multi-cameras (wide, zoom, standard), double-door screens\n\n4. Task Unification: Give an existing component an extra job.\n• Camera flash → also a torch, bending straw → also an ad\n\n5. Attribute Dependency: Make two unrelated attributes depend on each other.\n• Litmus paper: color changes with acidity, automatic street lights: on/off with ambient light',formula:'5 patterns: Subtract | Divide | Multiply | Unify | Attribute Dependency'},
+  {unit:'2',marks:'5',tag:'Long Answer',q:'Describe the 3-Box Framework and Box-3 Ideation.',a:'Box 1 — Manage the Present:\n• Optimize current business; linear/incremental innovation; efficiency and profitability.\n• Example: Improving fuel efficiency of an engine.\n\nBox 2 — Selectively Forget the Past:\n• Remove outdated practices that block growth; create space for innovation.\n• Example: Moving away from wired communication systems.\n\nBox 3 — Create the Future:\n• Invent new business models and breakthrough technologies; non-linear and disruptive innovation; high uncertainty but high long-term impact.\n• Examples: Electric vehicles, AI-driven systems.\n\nBox-3 Ideation:\n• Weak Signals: Early signs of future change → predict non-linear shifts.\n• Non-Linear Thinking: Experimentation and hypothesis testing.\n• Strategic Resource Allocation: Resources divided across all boxes to close the opportunity gap (future growth), not just the performance gap.',formula:'Box 1: Optimize | Box 2: Forget | Box 3: Create → long-term value'},
+  // UNIT 3 — 1M
+  {unit:'3',marks:'1',tag:'Definition',q:'Define Customer Experience (CX).',a:'The overall perception and emotional response a customer has while interacting with a product, service, or organization across all touchpoints — before, during, and after use.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is an Affinity Diagram?',a:'A design thinking tool to organize large amounts of data, ideas, or observations into meaningful groups based on similarity — identifies patterns, relationships, and key problem areas.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is an Empathy Map?',a:'A visual tool with four quadrants — Says, Thinks, Does, Feels — to understand the user more deeply by capturing their thoughts, emotions, behaviors, and needs.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'Define Customer Journey Map.',a:'A visual representation of the complete experience a customer has with a product or service over time — showing stages, actions, emotions, pain points, and opportunities.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What are the three stages of the Service Experience Cycle?',a:'1. Pre-Service Stage: Awareness, information search, expectation formation.\n2. Service Stage: Interaction, service consumption, real-time experience.\n3. Post-Service Stage: Feedback, support, loyalty or churn.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is the purpose of a Mind Map?',a:'To organize ideas around a central concept in a non-linear visual way. It helps in brainstorming, connecting related thoughts, generating creative solutions, and seeing relationships between ideas.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is a pain point in customer experience?',a:'A specific problem or frustration a customer experiences while interacting with a product, service, or organization — something that causes confusion, delay, or dissatisfaction.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is "Says" in an Empathy Map?',a:'"Says" captures direct quotes and statements from the user about their needs and problems — what they openly express out loud during interviews or observations.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is a touchpoint in service design?',a:'Any point of interaction between a customer and a product, service, or organization — e.g., website, mobile app, store, service desk, customer support call.'},
+  {unit:'3',marks:'1',tag:'Definition',q:'What is service blueprinting?',a:'A service design tool that maps out the service process showing customer actions, front-stage (visible) actions, back-stage (internal) processes, and support systems.'},
+  // UNIT 3 — 5M
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Explain the Empathy Map as a tool in Design Thinking.',a:'Purpose: Understand the user\'s perspective; identify hidden needs and frustrations; build empathy; design better products.\n\nCore Quadrants:\n• Says: Direct quotes about needs/problems.\n• Thinks: Internal thoughts, worries, beliefs not spoken directly.\n• Does: Actions and behaviors, including workarounds and habits.\n• Feels: Emotions — frustration, fear, confusion, or satisfaction.\n\nExtended Sections:\n• Pain: User\'s fears, frustrations, and obstacles.\n• Gain: User\'s goals, desires, and measures of success.\n\nRole in Innovation:\n• Uncover Latent Needs: Comparing Says vs Does reveals hidden needs.\n• Shared Team Understanding: Gives common human-centered view, reduces bias.\n• Problem Reframing: Insights help create "How Might We" (HMW) questions.\n• Evidence-Based Decisions: Design choices supported with real user data.',formula:'Says + Thinks + Does + Feels → Pains + Gains → Design Direction'},
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Explain the concept and importance of a Customer Journey Map.',a:'A Customer Journey Map visually represents the complete experience a customer has across all stages and touchpoints.\n\nComponents:\n1. Stages: Major steps in the customer journey.\n2. Actions: What the customer does at each stage.\n3. Emotions: What the customer feels during each step.\n4. Pain Points: Problems or frustrations faced by the customer.\n5. Opportunities: Areas where the service can be improved.\n\nImportance:\n1. Understands Customer Experience: Helps organizations see the service from the customer\'s perspective.\n2. Identifies Pain Points: Highlights where customers face confusion, delay, or frustration.\n3. Improves Customer Satisfaction: Fixing pain points creates smoother, better experiences.\n4. Finds Improvement Opportunities: Identifies areas where innovation and redesign are needed.\n5. Supports Customer-Centered Design: Ensures services are designed based on real customer needs.',formula:'Stages → Actions → Emotions → Pain Points → Opportunities → Redesign'},
+  {unit:'3',marks:'5',tag:'Long Answer',q:'Discuss how combining ideas leads to complex innovation concepts with examples.',a:'Combining ideas is the process of merging multiple simple ideas, concepts, or features to create a more advanced and innovative solution.\n\nProcess:\n1. Generate Multiple Ideas — via brainstorming, mind maps, observation.\n2. Identify Useful Connections — find how ideas can work together.\n3. Merge Complementary Features — combine compatible strengths.\n4. Build a Complex Solution — combined concept becomes advanced innovation.\n5. Refine and Improve — test and improve for practical use.\n\nExamples:\n• Smart Helmet: Safety helmet + Bluetooth + GPS + accident sensors → smart safety device.\n• Smartphone: Phone + camera + GPS + internet + music player → one integrated device.\n• Smart Irrigation: Soil sensors + microcontroller + mobile app → automated water-saving irrigation system.',formula:'Simple Ideas + Connections + Combination → Complex Innovation'},
+  // UNIT 4 — 1M
+  {unit:'4',marks:'1',tag:'Definition',q:'Define sustainable design.',a:'Designing products and services that minimize environmental impact, conserve resources, and support long-term ecological balance without compromising future generations\' ability to meet their needs.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What is recycling in design?',a:'Designing products so their materials can be recovered, reused, and converted into new products at end of life — reducing waste, saving resources, and lowering environmental damage.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What is eco-friendly design?',a:'Designing products or services that cause minimal harm to the environment by reducing waste, saving energy, using sustainable materials, and lowering pollution.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What is Design for Environment (DFE)?',a:'A design approach that integrates environmental considerations into product and service design to minimize environmental impact throughout the entire product life cycle. Also called Eco-design or Green Design.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'Name the five stages of the Product Life Cycle.',a:'Development → Introduction → Growth → Maturity → Decline'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What is the Maturity stage of a product?',a:'The stage where the market becomes saturated, sales growth slows or stabilizes, competition is intense, and companies focus on differentiation and cost reduction.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What does "Reduce, Reuse, Recycle" mean in sustainable design?',a:'Products should: use fewer resources (Reduce), be reused when possible (Reuse), and be recycled at end of life (Recycle) — the 3Rs of sustainable design.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What is Life Cycle Thinking in design?',a:'Considering the environmental impact of a product at every stage of its life cycle — from raw material extraction and manufacturing to use, disposal, or recycling.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'Give one example of sustainable design.',a:'Bamboo water bottles — biodegradable, reusable, reduce plastic waste — are an alternative to plastic bottles. Another example: eco-friendly packaging using recyclable paper.'},
+  {unit:'4',marks:'1',tag:'Definition',q:'What is the environmental concern in product design?',a:'The responsibility to design products that reduce pollution, conserve resources, minimize waste, lower energy consumption, and reduce carbon emissions throughout their life cycle.'},
+  // UNIT 4 — 5M
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Discuss the five stages of the Product Life Cycle in detail.',a:'1. Development: Product idea researched and designed; prototypes created and tested; high investment, no revenue. Example: New EV model development.\n\n2. Introduction: Product launched; sales begin slowly (low awareness); high promotion expenses; limited competition. Example: First launch of a new smartphone.\n\n3. Growth: Rapid increase in sales and market acceptance; competitors enter; product improvements occur; profits increase significantly. Example: Adoption of smartwatches after launch.\n\n4. Maturity: Market saturated; sales growth slows; intense competition; companies focus on differentiation and cost reduction. Example: LED televisions.\n\n5. Decline: Sales decrease due to new technologies or changing preferences; profits decline; product may be discontinued or redesigned. Example: DVD players due to streaming services.',formula:'Development → Introduction → Growth → Maturity → Decline'},
+  {unit:'4',marks:'5',tag:'Long Answer',q:'Define sustainable design and explain its importance in modern engineering.',a:'Sustainable design is creating products, systems, or services that minimize environmental impact, conserve resources, and meet present needs without affecting future generations.\' ability to meet their needs.\n\nImportance in Modern Engineering:\n1. Reduces Environmental Impact: Reduces pollution, waste, carbon emissions.\n2. Conserves Natural Resources: Promotes efficient use of raw materials, energy, water.\n3. Improves Energy Efficiency: Creates products/systems that consume less energy.\n4. Supports Recycling and Reuse: Encourages recyclable materials and end-of-life recovery.\n5. Reduces Long-Term Cost: Efficient materials, lower energy use, waste reduction cut costs.\n6. Encourages Innovation: Drives eco-friendly technologies and renewable energy systems.\n7. Meets Modern Environmental Needs: Addresses climate change and resource depletion.\n8. Supports Future Generations: Ensures solutions remain safe without harming future needs.',formula:'Sustainable = Environmentally responsible + Resource-efficient + Future-safe'},
+  // UNIT 5 — 1M
+  {unit:'5',marks:'1',tag:'Definition',q:'What is prototyping in Design Thinking?',a:'The process of creating a simple model of a product or solution to test ideas and identify problems before final development. Can be low-fidelity (sketch) or high-fidelity (working model).'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is a Low-Fidelity prototype?',a:'A simple and rough model used in early stages to quickly test ideas. Low cost, quick to make, basic design only. Examples: sketch, paper model, cardboard mock-up.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is a High-Fidelity prototype?',a:'A detailed and functional model used in later stages of design. More expensive and time-consuming; close to the final product. Examples: working model, simulation, digital prototype.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is integrative design?',a:'The approach of combining knowledge, ideas, and skills from different disciplines to create a complete and effective solution. Focuses on teamwork, collaboration, and integrating different system components into one design.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'List two challenges in diverse team collaboration.',a:'1. Communication gaps between members with different backgrounds.\n2. Conflicting ideas due to different perspectives and working styles.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is modular design?',a:'Breaking a complex system into smaller, independent modules that can be designed, tested, and built separately. Advantages: easy development, parallel work by teams, simplified testing, easy maintenance.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is the "Empathize" stage in a Design Thinking capstone project?',a:'The first stage — study user needs and problems through interviews, observations, empathy maps, and field surveys. Goal: understand the real problems users face.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is the "Ideate" stage in Design Thinking?',a:'The stage focused on generating multiple creative solutions to the defined problem. Uses brainstorming, mind mapping, and other creative techniques to produce many possible ideas.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is a problem statement in Design Thinking?',a:'A clear, concise, user-centered statement that defines the core problem to be solved. Format: "[User] needs a way to [need] because [insight]." Developed in the Define stage.'},
+  {unit:'5',marks:'1',tag:'Definition',q:'What is interdisciplinary collaboration in engineering?',a:'Teamwork involving members from different engineering branches (mechanical, electrical, software, etc.) working together on a common project — each contributing their technical expertise to build a complete solution.'},
+  // UNIT 5 — 5M
+  {unit:'5',marks:'5',tag:'Long Answer',q:'Describe the complete capstone project process using Design Thinking for a Smart Irrigation System.',a:'1. Empathize: Interview farmers about irrigation challenges; observe water wastage and lack of automation. Tools: Empathy Map, Field Survey. Outcome: Farmers need a low-cost automated irrigation system.\n\n2. Define: Problem Statement: "Farmers need an efficient irrigation system to reduce water wastage and improve crop yield." Tools: Affinity Diagram, 5 Whys Analysis.\n\n3. Ideate: Ideas — soil moisture sensor system, mobile-controlled irrigation, timer-based irrigation. Tools: Brainstorming, Mind Mapping. Selected: Automatic irrigation using soil moisture sensors.\n\n4. Prototype: Built soil moisture sensor + microcontroller (Arduino) + water pump system. Tools: Circuit Design, CAD/Block Diagram.\n\n5. Test: Tested in farm conditions; measured water usage and efficiency. Result: Water usage reduced significantly.\n\n6. Refine: Added mobile alerts, improved sensor accuracy, reduced system cost.\n\n7. Implement: Installed in farms; provided user training. Outcome: Increased crop yield, reduced manual effort.\n\n8. Interdisciplinary: Electronics (sensor/circuit), Mechanical (pump/pipeline), Software (control logic/automation).',formula:'Empathize → Define → Ideate → Prototype → Test → Refine → Implement'},
+  {unit:'5',marks:'5',tag:'Long Answer',q:'Illustrate the Design Thinking process for a Smart Traffic Management System.',a:'1. Empathize: Interview drivers, pedestrians, and traffic police about traffic issues. Observations: congestion, signal delays, poor emergency movement. Tools: Empathy Map, Field Survey. Outcome: Urban users need smart, efficient traffic control.\n\n2. Define: "Urban areas need an efficient traffic management system to reduce congestion, improve signal control, and enhance road safety." Tools: Affinity Diagram, 5 Whys.\n\n3. Ideate: Ideas — traffic density sensor system, adaptive signal control, emergency vehicle priority system. Selected: Automatic management using traffic density sensors.\n\n4. Prototype: Traffic density sensors + microcontroller (Arduino/ESP32) + smart traffic signal unit. Tools: Circuit Design, CAD/Block Diagram.\n\n5. Test: Tested in simulated traffic conditions; measured flow and signal efficiency. Result: Congestion reduced significantly.\n\n6. Refine: Added emergency vehicle priority, improved sensor accuracy, reduced delay.\n\n7. Implement: Installed at traffic junctions; monitoring access for traffic authorities. Outcome: Reduced congestion, improved road safety.\n\n8. Interdisciplinary: Electronics (sensors), Mechanical (signal hardware/pole setup), Software (traffic control logic).',formula:'Empathize → Define → Ideate → Prototype → Test → Refine → Deploy'},
+  {unit:'5',marks:'5',tag:'Long Answer',q:'Explain the stages of a capstone project for a Smart Healthcare Monitoring System.',a:'1. Empathize: Interview patients, doctors, and nurses. Observations: delayed monitoring, lack of real-time tracking, slow emergency response. Tools: Empathy Map, Field Survey. Outcome: Patients need smart, continuous healthcare monitoring.\n\n2. Define: "Patients need an efficient healthcare monitoring system to track health conditions in real time and improve emergency response." Tools: Affinity Diagram, 5 Whys.\n\n3. Ideate: Ideas — wearable health sensor system, mobile health monitoring app, IoT-based emergency alert system. Selected: Smart healthcare monitoring using wearable sensors and IoT alerts.\n\n4. Prototype: Heart rate and temperature sensors + microcontroller (Arduino/ESP32) + mobile health monitoring dashboard. Tools: Circuit Design, CAD/Block Diagram.\n\n5. Test: Tested with real-time health data monitoring; measured sensor accuracy and alert response. Result: Health monitoring improved significantly.\n\n6. Refine: Added emergency alert notifications, improved sensor accuracy, reduced cost.\n\n7. Implement: Installed for patient use in homes/hospitals; doctors access via dashboard/mobile app. Outcome: Improved patient monitoring, faster emergency response.\n\n8. Interdisciplinary: Electronics (sensor/circuit), Mechanical (wearable structure), Software (health dashboard and alert system).',formula:'Empathize → Define → Ideate → Prototype → Test → Refine → Deploy'},
+  {unit:'5',marks:'5',tag:'Long Answer',q:'What are the common challenges in diverse teams? How can they be resolved?',a:'Diverse Team: Members from different engineering branches, skill sets, and backgrounds working on a common project.\n\nCommon Challenges:\n1. Communication Gaps: Different ways of communicating cause misunderstandings.\n2. Conflicting Ideas: Different backgrounds lead to disagreement and conflict.\n3. Role Ambiguity: Unclear roles cause confusion about responsibilities.\n4. Lack of Coordination: Poor coordination delays work and reduces efficiency.\n5. Different Working Styles: Different approaches to problem-solving make collaboration difficult.\n\nHow to Resolve:\n1. Clear Role Allocation: Assign clear roles and responsibilities to each member.\n2. Regular Team Meetings: Frequent meetings help share progress, solve issues, stay aligned.\n3. Use of Collaboration Tools: Shared documents, project boards, and communication platforms improve coordination.\n4. Leadership & Conflict Resolution: A good team leader guides discussions, resolves conflicts, ensures smooth collaboration.\n5. Open Communication: Encouraging respectful and clear communication reduces misunderstandings.',formula:'Diverse Teams: Challenges → Clear Roles + Regular Meetings + Open Comms → Solutions'},
+  {unit:'5',marks:'5',tag:'Long Answer',q:'Discuss the concept of modular design and prototype development in interdisciplinary projects.',a:'Modular Design:\nBreaking a complex system into smaller, independent modules.\n\nAdvantages:\n• Easy development — each module handled separately\n• Parallel work by teams — faster development\n• Simplified testing — test each module independently\n• Easy maintenance — fix or upgrade individual modules\n\nExample — Smart Irrigation System:\n• Sensor module (soil moisture sensor)\n• Control unit (Arduino/microcontroller)\n• Water pump system\n\nPrototype Building:\nCreating a preliminary model of a product to test ideas.\n\nTypes:\n• Low-fidelity: sketch, paper model (early stages — idea generation)\n• High-fidelity: working model, simulation (later stages — testing and validation)\n\nRole of Different Disciplines:\n• Mechanical → Structure design\n• Electrical/Electronics → Circuit design\n• Software → Control system\n\nPurpose: Validate concept; identify design flaws early.\n\nImportance of Team-Based Prototyping:\n• Combines different skills for complete, accurate prototypes\n• Saves time through parallel development\n• Finds problems early when parts are joined\n• Better testing because all parts work together\n• Supports better ideas from diverse perspectives',formula:'Modular Design → Independent Modules → Parallel Development → Better Prototypes'},
+];
+
+// =====================================================================
+// QUIZ DATA — MID 1
+// =====================================================================
+const MID1_QUIZ = [
+  {unit:'1',marks:'2',q:'What is Design Thinking primarily focused on?',opts:['Making products cheaper','Human-centered problem solving','Increasing production speed','Following strict engineering rules'],ans:1,explain:'Design Thinking is a human-centered problem-solving approach that focuses on understanding user needs, generating creative ideas, building prototypes, and testing solutions.'},
+  {unit:'1',marks:'2',q:'Which of the following is a feature of Design Thinking?',opts:['Linear production','Problem reframing','Ignoring user feedback','Avoiding prototypes'],ans:1,explain:'Problem reframing is a key feature of Design Thinking — designers redefine problems to discover deeper insights and better solutions instead of accepting the problem as given.'},
+  {unit:'1',marks:'2',q:'What is the correct order of the Engineering Design Process?',opts:['Plan, Define, Ask, Imagine, Prototype, Test, Improve','Define, Ask, Imagine, Plan, Prototype, Test, Improve','Imagine, Define, Ask, Plan, Test, Prototype, Improve','Ask, Define, Imagine, Test, Plan, Prototype, Improve'],ans:1,explain:'The seven steps in order are: Define → Ask → Imagine → Plan → Prototype → Test → Improve.'},
+  {unit:'1',marks:'2',q:'What are "latent needs" in Design Thinking?',opts:['Needs clearly stated by users','Hidden or unspoken user needs discovered through observation','Future technology requirements','Legal requirements of a product'],ans:1,explain:'Latent needs are hidden or unspoken user needs that are not directly expressed but can be identified through observation, empathy, and deeper understanding of user behavior.'},
+  {unit:'1',marks:'2',q:'Which stage involves building a rough model to test ideas?',opts:['Define','Brainstorm','Prototype','Improve'],ans:2,explain:'The Prototype stage involves building a simple model or working version of the selected idea to check how the solution will work in practice.'},
+  {unit:'1',marks:'2',q:'In the Empathy Process, what does "Synthesis" involve?',opts:['Observing users in their environment','Conducting empathy interviews','Creating empathy maps and identifying latent needs','Designing prototypes'],ans:2,explain:'Synthesis and Practical Ingenuity is the third stage of the empathy process where collected data is converted into useful insights — creating empathy maps, identifying latent needs, and framing "How Might We" questions.'},
+  {unit:'1',marks:'5',q:'Which of these is NOT a principle of Design Thinking?',opts:['Human-centered approach','Iteration and continuous improvement','Minimize all user input','Prototyping and testing'],ans:2,explain:'Design Thinking actively emphasizes understanding and incorporating user input through empathy. Minimizing user input is the opposite of its human-centered principle.'},
+  {unit:'1',marks:'5',q:'In the empathy process, "extreme users" are studied because:',opts:['They are the largest customer segment','Their difficulties highlight problems more clearly','They are easiest to interview','They have the highest purchasing power'],ans:1,explain:'Extreme users (users at the margins) are studied because their difficulties highlight problems more clearly than average users, revealing unmet needs that might otherwise be missed.'},
+  {unit:'2',marks:'2',q:'What does the "Closed World" principle in SIT mean?',opts:['Innovation requires external resources','Solutions created using resources already available within the system','Keep ideas secret during design','Only work within your company\'s budget'],ans:1,explain:'The Closed World principle means solutions should be created using resources already available within the product, system, or nearby environment — "thinking inside the box."'},
+  {unit:'2',marks:'2',q:'Which SIT pattern involves removing a seemingly essential component?',opts:['Division','Task Unification','Subtraction','Multiplication'],ans:2,explain:'Subtraction involves removing a component that seems essential and seeing how the system can still work or improve. Example: removing pedals from a bike to create a balance bike.'},
+  {unit:'2',marks:'2',q:'Box 3 in the 3-Box Framework focuses on:',opts:['Optimizing the current business','Removing outdated practices','Creating breakthrough future innovations','Improving operational efficiency'],ans:2,explain:'Box 3 — Create the Future — focuses on inventing new business models and breakthrough technologies using non-linear and disruptive innovation. Examples: electric vehicles, AI-driven systems.'},
+  {unit:'2',marks:'2',q:'Linear innovation is characterized by:',opts:['Radical disruption of markets','Step-by-step incremental improvement','High risk and high reward','Creating entirely new industries'],ans:1,explain:'Linear innovation is the gradual, step-by-step improvement of existing products or processes — predictable, low risk, and builds on existing knowledge.'},
+  {unit:'2',marks:'2',q:'Which of these is an example of non-linear innovation?',opts:['Improving fuel efficiency of a car engine','Increasing smartphone battery life','Electric vehicles replacing IC engines','Adding new features to existing software'],ans:2,explain:'Electric vehicles replacing IC engines is a classic example of non-linear (disruptive) innovation — it created an entirely new market and changed industry rules rather than incrementally improving existing technology.'},
+  {unit:'2',marks:'5',q:'Which brainstorming rule encourages participants NOT to judge ideas during generation?',opts:['Go for Quantity','Defer Judgement','Be Visual','Build on Others\' Ideas'],ans:1,explain:'"Defer Judgement" is the rule that no criticism or evaluation should happen during idea generation — all ideas are welcome. This creates a safe space for creative thinking.'},
+  {unit:'2',marks:'5',q:'The "Task Unification" SIT pattern involves:',opts:['Removing a component from the product','Copying a component and giving copies different roles','Giving an existing component an additional job','Making two attributes depend on each other'],ans:2,explain:'Task Unification gives an existing component an extra job in addition to its original function. Example: A camera flash also works as a torch (smartphone flashlight).'},
+  {unit:'2',marks:'5',q:'What are "weak signals" in innovation strategy?',opts:['Early signs of future change that can grow into major trends','Signals indicating a product is failing','Weak performance metrics in current products','Small marketing campaigns for niche products'],ans:0,explain:'Weak signals are small, early signs of change in technology, markets, or user behaviour that may seem unimportant today but can grow into major future trends — helping organizations think ahead.'},
+];
+
+// =====================================================================
+// QUIZ DATA — MID 2
+// =====================================================================
+const MID2_QUIZ = [
+  {unit:'3',marks:'2',q:'What does an Empathy Map capture?',opts:['Product specifications and prices','User\'s Says, Thinks, Does, and Feels','Market trends and competitor analysis','Financial data and cost projections'],ans:1,explain:'An Empathy Map has four quadrants capturing: Says (direct quotes), Thinks (internal thoughts), Does (actions/behaviors), and Feels (emotions). It helps designers understand users deeply.'},
+  {unit:'3',marks:'2',q:'What is the main purpose of a Customer Journey Map?',opts:['To map out internal company processes','To show supply chain logistics','To visualize the complete customer experience across touchpoints','To track product inventory'],ans:2,explain:'A Customer Journey Map visualizes the complete experience a customer has while interacting with a product, service, or organization — showing stages, actions, emotions, pain points, and opportunities.'},
+  {unit:'3',marks:'2',q:'Which of these is NOT a component of a Customer Journey Map?',opts:['Customer Stages','Pain Points','Manufacturing Costs','Touchpoints'],ans:2,explain:'Manufacturing Costs are not a component of a Customer Journey Map. The components are: Customer Stages, Customer Actions, Touchpoints, Thoughts and Emotions, and Pain Points.'},
+  {unit:'3',marks:'2',q:'What is an Affinity Diagram used for?',opts:['Creating product prototypes','Organizing large amounts of data into meaningful groups','Drawing customer personas','Writing problem statements'],ans:1,explain:'An Affinity Diagram is a design thinking tool used to organize large amounts of data, ideas, or observations into meaningful groups based on similarity — identifying patterns and key problem areas.'},
+  {unit:'3',marks:'2',q:'In the Service Experience Cycle, the Post-Service Stage includes:',opts:['Awareness and information search','Service consumption and real-time experience','Feedback, support, loyalty or churn','Problem definition and empathy mapping'],ans:2,explain:'The Post-Service Stage includes feedback, support, loyalty or churn — what happens after the customer has used the service.'},
+  {unit:'3',marks:'5',q:'Which role does a Mind Map play in idea generation?',opts:['Restricts ideas to one direction','Shows connections between ideas and expands creative thinking','Replaces brainstorming entirely','Used only for project scheduling'],ans:1,explain:'A Mind Map shows connections between related ideas, allows each branch to grow into sub-ideas, helps explore multiple solutions, and encourages creative thinking — all contributing to better idea generation.'},
+  {unit:'3',marks:'5',q:'Combining ideas in Design Thinking is important because:',opts:['It reduces the total number of ideas to work with','A single idea may solve one small problem, but combining ideas can solve larger, more complex problems','It always creates cheaper products','It eliminates the need for prototyping'],ans:1,explain:'Combining ideas is important because innovation often comes from merging multiple simple ideas in creative ways. A single idea may solve one small problem, but combining ideas creates more powerful solutions.'},
+  {unit:'3',marks:'5',q:'Which of these is a key importance of Customer Experience (CX) in product design?',opts:['Reducing the number of employees','Identifying and fixing user pain points to improve satisfaction','Increasing advertising budget','Speeding up manufacturing'],ans:1,explain:'CX helps designers identify areas where users face problems (pain points) — confusion, delay, frustration, poor usability — and fix these to create smoother, more satisfying experiences.'},
+  {unit:'4',marks:'2',q:'What is eco-friendly design focused on?',opts:['Maximizing product profit margins','Reducing environmental harm through sustainable materials and energy saving','Increasing production speed','Creating luxury products'],ans:1,explain:'Eco-friendly design is the approach of designing products or services in a way that causes minimal harm to the environment — reducing waste, saving energy, using sustainable materials, and lowering pollution.'},
+  {unit:'4',marks:'2',q:'What is Design for Environment (DFE)?',opts:['Designing products for outdoor use','A design approach considering environmental impact at every stage of a product\'s life cycle','Creating nature-themed product aesthetics','Designing products for extreme weather conditions'],ans:1,explain:'DFE is a design approach that integrates environmental considerations into product and service design to minimize environmental impact throughout the product life cycle. Also called Eco-design or Green Design.'},
+  {unit:'4',marks:'2',q:'During which Product Life Cycle stage do sales grow most rapidly?',opts:['Development','Introduction','Growth','Decline'],ans:2,explain:'During the Growth Stage, there is a rapid increase in sales and market acceptance. Competitors start entering the market, product improvements occur, and profits increase significantly.'},
+  {unit:'4',marks:'2',q:'What does "Life Cycle Thinking" in sustainable design mean?',opts:['Only considering the product\'s useful life','Considering environmental impact at every stage — from raw material extraction to disposal','Planning the marketing lifecycle of a product','Tracking the product through sales stages only'],ans:1,explain:'Life Cycle Thinking means designers must consider the environmental impact of a product at every stage of its life cycle — from raw material extraction and manufacturing to use, disposal, or recycling.'},
+  {unit:'4',marks:'5',q:'Which of the following is NOT a principle of sustainable product design?',opts:['Energy Efficiency','Material Optimization','Maximize resource consumption','Renewable Resource Usage'],ans:2,explain:'Maximizing resource consumption is the opposite of sustainable design. Sustainable design principles include: Life Cycle Thinking, Reduce/Reuse/Recycle, Energy Efficiency, Material Optimization, Renewable Resource Usage, and Low Carbon Emissions.'},
+  {unit:'4',marks:'5',q:'In the Electric Vehicles DFE case study, what was the main DFE decision?',opts:['Use cheaper materials','Use electric powertrain, regenerative braking, and lightweight materials','Reduce vehicle size only','Remove safety features to save weight'],ans:1,explain:'The DFE decision for Electric Vehicles was to use an electric powertrain, regenerative braking, and lightweight materials — resulting in zero tailpipe emissions and reduced fuel dependency.'},
+  {unit:'4',marks:'5',q:'What is the primary role of engineers in promoting sustainable design?',opts:['Reducing product aesthetics','Designing products, systems, and processes that reduce environmental impact and conserve resources','Minimizing research and development costs','Speeding up production at any environmental cost'],ans:1,explain:'Engineers play a major role in sustainable design by designing products, systems, and processes that reduce environmental impact, conserve resources, and improve long-term sustainability — applying technical knowledge responsibly.'},
+];
+
+// =====================================================================
+// SEM QUIZ
+// =====================================================================
+const SEM_QUIZ = [
+  {unit:'1',marks:'1',q:'Design Thinking is primarily described as what type of approach?',opts:['Technology-centered','Cost-centered','Human-centered','Production-centered'],ans:2,explain:'Design Thinking is a human-centered problem-solving approach — it focuses first on understanding user needs, emotions, and behaviors before generating solutions.'},
+  {unit:'1',marks:'1',q:'What does the "Define" step in engineering design involve?',opts:['Building a prototype','Testing the solution','Identifying the problem clearly with user needs and constraints','Generating new ideas'],ans:2,explain:'The Define step involves identifying the problem clearly by understanding user needs, design goals, and constraints such as cost, time, materials, and performance.'},
+  {unit:'2',marks:'1',q:'Which SIT pattern involves making two previously unrelated attributes depend on each other?',opts:['Subtraction','Division','Multiplication','Attribute Dependency'],ans:3,explain:'Attribute Dependency makes two previously unrelated attributes depend on each other. Example: Litmus paper changes color based on acidity level; automatic street lights turn on/off based on ambient light.'},
+  {unit:'2',marks:'1',q:'Box 2 in the 3-Box Framework is about:',opts:['Managing the present business','Selectively forgetting the past and removing outdated practices','Creating future innovations','Managing company resources'],ans:1,explain:'Box 2 — Selectively Forget the Past — focuses on removing outdated practices and methods that block future growth, creating space for innovation.'},
+  {unit:'3',marks:'1',q:'The "Feels" quadrant in an Empathy Map captures:',opts:['Direct quotes from the user','What the user thinks internally','What actions the user performs','The emotions the user experiences'],ans:3,explain:'"Feels" captures the user\'s emotions such as frustration, fear, confusion, or satisfaction — the emotional dimension of the user experience.'},
+  {unit:'3',marks:'1',q:'A Customer Journey Map includes all EXCEPT:',opts:['Pain Points','Customer Stages','Manufacturing Budget','Touchpoints'],ans:2,explain:'Manufacturing Budget is not a component of a Customer Journey Map. It includes: Customer Stages, Customer Actions, Touchpoints, Thoughts and Emotions, and Pain Points.'},
+  {unit:'4',marks:'1',q:'Which stage of the Product Life Cycle has the highest sales growth rate?',opts:['Introduction','Growth','Maturity','Decline'],ans:1,explain:'The Growth Stage has the highest rate of sales growth — rapid increase in sales and market acceptance, competitors entering, and profits increasing significantly.'},
+  {unit:'4',marks:'1',q:'DFE stands for:',opts:['Design for Excellence','Design for Environment','Design for Engineering','Design for Everyone'],ans:1,explain:'DFE stands for Design for Environment — a design approach that integrates environmental considerations into product and service design to minimize environmental impact throughout the product life cycle.'},
+  {unit:'5',marks:'1',q:'A Low-Fidelity prototype is characterized by:',opts:['Close resemblance to the final product','Detailed and functional model used in later stages','Simple and rough model, low cost, used in early stages','Digital simulation of the full system'],ans:2,explain:'A Low-Fidelity prototype is a simple and rough model used in early stages to quickly test ideas. It is low cost, quick to make, and captures only the basic design — e.g., sketch, paper model.'},
+  {unit:'5',marks:'1',q:'In a capstone project, the "Ideate" stage involves:',opts:['Studying user needs through field surveys','Clearly defining the problem statement','Generating multiple creative solutions through brainstorming and mind mapping','Building and testing a working prototype'],ans:2,explain:'The Ideate stage focuses on generating multiple creative solutions to the defined problem — using brainstorming, mind mapping, and other creative techniques to produce many possible ideas.'},
+  {unit:'1',marks:'5',q:'Which of the following is NOT a step in the 7-step Engineering Design Process?',opts:['Define','Market Analysis','Prototype','Improve'],ans:1,explain:'Market Analysis is not a step in the 7-step Engineering Design Process. The steps are: Define, Ask, Imagine, Plan, Prototype, Test, and Improve.'},
+  {unit:'2',marks:'5',q:'Which of the following is an example of the "Multiplication" SIT pattern?',opts:['Removing the headphone jack from a smartphone','A smartphone with multiple camera lenses for different shots','A camera flash that also works as a torch','A detachable laptop keyboard'],ans:1,explain:'A smartphone with multiple camera lenses (wide, zoom, standard) is an example of Multiplication — copying a component (the camera) and giving each copy a different feature or role.'},
+  {unit:'3',marks:'5',q:'The main purpose of combining ideas in Design Thinking is:',opts:['To reduce the number of solutions','To create more complex and powerful innovations that solve larger problems','To eliminate the need for prototyping','To make products more expensive'],ans:1,explain:'Combining ideas is important because a single idea may solve one small problem, but combining several ideas can solve larger and more complex problems — creating more advanced and valuable innovations.'},
+  {unit:'4',marks:'5',q:'An engineer designing a product using DFE principles would:',opts:['Focus only on performance and ignore environmental impact','Consider environmental impact at every stage of the product life cycle','Use the cheapest available materials regardless of their environmental impact','Only consider environmental impact at the disposal stage'],ans:1,explain:'DFE requires engineers to consider environmental impact at every stage of the product life cycle — from raw material selection and manufacturing to use, disposal, and recycling — to minimize overall environmental harm.'},
+  {unit:'5',marks:'5',q:'In the Smart Irrigation System capstone, what was the final selected solution?',opts:['Timer-based irrigation system','Mobile-controlled irrigation without sensors','Automatic irrigation using soil moisture sensors','Manual watering with digital monitoring'],ans:2,explain:'The final idea selected in the Smart Irrigation System capstone was automatic irrigation using soil moisture sensors — combining sensor technology with microcontroller automation to reduce water wastage and improve crop yield.'},
+];
+
+// =====================================================================
+// STATE MANAGEMENT
+// =====================================================================
+const state = {
+  mid1: { unit:'all', marks:['2','5'], mode:'flash', quizList:[], quizIdx:0, score:0, quizAnswered:false, quizDone:false, correctLog:[] },
+  mid2: { unit:'all', marks:['2','5'], mode:'flash', quizList:[], quizIdx:0, score:0, quizAnswered:false, quizDone:false, correctLog:[] },
+  sem:  { unit:'all', marks:['1','5'], mode:'flash', quizList:[], quizIdx:0, score:0, quizAnswered:false, quizDone:false, correctLog:[] },
+};
+
+function getDataMap(sec) {
+  if(sec==='mid1') return {flash:MID1_FLASHCARDS, quiz:MID1_QUIZ};
+  if(sec==='mid2') return {flash:MID2_FLASHCARDS, quiz:MID2_QUIZ};
+  return {flash:SEM_FLASHCARDS, quiz:SEM_QUIZ};
+}
+
+function showSection(sec) {
+  ['mid1','mid2','sem'].forEach(s=>{
+    document.getElementById('panel-'+s).classList.toggle('active',s===sec);
+    document.getElementById('stab-'+s).classList.toggle('active',s===sec);
+    document.querySelectorAll('.nav-btn').forEach((b,i)=>{
+      const secs=['mid1','mid2','sem'];
+      b.classList.toggle('active',secs[i]===sec);
+    });
+  });
+}
+
+function setMode(sec, mode) {
+  state[sec].mode = mode;
+  const flashDiv = document.getElementById('flash-'+sec);
+  const quizDiv = document.getElementById('quiz-'+sec);
+  flashDiv.style.display = mode==='flash' ? 'block' : 'none';
+  quizDiv.style.display = mode==='quiz' ? 'block' : 'none';
+  document.querySelectorAll('#panel-'+sec+' .mtab').forEach((b,i)=>{
+    b.classList.toggle('active', (i===0&&mode==='flash')||(i===1&&mode==='quiz'));
+  });
+  if(mode==='quiz') buildQuiz(sec);
+  else renderFlashcards(sec);
+}
+
+function setUnit(sec, unit) {
+  state[sec].unit = unit;
+  const panel = document.getElementById('panel-'+sec);
+  panel.querySelectorAll('.unit-filter .ufbtn').forEach(b=>{
+    b.classList.toggle('active', b.textContent.toLowerCase().replace('unit ','').replace('u','')===unit || (b.textContent.toLowerCase().includes('all') && unit==='all'));
+  });
+  renderAll(sec);
+}
+
+function toggleMark(sec, mark) {
+  const s = state[sec];
+  const idx = s.marks.indexOf(mark);
+  if(idx>-1) { if(s.marks.length>1) s.marks.splice(idx,1); }
+  else s.marks.push(mark);
+  const panel = document.getElementById('panel-'+sec);
+  panel.querySelectorAll('.mark-filter .ufbtn').forEach(b=>{
+    const m = b.textContent.replace('M','');
+    b.classList.toggle('active', s.marks.includes(m));
+  });
+  renderAll(sec);
+}
+
+// =====================================================================
+// FLASHCARDS
+// =====================================================================
+function renderFlashcards(sec) {
+  const s = state[sec];
+  let data = getDataMap(sec).flash;
+  if(s.unit!=='all') data = data.filter(d=>d.unit===s.unit);
+  data = data.filter(d=>s.marks.includes(d.marks));
+  const grid = document.getElementById('fcgrid-'+sec);
+  const count = document.getElementById('fccount-'+sec);
+  if(!data.length){grid.innerHTML='<div class="empty">No flashcards match the current filter.</div>';count.textContent='';return;}
+  grid.innerHTML = data.map((d,i)=>{
+    const tall = d.a && d.a.length>200 ? ' tall' : '';
+    const ansHtml = d.a.replace(/\n/g,'<br>');
+    const formulaHtml = d.formula ? `<span class="formula">→ ${d.formula}</span>` : '';
+    return `
+      <div class="fc${tall}" onclick="this.classList.toggle('flipped')">
+        <div class="fc-inner">
+          <div class="fc-front">
+            <div>
+              <div class="fc-tag">${d.tag}<span class="fc-mark-badge">${d.marks}M</span></div>
+              <div class="fc-q">${d.q}</div>
+            </div>
+            <div class="fc-hint">Click to reveal answer ↗</div>
+          </div>
+          <div class="fc-back">
+            <div>
+              <div class="fc-unit">Unit ${d.unit} · ${d.marks}M</div>
+              <div class="fc-ans" style="margin-top:8px">${ansHtml}${formulaHtml}</div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+  count.textContent = `Showing ${data.length} flashcard${data.length!==1?'s':''}`;
+  renderStats(sec, data);
+}
+
+function renderStats(sec, data) {
+  const bar = document.getElementById('stats-'+sec);
+  if(!bar) return;
+  const units = [...new Set(data.map(d=>d.unit))].sort();
+  let html = '';
+  units.forEach(u=>{
+    const c = data.filter(d=>d.unit===u).length;
+    html += `<div class="stat"><div class="stat-n">${c}</div><div class="stat-l">Unit ${u}</div></div>`;
+  });
+  bar.innerHTML = html;
+}
+
+// =====================================================================
+// QUIZ
+// =====================================================================
+function buildQuiz(sec) {
+  const s = state[sec];
+  let data = getDataMap(sec).quiz;
+  if(s.unit!=='all') data = data.filter(d=>d.unit===s.unit);
+  data = data.filter(d=>s.marks.includes(d.marks));
+  data = shuffle([...data]);
+  s.quizList = data;
+  s.quizIdx = 0;
+  s.score = 0;
+  s.quizAnswered = false;
+  s.quizDone = false;
+  s.correctLog = [];
+  renderQuiz(sec);
+}
+
+function shuffle(arr) {
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
+}
+
+function renderQuiz(sec) {
+  const s = state[sec];
+  const data = s.quizList;
+  const prog = document.getElementById('qprog-'+sec);
+  const body = document.getElementById('qbody-'+sec);
+  if(!data.length){body.innerHTML='<div class="empty">No quiz questions match current filter.</div>';prog.innerHTML='';return;}
+  prog.innerHTML = data.map((_,i)=>{
+    let cls='qp-dot';
+    if(i<s.quizIdx) cls+=' '+(s.correctLog[i]?'correct':'wrong');
+    else if(i===s.quizIdx&&!s.quizDone) cls+=' current';
+    return `<div class="${cls}"></div>`;
+  }).join('');
+  if(s.quizDone){renderResult(sec);return;}
+  const q = data[s.quizIdx];
+  const markLabel = q.marks==='1' ? '1M · Part A' : q.marks==='2' ? '2M · Part A' : '5M · Part B';
+  const optHTML = q.opts.map((o,oi)=>`
+    <button class="opt" id="${sec}opt${oi}" onclick="answerQuiz('${sec}',${oi})">${o}</button>
+  `).join('');
+  body.innerHTML = `
+    <div class="quiz-card">
+      <div class="quiz-meta">
+        <div class="quiz-num">Q${s.quizIdx+1} / ${data.length}</div>
+        <div class="quiz-unit">Unit ${q.unit} · ${markLabel}</div>
+      </div>
+      <div class="quiz-q">${q.q}</div>
+      <div class="options">${optHTML}</div>
+      <div id="${sec}-explain"></div>
+    </div>
+    <div class="quiz-actions">
+      <button class="btn btn-outline" onclick="buildQuiz('${sec}')">Restart</button>
+      <button class="btn btn-red" id="${sec}-next" style="display:none" onclick="nextQ('${sec}')">Next →</button>
+    </div>`;
+}
+
+function answerQuiz(sec, chosen) {
+  const s = state[sec];
+  if(s.quizAnswered) return;
+  s.quizAnswered = true;
+  const q = s.quizList[s.quizIdx];
+  const correct = chosen===q.ans;
+  if(correct) s.score++;
+  s.correctLog[s.quizIdx] = correct;
+  q.opts.forEach((_,i)=>{
+    const el=document.getElementById(sec+'opt'+i);
+    if(!el)return;
+    el.classList.add('disabled');
+    if(i===q.ans) el.classList.add('correct');
+    else if(i===chosen) el.classList.add('wrong');
+  });
+  document.getElementById(sec+'-explain').innerHTML = `
+    <div class="quiz-explain">
+      <strong>${correct?'✓ Correct!':'✗ Incorrect.'}</strong> ${q.explain}
+    </div>`;
+  document.getElementById(sec+'-next').style.display='inline-block';
+  renderQuizProg(sec);
+}
+
+function renderQuizProg(sec) {
+  const s = state[sec];
+  const prog = document.getElementById('qprog-'+sec);
+  prog.innerHTML = s.quizList.map((_,i)=>{
+    let cls='qp-dot';
+    if(i<s.quizIdx) cls+=' '+(s.correctLog[i]?'correct':'wrong');
+    else if(i===s.quizIdx) cls+=' '+(s.quizAnswered?(s.correctLog[i]?'correct':'wrong'):'current');
+    return `<div class="${cls}"></div>`;
+  }).join('');
+}
+
+function nextQ(sec) {
+  const s = state[sec];
+  s.quizAnswered = false;
+  s.quizIdx++;
+  if(s.quizIdx>=s.quizList.length) s.quizDone=true;
+  renderQuiz(sec);
+}
+
+function renderResult(sec) {
+  const s = state[sec];
+  const total = s.quizList.length;
+  const pct = Math.round((s.score/total)*100);
+  let msg='';
+  if(pct>=80) msg='Outstanding! You have a strong grasp of Design Thinking. Review any wrong answers briefly before the exam.';
+  else if(pct>=60) msg='Good effort! Focus on the questions you got wrong and revisit those topics in the flashcards.';
+  else if(pct>=40) msg='Needs work. Go back to flashcards for topics you struggled with — especially the long-answer concepts.';
+  else msg='Keep going! Use the flashcards to build your foundation, then attempt the quiz again.';
+  document.getElementById('qbody-'+sec).innerHTML = `
+    <div class="quiz-result">
+      <div class="result-score">${pct}%</div>
+      <div class="result-label">Final Score</div>
+      <div class="result-breakdown">
+        <div class="rb-item"><div class="rb-num" style="color:#22c55e">${s.score}</div><div class="rb-lbl">Correct</div></div>
+        <div class="rb-item"><div class="rb-num" style="color:var(--red)">${total-s.score}</div><div class="rb-lbl">Wrong</div></div>
+        <div class="rb-item"><div class="rb-num">${total}</div><div class="rb-lbl">Total</div></div>
+      </div>
+      <div class="result-msg">${msg}</div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-red" onclick="buildQuiz('${sec}')">Retake Quiz</button>
+        <button class="btn btn-outline" onclick="setMode('${sec}','flash')">Review Flashcards</button>
+      </div>
+    </div>`;
+}
+
+function renderAll(sec) {
+  renderFlashcards(sec);
+  if(state[sec].mode==='quiz') buildQuiz(sec);
+}
+
+// INIT
+renderFlashcards('mid1');
+renderFlashcards('mid2');
+renderFlashcards('sem');
+</script>
+</body>
+</html>

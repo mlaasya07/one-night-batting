@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engineering prep - 3rd Year</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --bg2: #111111;
+  --bg3: #1a1a1a;
+  --bg4: #222222;
+  --red: #e02020;
+  --red2: #ff3333;
+  --red3: #c01010;
+  --red-dim: rgba(224,32,32,0.12);
+  --red-glow: rgba(224,32,32,0.25);
+  --white: #f5f5f5;
+  --white2: #cccccc;
+  --white3: #888888;
+  --border: rgba(255,255,255,0.08);
+  --border-red: rgba(224,32,32,0.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Roboto Mono',monospace;min-height:100vh;overflow-x:hidden}
+
+/* NOISE TEXTURE */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.5}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,10,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 2rem}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--white);letter-spacing:0.02em}
+.logo span{color:var(--red)}
+.nav{display:flex;gap:4px}
+.nav-btn{background:none;border:none;color:var(--white3);font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:6px 14px;cursor:pointer;border-radius:4px;transition:all .2s}
+.nav-btn:hover,.nav-btn.active{background:var(--red-dim);color:var(--red2)}
+
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:2rem;position:relative;z-index:1}
+
+/* SECTION TABS */
+.section-tabs{display:flex;gap:12px;margin-bottom:2rem;flex-wrap:wrap}
+.stab{flex:1;min-width:200px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:1.2rem 1.5rem;cursor:pointer;transition:all .25s;text-align:left}
+.stab:hover{border-color:var(--border-red);background:var(--bg3)}
+.stab.active{border-color:var(--red);background:var(--red-dim);box-shadow:0 0 24px var(--red-glow)}
+.stab-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white3);margin-bottom:4px}
+.stab-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white)}
+.stab.active .stab-title{color:var(--red2)}
+.stab-marks{font-size:11px;color:var(--white3);margin-top:4px}
+
+/* MODE TABS */
+.mode-tabs{display:flex;gap:8px;margin-bottom:2rem}
+.mtab{background:var(--bg2);border:1px solid var(--border);color:var(--white3);font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:8px 20px;cursor:pointer;border-radius:4px;transition:all .2s}
+.mtab:hover{color:var(--white);border-color:rgba(255,255,255,0.2)}
+.mtab.active{background:var(--red);border-color:var(--red);color:#fff}
+
+/* UNIT FILTER */
+.unit-filter{display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:wrap}
+.ufbtn{background:var(--bg3);border:1px solid var(--border);color:var(--white3);font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;cursor:pointer;border-radius:3px;transition:all .15s}
+.ufbtn:hover{border-color:var(--border-red);color:var(--white)}
+.ufbtn.active{background:var(--red-dim);border-color:var(--red);color:var(--red2)}
+
+/* CONTENT PANELS */
+.cpanel{display:none}.cpanel.active{display:block}
+
+/* ===== FLASHCARDS ===== */
+.fc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.fc{perspective:1000px;height:220px;cursor:pointer}
+.fc-inner{position:relative;width:100%;height:100%;transition:transform 0.55s cubic-bezier(.4,0,.2,1);transform-style:preserve-3d}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between}
+.fc-front{background:var(--bg2);border:1px solid var(--border)}
+.fc-front:hover{border-color:var(--border-red)}
+.fc-back{background:var(--bg3);border:1px solid var(--red);transform:rotateY(180deg)}
+.fc-tag{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.fc-q{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);line-height:1.5;flex:1;display:flex;align-items:center}
+.fc-hint{font-size:10px;color:var(--white3);letter-spacing:0.06em}
+.fc-ans{font-size:12px;color:var(--white2);line-height:1.6;font-family:'Roboto Mono',monospace;overflow-y:auto;flex:1}
+.fc-ans .formula{color:var(--red2);display:block;margin:4px 0;font-size:11px}
+.fc-unit{font-size:9px;color:var(--white3);letter-spacing:0.1em;text-transform:uppercase}
+.fc-count{font-size:10px;color:var(--white3);text-align:center;margin-top:1rem}
+
+/* ===== QUIZ ===== */
+.quiz-wrap{max-width:720px;margin:0 auto}
+.quiz-progress{display:flex;gap:4px;margin-bottom:2rem;flex-wrap:wrap}
+.qp-dot{width:8px;height:8px;border-radius:50%;background:var(--bg4);border:1px solid var(--border);transition:all .2s}
+.qp-dot.done{background:var(--red3);border-color:var(--red)}
+.qp-dot.correct{background:#22c55e;border-color:#22c55e}
+.qp-dot.wrong{background:var(--red);border-color:var(--red)}
+.qp-dot.current{background:none;border-color:var(--red2);box-shadow:0 0 6px var(--red2)}
+.quiz-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:2rem;margin-bottom:1.5rem;animation:fadeUp .3s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.quiz-meta{display:flex;justify-content:space-between;margin-bottom:1rem}
+.quiz-num{font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--red)}
+.quiz-unit{font-size:10px;color:var(--white3);letter-spacing:0.06em}
+.quiz-q{font-family:'Playfair Display',serif;font-size:1.15rem;line-height:1.55;color:var(--white);margin-bottom:1.5rem}
+.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px 16px;cursor:pointer;font-family:'Roboto Mono',monospace;font-size:12px;color:var(--white2);transition:all .2s;text-align:left;line-height:1.5}
+.opt:hover:not(.disabled){border-color:rgba(255,255,255,0.25);background:var(--bg4);color:var(--white)}
+.opt.correct{border-color:#22c55e;background:rgba(34,197,94,0.1);color:#86efac}
+.opt.wrong{border-color:var(--red);background:var(--red-dim);color:#fca5a5}
+.opt.disabled{cursor:default}
+.quiz-explain{background:var(--bg3);border-left:3px solid var(--red);border-radius:0 6px 6px 0;padding:12px 16px;margin-top:1rem;font-size:12px;color:var(--white2);line-height:1.6;animation:fadeUp .25s ease}
+.quiz-explain .formula{color:var(--red2);font-family:'Roboto Mono',monospace}
+.quiz-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:1.5rem}
+.btn{font-family:'Roboto Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;padding:10px 24px;border-radius:4px;cursor:pointer;transition:all .2s;border:none}
+.btn-outline{background:none;border:1px solid var(--border);color:var(--white3)}
+.btn-outline:hover{border-color:var(--border-red);color:var(--white)}
+.btn-red{background:var(--red);color:#fff}
+.btn-red:hover{background:var(--red2)}
+.quiz-result{text-align:center;padding:3rem 2rem;background:var(--bg2);border:1px solid var(--border);border-radius:10px;animation:fadeUp .4s ease}
+.result-score{font-family:'Playfair Display',serif;font-size:5rem;color:var(--red);line-height:1}
+.result-label{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--white3);margin:8px 0 1.5rem}
+.result-breakdown{display:flex;gap:2rem;justify-content:center;margin:1.5rem 0;flex-wrap:wrap}
+.rb-item{text-align:center}
+.rb-num{font-family:'Playfair Display',serif;font-size:2rem}
+.rb-lbl{font-size:10px;color:var(--white3);letter-spacing:0.08em;text-transform:uppercase}
+.result-msg{font-size:13px;color:var(--white2);margin:1.5rem 0;line-height:1.6;max-width:400px;margin-left:auto;margin-right:auto}
+
+/* STATS BAR */
+.stats-bar{display:flex;gap:16px;margin-bottom:1.5rem;flex-wrap:wrap}
+.stat{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:2px}
+.stat-n{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--red2)}
+.stat-l{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--white3)}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--red3);border-radius:2px}
+
+/* EMPTY */
+.empty{text-align:center;padding:4rem;color:var(--white3);font-size:13px}
+
+/* RESPONSIVE */
+@media(max-width:600px){.options{grid-template-columns:1fr}.section-tabs{flex-direction:column}.fc-grid{grid-template-columns:1fr}}
+
+/* TITLE SECTION */
+.page-title{margin-bottom:2rem}
+.page-title h1{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;line-height:1.2;margin-bottom:6px}
+.page-title h1 em{font-style:italic;color:var(--red)}
+.page-title p{font-size:11px;color:var(--white3);letter-spacing:0.08em;text-transform:uppercase}
+
+/* DIVIDER */
+.div-line{height:1px;background:linear-gradient(90deg,var(--red),transparent);margin-bottom:2rem;opacity:0.4}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="logo"><a href="index.html" style="color:var(--white3);text-decoration:none;font-size:11px;font-family:'Roboto Mono',monospace;letter-spacing:.06em;margin-right:12px">← Home</a>Engg<span>.</span>Prep <span style="font-size:.75rem;color:var(--white3);font-family:'Roboto Mono',monospace;font-weight:300">— AIMSCS</span></div>
+    <nav class="nav">
+      <button class="nav-btn active" onclick="showSection('mid')">Mid · 30M</button>
+      <button class="nav-btn" onclick="showSection('sem')">Sem · 60M</button>
+    </nav>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="page-title">
+    <h1>Machine Learning<br><em>Exam Prep</em></h1>
+    <p>JNTUH Syllabus · Flashcards & Quizzes · Non-repeating Questions</p>
+  </div>
+  <div class="div-line"></div>
+
+  <!-- SECTION TABS -->
+  <div class="section-tabs">
+    <div class="stab active" id="stab-mid" onclick="showSection('mid')">
+      <div class="stab-label">Section 1</div>
+      <div class="stab-title">Mid Examination</div>
+      <div class="stab-marks">30 marks · Units III, IV, V</div>
+    </div>
+    <div class="stab" id="stab-sem" onclick="showSection('sem')">
+      <div class="stab-label">Section 2</div>
+      <div class="stab-title">Semester Examination</div>
+      <div class="stab-marks">60 marks · Units I – V (2M & 5M)</div>
+    </div>
+    <div class="stab" id="stab-essays" onclick="window.location.href='mlxams.html'">
+      <div class="stab-label">Answer Key</div>
+      <div class="stab-title">All Units</div>
+      <div class="stab-marks"><strong style="color:var(--red2)">Answer Key:</strong> Comprehensive solutions to all questions</div>
+    </div>  
+  </div>
+
+  <!-- ===================== MID SECTION ===================== -->
+  <div class="cpanel active" id="panel-mid">
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('mid','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('mid','quiz')">Quiz</button>
+    </div>
+
+    <div class="unit-filter" id="uf-mid">
+      <button class="ufbtn active" onclick="filterUnit('mid','all')">All Units</button>
+      <button class="ufbtn" onclick="filterUnit('mid','3')">Unit III</button>
+      <button class="ufbtn" onclick="filterUnit('mid','4')">Unit IV</button>
+      <button class="ufbtn" onclick="filterUnit('mid','5')">Unit V</button>
+    </div>
+
+    <div class="stats-bar" id="stats-mid"></div>
+
+    <!-- FLASHCARDS -->
+    <div class="cpanel active" id="mid-flash">
+      <div class="fc-grid" id="fc-mid"></div>
+      <div class="fc-count" id="fc-count-mid"></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="cpanel" id="mid-quiz">
+      <div class="quiz-wrap">
+        <div class="quiz-progress" id="qprog-mid"></div>
+        <div id="qbody-mid"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SEM SECTION ===================== -->
+  <div class="cpanel" id="panel-sem">
+    <div class="mode-tabs">
+      <button class="mtab active" onclick="setMode('sem','flash')">Flashcards</button>
+      <button class="mtab" onclick="setMode('sem','quiz')">Quiz</button>
+    </div>
+
+    <div style="display:flex;gap:8px;margin-bottom:.75rem;flex-wrap:wrap">
+      <div class="unit-filter" id="uf-sem" style="flex:1">
+        <button class="ufbtn active" onclick="filterUnit('sem','all')">All</button>
+        <button class="ufbtn" onclick="filterUnit('sem','1')">Unit I</button>
+        <button class="ufbtn" onclick="filterUnit('sem','2')">Unit II</button>
+        <button class="ufbtn" onclick="filterUnit('sem','3')">Unit III</button>
+        <button class="ufbtn" onclick="filterUnit('sem','4')">Unit IV</button>
+        <button class="ufbtn" onclick="filterUnit('sem','5')">Unit V</button>
+      </div>
+      <div style="display:flex;gap:6px;align-items:flex-start">
+        <button class="ufbtn active" id="mb-2" onclick="filterMark('sem','2')">2-Mark</button>
+        <button class="ufbtn active" id="mb-5" onclick="filterMark('sem','5')">5-Mark</button>
+      </div>
+    </div>
+
+    <div class="stats-bar" id="stats-sem"></div>
+
+    <!-- FLASHCARDS -->
+    <div class="cpanel active" id="sem-flash">
+      <div class="fc-grid" id="fc-sem"></div>
+      <div class="fc-count" id="fc-count-sem"></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div class="cpanel" id="sem-quiz">
+      <div class="quiz-wrap">
+        <div class="quiz-progress" id="qprog-sem"></div>
+        <div id="qbody-sem"></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// =========================================================
+// DATA
+// =========================================================
+
+const MID_FLASHCARDS = [
+  // UNIT 3
+  {unit:'3',tag:'Definition',q:'What is a Gaussian Mixture Model (GMM)?',a:'A probabilistic model that represents data as a weighted sum of K Gaussian distributions. Each Gaussian represents a cluster. Soft clustering — each point gets a probability per cluster.',formula:'P(x) = Σ πk · N(x|μk, Σk)'},
+  {unit:'3',tag:'Formula',q:'Write the GMM probability formula and define each term.',a:'P(x) = Σ πk · N(x|μk, Σk)\nπk = mixing coefficient (weights sum to 1)\nμk = mean of k-th Gaussian\nΣk = covariance of k-th Gaussian',formula:'Σ πk = 1  for all k'},
+  {unit:'3',tag:'Algorithm',q:'What are the steps of the EM Algorithm used to train a GMM?',a:'1. Initialize μ, Σ, π randomly\n2. E-step: compute responsibility γ(ik) = P(cluster k | point i)\n3. M-step: update μk, Σk, πk using weighted averages\n4. Repeat until convergence (log-likelihood stops changing)',formula:'γ(ik) = πk·N(xi|μk,Σk) / Σj πj·N(xi|μj,Σj)'},
+  {unit:'3',tag:'Comparison',q:'How does GMM differ from K-Means clustering?',a:'GMM: soft/probabilistic assignment, elliptical clusters, uses EM\nK-Means: hard assignment (one cluster per point), spherical clusters, uses distance\nGMM is more flexible but computationally heavier.'},
+  {unit:'3',tag:'Definition',q:'What is Unsupervised Learning?',a:'Training without labeled data. The algorithm finds patterns, groups, or structure on its own. Types: Clustering, Dimensionality Reduction, Density Estimation. No target output is given.'},
+  {unit:'3',tag:'Definition',q:'What is KNN (K-Nearest Neighbors)?',a:'Instance-based learning. For a new point, find K closest training points and predict via majority vote (classification) or average (regression). Lazy learner — no training phase.',formula:'d(x,y) = √Σ(xi-yi)²  [Euclidean]'},
+  {unit:'3',tag:'Formula',q:'List the distance metrics used in KNN.',a:'1. Euclidean: √Σ(xi-yi)²\n2. Manhattan: Σ|xi-yi|\n3. Minkowski: (Σ|xi-yi|^p)^(1/p)\n4. Cosine Similarity: (x·y)/(‖x‖‖y‖)',formula:'Euclidean is most common for continuous data'},
+  {unit:'3',tag:'Definition',q:'What is K-Means clustering?',a:'Unsupervised algorithm partitioning data into K clusters by minimizing within-cluster distance. Each point assigned to nearest centroid. Hard clustering.',formula:'J = ΣΣ ||xi - μk||²  [minimize]'},
+  {unit:'3',tag:'Algorithm',q:'Write the steps of the K-Means algorithm.',a:'1. Choose K\n2. Initialize K centroids randomly\n3. Assign each point to nearest centroid\n4. Recompute centroids (mean of cluster points)\n5. Repeat steps 3-4 until centroids stop changing',formula:'μk = (1/|Ck|) Σ xi  for xi ∈ Ck'},
+  {unit:'3',tag:'Formula',q:'What is the Elbow Method for choosing K in K-Means?',a:'Plot Within-Cluster Sum of Squares (WCSS) vs K. WCSS drops steeply at first, then flattens. The "elbow" point — where reduction slows — is the optimal K.',formula:'WCSS = Σk Σxi∈Ck ||xi - μk||²'},
+  {unit:'3',tag:'Formula',q:'Write the Gaussian (Normal) distribution formula.',a:'Bell-shaped, symmetric curve. Defined by mean μ and variance σ². Most ML probability models assume Gaussian noise.',formula:'P(x) = (1/√2πσ²) · exp(-(x-μ)²/2σ²)'},
+  {unit:'3',tag:'Formula',q:'Define covariance and correlation.',a:'Covariance: Cov(X,Y) = (1/N)Σ(xi-μx)(yi-μy). Measures joint variability.\nCorrelation: ρ = Cov(X,Y)/(σx·σy). Normalized, range -1 to +1.',formula:'ρ=+1: perfect positive | ρ=-1: perfect negative | ρ=0: no relation'},
+  {unit:'3',tag:'Definition',q:'What is the KD-Tree and why is it used in KNN?',a:'A space-partitioning data structure for organizing points in k-dimensional space. Reduces KNN search complexity from O(N) to O(log N) by dividing space into recursive hyperplane regions.'},
+  {unit:'3',tag:'Definition',q:'Define Soft vs Hard Clustering.',a:'Hard clustering: each point belongs to exactly one cluster (K-Means).\nSoft clustering: each point has a probability of belonging to each cluster (GMM). Soft is more flexible when boundaries are ambiguous.'},
+  // UNIT 4
+  {unit:'4',tag:'Definition',q:'What is Dimensionality Reduction and why is it needed?',a:'Reducing number of input features while retaining maximum information. Needed to avoid curse of dimensionality, reduce noise, speed up computation, enable visualization, and prevent overfitting.'},
+  {unit:'4',tag:'Definition',q:'What is PCA (Principal Component Analysis)?',a:'Unsupervised linear dimensionality reduction. Finds orthogonal axes (Principal Components) of maximum variance. Does not use class labels.',formula:'C = (1/N)XᵀX  [Covariance matrix]\nCpi = λipi  [Eigenvalue equation]'},
+  {unit:'4',tag:'Algorithm',q:'Write the steps of PCA.',a:'1. Standardize data (mean=0)\n2. Compute covariance matrix C = XᵀX/N\n3. Compute eigenvalues and eigenvectors of C\n4. Sort eigenvectors by eigenvalue (descending)\n5. Select top k eigenvectors\n6. Project: Y = Pᵀ X',formula:'Y = Pᵀ X  [Projection]'},
+  {unit:'4',tag:'Definition',q:'What is LDA (Linear Discriminant Analysis)?',a:'Supervised dimensionality reduction. Projects data to maximize between-class scatter and minimize within-class scatter. Uses class labels. Max output dimensions = classes - 1.',formula:'J(w) = wᵀSb w / wᵀSw w'},
+  {unit:'4',tag:'Formula',q:'Define the scatter matrices in LDA.',a:'Within-class scatter Sw = Σc Σx∈c (x-μc)(x-μc)ᵀ  [minimize — points in same class close]\nBetween-class scatter Sb = Σc (μc-μ)(μc-μ)ᵀ  [maximize — class means far apart]',formula:'w = Sw⁻¹(μ1 - μ2)  [2-class optimal solution]'},
+  {unit:'4',tag:'Comparison',q:'Compare PCA and LDA.',a:'PCA: unsupervised, maximizes total variance, no class labels, components orthogonal.\nLDA: supervised, maximizes class separation, uses labels, max dims = classes-1.\nPCA for compression; LDA for classification.'},
+  {unit:'4',tag:'Definition',q:'What is Factor Analysis (FA)?',a:'Probabilistic dimensionality reduction finding latent (hidden) factors behind observed variables. Explicitly models noise. Solved via EM algorithm.',formula:'X = WY + E\nΣ = WWᵀ + Ψ'},
+  {unit:'4',tag:'Definition',q:'What is ICA (Independent Component Analysis)?',a:'Separates a multivariate signal into statistically independent source signals. Used for blind source separation (e.g., Cocktail Party Problem). Requires non-Gaussian signals.',formula:'X = AS  →  S = WX  (W = A⁻¹)'},
+  {unit:'4',tag:'Definition',q:'What is LLE (Locally Linear Embedding)?',a:'Non-linear dimensionality reduction preserving local neighborhood structure. Assumes data lies on a low-dimensional manifold. Reconstructs each point from its K nearest neighbors.',formula:'min Σ|xi - Σj wij·xj|²  s.t. Σwij=1'},
+  {unit:'4',tag:'Definition',q:'What is Isomap?',a:'Non-linear dimensionality reduction preserving global geometric structure using geodesic distances. Extends MDS with shortest-path distances along the data manifold.',formula:'Step 1: K-neighbor graph\nStep 2: Dijkstra shortest paths\nStep 3: Apply MDS'},
+  {unit:'4',tag:'Comparison',q:'Compare LLE and Isomap.',a:'LLE: preserves LOCAL structure, uses linear reconstruction weights, fails with sparse data.\nIsomap: preserves GLOBAL structure, uses geodesic distances + MDS, fails if graph disconnected.\nBoth are non-linear, unlike PCA.'},
+  {unit:'4',tag:'Definition',q:'What is Least Squares Optimization?',a:'Finds parameters minimizing sum of squared errors between predicted and actual values. Used in linear regression. Has a closed-form solution.',formula:'J(w) = ||y - Xw||²\nw* = (XᵀX)⁻¹Xᵀy'},
+  {unit:'4',tag:'Definition',q:'What is the Curse of Dimensionality?',a:'As features increase: data becomes sparse, distance metrics become less meaningful, exponentially more data needed to train, computation explodes, overfitting risk increases. Motivates dimensionality reduction.'},
+  {unit:'4',tag:'Definition',q:'What are Genetic Algorithms?',a:'Evolutionary optimization inspired by natural selection. Maintains population of solutions. Iterates: Selection → Crossover → Mutation → New generation. No gradient needed.',formula:'Fitness function f(x) guides evolution'},
+  {unit:'4',tag:'Algorithm',q:'Define Crossover and Mutation in Genetic Algorithms.',a:'Crossover: combine two parent chromosomes at a crossover point to produce offspring. Preserves good features of both parents.\nMutation: randomly flip one or more genes in a chromosome. Introduces diversity, prevents premature convergence.',formula:'Parent1: 11001  Parent2: 10110\nChild1:  11010  Child2:  10101'},
+  // UNIT 5
+  {unit:'5',tag:'Definition',q:'What is Reinforcement Learning?',a:'Agent learns by trial-and-error interaction with environment. Receives rewards/penalties. Goal: maximize cumulative reward. No labeled data — learns from feedback.',formula:'Rt = r₁ + γr₂ + γ²r₃ + ...  (γ=discount factor)'},
+  {unit:'5',tag:'Definition',q:'Define: Agent, State, Action, Reward, Policy in RL.',a:'Agent: learner/decision-maker\nState (s): current situation\nAction (a): possible moves\nReward (r): feedback after action\nPolicy π: strategy mapping states to actions\nGoal: find optimal policy π*'},
+  {unit:'5',tag:'Formula',q:'What is the Discount Factor γ in RL?',a:'Controls importance of future rewards. Range: 0 ≤ γ ≤ 1.\nγ≈0: agent focuses on immediate reward (myopic).\nγ≈1: agent considers long-term reward.',formula:'Rt = Σt γᵗ·r(t+1)  [cumulative discounted reward]'},
+  {unit:'5',tag:'Definition',q:'What is a Markov Decision Process (MDP)?',a:'Formal framework for RL problems. Defined by tuple (S, A, P, R, γ).\nS=states, A=actions, P=transition probabilities, R=reward function, γ=discount.',formula:'Markov Property: P(st+1|st,at) — future depends only on present'},
+  {unit:'5',tag:'Definition',q:'What is the Markov Property?',a:'Future state depends only on the current state, not on the history of past states.\nP(st+1 | st, st-1, ..., s0) = P(st+1 | st)\nSimplifies computation enormously.'},
+  {unit:'5',tag:'Definition',q:'What are Value Functions V(s) and Q(s,a) in RL?',a:'V(s): State Value Function — expected cumulative reward starting from state s under policy π.\nQ(s,a): Action Value Function — expected cumulative reward taking action a in state s.\nQ is more detailed; used in Q-Learning.',formula:'V(s) = E[Rt | s₀=s, π]\nQ(s,a) = E[Rt | s₀=s, a₀=a, π]'},
+  {unit:'5',tag:'Definition',q:'What is Exploration vs Exploitation in RL?',a:'Exploration: try new/random actions to discover better strategies.\nExploitation: use known best action to maximize reward.\nTrade-off is critical — too much exploitation = local optima; too much exploration = slow learning.'},
+  {unit:'5',tag:'Definition',q:'What is a Hidden Markov Model (HMM)?',a:'Statistical model with hidden (unobserved) states. We observe only outputs generated by states. Defined by: A (transition), B (emission), π (initial probs).',formula:'λ = (A, B, π)'},
+  {unit:'5',tag:'Formula',q:'Define the three probability components of an HMM.',a:'A = Transition: P(St+1|St) — probability of state transitions\nB = Emission: P(Ot|St) — probability of observation given state\nπ = Initial: P(S1) — probability of starting states',formula:'HMM model: λ = (A, B, π)'},
+  {unit:'5',tag:'Algorithm',q:'What are the 3 fundamental problems of HMM?',a:'1. Evaluation: P(O|λ) — probability of observation sequence → Forward Algorithm\n2. Decoding: most likely hidden state sequence → Viterbi Algorithm\n3. Learning: estimate A, B, π from data → Baum-Welch (EM) Algorithm'},
+  {unit:'5',tag:'Definition',q:'What is MCMC (Markov Chain Monte Carlo)?',a:'Class of algorithms for sampling from complex probability distributions. Constructs a Markov chain whose stationary distribution equals the target P(x). After many iterations, samples ≈ P(x).',formula:'x₀→x₁→x₂→...→xn  [chain converges to P(x)]'},
+  {unit:'5',tag:'Algorithm',q:'Explain the Metropolis-Hastings algorithm.',a:'1. Start at current state x\n2. Propose new state x\' from Q(x\'|x)\n3. Compute acceptance: α = min(1, P(x\')Q(x|x\') / P(x)Q(x\'|x))\n4. Accept x\' with probability α, else stay at x\n5. Repeat',formula:'α = min(1, P(x\')Q(x|x\') / P(x)Q(x\'|x))'},
+  {unit:'5',tag:'Algorithm',q:'Explain Gibbs Sampling.',a:'Samples one variable at a time conditioned on all others. No accept/reject step.\nFor (x1, x2, x3): sample x1|x2,x3 → sample x2|x1,x3 → sample x3|x1,x2 → repeat.\nAlways accepts, simpler than M-H.'},
+  {unit:'5',tag:'Definition',q:'What is a Bayesian Network?',a:'Directed Acyclic Graph (DAG) representing conditional dependencies between random variables. Nodes = variables, edges = influence. Encodes joint distribution efficiently via local conditionals.',formula:'P(A,B,C,D) = P(A)·P(B|A)·P(C|B)·P(D|B)'},
+  {unit:'5',tag:'Definition',q:'What is a Markov Random Field (MRF)?',a:'Undirected probabilistic graphical model. Nodes = variables, undirected edges = mutual dependencies. Each node depends only on its neighbors (local Markov property). No causal direction.',formula:'P(X) = (1/Z) Π ψc(Xc)  [clique potentials]'},
+  {unit:'5',tag:'Comparison',q:'Compare Bayesian Networks and Markov Random Fields.',a:'Bayesian Network: directed (DAG), causal relationships, joint prob as product of conditionals.\nMRF: undirected, symmetric relationships, joint prob via clique potentials.\nBN for cause-effect; MRF for spatial/symmetric problems.'},
+  {unit:'5',tag:'Definition',q:'What is the Kalman Filter?',a:'Recursive algorithm for tracking state of a linear dynamic system with Gaussian noise. Two steps: Predict (state estimate forward in time) and Update (correct using new observation).',formula:'Predict: x̂ₜ = Fxₜ₋₁\nUpdate: K = PHᵀ(HPHᵀ+R)⁻¹'},
+  {unit:'5',tag:'Definition',q:'What is a Particle Filter?',a:'Sequential Monte Carlo method for nonlinear/non-Gaussian tracking. Represents state distribution as a set of weighted particles (samples). Steps: Predict → Weight → Resample.',formula:'Particle set: {x(i), w(i)}  for i=1..N'},
+];
+
+const SEM_FLASHCARDS = [
+  // UNIT 1 - 2M
+  {unit:'1',marks:'2',tag:'Definition',q:'What is Machine Learning? Define with the Mitchell definition.',a:'Machine Learning: A computer program is said to learn from experience E with respect to task T and performance measure P, if performance on T improves with E. — Tom Mitchell',formula:'T (Task) + P (Performance) + E (Experience)'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is Concept Learning?',a:'Finding a hypothesis consistent with training examples to correctly classify new examples. The target concept is a boolean function over input features. The hypothesis space is searched for the best fit.'},
+  {unit:'1',marks:'2',tag:'Definition',q:'What is Inductive Bias in Machine Learning?',a:'Set of assumptions a learner uses to generalize beyond training data. Without inductive bias, a learner cannot generalize. Example: decision trees prefer shorter trees; Naive Bayes assumes feature independence.'},
+  {unit:'1',marks:'2',tag:'Definition',q:'Define Version Space in concept learning.',a:'The subset of all hypotheses in hypothesis space H that are consistent with all training examples. Bounded by S (most specific) and G (most general) boundaries. Candidate Elimination maintains this.'},
+  // UNIT 1 - 5M
+  {unit:'1',marks:'5',tag:'Algorithm',q:'Explain the Candidate Elimination Algorithm in detail.',a:'Maintains two boundary sets S and G in hypothesis space.\nFor each positive example: generalize S minimally, remove inconsistent G.\nFor each negative example: specialize G minimally, remove inconsistent S.\nVersion Space = all h between S and G.\nConverges to correct concept if no noise.',formula:'Version Space = {h∈H | S≤h≤G}'},
+  {unit:'1',marks:'5',tag:'Definition',q:'Explain Perceptron and Linear Separability with examples.',a:'Perceptron: single-layer binary classifier. Learns by adjusting weights on errors.\nLinear Separability: classes separable by a hyperplane. Perceptron can ONLY solve linearly separable problems.\nXOR is not linearly separable — requires MLP.\nPerceptron Convergence Theorem: if data is linearly separable, perceptron WILL converge.',formula:'output = 1 if Σ(wi·xi) ≥ θ, else 0\nΔwi = η(t-o)·xi'},
+  {unit:'1',marks:'5',tag:'Algorithm',q:'Explain Locally Weighted Linear Regression (LWLR).',a:'Non-parametric method. For each query point, weights nearby training points more heavily. Fits a local model per query.\nBandwidth τ controls locality: small τ = very local; large τ = nearly standard regression.',formula:'w(i) = exp(-||x-x(i)||²/2τ²)\nMinimize: Σ w(i)(yi - θᵀxi)²'},
+  {unit:'1',marks:'5',tag:'Definition',q:'Explain the design of a learning system with its components.',a:'1. Training data (experience E)\n2. Preprocessing (clean, normalize)\n3. Feature extraction (select relevant features)\n4. Learning algorithm (choose hypothesis)\n5. Model (learned hypothesis)\n6. Performance evaluation (test set)\n7. Deployment\nFeedback loop: evaluate → improve.',formula:'T, P, E framework (Mitchell)'},
+  // UNIT 2 - 2M
+  {unit:'2',marks:'2',tag:'Definition',q:'What is Backpropagation?',a:'Algorithm to train multi-layer neural networks. Computes gradient of loss w.r.t. each weight using chain rule, then updates weights to minimize loss. Propagates error from output layer backwards.',formula:'Δw = -η · ∂E/∂w  [gradient descent step]'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is Overfitting and how is Early Stopping used to prevent it?',a:'Overfitting: model memorizes training data (low train error, high test error). Early stopping: monitor validation loss during training; stop when validation loss starts increasing. Simplest regularization.'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What are Interpolations and Basis Functions in neural networks?',a:'Basis functions transform input into a new feature space where linear model can fit nonlinear data. Examples: polynomial, Gaussian RBF, sigmoid. Neural networks learn basis functions automatically.',formula:'y = Σ wj·φj(x)  where φj are basis functions'},
+  {unit:'2',marks:'2',tag:'Definition',q:'What is the Perceptron Learning Algorithm?',a:'Initialize weights randomly. For each training example: compute output, if misclassified update weights. Continue until all classified correctly (guaranteed if linearly separable).',formula:'wi ← wi + η(target - output)·xi'},
+  // UNIT 2 - 5M
+  {unit:'2',marks:'5',tag:'Algorithm',q:'Explain MLP architecture and the role of hidden layers.',a:'Input layer: receives features\nHidden layers: learn non-linear transformations via activation functions (sigmoid, ReLU, tanh)\nOutput layer: final prediction\nEach neuron: z = Σwixi + b → activation(z) → output\nHidden layers enable solving non-linearly separable problems.',formula:'z = Wh + b\na = σ(z)  [sigmoid: 1/(1+e⁻ᶻ)]'},
+  {unit:'2',marks:'5',tag:'Algorithm',q:'Explain Backpropagation algorithm step by step.',a:'1. Forward pass: compute output layer by layer\n2. Compute loss: E = ½(target-output)²\n3. Output layer delta: δ_out = (target-out)·σ\'(out)\n4. Hidden layer delta: δ_h = (Σ δ_out·w)·σ\'(h)\n5. Weight update: Δwij = η·δj·ai\n6. Repeat for all examples',formula:'δj = σ\'(zj) · Σk wkj·δk  [chain rule]'},
+  {unit:'2',marks:'5',tag:'Algorithm',q:'Explain Gradient Descent in multi-layer networks.',a:'Loss surface is high-dimensional. GD moves weights in direction of steepest descent.\nBatch GD: uses all data per step (stable, slow).\nSGD: one sample per step (noisy, fast).\nMini-batch: compromise.\nLearning rate η critical: too large = diverge; too small = slow.',formula:'w ← w - η·∇L(w)\n∇L computed via backprop'},
+  {unit:'2',marks:'5',tag:'Definition',q:'Explain Support Vector Machines (SVM) in detail.',a:'Finds hyperplane maximizing margin between classes.\nSupport vectors: training points closest to hyperplane.\nHard margin SVM: perfect separation.\nSoft margin: allows some misclassification (C parameter).\nKernel trick: maps to higher dimension for non-linear data.\nKernels: linear, polynomial, RBF.',formula:'maximize: 2/||w||  [margin]\nsubject to: yi(wᵀxi+b) ≥ 1'},
+  // UNIT 3 - 2M
+  {unit:'3',marks:'2',tag:'Formula',q:'Define Entropy in Decision Trees.',a:'Measures impurity/disorder in a dataset. Zero when all examples same class. Max when equal class split.',formula:'H(S) = -Σ p(i)·log₂(p(i))'},
+  {unit:'3',marks:'2',tag:'Definition',q:'What is Information Gain in Decision Trees?',a:'Reduction in entropy after splitting on an attribute. Used to select the best split attribute. Higher IG = better attribute for splitting at root.',formula:'IG(S,A) = H(S) - Σ |Sv|/|S| · H(Sv)'},
+  {unit:'3',marks:'2',tag:'Definition',q:'What is Inductive Bias in Decision Tree Learning?',a:'Preference for shorter trees (Occam\'s Razor). Prefers attributes with high Information Gain near root. This bias helps generalize from training data to unseen examples.'},
+  // UNIT 3 - 5M
+  {unit:'3',marks:'5',tag:'Algorithm',q:'Explain the Decision Tree Learning algorithm (ID3).',a:'1. If all examples same class → return leaf node\n2. If no attributes → return majority class\n3. Select attribute A with highest Information Gain\n4. Create decision node on A\n5. For each value of A: recursively build subtree\n6. Prune to avoid overfitting',formula:'Best split: A* = argmax IG(S,A)'},
+  {unit:'3',marks:'5',tag:'Definition',q:'Explain Bagging, Boosting, and Ensemble Learning.',a:'Ensemble: combine multiple weak learners for stronger model.\nBagging: train models on random subsets (with replacement); aggregate (reduces variance). Example: Random Forest.\nBoosting: train sequentially; each model focuses on prev. errors (reduces bias). Example: AdaBoost.\nStacking: use another model to combine predictions.',formula:'AdaBoost: wt(i) updated by exp(-yi·f(xi))'},
+  // UNIT 4 - same as MID (these are shared topics)
+  {unit:'4',marks:'2',tag:'Definition',q:'Define Dimensionality Reduction and list its types.',a:'Reducing input features while preserving information.\nTypes:\n1. Feature Selection: pick existing features\n2. Feature Extraction: create new features (PCA, LDA, ICA)\n3. Manifold Learning: non-linear (LLE, Isomap)',formula:'X ∈ Rᴹ → Y ∈ Rᴸ  (L < M)'},
+  {unit:'4',marks:'2',tag:'Formula',q:'Write the PCA objective and projection formula.',a:'PCA finds directions of maximum variance.\nCovariance: C = XᵀX/N\nEigen: Cpi = λipi\nProjection: Y = PᵀX\nLargest eigenvalue = most important component.',formula:'Y = Pᵀ X  [P = top-k eigenvectors]'},
+  {unit:'4',marks:'2',tag:'Formula',q:'What is Least Squares Optimization? Give the closed-form solution.',a:'Minimizes sum of squared errors between predictions and actual values. Used in linear regression.',formula:'min J(w) = ||y - Xw||²\nSolution: w* = (XᵀX)⁻¹Xᵀy  [Normal Equations]'},
+  {unit:'4',marks:'5',tag:'Algorithm',q:'Explain PCA algorithm in full detail with mathematical steps.',a:'1. Center data: xi ← xi - μ\n2. Compute covariance: C = XᵀX/N\n3. Compute eigenpairs: Cpi = λipi\n4. Sort by λi descending\n5. Select top k eigenvectors P = [p1...pk]\n6. Project: Y = PᵀX\nLarger λ = more variance captured.',formula:'C = (1/N)XᵀX\nCp = λp  [eigenvalue problem]'},
+  {unit:'4',marks:'5',tag:'Algorithm',q:'Explain LDA with scatter matrices and objective function.',a:'Supervised dim. reduction. Goal: project to maximize class separation.\nSw = within-class scatter (minimize): Σc Σx∈c (x-μc)(x-μc)ᵀ\nSb = between-class scatter (maximize): Σc (μc-μ)(μc-μ)ᵀ\nObjective: J(w) = wᵀSbw/wᵀSww\nSolution: eigenvectors of Sw⁻¹Sb',formula:'w = Sw⁻¹(μ1-μ2)  [2-class]\nw: eigenvectors of Sw⁻¹Sb [multi-class]'},
+  {unit:'4',marks:'5',tag:'Algorithm',q:'Explain Genetic Algorithms in full detail.',a:'Inspired by biological evolution.\nComponents: Chromosome (solution), Gene (part of solution), Population (set of solutions), Fitness function.\nSteps: Initialize → Evaluate fitness → Selection → Crossover → Mutation → New generation → Repeat.\nSelection: roulette wheel or tournament.\nCrossover: single/multi-point.\nMutation: random bit flip.',formula:'f(chromosome) → fitness score\nTerminate when: max generations OR fitness threshold'},
+  // UNIT 5 - 2M
+  {unit:'5',marks:'2',tag:'Definition',q:'Define Reinforcement Learning and its key components.',a:'Agent learns optimal behavior by interacting with environment and receiving reward signals. Components: Agent, Environment, State, Action, Reward, Policy, Value function.',formula:'Goal: maximize Rt = Σ γᵗ·rₜ'},
+  {unit:'5',marks:'2',tag:'Definition',q:'What is an MDP? List its components.',a:'Markov Decision Process: formal model for RL.\nS = set of states\nA = set of actions\nP(s\'|s,a) = transition probability\nR(s,a) = reward function\nγ = discount factor',formula:'Markov: P(st+1|st) — memoryless transitions'},
+  {unit:'5',marks:'2',tag:'Definition',q:'Define Hidden Markov Model and its components.',a:'Statistical model: system has hidden states, only observations visible.\nA = transition probability matrix\nB = emission probability matrix\nπ = initial state distribution\nλ = (A, B, π)',formula:'P(Ot|St) = B  [emission]\nP(St+1|St) = A  [transition]'},
+  {unit:'5',marks:'2',tag:'Definition',q:'What is a Bayesian Network? Give an example.',a:'DAG where nodes = random variables, directed edges = conditional dependencies. Joint distribution = product of local conditionals.\nExample: Disease → Symptom → Test Result.',formula:'P(X1,...,Xn) = Π P(Xi|Parents(Xi))'},
+  {unit:'5',marks:'5',tag:'Algorithm',q:'Explain the three problems of HMM and their solutions.',a:'1. Evaluation: Given λ=(A,B,π) and observation O, find P(O|λ). Solved by Forward Algorithm: αt(i) = P(O1..t, St=i | λ)\n2. Decoding: Find most likely hidden state sequence. Solved by Viterbi Algorithm (dynamic programming)\n3. Learning: Given O, estimate λ=(A,B,π). Solved by Baum-Welch (EM): E-step compute posteriors, M-step update params.',formula:'Forward: αt+1(j) = [Σi αt(i)·aij]·bj(Ot+1)'},
+  {unit:'5',marks:'5',tag:'Algorithm',q:'Explain MCMC methods: Metropolis-Hastings and Gibbs Sampling.',a:'MCMC: sample from P(x) by constructing Markov chain with P(x) as stationary distribution.\nM-H: propose x\' from Q(x\'|x), accept with α=min(1, P(x\')Q(x|x\')/P(x)Q(x\'|x)).\nGibbs: special case; sample each variable conditioned on others, always accepts.\nApplications: Bayesian inference, graphical model inference.',formula:'α = min(1, [P(x\')Q(x|x\')] / [P(x)Q(x\'|x)])'},
+  {unit:'5',marks:'5',tag:'Definition',q:'Explain Tracking Methods: Kalman Filter, EKF, and Particle Filter.',a:'All estimate hidden state from noisy observations.\nKalman Filter: linear system + Gaussian noise. Steps: Predict (project state forward) + Update (correct with observation). Optimal for linear-Gaussian.\nEKF: Extended — handles nonlinear systems by linearizing.\nParticle Filter: uses N weighted samples (particles). Predict → weight → resample. Works for any nonlinear/non-Gaussian.',formula:'Kalman gain: K=PHᵀ(HPHᵀ+R)⁻¹'},
+  {unit:'5',marks:'5',tag:'Definition',q:'Explain Graphical Models: Bayesian Networks vs Markov Random Fields.',a:'Both encode joint distributions over random variables using graphs.\nBayesian Network (directed): encodes P as product of P(Xi|Parents). Represents causal/directional influence. DAG structure.\nMRF (undirected): encodes P via clique potentials ψc. Symmetric relationships. P(X)=(1/Z)Π ψc(Xc). Z is partition function.\nBN for causality; MRF for image modeling, spatial stats.',formula:'BN: P(X)=ΠP(Xi|Pa(Xi))\nMRF: P(X)=(1/Z)ΠψC(XC)'},
+];
+
+// =========================================================
+// QUIZ DATA - MID
+// =========================================================
+
+const MID_QUIZ = [
+  {unit:'3',q:'In a GMM with K=3, what do the mixing coefficients π1, π2, π3 represent?',opts:['Means of each Gaussian','Weights of each Gaussian (sum to 1)','Variance of each component','Number of data points per cluster'],ans:1,explain:'Mixing coefficients πk are the weights of each Gaussian component. They represent the probability that a randomly chosen point comes from that Gaussian. They must satisfy Σπk=1.'},
+  {unit:'3',q:'Which step of the EM algorithm for GMM updates the model parameters (μ, Σ, π)?',opts:['E-step','M-step','Initialization','Convergence check'],ans:1,explain:'M-step (Maximization) updates the parameters. E-step computes the soft responsibilities γ(ik) = probability of each point belonging to each cluster.'},
+  {unit:'3',q:'What is the key difference between K-Means and GMM clustering?',opts:['K-Means uses probability; GMM uses distance','GMM is hard clustering; K-Means is soft','K-Means assigns each point to one cluster; GMM gives probabilities','K-Means uses EM; GMM uses centroids'],ans:2,explain:'K-Means = hard clustering (each point in exactly one cluster). GMM = soft clustering (each point has a probability of belonging to each cluster). GMM uses EM; K-Means uses centroid updates.'},
+  {unit:'3',q:'In KNN with K=5, a test point has 3 class-A and 2 class-B neighbors. What is the predicted class?',opts:['Class B','Class A','Undecided','Depends on distance'],ans:1,explain:'KNN classification uses majority vote. 3 class-A vs 2 class-B → Class A wins. For regression, we would average the values.'},
+  {unit:'3',q:'What does the Elbow Method help determine in K-Means?',opts:['Number of EM iterations','Optimal value of K','Distance metric to use','Convergence threshold'],ans:1,explain:'The Elbow Method plots WCSS (Within-Cluster Sum of Squares) vs K. The point where the decrease in WCSS sharply slows (the "elbow") indicates the optimal K.'},
+  {unit:'3',q:'What is the range of the Correlation coefficient ρ?',opts:['0 to 1','−∞ to +∞','-1 to +1','0 to ∞'],ans:2,explain:'Correlation ρ = Cov(X,Y)/(σx·σy). Range is -1 to +1. ρ=+1: perfect positive correlation. ρ=-1: perfect negative. ρ=0: no linear correlation.'},
+  {unit:'3',q:'Which property does the Gaussian distribution NOT have?',opts:['Bell-shaped curve','Symmetric around mean','Skewed to the right','Defined by μ and σ²'],ans:2,explain:'The Gaussian (Normal) distribution is symmetric around its mean — it is NOT skewed. Skewed distributions (like exponential, log-normal) are different distribution families.'},
+  {unit:'3',q:'The GMM soft assignment γ(ik) is computed in which step?',opts:['M-step','Initialization','E-step (Expectation)','Convergence'],ans:2,explain:'E-step (Expectation) computes the responsibility γ(ik) = posterior probability that data point i belongs to cluster k, given current parameters.'},
+  {unit:'4',q:'PCA is classified as which type of dimensionality reduction?',opts:['Supervised','Semi-supervised','Unsupervised','Reinforcement-based'],ans:2,explain:'PCA is unsupervised — it does not use class labels. It finds directions of maximum variance in the data without any knowledge of class membership.'},
+  {unit:'4',q:'In LDA, what does the objective function J(w) = wᵀSbw/wᵀSww maximize?',opts:['Total variance','Within-class spread','Ratio of between-class to within-class scatter','Reconstruction error'],ans:2,explain:'LDA maximizes the ratio of between-class scatter (Sb) to within-class scatter (Sw). This finds the projection that best separates classes while keeping each class compact.'},
+  {unit:'4',q:'How many dimensions can LDA project to at most?',opts:['Equal to number of features','Equal to number of classes','One less than number of classes','Unlimited'],ans:2,explain:'LDA can produce at most (C-1) discriminant dimensions, where C = number of classes. For binary classification, only 1 discriminant axis is possible.'},
+  {unit:'4',q:'Which dimensionality reduction technique is best suited for the "Cocktail Party Problem"?',opts:['PCA','LDA','ICA','Factor Analysis'],ans:2,explain:'ICA (Independent Component Analysis) is specifically designed for blind source separation — separating mixed independent signals, like separating voices at a cocktail party.'},
+  {unit:'4',q:'What type of distance does Isomap use instead of Euclidean distance?',opts:['Manhattan distance','Hamming distance','Geodesic distance along the manifold','Cosine similarity'],ans:2,explain:'Isomap uses geodesic distance — the shortest path along the data manifold. Euclidean distance "cuts through" the manifold and is misleading for curved data.'},
+  {unit:'4',q:'In Genetic Algorithms, what is the role of Mutation?',opts:['Select best individuals','Combine two parents','Randomly alter genes to maintain diversity','Evaluate fitness'],ans:2,explain:'Mutation randomly alters one or more genes in a chromosome. Its purpose is to maintain genetic diversity in the population and prevent premature convergence to local optima.'},
+  {unit:'4',q:'What is the closed-form solution for Least Squares Optimization?',opts:['w = XᵀX·Xᵀy','w = (XᵀX)⁻¹·Xᵀy','w = X·(XᵀX)⁻¹','w = Xᵀ(XXᵀ)⁻¹'],ans:1,explain:'The Normal Equations give the closed-form solution: w* = (XᵀX)⁻¹Xᵀy. This minimizes the sum of squared errors ||y - Xw||².'},
+  {unit:'4',q:'LLE (Locally Linear Embedding) preserves which type of structure?',opts:['Global structure','Local neighborhood structure','Class boundaries','Variance directions'],ans:1,explain:'LLE preserves LOCAL structure — it reconstructs each point from its nearest neighbors and finds a low-dimensional embedding that preserves these local reconstruction weights.'},
+  {unit:'5',q:'What does the discount factor γ ≈ 0 imply for an RL agent?',opts:['Agent values long-term rewards','Agent is myopic — focuses only on immediate reward','Agent explores more','Agent never converges'],ans:1,explain:'γ≈0: future rewards discounted heavily → agent focuses on immediate (short-term) reward. γ≈1: agent values long-term cumulative reward almost equally.'},
+  {unit:'5',q:'In HMM, what does the Viterbi algorithm solve?',opts:['Learning problem: estimate A, B, π','Evaluation: find P(O|λ)','Decoding: find most likely state sequence','Sampling from the model'],ans:2,explain:'Viterbi algorithm solves the Decoding problem: finding the most likely sequence of hidden states given the observation sequence and model parameters λ=(A,B,π).'},
+  {unit:'5',q:'Which sampling method draws one variable at a time conditioned on all others?',opts:['Metropolis-Hastings','Rejection sampling','Gibbs Sampling','Importance sampling'],ans:2,explain:'Gibbs Sampling: at each step, sample one variable conditioned on the current values of all other variables. It is a special case of M-H with acceptance rate always = 1.'},
+  {unit:'5',q:'A Bayesian Network uses what type of graph?',opts:['Undirected cyclic graph','Directed Acyclic Graph (DAG)','Undirected acyclic graph','Bipartite graph'],ans:1,explain:'Bayesian Networks use Directed Acyclic Graphs (DAGs). Directed edges show conditional dependencies (cause → effect). Acyclic means no loops, allowing efficient inference.'},
+  {unit:'5',q:'The Markov Property states that:',opts:['Future depends on entire history','Future depends only on the current state','Past and future are independent','Actions determine states'],ans:1,explain:'Markov Property: P(st+1|s1,...,st) = P(st+1|st). The future depends ONLY on the current state, not on how we arrived there. This is the "memoryless" property.'},
+  {unit:'5',q:'In MDP, the transition function P(s\'|s,a) represents:',opts:['Reward for taking action a','Probability of moving to state s\' given state s and action a','Policy mapping states to actions','Discount applied to rewards'],ans:1,explain:'P(s\'|s,a) is the transition probability — the probability of ending up in state s\' when taking action a in state s. It models environment dynamics.'},
+  {unit:'5',q:'What is the key advantage of a Particle Filter over a Kalman Filter?',opts:['Works only with Gaussian noise','Requires linear system model','Handles nonlinear and non-Gaussian systems','Uses fewer computations'],ans:2,explain:'Particle Filter works for any nonlinear/non-Gaussian system by representing the state distribution with weighted samples (particles). Kalman Filter is optimal only for linear+Gaussian systems.'},
+  {unit:'5',q:'In MCMC Metropolis-Hastings, if P(x\') > P(x), what happens?',opts:['x\' is always rejected','x\' is always accepted','x\' is accepted with probability 0.5','x\' accepted with probability α < 1'],ans:1,explain:'If P(x\') > P(x), then α = min(1, P(x\')/P(x)) = min(1, >1) = 1. So x\' is ALWAYS accepted. Proposals to higher-probability regions are always accepted.'},
+];
+
+const SEM_QUIZ = [
+  // UNIT 1
+  {unit:'1',marks:'2',q:'Which of the following is NOT a component of the Mitchell definition of Machine Learning?',opts:['Task T','Performance measure P','Experience E','Algorithm A'],ans:3,explain:'Mitchell\'s definition: a system learns from Experience E, with respect to Task T, improving Performance P. Algorithm is not a named component of this definition.'},
+  {unit:'1',marks:'2',q:'In concept learning, Find-S algorithm finds the:',opts:['Most general consistent hypothesis','Most specific consistent hypothesis','Majority class hypothesis','Hypothesis with minimum entropy'],ans:1,explain:'Find-S algorithm starts with the most specific hypothesis and generalizes it minimally to accommodate positive examples. It ignores negative examples.'},
+  {unit:'1',marks:'5',q:'The Candidate Elimination algorithm maintains which two sets?',opts:['S (specific) and G (general)','P (positive) and N (negative)','H (hypothesis) and D (data)','T (train) and V (validation)'],ans:0,explain:'Candidate Elimination maintains: S = set of most specific consistent hypotheses, G = set of most general consistent hypotheses. Version Space = all hypotheses between S and G.'},
+  {unit:'1',marks:'5',q:'Locally Weighted Linear Regression is classified as:',opts:['Parametric, eager learner','Non-parametric, eager learner','Parametric, lazy learner','Non-parametric, lazy learner'],ans:3,explain:'LWLR is non-parametric (no fixed number of parameters) and lazy (defers computation until query time, computing a local model for each query point).'},
+  {unit:'1',marks:'2',q:'What does Inductive Bias allow a machine learning system to do?',opts:['Memorize training data','Generalize to unseen examples','Compute faster','Reduce training data size'],ans:1,explain:'Without inductive bias, a learner cannot generalize — it can only memorize. Inductive bias provides the necessary assumptions to make predictions on unseen data.'},
+  // UNIT 2
+  {unit:'2',marks:'2',q:'In backpropagation, the chain rule is used to:',opts:['Compute loss function','Propagate gradients from output to input layers','Select activation function','Initialize weights'],ans:1,explain:'Backprop uses the chain rule of calculus to compute ∂E/∂w for each weight in each layer by propagating the gradient backwards from the output layer.'},
+  {unit:'2',marks:'2',q:'Which activation function is most commonly used in hidden layers of modern deep networks?',opts:['Step function','Sigmoid','ReLU (Rectified Linear Unit)','Linear'],ans:2,explain:'ReLU (max(0,x)) is preferred in modern networks: no vanishing gradient problem (unlike sigmoid for large inputs), computationally efficient, and works well empirically.'},
+  {unit:'2',marks:'5',q:'SVM maximizes the:',opts:['Loss function','Number of support vectors','Margin between classes','Learning rate'],ans:2,explain:'SVM finds the hyperplane that maximizes the margin — the distance between the decision boundary and the nearest training points (support vectors). Larger margin → better generalization.'},
+  {unit:'2',marks:'5',q:'Which type of Gradient Descent updates weights after every single training example?',opts:['Batch Gradient Descent','Mini-batch Gradient Descent','Stochastic Gradient Descent','Conjugate Gradient'],ans:2,explain:'SGD (Stochastic GD) updates weights after each single example. Noisy but fast. Batch GD uses all examples per update (stable, slow). Mini-batch is a compromise.'},
+  {unit:'2',marks:'2',q:'Early stopping in neural networks prevents:',opts:['Underfitting','Overfitting','Slow convergence','Vanishing gradients'],ans:1,explain:'Early stopping monitors validation loss and stops training when it begins increasing. This prevents the network from overfitting to training data.'},
+  {unit:'2',marks:'5',q:'What is the "kernel trick" in SVM?',opts:['Normalizing input features','Mapping data to higher dimension without explicit computation','Selecting support vectors manually','Reducing learning rate'],ans:1,explain:'The kernel trick implicitly maps input to a higher-dimensional feature space using kernel functions K(xi,xj), enabling SVM to find non-linear decision boundaries without computing the mapping explicitly.'},
+  // UNIT 3
+  {unit:'3',marks:'2',q:'Entropy of a perfectly pure dataset (all same class) is:',opts:['1','0.5','0','∞'],ans:2,explain:'Entropy H = -Σp(i)·log₂(p(i)). When all examples are same class, p=1 for that class, 0 for others. H = -(1·log₂1) = -(1·0) = 0.'},
+  {unit:'3',marks:'2',q:'Which ensemble method trains models SEQUENTIALLY, each correcting the errors of the previous?',opts:['Bagging','Random Forest','Boosting','Stacking'],ans:2,explain:'Boosting trains models sequentially. Each model is trained to correct the errors (misclassifications) of the previous model. Examples: AdaBoost, Gradient Boosting, XGBoost.'},
+  {unit:'3',marks:'5',q:'Random Forest is an extension of which technique?',opts:['Boosting','Bagging','Stacking','Pruning'],ans:1,explain:'Random Forest = Bagging + feature randomness. Multiple decision trees trained on bootstrap samples. Each tree sees random subset of features. Final prediction by majority vote.'},
+  {unit:'3',marks:'5',q:'What problem does the Soft Clustering approach in GMM solve that K-Means cannot?',opts:['Overlapping clusters','Large datasets','Feature selection','Non-square covariance'],ans:0,explain:'When clusters overlap, a point may genuinely belong to multiple clusters with different probabilities. GMM handles this with soft (probabilistic) assignments. K-Means forces hard assignment to one cluster.'},
+  {unit:'3',marks:'2',q:'Which distance measure sums absolute differences between coordinates?',opts:['Euclidean','Manhattan','Minkowski with p=2','Cosine'],ans:1,explain:'Manhattan distance = Σ|xi-yi|. It sums absolute differences (like navigating city blocks). Euclidean = √Σ(xi-yi)² (straight line). Minkowski with p=1 is Manhattan, p=2 is Euclidean.'},
+  // UNIT 4
+  {unit:'4',marks:'2',q:'Which dimensionality reduction method explicitly models noise in the data?',opts:['PCA','LDA','ICA','Factor Analysis'],ans:3,explain:'Factor Analysis models: X = WY + E, where E is noise with its own variance Ψ. The covariance is Σ = WWᵀ + Ψ. PCA and LDA do not explicitly model noise.'},
+  {unit:'4',marks:'5',q:'PCA and LDA differ mainly in that:',opts:['PCA uses eigenvectors; LDA uses gradients','PCA is unsupervised; LDA is supervised and uses class labels','LDA maximizes variance; PCA maximizes separation','PCA is non-linear; LDA is linear'],ans:1,explain:'PCA is unsupervised (no class labels), maximizes total variance. LDA is supervised (uses class labels), maximizes class separability (between-class/within-class scatter ratio).'},
+  {unit:'4',marks:'2',q:'In Isomap, which algorithm is used to compute geodesic distances?',opts:['EM Algorithm','Dijkstra\'s shortest path','Expectation-Maximization','Gaussian elimination'],ans:1,explain:'Isomap uses Dijkstra\'s (or Floyd-Warshall) shortest path algorithm on the K-neighbor graph to compute geodesic distances between all pairs of points.'},
+  {unit:'4',marks:'5',q:'Genetic Algorithm CROSSOVER combines:',opts:['Two random solutions to form a completely new one','Two parent chromosomes at a crossover point to create offspring','One parent with random mutations','All population members'],ans:1,explain:'Crossover combines two parent chromosomes at one or more crossover points to create offspring that inherit characteristics from both parents. Example: Parent1=11001, Parent2=10110 → Child=11010.'},
+  {unit:'4',marks:'2',q:'The "Curse of Dimensionality" refers to:',opts:['Too many class labels','Problems arising as feature dimensions increase (sparse data, expensive computation)','Curse on distance metrics only','Too few training samples regardless of dimensions'],ans:1,explain:'As dimensions grow: data becomes exponentially sparser, distance metrics lose meaning, models need exponentially more data, computation explodes. Dimensionality reduction addresses this.'},
+  // UNIT 5
+  {unit:'5',marks:'2',q:'In RL, the Q-function Q(s,a) represents:',opts:['Probability of being in state s','Expected reward from state s only','Expected cumulative reward of taking action a in state s','Current step reward'],ans:2,explain:'Q(s,a) = Action Value Function = expected total discounted reward when taking action a in state s and following policy π thereafter. More informative than V(s) alone.'},
+  {unit:'5',marks:'5',q:'The Baum-Welch algorithm solves which HMM problem?',opts:['Decoding: find most likely state sequence','Evaluation: find P(O|λ)','Learning: estimate model parameters A, B, π','Sampling: generate new observations'],ans:2,explain:'Baum-Welch = EM algorithm for HMM. Solves the Learning problem: given observation sequences, find A, B, π that maximize P(O|λ). E-step: compute forward/backward variables. M-step: update parameters.'},
+  {unit:'5',marks:'2',q:'A Markov Random Field uses what type of graph?',opts:['Directed Acyclic Graph','Directed Cyclic Graph','Undirected Graph','Bipartite Directed Graph'],ans:2,explain:'MRF uses undirected graphs — edges have no direction, representing symmetric mutual dependencies. This contrasts with Bayesian Networks which use directed edges.'},
+  {unit:'5',marks:'5',q:'Which tracking method is optimal ONLY for linear systems with Gaussian noise?',opts:['Particle Filter','Extended Kalman Filter','Kalman Filter','HMM-based tracking'],ans:2,explain:'Kalman Filter is provably optimal (minimum mean squared error) for linear-Gaussian systems. EKF extends it to nonlinear systems via linearization. Particle Filter works for any distribution.'},
+  {unit:'5',marks:'2',q:'In Metropolis-Hastings MCMC, a proposal is ALWAYS rejected when:',opts:['P(x\') > P(x)','P(x\') = P(x)','A uniform random number u > α (acceptance probability)','The chain has converged'],ans:2,explain:'A proposal x\' is rejected when uniform random u ~ U(0,1) > α = min(1, P(x\')Q(x|x\')/P(x)Q(x\'|x)). Rejection means the chain stays at current state x.'},
+  {unit:'5',marks:'5',q:'In a Bayesian Network A→B→C, which independence holds?',opts:['A ⊥ B | C','B ⊥ C | A','A ⊥ C | B','No independence exists'],ans:2,explain:'D-separation in a chain A→B→C: A and C are conditionally independent GIVEN B. P(A,C|B) = P(A|B)·P(C|B). Observing B "blocks" the path from A to C.'},
+];
+
+// =========================================================
+// STATE
+// =========================================================
+
+let state = {
+  section: 'mid',
+  mid: { mode:'flash', unit:'all', quizIdx:0, quizAnswered:false, quizDone:false, score:0, quizList:[], correctLog:[] },
+  sem: { mode:'flash', unit:'all', marks:['2','5'], quizIdx:0, quizAnswered:false, quizDone:false, score:0, quizList:[], correctLog:[] }
+};
+
+// =========================================================
+// SECTION SWITCH
+// =========================================================
+
+function showSection(s) {
+  state.section = s;
+  ['mid','sem'].forEach(x=>{
+    document.getElementById('panel-'+x).classList.toggle('active', x===s);
+    document.getElementById('stab-'+x).classList.toggle('active', x===s);
+  });
+  document.querySelectorAll('.nav-btn').forEach((b,i)=>{
+    b.classList.toggle('active', (i===0&&s==='mid')||(i===1&&s==='sem'));
+  });
+  renderAll(s);
+}
+
+function setMode(sec, mode) {
+  state[sec].mode = mode;
+  const flash = document.getElementById(sec+'-flash');
+  const quiz  = document.getElementById(sec+'-quiz');
+  flash.classList.toggle('active', mode==='flash');
+  quiz.classList.toggle('active',  mode==='quiz');
+  document.querySelectorAll('#panel-'+sec+' .mtab').forEach((b,i)=>{
+    b.classList.toggle('active',(i===0&&mode==='flash')||(i===1&&mode==='quiz'));
+  });
+  if(mode==='quiz') buildQuiz(sec);
+}
+
+function filterUnit(sec, unit) {
+  state[sec].unit = unit;
+  document.querySelectorAll('#uf-'+sec+' .ufbtn').forEach(b=>{
+    const v = b.getAttribute('onclick').match(/'([^']+)'\)$/)[1];
+    b.classList.toggle('active', v===unit);
+  });
+  if(state[sec].mode==='flash') renderFlashcards(sec);
+  else buildQuiz(sec);
+}
+
+function filterMark(sec, m) {
+  const arr = state[sec].marks;
+  const i = arr.indexOf(m);
+  if(i>-1){ if(arr.length>1) arr.splice(i,1); }
+  else arr.push(m);
+  document.getElementById('mb-2').classList.toggle('active', arr.includes('2'));
+  document.getElementById('mb-5').classList.toggle('active', arr.includes('5'));
+  if(state[sec].mode==='flash') renderFlashcards(sec);
+  else buildQuiz(sec);
+}
+
+// =========================================================
+// FLASHCARDS
+// =========================================================
+
+function getFlashData(sec) {
+  const s = state[sec];
+  let data = sec==='mid' ? MID_FLASHCARDS : SEM_FLASHCARDS;
+  if(s.unit!=='all') data = data.filter(d=>d.unit===s.unit);
+  if(sec==='sem') data = data.filter(d=>s.marks.includes(d.marks));
+  return data;
+}
+
+function renderFlashcards(sec) {
+  const data = getFlashData(sec);
+  const grid = document.getElementById('fc-'+sec);
+  const cnt  = document.getElementById('fc-count-'+sec);
+  updateStats(sec, data);
+  if(!data.length){grid.innerHTML='<div class="empty">No flashcards match current filter.</div>';cnt.textContent='';return;}
+  grid.innerHTML = data.map((d,i)=>`
+    <div class="fc" id="fc${sec}${i}" onclick="this.classList.toggle('flipped')">
+      <div class="fc-inner">
+        <div class="fc-front">
+          <div>
+            <div class="fc-tag">${d.tag} · Unit ${d.unit}${d.marks?' · '+d.marks+'M':''}</div>
+            <div class="fc-q">${d.q}</div>
+          </div>
+          <div class="fc-hint">tap to reveal answer ↓</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-tag">Answer</div>
+          <div class="fc-ans">${d.a.replace(/\n/g,'<br>')}${d.formula?'<span class="formula">'+d.formula+'</span>':''}</div>
+          <div class="fc-unit">Unit ${d.unit} · ${d.tag}</div>
+        </div>
+      </div>
+    </div>`).join('');
+  cnt.textContent = data.length + ' flashcards · click any card to flip';
+}
+
+function updateStats(sec, data) {
+  const bar = document.getElementById('stats-'+sec);
+  const units = [...new Set(data.map(d=>d.unit))].sort();
+  let html = `<div class="stat"><div class="stat-n">${data.length}</div><div class="stat-l">Cards</div></div>`;
+  units.forEach(u=>{
+    const c = data.filter(d=>d.unit===u).length;
+    html += `<div class="stat"><div class="stat-n">${c}</div><div class="stat-l">Unit ${u}</div></div>`;
+  });
+  bar.innerHTML = html;
+}
+
+// =========================================================
+// QUIZ
+// =========================================================
+
+function buildQuiz(sec) {
+  const s = state[sec];
+  let data = sec==='mid' ? MID_QUIZ : SEM_QUIZ;
+  if(s.unit!=='all') data = data.filter(d=>d.unit===s.unit);
+  if(sec==='sem') data = data.filter(d=>s.marks.includes(d.marks));
+  // Shuffle
+  data = shuffle([...data]);
+  s.quizList = data;
+  s.quizIdx = 0;
+  s.score = 0;
+  s.quizAnswered = false;
+  s.quizDone = false;
+  s.correctLog = [];
+  renderQuiz(sec);
+}
+
+function shuffle(arr) {
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
+}
+
+function renderQuiz(sec) {
+  const s = state[sec];
+  const data = s.quizList;
+  const prog = document.getElementById('qprog-'+sec);
+  const body = document.getElementById('qbody-'+sec);
+
+  if(!data.length){body.innerHTML='<div class="empty">No quiz questions match current filter.</div>';prog.innerHTML='';return;}
+
+  // Progress dots
+  prog.innerHTML = data.map((_,i)=>{
+    let cls='qp-dot';
+    if(i<s.quizIdx) cls+=' '+(s.correctLog[i]?'correct':'wrong');
+    else if(i===s.quizIdx&&!s.quizDone) cls+=' current';
+    return `<div class="${cls}"></div>`;
+  }).join('');
+
+  if(s.quizDone){
+    renderResult(sec);
+    return;
+  }
+
+  const q = data[s.quizIdx];
+  const optHTML = q.opts.map((o,i)=>`
+    <button class="opt" id="${sec}opt${i}" onclick="answerQuiz('${sec}',${i})">${o}</button>
+  `).join('');
+
+  body.innerHTML = `
+    <div class="quiz-card">
+      <div class="quiz-meta">
+        <div class="quiz-num">Q${s.quizIdx+1} / ${data.length}</div>
+        <div class="quiz-unit">Unit ${q.unit}${q.marks?' · '+q.marks+'M':''}</div>
+      </div>
+      <div class="quiz-q">${q.q}</div>
+      <div class="options">${optHTML}</div>
+      <div id="${sec}-explain"></div>
+    </div>
+    <div class="quiz-actions">
+      <button class="btn btn-outline" onclick="buildQuiz('${sec}')">Restart</button>
+      <button class="btn btn-red" id="${sec}-next" style="display:none" onclick="nextQ('${sec}')">Next Question →</button>
+    </div>`;
+}
+
+function answerQuiz(sec, chosen) {
+  const s = state[sec];
+  if(s.quizAnswered) return;
+  s.quizAnswered = true;
+  const q = s.quizList[s.quizIdx];
+  const correct = chosen===q.ans;
+  if(correct) s.score++;
+  s.correctLog[s.quizIdx] = correct;
+
+  q.opts.forEach((_,i)=>{
+    const el=document.getElementById(sec+'opt'+i);
+    if(!el)return;
+    el.classList.add('disabled');
+    if(i===q.ans) el.classList.add('correct');
+    else if(i===chosen) el.classList.add('wrong');
+  });
+
+  document.getElementById(sec+'-explain').innerHTML = `
+    <div class="quiz-explain">
+      <strong>${correct?'✓ Correct!':'✗ Incorrect.'}</strong> ${q.explain.replace(/\n/g,'<br>')}
+    </div>`;
+  document.getElementById(sec+'-next').style.display='inline-block';
+
+  // update prog dot
+  renderQuizProg(sec);
+}
+
+function renderQuizProg(sec) {
+  const s = state[sec];
+  const prog = document.getElementById('qprog-'+sec);
+  prog.innerHTML = s.quizList.map((_,i)=>{
+    let cls='qp-dot';
+    if(i<s.quizIdx) cls+=' '+(s.correctLog[i]?'correct':'wrong');
+    else if(i===s.quizIdx) cls+=' '+(s.quizAnswered?(s.correctLog[i]?'correct':'wrong'):'current');
+    return `<div class="${cls}"></div>`;
+  }).join('');
+}
+
+function nextQ(sec) {
+  const s = state[sec];
+  s.quizAnswered = false;
+  s.quizIdx++;
+  if(s.quizIdx>=s.quizList.length) s.quizDone=true;
+  renderQuiz(sec);
+}
+
+function renderResult(sec) {
+  const s = state[sec];
+  const total = s.quizList.length;
+  const pct = Math.round((s.score/total)*100);
+  let msg='';
+  if(pct>=80) msg='Outstanding! You have a strong grasp of the material. Review any wrong answers briefly.';
+  else if(pct>=60) msg='Good effort. Focus on the questions you got wrong and revisit those topics.';
+  else if(pct>=40) msg='Needs work. Go back to flashcards for the topics you struggled with, then retake.';
+  else msg='Keep going. Use the flashcards to build foundations, then attempt the quiz again.';
+
+  document.getElementById('qbody-'+sec).innerHTML = `
+    <div class="quiz-result">
+      <div class="result-score">${pct}%</div>
+      <div class="result-label">Final Score</div>
+      <div class="result-breakdown">
+        <div class="rb-item"><div class="rb-num" style="color:#22c55e">${s.score}</div><div class="rb-lbl">Correct</div></div>
+        <div class="rb-item"><div class="rb-num" style="color:var(--red)">${total-s.score}</div><div class="rb-lbl">Wrong</div></div>
+        <div class="rb-item"><div class="rb-num">${total}</div><div class="rb-lbl">Total</div></div>
+      </div>
+      <div class="result-msg">${msg}</div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-red" onclick="buildQuiz('${sec}')">Retake Quiz</button>
+        <button class="btn btn-outline" onclick="setMode('${sec}','flash')">Review Flashcards</button>
+      </div>
+    </div>`;
+}
+
+// =========================================================
+// RENDER ALL
+// =========================================================
+
+function renderAll(sec) {
+  const s = state[sec];
+  renderFlashcards(sec);
+  if(s.mode==='quiz') buildQuiz(sec);
+}
+
+// INIT
+renderFlashcards('mid');
+renderFlashcards('sem');
+</script>
+</body>
+</html>

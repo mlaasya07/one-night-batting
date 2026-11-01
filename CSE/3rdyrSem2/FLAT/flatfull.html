@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xams · FLAT</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #000000;
+    color: #ddd;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header {
+    padding: 64px 0 40px;
+    border-bottom: 2px solid #111;
+    margin-bottom: 48px;
+  }
+  .course-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  header p {
+    font-size: 1rem;
+    color: #fff;
+    max-width: 560px;
+    font-style: italic;
+  }
+  .part-header {
+    margin: 64px 0 32px;
+  }
+  .part-header h2 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .part-header .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-top: 6px;
+  }
+  .unit-divider {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #555;
+    padding: 18px 0 4px;
+    border-top: 1px solid #1a1a1a;
+    margin-top: 16px;
+  }
+  .short-entry {
+    padding: 28px 0;
+    border-bottom: 1px solid #1c1c1c;
+  }
+  .short-entry:last-child { border-bottom: none; }
+  .entry-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .entry-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .entry-term {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .entry-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #444;
+    flex-shrink: 0;
+  }
+  .entry-body {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+  }
+  .q-block {
+    padding: 36px 0;
+    border-bottom: 1px solid #1c1c1c;
+  }
+  .q-block:last-child { border-bottom: none; }
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .q-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #555;
+    flex-shrink: 0;
+  }
+  .q-title {
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .q-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #444;
+    flex-shrink: 0;
+  }
+  .q-body p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .q-body p:last-child { margin-bottom: 0; }
+  .sub-h {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #fff;
+    margin: 24px 0 8px;
+  }
+  .q-body ul, .q-body ol {
+    padding-left: 24px;
+    margin: 12px 0 16px;
+  }
+  .q-body li {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 4px;
+  }
+  .q-body li strong { color: #fff; }
+  .entry-body ul, .entry-body ol { padding-left: 24px; margin: 8px 0; }
+  .entry-body li { font-size: 1rem; color: #ccc; line-height: 1.8; margin-bottom: 2px; }
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  table {
+    width: 100%;
+    min-width: 460px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #aaa;
+    padding: 10px 14px;
+    text-align: left;
+    border-top: 2px solid #222;
+    border-bottom: 1px solid #333;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #1c1c1c;
+    color: #ccc;
+    vertical-align: top;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  tr:last-child td { border-bottom: 2px solid #222; }
+  td:first-child {
+    color: #fff;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+  }
+  .code-block {
+    background: #050505;
+    border: 1px solid #222;
+    border-left: 3px solid #444;
+    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.9;
+    color: #ccc;
+    overflow-x: auto;
+    margin: 16px 0;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rule-box {
+    border-left: 3px solid #333;
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: #060606;
+  }
+  .rule-box p {
+    margin-bottom: 0 !important;
+    font-size: 0.95rem !important;
+    color: #ccc !important;
+  }
+  .diagram-wrap {
+    margin: 20px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diagram-wrap svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  .diagram-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  footer {
+    border-top: 2px solid #111;
+    padding: 32px 0 48px;
+    margin-top: 64px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #444;
+    text-transform: uppercase;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 0 16px; }
+    header { padding: 40px 0 28px; }
+    .part-header { margin: 48px 0 28px; }
+    .q-block, .short-entry { padding: 22px 0; }
+    .entry-marks, .q-marks { display: none; }
+    .code-block { font-size: 0.72rem; padding: 12px 14px; }
+    table { min-width: 380px; }
+    td, th { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="course-code">xams &middot; Exam Key</div>
+  <h1>Formal Languages &amp; Automata Theory</h1>
+  <p>Complete answer key &mdash; 2-mark and 5-mark questions across all four units. 60 marks total.</p>
+</header>
+
+<div class="part-header" id="part-a">
+  <h2>Part A &mdash; Short Answer Questions</h2>
+  <div class="meta">2 Marks Each</div>
+</div>
+<div id="short-container"></div>
+
+<div class="part-header" id="part-b">
+  <h2>Part B &mdash; Detailed Questions</h2>
+  <div class="meta">5 Marks Each</div>
+</div>
+<div id="detailed-container"></div>
+
+<footer>Formal Languages &middot; Automata Theory &middot; Exam Reference &middot; All 4 Units</footer>
+
+<script>
+const shortAnswers = [
+
+// ── UNIT I ──────────────────────────────────────────────────────────────
+{ unit: "UNIT I — Finite Automata, DFA, NFA, ε-NFA, Moore & Mealy", term: "What is an Alphabet, String, Language, and Problem?",
+body: `An <strong>alphabet (Σ)</strong> is a finite, non-empty set of symbols (e.g. Σ = {0,1}). A <strong>string</strong> is a finite sequence of symbols from Σ; the empty string is <em>ε</em>. A <strong>language</strong> is any set of strings over Σ (finite or infinite). A <strong>problem</strong> in automata theory is a language — given a string, decide whether it belongs to the language.
+<div class="table-wrap"><table>
+  <thead><tr><th>Concept</th><th>Definition</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>Alphabet Σ</td><td>Finite non-empty symbol set</td><td>{0, 1}, {a, b, c}</td></tr>
+    <tr><td>String w</td><td>Finite sequence over Σ</td><td>01101, ε (empty)</td></tr>
+    <tr><td>Language L</td><td>Set of strings over Σ</td><td>L = {w | w ends in 01}</td></tr>
+    <tr><td>Σ*</td><td>All strings incl. ε</td><td>ε, 0, 1, 00, 01, …</td></tr>
+    <tr><td>Σ+</td><td>Σ* minus ε</td><td>0, 1, 00, 01, …</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "Define DFA. What is the language of a DFA?",
+body: `A <strong>DFA</strong> is a 5-tuple M = (Q, Σ, δ, q₀, F) where Q = finite states, Σ = alphabet, δ: Q×Σ→Q = transition function, q₀ = start state, F ⊆ Q = final states. It reads input left-to-right, deterministically changing state. The <strong>language L(M)</strong> is the set of all strings that lead the DFA from q₀ to some state in F.
+<div class="diagram-wrap"><div class="diagram-label">DFA — accepts strings ending in 01</div>
+<svg viewBox="0 0 380 110" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+  <defs><marker id="a1" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888"/></marker></defs>
+  <circle cx="60"  cy="55" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text x="60"  y="59" text-anchor="middle" fill="#ccc" font-size="10">q₀</text>
+  <circle cx="180" cy="55" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+  <text x="180" y="59" text-anchor="middle" fill="#ccc" font-size="10">q₁</text>
+  <circle cx="300" cy="55" r="22" fill="none" stroke="#aaa" stroke-width="1.5"/>
+  <circle cx="300" cy="55" r="18" fill="none" stroke="#aaa" stroke-width="1"/>
+  <text x="300" y="59" text-anchor="middle" fill="#fff" font-size="10">q₂</text>
+  <line x1="10" y1="55" x2="36" y2="55" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <line x1="82" y1="55" x2="156" y2="55" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="119" y="48" text-anchor="middle" fill="#888" font-size="9">0</text>
+  <line x1="202" y1="55" x2="276" y2="55" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="239" y="48" text-anchor="middle" fill="#888" font-size="9">1</text>
+  <path d="M60,33 A30,30 0 1,1 80,33" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="60" y="12" text-anchor="middle" fill="#888" font-size="9">1</text>
+  <path d="M180,33 A30,30 0 1,1 200,33" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="180" y="12" text-anchor="middle" fill="#888" font-size="9">0</text>
+  <path d="M300,77 Q260,110 180,77" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="240" y="108" text-anchor="middle" fill="#888" font-size="9">0</text>
+  <path d="M300,33 Q340,10 340,55 Q340,100 322,70" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a1)"/>
+  <text x="355" y="58" fill="#888" font-size="9">1</text>
+</svg></div>` },
+
+{ term: "Define NFA. How does it differ from DFA?",
+body: `An <strong>NFA</strong> is a 5-tuple (Q, Σ, δ, q₀, F) where δ: Q×Σ → 2^Q (transition function returns a <em>set</em> of states). A string is <strong>accepted</strong> if at least one computation path ends in a final state.
+<div class="table-wrap"><table>
+  <thead><tr><th>Feature</th><th>DFA</th><th>NFA</th></tr></thead>
+  <tbody>
+    <tr><td>Transitions</td><td>Exactly one per (state, input)</td><td>Zero, one, or many</td></tr>
+    <tr><td>δ range</td><td>Single state</td><td>Set of states (2^Q)</td></tr>
+    <tr><td>ε-moves</td><td>Not allowed</td><td>Allowed (in ε-NFA)</td></tr>
+    <tr><td>Acceptance</td><td>Unique path must reach final state</td><td>Any path reaching final state</td></tr>
+    <tr><td>Power</td><td>Equivalent — both accept Regular Languages</td><td>Same</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "What is ε-closure? What is ε-NFA?",
+body: `An <strong>ε-NFA</strong> is an NFA with explicit ε-transitions — state changes that consume no input symbol. They simplify construction without adding expressive power.
+
+<strong>ε-closure(q)</strong> = the set of all states reachable from q using only ε-transitions (including q itself). Computed via BFS/DFS on ε-edges.
+<div class="table-wrap"><table>
+  <thead><tr><th>State</th><th>ECLOSE</th><th>Reason</th></tr></thead>
+  <tbody>
+    <tr><td>q'₀</td><td>{q'₀, q₀}</td><td>q'₀ has ε-transition to q₀</td></tr>
+    <tr><td>q₀</td><td>{q₀}</td><td>No outgoing ε-transitions</td></tr>
+    <tr><td>q₁</td><td>{q₁}</td><td>No outgoing ε-transitions</td></tr>
+    <tr><td>q₂</td><td>{q₂}</td><td>No outgoing ε-transitions</td></tr>
+  </tbody>
+</table></div>
+To simulate a transition: (1) go to all immediate destination states, (2) take the ε-closure of each.` },
+
+{ term: "NFA to DFA Conversion — Subset Construction",
+body: `The <strong>subset construction</strong> converts an NFA to an equivalent DFA. Each DFA state is a <em>subset</em> of NFA states.
+<ol>
+  <li>Start state of DFA = ECLOSE(q₀) of NFA.</li>
+  <li>For each DFA state S and each input a, compute δ_D(S, a) = ECLOSE(∪ δ_N(p, a) for p ∈ S).</li>
+  <li>A DFA state is final if it contains at least one NFA final state.</li>
+  <li>Repeat until no new states are generated.</li>
+</ol>
+Worst case: an n-state NFA may produce 2ⁿ DFA states. DFA ≡ NFA — both accept exactly the Regular Languages.` },
+
+{ term: "Conversion of NFA with ε-transitions to NFA without ε-transitions",
+body: `To eliminate ε-transitions from an ε-NFA, compute ε-closures and absorb them into new transitions:
+<ol>
+  <li>For each state q and symbol a, compute δ'(q, a) = ECLOSE(∪{δ(p, a) | p ∈ ECLOSE(q)}).</li>
+  <li>A state q is a final state in the new NFA if ECLOSE(q) contains any original final state.</li>
+  <li>Remove all ε-transitions; the resulting NFA without ε is equivalent to the original ε-NFA.</li>
+</ol>
+This is the first step in the ε-NFA → NFA → DFA pipeline. The resulting NFA has the same state set Q but a modified transition function δ' and possibly a modified set of final states.` },
+
+{ term: "What are Moore and Mealy Machines?",
+body: `Both are <strong>finite state transducers</strong> — automata that <em>output</em> symbols in addition to changing state.
+<div class="table-wrap"><table>
+  <thead><tr><th>Feature</th><th>Moore Machine</th><th>Mealy Machine</th></tr></thead>
+  <tbody>
+    <tr><td>Output depends on</td><td>Current state only</td><td>Current state AND input symbol</td></tr>
+    <tr><td>Output function</td><td>λ: Q → Δ</td><td>λ: Q × Σ → Δ</td></tr>
+    <tr><td>Formal tuple</td><td>(Q, Σ, Δ, δ, λ, q₀)</td><td>(Q, Σ, Δ, δ, λ, q₀)</td></tr>
+    <tr><td>Output timing</td><td>Output on entering a state</td><td>Output on taking a transition</td></tr>
+    <tr><td>Output length</td><td>|w| + 1 outputs for input w</td><td>|w| outputs for input w</td></tr>
+  </tbody>
+</table></div>
+Both are equivalent in expressive power — any Moore machine can be converted to an equivalent Mealy machine and vice versa. They model sequential circuits and protocol machines.` },
+
+{ term: "What is a Regular Language? State the Chomsky Hierarchy.",
+body: `A <strong>regular language</strong> is any language accepted by a DFA (equivalently NFA or ε-NFA). Regular languages are precisely those describable by <strong>regular expressions</strong>.
+<div class="table-wrap"><table>
+  <thead><tr><th>Chomsky Level</th><th>Language Class</th><th>Grammar</th><th>Machine</th></tr></thead>
+  <tbody>
+    <tr><td>Type 3</td><td>Regular</td><td>Regular Grammar</td><td>DFA / NFA</td></tr>
+    <tr><td>Type 2</td><td>Context-Free</td><td>CFG</td><td>PDA</td></tr>
+    <tr><td>Type 1</td><td>Context-Sensitive</td><td>CSG</td><td>LBA</td></tr>
+    <tr><td>Type 0</td><td>Recursively Enumerable</td><td>Unrestricted</td><td>Turing Machine</td></tr>
+  </tbody>
+</table></div>` },
+
+// ── UNIT II ─────────────────────────────────────────────────────────────
+{ unit: "UNIT II — Regular Expressions, Pumping Lemma, Closure Properties", term: "What is a Regular Expression? State its operations.",
+body: `A <strong>regular expression (RE)</strong> over alphabet Σ is built from basis symbols (∅, ε, single symbols) combined using three operations:
+<ol>
+  <li><strong>Union (R+S or R|S)</strong> — strings in R or S.</li>
+  <li><strong>Concatenation (RS)</strong> — strings of R followed by strings of S.</li>
+  <li><strong>Kleene Star (R*)</strong> — zero or more concatenations of R.</li>
+</ol>
+<strong>Precedence:</strong> * (highest) → concatenation → + (lowest). By Kleene's theorem, a language is regular ⟺ it has a regular expression.` },
+
+{ term: "State important Algebraic Laws for Regular Expressions.",
+body: `<div class="table-wrap"><table>
+  <thead><tr><th>Law</th><th>Statement</th></tr></thead>
+  <tbody>
+    <tr><td>Commutativity of +</td><td>L + M = M + L</td></tr>
+    <tr><td>Associativity</td><td>(L+M)+N = L+(M+N) and (LM)N = L(MN)</td></tr>
+    <tr><td>Identity for +</td><td>L + ∅ = L</td></tr>
+    <tr><td>Annihilator for ·</td><td>∅L = L∅ = ∅</td></tr>
+    <tr><td>Identity for ·</td><td>εL = Lε = L</td></tr>
+    <tr><td>Distributivity</td><td>L(M+N) = LM + LN, (M+N)L = ML + NL</td></tr>
+    <tr><td>Idempotent</td><td>L + L = L</td></tr>
+    <tr><td>Star of star</td><td>(L*)* = L*</td></tr>
+    <tr><td>ε in star</td><td>ε* = ε, ∅* = ε</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "How do you convert a Finite Automaton to a Regular Expression?",
+body: `Use the <strong>State Elimination Method</strong> (GNFA approach):
+<ol>
+  <li>Add a new start state q_s with ε to old start, and a new final state q_f with ε from all old final states.</li>
+  <li>Eliminate states one by one (not q_s or q_f). For each eliminated state q_rip, update: R(q_i, q_j) := R(q_i, q_j) + R(q_i, q_rip) · R(q_rip, q_rip)* · R(q_rip, q_j).</li>
+  <li>When only q_s and q_f remain, R(q_s, q_f) is the regular expression for L(DFA).</li>
+</ol>
+Alternatively, solve a system of regular equations (Arden's Lemma): if X = AX + B, then X = A*B (provided ε ∉ A).` },
+
+{ term: "State the Pumping Lemma for Regular Languages.",
+body: `If L is a regular language, then there exists a <strong>pumping length n</strong> such that every string w ∈ L with |w| ≥ n can be written as w = xyz satisfying:
+<ol>
+  <li>|xy| ≤ n</li>
+  <li>|y| ≥ 1 (y is non-empty)</li>
+  <li>For all k ≥ 0, xy<sup>k</sup>z ∈ L</li>
+</ol>
+<strong>Use:</strong> To prove a language is <em>not</em> regular, assume it is, choose w, and show some pumped string xy<sup>k</sup>z ∉ L — a contradiction. Note: passing the lemma does not prove regularity.` },
+
+{ term: "Prove L = {0ⁿ1ⁿ | n ≥ 0} is not regular using the Pumping Lemma.",
+body: `<strong>Proof by contradiction:</strong> Assume L is regular with pumping length n. Choose w = 0ⁿ1ⁿ ∈ L, |w| = 2n ≥ n. Write w = xyz with |xy| ≤ n and |y| ≥ 1. Since |xy| ≤ n, both x and y consist only of 0s. Say y = 0<sup>k</sup>, k ≥ 1. Pump up: xy²z = 0<sup>n+k</sup>1ⁿ. Since k ≥ 1, the number of 0s exceeds the number of 1s, so xy²z ∉ L. <strong>Contradiction.</strong> Therefore L is not regular. ∎` },
+
+{ term: "Closure Properties of Regular Languages",
+body: `Regular languages are closed under:
+<div class="table-wrap"><table>
+  <thead><tr><th>Operation</th><th>Result</th><th>Proof Method</th></tr></thead>
+  <tbody>
+    <tr><td>Union L₁ ∪ L₂</td><td>Regular</td><td>Run DFAs in parallel (product construction)</td></tr>
+    <tr><td>Intersection L₁ ∩ L₂</td><td>Regular</td><td>Product DFA; final = both final</td></tr>
+    <tr><td>Complement L̄</td><td>Regular</td><td>Swap accepting/non-accepting states in DFA</td></tr>
+    <tr><td>Concatenation L₁L₂</td><td>Regular</td><td>NFA construction</td></tr>
+    <tr><td>Kleene Star L*</td><td>Regular</td><td>NFA with ε-back-loop</td></tr>
+    <tr><td>Reverse L^R</td><td>Regular</td><td>Reverse all edges, swap start/final</td></tr>
+    <tr><td>Homomorphism h(L)</td><td>Regular</td><td>Apply h to each symbol of RE</td></tr>
+    <tr><td>Difference L₁ − L₂</td><td>Regular</td><td>L₁ ∩ L̄₂</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "Decision Properties of Regular Languages and DFA Minimization",
+body: `<strong>Decidable problems for regular languages:</strong>
+<ul>
+  <li><strong>Membership:</strong> Is w ∈ L? — Run DFA on w. O(|w|) time.</li>
+  <li><strong>Emptiness:</strong> Is L = ∅? — Check if any final state is reachable from start.</li>
+  <li><strong>Finiteness:</strong> Is L finite? — Check for cycles on any path to a final state.</li>
+  <li><strong>Equivalence:</strong> Is L(M₁) = L(M₂)? — Minimize both DFAs, check isomorphism.</li>
+</ul>
+<strong>DFA Minimization (Table-Filling / Myhill-Nerode):</strong>
+<ol>
+  <li>Remove unreachable states.</li>
+  <li>Mark all pairs (p, q) where one is final and other is not.</li>
+  <li>Iteratively mark (p, q) if δ(p,a) and δ(q,a) are already marked for some a.</li>
+  <li>Merge all unmarked (equivalent) pairs into a single state.</li>
+</ol>` },
+
+// ── UNIT III ────────────────────────────────────────────────────────────
+{ unit: "UNIT III — Context-Free Grammars and Push Down Automata", term: "Define a Context-Free Grammar (CFG).",
+body: `A <strong>CFG</strong> is a 4-tuple G = (V, T, P, S) where:
+<div class="table-wrap"><table>
+  <thead><tr><th>Component</th><th>Meaning</th><th>Example</th></tr></thead>
+  <tbody>
+    <tr><td>V</td><td>Variables (non-terminals)</td><td>{S, E, T}</td></tr>
+    <tr><td>T</td><td>Terminals (alphabet symbols)</td><td>{a, b, +, *}</td></tr>
+    <tr><td>P</td><td>Productions A → α, A∈V, α∈(V∪T)*</td><td>E → E+T | T</td></tr>
+    <tr><td>S</td><td>Start variable</td><td>S or E</td></tr>
+  </tbody>
+</table></div>
+A <strong>derivation</strong> replaces a variable using a production. <strong>Leftmost</strong>: always replace the leftmost variable. <strong>Rightmost</strong>: always replace the rightmost variable. L(G) = all terminal strings derivable from S.` },
+
+{ term: "What is an Ambiguous Grammar? How is it resolved?",
+body: `A grammar G is <strong>ambiguous</strong> if some string w ∈ L(G) has <strong>two or more distinct parse trees</strong> (equivalently, two distinct leftmost derivations). Example: <code>E → E+E | E*E | id</code> is ambiguous — <em>id+id*id</em> has two parse trees (+ as root vs * as root).
+
+<strong>Resolution:</strong> Rewrite the grammar with explicit precedence levels:
+<div class="code-block">E → E + T  |  T        // lowest precedence (+)
+T → T * F  |  F        // higher precedence (*)
+F → ( E )  |  id       // highest (atoms)</div>
+In this grammar, * always binds tighter than +, and <em>id+id*id</em> has exactly one parse tree. Some languages are <strong>inherently ambiguous</strong> — all grammars for them are ambiguous.` },
+
+{ term: "What are Sentential Forms and Parse Trees?",
+body: `A <strong>sentential form</strong> is any string α ∈ (V ∪ T)* derivable from S (may contain variables). A <strong>terminal string</strong> is a sentential form with no variables.
+
+A <strong>parse tree</strong> represents a derivation graphically:
+<ul>
+  <li>Root = start symbol S.</li>
+  <li>Internal nodes = variables.</li>
+  <li>Leaves (left to right) = terminals (the derived string).</li>
+  <li>Each internal node's children match the right-hand side of some production applied at that node.</li>
+</ul>
+Parse trees abstract away the order of derivation — both leftmost and rightmost derivations produce the same parse tree (if the grammar is unambiguous). Parse trees are the foundation for semantic analysis in compilers.` },
+
+{ term: "Define a Pushdown Automaton (PDA).",
+body: `A <strong>PDA</strong> is a 7-tuple P = (Q, Σ, Γ, δ, q₀, Z₀, F) where:
+<div class="table-wrap"><table>
+  <thead><tr><th>Component</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>Q</td><td>Finite set of states</td></tr>
+    <tr><td>Σ</td><td>Input alphabet</td></tr>
+    <tr><td>Γ</td><td>Stack alphabet</td></tr>
+    <tr><td>δ</td><td>Transition: Q × (Σ∪{ε}) × Γ → 2^(Q×Γ*)</td></tr>
+    <tr><td>q₀</td><td>Start state</td></tr>
+    <tr><td>Z₀</td><td>Initial stack symbol</td></tr>
+    <tr><td>F</td><td>Set of final states</td></tr>
+  </tbody>
+</table></div>
+Key difference from NFA: the PDA has an unbounded <strong>stack</strong>, enabling it to count and accept context-free languages like {0ⁿ1ⁿ}.` },
+
+{ term: "Acceptance by Final State vs. Acceptance by Empty Stack",
+body: `A PDA can accept a string in two equivalent ways:
+<div class="table-wrap"><table>
+  <thead><tr><th>Mode</th><th>Condition for Acceptance</th></tr></thead>
+  <tbody>
+    <tr><td>Final State (N(P))</td><td>Input is fully consumed AND current state ∈ F</td></tr>
+    <tr><td>Empty Stack (L(P))</td><td>Input is fully consumed AND stack is empty</td></tr>
+  </tbody>
+</table></div>
+Both modes accept exactly the <strong>Context-Free Languages</strong>. Any PDA accepting by final state can be converted to one accepting by empty stack (add a new state that pops everything before accepting), and vice versa.` },
+
+{ term: "What is a Deterministic Pushdown Automaton (DPDA)?",
+body: `A <strong>DPDA</strong> is a PDA where at no point is there a choice of move:
+<ul>
+  <li>For each state q, input a, and stack top A, there is <em>at most one</em> move.</li>
+  <li>If δ(q, ε, A) is non-empty, then δ(q, a, A) must be empty for all a ∈ Σ.</li>
+</ul>
+<strong>DPDA vs PDA:</strong> DPDAs accept a strict subset of CFLs called <strong>deterministic CFLs (DCFLs)</strong>. Not all CFLs are deterministic — e.g., {ww^R | w ∈ {a,b}*} requires non-determinism. However, DPDAs are sufficient for parsing most programming language grammars (LR-parsable grammars correspond to DPDAs).` },
+
+// ── UNIT IV ─────────────────────────────────────────────────────────────
+{ unit: "UNIT IV — Normal Forms, Pumping Lemma for CFL, Closure, Turing Machines", term: "What is Chomsky Normal Form (CNF)?",
+body: `A CFG is in <strong>Chomsky Normal Form (CNF)</strong> if every production is of the form:
+<ul>
+  <li><strong>A → BC</strong> (two variables), or</li>
+  <li><strong>A → a</strong> (one terminal), or</li>
+  <li><strong>S → ε</strong> (only if ε ∈ L(G)).</li>
+</ul>
+<strong>Conversion steps:</strong>
+<ol>
+  <li>Eliminate ε-productions (except S → ε).</li>
+  <li>Eliminate unit productions (A → B).</li>
+  <li>Eliminate useless symbols (non-generating or non-reachable).</li>
+  <li>Break long RHS: A → BCD becomes A → BE, E → CD.</li>
+  <li>Replace terminals in binary RHS: A → aB becomes A → X_a B, X_a → a.</li>
+</ol>
+Every CFL has a CNF grammar. CNF is used in the CYK parsing algorithm (O(n³)).` },
+
+{ term: "What is Greibach Normal Form (GNF)?",
+body: `A CFG is in <strong>Greibach Normal Form (GNF)</strong> if every production has the form:
+<ul>
+  <li><strong>A → aα</strong> where a ∈ T (a terminal) and α ∈ V* (zero or more variables).</li>
+</ul>
+Key property: derivations never start with a variable, preventing left-recursion. GNF allows simpler PDA simulation — one push per derivation step.
+
+<strong>Conversion:</strong> First convert to CNF, then apply substitution to ensure each RHS starts with a terminal. Left-recursive productions A → Aα are eliminated by introducing new variables: A → βA', A' → αA' | ε.
+
+<strong>Significance:</strong> Every CFL (without ε) has a GNF grammar. Each GNF derivation step of the grammar corresponds to exactly one move of an equivalent PDA.` },
+
+{ term: "How are Useless Symbols and ε-Productions eliminated?",
+body: `<strong>Useless symbols</strong> are either non-generating (no terminal string derivable) or non-reachable (not reachable from S).
+<ol>
+  <li><strong>Eliminate non-generating:</strong> Mark all variables A where A ⇒* w for some terminal w. Remove any production containing an unmarked variable.</li>
+  <li><strong>Eliminate non-reachable:</strong> Mark all symbols reachable from S. Remove productions with unreachable symbols.</li>
+</ol>
+<strong>Eliminating ε-productions:</strong>
+<ol>
+  <li>Find all <em>nullable</em> variables: A where A ⇒* ε.</li>
+  <li>For each production, add a version with each combination of nullable symbols removed.</li>
+  <li>Remove all explicit A → ε productions (except S → ε if ε ∈ L(G)).</li>
+</ol>` },
+
+{ term: "State the Pumping Lemma for Context-Free Languages.",
+body: `If L is a CFL, then there exists a <strong>pumping length n</strong> such that every string w ∈ L with |w| ≥ n can be written as w = uvxyz satisfying:
+<ol>
+  <li>|vxy| ≤ n</li>
+  <li>|vy| ≥ 1 (v and y are not both empty)</li>
+  <li>For all k ≥ 0, uv<sup>k</sup>xy<sup>k</sup>z ∈ L</li>
+</ol>
+Note: TWO substrings v and y are pumped simultaneously. Use it like the regular pumping lemma — assume CFL, pick a long string, show pumped string leaves L. Example: L = {aⁿbⁿcⁿ | n ≥ 0} is not context-free.` },
+
+{ term: "Prove L = {aⁿbⁿcⁿ | n ≥ 0} is not context-free.",
+body: `<strong>Proof by contradiction:</strong> Assume L is a CFL with pumping length n. Choose w = aⁿbⁿcⁿ ∈ L, |w| = 3n ≥ n. Write w = uvxyz with |vxy| ≤ n, |vy| ≥ 1. Since |vxy| ≤ n, vxy cannot span all three of a, b, c sections. So v and y together contain symbols from at most two distinct letters.
+
+<strong>Case 1:</strong> v and y contain only a's and b's. Pump up (k=2): the count of c's stays at n, but a's or b's increase → uv²xy²z ∉ L.
+
+<strong>Case 2:</strong> v and y contain only b's and c's. Same argument — a count stays at n, but b's or c's increase.
+
+In all cases, uv²xy²z ∉ L. <strong>Contradiction.</strong> Therefore L is not context-free. ∎` },
+
+{ term: "Closure Properties of Context-Free Languages",
+body: `CFLs are closed under some operations but <strong>not all</strong>:
+<div class="table-wrap"><table>
+  <thead><tr><th>Operation</th><th>CFL Closed?</th><th>Note</th></tr></thead>
+  <tbody>
+    <tr><td>Union L₁ ∪ L₂</td><td>Yes ✓</td><td>S → S₁ | S₂</td></tr>
+    <tr><td>Concatenation L₁L₂</td><td>Yes ✓</td><td>S → S₁S₂</td></tr>
+    <tr><td>Kleene Star L*</td><td>Yes ✓</td><td>S → SS₁ | ε</td></tr>
+    <tr><td>Intersection L₁ ∩ L₂</td><td>No ✗</td><td>Intersection of two CFLs may not be CFL</td></tr>
+    <tr><td>Complement L̄</td><td>No ✗</td><td>Not closed; counter-examples exist</td></tr>
+    <tr><td>CFL ∩ Regular</td><td>Yes ✓</td><td>Run PDA and DFA in parallel</td></tr>
+    <tr><td>Homomorphism</td><td>Yes ✓</td><td>Apply h to each terminal in grammar</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "Decision Properties of CFLs",
+body: `<div class="table-wrap"><table>
+  <thead><tr><th>Problem</th><th>Decidable?</th><th>Method</th></tr></thead>
+  <tbody>
+    <tr><td>Membership: w ∈ L(G)?</td><td>Yes ✓</td><td>CYK algorithm O(n³) after converting to CNF</td></tr>
+    <tr><td>Emptiness: L(G) = ∅?</td><td>Yes ✓</td><td>Check if S is non-generating (no terminal string reachable)</td></tr>
+    <tr><td>Finiteness: |L(G)| finite?</td><td>Yes ✓</td><td>Check for cycles in the CNF grammar graph</td></tr>
+    <tr><td>Equivalence: L(G₁)=L(G₂)?</td><td>No ✗</td><td>Undecidable in general</td></tr>
+    <tr><td>Ambiguity: Is G ambiguous?</td><td>No ✗</td><td>Undecidable in general</td></tr>
+    <tr><td>Is L(G) regular?</td><td>No ✗</td><td>Undecidable in general</td></tr>
+  </tbody>
+</table></div>` },
+
+{ term: "Define a Turing Machine (TM).",
+body: `A <strong>TM</strong> is a 7-tuple M = (Q, Σ, Γ, δ, q₀, B, F) where Γ is the tape alphabet (Σ ⊂ Γ), B ∈ Γ is the blank symbol, and δ: Q×Γ → Q×Γ×{L,R}. It operates on an infinite tape, reading/writing symbols and moving left or right.
+<div class="table-wrap"><table>
+  <thead><tr><th>Component</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>Q</td><td>Finite set of states</td></tr>
+    <tr><td>Σ</td><td>Input alphabet (Σ ⊆ Γ, B ∉ Σ)</td></tr>
+    <tr><td>Γ</td><td>Tape alphabet</td></tr>
+    <tr><td>δ</td><td>Q × Γ → Q × Γ × {L, R}</td></tr>
+    <tr><td>B</td><td>Blank symbol ∈ Γ \ Σ</td></tr>
+    <tr><td>F ⊆ Q</td><td>Accepting states</td></tr>
+  </tbody>
+</table></div>
+An <strong>instantaneous description (ID)</strong> is a triple (q, α, β) representing the current state q, the tape content to the left of and including the head (α), and to the right (β). L(M) = all strings accepted by M.` },
+
+{ term: "What is the Language of a Turing Machine? Recursive vs RE.",
+body: `<div class="table-wrap"><table>
+  <thead><tr><th>Property</th><th>Recursive (Decidable)</th><th>RE (Semi-decidable)</th></tr></thead>
+  <tbody>
+    <tr><td>TM behaviour</td><td>Always halts (accept or reject)</td><td>Halts on accept; may loop on reject</td></tr>
+    <tr><td>Complement</td><td>Also recursive</td><td>Not necessarily RE</td></tr>
+    <tr><td>Example</td><td>Any regular/CFL language</td><td>Acceptance problem A_TM</td></tr>
+    <tr><td>Decidable?</td><td>Yes</td><td>Not necessarily</td></tr>
+  </tbody>
+</table></div>
+Containment: Regular ⊂ CFL ⊂ Recursive ⊂ RE ⊂ all languages.
+The <strong>L(M)</strong> (language of a TM) is RE. A language is <strong>recursive</strong> if some TM always halts on every input; it is <strong>RE</strong> if some TM accepts it (but may loop on rejection).` },
+
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 5-MARK DETAILED QUESTIONS
+// ─────────────────────────────────────────────────────────────────────────────
+const detailedQuestions = [
+{
+  id:"q1", num:"Q.1", unit:"UNIT I",
+  title:"Central Concepts of Automata Theory — Alphabets, Strings, Languages, Problems, Structural Representations",
+  body:`<p>Automata theory studies abstract computing devices (automata) and the problems they can solve. Its central concepts are the mathematical objects that all machines operate on.</p>
+  <p class="sub-h">Alphabet (Σ)</p>
+  <p>A finite, non-empty set of symbols. Examples: Σ = {0,1} (binary), Σ = {a,b,…,z} (English). Operations on alphabets give rise to strings.</p>
+  <p class="sub-h">Strings</p>
+  <p>A <strong>string (word)</strong> over Σ is a finite sequence of symbols from Σ. The <strong>empty string ε</strong> has length 0. |w| denotes the length of w. Σ* is the set of all strings including ε; Σ⁺ = Σ* \\ {ε}. Operations on strings: concatenation (xy), reversal (w^R), substring, prefix, suffix.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Σ = {0,1}</th><th>Members</th></tr></thead>
+    <tbody>
+      <tr><td>Σ⁰</td><td>{ε}</td></tr>
+      <tr><td>Σ¹</td><td>{0, 1}</td></tr>
+      <tr><td>Σ²</td><td>{00, 01, 10, 11}</td></tr>
+      <tr><td>Σ*</td><td>ε, 0, 1, 00, 01, 10, 11, 000, …</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Languages</p>
+  <p>A <strong>language L</strong> is any subset of Σ*. Language operations: union (L₁ ∪ L₂), concatenation (L₁L₂), Kleene closure (L*), complement (L̄ = Σ* − L).</p>
+  <p class="sub-h">Problems</p>
+  <p>A <strong>problem</strong> is a language — the set of strings (inputs) for which the answer is "yes." Automata are the machines that decide (accept or reject) such problems.</p>
+  <p class="sub-h">Structural Representations</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Representation</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td>Transition Diagram</td><td>Directed graph — nodes = states, edges labelled with input symbols, double circles = final states</td></tr>
+      <tr><td>Transition Table</td><td>2D table — rows = states, columns = inputs, cells = next states</td></tr>
+      <tr><td>Formal 5-tuple</td><td>Mathematical specification (Q, Σ, δ, q₀, F)</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q2", num:"Q.2", unit:"UNIT I",
+  title:"DFA — Definition, Processing Strings, Language of a DFA, Construction Example",
+  body:`<p>A <strong>Deterministic Finite Automaton (DFA)</strong> is a 5-tuple M = (Q, Σ, δ, q₀, F):</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Component</th><th>Meaning</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Q</td><td>Finite set of states</td><td>{q₀, q₁, q₂}</td></tr>
+      <tr><td>Σ</td><td>Input alphabet</td><td>{0, 1}</td></tr>
+      <tr><td>δ: Q×Σ→Q</td><td>Transition function (total)</td><td>δ(q₀,0)=q₁</td></tr>
+      <tr><td>q₀ ∈ Q</td><td>Start state</td><td>q₀</td></tr>
+      <tr><td>F ⊆ Q</td><td>Set of accepting states</td><td>{q₂}</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">How a DFA Processes a String</p>
+  <p>Starting in q₀, read w = a₁a₂…aₙ one symbol at a time, applying δ. The <strong>extended transition function</strong> δ̂(q,ε) = q and δ̂(q, wa) = δ(δ̂(q,w), a). String w is <strong>accepted</strong> if δ̂(q₀, w) ∈ F.</p>
+  <p class="sub-h">Construction — DFA for strings containing "01" as substring</p>
+  <div class="diagram-wrap"><div class="diagram-label">DFA — L = {w | w contains 01}</div>
+  <svg viewBox="0 0 460 120" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+    <defs><marker id="ar" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888"/></marker></defs>
+    <circle cx="70"  cy="60" r="24" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="70"  y="64" text-anchor="middle" fill="#ccc" font-size="10">q₀</text>
+    <circle cx="210" cy="60" r="24" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="210" y="64" text-anchor="middle" fill="#ccc" font-size="10">q₁</text>
+    <circle cx="360" cy="60" r="24" fill="none" stroke="#aaa" stroke-width="2"/>
+    <circle cx="360" cy="60" r="19" fill="none" stroke="#aaa" stroke-width="1"/>
+    <text x="360" y="64" text-anchor="middle" fill="#fff" font-size="10">q₂</text>
+    <line x1="10" y1="60" x2="44" y2="60" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <line x1="94" y1="60" x2="184" y2="60" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="139" y="52" text-anchor="middle" fill="#888" font-size="9">0</text>
+    <line x1="234" y1="60" x2="334" y2="60" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="284" y="52" text-anchor="middle" fill="#888" font-size="9">1</text>
+    <path d="M70,36 A35,35 0 1,1 95,36" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="70" y="10" text-anchor="middle" fill="#888" font-size="9">1</text>
+    <path d="M210,36 A35,35 0 1,1 235,36" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="210" y="10" text-anchor="middle" fill="#888" font-size="9">0</text>
+    <path d="M360,36 A35,35 0 1,1 385,36" fill="none" stroke="#aaa" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="368" y="10" text-anchor="middle" fill="#aaa" font-size="9">0,1</text>
+    <path d="M210,84 Q140,115 94,74" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#ar)"/>
+    <text x="148" y="115" text-anchor="middle" fill="#888" font-size="9">1→q₀</text>
+  </svg></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>State</th><th>0</th><th>1</th></tr></thead>
+    <tbody>
+      <tr><td>→ q₀</td><td>q₁</td><td>q₀</td></tr>
+      <tr><td>q₁</td><td>q₁</td><td>q₂</td></tr>
+      <tr><td>* q₂</td><td>q₂</td><td>q₂</td></tr>
+    </tbody>
+  </table></div>
+  <p>Trace of w = 1001: q₀ →¹ q₀ →⁰ q₁ →⁰ q₁ →¹ q₂ ∈ F → <strong>Accepted</strong>.</p>
+  <p class="sub-h">Language of a DFA</p>
+  <p>L(M) = {w ∈ Σ* | δ̂(q₀, w) ∈ F}. The class of all languages accepted by some DFA is precisely the class of <strong>regular languages</strong>.</p>`
+},
+{
+  id:"q3", num:"Q.3", unit:"UNIT I",
+  title:"NFA — Definition, Text Search Application, and NFA→DFA Conversion via Subset Construction",
+  body:`<p>An <strong>NFA</strong> (Q, Σ, δ, q₀, F) differs from a DFA in that δ: Q×(Σ∪{ε}) → 2^Q. Multiple transitions on the same symbol are allowed; missing transitions map to ∅. A string is accepted if <em>any</em> computation path reaches a final state.</p>
+  <p class="sub-h">Application: Text Search</p>
+  <p>NFAs power pattern matching in text editors, grep, and lexical analyzers. To find pattern P = "ab" in text T, build an NFA where state 0 loops on all characters, state 1 is reached on 'a', and state 2 (final) is reached from state 1 on 'b'. Run the NFA simultaneously across all starting positions — this is the key advantage of NFA non-determinism.</p>
+  <div class="diagram-wrap"><div class="diagram-label">NFA for pattern "ab" in text</div>
+  <svg viewBox="0 0 320 90" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+    <defs><marker id="a3" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888"/></marker></defs>
+    <circle cx="60" cy="45" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="60" y="49" text-anchor="middle" fill="#ccc" font-size="10">s₀</text>
+    <circle cx="170" cy="45" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="170" y="49" text-anchor="middle" fill="#ccc" font-size="10">s₁</text>
+    <circle cx="280" cy="45" r="22" fill="none" stroke="#aaa" stroke-width="2"/>
+    <circle cx="280" cy="45" r="17" fill="none" stroke="#aaa"/>
+    <text x="280" y="49" text-anchor="middle" fill="#fff" font-size="10">s₂</text>
+    <line x1="10" y1="45" x2="36" y2="45" stroke="#888" stroke-width="1.5" marker-end="url(#a3)"/>
+    <line x1="82" y1="45" x2="146" y2="45" stroke="#888" stroke-width="1.5" marker-end="url(#a3)"/>
+    <text x="114" y="38" text-anchor="middle" fill="#888" font-size="9">a</text>
+    <line x1="192" y1="45" x2="256" y2="45" stroke="#888" stroke-width="1.5" marker-end="url(#a3)"/>
+    <text x="224" y="38" text-anchor="middle" fill="#888" font-size="9">b</text>
+    <path d="M60,23 A28,28 0 1,1 82,23" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a3)"/>
+    <text x="60" y="4" text-anchor="middle" fill="#888" font-size="9">Σ</text>
+  </svg></div>
+  <p class="sub-h">NFA→DFA Subset Construction (Formal)</p>
+  <p>Each DFA state is a <em>set</em> of NFA states. Start: ECLOSE(q₀). Compute transitions by: (1) apply NFA δ to each state in the set on symbol a, (2) take ECLOSE of the union. A DFA state is final if it contains any NFA final state.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>DFA State</th><th>NFA States</th><th>On 0</th><th>On 1</th><th>Final?</th></tr></thead>
+    <tbody>
+      <tr><td>A</td><td>{q₀}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>No</td></tr>
+      <tr><td>B</td><td>{q₀,q₁}</td><td>{q₀,q₁}</td><td>{q₀,q₂}</td><td>No</td></tr>
+      <tr><td>C</td><td>{q₀,q₂}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>Yes (q₂∈F)</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q4", num:"Q.4", unit:"UNIT I",
+  title:"ε-NFA — ε-closure, Simulation, Conversion to NFA without ε, and Conversion to DFA",
+  body:`<p>An <strong>ε-NFA</strong> allows transitions on ε (no input consumed). This makes it easier to build automata by composing smaller ones. It is equivalent in power to DFA — both accept exactly the Regular Languages.</p>
+  <p class="sub-h">ε-closure Definition</p>
+  <p>ECLOSE(q) = the set of all states reachable from q by zero or more ε-transitions (always includes q itself). Computed via BFS/DFS on ε-edges.</p>
+  <p class="sub-h">Conversion — ε-NFA to NFA without ε (removing ε-transitions)</p>
+  <p>For each state q and each symbol a ∈ Σ:
+  <br>δ'(q, a) = ECLOSE(∪{δ(p, a) | p ∈ ECLOSE(q)})</p>
+  <p>A state q becomes final in the new NFA if ECLOSE(q) contains any original final state. All ε-transitions are then removed.</p>
+  <p class="sub-h">Conversion — ε-NFA to DFA (Subset Construction with ε-closure)</p>
+  <div class="diagram-wrap"><div class="diagram-label">ε-NFA — states q'₀, q₀, q₁, q₂</div>
+  <svg viewBox="0 0 420 130" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:11px;">
+    <defs><marker id="a4" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#888"/></marker></defs>
+    <circle cx="60"  cy="65" r="22" fill="none" stroke="#aaa" stroke-width="2"/>
+    <circle cx="60"  cy="65" r="17" fill="none" stroke="#aaa"/>
+    <text x="60"  y="69" text-anchor="middle" fill="#fff" font-size="9">q'₀</text>
+    <circle cx="180" cy="65" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="180" y="69" text-anchor="middle" fill="#ccc" font-size="10">q₀</text>
+    <circle cx="300" cy="65" r="22" fill="none" stroke="#555" stroke-width="1.5"/>
+    <text x="300" y="69" text-anchor="middle" fill="#ccc" font-size="10">q₁</text>
+    <circle cx="390" cy="65" r="22" fill="none" stroke="#aaa" stroke-width="2"/>
+    <circle cx="390" cy="65" r="17" fill="none" stroke="#aaa"/>
+    <text x="390" y="69" text-anchor="middle" fill="#fff" font-size="10">q₂</text>
+    <line x1="10" y1="65" x2="36" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <line x1="82" y1="65" x2="156" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <text x="119" y="57" text-anchor="middle" fill="#888" font-size="9">ε</text>
+    <line x1="202" y1="65" x2="276" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <text x="239" y="57" text-anchor="middle" fill="#888" font-size="9">0</text>
+    <line x1="322" y1="65" x2="366" y2="65" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <text x="344" y="57" text-anchor="middle" fill="#888" font-size="9">1</text>
+    <path d="M180,43 A30,30 0 1,1 202,43" fill="none" stroke="#888" stroke-width="1.5" marker-end="url(#a4)"/>
+    <text x="180" y="20" text-anchor="middle" fill="#888" font-size="9">0,1</text>
+  </svg></div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>DFA State</th><th>0</th><th>1</th><th>Final?</th></tr></thead>
+    <tbody>
+      <tr><td>* {q'₀,q₀}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>Yes (q'₀)</td></tr>
+      <tr><td>{q₀,q₁}</td><td>{q₀,q₁}</td><td>{q₀,q₂}</td><td>No</td></tr>
+      <tr><td>{q₀}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>No</td></tr>
+      <tr><td>* {q₀,q₂}</td><td>{q₀,q₁}</td><td>{q₀}</td><td>Yes (q₂)</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q5", num:"Q.5", unit:"UNIT I",
+  title:"Moore and Mealy Machines — Definitions, Differences, and Conversion",
+  body:`<p>Moore and Mealy machines are <strong>finite state transducers</strong> — they associate outputs with states or transitions, producing an output string for every input string.</p>
+  <p class="sub-h">Moore Machine</p>
+  <p>A Moore machine is a 6-tuple (Q, Σ, Δ, δ, λ, q₀) where Δ is the output alphabet and λ: Q → Δ maps each state to an output. Output is produced <em>on entering</em> a state.</p>
+  <div class="code-block">Example Moore Machine — outputs 1 whenever the last two inputs were 01
+States: A(out=0), B(out=0), C(out=1)
+δ: A→0→B, A→1→A, B→0→B, B→1→C, C→0→B, C→1→A
+Input: 001 → states A,A,B,C → outputs: 0,0,0,1</div>
+  <p class="sub-h">Mealy Machine</p>
+  <p>A Mealy machine is a 6-tuple (Q, Σ, Δ, δ, λ, q₀) where λ: Q × Σ → Δ maps each (state, input) pair to an output. Output is produced <em>on taking a transition</em>.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Feature</th><th>Moore</th><th>Mealy</th></tr></thead>
+    <tbody>
+      <tr><td>Output function</td><td>λ(q): depends on state only</td><td>λ(q,a): depends on state and input</td></tr>
+      <tr><td>Output length</td><td>|w| + 1 symbols</td><td>|w| symbols</td></tr>
+      <tr><td>Number of states</td><td>May need more states</td><td>Usually fewer states</td></tr>
+      <tr><td>Equivalence</td><td>Equivalent in power</td><td>Equivalent in power</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Conversion: Mealy → Moore</p>
+  <p>For each state q and each incoming input a (with output b), create a new Moore state (q,a) with output b. This may increase the number of states. The start state is replicated for each possible first input.</p>
+  <p class="sub-h">Conversion: Moore → Mealy</p>
+  <p>Keep the same states and transitions. For each transition δ(q, a) = r, set the Mealy output λ(q, a) = Moore output of r (the destination state's output). This typically reduces the number of states needed.</p>`
+},
+{
+  id:"q6", num:"Q.6", unit:"UNIT I",
+  title:"DFA Minimization — Table-Filling Algorithm and Myhill-Nerode Theorem",
+  body:`<p>A minimal DFA for a language L has the fewest possible states. Two states p and q are <strong>equivalent (indistinguishable)</strong> if for every string w, δ̂(p,w) and δ̂(q,w) are both in F or both not in F. States that are not equivalent are <strong>distinguishable</strong>.</p>
+  <p class="sub-h">Table-Filling (Marking) Algorithm</p>
+  <ol>
+    <li>Remove all unreachable states.</li>
+    <li>Create a triangular table of all pairs (p,q).</li>
+    <li>Mark all pairs (p,q) where exactly one of p, q is in F (base case).</li>
+    <li>Repeatedly: mark (p,q) if δ(p,a) and δ(q,a) are already marked for some a ∈ Σ.</li>
+    <li>Merge all unmarked pairs — they are equivalent states.</li>
+  </ol>
+  <p class="sub-h">Example — Minimize a 5-state DFA</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>State</th><th>0</th><th>1</th><th>Final?</th></tr></thead>
+    <tbody>
+      <tr><td>→ A</td><td>B</td><td>C</td><td>No</td></tr>
+      <tr><td>B</td><td>A</td><td>D</td><td>No</td></tr>
+      <tr><td>C</td><td>D</td><td>A</td><td>No</td></tr>
+      <tr><td>* D</td><td>D</td><td>D</td><td>Yes</td></tr>
+      <tr><td>* E</td><td>E</td><td>E</td><td>Yes</td></tr>
+    </tbody>
+  </table></div>
+  <p>Step 1: Mark (D,A), (D,B), (D,C), (E,A), (E,B), (E,C) — one final, one not. Step 2: Check δ of unmarked pairs. (B,C): δ(B,0)=A, δ(C,0)=D — (A,D) is marked → mark (B,C). (D,E): δ(D,0)=D, δ(E,0)=E — both final, (D,E) unmarked. So D and E are equivalent → merge into one state. <strong>Minimal DFA has 4 states.</strong></p>
+  <p class="sub-h">Myhill-Nerode Theorem</p>
+  <p>L is regular ⟺ the equivalence relation ≡_L (where x ≡_L y iff for all z, xz ∈ L ⟺ yz ∈ L) has a <strong>finite number of equivalence classes</strong>. The number of classes equals the number of states in the minimal DFA. This theorem provides both a characterization of regular languages and an alternative proof that some languages are not regular.</p>`
+},
+{
+  id:"q7", num:"Q.7", unit:"UNIT II",
+  title:"Regular Expressions — Kleene's Theorem, Thompson's Construction, and FA to RE Conversion",
+  body:`<p>A <strong>regular expression (RE)</strong> defines a regular language using three operations on symbols: union (+), concatenation, and Kleene star (*). By <strong>Kleene's Theorem</strong>, a language is regular ⟺ it can be described by a regular expression ⟺ it is accepted by some DFA.</p>
+  <p class="sub-h">Important Algebraic Laws</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Law</th><th>Statement</th></tr></thead>
+    <tbody>
+      <tr><td>Commutativity</td><td>L + M = M + L</td></tr>
+      <tr><td>Associativity</td><td>(L+M)+N = L+(M+N)</td></tr>
+      <tr><td>Distributivity</td><td>L(M+N) = LM + LN</td></tr>
+      <tr><td>Idempotent</td><td>L + L = L</td></tr>
+      <tr><td>Star of star</td><td>(L*)* = L*</td></tr>
+      <tr><td>Arden's Lemma</td><td>X = AX + B ⟹ X = A*B (ε ∉ A)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Thompson's Construction — RE to ε-NFA</p>
+  <p>Build NFAs for basis cases (ε, ∅, single symbol), then combine using:</p>
+  <ul>
+    <li><strong>Union R+S:</strong> New start state with ε to both, new final state with ε from both.</li>
+    <li><strong>Concatenation RS:</strong> Connect final states of R to start state of S via ε.</li>
+    <li><strong>Star R*:</strong> New start/final state, ε-loop back from old final to old start.</li>
+  </ul>
+  <p class="sub-h">Common Regular Expressions (Σ = {0,1})</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Language</th><th>Regular Expression</th></tr></thead>
+    <tbody>
+      <tr><td>All binary strings</td><td>(0+1)*</td></tr>
+      <tr><td>Strings ending in 01</td><td>(0+1)*01</td></tr>
+      <tr><td>Strings with even # of 0s</td><td>(1*01*0)*1*</td></tr>
+      <tr><td>Strings not containing bb</td><td>(a+ba)*(b+ε)</td></tr>
+      <tr><td>Length multiple of 3</td><td>((0+1)(0+1)(0+1))*</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">FA to Regular Expression — State Elimination</p>
+  <p>Add super-start (q_s) and super-final (q_f) states. Eliminate each intermediate state q_rip by updating: R(q_i, q_j) := R(q_i, q_j) + R(q_i, q_rip)·R(q_rip, q_rip)*·R(q_rip, q_j). The remaining edge R(q_s, q_f) is the RE.</p>`
+},
+{
+  id:"q8", num:"Q.8", unit:"UNIT II",
+  title:"Pumping Lemma for Regular Languages — Proofs and Applications",
+  body:`<p>The <strong>Pumping Lemma</strong> is the standard tool for proving a language is not regular. It states: if L is regular with pumping length n, then every w ∈ L with |w| ≥ n can be written as w = xyz with |xy| ≤ n, |y| ≥ 1, and xy<sup>k</sup>z ∈ L for all k ≥ 0.</p>
+  <p class="sub-h">Method (Adversarial Game)</p>
+  <ol>
+    <li>Assume L is regular (for contradiction).</li>
+    <li>Let n be the pumping length. <em>We</em> choose w ∈ L with |w| ≥ n.</li>
+    <li><em>Adversary</em> chooses any split w = xyz with |xy| ≤ n, |y| ≥ 1.</li>
+    <li><em>We</em> find k ≥ 0 such that xy<sup>k</sup>z ∉ L. Contradiction → L not regular.</li>
+  </ol>
+  <p class="sub-h">Proof 1: L = {0ⁿ1ⁿ | n ≥ 0}</p>
+  <p>Choose w = 0ⁿ1ⁿ. Since |xy| ≤ n, y = 0<sup>k</sup>, k ≥ 1. xy²z = 0<sup>n+k</sup>1ⁿ ∉ L. ∎</p>
+  <p class="sub-h">Proof 2: L = {0ᵖ | p is prime}</p>
+  <p>Choose w = 0ᵖ where p ≥ n is prime. y = 0<sup>m</sup>, m ≥ 1. Pump: xy<sup>k</sup>z = 0<sup>p+(k-1)m</sup>. Choose k = p: length = p + (p−1)m = p(1 + m) − m. When m = 1 this gives p·k, which is composite for k ≥ 2. Contradiction. ∎</p>
+  <p class="sub-h">Additional Examples</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Language</th><th>Chosen w</th><th>Contradiction</th></tr></thead>
+    <tbody>
+      <tr><td>{aⁱbʲ | i &gt; j}</td><td>aⁿ⁺¹bⁿ</td><td>y = aᵏ → pump down: xy⁰z = aⁿ⁺¹⁻ᵏbⁿ with n+1−k ≤ n</td></tr>
+      <tr><td>{ww | w∈{a,b}*}</td><td>aⁿbⁿaⁿbⁿ</td><td>y lies in first aⁿ → pumped string ≠ ww for any w</td></tr>
+      <tr><td>{0ⁿ²| n ≥ 0}</td><td>0^(n²)</td><td>y = 0ᵏ → xy²z = 0^(n²+k) — not a perfect square for 1≤k≤n</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q9", num:"Q.9", unit:"UNIT II",
+  title:"Closure and Decision Properties of Regular Languages — with DFA Minimization",
+  body:`<p>Closure properties tell us which operations preserve regularity. Decision properties tell us which yes/no questions about regular languages can be answered algorithmically.</p>
+  <p class="sub-h">Closure Properties</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Operation</th><th>Closed?</th><th>Proof Technique</th></tr></thead>
+    <tbody>
+      <tr><td>Union</td><td>Yes</td><td>Product DFA: final = F₁×Q₂ ∪ Q₁×F₂</td></tr>
+      <tr><td>Intersection</td><td>Yes</td><td>Product DFA: final = F₁×F₂</td></tr>
+      <tr><td>Complement</td><td>Yes</td><td>Swap accepting/rejecting states in DFA</td></tr>
+      <tr><td>Difference L₁−L₂</td><td>Yes</td><td>L₁ ∩ L̄₂</td></tr>
+      <tr><td>Concatenation</td><td>Yes</td><td>NFA: connect final states of L₁ to start of L₂ via ε</td></tr>
+      <tr><td>Kleene Star</td><td>Yes</td><td>NFA: ε-back-loop from final to start</td></tr>
+      <tr><td>Reversal</td><td>Yes</td><td>Reverse all edges, swap start/final in DFA</td></tr>
+      <tr><td>Homomorphism</td><td>Yes</td><td>Apply h to each symbol in the RE</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Decision Properties</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Problem</th><th>Algorithm</th><th>Complexity</th></tr></thead>
+    <tbody>
+      <tr><td>Membership: w ∈ L?</td><td>Run DFA on w</td><td>O(|w|)</td></tr>
+      <tr><td>Emptiness: L = ∅?</td><td>BFS/DFS from start: any final reachable?</td><td>O(|Q|+|δ|)</td></tr>
+      <tr><td>Finiteness: |L| finite?</td><td>Check if any final state lies on a cycle</td><td>O(|Q|+|δ|)</td></tr>
+      <tr><td>Equivalence: L₁=L₂?</td><td>Minimize both; check isomorphism</td><td>O(n log n)</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Equivalence and Minimization</p>
+  <p>Two DFAs M₁, M₂ are equivalent iff L(M₁) = L(M₂). To test: build the product DFA for the symmetric difference (L₁ − L₂) ∪ (L₂ − L₁). If this language is empty, they are equivalent. Alternatively, minimize both DFAs and check if the resulting minimal DFAs are isomorphic (same up to state renaming).</p>`
+},
+{
+  id:"q10", num:"Q.10", unit:"UNIT III",
+  title:"Context-Free Grammars — Derivations, Leftmost/Rightmost, Parse Trees, Ambiguity",
+  body:`<p>A <strong>CFG</strong> G = (V, T, P, S) generates strings by applying production rules. A string w ∈ T* is in L(G) if S ⇒* w.</p>
+  <p class="sub-h">Example Grammar — Arithmetic Expressions</p>
+  <div class="code-block">E → E + T  |  T
+T → T * F  |  F
+F → ( E )  |  id</div>
+  <p class="sub-h">Leftmost Derivation of id + id * id</p>
+  <div class="code-block">E ⇒ E + T ⇒ T + T ⇒ F + T ⇒ id + T ⇒ id + T*F ⇒ id + F*F ⇒ id + id*F ⇒ id + id*id</div>
+  <p class="sub-h">Rightmost Derivation of id + id * id</p>
+  <div class="code-block">E ⇒ E + T ⇒ E + T*F ⇒ E + T*id ⇒ E + F*id ⇒ E + id*id ⇒ T + id*id ⇒ F + id*id ⇒ id + id*id</div>
+  <p class="sub-h">Parse Tree Structure</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Derivation Type</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td>Leftmost</td><td>Always expand leftmost non-terminal first</td></tr>
+      <tr><td>Rightmost</td><td>Always expand rightmost non-terminal first</td></tr>
+      <tr><td>Parse Tree</td><td>Unique graphical structure; leaves give the derived string</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Ambiguity</p>
+  <p>The grammar E → E+E | E*E | id is <strong>ambiguous</strong> — id+id*id has two parse trees. This is harmful in programming language compilers because semantic analysis depends on the parse tree. The unambiguous grammar above (E→E+T, T→T*F, F→id) encodes operator precedence into the grammar structure: + is lower precedence (outermost), * is higher (middle), id is innermost.</p>
+  <p class="sub-h">Sentential Forms and Language of a Grammar</p>
+  <p>A <strong>sentential form</strong> is any string α ∈ (V ∪ T)* derivable from S. The <strong>language L(G)</strong> is the set of all terminal sentential forms: L(G) = {w ∈ T* | S ⇒* w}.</p>`
+},
+{
+  id:"q11", num:"Q.11", unit:"UNIT III",
+  title:"Pushdown Automata — PDA for {0ⁿ1ⁿ}, PDA↔CFG Equivalence, DPDA",
+  body:`<p>A <strong>PDA</strong> extends an NFA with a stack. Transitions are of the form δ(q, a, A) ∋ (p, γ) meaning: in state q, reading input a (or ε), replace stack top A with string γ, move to state p.</p>
+  <p class="sub-h">PDA for L = {0ⁿ1ⁿ | n ≥ 0} — Acceptance by Empty Stack</p>
+  <div class="code-block">States: {q₀, q₁, q₂}   Stack alphabet: {Z, 0}   Start stack: Z
+
+δ(q₀, 0, Z) = {(q₀, 0Z)}   // push 0, keep Z at bottom
+δ(q₀, 0, 0) = {(q₀, 00)}   // push another 0
+δ(q₀, 1, 0) = {(q₁, ε)}    // switch: pop one 0 for each 1
+δ(q₁, 1, 0) = {(q₁, ε)}    // continue popping
+δ(q₁, ε, Z) = {(q₂, ε)}    // pop Z — stack empty = accept</div>
+  <p><strong>Trace on 0011:</strong> (q₀,0011,Z) ⊢ (q₀,011,0Z) ⊢ (q₀,11,00Z) ⊢ (q₁,1,0Z) ⊢ (q₁,ε,Z) ⊢ (q₂,ε,ε) ✓ Accepted.</p>
+  <p class="sub-h">PDA ↔ CFG Equivalence</p>
+  <p><strong>CFG → PDA (From CFG to PDA):</strong></p>
+  <ol>
+    <li>Create a 3-state PDA: q₀ (start) → q₁ (loop) → q₂ (accept).</li>
+    <li>Push S onto the stack (push start symbol).</li>
+    <li>In q₁: for each production A → α, add ε-move δ(q₁, ε, A) = {(q₁, α)}.</li>
+    <li>In q₁: for each terminal a, add δ(q₁, a, a) = {(q₁, ε)} (match and pop).</li>
+    <li>Accept by empty stack when the stack is empty.</li>
+  </ol>
+  <p><strong>PDA → CFG (From PDA to CFG):</strong> For each pair of states (p, q) and stack symbol A, create a variable [p,A,q]. Add productions corresponding to each PDA transition. The resulting CFG generates exactly L(PDA).</p>
+  <p class="sub-h">Deterministic PDA (DPDA)</p>
+  <p>A DPDA has at most one transition per (state, input, stack-top) configuration, and no conflict between ε-moves and regular moves. DCFLs ⊂ CFLs — DPDAs are strictly weaker than general PDAs. Languages like {ww^R} require non-determinism and cannot be accepted by any DPDA.</p>`
+},
+{
+  id:"q12", num:"Q.12", unit:"UNIT IV",
+  title:"Normal Forms — Eliminating Useless Symbols, ε-Productions, Unit Productions; CNF and GNF",
+  body:`<p>Normal forms simplify CFGs to standard shapes that are easier to analyze and parse. The conversion pipeline is: remove useless symbols → remove ε-productions → remove unit productions → convert to CNF or GNF.</p>
+  <p class="sub-h">Step 1 — Eliminating Useless Symbols</p>
+  <p>A symbol X is <strong>non-generating</strong> if X ⇒* w for no terminal string w. A symbol X is <strong>non-reachable</strong> if it does not appear in any sentential form derivable from S.</p>
+  <div class="code-block">Algorithm:
+1. Find all generating symbols (start with terminals; add A if A→α where all of α is generating).
+2. Remove productions with non-generating symbols.
+3. Find all reachable symbols (start with S; mark right-hand sides of all productions of reachable symbols).
+4. Remove productions with non-reachable symbols.</div>
+  <p class="sub-h">Step 2 — Eliminating ε-Productions</p>
+  <div class="code-block">1. Find all nullable variables: A where A ⇒* ε.
+2. For each production B → X₁X₂…Xₙ, add a new production for every
+   combination of removing some nullable Xᵢ (but not all if it would give B→ε).
+3. Remove all A → ε productions (except S → ε if ε ∈ L(G)).</div>
+  <p class="sub-h">Step 3 — Eliminating Unit Productions</p>
+  <p>A unit production is A → B where B ∈ V. For each unit production A → B ⇒* C → γ (γ not a single variable), add A → γ directly. Remove all unit productions.</p>
+  <p class="sub-h">Chomsky Normal Form (CNF)</p>
+  <p>Every production is A → BC or A → a (or S → ε). Convert by breaking long RHS and replacing terminals in binary rules with new variables: A → aBC becomes A → X_a BC, X_a → a. CNF enables the CYK parsing algorithm (O(n³)).</p>
+  <p class="sub-h">Greibach Normal Form (GNF)</p>
+  <p>Every production is A → aα (terminal first, then variables). Convert from CNF by substituting to push terminals to the front and eliminating left recursion using A → Aα | β transformations (introduce A' → αA' | α). GNF guarantees no left recursion and allows direct PDA simulation with one push per derivation step.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Normal Form</th><th>Production Shape</th><th>Key Use</th></tr></thead>
+    <tbody>
+      <tr><td>CNF</td><td>A → BC or A → a</td><td>CYK parsing, theoretical proofs</td></tr>
+      <tr><td>GNF</td><td>A → aα (α ∈ V*)</td><td>PDA construction, no left recursion</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q13", num:"Q.13", unit:"UNIT IV",
+  title:"Pumping Lemma for CFLs — Statement and Proofs",
+  body:`<p>The <strong>Pumping Lemma for Context-Free Languages</strong> is the tool for proving a language is not context-free. It is based on the fact that any sufficiently long string derived from a CFG must contain a repeated variable (by the pigeonhole principle on parse trees).</p>
+  <p class="sub-h">Formal Statement</p>
+  <p>If L is a CFL, ∃ pumping length n > 0 such that every w ∈ L with |w| ≥ n can be written as w = uvxyz with:</p>
+  <ol>
+    <li>|vxy| ≤ n (the "pumping window" is short)</li>
+    <li>|vy| ≥ 1 (at least one of v, y is non-empty)</li>
+    <li>∀k ≥ 0: uv<sup>k</sup>xy<sup>k</sup>z ∈ L (pump both v and y together)</li>
+  </ol>
+  <p class="sub-h">Proof that L = {aⁿbⁿcⁿ | n ≥ 0} is not a CFL</p>
+  <p>Assume L is a CFL with pumping length n. Choose w = aⁿbⁿcⁿ, |w| = 3n ≥ n. Write w = uvxyz, |vxy| ≤ n, |vy| ≥ 1. Since |vxy| ≤ n, vxy spans at most two of the three regions (a-block, b-block, c-block). So v and y together contain at most two distinct letters. Pumping (k=2) increases the count of those letters but not the third → string ∉ L. Contradiction. ∎</p>
+  <p class="sub-h">Additional Proofs</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Language</th><th>Chosen w</th><th>Contradiction</th></tr></thead>
+    <tbody>
+      <tr><td>{aⁱbʲcᵏ | i&lt;j&lt;k}</td><td>aⁿbⁿ⁺¹cⁿ⁺²</td><td>Pumping equalizes counts, leaving the strict ordering violated</td></tr>
+      <tr><td>{ww | w ∈ {a,b}*}</td><td>aⁿbⁿaⁿbⁿ</td><td>vxy ≤ n spans only part of first half; pumped string ≠ ww</td></tr>
+      <tr><td>{aⁿ | n is a perfect square}</td><td>a^(n²)</td><td>uv²xy²z has length n²+|vy|; n²&lt;n²+|vy|≤n²+n&lt;(n+1)² for small |vy|, so not a perfect square</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q14", num:"Q.14", unit:"UNIT IV",
+  title:"Closure and Decision Properties of CFLs",
+  body:`<p>CFLs have weaker closure properties than regular languages — in particular, they are <strong>not</strong> closed under intersection or complement.</p>
+  <p class="sub-h">Closure Properties — Proof Sketches</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Operation</th><th>Result</th><th>Proof</th></tr></thead>
+    <tbody>
+      <tr><td>Union L₁ ∪ L₂</td><td>CFL ✓</td><td>New start: S → S₁ | S₂ in combined grammar</td></tr>
+      <tr><td>Concatenation L₁L₂</td><td>CFL ✓</td><td>New start: S → S₁S₂</td></tr>
+      <tr><td>Kleene Star L*</td><td>CFL ✓</td><td>New start: S → SS₁ | ε</td></tr>
+      <tr><td>Homomorphism h(L)</td><td>CFL ✓</td><td>Replace each terminal a in grammar with h(a)</td></tr>
+      <tr><td>Intersection with Regular</td><td>CFL ✓</td><td>Run PDA and DFA simultaneously (product construction)</td></tr>
+      <tr><td>Intersection L₁ ∩ L₂</td><td>Not CFL ✗</td><td>Counter: {aⁿbⁿcⁿ} = {aⁿbⁿcⁱ} ∩ {aⁱbⁿcⁿ} (both CFLs, but ∩ is not)</td></tr>
+      <tr><td>Complement L̄</td><td>Not CFL ✗</td><td>If closed under complement, would be closed under intersection (De Morgan) — contradiction</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">Decision Properties</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Problem</th><th>Decidable?</th><th>Algorithm / Reason</th></tr></thead>
+    <tbody>
+      <tr><td>Membership: w ∈ L(G)?</td><td>Yes ✓</td><td>CYK algorithm — O(n³) after CNF conversion</td></tr>
+      <tr><td>Emptiness: L(G) = ∅?</td><td>Yes ✓</td><td>Check if S is non-generating</td></tr>
+      <tr><td>Finiteness: |L(G)| finite?</td><td>Yes ✓</td><td>Check for cycles in the dependency graph of CNF grammar</td></tr>
+      <tr><td>Equivalence: L(G₁)=L(G₂)?</td><td>No ✗</td><td>Undecidable — reduces to A_TM</td></tr>
+      <tr><td>Ambiguity: Is G ambiguous?</td><td>No ✗</td><td>Undecidable — no algorithm exists in general</td></tr>
+    </tbody>
+  </table></div>
+  <p>The intersection-with-regular result is very useful in practice: it allows us to narrow a CFL to a sub-language described by a regular constraint while remaining within CFLs.</p>`
+},
+{
+  id:"q15", num:"Q.15", unit:"UNIT IV",
+  title:"Turing Machines — Formal Definition, Instantaneous Description, TM for {0ⁿ1ⁿ}, Language Classes",
+  body:`<p>A <strong>Turing Machine</strong> M = (Q, Σ, Γ, δ, q₀, B, F) has an infinite tape and a read/write head. δ: Q×Γ → Q×Γ×{L,R} specifies: given current state and tape symbol, write a symbol, move left or right, and change state.</p>
+  <p class="sub-h">Instantaneous Description (ID)</p>
+  <p>An ID is written as α q β, meaning the TM is in state q, the tape to the left of the head is α, and the tape from the head rightward is β. A move is written: α₁ q a α₂ ⊢ α₁ b r α₂ (if δ(q,a) = (r,b,R)) or α₁ c r b α₂ if moving left (δ(q,a) = (r,b,L), α₁ = α₁'c).</p>
+  <p class="sub-h">TM for L = {0ⁿ1ⁿ | n ≥ 0}</p>
+  <div class="code-block">Strategy: repeatedly mark one 0 (→ X) and one 1 (→ Y) until all matched.
+
+States: q₀ (scan for 0), q₁ (scan right for 1),
+        q₂ (scan left to X), q₃ (verify all Y), qₐ (accept)
+
+Key transitions:
+δ(q₀, 0) = (q₁, X, R)   // mark leftmost 0, seek matching 1
+δ(q₁, 0) = (q₁, 0, R)   // skip over 0s
+δ(q₁, Y) = (q₁, Y, R)   // skip over already-marked 1s
+δ(q₁, 1) = (q₂, Y, L)   // mark 1, scan back left
+δ(q₂, 0) = (q₂, 0, L)   // skip 0s going left
+δ(q₂, Y) = (q₂, Y, L)   // skip Y going left
+δ(q₂, X) = (q₀, X, R)   // found X: start next round
+δ(q₀, Y) = (q₃, Y, R)   // no more 0s: check rest
+δ(q₃, Y) = (q₃, Y, R)   // skip Ys
+δ(q₃, B) = (qₐ, B, R)   // blank → accept</div>
+  <p><strong>Trace on 0011:</strong> q₀ reads 0→X, scans to find 1→Y, scans back, q₀ reads 0→X, scans to find 1→Y, scans back, q₀ sees Y: enter q₃, skip Y,Y, see B → accept.</p>
+  <p class="sub-h">Language Classes and the Turing Machine</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Class</th><th>TM Behaviour</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Regular</td><td>DFA (finite memory, no tape writes)</td><td>{0ⁿ | n ≥ 0}</td></tr>
+      <tr><td>Context-Free</td><td>PDA (stack memory)</td><td>{0ⁿ1ⁿ}</td></tr>
+      <tr><td>Recursive (Decidable)</td><td>TM always halts</td><td>{0ⁿ1ⁿ2ⁿ}</td></tr>
+      <tr><td>RE (Semi-decidable)</td><td>TM halts on accept, may loop on reject</td><td>Acceptance problem A_TM</td></tr>
+    </tbody>
+  </table></div>`
+},
+{
+  id:"q16", num:"Q.16", unit:"UNIT IV",
+  title:"Language of a Turing Machine — Recursive vs RE, and Introduction to Undecidability",
+  body:`<p>The <strong>language of a TM</strong> L(M) = {w | M accepts w}. The class of languages recognizable by some TM is called <strong>Recursively Enumerable (RE)</strong>. When the TM always halts, the language is called <strong>Recursive (Decidable)</strong>.</p>
+  <p class="sub-h">Formal Definitions</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Property</th><th>Recursive</th><th>RE (Semi-decidable)</th></tr></thead>
+    <tbody>
+      <tr><td>TM halts on w ∈ L?</td><td>Yes, in accepting state</td><td>Yes, in accepting state</td></tr>
+      <tr><td>TM halts on w ∉ L?</td><td>Yes, in rejecting state</td><td>May loop forever</td></tr>
+      <tr><td>Complement</td><td>Also recursive</td><td>Not necessarily RE</td></tr>
+      <tr><td>Closure under ∩, ∪</td><td>Yes</td><td>Yes</td></tr>
+    </tbody>
+  </table></div>
+  <p class="sub-h">The Acceptance Problem A_TM</p>
+  <p>A_TM = {⟨M, w⟩ | TM M accepts string w}. This is RE but <strong>undecidable</strong> — no TM can decide it for all inputs.</p>
+  <p class="sub-h">Proof: A_TM is Undecidable (Diagonalization)</p>
+  <ol>
+    <li>Assume TM H decides A_TM: H(⟨M,w⟩) = accept iff M accepts w.</li>
+    <li>Build TM D: on input ⟨M⟩, run H on ⟨M,⟨M⟩⟩. If H accepts → D rejects. If H rejects → D accepts.</li>
+    <li>What does D do on ⟨D⟩?
+      <ul>
+        <li>D accepts ⟨D⟩ ⟹ H accepted ⟨D,⟨D⟩⟩ ⟹ D rejects ⟨D⟩. Contradiction.</li>
+        <li>D rejects ⟨D⟩ ⟹ H rejected ⟨D,⟨D⟩⟩ ⟹ D accepts ⟨D⟩. Contradiction.</li>
+      </ul>
+    </li>
+    <li>Contradiction in both cases → H cannot exist → A_TM is undecidable. ∎</li>
+  </ol>
+  <p class="sub-h">Containment Hierarchy</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Level</th><th>Class</th><th>Machine Model</th></tr></thead>
+    <tbody>
+      <tr><td>1 (innermost)</td><td>Regular Languages</td><td>DFA/NFA</td></tr>
+      <tr><td>2</td><td>Context-Free Languages</td><td>PDA</td></tr>
+      <tr><td>3</td><td>Recursive Languages</td><td>TM (always halts)</td></tr>
+      <tr><td>4</td><td>Recursively Enumerable</td><td>TM (may loop)</td></tr>
+      <tr><td>5 (outermost)</td><td>All Languages</td><td>Not computable</td></tr>
+    </tbody>
+  </table></div>`
+},
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────────────────────────────────────
+const shortContainer = document.getElementById('short-container');
+let currentUnit = '';
+shortAnswers.forEach((item, i) => {
+  if (item.unit && item.unit !== currentUnit) {
+    currentUnit = item.unit;
+    const div = document.createElement('div');
+    div.className = 'unit-divider';
+    div.textContent = item.unit;
+    shortContainer.appendChild(div);
+  }
+  const el = document.createElement('div');
+  el.className = 'short-entry';
+  el.innerHTML = `<div class="entry-head"><span class="entry-num">Q.${String(i+1).padStart(2,'0')}</span><span class="entry-term">${item.term}</span><span class="entry-marks">2 marks</span></div><div class="entry-body">${item.body}</div>`;
+  shortContainer.appendChild(el);
+});
+
+const detContainer = document.getElementById('detailed-container');
+let currentDetUnit = '';
+detailedQuestions.forEach(q => {
+  if (q.unit && q.unit !== currentDetUnit) {
+    currentDetUnit = q.unit;
+    const div = document.createElement('div');
+    div.className = 'unit-divider';
+    div.textContent = q.unit;
+    detContainer.appendChild(div);
+  }
+  const el = document.createElement('div');
+  el.className = 'q-block';
+  el.id = q.id;
+  el.innerHTML = `<div class="q-head"><span class="q-num">${q.num}</span><span class="q-title">${q.title}</span><span class="q-marks">5 marks</span></div><div class="q-body">${q.body}</div>`;
+  detContainer.appendChild(el);
+});
+</script>
+</body>
+</html>

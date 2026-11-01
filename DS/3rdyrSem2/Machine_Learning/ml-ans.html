@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Machine Learning — Exam Key</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    background: #000000;
+    color: #ddd;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header {
+    padding: 64px 0 40px;
+    border-bottom: 2px solid #111;
+    margin-bottom: 48px;
+  }
+  .course-code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+  header p {
+    font-size: 1rem;
+    color: #fff;
+    max-width: 560px;
+    font-style: italic;
+  }
+  .part-header {
+    margin: 64px 0 32px;
+  }
+  .part-header h2 {
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .part-header .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-top: 6px;
+  }
+  .short-entry {
+    padding: 28px 0;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .short-entry:last-child { border-bottom: none; }
+  .entry-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .entry-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .entry-term {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .entry-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .entry-body {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+  }
+  .q-block {
+    padding: 36px 0;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .q-block:last-child { border-bottom: none; }
+  .q-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .q-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .q-title {
+    font-size: clamp(1.1rem, 3vw, 1.35rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.3;
+    flex: 1;
+  }
+  .q-marks {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .q-body p {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 16px;
+  }
+  .q-body p:last-child { margin-bottom: 0; }
+  .sub-h {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #fff;
+    margin: 24px 0 8px;
+  }
+  .q-body ul, .q-body ol {
+    padding-left: 24px;
+    margin: 12px 0 16px;
+  }
+  .q-body li {
+    font-size: 1rem;
+    color: #ccc;
+    line-height: 1.85;
+    margin-bottom: 4px;
+  }
+  .q-body li strong { color: #fff; }
+  .table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+  table {
+    width: 100%;
+    min-width: 460px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 14px;
+    text-align: left;
+    border-top: 2px solid #333;
+    border-bottom: 1px solid #444;
+    background: #0a0a0a;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #1e1e1e;
+    color: #ccc;
+    vertical-align: top;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  tr:last-child td { border-bottom: 2px solid #333; }
+  td:first-child {
+    color: #fff;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+  }
+  .code-block {
+    background: #060606;
+    border: 1px solid #2a2a2a;
+    border-left: 3px solid #555;
+    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.9;
+    color: #ccc;
+    overflow-x: auto;
+    margin: 16px 0;
+    white-space: pre;
+    -webkit-overflow-scrolling: touch;
+  }
+  .rule-box {
+    border-left: 3px solid #444;
+    padding: 12px 20px;
+    margin: 16px 0;
+    background: #080808;
+  }
+  .rule-box p {
+    margin-bottom: 0 !important;
+    font-size: 0.95rem !important;
+    color: #ccc !important;
+  }
+  footer {
+    border-top: 2px solid #222;
+    padding: 32px 0 48px;
+    margin-top: 64px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #555;
+    text-transform: uppercase;
+  }
+  .diagram-wrap {
+    margin: 20px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .diagram-wrap svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  .diagram-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 0 16px; }
+    header { padding: 40px 0 28px; }
+    .part-header { margin: 48px 0 28px; }
+    .q-block, .short-entry { padding: 22px 0; }
+    .entry-marks, .q-marks { display: none; }
+    table { min-width: 380px; }
+    td, th { padding: 8px 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="course-code">xams &middot; Exam Key</div>
+  <h1>Machine Learning</h1>
+  <p>KNN &middot; Clustering &middot; Dimensionality Reduction &middot; Genetic Algorithms &middot; Reinforcement Learning &middot; Probabilistic Models</p>
+</header>
+
+<div class="part-header" id="part-a">
+  <h2>Part A &mdash; Short Answer Questions</h2>
+  <div class="meta">2 Marks Each</div>
+</div>
+
+<div id="short-container"></div>
+
+<div class="part-header" id="part-b">
+  <h2>Part B &mdash; Detailed Explanations</h2>
+  <div class="meta">5 Marks Each</div>
+</div>
+
+<div id="detailed-container"></div>
+
+<footer>Machine Learning &middot; KNN &middot; Clustering &middot; PCA &middot; Genetic Algorithms &middot; Reinforcement Learning &middot; Exam Reference</footer>
+
+<script>
+const shortAnswers = [
+  {
+    term: "What is the importance of K value in KNN?",
+    body: `In K-Nearest Neighbours, <strong>K</strong> controls how many neighbouring data points are consulted before making a classification or regression decision. A <em>small K</em> (e.g., K=1) makes the model sensitive to noise and leads to overfitting, while a <em>large K</em> smooths the decision boundary but risks underfitting by including irrelevant neighbours. The optimal K is typically found via cross-validation.
+<div class="table-wrap"><table>
+  <thead><tr><th>K Value</th><th>Effect</th><th>Risk</th></tr></thead>
+  <tbody>
+    <tr><td>Small (K=1–3)</td><td>Very flexible boundary</td><td>Overfitting / noise-sensitive</td></tr>
+    <tr><td>Medium (K=5–15)</td><td>Balanced generalisation</td><td>Best practical range</td></tr>
+    <tr><td>Large (K→N)</td><td>Smoothed, near-constant output</td><td>Underfitting</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "What is Factor Analysis?",
+    body: `Factor Analysis is a statistical technique used to identify a smaller number of <strong>latent (hidden) factors</strong> that explain the pattern of correlations among a larger set of observed variables. It assumes observed variables are linear combinations of underlying factors plus error, and is widely used in psychology, economics, and social sciences for data summarisation and structure discovery.`
+  },
+  {
+    term: "What genetic operator combines genetic material from two parents to create offspring?",
+    body: `The <strong>Crossover</strong> (also called Recombination) operator combines genetic material from two parent chromosomes to produce one or more offspring. It mimics biological reproduction by swapping segments of two parent bit-strings at a randomly chosen crossover point, creating children that inherit traits from both parents.`
+  },
+  {
+    term: "What are the key components of Reinforcement Learning?",
+    body: `Reinforcement Learning (RL) is built around five core components that together define how an agent learns through interaction:
+<div class="table-wrap"><table>
+  <thead><tr><th>Component</th><th>Role</th></tr></thead>
+  <tbody>
+    <tr><td>Agent</td><td>The learner / decision-maker</td></tr>
+    <tr><td>Environment</td><td>Everything the agent interacts with</td></tr>
+    <tr><td>State (S)</td><td>Current situation representation</td></tr>
+    <tr><td>Action (A)</td><td>Set of moves the agent can make</td></tr>
+    <tr><td>Reward (R)</td><td>Scalar feedback signal from environment</td></tr>
+    <tr><td>Policy (π)</td><td>Strategy mapping states to actions</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "How does a Reinforcement Learning agent receive feedback from its environment?",
+    body: `An RL agent receives feedback through a <strong>reward signal</strong> — a scalar value returned by the environment after every action. Positive rewards reinforce good actions; negative rewards (penalties) discourage poor ones. The agent's goal is to learn a policy that maximises the <em>cumulative discounted reward</em> over time, not just the immediate reward.`
+  },
+  {
+    term: "Explain PCA (Principal Component Analysis)",
+    body: `PCA is a dimensionality reduction technique that transforms a dataset into a new coordinate system where the axes (principal components) are ordered by the amount of variance they explain. It works by computing the <strong>eigenvectors of the covariance matrix</strong>; the first principal component captures the most variance, the second the next most, and so on. By retaining only the top-k components, PCA reduces dimensionality while preserving maximum information, eliminating noise and multicollinearity.`
+  },
+  {
+    term: "What is the Bias-Variance Trade-off in Machine Learning?",
+    body: `<strong>Bias</strong> is the error from wrong assumptions — a high-bias model underfits (e.g., linear model on curved data). <strong>Variance</strong> is the error from sensitivity to small fluctuations in training data — a high-variance model overfits. The trade-off: reducing bias often increases variance and vice versa. The goal is a model with <em>low bias and low variance</em>, achieved by tuning model complexity.
+<div class="table-wrap"><table>
+  <thead><tr><th>Model</th><th>Bias</th><th>Variance</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>Too Simple</td><td>High</td><td>Low</td><td>Underfitting</td></tr>
+    <tr><td>Just Right</td><td>Low</td><td>Low</td><td>Good Generalisation</td></tr>
+    <tr><td>Too Complex</td><td>Low</td><td>High</td><td>Overfitting</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "What is the significance of the R² value in regression?",
+    body: `R² (coefficient of determination) measures the <strong>proportion of variance in the dependent variable explained by the model</strong>. Range: 0 to 1. R²=1 means the model perfectly predicts all values; R²=0 means it explains nothing — no better than predicting the mean. It gives a quick, interpretable measure of model fit, but a high R² alone does not guarantee a good model (can still overfit or have poor causal interpretation).`
+  },
+  {
+    term: "Name any two kernel types used in SVM.",
+    body: `Kernels map data to a higher-dimensional space implicitly, enabling SVM to find non-linear boundaries:
+<div class="table-wrap"><table>
+  <thead><tr><th>Kernel</th><th>Formula</th><th>Use Case</th></tr></thead>
+  <tbody>
+    <tr><td>Radial Basis Function (RBF)</td><td>exp(−γ‖x−x'‖²)</td><td>Most common; non-linear, local</td></tr>
+    <tr><td>Polynomial</td><td>(x·x' + c)^d</td><td>Curved boundaries of degree d</td></tr>
+    <tr><td>Linear</td><td>x·x'</td><td>Linearly separable data</td></tr>
+    <tr><td>Sigmoid</td><td>tanh(αx·x' + c)</td><td>Neural network analogy</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "Name two logic gate functions that are non-linearly separable.",
+    body: `A function is <strong>non-linearly separable</strong> if no single straight line (hyperplane) can separate its output classes. A single-layer perceptron cannot solve these. The two classic examples are:
+<div class="table-wrap"><table>
+  <thead><tr><th>Gate</th><th>Truth Table</th><th>Why Non-Linear</th></tr></thead>
+  <tbody>
+    <tr><td>XOR</td><td>(0,0)→0; (0,1)→1; (1,0)→1; (1,1)→0</td><td>No line separates 0s from 1s</td></tr>
+    <tr><td>XNOR</td><td>(0,0)→1; (0,1)→0; (1,0)→0; (1,1)→1</td><td>Mirror of XOR — same issue</td></tr>
+  </tbody>
+</table></div>
+AND, OR, NAND, NOR are all linearly separable and solvable by a perceptron.`
+  },
+  {
+    term: "How do you determine the optimal number of clusters in K-Means?",
+    body: `Two primary methods:
+<strong>1. Elbow Method:</strong> Plot WCSS (Within-Cluster Sum of Squares) vs K. The "elbow" — where the rate of decrease sharply slows — is the optimal K. Below the elbow, adding clusters gives little benefit.
+<strong>2. Silhouette Score:</strong> Measures how similar a point is to its own cluster vs neighbouring clusters. Range −1 to +1; higher = better. Pick K that maximises the average silhouette score.
+<div class="rule-box"><p>Silhouette = (b − a) / max(a, b) &nbsp;where a=intra-cluster dist, b=nearest-cluster dist</p></div>`
+  },
+  {
+    term: "Explain the Candidate Elimination Algorithm.",
+    body: `Candidate Elimination maintains a <strong>Version Space</strong> — the set of all hypotheses consistent with training examples — bounded by two sets:
+<ul>
+  <li><strong>S (Specific boundary):</strong> Most specific consistent hypotheses. Generalised for every positive example.</li>
+  <li><strong>G (General boundary):</strong> Most general consistent hypotheses. Specialised for every negative example.</li>
+</ul>
+For each training example: if positive → generalise S, prune G; if negative → specialise G, prune S. Converges when S=G (single hypothesis) or fails if data is inconsistent.`
+  },
+  {
+    term: "Explain the Perceptron Learning Algorithm.",
+    body: `The Perceptron is a single-layer binary classifier. It updates weights iteratively until all training examples are correctly classified (guaranteed for linearly separable data).
+<div class="rule-box"><p>output = 1 if Σwᵢxᵢ ≥ θ, else 0 &nbsp;&nbsp; Δwᵢ = η(target − output)·xᵢ</p></div>
+<strong>Steps:</strong> (1) Initialise weights to 0 or small random values. (2) For each training example, compute output. (3) If misclassified, update all weights. (4) Repeat until no misclassification. η is the learning rate.`
+  },
+  {
+    term: "What is Back-Propagation?",
+    body: `Backpropagation is the algorithm used to train multi-layer neural networks. It computes the gradient of the loss function with respect to each weight by propagating the error <strong>backwards</strong> from the output layer to the input layer using the chain rule of calculus.
+<div class="rule-box"><p>Δwᵢⱼ = −η · ∂E/∂wᵢⱼ &nbsp;&nbsp;&nbsp; computed via chain rule through layers</p></div>
+Steps: Forward pass → compute loss → backward pass (compute gradients layer by layer) → update weights.`
+  },
+  {
+    term: "Define Entropy in Decision Trees.",
+    body: `Entropy measures the <strong>impurity or disorder</strong> of a dataset. It is used in the ID3 algorithm to select the best attribute for splitting.
+<div class="rule-box"><p>H(S) = −Σᵢ pᵢ log₂(pᵢ) &nbsp;&nbsp; where pᵢ = proportion of class i</p></div>
+<ul>
+  <li>H = 0: perfectly pure node (all examples same class)</li>
+  <li>H = 1: maximum impurity (equal split between two classes)</li>
+</ul>
+Information Gain = H(parent) − Σ (weighted H of children). Best split = attribute with highest IG.`
+  },
+  {
+    term: "Explain the need for Inductive Bias in Decision Tree Learning.",
+    body: `Without inductive bias, a learner cannot generalise — it would simply memorise training data. In decision trees, the inductive bias is: <strong>prefer shorter trees</strong> (Occam's Razor) and <strong>prefer attributes with high Information Gain near the root</strong>. This preference causes the algorithm to select more discriminating splits first, producing a compact tree that generalises beyond the training set.`
+  },
+  {
+    term: "Explain Issues and Perspectives in Machine Learning.",
+    body: `Key challenges and research perspectives in ML:
+<div class="table-wrap"><table>
+  <thead><tr><th>Issue</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>Overfitting</td><td>Model memorises training data; poor generalisation</td></tr>
+    <tr><td>Data Quality</td><td>Noise, missing values, class imbalance degrade performance</td></tr>
+    <tr><td>Interpretability</td><td>Complex models (deep nets) act as black boxes</td></tr>
+    <tr><td>Scalability</td><td>Training on large datasets requires efficient algorithms</td></tr>
+    <tr><td>Bias in Data</td><td>Biased training data leads to biased, unfair models</td></tr>
+    <tr><td>Feature Engineering</td><td>Selecting/creating relevant features is hard and domain-specific</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "What is Overfitting and how can it be prevented?",
+    body: `<strong>Overfitting</strong> occurs when a model learns the training data too well — including noise — and performs poorly on unseen data (low training error, high test error). Prevention methods:
+<ul>
+  <li><strong>Regularisation</strong> (L1/L2): penalise large weights</li>
+  <li><strong>Early stopping:</strong> halt training when validation error rises</li>
+  <li><strong>Cross-validation:</strong> evaluate on multiple held-out sets</li>
+  <li><strong>Dropout:</strong> randomly deactivate neurons during training</li>
+  <li><strong>More data:</strong> reduces relative impact of noise</li>
+  <li><strong>Pruning:</strong> remove unnecessary branches in decision trees</li>
+</ul>`
+  },
+  {
+    term: "Explain Cross-Validation Techniques.",
+    body: `Cross-validation evaluates a model's ability to generalise to an independent dataset, reducing overfitting in model selection.
+<div class="table-wrap"><table>
+  <thead><tr><th>Technique</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>k-Fold CV</td><td>Divide data into k equal folds; train on k−1, test on 1; repeat k times, average results</td></tr>
+    <tr><td>Leave-One-Out (LOO)</td><td>Special case: k = N; each sample is test set once. Unbiased but expensive.</td></tr>
+    <tr><td>Stratified k-Fold</td><td>Like k-fold but preserves class proportions in each fold</td></tr>
+    <tr><td>Holdout</td><td>Simple train/test split (e.g., 80/20). Fast but high variance</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "What is Regularisation in Machine Learning?",
+    body: `Regularisation adds a <strong>penalty term to the loss function</strong> to discourage overly complex models and prevent overfitting. It constrains the model's weight magnitudes.
+<div class="rule-box"><p>Regularised Loss = Original Loss + λ·Penalty</p></div>
+<div class="table-wrap"><table>
+  <thead><tr><th>Type</th><th>Penalty</th><th>Effect</th></tr></thead>
+  <tbody>
+    <tr><td>L2 (Ridge)</td><td>λΣwᵢ²</td><td>Shrinks all weights; no sparsity</td></tr>
+    <tr><td>L1 (Lasso)</td><td>λΣ|wᵢ|</td><td>Produces sparse models (some w=0); feature selection</td></tr>
+    <tr><td>Elastic Net</td><td>α·L1 + β·L2</td><td>Combination of both</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "What is Feature Scaling and why is it important?",
+    body: `Feature scaling normalises the range of independent variables so that no single feature dominates due to its scale. It is critical for distance-based algorithms (KNN, SVM, K-Means) and gradient-descent-based methods (neural networks).
+<div class="table-wrap"><table>
+  <thead><tr><th>Method</th><th>Formula</th><th>Range</th></tr></thead>
+  <tbody>
+    <tr><td>Min-Max Normalisation</td><td>(x − xₘᵢₙ)/(xₘₐₓ − xₘᵢₙ)</td><td>[0, 1]</td></tr>
+    <tr><td>Standardisation (Z-score)</td><td>(x − μ)/σ</td><td>Mean=0, Std=1</td></tr>
+  </tbody>
+</table></div>
+Without scaling, a feature with range [0, 10000] can completely overwhelm one with range [0, 1].`
+  },
+  {
+    term: "What is the importance of Dimensionality Reduction?",
+    body: `High-dimensional data suffers from the <strong>Curse of Dimensionality</strong> — data becomes sparse, distances lose meaning, and models overfit. Dimensionality reduction addresses this by:
+<ul>
+  <li>Removing redundant/irrelevant features</li>
+  <li>Reducing computation time and storage</li>
+  <li>Improving model accuracy by removing noise</li>
+  <li>Enabling 2D/3D visualisation of high-dim data</li>
+  <li>Preventing overfitting in downstream models</li>
+</ul>
+Methods: PCA (unsupervised), LDA (supervised), LLE, Isomap (non-linear).`
+  },
+  {
+    term: "What are Interpolation and Basis Functions?",
+    body: `<strong>Basis functions</strong> φ(x) are fixed transformations applied to input features, allowing a linear model to represent non-linear input-output relationships. The model remains linear in the parameters but non-linear in the inputs.
+<div class="rule-box"><p>y(x) = Σⱼ wⱼ φⱼ(x) &nbsp;&nbsp; — linear in w, non-linear in x</p></div>
+<strong>Interpolation</strong> uses basis functions to pass through (or approximate) known data points. Common basis functions: polynomial (xᵏ), Gaussian RBF (exp(−‖x−μ‖²/2σ²)), sigmoid. Neural networks can be viewed as learning basis functions adaptively.`
+  },
+  {
+    term: "Explain Overfitting and Early Stopping in Neural Networks.",
+    body: `<strong>Overfitting:</strong> the network memorises training patterns, including noise, causing high training accuracy but poor test accuracy. Signs: training loss keeps decreasing but validation loss increases.
+<strong>Early Stopping:</strong> monitor validation loss during training. Stop at the epoch where validation loss is minimum, before it starts rising. The weights at that checkpoint are saved.
+<div class="diagram-wrap"><div class="diagram-label">Early Stopping — Loss Curves</div>
+<svg viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+  <line x1="40" y1="120" x2="340" y2="120" stroke="#444" stroke-width="1.5"/>
+  <line x1="40" y1="10"  x2="40"  y2="120" stroke="#444" stroke-width="1.5"/>
+  <text x="345" y="123" fill="#888">Epochs</text>
+  <text x="10"  y="14"  fill="#888">Loss</text>
+  <!-- Training loss decreasing -->
+  <polyline fill="none" stroke="#6cf" stroke-width="2" points="40,90 80,70 120,55 160,44 200,36 240,30 280,26 320,23"/>
+  <text x="325" y="22" fill="#6cf">Train</text>
+  <!-- Val loss U-shaped -->
+  <polyline fill="none" stroke="#f88" stroke-width="2" points="40,95 80,75 120,60 160,52 200,50 240,54 280,62 320,74"/>
+  <text x="325" y="73" fill="#f88">Val</text>
+  <!-- Early stop line -->
+  <line x1="200" y1="10" x2="200" y2="120" stroke="#ff9" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="202" y="20" fill="#ff9">Stop here</text>
+</svg></div>`
+  },
+  {
+    term: "Explain Bagging in Machine Learning.",
+    body: `<strong>Bagging</strong> (Bootstrap Aggregating) is an ensemble method that trains multiple models on different <strong>bootstrap samples</strong> (random samples with replacement) of the training data, then aggregates their predictions.
+<ul>
+  <li><strong>Classification:</strong> majority vote across models</li>
+  <li><strong>Regression:</strong> average of model outputs</li>
+  <li><strong>Effect:</strong> reduces variance, prevents overfitting</li>
+  <li><strong>Example:</strong> Random Forest uses bagging with decision trees</li>
+</ul>
+Each model sees ~63% unique data points; the rest are out-of-bag (OOB) samples, usable for internal validation.`
+  },
+  {
+    term: "What is the difference between Bagging and Boosting?",
+    body: `<div class="table-wrap"><table>
+  <thead><tr><th>Property</th><th>Bagging</th><th>Boosting</th></tr></thead>
+  <tbody>
+    <tr><td>Training</td><td>Parallel (independent models)</td><td>Sequential (each fixes prev. errors)</td></tr>
+    <tr><td>Data Sampling</td><td>Bootstrap (with replacement)</td><td>Weighted samples (misclassified get higher weight)</td></tr>
+    <tr><td>Primary Effect</td><td>Reduces Variance</td><td>Reduces Bias</td></tr>
+    <tr><td>Overfitting</td><td>Less prone</td><td>Can overfit noisy data</td></tr>
+    <tr><td>Example</td><td>Random Forest</td><td>AdaBoost, XGBoost, Gradient Boosting</td></tr>
+    <tr><td>Final Prediction</td><td>Majority vote / average</td><td>Weighted vote of all models</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "Explain the Design of a Learning System with a neat diagram.",
+    body: `A machine learning system is designed to improve its performance on a task through experience.
+<div class="diagram-wrap"><div class="diagram-label">Learning System Pipeline</div>
+<svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+  <defs>
+    <marker id="ds" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#555"/>
+    </marker>
+  </defs>
+  <rect x="5"   y="30" width="80" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/>
+  <text x="45"  y="51" text-anchor="middle" fill="#888">Raw Data</text>
+  <rect x="110" y="30" width="80" height="36" rx="3" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+  <text x="150" y="51" text-anchor="middle" fill="#6cf">Preprocess</text>
+  <rect x="215" y="30" width="80" height="36" rx="3" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+  <text x="255" y="44" text-anchor="middle" fill="#6cf">Feature</text>
+  <text x="255" y="56" text-anchor="middle" fill="#6cf">Extract</text>
+  <rect x="320" y="30" width="80" height="36" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+  <text x="360" y="44" text-anchor="middle" fill="#f88">Learning</text>
+  <text x="360" y="56" text-anchor="middle" fill="#f88">Algorithm</text>
+  <rect x="425" y="30" width="80" height="36" rx="3" fill="#111" stroke="#ff9" stroke-width="1.5"/>
+  <text x="465" y="44" text-anchor="middle" fill="#ff9">Model /</text>
+  <text x="465" y="56" text-anchor="middle" fill="#ff9">Predict</text>
+  <line x1="85"  y1="48" x2="108" y2="48" stroke="#555" stroke-width="1.5" marker-end="url(#ds)"/>
+  <line x1="190" y1="48" x2="213" y2="48" stroke="#555" stroke-width="1.5" marker-end="url(#ds)"/>
+  <line x1="295" y1="48" x2="318" y2="48" stroke="#555" stroke-width="1.5" marker-end="url(#ds)"/>
+  <line x1="400" y1="48" x2="423" y2="48" stroke="#555" stroke-width="1.5" marker-end="url(#ds)"/>
+  <!-- Feedback loop -->
+  <path d="M465,66 Q465,88 255,88 Q100,88 100,66" fill="none" stroke="#444" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#ds)"/>
+  <text x="255" y="98" text-anchor="middle" fill="#555">Evaluation feedback loop</text>
+</svg></div>
+Components: (T) Task — what to predict; (P) Performance — how accuracy is measured (accuracy, MSE); (E) Experience — training data. Good system design separates training, validation, and test sets strictly.`
+  },
+  {
+    term: "Describe Concept Learning as a Search Problem.",
+    body: `Concept learning = finding a hypothesis <em>h</em> from hypothesis space <em>H</em> that correctly classifies all training examples. This is framed as a <strong>search through H</strong>, ordered from most specific to most general.
+<ul>
+  <li><strong>Most specific hypothesis:</strong> classifies nothing as positive (∅)</li>
+  <li><strong>Most general hypothesis:</strong> classifies everything as positive (?)</li>
+  <li>Find-S searches from specific to general, stopping at the first consistent hypothesis</li>
+  <li>Candidate Elimination searches the entire version space</li>
+</ul>
+The space can be huge — for n boolean features, |H| = 3ⁿ + 1. Efficient search uses partial ordering (specific-to-general) to prune the space.`
+  },
+  {
+    term: "What is SARSA-Learning?",
+    body: `SARSA (State–Action–Reward–State–Action) is an <strong>on-policy</strong> temporal-difference (TD) control algorithm. It updates the Q-value of the current state-action pair using the actual next action taken by the agent (following the same policy), rather than the optimal next action. The update rule is:
+<div class="rule-box"><p>Q(S,A) ← Q(S,A) + α [ R + γ·Q(S′,A′) − Q(S,A) ]</p></div>
+Because it learns the value of the policy being followed (including exploratory moves), SARSA is safer and more conservative than Q-learning in stochastic or risky environments.`
+  },
+  {
+    term: "What is the Bias-Variance Trade-off in Machine Learning?",
+    body: `<strong>Bias</strong> is the error from wrong assumptions — a high-bias model is too simple and underfits. <strong>Variance</strong> is the error from sensitivity to small fluctuations — a high-variance model overfits. The trade-off: reducing bias often increases variance and vice versa. The goal is low bias <em>and</em> low variance.
+<div class="table-wrap"><table>
+  <thead><tr><th>Model</th><th>Bias</th><th>Variance</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td>Too Simple</td><td>High</td><td>Low</td><td>Underfitting</td></tr>
+    <tr><td>Just Right</td><td>Low</td><td>Low</td><td>Good Generalisation</td></tr>
+    <tr><td>Too Complex</td><td>Low</td><td>High</td><td>Overfitting</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "Mention the significance of the R² value in regression.",
+    body: `R² (coefficient of determination) shows how well the regression model explains the variation in the output. It ranges from 0 to 1.
+<ul>
+  <li>R² close to <strong>1</strong> → model fits data very well; predictions are accurate.</li>
+  <li>R² close to <strong>0</strong> → model explains little variance; poor fit.</li>
+</ul>
+It is used to measure the <strong>accuracy and goodness-of-fit</strong> of a regression model. However, a high R² alone does not guarantee a useful model — overfitting can artificially inflate it.`
+  },
+  {
+    term: "Name any two kernel types in SVM.",
+    body: `Kernels map data implicitly to a higher-dimensional space so SVM can find a non-linear decision boundary:
+<div class="table-wrap"><table>
+  <thead><tr><th>Kernel</th><th>Formula</th><th>Best For</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Linear</strong></td><td>K(x,x′) = xᵀx′</td><td>Linearly separable data; fast</td></tr>
+    <tr><td><strong>Polynomial</strong></td><td>K(x,x′) = (xᵀx′ + c)^d</td><td>Curved boundaries of degree d</td></tr>
+    <tr><td>RBF (Gaussian)</td><td>K(x,x′) = exp(−γ‖x−x′‖²)</td><td>Most common; handles any shape</td></tr>
+    <tr><td>Sigmoid</td><td>tanh(αxᵀx′ + c)</td><td>Neural-network-like boundaries</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "Name two logic gate functions that are non-linearly separable.",
+    body: `A function is <strong>non-linearly separable</strong> if no single hyperplane can separate its output classes. A single-layer perceptron cannot learn these.
+<div class="table-wrap"><table>
+  <thead><tr><th>Gate</th><th>Why Non-Linear</th></tr></thead>
+  <tbody>
+    <tr><td><strong>XOR</strong></td><td>(0,0)→0; (0,1)→1; (1,0)→1; (1,1)→0 — no straight line separates 0s from 1s</td></tr>
+    <tr><td><strong>XNOR</strong></td><td>Mirror of XOR — same inseparability issue</td></tr>
+  </tbody>
+</table></div>
+AND, OR, NAND, and NOR <em>are</em> linearly separable and solvable by a single perceptron.`
+  },
+  {
+    term: "How do you determine the optimal number of clusters in K-Means?",
+    body: `Two standard methods:
+<ul>
+  <li><strong>Elbow Method:</strong> Plot WCSS (Within-Cluster Sum of Squares) vs K. The point where the rate of decrease sharply slows — the "elbow" — is the optimal K. Adding more clusters beyond this point gives diminishing returns.</li>
+  <li><strong>Silhouette Score:</strong> Measures how similar a point is to its own cluster vs the nearest other cluster. Range −1 to +1; choose K that maximises the average score.</li>
+</ul>
+<div class="rule-box"><p>Silhouette = (b − a) / max(a, b) &nbsp;&nbsp; a = intra-cluster dist, b = nearest-cluster dist</p></div>`
+  },
+  {
+    term: "Explain the Candidate Elimination Algorithm.",
+    body: `Candidate Elimination maintains a <strong>Version Space</strong> — all hypotheses consistent with training examples — using two boundary sets:
+<ul>
+  <li><strong>S (Specific boundary):</strong> Most specific consistent hypotheses. Generalised when a positive example is missed.</li>
+  <li><strong>G (General boundary):</strong> Most general consistent hypotheses. Specialised when a negative example is wrongly covered.</li>
+</ul>
+<strong>Steps:</strong> Initialise S = most specific, G = most general. For each positive example → generalise S, prune G. For each negative example → specialise G, prune S. Continue until all examples are processed. Final result: the version space between S and G.`
+  },
+  {
+    term: "Explain the Perceptron Learning Algorithm.",
+    body: `The Perceptron trains a binary linear classifier by adjusting weights on every misclassified example. It is guaranteed to converge if the data is linearly separable.
+<div class="rule-box"><p>output = 1 if Σwᵢxᵢ + b ≥ 0, else 0 &nbsp;&nbsp; Δwᵢ = η(target − output)·xᵢ &nbsp; Δb = η(target − output)</p></div>
+<strong>Steps:</strong> (1) Initialise weights to small random values. (2) For each training example compute output. (3) If wrong, update all weights and bias. (4) Repeat until all examples correct or max iterations reached. Learning rate η controls step size.`
+  },
+  {
+    term: "What is Back-Propagation?",
+    body: `Back-propagation is a <strong>supervised learning algorithm</strong> used to train multi-layer neural networks. It works in two passes:
+<ul>
+  <li><strong>Forward pass:</strong> compute output layer by layer from input to output.</li>
+  <li><strong>Backward pass:</strong> compute error at output, then propagate it backwards through the network using the <strong>chain rule</strong> to find the gradient of the loss w.r.t. every weight.</li>
+</ul>
+<div class="rule-box"><p>Δwᵢⱼ = −η · ∂E/∂wᵢⱼ &nbsp;&nbsp; computed layer by layer via chain rule</p></div>
+Weights are updated by gradient descent to reduce overall error. The process repeats over many training examples until error converges.`
+  },
+  {
+    term: "Define Entropy in Decision Trees.",
+    body: `Entropy measures the <strong>impurity or disorder</strong> of a set of class labels at a node.
+<div class="rule-box"><p>H(S) = −Σᵢ pᵢ log₂(pᵢ) &nbsp;&nbsp; where pᵢ = proportion of class i in set S</p></div>
+<ul>
+  <li>H = 0 → perfectly pure (all examples same class) — best case for a leaf.</li>
+  <li>H = 1 → maximum impurity (equal class split in binary case).</li>
+</ul>
+<strong>Information Gain</strong> = H(parent) − weighted average H(children). The attribute with the highest IG is chosen as the split at each node.`
+  },
+  {
+    term: "Briefly explain the need for Inductive Bias in Decision Tree Learning.",
+    body: `Without inductive bias, a learner cannot generalise beyond the training data — it can only memorise. Many different decision trees can fit the same training set, so the algorithm needs a <strong>preference criterion</strong> to choose one.
+<p>Decision tree algorithms like ID3 use the bias of <strong>preferring shorter, simpler trees</strong> (Occam's Razor) and <strong>attributes with high Information Gain near the root</strong>. This preference produces compact trees that generalise better to unseen examples.</p>`
+  },
+  {
+    term: "Explain Issues and Perspectives in Machine Learning.",
+    body: `<strong>Different Perspectives:</strong>
+<ul>
+  <li>Statistical — learning as function approximation from data</li>
+  <li>Computational — efficiency and algorithmic complexity</li>
+  <li>Biological — inspired by brain and neurons</li>
+  <li>Psychological — models of human learning behaviour</li>
+</ul>
+<strong>Key Issues:</strong>
+<div class="table-wrap"><table>
+  <thead><tr><th>Issue</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td>Overfitting / Underfitting</td><td>Model too complex or too simple</td></tr>
+    <tr><td>Feature selection</td><td>Choosing relevant inputs</td></tr>
+    <tr><td>Data quality &amp; noise</td><td>Missing values, outliers, bias</td></tr>
+    <tr><td>Generalisation</td><td>Performing well on unseen data</td></tr>
+    <tr><td>Scalability</td><td>Handling large datasets efficiently</td></tr>
+    <tr><td>Interpretability</td><td>Understanding model decisions</td></tr>
+    <tr><td>Ethics &amp; fairness</td><td>Bias in data leading to unfair outcomes</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "What is Overfitting and how can it be prevented?",
+    body: `<strong>Overfitting</strong> occurs when a model learns training data too closely — including noise and irrelevant details — and performs poorly on new, unseen data (low training error, high test error).
+<p><strong>Prevention methods:</strong></p>
+<ul>
+  <li>Use <strong>more training data</strong> — reduces relative impact of noise</li>
+  <li>Reduce <strong>model complexity</strong> — fewer parameters, shallower trees</li>
+  <li>Apply <strong>regularisation</strong> (L1 / L2) — penalise large weights</li>
+  <li><strong>Early stopping</strong> — halt training when validation error rises</li>
+  <li><strong>Cross-validation</strong> — evaluate on multiple held-out folds</li>
+  <li><strong>Pruning</strong> — remove unnecessary branches in decision trees</li>
+</ul>`
+  },
+  {
+    term: "Explain Cross-Validation Techniques.",
+    body: `Cross-validation evaluates a model's ability to generalise to an independent dataset by testing on data not used during training.
+<div class="table-wrap"><table>
+  <thead><tr><th>Technique</th><th>Description</th></tr></thead>
+  <tbody>
+    <tr><td><strong>k-Fold CV</strong></td><td>Split into k equal folds; train on k−1, test on 1; rotate k times; average results</td></tr>
+    <tr><td><strong>Leave-One-Out (LOO)</strong></td><td>k = N; each sample is test set once. Unbiased but expensive.</td></tr>
+    <tr><td><strong>Stratified k-Fold</strong></td><td>Like k-fold but preserves class distribution in each fold</td></tr>
+    <tr><td><strong>Holdout</strong></td><td>Simple one-time train/test split (e.g., 80/20). Fast but high variance.</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "What is Regularisation in Machine Learning?",
+    body: `Regularisation adds a <strong>penalty term to the loss function</strong> to discourage overly complex models and prevent overfitting. It constrains the weight magnitudes.
+<div class="rule-box"><p>Regularised Loss = Original Loss + λ · Penalty</p></div>
+<div class="table-wrap"><table>
+  <thead><tr><th>Type</th><th>Penalty</th><th>Effect</th></tr></thead>
+  <tbody>
+    <tr><td>L2 (Ridge)</td><td>λΣwᵢ²</td><td>Shrinks all weights; no sparsity</td></tr>
+    <tr><td>L1 (Lasso)</td><td>λΣ|wᵢ|</td><td>Drives some weights to zero; feature selection</td></tr>
+    <tr><td>Elastic Net</td><td>αL1 + βL2</td><td>Combines both effects</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "What is Feature Scaling and why is it important?",
+    body: `Feature scaling brings all input features to a similar numerical range so that no single feature dominates due to its scale alone. It is critical for distance-based algorithms (KNN, SVM, K-Means) and gradient-descent-based models (neural networks).
+<div class="table-wrap"><table>
+  <thead><tr><th>Method</th><th>Formula</th><th>Output Range</th></tr></thead>
+  <tbody>
+    <tr><td>Min-Max Normalisation</td><td>(x − xₘᵢₙ) / (xₘₐₓ − xₘᵢₙ)</td><td>[0, 1]</td></tr>
+    <tr><td>Standardisation (Z-score)</td><td>(x − μ) / σ</td><td>Mean=0, Std=1</td></tr>
+  </tbody>
+</table></div>
+Without scaling, a feature with range [0, 100000] overwhelms one with range [0, 1], skewing results.`
+  },
+  {
+    term: "What is the importance of Dimensionality Reduction?",
+    body: `High-dimensional data suffers from the <strong>Curse of Dimensionality</strong> — data becomes sparse, distances lose meaning, and models overfit. Dimensionality reduction addresses this by:
+<ul>
+  <li>Removing redundant and irrelevant features</li>
+  <li>Reducing computation time and storage requirements</li>
+  <li>Improving model accuracy by eliminating noise</li>
+  <li>Enabling 2D/3D visualisation of high-dimensional data</li>
+  <li>Preventing overfitting in downstream models</li>
+</ul>
+Methods: PCA (unsupervised), LDA (supervised), LLE, Isomap (non-linear manifold learning).`
+  },
+  {
+    term: "What are Interpolation and Basis Functions?",
+    body: `<strong>Interpolation</strong> estimates unknown values between known data points by fitting a function that passes through (or near) them — using linear, polynomial, or piecewise methods.
+<p><strong>Basis functions</strong> φ(x) are building blocks used to represent a complex target function as a weighted sum of simpler functions, allowing linear models to capture non-linear relationships:</p>
+<div class="rule-box"><p>y(x) = Σⱼ wⱼ φⱼ(x) &nbsp;&nbsp; — linear in weights w, but non-linear in input x</p></div>
+Common examples: polynomial xᵏ, Gaussian RBF exp(−‖x−μ‖²/2σ²), sigmoid. Neural networks learn basis functions adaptively from data.`
+  },
+  {
+    term: "Explain Overfitting and Early Stopping in Neural Networks.",
+    body: `<strong>Overfitting</strong> in neural networks: the network memorises training data including noise, achieving near-zero training loss but high test loss. Signs: training error falls while validation error rises.
+<p><strong>Early Stopping</strong> solution: split data into training and validation sets. Monitor validation error each epoch. When validation error starts consistently increasing, <strong>stop training</strong> and restore weights from the epoch with minimum validation error.</p>
+<div class="diagram-wrap"><div class="diagram-label">Early Stopping — Loss Curves</div>
+<svg viewBox="0 0 360 140" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+  <line x1="40" y1="120" x2="340" y2="120" stroke="#444" stroke-width="1.5"/>
+  <line x1="40" y1="10"  x2="40"  y2="120" stroke="#444" stroke-width="1.5"/>
+  <text x="345" y="123" fill="#888">Epochs</text>
+  <text x="10"  y="14"  fill="#888">Loss</text>
+  <polyline fill="none" stroke="#6cf" stroke-width="2" points="40,90 80,70 120,55 160,44 200,36 240,30 280,26 320,23"/>
+  <text x="325" y="22" fill="#6cf">Train</text>
+  <polyline fill="none" stroke="#f88" stroke-width="2" points="40,95 80,75 120,60 160,52 200,50 240,54 280,62 320,74"/>
+  <text x="325" y="73" fill="#f88">Val</text>
+  <line x1="200" y1="10" x2="200" y2="120" stroke="#ff9" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="202" y="20" fill="#ff9">Stop here</text>
+</svg></div>`
+  },
+  {
+    term: "Explain Bagging in Machine Learning.",
+    body: `<strong>Bagging</strong> (Bootstrap Aggregating) is an ensemble technique that trains multiple independent models on different <strong>bootstrap samples</strong> (random sampling with replacement) of the training data, then combines their predictions.
+<ul>
+  <li><strong>Classification:</strong> majority vote across all models</li>
+  <li><strong>Regression:</strong> average of all model outputs</li>
+  <li><strong>Primary effect:</strong> reduces variance, makes model robust to noise</li>
+  <li><strong>Classic example:</strong> Random Forest = Bagging + random feature subsets per split</li>
+</ul>
+Each model sees ~63% unique training points; remaining ~37% are out-of-bag (OOB) samples usable for internal validation without a separate test set.`
+  },
+  {
+    term: "What is the difference between Bagging and Boosting?",
+    body: `<div class="table-wrap"><table>
+  <thead><tr><th>Property</th><th>Bagging</th><th>Boosting</th></tr></thead>
+  <tbody>
+    <tr><td>Training order</td><td>Parallel (independent)</td><td>Sequential (each fixes prev. errors)</td></tr>
+    <tr><td>Data sampling</td><td>Bootstrap (random with replacement)</td><td>Weighted (misclassified get higher weight)</td></tr>
+    <tr><td>Primary effect</td><td>Reduces <strong>Variance</strong></td><td>Reduces <strong>Bias</strong></td></tr>
+    <tr><td>Overfitting risk</td><td>Low</td><td>Can overfit on noisy data</td></tr>
+    <tr><td>Example</td><td>Random Forest</td><td>AdaBoost, XGBoost, LightGBM</td></tr>
+    <tr><td>Final prediction</td><td>Majority vote / average</td><td>Weighted vote of all models</td></tr>
+  </tbody>
+</table></div>`
+  },
+  {
+    term: "Explain the Design of a Learning System with a neat diagram.",
+    body: `A learning system is a program that improves its performance on a task through experience. Key design decisions: <em>what</em> to learn, <em>what data</em> to learn from, and <em>how</em> to measure performance.
+<p><strong>Main components:</strong></p>
+<ul>
+  <li><strong>Performance element</strong> — makes decisions or predictions</li>
+  <li><strong>Learning element</strong> — improves the performance element using feedback</li>
+  <li><strong>Critic</strong> — evaluates performance against a standard</li>
+  <li><strong>Problem generator</strong> — suggests new experiences to explore</li>
+</ul>
+<div class="diagram-wrap"><div class="diagram-label">Learning System Pipeline</div>
+<svg viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+  <defs><marker id="lsd" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#555"/></marker></defs>
+  <rect x="5"   y="30" width="80" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/>
+  <text x="45"  y="52" text-anchor="middle" fill="#888">Raw Data</text>
+  <rect x="110" y="30" width="80" height="36" rx="3" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+  <text x="150" y="52" text-anchor="middle" fill="#6cf">Preprocess</text>
+  <rect x="215" y="30" width="80" height="36" rx="3" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+  <text x="255" y="44" text-anchor="middle" fill="#6cf">Feature</text>
+  <text x="255" y="56" text-anchor="middle" fill="#6cf">Extract</text>
+  <rect x="320" y="30" width="80" height="36" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+  <text x="360" y="44" text-anchor="middle" fill="#f88">Learning</text>
+  <text x="360" y="56" text-anchor="middle" fill="#f88">Algorithm</text>
+  <rect x="425" y="30" width="80" height="36" rx="3" fill="#111" stroke="#ff9" stroke-width="1.5"/>
+  <text x="465" y="44" text-anchor="middle" fill="#ff9">Model /</text>
+  <text x="465" y="56" text-anchor="middle" fill="#ff9">Predict</text>
+  <line x1="85"  y1="48" x2="108" y2="48" stroke="#555" stroke-width="1.5" marker-end="url(#lsd)"/>
+  <line x1="190" y1="48" x2="213" y2="48" stroke="#555" stroke-width="1.5" marker-end="url(#lsd)"/>
+  <line x1="295" y1="48" x2="318" y2="48" stroke="#555" stroke-width="1.5" marker-end="url(#lsd)"/>
+  <line x1="400" y1="48" x2="423" y2="48" stroke="#555" stroke-width="1.5" marker-end="url(#lsd)"/>
+  <path d="M465,66 Q465,88 255,88 Q100,88 100,66" fill="none" stroke="#444" stroke-width="1.5" stroke-dasharray="4,3" marker-end="url(#lsd)"/>
+  <text x="255" y="98" text-anchor="middle" fill="#555">Evaluation feedback loop</text>
+</svg></div>`
+  },
+  {
+    term: "Describe Concept Learning as a Search Problem.",
+    body: `Concept learning is framed as a <strong>search through a hypothesis space H</strong> to find the hypothesis h consistent with all training examples.
+<ul>
+  <li>The search space contains all possible hypotheses, ordered from most specific to most general.</li>
+  <li><strong>Most specific:</strong> classifies nothing as positive (∅ — rejects all)</li>
+  <li><strong>Most general:</strong> classifies everything as positive (? — accepts all)</li>
+  <li>Find-S searches bottom-up (specific → general), stopping at first consistent h.</li>
+  <li>Candidate Elimination searches the entire version space between S and G boundaries.</li>
+</ul>
+For n boolean features, |H| = 3ⁿ + 1. The partial ordering (specific-to-general) is used to prune this large space efficiently without examining every hypothesis.`
+  },
+];
+
+const detailedQuestions = [
+  {
+    id: "q1", num: "Q.01",
+    title: "K-Means Clustering — In Detail with Example",
+    body: `<p>K-Means is an <strong>unsupervised, iterative</strong> partitioning algorithm that divides a dataset of N points into K non-overlapping clusters by minimising the within-cluster sum of squared distances (inertia). It is one of the simplest yet most widely used clustering methods.</p>
+
+    <p class="sub-h">Algorithm Steps</p>
+    <ol>
+      <li><strong>Initialise:</strong> Randomly select K data points as initial centroids.</li>
+      <li><strong>Assign:</strong> Assign each data point to the nearest centroid (Euclidean distance).</li>
+      <li><strong>Update:</strong> Recompute each centroid as the mean of all points assigned to it.</li>
+      <li><strong>Repeat:</strong> Iterate steps 2–3 until centroids no longer move (convergence).</li>
+    </ol>
+
+    <p class="sub-h">Objective Function</p>
+    <div class="rule-box"><p>Minimise J = Σᵢ Σₓ∈Cᵢ ‖x − μᵢ‖²  &nbsp;&nbsp; where μᵢ = centroid of cluster Cᵢ</p></div>
+
+    <p class="sub-h">Worked Example (K=2)</p>
+    <p>Dataset: Points A(1,1), B(1.5,2), C(3,4), D(5,7), E(3.5,5)</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Iteration</th><th>Centroid 1</th><th>Centroid 2</th><th>Cluster 1</th><th>Cluster 2</th></tr></thead>
+      <tbody>
+        <tr><td>Init</td><td>(1, 1)</td><td>(5, 7)</td><td>—</td><td>—</td></tr>
+        <tr><td>Assign #1</td><td>(1, 1)</td><td>(5, 7)</td><td>A, B, C</td><td>D, E</td></tr>
+        <tr><td>Update #1</td><td>(1.83, 2.33)</td><td>(4.25, 6)</td><td>A, B, C</td><td>D, E</td></tr>
+        <tr><td>Assign #2</td><td>(1.83, 2.33)</td><td>(4.25, 6)</td><td>A, B</td><td>C, D, E</td></tr>
+        <tr><td>Converged</td><td>(1.25, 1.5)</td><td>(3.83, 5.33)</td><td>A, B</td><td>C, D, E</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Diagram — Iteration Flow</p>
+    <div class="diagram-wrap"><div class="diagram-label">K-Means Iteration</div>
+    <svg viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+      <defs>
+        <marker id="arr" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/>
+        </marker>
+      </defs>
+      <!-- Boxes -->
+      <rect x="10" y="70" width="100" height="40" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/>
+      <text x="60" y="86" text-anchor="middle" fill="#fff">Initialise</text>
+      <text x="60" y="100" text-anchor="middle" fill="#888">K centroids</text>
+
+      <rect x="150" y="70" width="100" height="40" rx="3" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+      <text x="200" y="86" text-anchor="middle" fill="#6cf">Assign</text>
+      <text x="200" y="100" text-anchor="middle" fill="#888">nearest centroid</text>
+
+      <rect x="300" y="70" width="100" height="40" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="350" y="86" text-anchor="middle" fill="#f88">Update</text>
+      <text x="350" y="100" text-anchor="middle" fill="#888">recompute means</text>
+
+      <rect x="450" y="70" width="110" height="40" rx="3" fill="#111" stroke="#ff9" stroke-width="1.5"/>
+      <text x="505" y="86" text-anchor="middle" fill="#ff9">Converged?</text>
+      <text x="505" y="100" text-anchor="middle" fill="#888">centroids stable?</text>
+
+      <!-- Arrows forward -->
+      <line x1="110" y1="90" x2="148" y2="90" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+      <line x1="250" y1="90" x2="298" y2="90" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+      <line x1="400" y1="90" x2="448" y2="90" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
+
+      <!-- Loop back -->
+      <path d="M505,110 Q505,160 350,160 Q200,160 200,110" fill="none" stroke="#444" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+      <text x="350" y="175" text-anchor="middle" fill="#555">No — iterate again</text>
+
+      <!-- Yes -->
+      <line x1="560" y1="90" x2="580" y2="90" stroke="#ff9" stroke-width="1.5"/>
+      <text x="578" y="87" fill="#ff9" font-size="9">Yes →</text>
+      <text x="578" y="100" fill="#888" font-size="9">Done</text>
+    </svg></div>
+
+    <p class="sub-h">Limitations</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Limitation</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Must pre-specify K</td><td>Use Elbow Method or Silhouette Score</td></tr>
+        <tr><td>Sensitive to initialisation</td><td>K-Means++ smart seeding</td></tr>
+        <tr><td>Assumes spherical clusters</td><td>Use DBSCAN or GMM for arbitrary shapes</td></tr>
+        <tr><td>Sensitive to outliers</td><td>Use K-Medoids instead</td></tr>
+      </tbody>
+    </table></div>`
+  },
+
+  {
+    id: "q2", num: "Q.02",
+    title: "Isomap Algorithm in Dimensionality Reduction",
+    body: `<p>Isomap (Isometric Feature Mapping) is a non-linear dimensionality reduction method that extends classical MDS (Multi-Dimensional Scaling) by using <strong>geodesic distances</strong> — distances measured along the manifold surface — rather than straight-line Euclidean distances. This allows it to "unroll" curved, non-linear data manifolds that PCA cannot handle.</p>
+
+    <p class="sub-h">Three-Step Algorithm</p>
+    <ol>
+      <li><strong>Neighbourhood Graph Construction:</strong> Build a graph connecting each point to its K nearest neighbours (or all points within radius ε). Edge weights = Euclidean distances between connected points.</li>
+      <li><strong>Shortest Path Computation:</strong> Compute all-pairs shortest paths on the graph using Dijkstra's or Floyd-Warshall algorithm. These shortest paths approximate the true geodesic distances along the manifold.</li>
+      <li><strong>MDS Embedding:</strong> Apply classical MDS on the geodesic distance matrix to find a low-dimensional embedding that best preserves these distances.</li>
+    </ol>
+
+    <p class="sub-h">Isomap vs PCA</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Property</th><th>PCA</th><th>Isomap</th></tr></thead>
+      <tbody>
+        <tr><td>Type</td><td>Linear</td><td>Non-linear</td></tr>
+        <tr><td>Distance Used</td><td>Euclidean</td><td>Geodesic</td></tr>
+        <tr><td>Manifold Handling</td><td>Cannot unroll</td><td>Preserves manifold geometry</td></tr>
+        <tr><td>Computation</td><td>Eigendecomposition of covariance</td><td>Shortest paths + MDS</td></tr>
+        <tr><td>Best for</td><td>Linear structure</td><td>Swiss roll, curved manifolds</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Diagram — The Swiss Roll Problem</p>
+    <div class="diagram-wrap"><div class="diagram-label">Geodesic vs Euclidean Distance on a Manifold</div>
+    <svg viewBox="0 0 560 180" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+      <!-- Rolled manifold suggestion -->
+      <ellipse cx="150" cy="90" rx="120" ry="60" fill="none" stroke="#333" stroke-width="1"/>
+      <path d="M60,60 Q100,30 140,60 Q180,90 220,60" fill="none" stroke="#6cf" stroke-width="2"/>
+      <path d="M60,90 Q100,60 140,90 Q180,120 220,90" fill="none" stroke="#6cf" stroke-width="2"/>
+      <path d="M60,120 Q100,90 140,120 Q180,150 220,120" fill="none" stroke="#6cf" stroke-width="2"/>
+      <circle cx="75" cy="65" r="5" fill="#f88"/>
+      <circle cx="205" cy="65" r="5" fill="#f88"/>
+      <!-- Euclidean straight line -->
+      <line x1="75" y1="65" x2="205" y2="65" stroke="#f88" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="140" y="58" text-anchor="middle" fill="#f88">Euclidean (wrong)</text>
+      <!-- Geodesic along manifold -->
+      <path d="M75,65 Q100,35 140,48 Q180,62 205,65" fill="none" stroke="#ff9" stroke-width="2"/>
+      <text x="140" y="38" text-anchor="middle" fill="#ff9">Geodesic (correct)</text>
+      <text x="150" y="170" text-anchor="middle" fill="#555">Curved Manifold</text>
+
+      <!-- After unrolling -->
+      <rect x="340" y="40" width="190" height="100" rx="4" fill="#0a0a0a" stroke="#333" stroke-width="1.5"/>
+      <text x="435" y="30" text-anchor="middle" fill="#555">After Isomap Unrolling</text>
+      <circle cx="360" cy="90" r="5" fill="#f88"/>
+      <circle cx="510" cy="90" r="5" fill="#f88"/>
+      <line x1="360" y1="90" x2="510" y2="90" stroke="#ff9" stroke-width="2"/>
+      <text x="435" y="85" text-anchor="middle" fill="#ff9">True distance preserved</text>
+      <text x="435" y="120" text-anchor="middle" fill="#555">2D Embedding</text>
+
+      <!-- Arrow -->
+      <line x1="240" y1="90" x2="330" y2="90" stroke="#555" stroke-width="1.5" marker-end="url(#ar2)"/>
+      <text x="285" y="83" text-anchor="middle" fill="#555">MDS</text>
+      <defs>
+        <marker id="ar2" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/>
+        </marker>
+      </defs>
+    </svg></div>
+
+    <p class="sub-h">Key Hyperparameters</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Parameter</th><th>Description</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>K (neighbours)</td><td>Number of nearest neighbours</td><td>Too small: disconnected graph; Too large: shortcuts through manifold</td></tr>
+        <tr><td>n_components</td><td>Target embedding dimensions</td><td>Usually 2 or 3 for visualisation</td></tr>
+      </tbody>
+    </table></div>`
+  },
+
+  {
+    id: "q3", num: "Q.03",
+    title: "Independent Component Analysis (ICA) with Real-World Problem",
+    body: `<p>Independent Component Analysis (ICA) is a computational technique for separating a multivariate signal into additive, statistically <strong>independent</strong> sub-components. Unlike PCA, which seeks uncorrelated (orthogonal) components ordered by variance, ICA seeks components that are <em>statistically independent</em> and <em>non-Gaussian</em>.</p>
+
+    <p class="sub-h">The Cocktail Party Problem (Real-World Example)</p>
+    <p>Imagine a room with 3 people speaking simultaneously and 3 microphones placed at different positions. Each microphone records a different <em>mixture</em> of all three voices. ICA can mathematically unmix these recordings to recover the original, individual voice signals — without any prior knowledge of the mixing process.</p>
+
+    <div class="rule-box"><p><strong>Model:</strong> x = As &nbsp;→&nbsp; s = Wx &nbsp;&nbsp; where A = mixing matrix, W = unmixing matrix, x = observed, s = sources</p></div>
+
+    <p class="sub-h">ICA Algorithm (FastICA)</p>
+    <ol>
+      <li><strong>Centre:</strong> Subtract the mean of each signal.</li>
+      <li><strong>Whiten:</strong> Transform the data so components are uncorrelated with unit variance (using PCA).</li>
+      <li><strong>Maximise Non-Gaussianity:</strong> Iteratively find directions W that maximise the non-Gaussianity of Wx (measured by kurtosis or negentropy).</li>
+      <li><strong>Deflate:</strong> Extract one component at a time, decorrelating from already-found components.</li>
+    </ol>
+
+    <p class="sub-h">PCA vs ICA</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Property</th><th>PCA</th><th>ICA</th></tr></thead>
+      <tbody>
+        <tr><td>Goal</td><td>Maximise variance</td><td>Maximise statistical independence</td></tr>
+        <tr><td>Components</td><td>Uncorrelated (2nd order)</td><td>Independent (higher order)</td></tr>
+        <tr><td>Gaussian signals</td><td>Works well</td><td>Cannot separate (indeterminate)</td></tr>
+        <tr><td>Applications</td><td>Compression, noise reduction</td><td>BSS, EEG, fMRI, audio</td></tr>
+        <tr><td>Ordering</td><td>By variance (deterministic)</td><td>No natural order</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Applications</p>
+    <ul>
+      <li><strong>Neuroscience:</strong> Separating brain signal sources in EEG/MEG recordings.</li>
+      <li><strong>Finance:</strong> Isolating independent risk factors from correlated market returns.</li>
+      <li><strong>Image Processing:</strong> Feature extraction, face recognition, texture analysis.</li>
+    </ul>`
+  },
+
+  {
+    id: "q4", num: "Q.04",
+    title: "Genetic Algorithm — In Detail",
+    body: `<p>A Genetic Algorithm (GA) is a <strong>nature-inspired, population-based metaheuristic</strong> optimisation technique modelled on Darwinian natural selection. It evolves a population of candidate solutions over generations, applying selection, crossover, and mutation to find near-optimal solutions to complex problems.</p>
+
+    <p class="sub-h">Key Components</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Component</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Chromosome</td><td>Encoded representation of a candidate solution (e.g., binary string)</td></tr>
+        <tr><td>Population</td><td>Set of N chromosomes evaluated in each generation</td></tr>
+        <tr><td>Fitness Function</td><td>Evaluates how good each chromosome is at solving the problem</td></tr>
+        <tr><td>Selection</td><td>Choose parents for reproduction (roulette wheel, tournament)</td></tr>
+        <tr><td>Crossover</td><td>Combine two parents to produce offspring (single-point, two-point)</td></tr>
+        <tr><td>Mutation</td><td>Randomly flip bits to maintain diversity and avoid local optima</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Full Algorithm Flow</p>
+    <div class="diagram-wrap"><div class="diagram-label">Genetic Algorithm Lifecycle</div>
+    <svg viewBox="0 0 580 240" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+      <defs>
+        <marker id="ga" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/>
+        </marker>
+      </defs>
+      <rect x="10"  y="10"  width="110" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/>
+      <text x="65"  y="32"  text-anchor="middle" fill="#fff">Initialise Pop.</text>
+
+      <rect x="160" y="10"  width="110" height="36" rx="3" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+      <text x="215" y="32"  text-anchor="middle" fill="#6cf">Evaluate Fitness</text>
+
+      <rect x="310" y="10"  width="110" height="36" rx="3" fill="#111" stroke="#ff9" stroke-width="1.5"/>
+      <text x="365" y="32"  text-anchor="middle" fill="#ff9">Termination?</text>
+
+      <rect x="460" y="10"  width="110" height="36" rx="3" fill="#111" stroke="#aaa" stroke-width="1.5"/>
+      <text x="515" y="32"  text-anchor="middle" fill="#aaa">Best Solution</text>
+
+      <line x1="120" y1="28" x2="158" y2="28" stroke="#555" stroke-width="1.5" marker-end="url(#ga)"/>
+      <line x1="270" y1="28" x2="308" y2="28" stroke="#555" stroke-width="1.5" marker-end="url(#ga)"/>
+      <line x1="420" y1="28" x2="458" y2="28" stroke="#ff9" stroke-width="1.5" marker-end="url(#ga)"/>
+      <text x="439" y="22" fill="#ff9" font-size="9">Yes</text>
+
+      <!-- No branch downward -->
+      <line x1="365" y1="46" x2="365" y2="80" stroke="#555" stroke-width="1.5"/>
+      <text x="370" y="68" fill="#555" font-size="9">No</text>
+
+      <rect x="110" y="80"  width="110" height="36" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="165" y="102" text-anchor="middle" fill="#f88">Selection</text>
+
+      <rect x="245" y="80"  width="110" height="36" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="300" y="102" text-anchor="middle" fill="#f88">Crossover</text>
+
+      <rect x="380" y="80"  width="110" height="36" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="435" y="102" text-anchor="middle" fill="#f88">Mutation</text>
+
+      <line x1="365" y1="80" x2="435" y2="80" stroke="#555" stroke-width="1.5"/>
+      <line x1="435" y1="80" x2="435" y2="80" stroke="#555" stroke-width="1.5" marker-end="url(#ga)"/>
+      <line x1="365" y1="80" x2="300" y2="80" stroke="#555" stroke-width="1.5" marker-end="url(#ga)"/>
+      <line x1="245" y1="98" x2="222" y2="98" stroke="#555" stroke-width="1.5" marker-end="url(#ga)"/>
+
+      <!-- New pop feeds back -->
+      <line x1="490" y1="116" x2="490" y2="155" stroke="#555" stroke-width="1.5"/>
+      <line x1="490" y1="155" x2="215" y2="155" stroke="#555" stroke-width="1.5"/>
+      <line x1="215" y1="155" x2="215" y2="48" stroke="#555" stroke-width="1.5" marker-end="url(#ga)"/>
+      <text x="350" y="148" text-anchor="middle" fill="#555">New generation feeds back to Evaluate</text>
+    </svg></div>
+
+    <p class="sub-h">Genetic Operators — Crossover Example</p>
+    <div class="code-block">Parent 1:  1 0 1 1 | 0 0 1 0
+Parent 2:  0 1 0 0 | 1 1 0 1
+                    ↑ crossover point
+Child 1:   1 0 1 1   1 1 0 1
+Child 2:   0 1 0 0   0 0 1 0</div>
+
+    <p class="sub-h">Key Parameters</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Parameter</th><th>Typical Value</th><th>Effect</th></tr></thead>
+      <tbody>
+        <tr><td>Population size</td><td>50–200</td><td>Larger = better diversity, slower</td></tr>
+        <tr><td>Crossover rate (pc)</td><td>0.6–0.9</td><td>Controls recombination frequency</td></tr>
+        <tr><td>Mutation rate (pm)</td><td>0.001–0.01</td><td>Too high destroys good solutions</td></tr>
+        <tr><td>Generations</td><td>100–500</td><td>More = better convergence</td></tr>
+      </tbody>
+    </table></div>`
+  },
+
+  {
+    id: "q5", num: "Q.05",
+    title: "Markov Chain Monte Carlo (MCMC) Method",
+    body: `<p>Markov Chain Monte Carlo (MCMC) is a class of algorithms for <strong>sampling from probability distributions</strong> that are difficult or impossible to sample from directly — especially high-dimensional posterior distributions in Bayesian inference. It constructs a Markov chain whose stationary distribution is the target distribution π(x).</p>
+
+    <p class="sub-h">Core Idea</p>
+    <p>Instead of computing an integral analytically, MCMC draws a long sequence of samples from a Markov chain. After a <em>burn-in</em> period (where the chain converges), the samples approximate the target distribution and can be used to estimate expectations, means, credible intervals, etc.</p>
+
+    <p class="sub-h">Metropolis-Hastings Algorithm (Most Common MCMC)</p>
+    <ol>
+      <li>Start at an initial state x₀.</li>
+      <li>At each step t, <strong>propose</strong> a new state x* from a proposal distribution q(x*|xₜ).</li>
+      <li>Compute acceptance ratio: α = min(1, [π(x*)·q(xₜ|x*)] / [π(xₜ)·q(x*|xₜ)]).</li>
+      <li><strong>Accept</strong> x* with probability α (set xₜ₊₁ = x*), else stay at xₜ.</li>
+      <li>Repeat for many iterations; discard burn-in samples.</li>
+    </ol>
+
+    <p class="sub-h">MCMC Variants</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Algorithm</th><th>Key Idea</th><th>Best For</th></tr></thead>
+      <tbody>
+        <tr><td>Metropolis-Hastings</td><td>Accept/reject proposal via ratio test</td><td>General distributions</td></tr>
+        <tr><td>Gibbs Sampling</td><td>Sample each variable from its conditional, fixing others</td><td>Multi-variable where conditionals are known</td></tr>
+        <tr><td>Hamiltonian MC</td><td>Uses gradient information for efficient exploration</td><td>High-dimensional continuous spaces</td></tr>
+        <tr><td>NUTS</td><td>No-U-Turn Sampler — adaptive HMC</td><td>Modern Bayesian PPLs (Stan, PyMC)</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Applications</p>
+    <ul>
+      <li><strong>Bayesian inference:</strong> Estimating posterior distributions over model parameters.</li>
+      <li><strong>Physics:</strong> Statistical mechanics simulations.</li>
+      <li><strong>Machine Learning:</strong> Latent Dirichlet Allocation (LDA) for topic modelling.</li>
+      <li><strong>Finance:</strong> Risk estimation and option pricing under complex models.</li>
+    </ul>`
+  },
+
+  {
+    id: "q6", num: "Q.06",
+    title: "Bayesian Networks and Markov Random Fields",
+    body: `<p>Both Bayesian Networks and Markov Random Fields are <strong>probabilistic graphical models (PGMs)</strong> that use graphs to represent the joint distribution over a set of random variables by encoding conditional independence relationships.</p>
+
+    <p class="sub-h">Bayesian Networks (Directed Graphical Models)</p>
+    <p>A BN is a <strong>Directed Acyclic Graph (DAG)</strong> where nodes represent random variables and directed edges encode conditional dependencies (parent → child). The joint probability factorises as:</p>
+    <div class="rule-box"><p>P(X₁, X₂, …, Xₙ) = ∏ᵢ P(Xᵢ | Parents(Xᵢ))</p></div>
+
+    <p class="sub-h">Example BN — Disease Diagnosis</p>
+    <div class="diagram-wrap"><div class="diagram-label">Bayesian Network</div>
+    <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;max-width:260px;">
+      <defs>
+        <marker id="bn" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 Z" fill="#6cf"/>
+        </marker>
+      </defs>
+      <!-- Smoking (top centre) -->
+      <circle cx="110" cy="30" r="22" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+      <text x="110" y="27" text-anchor="middle" fill="#6cf">Smoking</text>
+      <text x="110" y="38" text-anchor="middle" fill="#6cf" font-size="8">(S)</text>
+
+      <!-- Cancer (bottom left) -->
+      <circle cx="44" cy="110" r="22" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="44" y="107" text-anchor="middle" fill="#f88">Cancer</text>
+      <text x="44" y="118" text-anchor="middle" fill="#f88" font-size="8">(C)</text>
+
+      <!-- Bronchitis (bottom right) -->
+      <circle cx="176" cy="110" r="22" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="176" y="107" text-anchor="middle" fill="#f88">Bronch.</text>
+      <text x="176" y="118" text-anchor="middle" fill="#f88" font-size="8">(B)</text>
+
+      <!-- X-ray (bottom centre) -->
+      <circle cx="110" cy="178" r="18" fill="#111" stroke="#ff9" stroke-width="1.5"/>
+      <text x="110" y="175" text-anchor="middle" fill="#ff9">X-ray</text>
+      <text x="110" y="185" text-anchor="middle" fill="#ff9" font-size="8">(X)</text>
+
+      <!-- Arrows -->
+      <line x1="94" y1="46" x2="60" y2="90" stroke="#6cf" stroke-width="1.5" marker-end="url(#bn)"/>
+      <line x1="126" y1="46" x2="160" y2="90" stroke="#6cf" stroke-width="1.5" marker-end="url(#bn)"/>
+      <line x1="62" y1="130" x2="94" y2="162" stroke="#6cf" stroke-width="1.5" marker-end="url(#bn)"/>
+    </svg></div>
+
+    <p class="sub-h">Markov Random Fields (Undirected Graphical Models)</p>
+    <p>A MRF (also called a Markov Network) uses an <strong>undirected graph</strong> where edges indicate direct probabilistic interactions (no causal direction). The joint distribution is defined using <em>clique potential functions</em> (factors over maximal cliques):</p>
+    <div class="rule-box"><p>P(X) = (1/Z) ∏_c ψ_c(X_c) &nbsp;&nbsp; where Z = partition function (normalisation)</p></div>
+
+    <p class="sub-h">BN vs MRF Comparison</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Property</th><th>Bayesian Network</th><th>Markov Random Field</th></tr></thead>
+      <tbody>
+        <tr><td>Graph type</td><td>Directed (DAG)</td><td>Undirected</td></tr>
+        <tr><td>Edges encode</td><td>Causal / conditional relationships</td><td>Symmetric correlations</td></tr>
+        <tr><td>Factorisation</td><td>Product of conditionals</td><td>Product of clique potentials / Z</td></tr>
+        <tr><td>Independence test</td><td>d-separation</td><td>Graph separation</td></tr>
+        <tr><td>Best for</td><td>Causal modelling, diagnosis</td><td>Image segmentation, spatial models</td></tr>
+      </tbody>
+    </table></div>`
+  },
+
+  {
+    id: "q7", num: "Q.07",
+    title: "Q-Learning — In Detail",
+    body: `<p>Q-Learning is an <strong>off-policy, model-free</strong> Temporal Difference (TD) reinforcement learning algorithm that learns the optimal action-value function Q*(s,a) — the expected cumulative discounted reward for taking action <em>a</em> in state <em>s</em> and then following the optimal policy thereafter.</p>
+
+    <p class="sub-h">The Bellman Optimality Equation</p>
+    <div class="rule-box"><p>Q*(s,a) = E[ R + γ · max_{a'} Q*(s', a') ]</p></div>
+
+    <p class="sub-h">Q-Learning Update Rule</p>
+    <div class="rule-box"><p>Q(s,a) ← Q(s,a) + α [ R + γ · max_{a'} Q(s',a') − Q(s,a) ]</p></div>
+    <ul>
+      <li><strong>α</strong> = learning rate (how fast to update)</li>
+      <li><strong>γ</strong> = discount factor (how much to value future rewards)</li>
+      <li><strong>max_{a'} Q(s',a')</strong> = greedy estimate of future value (off-policy: uses best next action regardless of what was taken)</li>
+    </ul>
+
+    <p class="sub-h">Algorithm</p>
+    <ol>
+      <li>Initialise Q-table Q(s,a) = 0 for all states and actions.</li>
+      <li>Observe current state s.</li>
+      <li>Choose action a using ε-greedy policy (explore vs exploit).</li>
+      <li>Take action a, observe reward R and next state s'.</li>
+      <li>Apply the update rule above.</li>
+      <li>Set s ← s'; repeat until convergence.</li>
+    </ol>
+
+    <p class="sub-h">Q-Learning vs SARSA</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Property</th><th>Q-Learning</th><th>SARSA</th></tr></thead>
+      <tbody>
+        <tr><td>Policy type</td><td>Off-policy</td><td>On-policy</td></tr>
+        <tr><td>Update uses</td><td>max Q(s',a') — greedy next action</td><td>Q(s',a') — actual next action taken</td></tr>
+        <tr><td>Convergence to</td><td>Optimal policy Q*</td><td>Policy being followed</td></tr>
+        <tr><td>Risk tolerance</td><td>More aggressive</td><td>More conservative</td></tr>
+        <tr><td>Best for</td><td>Known, deterministic environments</td><td>Stochastic, risky environments</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Simple Q-Table Example (Grid World)</p>
+    <div class="code-block">States: S0 S1 S2 (Goal)
+Actions: Left, Right
+
+Initial Q-table:
+       Left   Right
+  S0 [  0.0    0.0 ]
+  S1 [  0.0    0.0 ]
+
+After training (γ=0.9, α=0.5, R=+10 at S2):
+       Left   Right
+  S0 [  0.0    4.5 ]   ← learn to move right
+  S1 [  0.0    9.0 ]   ← learn to move right (closer to reward)</div>`
+  },
+
+  {
+    id: "q8", num: "Q.08",
+    title: "Hidden Markov Models (HMM)",
+    body: `<p>A Hidden Markov Model (HMM) is a statistical model used to represent systems that are assumed to be a <strong>Markov process with unobservable (hidden) states</strong>. The system emits observable outputs, and the goal is to infer information about the hidden state sequence from these observations.</p>
+
+    <p class="sub-h">Components of an HMM</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Component</th><th>Notation</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td>Hidden States</td><td>Q = {q₁,…,qN}</td><td>The underlying unobservable states</td></tr>
+        <tr><td>Observations</td><td>O = {o₁,…,oT}</td><td>The sequence of observed emissions</td></tr>
+        <tr><td>Initial Probabilities</td><td>π</td><td>Probability of starting in each state</td></tr>
+        <tr><td>Transition Matrix</td><td>A</td><td>P(qₜ₊₁ | qₜ) — probability of state transitions</td></tr>
+        <tr><td>Emission Matrix</td><td>B</td><td>P(oₜ | qₜ) — probability of observation given state</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">HMM Structure Diagram</p>
+    <div class="diagram-wrap"><div class="diagram-label">Hidden Markov Model — State and Observation Chain</div>
+    <svg viewBox="0 0 560 160" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
+      <defs>
+        <marker id="hm" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto">
+          <path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/>
+        </marker>
+      </defs>
+      <!-- Hidden states row -->
+      <text x="10" y="58" fill="#888">Hidden</text>
+      <circle cx="100" cy="60" r="24" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+      <text x="100" y="64" text-anchor="middle" fill="#6cf">q₁</text>
+      <circle cx="230" cy="60" r="24" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+      <text x="230" y="64" text-anchor="middle" fill="#6cf">q₂</text>
+      <circle cx="360" cy="60" r="24" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+      <text x="360" y="64" text-anchor="middle" fill="#6cf">q₃</text>
+      <circle cx="490" cy="60" r="24" fill="#111" stroke="#6cf" stroke-width="1.5"/>
+      <text x="490" y="64" text-anchor="middle" fill="#6cf">q₄</text>
+
+      <!-- Transition arrows -->
+      <line x1="124" y1="60" x2="204" y2="60" stroke="#6cf" stroke-width="1.5" marker-end="url(#hm)"/>
+      <text x="164" y="53" text-anchor="middle" fill="#555">A</text>
+      <line x1="254" y1="60" x2="334" y2="60" stroke="#6cf" stroke-width="1.5" marker-end="url(#hm)"/>
+      <text x="294" y="53" text-anchor="middle" fill="#555">A</text>
+      <line x1="384" y1="60" x2="464" y2="60" stroke="#6cf" stroke-width="1.5" marker-end="url(#hm)"/>
+      <text x="424" y="53" text-anchor="middle" fill="#555">A</text>
+
+      <!-- Observed states row -->
+      <text x="10" y="128" fill="#888">Observed</text>
+      <rect x="76" y="108" width="48" height="30" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="100" y="128" text-anchor="middle" fill="#f88">o₁</text>
+      <rect x="206" y="108" width="48" height="30" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="230" y="128" text-anchor="middle" fill="#f88">o₂</text>
+      <rect x="336" y="108" width="48" height="30" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="360" y="128" text-anchor="middle" fill="#f88">o₃</text>
+      <rect x="466" y="108" width="48" height="30" rx="3" fill="#111" stroke="#f88" stroke-width="1.5"/>
+      <text x="490" y="128" text-anchor="middle" fill="#f88">o₄</text>
+
+      <!-- Emission arrows -->
+      <line x1="100" y1="84" x2="100" y2="106" stroke="#f88" stroke-width="1.5" marker-end="url(#hm)"/>
+      <text x="108" y="99" fill="#555">B</text>
+      <line x1="230" y1="84" x2="230" y2="106" stroke="#f88" stroke-width="1.5" marker-end="url(#hm)"/>
+      <text x="238" y="99" fill="#555">B</text>
+      <line x1="360" y1="84" x2="360" y2="106" stroke="#f88" stroke-width="1.5" marker-end="url(#hm)"/>
+      <text x="368" y="99" fill="#555">B</text>
+      <line x1="490" y1="84" x2="490" y2="106" stroke="#f88" stroke-width="1.5" marker-end="url(#hm)"/>
+      <text x="498" y="99" fill="#555">B</text>
+    </svg></div>
+
+    <p class="sub-h">Three Fundamental Problems</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Problem</th><th>Question</th><th>Algorithm</th></tr></thead>
+      <tbody>
+        <tr><td>Evaluation</td><td>P(O | λ) — likelihood of observations given model</td><td>Forward Algorithm</td></tr>
+        <tr><td>Decoding</td><td>Best hidden state sequence given O and λ</td><td>Viterbi Algorithm</td></tr>
+        <tr><td>Learning</td><td>Estimate parameters (A, B, π) from observations</td><td>Baum-Welch (EM)</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Applications</p>
+    <ul>
+      <li><strong>Speech Recognition:</strong> Phonemes as hidden states, acoustic signals as observations.</li>
+      <li><strong>Bioinformatics:</strong> Gene prediction, protein structure modelling.</li>
+      <li><strong>NLP:</strong> POS tagging, named entity recognition.</li>
+    </ul>`
+  },
+
+  {
+    id: "q9", num: "Q.09",
+    title: "Genetic Algorithm — Maximise f(x) = 15x − x², x ∈ [0, 15]",
+    body: `<p>We apply a Genetic Algorithm to maximise <strong>f(x) = 15x − x²</strong> where x ∈ {0, 1, …, 15}, encoded as a <strong>4-bit binary chromosome</strong> (genes). The analytical maximum is at x=7 or x=8 (f(7)=56, f(8)=56).</p>
+
+    <p class="sub-h">Step 1 — Chromosome Encoding</p>
+    <p>Each chromosome is a 4-bit binary string representing x (0000 = 0, 1111 = 15).</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Chromosome</th><th>Binary</th><th>x Value</th><th>f(x) = 15x − x²</th></tr></thead>
+      <tbody>
+        <tr><td>C1</td><td>0110</td><td>6</td><td>15×6 − 36 = <strong>54</strong></td></tr>
+        <tr><td>C2</td><td>1001</td><td>9</td><td>15×9 − 81 = <strong>54</strong></td></tr>
+        <tr><td>C3</td><td>0100</td><td>4</td><td>15×4 − 16 = <strong>44</strong></td></tr>
+        <tr><td>C4</td><td>1011</td><td>11</td><td>15×11 − 121 = <strong>44</strong></td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Step 2 — Selection (Roulette Wheel)</p>
+    <p>Total fitness = 54+54+44+44 = 196. Selection probabilities:</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Chromosome</th><th>Fitness</th><th>Probability</th><th>Expected Count</th></tr></thead>
+      <tbody>
+        <tr><td>C1 (x=6)</td><td>54</td><td>54/196 = 27.6%</td><td>~1.10</td></tr>
+        <tr><td>C2 (x=9)</td><td>54</td><td>54/196 = 27.6%</td><td>~1.10</td></tr>
+        <tr><td>C3 (x=4)</td><td>44</td><td>44/196 = 22.4%</td><td>~0.90</td></tr>
+        <tr><td>C4 (x=11)</td><td>44</td><td>44/196 = 22.4%</td><td>~0.90</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Step 3 — Crossover (Single-Point, after bit 2)</p>
+    <div class="code-block">Parent 1: 0110  (x=6)   ×  Parent 2: 1001  (x=9)
+              01|10                      10|01
+              ─────────────────────────────────
+Child 1:  01 01  →  x=5  →  f(5)=50
+Child 2:  10 10  →  x=10 →  f(10)=50
+
+Parent 3: 0100  (x=4)   ×  Parent 4: 1011  (x=11)
+              01|00                      10|11
+              ─────────────────────────────────
+Child 3:  01 11  →  x=7  →  f(7)=56  ✓ (new max candidate!)
+Child 4:  10 00  →  x=8  →  f(8)=56  ✓</div>
+
+    <p class="sub-h">Step 4 — Mutation (flip one bit randomly)</p>
+    <p>Example: Child 3 = 0111; flip bit 1 → 1111 = x=15 → f(15)=0 (bad). Mutation must be applied with low probability (pm ≈ 0.01) to avoid destroying good solutions.</p>
+
+    <p class="sub-h">Result Summary</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Generation</th><th>Best x</th><th>Best f(x)</th></tr></thead>
+      <tbody>
+        <tr><td>0 (Initial)</td><td>6 or 9</td><td>54</td></tr>
+        <tr><td>1 (After crossover)</td><td>7 or 8</td><td>56</td></tr>
+        <tr><td>Analytical optimum</td><td>x = 7.5</td><td>f(7.5) = 56.25 (continuous)</td></tr>
+      </tbody>
+    </table></div>
+
+    <p class="sub-h">Fitness Landscape</p>
+    <div class="diagram-wrap"><div class="diagram-label">f(x) = 15x − x² for x ∈ [0,15]</div>
+    <svg viewBox="0 0 520 180" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:9px;">
+      <!-- Axes -->
+      <line x1="40" y1="150" x2="500" y2="150" stroke="#444" stroke-width="1.5"/>
+      <line x1="40" y1="10"  x2="40"  y2="150" stroke="#444" stroke-width="1.5"/>
+      <text x="500" y="163" fill="#888">x</text>
+      <text x="10"  y="14"  fill="#888">f(x)</text>
+
+      <!-- x labels -->
+      <text x="40"  y="163" text-anchor="middle" fill="#555">0</text>
+      <text x="100" y="163" text-anchor="middle" fill="#555">2</text>
+      <text x="160" y="163" text-anchor="middle" fill="#555">4</text>
+      <text x="220" y="163" text-anchor="middle" fill="#555">6</text>
+      <text x="280" y="163" text-anchor="middle" fill="#555">8</text>
+      <text x="340" y="163" text-anchor="middle" fill="#555">10</text>
+      <text x="400" y="163" text-anchor="middle" fill="#555">12</text>
+      <text x="460" y="163" text-anchor="middle" fill="#555">14</text>
+
+      <!-- f(x) values: scale: y=150 - (f(x)/56)*130, x_px = 40 + x*30 -->
+      <!-- f(0)=0,f(1)=14,f(2)=26,f(3)=36,f(4)=44,f(5)=50,f(6)=54,f(7)=56,f(8)=56,f(9)=54,f(10)=50,f(11)=44,f(12)=36,f(13)=26,f(14)=14,f(15)=0 -->
+      <polyline fill="none" stroke="#6cf" stroke-width="2" points="
+        40,150
+        70,117.5
+        100,89.6
+        130,66.4
+        160,48.6
+        190,34.7
+        220,25.4
+        250,20
+        280,20
+        310,25.4
+        340,34.7
+        370,48.6
+        400,66.4
+        430,89.6
+        460,117.5
+        490,150
+      "/>
+
+      <!-- Peak markers -->
+      <circle cx="250" cy="20" r="5" fill="#ff9"/>
+      <circle cx="280" cy="20" r="5" fill="#ff9"/>
+      <text x="265" y="14" text-anchor="middle" fill="#ff9">max (x=7,8)</text>
+
+      <!-- GA chromosomes -->
+      <circle cx="220" cy="25" r="4" fill="#f88"/>
+      <text x="222" y="20" fill="#f88">C1(x=6)</text>
+      <circle cx="310" cy="25" r="4" fill="#f88"/>
+      <text x="312" y="20" fill="#f88">C2(x=9)</text>
+    </svg></div>`
+  },
+];
+// ─── Render Part A ──────────────────────────────────────────────────────────
+const shortContainer = document.getElementById('short-container');
+shortAnswers.forEach((item, i) => {
+  const el = document.createElement('div');
+  el.className = 'short-entry';
+  el.innerHTML = `<div class="entry-head">
+    <span class="entry-num">Q.${String(i+1).padStart(2,'0')}</span>
+    <span class="entry-term">${item.term}</span>
+    <span class="entry-marks">2 marks</span>
+  </div>
+  <div class="entry-body">${item.body}</div>`;
+  shortContainer.appendChild(el);
+});
+// ─── Render Part B ──────────────────────────────────────────────────────────
+const detContainer = document.getElementById('detailed-container');
+detailedQuestions.forEach(q => {
+  const el = document.createElement('div');
+  el.className = 'q-block';
+  el.id = q.id;
+  el.innerHTML = `<div class="q-head">
+    <span class="q-num">${q.num}</span>
+    <span class="q-title">${q.title}</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-body">${q.body}</div>`;
+  detContainer.appendChild(el);
+});
+</script>
+</body>
+</html>
