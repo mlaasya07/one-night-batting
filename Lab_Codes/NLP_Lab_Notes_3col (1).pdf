@@ -1,0 +1,1803 @@
+%PDF-1.3
+%‚„œ”
+1 0 obj
+<<
+/Producer (pypdf)
+/Title (NLP Lab Notes)
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Count 2
+/Kids [ 4 0 R 17 0 R ]
+>>
+endobj
+3 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+4 0 obj
+<<
+/Type /Page
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F1-0 6 0 R
+/F1-1 7 0 R
+/F1-2 8 0 R
+/F2 9 0 R
+/F2-0 10 0 R
+/F2-1 11 0 R
+/F2-2 12 0 R
+/F3 13 0 R
+/F3-0 14 0 R
+/F3-1 15 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/MediaBox [ 0.0 0.0 841.889764 595.275591 ]
+/Contents 16 0 R
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+5 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+6 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+7 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+8 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+9 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+10 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+11 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+12 0 obj
+<<
+/BaseFont /Helvetica-Oblique
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+13 0 obj
+<<
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+14 0 obj
+<<
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+15 0 obj
+<<
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+16 0 obj
+<<
+/Length 22439
+>>
+stream
+q
+q
+q
+q
+1 0.0 0.0 1 17.007874 21.007874 cm
+0.0 0.0 261.7323 555.2598 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 0 545.7598 cm
+q
+0.121569 0.227451 0.372549 rg
+n
+-3 -2 267.7323 13.5 re
+f*
+Q
+q
+1 1 1 rg
+BT
+1 0 0 1 0 1.9 Tm
+/F2 7.6 Tf
+9.5 TL
+(LAB 1\072 Stopword Elimination \0501\137stopword\137removal\056py\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 519.0598 cm
+q
+BT
+1 0 0 1 0 17.1 Tm
+7.9 TL
+/F2 6.6 Tf
+0 0 0 rg
+(What it does\072) Tj
+/F1 6.6 Tf
+( throws away filler words \050is\054 the\054 we\054 this\051 so only meaningful words are) Tj
+T*
+(left\056 ) Tj
+/F2 6.6 Tf
+(Steps\072) Tj
+/F1 6.6 Tf
+( lowercase the text\054 split into tokens\054 keep a token only if it is NOT a stopword) Tj
+T*
+(and is letters only \050isalpha drops \056 \054 \041\051\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 436.4598 cm
+0 0 0 rg
+BT
+1 0 0 1 0 75 Tm
+/F3 5.6 Tf
+6.2 TL
+(import nltk) Tj
+T*
+(nltk\056download\050\047punkt\047\051\073 nltk\056download\050\047stopwords\047\051\073) Tj
+T*
+(    nltk\056download\050\047punkt\137tab\047\051) Tj
+T*
+(from nltk\056corpus import stopwords) Tj
+T*
+(from nltk\056tokenize import word\137tokenize) Tj
+T*
+(text \075 \042This is a sample document for text preprocessing\056 We will remove) Tj
+T*
+(    stopwords from this text\056\042) Tj
+T*
+(tokens \075 word\137tokenize\050text\056lower\050\051\051) Tj
+T*
+(stop\137words \075 set\050stopwords\056words\050\047english\047\051\051) Tj
+T*
+(filtered\137tokens \075 \133word for word in tokens) Tj
+T*
+(                   if word not in stop\137words and word\056isalpha\050\051\135) Tj
+T*
+(print\050\042Original tokens\072\042\054 tokens\051) Tj
+T*
+(print\050\042Filtered tokens\072\042\054 filtered\137tokens\051) Tj
+T*
+ET
+Q
+q
+1 0 0 1 0 417.6598 cm
+q
+BT
+1 0 0 1 0 9.2 Tm
+7.9 TL
+/F2 6.6 Tf
+0.478431 0.121569 0.121569 rg
+(Watch\072) Tj
+/F1 6.6 Tf
+( set\050\051 makes lookup fast\056 lower\050\051 first\054 because stopwords list is lowercase\056 File) Tj
+T*
+(input\072 ) Tj
+/F3 6.6 Tf
+(text \075 open\050\047input\056txt\047\054 encoding\075\047utf\0558\047\051\056read\050\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 403.1598 cm
+q
+0.121569 0.227451 0.372549 rg
+n
+-3 -2 267.7323 13.5 re
+f*
+Q
+q
+1 1 1 rg
+BT
+1 0 0 1 0 1.9 Tm
+/F2 7.6 Tf
+9.5 TL
+(LAB 2\072 Stemming \0502\137stemming\056py\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 376.4598 cm
+q
+BT
+1 0 0 1 0 17.1 Tm
+7.9 TL
+/F2 6.6 Tf
+0 0 0 rg
+(What it does\072) Tj
+/F1 6.6 Tf
+( chops word endings with fixed rules to reach a rough root \050running to run\051\056) Tj
+T*
+(Fast but dumb\054 results may not be real words \050easily to easili\051\056 ) Tj
+/F2 6.6 Tf
+(Steps\072) Tj
+/F1 6.6 Tf
+( make a) Tj
+T*
+(PorterStemmer\054 tokenize\054 stem each token\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 324.8598 cm
+0 0 0 rg
+BT
+1 0 0 1 0 44 Tm
+/F3 5.6 Tf
+6.2 TL
+(from nltk\056stem import PorterStemmer) Tj
+T*
+(from nltk\056tokenize import word\137tokenize) Tj
+T*
+(stemmer \075 PorterStemmer\050\051) Tj
+T*
+(text \075 \042running runs ran runner easily fairly\042) Tj
+T*
+(tokens \075 word\137tokenize\050text\051) Tj
+T*
+(stemmed\137words \075 \133stemmer\056stem\050word\051 for word in tokens\135) Tj
+T*
+(print\050\042Original words\072\042\054 tokens\051) Tj
+T*
+(print\050\042Stemmed words\072\042\054 stemmed\137words\051) Tj
+T*
+ET
+Q
+q
+1 0 0 1 0 306.0598 cm
+q
+BT
+1 0 0 1 0 9.2 Tm
+7.9 TL
+/F2 6.6 Tf
+0.478431 0.121569 0.121569 rg
+(Watch\072) Tj
+/F1 6.6 Tf
+( irregular words like \047ran\047 are not fixed by stemming\056 Stem \075 rule based chopping\054) Tj
+T*
+(no dictionary\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 291.5598 cm
+q
+0.121569 0.227451 0.372549 rg
+n
+-3 -2 267.7323 13.5 re
+f*
+Q
+q
+1 1 1 rg
+BT
+1 0 0 1 0 1.9 Tm
+/F2 7.6 Tf
+9.5 TL
+(LAB 3\072 Lemmatization \0503\137Lemmatizer\056py\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 256.9598 cm
+q
+BT
+1 0 0 1 0 25 Tm
+-0.009061 Tw
+7.9 TL
+/F2 6.6 Tf
+0 0 0 rg
+(What it does\072) Tj
+/F1 6.6 Tf
+( brings a word to its real dictionary form \050lemma\051 using WordNet\056 Needs the) Tj
+T*
+0 Tw
+(part of speech\054 otherwise it assumes noun and often changes nothing\056 ) Tj
+/F2 6.6 Tf
+(Steps\072) Tj
+/F1 6.6 Tf
+( \0501\051) Tj
+T*
+(lemmatize plain\054 \0502\051 POS tag every token\054 \0503\051 map tag first letter V\057N\057R\057J to WordNet) Tj
+T*
+(v\057n\057r\057a\054 \0504\051 lemmatize with that pos\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 93.75984 cm
+0 0 0 rg
+BT
+1 0 0 1 0 155.6 Tm
+/F3 5.6 Tf
+6.2 TL
+(import nltk) Tj
+T*
+(from nltk\056stem import WordNetLemmatizer) Tj
+T*
+(from nltk\056tokenize import word\137tokenize) Tj
+T*
+(nltk\056download\050\047punkt\047\051\073 nltk\056download\050\047wordnet\047\051) Tj
+T*
+(nltk\056download\050\047averaged\137perceptron\137tagger\047\051\073 nltk\056download\050\047omw\0551\0564\047\051) Tj
+T*
+(lemmatizer \075 WordNetLemmatizer\050\051) Tj
+T*
+(text \075 \042running runs ran runner easily fairly better\042) Tj
+T*
+(tokens \075 word\137tokenize\050text\051) Tj
+T*
+(\043 without POS) Tj
+T*
+(lemmatized\137words \075 \133lemmatizer\056lemmatize\050w\051 for w in tokens\135) Tj
+T*
+(print\050\042Lemmatized words\072\042\054 lemmatized\137words\051) Tj
+T*
+(\043 with POS) Tj
+T*
+(pos\137tags \075 nltk\056pos\137tag\050tokens\051) Tj
+T*
+(lemmatized\137with\137pos \075 \133\135) Tj
+T*
+(for word\054 pos in pos\137tags\072) Tj
+T*
+(    if pos\056startswith\050\047V\047\051\072) Tj
+T*
+(        lemmatized\137with\137pos\056append\050lemmatizer\056lemmatize\050word\054 pos\075\047v\047\051\051) Tj
+T*
+(    elif pos\056startswith\050\047N\047\051\072) Tj
+T*
+(        lemmatized\137with\137pos\056append\050lemmatizer\056lemmatize\050word\054 pos\075\047n\047\051\051) Tj
+T*
+(    elif pos\056startswith\050\047R\047\051\072) Tj
+T*
+(        lemmatized\137with\137pos\056append\050lemmatizer\056lemmatize\050word\054 pos\075\047r\047\051\051) Tj
+T*
+(    elif pos\056startswith\050\047J\047\051\072  \043 Adjective) Tj
+T*
+(        lemmatized\137with\137pos\056append\050lemmatizer\056lemmatize\050word\054 pos\075\047a\047\051\051) Tj
+T*
+(    else\072) Tj
+T*
+(        lemmatized\137with\137pos\056append\050lemmatizer\056lemmatize\050word\051\051) Tj
+T*
+(print\050\042Lemmatized with POS\072\042\054 lemmatized\137with\137pos\051) Tj
+T*
+ET
+Q
+q
+1 0 0 1 0 74.95984 cm
+q
+BT
+1 0 0 1 0 9.2 Tm
+7.9 TL
+/F2 6.6 Tf
+0.478431 0.121569 0.121569 rg
+(Watch\072) Tj
+/F1 6.6 Tf
+( stem vs lemma\072 stem \075 fast\054 may be a non\055word\056 Lemma \075 slower\054 always a real) Tj
+T*
+(word\056 Adjective pos is \047a\047 \050not \047j\047\051\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 60.45984 cm
+q
+0.121569 0.227451 0.372549 rg
+n
+-3 -2 267.7323 13.5 re
+f*
+Q
+q
+1 1 1 rg
+BT
+1 0 0 1 0 1.9 Tm
+/F2 7.6 Tf
+9.5 TL
+(LAB 4\072 POS Tagging \0504\055pos\055tagging\056py\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 33.75984 cm
+q
+BT
+1 0 0 1 0 17.1 Tm
+7.9 TL
+/F2 6.6 Tf
+0 0 0 rg
+(What it does\072) Tj
+/F1 6.6 Tf
+( labels each word with its grammar role \050noun\054 verb\054 adjective\056\056\056\051\056 ) Tj
+/F2 6.6 Tf
+(Steps\072) Tj
+/F1 6.6 Tf
+T*
+(tokenize\054 call nltk\056pos\137tag \050gives list of \050word\054 tag\051\051\054 look up each tag in a dictionary to) Tj
+T*
+(print its meaning\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 0.759843 cm
+0 0 0 rg
+BT
+1 0 0 1 0 25.4 Tm
+/F3 5.6 Tf
+6.2 TL
+(import nltk) Tj
+T*
+(from nltk\056tokenize import word\137tokenize) Tj
+T*
+(text \075 \042The quick brown fox jumps over the lazy dog\042) Tj
+T*
+(tokens \075 word\137tokenize\050text\051) Tj
+T*
+(pos\137tags \075 nltk\056pos\137tag\050tokens\051) Tj
+T*
+ET
+Q
+Q
+
+
+Q
+
+q
+1 0.0 0.0 1 290.07874 21.007874 cm
+0.0 0.0 261.7323 555.2598 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 0 545.7598 cm
+q
+0.121569 0.227451 0.372549 rg
+n
+-3 -2 267.7323 13.5 re
+f*
+Q
+q
+1 1 1 rg
+BT
+1 0 0 1 0 1.9 Tm
+/F2-0 7.6 Tf
+9.5 TL
+(LAB 6\072 Sentiment Analysis \0506sentanalysis\056py\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 511.1598 cm
+q
+BT
+1 0 0 1 0 25 Tm
+7.9 TL
+/F2-0 6.6 Tf
+0 0 0 rg
+(What it does\072) Tj
+/F1-0 6.6 Tf
+( decides if a review is positive\054 negative or neutral\056 TextBlob gives a) Tj
+T*
+/F2-0 6.6 Tf
+(polarity) Tj
+/F1-0 6.6 Tf
+( score from \0551 \050very negative\051 to \0531 \050very positive\051\056 ) Tj
+/F2-0 6.6 Tf
+(Steps\072) Tj
+/F1-0 6.6 Tf
+( score each review\054) Tj
+T*
+(apply thresholds \050above 0\0561 positive\054 below \0550\0561 negative\054 else neutral\051\054 put results in a) Tj
+T*
+(pandas table\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 347.9598 cm
+0 0 0 rg
+BT
+1 0 0 1 0 155.6 Tm
+/F3-0 5.6 Tf
+6.2 TL
+(from textblob import TextBlob) Tj
+T*
+(import pandas as pd) Tj
+T*
+(reviews \075 \133) Tj
+T*
+(    \042This product is amazing\041 I love it\056\042\054) Tj
+T*
+(    \042Poor quality\054 waste of money\056\042\054) Tj
+T*
+(    \042Average product\054 nothing special\056\042\054) Tj
+T*
+(    \042Excellent service and great product\041\042\054) Tj
+T*
+(    \042Terrible experience\054 would not recommend\056\042) Tj
+T*
+(\135) Tj
+T*
+(def analyze\137sentiment\137textblob\050text\051\072) Tj
+T*
+(    blob \075 TextBlob\050text\051) Tj
+T*
+(    polarity \075 blob\056sentiment\056polarity) Tj
+T*
+(    if polarity \076 0\0561\072) Tj
+T*
+(        return \047Positive\047) Tj
+T*
+(    elif polarity \074 \0550\0561\072) Tj
+T*
+(        return \047Negative\047) Tj
+T*
+(    else\072) Tj
+T*
+(        return \047Neutral\047) Tj
+T*
+(results \075 \133\135) Tj
+T*
+(for review in reviews\072) Tj
+T*
+(    sentiment \075 analyze\137sentiment\137textblob\050review\051) Tj
+T*
+(    polarity \075 TextBlob\050review\051\056sentiment\056polarity) Tj
+T*
+(    results\056append\050\173\047review\047\072 review\054 \047sentiment\047\072 sentiment\054) Tj
+T*
+(                    \047polarity\047\072 polarity\175\051) Tj
+T*
+(df \075 pd\056DataFrame\050results\051) Tj
+T*
+(print\050df\051) Tj
+T*
+ET
+Q
+q
+1 0 0 1 0 329.1598 cm
+q
+BT
+1 0 0 1 0 9.2 Tm
+7.9 TL
+/F2-0 6.6 Tf
+0.478431 0.121569 0.121569 rg
+(Watch\072) Tj
+/F1-0 6.6 Tf
+( pip install textblob\056 Thresholds \0500\0561\051 are our choice\056 TextBlob also gives) Tj
+T*
+(subjectivity \0500 fact to 1 opinion\051\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 314.6598 cm
+q
+0.121569 0.227451 0.372549 rg
+n
+-3 -2 267.7323 13.5 re
+f*
+Q
+q
+1 1 1 rg
+BT
+1 0 0 1 0 1.9 Tm
+/F2-0 7.6 Tf
+9.5 TL
+(LAB 7\072 Web Usage Mining \0507 web usage data\056py\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 272.1598 cm
+q
+BT
+1 0 0 1 0 32.9 Tm
+7.9 TL
+/F2-0 6.6 Tf
+0 0 0 rg
+(What it does\072) Tj
+/F1-0 6.6 Tf
+( reads server log lines \050who visited which page\054 when\054 result\051 and turns) Tj
+T*
+(them into stats\072 total hits\054 unique visitors\054 top pages\054 status codes\056 ) Tj
+/F2-0 6.6 Tf
+(Steps\072) Tj
+/F1-0 6.6 Tf
+( \0501\051 regex pulls) Tj
+T*
+(7 fields from each line\054 \0502\051 split request into method \053 url\054 \0503\051 build DataFrame\054 \0504\051 count) Tj
+T*
+(with value\137counts\054 nunique\054 groupby\056 ) Tj
+/F2-0 6.6 Tf
+(Regex groups\072) Tj
+/F1-0 6.6 Tf
+( 1 ip\054 2 time\054 3 request\054 4 status\054 5) Tj
+T*
+(size\054 6 referrer\054 7 user agent\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 3.559843 cm
+0 0 0 rg
+BT
+1 0 0 1 0 261 Tm
+/F3-0 5.6 Tf
+6.2 TL
+(import re) Tj
+T*
+(import pandas as pd) Tj
+T*
+(from datetime import datetime) Tj
+T*
+(from collections import Counter) Tj
+T*
+(log\137data \075 \133) Tj
+T*
+( \047192\056168\0561\0561 \055 \055 \13310\057Oct\0572023\07213\07255\07236 \0530000\135 \042GET \057index\056html HTTP\0571\0561\042) Tj
+T*
+(     200 2326 \042\055\042 \042Mozilla\0575\0560\042\047\054) Tj
+T*
+( \047192\056168\0561\0562 \055 \055 \13310\057Oct\0572023\07213\07255\07237 \0530000\135 \042GET \057products\056html HTTP\0571\0561\042) Tj
+T*
+(     200 5432 \042http\072\057\057example\056com\057index\056html\042 \042Mozilla\0575\0560\042\047\054) Tj
+T*
+( \047192\056168\0561\0561 \055 \055 \13310\057Oct\0572023\07213\07255\07238 \0530000\135 \042GET \057cart\056html HTTP\0571\0561\042 200) Tj
+T*
+(     1234 \042http\072\057\057example\056com\057products\056html\042 \042Mozilla\0575\0560\042\047\054) Tj
+T*
+( \047192\056168\0561\0563 \055 \055 \13310\057Oct\0572023\07213\07255\07239 \0530000\135 \042GET \057contact\056html HTTP\0571\0561\042) Tj
+T*
+(     404 512 \042\055\042 \042Mozilla\0575\0560\042\047) Tj
+T*
+(\135) Tj
+T*
+(def parse\137log\137line\050line\051\072) Tj
+T*
+(    pattern \075 r\047\050\134d\053\134\056\134d\053\134\056\134d\053\134\056\134d\053\051 \055 \055 \134\133\050\056\052\077\051\134\135 \042\050\056\052\077\051\042 \050\134d\053\051 \050\134d\053\051) Tj
+T*
+(        \042\050\056\052\077\051\042 \042\050\056\052\077\051\042\047) Tj
+T*
+(    match \075 re\056match\050pattern\054 line\051) Tj
+T*
+(    if match\072) Tj
+T*
+(        return \173\047ip\047\072 match\056group\0501\051\054 \047timestamp\047\072 match\056group\0502\051\054) Tj
+T*
+(                \047request\047\072 match\056group\0503\051\054 \047status\047\072 int\050match\056group\0504\051\051\054) Tj
+T*
+(                \047size\047\072 int\050match\056group\0505\051\051\054 \047referrer\047\072 match\056group\0506\051\054) Tj
+T*
+(                \047user\137agent\047\072 match\056group\0507\051\175) Tj
+T*
+(    return None) Tj
+T*
+(def analyze\137web\137logs\050log\137entries\051\072) Tj
+T*
+(    parsed\137logs \075 \133\135) Tj
+T*
+(    for entry in log\137entries\072) Tj
+T*
+(        parsed \075 parse\137log\137line\050entry\051) Tj
+T*
+(        if parsed\072) Tj
+T*
+(            request\137parts \075 parsed\133\047request\047\135\056split\050\051) Tj
+T*
+(            if len\050request\137parts\051 \076\075 2\072) Tj
+T*
+(                parsed\133\047url\047\135 \075 request\137parts\1331\135) Tj
+T*
+(                parsed\133\047method\047\135 \075 request\137parts\1330\135) Tj
+T*
+(            parsed\137logs\056append\050parsed\051) Tj
+T*
+(    df \075 pd\056DataFrame\050parsed\137logs\051) Tj
+T*
+(    print\050\042\075\075\075 Web Usage Analytics \075\075\075\042\051) Tj
+T*
+(    print\050f\042Total requests\072 \173len\050df\051\175\042\051) Tj
+T*
+(    print\050f\042Unique visitors\072 \173df\133\047ip\047\135\056nunique\050\051\175\042\051) Tj
+T*
+(    print\050f\042Most visited pages\072\042\051) Tj
+T*
+(    print\050df\133\047url\047\135\056value\137counts\050\051\056head\050\051\051) Tj
+T*
+(    print\050f\042\134nStatus code distribution\072\042\051) Tj
+T*
+(    print\050df\133\047status\047\135\056value\137counts\050\051\051) Tj
+T*
+(    print\050f\042\134nPage views by IP\072\042\051) Tj
+T*
+ET
+Q
+Q
+
+
+Q
+
+q
+1 0.0 0.0 1 563.149606 21.007874 cm
+0.0 0.0 261.7323 555.2598 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 0 545.7598 cm
+q
+0.121569 0.227451 0.372549 rg
+n
+-3 -2 267.7323 13.5 re
+f*
+Q
+q
+1 1 1 rg
+BT
+1 0 0 1 0 1.9 Tm
+/F2-1 7.6 Tf
+9.5 TL
+(LAB 9\072 SEO on a Live Website \0509seo\055runtime\056py\051 \133trimmed\135) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 487.4598 cm
+q
+BT
+1 0 0 1 0 48.7 Tm
+7.9 TL
+/F2-1 6.6 Tf
+0 0 0 rg
+(What it does\072) Tj
+/F1-1 6.6 Tf
+( same checks as Lab 8 but on a REAL page from the internet\056 ) Tj
+/F2-1 6.6 Tf
+(Steps\072) Tj
+/F1-1 6.6 Tf
+( \0501\051) Tj
+T*
+(ask URL \053 keyword\054 \0502\051 requests\056get downloads the HTML\054 \0503\051 BeautifulSoup parses it\054) Tj
+T*
+(\0504\051 remove script\057style tags to get visible text only\054 \0505\051 phrase density with regex \050handles) Tj
+T*
+(multi word like \047cyber lawyer in Hyderabad\047\051\054 \0506\051 top 15 repeated words minus) Tj
+T*
+(STOP\137WORDS\054 \0507\051 hidden text via soup\056find\137all\050style\075True\051\054 \0508\051 title\054 description and) Tj
+T*
+(meta keywords check\056 ) Tj
+/F2-1 6.6 Tf
+(Upgrades over Lab 8\072) Tj
+/F1-1 6.6 Tf
+( real parser instead of regex on HTML\054) Tj
+T*
+(phrase support\054 URL validation\054 error handling\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 1.859843 cm
+0 0 0 rg
+BT
+1 0 0 1 0 478 Tm
+/F3-1 5.6 Tf
+6.2 TL
+(import re) Tj
+T*
+(from collections import Counter) Tj
+T*
+(from urllib\056parse import urlparse) Tj
+T*
+(import requests) Tj
+T*
+(from bs4 import BeautifulSoup) Tj
+T*
+(STOP\137WORDS \075 \173\042the\042\054\042a\042\054\042an\042\054\042and\042\054\042or\042\054\042but\042\054\042is\042\054\042are\042\054\042was\042\054\042were\042\054) Tj
+T*
+(  \042to\042\054\042of\042\054\042in\042\054\042on\042\054\042for\042\054\042with\042\054\042by\042\054\042as\042\054\042at\042\054\042from\042\054\042it\042\054\042this\042\054) Tj
+T*
+(  \042that\042\054\042be\042\054\042has\042\054\042have\042\054\042had\042\054\042you\042\054\042your\042\054\042our\042\054\042we\042\054\042they\042\054\042their\042\054) Tj
+T*
+(  \042he\042\054\042she\042\054\042his\042\054\042her\042\054\042if\042\054\042can\042\054\042will\042\054\042all\042\054\042across\042\054\042who\042\054\042what\042\054) Tj
+T*
+(  \042how\042\054\042do\042\054\042does\042\054\042not\042\054\042both\042\054\042into\042\175) Tj
+T*
+(def fetch\137website\050url\051\072) Tj
+T*
+(    parsed \075 urlparse\050url\051) Tj
+T*
+(    if parsed\056scheme not in \050\042http\042\054 \042https\042\051 or not parsed\056hostname\072) Tj
+T*
+(        raise ValueError\050\042Enter a valid HTTP or HTTPS URL\056\042\051) Tj
+T*
+(    response \075 requests\056get\050url\054 timeout\07520\054) Tj
+T*
+(        headers\075\173\042User\055Agent\042\072 \042SEO\055Audit\055Tool\0571\0560\042\175\054 allow\137redirects\075True\051) Tj
+T*
+(    response\056raise\137for\137status\050\051) Tj
+T*
+(    ctype \075 response\056headers\056get\050\042Content\055Type\042\054 \042\042\051) Tj
+T*
+(    if \042html\042 not in ctype\056lower\050\051\072) Tj
+T*
+(        raise ValueError\050\042The URL did not return an HTML page\056\042\051) Tj
+T*
+(    return response\056text\054 response\056url\054 response\056status\137code) Tj
+T*
+(def get\137visible\137text\050soup\051\072) Tj
+T*
+(    copy\137soup \075 BeautifulSoup\050str\050soup\051\054 \042html\056parser\042\051) Tj
+T*
+(    for tag in copy\137soup\056find\137all\050) Tj
+T*
+(            \133\042script\042\054 \042style\042\054 \042noscript\042\054 \042template\042\054 \042svg\042\135\051\072) Tj
+T*
+(        tag\056decompose\050\051) Tj
+T*
+(    return copy\137soup\056get\137text\050\042 \042\054 strip\075True\051) Tj
+T*
+(def keyword\137stuffing\137detector\050text\054 keyword\051\072) Tj
+T*
+(    words \075 re\056findall\050r\042\134b\133\134w\047\055\135\053\134b\042\054 text\056lower\050\051\051) Tj
+T*
+(    keyword\137words \075 re\056findall\050r\042\134b\133\134w\047\055\135\053\134b\042\054 keyword\056lower\050\051\051) Tj
+T*
+(    if not words\072) Tj
+T*
+(        print\050\042No readable page text found\056\042\051\073 return) Tj
+T*
+(    if not keyword\137words\072) Tj
+T*
+(        print\050\042No keyword entered\056\042\051\073 return) Tj
+T*
+(    phrase \075 r\042\134s\053\042\056join\050re\056escape\050w\051 for w in keyword\137words\051) Tj
+T*
+(    occurrences \075 list\050re\056finditer\050) Tj
+T*
+(        r\042\050\077\074\041\134w\051\042 \053 phrase \053 r\042\050\077\041\134w\051\042\054 text\054 re\056IGNORECASE\051\051) Tj
+T*
+(    count \075 len\050occurrences\051) Tj
+T*
+(    total\137words \075 len\050words\051) Tj
+T*
+(    density \075 \050count \052 len\050keyword\137words\051 \057 total\137words\051 \052 100) Tj
+T*
+(    print\050f\042Keyword\057phrase\072 \173keyword\175\042\051) Tj
+T*
+(    print\050f\042Occurrences\072 \173count\175\042\051) Tj
+T*
+(    print\050f\042Total words\072 \173total\137words\175\042\051) Tj
+T*
+(    print\050f\042Approximate keyword density\072 \173density\072\0562f\175\045\042\051) Tj
+T*
+(    if density \076 5\072) Tj
+T*
+(        print\050\042WARNING\072 High keyword density\073 review manually\056\042\051) Tj
+T*
+(    elif density \076 2\072) Tj
+T*
+(        print\050\042CAUTION\072 Check whether repetition is natural\056\042\051) Tj
+T*
+(    else\072) Tj
+T*
+(        print\050\042No high\055density warning from this threshold\056\042\051) Tj
+T*
+(def analyze\137repeated\137words\050text\051\072) Tj
+T*
+(    words \075 re\056findall\050r\042\134b\133a\055z\135\133a\055z\047\055\135\1732\054\175\134b\042\054 text\056lower\050\051\051) Tj
+T*
+(    counts \075 Counter\050w for w in words if w not in STOP\137WORDS\051) Tj
+T*
+(    print\050\042\075\075\075 Most Frequent Meaningful Words \075\075\075\042\051) Tj
+T*
+(    for word\054 count in counts\056most\137common\05015\051\072) Tj
+T*
+(        print\050f\042\173word\175\072 \173count\175\042\051) Tj
+T*
+(def detect\137hidden\137text\050soup\051\072) Tj
+T*
+(    patterns \075 \173) Tj
+T*
+(      \042display\072none\042\072 r\042display\134s\052\072\134s\052none\134b\042\054) Tj
+T*
+(      \042visibility\072hidden\042\072 r\042visibility\134s\052\072\134s\052hidden\134b\042\054) Tj
+T*
+(      \042zero font size\042\072 r\042font\055size\134s\052\072\134s\0520\050\077\072px\174em\174rem\174\045\051\077\134b\042\054) Tj
+T*
+(      \042white text\042\072 r\042color\134s\052\072\134s\052\050\077\072white\134b\174\043fff\050\077\072fff\051\077\134b\174rgb\134\050\134s\052255\134s\052\054\134s) Tj
+T*
+(          \052255\134s\052\054\134s\052255\134s\052\134\051\051\042\054) Tj
+T*
+(    \175) Tj
+T*
+(    findings \075 \133\135) Tj
+T*
+(    for tag in soup\056find\137all\050style\075True\051\072) Tj
+T*
+(        style \075 tag\056get\050\042style\042\054 \042\042\051) Tj
+T*
+(        for label\054 pattern in patterns\056items\050\051\072) Tj
+T*
+(            if re\056search\050pattern\054 style\054 re\056IGNORECASE\051\072) Tj
+T*
+(                findings\056append\050\173\042pattern\042\072 label\054 \042tag\042\072 tag\056name\054) Tj
+T*
+(                                 \042style\042\072 style\133\072180\135\175\051) Tj
+T*
+(    print\050\042\075\075\075 Potential Hidden Text Indicators \075\075\075\042\051) Tj
+T*
+(    if not findings\072) Tj
+T*
+(        print\050\042No matching inline CSS patterns found\056\042\051) Tj
+T*
+(    else\072) Tj
+T*
+(        for item in findings\072) Tj
+T*
+(            print\050f\042\055 \173item\133\047pattern\047\135\175 \174 \074\173item\133\047tag\047\135\175\076 \174 \173item\133\047style\047\135\175\042\051) Tj
+T*
+(def analyze\137meta\137tags\050soup\051\072) Tj
+T*
+ET
+Q
+Q
+
+
+Q
+
+q
+0.0 0.0 841.8898 595.2756 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-2 12 Tf
+14.4 TL
+ET
+0.733333 0.733333 0.733333 RG
+0.4 w
+[ 2 2 ] 0 d
+n
+284.4094 17.00787 m
+284.4094 578.2677 l
+S
+n
+557.4803 17.00787 m
+557.4803 578.2677 l
+S
+[ ] 0 d
+BT
+/F1-2 5 Tf
+6 TL
+ET
+0.533333 0.533333 0.533333 rg
+BT
+1 0 0 1 17.00787 4 Tm
+(NLP Lab Notes \174 FRONT \174 print A4 landscape\054 double sided\054 flip on LONG edge \174 each column continues on the back in the SAME column) Tj
+T*
+ET
+BT
+/F2-2 5.6 Tf
+6.72 TL
+ET
+0.121569 0.227451 0.372549 rg
+BT
+1 0 0 1 194.3874 15.50787 Tm
+(contd\056 on BACK\054 same column \076\076) Tj
+T*
+ET
+BT
+1 0 0 1 467.4582 15.50787 Tm
+(contd\056 on BACK\054 same column \076\076) Tj
+T*
+ET
+BT
+1 0 0 1 740.5291 15.50787 Tm
+(contd\056 on BACK\054 same column \076\076) Tj
+T*
+ET
+Q
+
+
+endstream
+endobj
+17 0 obj
+<<
+/Type /Page
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F1-0 6 0 R
+/F1-1 7 0 R
+/F1-2 8 0 R
+/F2 9 0 R
+/F2-0 10 0 R
+/F2-1 11 0 R
+/F2-2 12 0 R
+/F3 13 0 R
+/F3-0 14 0 R
+/F3-1 15 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/MediaBox [ 0.0 0.0 841.889764 595.275591 ]
+/Contents 18 0 R
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+18 0 obj
+<<
+/Length 15992
+>>
+stream
+q
+q
+q
+q
+1 0.0 0.0 1 17.007874 21.007874 cm
+0.0 0.0 261.7323 555.2598 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 0 493.2598 cm
+0 0 0 rg
+BT
+1 0 0 1 0 56.4 Tm
+/F3 5.6 Tf
+6.2 TL
+(print\050\042POS Tags\072\042\054 pos\137tags\051) Tj
+T*
+(pos\137explanations \075 \173) Tj
+T*
+(    \047DT\047\072 \047Determiner\047\054 \047JJ\047\072 \047Adjective\047\054) Tj
+T*
+(    \047NN\047\072 \047Noun\054 singular\047\054 \047NNS\047\072 \047Noun\054 plural\047\054) Tj
+T*
+(    \047VBZ\047\072 \047Verb\054 3rd person singular present\047\054) Tj
+T*
+(    \047IN\047\072 \047Preposition\047\054 \047RB\047\072 \047Adverb\047) Tj
+T*
+(\175) Tj
+T*
+(for word\054 pos in pos\137tags\072) Tj
+T*
+(    explanation \075 pos\137explanations\056get\050pos\054 \047Other\047\051) Tj
+T*
+(    print\050f\042\173word\175\072 \173pos\175 \050\173explanation\175\051\042\051) Tj
+T*
+ET
+Q
+q
+1 0 0 1 0 474.4598 cm
+q
+BT
+1 0 0 1 0 9.2 Tm
+7.9 TL
+/F2 6.6 Tf
+0.478431 0.121569 0.121569 rg
+(Watch\072) Tj
+/F1 6.6 Tf
+( do NOT lowercase before tagging\054 case helps the tagger\056 \056get\050pos\054\047Other\047\051 avoids) Tj
+T*
+(KeyError for unlisted tags\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 459.9598 cm
+q
+0.121569 0.227451 0.372549 rg
+n
+-3 -2 267.7323 13.5 re
+f*
+Q
+q
+1 1 1 rg
+BT
+1 0 0 1 0 1.9 Tm
+/F2 7.6 Tf
+9.5 TL
+(LAB 5\072 Lexical Analysis \0505lexical\056py\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 425.3598 cm
+q
+BT
+1 0 0 1 0 25 Tm
+7.9 TL
+/F2 6.6 Tf
+0 0 0 rg
+(What it does\072) Tj
+/F1 6.6 Tf
+( gives text statistics\072 how many sentences\054 words\054 unique words\054 average) Tj
+T*
+(word length\054 most common words\056 ) Tj
+/F2 6.6 Tf
+(Lexical diversity) Tj
+/F1 6.6 Tf
+( \075 unique words \057 total words \050closer) Tj
+T*
+(to 1 means richer vocabulary\051\056 ) Tj
+/F2 6.6 Tf
+(Steps\072) Tj
+/F1 6.6 Tf
+( split sentences\054 tokenize words\054 keep alphabetic) Tj
+T*
+(only\054 compute numbers\054 count with Counter\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 243.5598 cm
+0 0 0 rg
+BT
+1 0 0 1 0 174.2 Tm
+/F3 5.6 Tf
+6.2 TL
+(import nltk) Tj
+T*
+(from nltk\056tokenize import word\137tokenize\054 sent\137tokenize) Tj
+T*
+(from collections import Counter) Tj
+T*
+(def lexical\137analysis\050text\051\072) Tj
+T*
+(    sentences \075 sent\137tokenize\050text\051) Tj
+T*
+(    words \075 word\137tokenize\050text\056lower\050\051\051) Tj
+T*
+(    words \075 \133word for word in words if word\056isalpha\050\051\135) Tj
+T*
+(    num\137sentences \075 len\050sentences\051) Tj
+T*
+(    num\137words \075 len\050words\051) Tj
+T*
+(    num\137unique\137words \075 len\050set\050words\051\051) Tj
+T*
+(    avg\137word\137length \075 sum\050len\050word\051 for word in words\051 \057 len\050words\051) Tj
+T*
+(    word\137freq \075 Counter\050words\051) Tj
+T*
+(    most\137common \075 word\137freq\056most\137common\05010\051) Tj
+T*
+(    lexical\137diversity \075 num\137unique\137words \057 num\137words) Tj
+T*
+(    print\050f\042Number of sentences\072 \173num\137sentences\175\042\051) Tj
+T*
+(    print\050f\042Number of words\072 \173num\137words\175\042\051) Tj
+T*
+(    print\050f\042Number of unique words\072 \173num\137unique\137words\175\042\051) Tj
+T*
+(    print\050f\042Average word length\072 \173avg\137word\137length\072\0562f\175\042\051) Tj
+T*
+(    print\050f\042Lexical diversity\072 \173lexical\137diversity\072\0562f\175\042\051) Tj
+T*
+(    print\050f\042Most common words\072 \173most\137common\175\042\051) Tj
+T*
+(    return \173\047sentences\047\072 num\137sentences\054 \047words\047\072 num\137words\054) Tj
+T*
+(            \047unique\137words\047\072 num\137unique\137words\054) Tj
+T*
+(            \047avg\137word\137length\047\072 avg\137word\137length\054) Tj
+T*
+(            \047lexical\137diversity\047\072 lexical\137diversity\054) Tj
+T*
+(            \047word\137frequency\047\072 word\137freq\175) Tj
+T*
+(sample\137text \075 \042\042\042Natural language processing is a fascinating field of study\056) Tj
+T*
+(It combines computer science\054 artificial intelligence\054 and linguistics\056) Tj
+T*
+(The goal is to enable computers to understand and process human language\056\042\042\042) Tj
+T*
+(analysis\137results \075 lexical\137analysis\050sample\137text\051) Tj
+T*
+ET
+Q
+q
+1 0 0 1 0 224.7598 cm
+q
+BT
+1 0 0 1 0 9.2 Tm
+7.9 TL
+/F2 6.6 Tf
+0.478431 0.121569 0.121569 rg
+(Watch\072) Tj
+/F1 6.6 Tf
+( sent\137tokenize needs punkt\056 Empty text gives ZeroDivisionError\056 \0562f \075 2 decimal) Tj
+T*
+(places\056) Tj
+T*
+ET
+Q
+Q
+Q
+
+
+Q
+
+q
+1 0.0 0.0 1 290.07874 21.007874 cm
+0.0 0.0 261.7323 555.2598 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 0 536.6598 cm
+0 0 0 rg
+BT
+1 0 0 1 0 13 Tm
+/F3-0 5.6 Tf
+6.2 TL
+(    print\050df\056groupby\050\047ip\047\051\133\047url\047\135\056count\050\051\056sort\137values\050ascending\075False\051\051) Tj
+T*
+(    return df) Tj
+T*
+(df \075 analyze\137web\137logs\050log\137data\051) Tj
+T*
+ET
+Q
+q
+1 0 0 1 0 517.8598 cm
+q
+BT
+1 0 0 1 0 9.2 Tm
+7.9 TL
+/F2-0 6.6 Tf
+0.478431 0.121569 0.121569 rg
+(Watch\072) Tj
+/F1-0 6.6 Tf
+( \056\052\077 \075 lazy match \050stops at first closing char\051\056 Line that does not match returns) Tj
+T*
+(None and is skipped\056 200 \075 OK\054 404 \075 not found\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 503.3598 cm
+q
+0.121569 0.227451 0.372549 rg
+n
+-3 -2 267.7323 13.5 re
+f*
+Q
+q
+1 1 1 rg
+BT
+1 0 0 1 0 1.9 Tm
+/F2-0 7.6 Tf
+9.5 TL
+(LAB 8\072 SEO Spam Detection \0508seo\056py\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 460.8598 cm
+q
+BT
+1 0 0 1 0 32.9 Tm
+7.9 TL
+/F2-0 6.6 Tf
+0 0 0 rg
+(What it does\072) Tj
+/F1-0 6.6 Tf
+( catches tricks used to cheat search engines\056 ) Tj
+/F2-0 6.6 Tf
+(1 Keyword stuffing\072) Tj
+/F1-0 6.6 Tf
+( density) Tj
+T*
+(\075 keyword count \057 total words x 100\056 Above 5\045 warning\054 above 2\045 caution\056 ) Tj
+/F2-0 6.6 Tf
+(2 Hidden) Tj
+T*
+(text\072) Tj
+/F1-0 6.6 Tf
+( regex finds inline CSS like white text\054 display\072none\054 visibility\072hidden\054 font\055size\0720\056 ) Tj
+/F2-0 6.6 Tf
+(3) Tj
+T*
+(Meta keywords\072) Tj
+/F1-0 6.6 Tf
+( splits the keywords tag by comma and flags repeats with Counter\056 ) Tj
+/F2-0 6.6 Tf
+(4) Tj
+T*
+(Generator\072) Tj
+/F1-0 6.6 Tf
+( makes a deliberately stuffed text for demo\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 0 74.45984 cm
+0 0 0 rg
+BT
+1 0 0 1 0 378.8 Tm
+/F3-0 5.6 Tf
+6.2 TL
+(import re) Tj
+T*
+(from collections import Counter) Tj
+T*
+(def keyword\137stuffing\137detector\050text\054 keyword\051\072) Tj
+T*
+(    words \075 text\056lower\050\051\056split\050\051) Tj
+T*
+(    keyword\137count \075 words\056count\050keyword\056lower\050\051\051) Tj
+T*
+(    total\137words \075 len\050words\051) Tj
+T*
+(    keyword\137density \075 \050keyword\137count \057 total\137words\051 \052 100) Tj
+T*
+(    print\050f\042Keyword\072 \173keyword\175\042\051) Tj
+T*
+(    print\050f\042Keyword count\072 \173keyword\137count\175\042\051) Tj
+T*
+(    print\050f\042Total words\072 \173total\137words\175\042\051) Tj
+T*
+(    print\050f\042Keyword density\072 \173keyword\137density\072\0562f\175\045\042\051) Tj
+T*
+(    if keyword\137density \076 5\072) Tj
+T*
+(        print\050\042WARNING\072 Possible keyword stuffing detected\041\042\051) Tj
+T*
+(    elif keyword\137density \076 2\072) Tj
+T*
+(        print\050\042CAUTION\072 High keyword density\042\051) Tj
+T*
+(    else\072) Tj
+T*
+(        print\050\042Keyword density is within acceptable range\042\051) Tj
+T*
+(def generate\137keyword\137stuffed\137content\050keyword\054 target\137density\07510\051\072) Tj
+T*
+(    base\137content \075 f\042Welcome to our website about \173keyword\175\056 \042) Tj
+T*
+(    base\137words \075 len\050base\137content\056split\050\051\051) Tj
+T*
+(    target\137keyword\137count \075 int\050\050target\137density \057 100\051 \052 base\137words) Tj
+T*
+(                               \057 \0501 \055 target\137density \057 100\051\051) Tj
+T*
+(    stuffed\137content \075 base\137content) Tj
+T*
+(    for i in range\050target\137keyword\137count\051\072) Tj
+T*
+(        stuffed\137content \053\075 f\042\173keyword\175 \042) Tj
+T*
+(    stuffed\137content \053\075 \050f\042is very important\056 \173keyword\175 helps you find \042) Tj
+T*
+(                        f\042the best \173keyword\175 solutions\056\042\051) Tj
+T*
+(    return stuffed\137content) Tj
+T*
+(def detect\137hidden\137text\050html\137content\051\072) Tj
+T*
+(    hidden\137patterns \075 \133) Tj
+T*
+(        r\047style\134s\052\075\134s\052\133\042\134\047\135\056\052\077color\134s\052\072\134s\052white\056\052\077\133\042\134\047\135\047\054) Tj
+T*
+(        r\047style\134s\052\075\134s\052\133\042\134\047\135\056\052\077display\134s\052\072\134s\052none\056\052\077\133\042\134\047\135\047\054) Tj
+T*
+(        r\047style\134s\052\075\134s\052\133\042\134\047\135\056\052\077visibility\134s\052\072\134s\052hidden\056\052\077\133\042\134\047\135\047\054) Tj
+T*
+(        r\047style\134s\052\075\134s\052\133\042\134\047\135\056\052\077font\055size\134s\052\072\134s\0520\056\052\077\133\042\134\047\135\047\054) Tj
+T*
+(    \135) Tj
+T*
+(    potential\137hidden \075 \133\135) Tj
+T*
+(    for pattern in hidden\137patterns\072) Tj
+T*
+(        matches \075 re\056findall\050pattern\054 html\137content\054 re\056IGNORECASE\051) Tj
+T*
+(        potential\137hidden\056extend\050matches\051) Tj
+T*
+(    return potential\137hidden) Tj
+T*
+(def analyze\137meta\137tags\050html\137content\051\072) Tj
+T*
+(    meta\137pattern \075 \050r\047\074meta\133\136\076\135\052name\134s\052\075\134s\052\133\042\134\047\135keywords\133\042\134\047\135\047) Tj
+T*
+(                    r\047\133\136\076\135\052content\134s\052\075\134s\052\133\042\134\047\135\050\133\136\042\134\047\135\052\051\133\042\134\047\135\047\051) Tj
+T*
+(    keywords\137match \075 re\056search\050meta\137pattern\054 html\137content\054 re\056IGNORECASE\051) Tj
+T*
+(    if keywords\137match\072) Tj
+T*
+(        keywords \075 keywords\137match\056group\0501\051) Tj
+T*
+(        keyword\137list \075 \133k\056strip\050\051 for k in keywords\056split\050\047\054\047\051\135) Tj
+T*
+(        print\050f\042Meta keywords found\072 \173len\050keyword\137list\051\175\042\051) Tj
+T*
+(        print\050f\042Keywords\072 \173keywords\175\042\051) Tj
+T*
+(        keyword\137counts \075 Counter\050keyword\137list\051) Tj
+T*
+(        repeated\137keywords \075 \173k\072 v for k\054 v in keyword\137counts\056items\050\051 if v \076) Tj
+T*
+(            1\175) Tj
+T*
+(        if repeated\137keywords\072) Tj
+T*
+(            print\050\042WARNING\072 Repeated keywords in meta tags\072\042\051) Tj
+T*
+(            for keyword\054 count in repeated\137keywords\056items\050\051\072) Tj
+T*
+(                print\050f\042  \173keyword\175\072 \173count\175 times\042\051) Tj
+T*
+(sample\137text \075 \042Python programming is essential for data science\056 Python) Tj
+T*
+(    helps in web development\056 Learn Python today\041\042) Tj
+T*
+(keyword\137stuffing\137detector\050sample\137text\054 \042Python\042\051) Tj
+T*
+(stuffed\137content \075 generate\137keyword\137stuffed\137content\050\042SEO\042\054 8\051) Tj
+T*
+(print\050stuffed\137content\051) Tj
+T*
+(keyword\137stuffing\137detector\050stuffed\137content\054 \042SEO\042\051) Tj
+T*
+ET
+Q
+q
+1 0 0 1 0 55.65984 cm
+q
+BT
+1 0 0 1 0 9.2 Tm
+7.9 TL
+/F2-0 6.6 Tf
+0.478431 0.121569 0.121569 rg
+(Watch\072) Tj
+/F1-0 6.6 Tf
+( split\050\051 leaves punctuation stuck on words \050\047python\056\047 is not \047python\047\051\054 so counts can) Tj
+T*
+(be low\056 Lab 9 fixes this with regex\056 Division by zero if text is empty\056) Tj
+T*
+ET
+Q
+Q
+Q
+
+
+Q
+
+q
+1 0.0 0.0 1 563.149606 21.007874 cm
+0.0 0.0 261.7323 555.2598 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 0 294.8598 cm
+0 0 0 rg
+BT
+1 0 0 1 0 254.8 Tm
+/F3-1 5.6 Tf
+6.2 TL
+(    print\050\042\075\075\075 SEO Metadata \075\075\075\042\051) Tj
+T*
+(    title\137tag \075 soup\056find\050\042title\042\051) Tj
+T*
+(    title \075 title\137tag\056get\137text\050\042 \042\054 strip\075True\051 if title\137tag else \042\042) Tj
+T*
+(    description\137tag \075 soup\056find\050\042meta\042\054) Tj
+T*
+(        attrs\075\173\042name\042\072 re\056compile\050r\042\136description\044\042\054 re\056I\051\175\051) Tj
+T*
+(    description \075 \050description\137tag\056get\050\042content\042\054 \042\042\051\056strip\050\051) Tj
+T*
+(                   if description\137tag else \042\042\051) Tj
+T*
+(    keywords\137tag \075 soup\056find\050\042meta\042\054) Tj
+T*
+(        attrs\075\173\042name\042\072 re\056compile\050r\042\136keywords\044\042\054 re\056I\051\175\051) Tj
+T*
+(    keywords \075 keywords\137tag\056get\050\042content\042\054 \042\042\051 if keywords\137tag else \042\042) Tj
+T*
+(    print\050f\042Title\072 \173title or \047\133Missing\135\047\175 \050\173len\050title\051\175 chars\051\042\051) Tj
+T*
+(    print\050f\042Meta description\072 \173description or \047\133Missing\135\047\175\042\051) Tj
+T*
+(    if not keywords\072) Tj
+T*
+(        print\050\042Meta keywords tag\072 Not present\042\051\073 return) Tj
+T*
+(    keyword\137list \075 \133i\056strip\050\051\056lower\050\051 for i in keywords\056split\050\042\054\042\051) Tj
+T*
+(                    if i\056strip\050\051\135) Tj
+T*
+(    counts \075 Counter\050keyword\137list\051) Tj
+T*
+(    repeated \075 \173k\072 v for k\054 v in counts\056items\050\051 if v \076 1\175) Tj
+T*
+(    for word\054 count in repeated\056items\050\051\072) Tj
+T*
+(        print\050f\042\055 \173word\175\072 \173count\175 times\042\051) Tj
+T*
+(def analyze\137website\050url\054 target\137keyword\051\072) Tj
+T*
+(    html\054 final\137url\054 status \075 fetch\137website\050url\051) Tj
+T*
+(    soup \075 BeautifulSoup\050html\054 \042html\056parser\042\051) Tj
+T*
+(    text \075 get\137visible\137text\050soup\051) Tj
+T*
+(    print\050\042WEBSITE SEO SPAM SCREENING REPORT\042\051) Tj
+T*
+(    print\050f\042Requested URL\072 \173url\175 \174 Final URL\072 \173final\137url\175\042\051) Tj
+T*
+(    print\050f\042HTTP status\072 \173status\175\042\051) Tj
+T*
+(    print\050f\042Visible word count\072 \173len\050text\056split\050\051\051\175\042\051) Tj
+T*
+(    analyze\137meta\137tags\050soup\051) Tj
+T*
+(    keyword\137stuffing\137detector\050text\054 target\137keyword\051) Tj
+T*
+(    analyze\137repeated\137words\050text\051) Tj
+T*
+(    detect\137hidden\137text\050soup\051) Tj
+T*
+(if \137\137name\137\137 \075\075 \042\137\137main\137\137\042\072) Tj
+T*
+(    url \075 input\050\042Enter website URL\072 \042\051\056strip\050\051 or \042https\072\057\057rupeshmittal\056in\042) Tj
+T*
+(    keyword \075 \050input\050\042Enter target keyword\057phrase\072 \042\051\056strip\050\051) Tj
+T*
+(               or \042cyber lawyer in Hyderabad\042\051) Tj
+T*
+(    try\072) Tj
+T*
+(        analyze\137website\050url\054 keyword\051) Tj
+T*
+(    except requests\056RequestException as error\072) Tj
+T*
+(        print\050f\042Website request failed\072 \173error\175\042\051) Tj
+T*
+(    except \050ValueError\054 Exception\051 as error\072) Tj
+T*
+(        print\050f\042Analysis failed\072 \173error\175\042\051) Tj
+T*
+ET
+Q
+q
+1 0 0 1 0 268.1598 cm
+q
+BT
+1 0 0 1 0 17.1 Tm
+7.9 TL
+/F2-1 6.6 Tf
+0.478431 0.121569 0.121569 rg
+(Watch\072) Tj
+/F1-1 6.6 Tf
+( pip install requests beautifulsoup4\056 Needs internet\056 Misses JavaScript\055rendered) Tj
+T*
+-0.060541 Tw
+(text and external CSS\056 Flags are hints\054 not proof of spam\056 Original file also prints limitation) Tj
+T*
+0 Tw
+(notes at the end\056) Tj
+T*
+ET
+Q
+Q
+Q
+
+
+Q
+
+q
+0.0 0.0 841.8898 595.2756 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-2 12 Tf
+14.4 TL
+ET
+0.733333 0.733333 0.733333 RG
+0.4 w
+[ 2 2 ] 0 d
+n
+284.4094 17.00787 m
+284.4094 578.2677 l
+S
+n
+557.4803 17.00787 m
+557.4803 578.2677 l
+S
+[ ] 0 d
+BT
+/F1-2 5 Tf
+6 TL
+ET
+0.533333 0.533333 0.533333 rg
+BT
+1 0 0 1 17.00787 4 Tm
+(NLP Lab Notes \174 BACK \174 print A4 landscape\054 double sided\054 flip on LONG edge \174 each column continues on the back in the SAME column) Tj
+T*
+ET
+BT
+/F2-2 5.6 Tf
+6.72 TL
+ET
+0.121569 0.227451 0.372549 rg
+BT
+1 0 0 1 17.00787 580.2677 Tm
+(\074\074 contd\056 from FRONT\054 same column) Tj
+T*
+ET
+BT
+1 0 0 1 290.0787 580.2677 Tm
+(\074\074 contd\056 from FRONT\054 same column) Tj
+T*
+ET
+BT
+1 0 0 1 563.1496 580.2677 Tm
+(\074\074 contd\056 from FRONT\054 same column) Tj
+T*
+ET
+Q
+
+
+endstream
+endobj
+xref
+0 19
+0000000000 65535 f 
+0000000015 00000 n 
+0000000077 00000 n 
+0000000143 00000 n 
+0000000192 00000 n 
+0000000521 00000 n 
+0000000628 00000 n 
+0000000735 00000 n 
+0000000842 00000 n 
+0000000949 00000 n 
+0000001061 00000 n 
+0000001174 00000 n 
+0000001287 00000 n 
+0000001403 00000 n 
+0000001509 00000 n 
+0000001615 00000 n 
+0000001721 00000 n 
+0000024214 00000 n 
+0000024544 00000 n 
+trailer
+<<
+/Size 19
+/Root 3 0 R
+/Info 1 0 R
+>>
+startxref
+40590
+%%EOF
