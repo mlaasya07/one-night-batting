@@ -2,8 +2,7 @@
   "_readme": "Edit this file to curate the catalogue. 'entries' keeps hand-written card titles (and subject overrides) per file path; 'subjects' maps a folder to its subject label so new files dropped in that folder are labelled automatically. Anything not listed here is named from its file name. Run: node tools/build-data.mjs",
   "githubRepo": "https://github.com/mlaasya07/one-night-batting",
   "branch": "main",
-  "newDays": 14,
-  "githubOnlyOverMB": 25,
+  "githubOnlyOverMB": 10,
   "forceGithubOnly": [
     "Stallings",
     "Tanenbaum",

@@ -1,6 +1,11 @@
 name: Update catalogue
 
-# Rebuilds data.js and COLORS.md whenever files are pushed, and commits them back if they changed.
+# Rebuilds data.js and COLORS.md after changes land on main.
+# `main` is protected, so instead of pushing directly this opens a pull request
+# ("Update catalogue") for the owner to merge. If nothing changed, nothing happens.
+#
+# One-time setting needed: Repo -> Settings -> Actions -> General -> Workflow permissions
+#   -> tick "Allow GitHub Actions to create and approve pull requests".
 on:
   push:
     branches: [main]
@@ -11,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   build:
@@ -29,14 +35,14 @@ jobs:
           node tools/build-data.mjs
           node tools/build-colors.mjs
 
-      - name: Commit if changed
-        run: |
-          if [ -n "$(git status --porcelain data.js COLORS.md)" ]; then
-            git config user.name  "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add data.js COLORS.md
-            git commit -m "Update catalogue [skip ci]"
-            git push
-          else
-            echo "Catalogue already up to date."
-          fi
+      - name: Open a pull request if anything changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          add-paths: |
+            data.js
+            COLORS.md
+          branch: auto/update-catalogue
+          delete-branch: true
+          commit-message: "Update catalogue"
+          title: "Update catalogue"
+          body: "Automated rebuild of `data.js` and `COLORS.md` from the current folders (tools/build-data.mjs, tools/build-colors.mjs)."

@@ -13,12 +13,11 @@
       new files fall back to a name made from the file name
     - marks a file "githubOnly" (no in-browser preview, download from GitHub) when it is larger than
       "githubOnlyOverMB" or its path contains one of the "forceGithubOnly" strings
-    - records file size and the date each file was first added to git (for the NEW badge)
+    - records each file's size
     - prints a size report so you can see which files are big
 */
 import fs from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = process.argv[2]
@@ -60,26 +59,6 @@ const files = [];
   }
 })(ROOT, '');
 
-// ---------- first-added dates from git ----------
-function addedDates() {
-  try {
-    const git = args => execFileSync('git', ['-C', ROOT, ...args], { encoding: 'utf8', maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'ignore'] });
-    if (git(['rev-parse', '--is-shallow-repository']).trim() === 'true') {
-      console.warn('! Shallow git clone – "added" dates skipped (use fetch-depth: 0).');
-      return null;
-    }
-    const out = git(['-c', 'core.quotepath=off', 'log', '--diff-filter=A', '--name-only', '--no-renames', '--format=%x01%aI']);
-    const map = new Map();
-    let date = '';
-    for (const line of out.split('\n')) {
-      if (line.startsWith('\x01')) date = line.slice(1, 11);
-      else if (line && !map.has(line)) map.set(line.replace(/\r$/, ''), date);   // newest add wins
-    }
-    return map;
-  } catch { return null; }
-}
-const added = addedDates();
-
 // ---------- helpers ----------
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 const humanize = s => s.replace(/\.[^.]+$/, '').replace(/_/g, ' ').replace(/\s*\(\d+\)$/, '').replace(/\s+/g, ' ').trim();
@@ -103,8 +82,6 @@ const docs = files.map(rel => {
   const lower = rel.toLowerCase();
   const githubOnly = ov.githubOnly ?? (st.size > limitBytes || force.some(f => lower.includes(f)));
   const d = { id, name: ov.name ?? humanize(base), subject, category: rel.split('/')[0], path: rel, size: st.size };
-  const when = added?.get(rel) || (added ? '' : st.mtime.toISOString().slice(0, 10));
-  if (when) d.added = when;
   if (githubOnly) d.githubOnly = true;
   if (ov.group) d.group = ov.group;
   return d;
@@ -128,15 +105,13 @@ let out = `/*
     category  collection id in index.html: ${categories.join(' | ')}
     path      path relative to this folder, using forward slashes
     size      file size in bytes
-    added     date the file was first committed (drives the NEW badge)
     githubOnly: true  -> no preview; the card links to download the file from GitHub
     group     optional: force the file into a group on the subject page
 */
 
 window.ARCHIVE_CONFIG = {
   githubRepo: ${q(cfg.githubRepo || '')},
-  branch: ${q(cfg.branch || 'main')},
-  newDays: ${Number(cfg.newDays) || 14}
+  branch: ${q(cfg.branch || 'main')}
 };
 
 window.ARCHIVE_DOCUMENTS = [
@@ -146,7 +121,6 @@ docs.forEach((d, i) => {
   const key = `${d.category} · ${d.subject}`;
   if (key !== last) { out += `${i ? '\n' : ''}  // ── ${key} ${'─'.repeat(Math.max(4, 60 - key.length))}\n`; last = key; }
   const lines = [`id: ${q(d.id)}`, `name: ${q(d.name)}`, `subject: ${q(d.subject)}`, `category: ${q(d.category)}`, `path: ${q(d.path)}`, `size: ${d.size}`];
-  if (d.added) lines.push(`added: ${q(d.added)}`);
   if (d.githubOnly) lines.push('githubOnly: true');
   if (d.group) lines.push(`group: ${q(d.group)}`);
   out += `  {\n${lines.map(l => '    ' + l).join(',\n')}\n  }${i < docs.length - 1 ? ',' : ''}\n`;

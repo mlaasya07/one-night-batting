@@ -11,15 +11,13 @@
     category  collection id in index.html: CSE | DS | PYQs | Lab_Codes | ZtoA files
     path      path relative to this folder, using forward slashes
     size      file size in bytes
-    added     date the file was first committed (drives the NEW badge)
     githubOnly: true  -> no preview; the card links to download the file from GitHub
     group     optional: force the file into a group on the subject page
 */
 
 window.ARCHIVE_CONFIG = {
   githubRepo: "https://github.com/mlaasya07/one-night-batting",
-  branch: "main",
-  newDays: 14
+  branch: "main"
 };
 
 window.ARCHIVE_DOCUMENTS = [
@@ -30,8 +28,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/FLAT_ProblemsForMid2.pdf",
-    size: 251835,
-    added: "2026-11-01"
+    size: 251835
   },
   {
     id: "cse-3rdyrsem2-flat-lecture1-introtoautomatatheory-pdf",
@@ -39,8 +36,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture1_IntroToAutomataTheory.pdf",
-    size: 606987,
-    added: "2026-11-01"
+    size: 606987
   },
   {
     id: "cse-3rdyrsem2-flat-lecture2-dfa-pdf",
@@ -48,8 +44,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture2_DFA.pdf",
-    size: 660649,
-    added: "2026-11-01"
+    size: 660649
   },
   {
     id: "cse-3rdyrsem2-flat-lecture3-nfa-pdf",
@@ -57,8 +52,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture3_NFA.pdf",
-    size: 694521,
-    added: "2026-11-01"
+    size: 694521
   },
   {
     id: "cse-3rdyrsem2-flat-lecture4-enfa-pdf",
@@ -66,8 +60,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture4_eNFA.pdf",
-    size: 364966,
-    added: "2026-11-01"
+    size: 364966
   },
   {
     id: "cse-3rdyrsem2-flat-lecture5-re-pdf",
@@ -75,8 +68,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture5_RE.pdf",
-    size: 586265,
-    added: "2026-11-01"
+    size: 586265
   },
   {
     id: "cse-3rdyrsem2-flat-lecture6-pumpinglemma-pdf",
@@ -84,8 +76,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture6_PumpingLemma.pdf",
-    size: 442130,
-    added: "2026-11-01"
+    size: 442130
   },
   {
     id: "cse-3rdyrsem2-flat-lecture7-prl-pdf",
@@ -93,8 +84,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture7_PRL.pdf",
-    size: 488110,
-    added: "2026-11-01"
+    size: 488110
   },
   {
     id: "cse-3rdyrsem2-flat-lecture8-cfg-pdf",
@@ -102,8 +92,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture8_CFG.pdf",
-    size: 474461,
-    added: "2026-11-01"
+    size: 474461
   },
   {
     id: "cse-3rdyrsem2-flat-lecture9-pda-pdf",
@@ -111,8 +100,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture9_PDA.pdf",
-    size: 516731,
-    added: "2026-11-01"
+    size: 516731
   },
   {
     id: "cse-3rdyrsem2-flat-lecture10-tm-pdf",
@@ -120,8 +108,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture10_TM.pdf",
-    size: 1260366,
-    added: "2026-11-01"
+    size: 1260366
   },
   {
     id: "cse-3rdyrsem2-flat-lecture11-undecidability-pdf",
@@ -129,8 +116,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture11_Undecidability.pdf",
-    size: 1530518,
-    added: "2026-11-01"
+    size: 1530518
   },
   {
     id: "cse-3rdyrsem2-flat-lecture12-pdf",
@@ -138,8 +124,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture12.pdf",
-    size: 3609477,
-    added: "2026-11-01"
+    size: 3609477
   },
   {
     id: "cse-3rdyrsem2-flat-lecture13-mdfa-only-for-flat-pdf",
@@ -147,8 +132,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture13_MDFA_Only_for_FLAT.pdf",
-    size: 789753,
-    added: "2026-11-01"
+    size: 789753
   },
   {
     id: "cse-3rdyrsem2-flat-links-txt",
@@ -156,8 +140,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/links.txt",
-    size: 167,
-    added: "2026-11-01"
+    size: 167
   },
   {
     id: "cse-3rdyrsem2-flat-problemset-unit4-atcd-n-flat-pdf",
@@ -165,8 +148,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/ProblemSet_Unit4_ATCD_n_FLAT.pdf",
-    size: 126604,
-    added: "2026-11-01"
+    size: 126604
   },
 
   // ── CSE · Natural Language Processing (NLP) ─────────────────────
@@ -176,8 +158,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/NLP GPT NOTES.pdf",
-    size: 315368,
-    added: "2026-11-03"
+    size: 315368
   },
   {
     id: "cse-3rdyrsem2-nlp-nlp-intro1-pdf",
@@ -185,8 +166,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/NLP Intro1.pdf",
-    size: 762624,
-    added: "2026-11-03"
+    size: 762624
   },
   {
     id: "cse-3rdyrsem2-nlp-nlp-unit5-pdf",
@@ -195,7 +175,7 @@ window.ARCHIVE_DOCUMENTS = [
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/NLP unit5.pdf",
     size: 20321781,
-    added: "2026-11-03"
+    githubOnly: true
   },
   {
     id: "cse-3rdyrsem2-nlp-semantic-parsing-presentation-pdf",
@@ -203,8 +183,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/Semantic_Parsing_Presentation.pdf",
-    size: 1163751,
-    added: "2026-11-03"
+    size: 1163751
   },
   {
     id: "cse-3rdyrsem2-nlp-unit-v-language-modeling-pdf",
@@ -212,8 +191,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/UNIT V Language Modeling.pdf",
-    size: 1030826,
-    added: "2026-11-03"
+    size: 1030826
   },
   {
     id: "cse-3rdyrsem2-nlp-unit1-tokens-lexemes-morphemes-typology-nlp-pdf",
@@ -221,8 +199,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/UNIT1_Tokens_Lexemes_Morphemes_Typology_NLP.pdf",
-    size: 1418386,
-    added: "2026-11-03"
+    size: 1418386
   },
   {
     id: "cse-3rdyrsem2-nlp-unit3-pdf",
@@ -230,8 +207,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/Unit3.pdf",
-    size: 803901,
-    added: "2026-11-03"
+    size: 803901
   },
 
   // ── CSE · Cryptography & Network Security (CNS) ─────────────────
@@ -241,8 +217,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/3. CNS UNIT-3 R20 (1).pdf",
-    size: 2269687,
-    added: "2026-11-21"
+    size: 2269687
   },
   {
     id: "cse-4thyrsem1-cns-4-cns-unit-4-r20-1-pdf",
@@ -250,8 +225,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/4. CNS UNIT-4 R20 (1).pdf",
-    size: 5573142,
-    added: "2026-11-21"
+    size: 5573142
   },
   {
     id: "cse-4thyrsem1-cns-assignment-questions-cns-pdf",
@@ -259,8 +233,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/Assignment_questions_cns.pdf",
-    size: 64384,
-    added: "2026-11-21"
+    size: 64384
   },
   {
     id: "cse-4thyrsem1-cns-cns-unit-1-2-pdf",
@@ -268,8 +241,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/CNS UNIT-1_2.pdf",
-    size: 960246,
-    added: "2026-11-21"
+    size: 960246
   },
   {
     id: "cse-4thyrsem1-cns-cns-unit-1-pdf",
@@ -277,8 +249,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/CNS UNIT-1.pdf",
-    size: 1861043,
-    added: "2026-11-21"
+    size: 1861043
   },
   {
     id: "cse-4thyrsem1-cns-cns-long-qns-pdf-1-pdf",
@@ -286,8 +257,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/CNS_Long_QNS.pdf_1.pdf",
-    size: 2295992,
-    added: "2026-11-21"
+    size: 2295992
   },
   {
     id: "cse-4thyrsem1-cns-cns-shortqns-1-pdf",
@@ -295,8 +265,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/CNS_ShortQNS_1.pdf",
-    size: 874788,
-    added: "2026-11-21"
+    size: 874788
   },
   {
     id: "cse-4thyrsem1-cns-cns-sometopics-pdf",
@@ -304,8 +273,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/CNS_SomeTopics.pdf",
-    size: 763597,
-    added: "2026-11-21"
+    size: 763597
   },
   {
     id: "cse-4thyrsem1-cns-cns-twist-questions-docx",
@@ -313,8 +281,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/CNS_Twist_Questions.docx",
-    size: 837519,
-    added: "2026-11-21"
+    size: 837519
   },
   {
     id: "cse-4thyrsem1-cns-cryptography-and-network-security-notes-pdf",
@@ -322,8 +289,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/CRYPTOGRAPHY_AND_NETWORK_SECURITY_NOTES.pdf",
-    size: 6325401,
-    added: "2026-11-21"
+    size: 6325401
   },
   {
     id: "cse-4thyrsem1-cns-ipsec-pdf",
@@ -331,8 +297,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/IPSec.pdf",
-    size: 778049,
-    added: "2026-11-21"
+    size: 778049
   },
   {
     id: "cse-4thyrsem1-cns-note10-sha-3-pdf",
@@ -340,8 +305,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/NOTE10_SHA_3.pdf",
-    size: 9683820,
-    added: "2026-11-21"
+    size: 9683820
   },
   {
     id: "cse-4thyrsem1-cns-pgp-pdf",
@@ -349,8 +313,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/PGP.pdf",
-    size: 591757,
-    added: "2026-11-21"
+    size: 591757
   },
   {
     id: "cse-4thyrsem1-cns-pki-final-pdf",
@@ -358,8 +321,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/PKI_final.pdf",
-    size: 1555089,
-    added: "2026-11-21"
+    size: 1555089
   },
   {
     id: "cse-4thyrsem1-cns-ppt-pdf",
@@ -367,8 +329,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/ppt.pdf",
-    size: 2114457,
-    added: "2026-11-21"
+    size: 2114457
   },
   {
     id: "cse-4thyrsem1-cns-smime-pdf",
@@ -376,8 +337,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/SMIME.pdf",
-    size: 1192764,
-    added: "2026-11-21"
+    size: 1192764
   },
   {
     id: "cse-4thyrsem1-cns-studymaterial-lastunits-pdf",
@@ -385,8 +345,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/studyMaterial_LastUnits.pdf",
-    size: 1963522,
-    added: "2026-11-21"
+    size: 1963522
   },
   {
     id: "cse-4thyrsem1-cns-unit-5-cns-casestudy-notes-pdf",
@@ -394,8 +353,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/unit 5 cns_casestudy_notes.pdf",
-    size: 4493333,
-    added: "2026-11-21"
+    size: 4493333
   },
 
   // ── CSE · Compiler Design ───────────────────────────────────────
@@ -405,8 +363,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/CD QB mid-2.pdf",
-    size: 148313,
-    added: "2026-11-17"
+    size: 148313
   },
   {
     id: "cse-4thyrsem1-compilerdesign-cd-question-bank-mid-1-pdf",
@@ -414,8 +371,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/CD-QUESTION BANK-MID-1.pdf",
-    size: 133025,
-    added: "2026-11-17"
+    size: 133025
   },
   {
     id: "cse-4thyrsem1-compilerdesign-unit-2-parsers-pdf",
@@ -423,8 +379,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/UNIT-2 Parsers.pdf",
-    size: 637582,
-    added: "2026-11-17"
+    size: 637582
   },
   {
     id: "cse-4thyrsem1-compilerdesign-unit-3-sdd-part-2-pdf",
@@ -432,8 +387,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/UNIT-3 SDD Part 2.pdf",
-    size: 567494,
-    added: "2026-11-17"
+    size: 567494
   },
   {
     id: "cse-4thyrsem1-compilerdesign-unit-3-sdd-pdf",
@@ -441,8 +395,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/UNIT-3 SDD.pdf",
-    size: 359049,
-    added: "2026-11-17"
+    size: 359049
   },
   {
     id: "cse-4thyrsem1-compilerdesign-unit-4-5-partial-pdf",
@@ -450,8 +403,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/UNIT-4,5(partial).pdf",
-    size: 888552,
-    added: "2026-11-17"
+    size: 888552
   },
 
   // ── DS · Computer Organization & Architecture (COA) ─────────────
@@ -461,8 +413,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Organization & Architecture (COA)",
     category: "DS",
     path: "DS/2ndyrSem1/COA/Unit I part A.pdf",
-    size: 633059,
-    added: "2026-11-02"
+    size: 633059
   },
   {
     id: "ds-2ndyrsem1-coa-unit-i-part-b-pdf",
@@ -470,8 +421,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Organization & Architecture (COA)",
     category: "DS",
     path: "DS/2ndyrSem1/COA/Unit I part B.pdf",
-    size: 617614,
-    added: "2026-11-02"
+    size: 617614
   },
   {
     id: "ds-2ndyrsem1-coa-unit-i-part-c-pdf",
@@ -479,8 +429,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Organization & Architecture (COA)",
     category: "DS",
     path: "DS/2ndyrSem1/COA/Unit I part C.pdf",
-    size: 524354,
-    added: "2026-11-02"
+    size: 524354
   },
 
   // ── DS · Computer Oriented Statistical Mathematics (COSM) ───────
@@ -490,8 +439,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Oriented Statistical Mathematics (COSM)",
     category: "DS",
     path: "DS/2ndyrSem1/COSM/Probability-1.pdf",
-    size: 2204396,
-    added: "2026-11-02"
+    size: 2204396
   },
 
   // ── DS · Data Structures in C ───────────────────────────────────
@@ -501,8 +449,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/BnB+Trees.pdf",
-    size: 1042084,
-    added: "2026-11-02"
+    size: 1042084
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-bst-notes1-pdf",
@@ -510,8 +457,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/BST_Notes1.pdf",
-    size: 434523,
-    added: "2026-11-02"
+    size: 434523
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-complete-notes-pdf",
@@ -519,8 +465,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Complete_Notes.pdf",
-    size: 9026230,
-    added: "2026-11-02"
+    size: 9026230
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-data-structures-with-c-by-schaum-lipschutz-textbook-pdf",
@@ -529,7 +474,6 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Data-Structures-With-C-by-schaum-lipschutz Textbook.pdf",
     size: 34271763,
-    added: "2026-11-02",
     githubOnly: true
   },
   {
@@ -538,8 +482,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/DS 3rd chapter.pdf",
-    size: 6338595,
-    added: "2026-11-02"
+    size: 6338595
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-ds-unit-3-pdf",
@@ -547,8 +490,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/DS UNIT 3.pdf",
-    size: 8968371,
-    added: "2026-11-02"
+    size: 8968371
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-ds-unit-1-handwritten-pdf",
@@ -557,7 +499,7 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/DS_Unit_1 HandWritten.pdf",
     size: 13420526,
-    added: "2026-11-02"
+    githubOnly: true
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-ds-unit-1-pdf",
@@ -565,8 +507,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/DS_Unit-1.pdf",
-    size: 382525,
-    added: "2026-11-02"
+    size: 382525
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-graphs-pdf",
@@ -574,8 +515,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Graphs.pdf",
-    size: 1717806,
-    added: "2026-11-02"
+    size: 1717806
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-hashtables-pdf",
@@ -583,8 +523,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/hashtables.pdf",
-    size: 857287,
-    added: "2026-11-02"
+    size: 857287
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-linked-lists-pdf",
@@ -592,8 +531,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Linked Lists.pdf",
-    size: 1167062,
-    added: "2026-11-02"
+    size: 1167062
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-quick-sort-pdf",
@@ -601,8 +539,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Quick_Sort.pdf",
-    size: 265243,
-    added: "2026-11-02"
+    size: 265243
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-sorting-pdf",
@@ -610,8 +547,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Sorting.pdf",
-    size: 329191,
-    added: "2026-11-02"
+    size: 329191
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-traversal-pdf",
@@ -619,8 +555,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Traversal.pdf",
-    size: 450703,
-    added: "2026-11-02"
+    size: 450703
   },
 
   // ── DS · Digital Electronics ────────────────────────────────────
@@ -630,8 +565,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Digital Electronics",
     category: "DS",
     path: "DS/2ndyrSem1/Digital_Electronics/all units - Question Bank.pdf",
-    size: 70729,
-    added: "2026-11-02"
+    size: 70729
   },
   {
     id: "ds-2ndyrsem1-digital-electronics-digital-design-3rd-edition-textbook-pdf",
@@ -640,7 +574,6 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/2ndyrSem1/Digital_Electronics/Digital Design (3rd Edition) Textbook.pdf",
     size: 13994276,
-    added: "2026-11-02",
     githubOnly: true
   },
   {
@@ -649,8 +582,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Digital Electronics",
     category: "DS",
     path: "DS/2ndyrSem1/Digital_Electronics/UNIT - 4_DLD_PLDs.pdf",
-    size: 837074,
-    added: "2026-11-02"
+    size: 837074
   },
   {
     id: "ds-2ndyrsem1-digital-electronics-unit-4-pdf",
@@ -658,8 +590,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Digital Electronics",
     category: "DS",
     path: "DS/2ndyrSem1/Digital_Electronics/unit 4.pdf",
-    size: 2414898,
-    added: "2026-11-02"
+    size: 2414898
   },
   {
     id: "ds-2ndyrsem1-digital-electronics-unit-5-pdf",
@@ -667,8 +598,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Digital Electronics",
     category: "DS",
     path: "DS/2ndyrSem1/Digital_Electronics/unit 5.pdf",
-    size: 609360,
-    added: "2026-11-02"
+    size: 609360
   },
 
   // ── DS · Java ───────────────────────────────────────────────────
@@ -678,8 +608,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/01 Introduction to Java.pdf",
-    size: 8119970,
-    added: "2026-11-02"
+    size: 8119970
   },
   {
     id: "ds-2ndyrsem1-java-example-codes-pdf",
@@ -687,8 +616,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/example codes.pdf",
-    size: 527530,
-    added: "2026-11-02"
+    size: 527530
   },
   {
     id: "ds-2ndyrsem1-java-java-threads-synchf-pdf",
@@ -696,8 +624,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/Java-Threads&SynchF.pdf",
-    size: 401313,
-    added: "2026-11-02"
+    size: 401313
   },
   {
     id: "ds-2ndyrsem1-java-unit-2-pdf",
@@ -705,8 +632,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/unit 2.pdf",
-    size: 2927884,
-    added: "2026-11-02"
+    size: 2927884
   },
   {
     id: "ds-2ndyrsem1-java-unit-3-pdf",
@@ -714,8 +640,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/unit 3.pdf",
-    size: 871247,
-    added: "2026-11-02"
+    size: 871247
   },
   {
     id: "ds-2ndyrsem1-java-unit-4-5-pdf",
@@ -723,8 +648,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/unit 4 & 5.pdf",
-    size: 1503043,
-    added: "2026-11-02"
+    size: 1503043
   },
 
   // ── DS · Business Economics & Financial Analysis (BEFA) ─────────
@@ -734,8 +658,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Business Economics & Financial Analysis (BEFA)",
     category: "DS",
     path: "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/important questions of all units.pdf",
-    size: 153839,
-    added: "2026-11-01"
+    size: 153839
   },
   {
     id: "ds-2ndyrsem2-business-economics-n-financial-analysis-unit-4-financial-accounting-pdf",
@@ -743,8 +666,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Business Economics & Financial Analysis (BEFA)",
     category: "DS",
     path: "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-4. Financial accounting.pdf",
-    size: 3049289,
-    added: "2026-11-01"
+    size: 3049289
   },
   {
     id: "ds-2ndyrsem2-business-economics-n-financial-analysis-unit-5-ratio-analysis-pdf",
@@ -752,8 +674,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Business Economics & Financial Analysis (BEFA)",
     category: "DS",
     path: "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-5. Ratio Analysis.pdf",
-    size: 2981568,
-    added: "2026-11-01"
+    size: 2981568
   },
 
   // ── DS · Database Management Systems (DBMS) ─────────────────────
@@ -763,8 +684,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/ImportantQforMid1.pdf",
-    size: 219357,
-    added: "2026-11-01"
+    size: 219357
   },
   {
     id: "ds-2ndyrsem2-dbms-importantqformid2-pdf",
@@ -772,8 +692,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/ImportantQforMid2.pdf",
-    size: 46979,
-    added: "2026-11-01"
+    size: 46979
   },
   {
     id: "ds-2ndyrsem2-dbms-impqs-sem-pdf",
@@ -781,8 +700,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/ImpQs_Sem.pdf",
-    size: 173958,
-    added: "2026-11-01"
+    size: 173958
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-1-1-pdf",
@@ -790,8 +708,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/unit 1-1.pdf",
-    size: 2997063,
-    added: "2026-11-01"
+    size: 2997063
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-1-2-pdf",
@@ -799,8 +716,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/unit 1-2.pdf",
-    size: 1813822,
-    added: "2026-11-01"
+    size: 1813822
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-3-2-pdf",
@@ -808,8 +724,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/Unit 3-2.pdf",
-    size: 1322499,
-    added: "2026-11-01"
+    size: 1322499
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-2-pdf",
@@ -817,8 +732,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/unit-2.pdf",
-    size: 2577134,
-    added: "2026-11-01"
+    size: 2577134
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-4-pdf",
@@ -826,8 +740,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/unit-4.pdf",
-    size: 2531221,
-    added: "2026-11-01"
+    size: 2531221
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-5-pdf",
@@ -835,8 +748,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/Unit-5.pdf",
-    size: 1256127,
-    added: "2026-11-01"
+    size: 1256127
   },
   {
     id: "ds-2ndyrsem2-dbms-unit3-1-pdf",
@@ -844,8 +756,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/Unit3-1.pdf",
-    size: 956546,
-    added: "2026-11-01"
+    size: 956546
   },
 
   // ── DS · Discrete Mathematics ───────────────────────────────────
@@ -855,8 +766,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Discrete Mathematics",
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/DM-chapter-3.pdf",
-    size: 2439950,
-    added: "2026-11-01"
+    size: 2439950
   },
   {
     id: "ds-2ndyrsem2-discrete-mathematics-model-mid-dm-exam-paper-pdf",
@@ -864,8 +774,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Discrete Mathematics",
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/Model_Mid_DM_Exam_Paper.pdf",
-    size: 132510,
-    added: "2026-11-01"
+    size: 132510
   },
   {
     id: "ds-2ndyrsem2-discrete-mathematics-unit-1-pdf",
@@ -873,8 +782,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Discrete Mathematics",
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/unit-1.pdf",
-    size: 8150500,
-    added: "2026-11-01"
+    size: 8150500
   },
   {
     id: "ds-2ndyrsem2-discrete-mathematics-unit-2-pdf",
@@ -882,8 +790,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Discrete Mathematics",
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/unit-2.pdf",
-    size: 4852454,
-    added: "2026-11-01"
+    size: 4852454
   },
   {
     id: "ds-2ndyrsem2-discrete-mathematics-unit-4-pdf",
@@ -892,7 +799,7 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/unit-4.pdf",
     size: 13170669,
-    added: "2026-11-01"
+    githubOnly: true
   },
   {
     id: "ds-2ndyrsem2-discrete-mathematics-unit-5-pdf",
@@ -900,8 +807,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Discrete Mathematics",
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/unit-5.pdf",
-    size: 9634130,
-    added: "2026-11-01"
+    size: 9634130
   },
 
   // ── DS · Operating Systems ──────────────────────────────────────
@@ -911,8 +817,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/OS_LAB_1.pdf",
-    size: 74353,
-    added: "2026-11-01"
+    size: 74353
   },
   {
     id: "ds-2ndyrsem2-operating-system-os-practice-q-mid2-pdf",
@@ -920,8 +825,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/OS_Practice_Q_mid2.pdf",
-    size: 617036,
-    added: "2026-11-01"
+    size: 617036
   },
   {
     id: "ds-2ndyrsem2-operating-system-os-unit-1-not-complete-pdf",
@@ -929,8 +833,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/OS_UNIT_1_not_complete.pdf",
-    size: 8797073,
-    added: "2026-11-01"
+    size: 8797073
   },
   {
     id: "ds-2ndyrsem2-operating-system-os-unit-2-not-complete-pdf",
@@ -938,8 +841,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/OS_UNIT_2_not_complete.pdf",
-    size: 2475019,
-    added: "2026-11-01"
+    size: 2475019
   },
   {
     id: "ds-2ndyrsem2-operating-system-os-unit-3-till-mid1-pdf",
@@ -947,8 +849,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/OS_UNIT_3_till_mid1.pdf",
-    size: 1203864,
-    added: "2026-11-01"
+    size: 1203864
   },
   {
     id: "ds-2ndyrsem2-operating-system-os-unit-3-pdf",
@@ -956,8 +857,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/OS_UNIT_3.pdf",
-    size: 1755017,
-    added: "2026-11-01"
+    size: 1755017
   },
   {
     id: "ds-2ndyrsem2-operating-system-os-unit-4-pdf",
@@ -965,8 +865,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/OS_UNIT_4.pdf",
-    size: 3224555,
-    added: "2026-11-01"
+    size: 3224555
   },
   {
     id: "ds-2ndyrsem2-operating-system-os-unit-5-rajeevsirpart-pdf",
@@ -974,8 +873,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/OS_UNIT_5_RajeevSirPart.pdf",
-    size: 395265,
-    added: "2026-11-01"
+    size: 395265
   },
   {
     id: "ds-2ndyrsem2-operating-system-os-unit-5-souravsirpart-pdf",
@@ -983,8 +881,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/OS_UNIT_5_SouravSirPart.pdf",
-    size: 128497,
-    added: "2026-11-01"
+    size: 128497
   },
   {
     id: "ds-2ndyrsem2-operating-system-presentation-lab-pdf",
@@ -992,8 +889,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/Presentation_Lab.pdf",
-    size: 165255,
-    added: "2026-11-01"
+    size: 165255
   },
 
   // ── DS · Software Engineering ───────────────────────────────────
@@ -1003,8 +899,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/2_blackbox-problems.pdf",
-    size: 149790,
-    added: "2026-11-01"
+    size: 149790
   },
   {
     id: "ds-2ndyrsem2-software-engineering-3-debugging-in-testing-pdf",
@@ -1012,8 +907,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/3_debugging_in_testing.pdf",
-    size: 129721,
-    added: "2026-11-01"
+    size: 129721
   },
   {
     id: "ds-2ndyrsem2-software-engineering-4-se-unit-4-softwaremetrics-pdf",
@@ -1021,8 +915,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/4_SE_Unit_4_softwareMetrics.pdf",
-    size: 152303,
-    added: "2026-11-01"
+    size: 152303
   },
   {
     id: "ds-2ndyrsem2-software-engineering-se-unit-4-testing-strategies-1-pdf",
@@ -1031,7 +924,7 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/SE UNIT -4 (TESTING STRATEGIES)-1.pdf",
     size: 11869370,
-    added: "2026-11-01"
+    githubOnly: true
   },
   {
     id: "ds-2ndyrsem2-software-engineering-se-unit-5-risk-management-part-1-1-pdf",
@@ -1039,8 +932,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/SE UNIT -5 (RISK MANAGEMENT PART-1)-1.pdf",
-    size: 2924204,
-    added: "2026-11-01"
+    size: 2924204
   },
   {
     id: "ds-2ndyrsem2-software-engineering-se-unit-4-software-testing-strategies-and-methods-pdf",
@@ -1048,8 +940,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/SE_Unit-4_software-testing-strategies-and-methods.pdf",
-    size: 432663,
-    added: "2026-11-01"
+    size: 432663
   },
   {
     id: "ds-2ndyrsem2-software-engineering-se-unit-5-software-quality-management-pdf",
@@ -1057,8 +948,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/SE-Unit_5_software-quality-management.pdf",
-    size: 529066,
-    added: "2026-11-01"
+    size: 529066
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-1-ppt-pdf",
@@ -1066,8 +956,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-1_ppt.pdf",
-    size: 2644998,
-    added: "2026-11-01"
+    size: 2644998
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-1-pdf",
@@ -1076,7 +965,7 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-1.pdf",
     size: 17292851,
-    added: "2026-11-01"
+    githubOnly: true
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-2-ppt-pdf",
@@ -1085,7 +974,7 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-2_ppt.pdf",
     size: 24931918,
-    added: "2026-11-01"
+    githubOnly: true
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-2-pdf",
@@ -1093,8 +982,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-2.pdf",
-    size: 792733,
-    added: "2026-11-01"
+    size: 792733
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-3-2-pdf",
@@ -1102,8 +990,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-3-2.pdf",
-    size: 174658,
-    added: "2026-11-01"
+    size: 174658
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-3-3-pdf",
@@ -1111,8 +998,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-3-3.pdf",
-    size: 1092669,
-    added: "2026-11-01"
+    size: 1092669
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-3-pdf",
@@ -1120,8 +1006,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-3.pdf",
-    size: 99593,
-    added: "2026-11-01"
+    size: 99593
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-4-1-pdf",
@@ -1130,7 +1015,7 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-4-1.pdf",
     size: 10771818,
-    added: "2026-11-01"
+    githubOnly: true
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-5-1-pdf",
@@ -1138,8 +1023,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-5-1.pdf",
-    size: 792219,
-    added: "2026-11-01"
+    size: 792219
   },
 
   // ── DS · Computer Networks ──────────────────────────────────────
@@ -1150,7 +1034,6 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/Andrew S. Tanenbaum - Computer Networks Textbook.pdf",
     size: 7627599,
-    added: "2026-11-02",
     githubOnly: true
   },
   {
@@ -1159,8 +1042,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 1 pt1.pdf",
-    size: 7955160,
-    added: "2026-11-02"
+    size: 7955160
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-1-pt2-pdf",
@@ -1168,8 +1050,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 1 pt2.pdf",
-    size: 5463425,
-    added: "2026-11-02"
+    size: 5463425
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-2-pdf",
@@ -1177,8 +1058,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 2.pdf",
-    size: 5681314,
-    added: "2026-11-02"
+    size: 5681314
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-3-pt1-pdf",
@@ -1186,8 +1066,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 3 pt1.pdf",
-    size: 4563774,
-    added: "2026-11-02"
+    size: 4563774
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-3-pt2-pdf",
@@ -1195,8 +1074,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 3 pt2.pdf",
-    size: 1667375,
-    added: "2026-11-02"
+    size: 1667375
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-4-pdf",
@@ -1204,8 +1082,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 4.pdf",
-    size: 2652198,
-    added: "2026-11-02"
+    size: 2652198
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-5-pt1-pdf",
@@ -1213,8 +1090,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 5 pt1.pdf",
-    size: 1065783,
-    added: "2026-11-02"
+    size: 1065783
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-5-pt2-pdf",
@@ -1222,8 +1098,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 5 pt2.pdf",
-    size: 574109,
-    added: "2026-11-02"
+    size: 574109
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-5-pt3-pdf",
@@ -1231,8 +1106,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 5 pt3.pdf",
-    size: 4025903,
-    added: "2026-11-02"
+    size: 4025903
   },
 
   // ── DS · Introduction to Data Science ───────────────────────────
@@ -1243,7 +1117,6 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/3rdyrSem1/Intro_To_DataSci/Doing Data Science Textbook.pdf",
     size: 29297180,
-    added: "2026-11-02",
     githubOnly: true
   },
 
@@ -1254,8 +1127,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture-14_ATCD.pdf",
-    size: 621520,
-    added: "2026-11-01"
+    size: 621520
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture1-introtoautomatatheory-pdf",
@@ -1263,8 +1135,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture1_IntroToAutomataTheory.pdf",
-    size: 606987,
-    added: "2026-10-31"
+    size: 606987
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture2-dfa-pdf",
@@ -1272,8 +1143,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture2_DFA.pdf",
-    size: 660649,
-    added: "2026-10-31"
+    size: 660649
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture3-nfa-pdf",
@@ -1281,8 +1151,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture3_NFA.pdf",
-    size: 694521,
-    added: "2026-10-31"
+    size: 694521
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture4-enfa-pdf",
@@ -1290,8 +1159,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture4_eNFA.pdf",
-    size: 364966,
-    added: "2026-10-31"
+    size: 364966
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture5-re-pdf",
@@ -1299,8 +1167,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture5_RE.pdf",
-    size: 586265,
-    added: "2026-10-31"
+    size: 586265
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture6-pumpinglemma-pdf",
@@ -1308,8 +1175,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture6_PumpingLemma.pdf",
-    size: 442130,
-    added: "2026-10-31"
+    size: 442130
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture7-prl-pdf",
@@ -1317,8 +1183,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture7_PRL.pdf",
-    size: 488110,
-    added: "2026-10-31"
+    size: 488110
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture8-cfg-pdf",
@@ -1326,8 +1191,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture8_CFG.pdf",
-    size: 474461,
-    added: "2026-10-31"
+    size: 474461
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture9-pda-pdf",
@@ -1335,8 +1199,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture9_PDA.pdf",
-    size: 516731,
-    added: "2026-10-31"
+    size: 516731
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture10-tm-pdf",
@@ -1344,8 +1207,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture10_TM.pdf",
-    size: 1260366,
-    added: "2026-10-31"
+    size: 1260366
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture11-undecidability-pdf",
@@ -1353,8 +1215,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture11_Undecidability.pdf",
-    size: 1530518,
-    added: "2026-10-31"
+    size: 1530518
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture12-pdf",
@@ -1362,8 +1223,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture12.pdf",
-    size: 3609477,
-    added: "2026-10-31"
+    size: 3609477
   },
   {
     id: "ds-3rdyrsem2-atcd-links-txt",
@@ -1371,8 +1231,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/links.txt",
-    size: 167,
-    added: "2026-11-01"
+    size: 167
   },
   {
     id: "ds-3rdyrsem2-atcd-problemset-mid2-atcd-pdf",
@@ -1380,8 +1239,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/ProblemSet_Mid2_ATCD.pdf",
-    size: 296749,
-    added: "2026-11-01"
+    size: 296749
   },
   {
     id: "ds-3rdyrsem2-atcd-problemset-unit4-atcd-n-flat-pdf",
@@ -1389,8 +1247,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/ProblemSet_Unit4_ATCD_n_FLAT.pdf",
-    size: 126604,
-    added: "2026-11-01"
+    size: 126604
   },
   {
     id: "ds-3rdyrsem2-atcd-problemsformid1-pdf",
@@ -1398,8 +1255,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/ProblemsForMid1.pdf",
-    size: 176462,
-    added: "2026-10-31"
+    size: 176462
   },
 
   // ── DS · Big Data Analysis (BDA) ────────────────────────────────
@@ -1409,8 +1265,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/BDA_LAB_Linux_Basic_Commands_and_Java_Env_Variables.pdf",
-    size: 45546,
-    added: "2026-11-01"
+    size: 45546
   },
   {
     id: "ds-3rdyrsem2-big-data-analysis-bda-mid2-important-questions-pdf",
@@ -1418,8 +1273,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/BDA_Mid2_Important Questions.pdf",
-    size: 81119,
-    added: "2026-10-31"
+    size: 81119
   },
   {
     id: "ds-3rdyrsem2-big-data-analysis-hadoopsecunit-pdf",
@@ -1427,8 +1281,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/HadoopSecUnit.pdf",
-    size: 5967607,
-    added: "2026-10-31"
+    size: 5967607
   },
   {
     id: "ds-3rdyrsem2-big-data-analysis-important-questions-mid1-pdf",
@@ -1436,8 +1289,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/Important Questions - Mid1.pdf",
-    size: 253291,
-    added: "2026-10-31"
+    size: 253291
   },
   {
     id: "ds-3rdyrsem2-big-data-analysis-notesforbda-updated-pdf",
@@ -1445,8 +1297,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/notesforBDA-Updated.pdf",
-    size: 4629174,
-    added: "2026-10-31"
+    size: 4629174
   },
   {
     id: "ds-3rdyrsem2-big-data-analysis-unitiii-bda-pdf",
@@ -1454,8 +1305,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/UnitIII-BDA.pdf",
-    size: 668022,
-    added: "2026-10-31"
+    size: 668022
   },
   {
     id: "ds-3rdyrsem2-big-data-analysis-unitiv-bda-pdf",
@@ -1463,8 +1313,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/UnitIV-BDA.pdf",
-    size: 840931,
-    added: "2026-10-31"
+    size: 840931
   },
 
   // ── DS · Cryptography & Network Security (CNS) ──────────────────
@@ -1474,8 +1323,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/cns lab record .pdf",
-    size: 9045295,
-    added: "2026-10-31"
+    size: 9045295
   },
   {
     id: "ds-3rdyrsem2-cns-cns-unit-11-pdf",
@@ -1483,8 +1331,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/CNS_UNIT-11.pdf",
-    size: 589842,
-    added: "2026-10-31"
+    size: 589842
   },
   {
     id: "ds-3rdyrsem2-cns-cns-unit-12-pdf",
@@ -1492,8 +1339,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/CNS_UNIT-12.pdf",
-    size: 174132,
-    added: "2026-10-31"
+    size: 174132
   },
   {
     id: "ds-3rdyrsem2-cns-cns-unit-32-pdf",
@@ -1501,8 +1347,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/CNS_UNIT-32.pdf",
-    size: 2130007,
-    added: "2026-10-31"
+    size: 2130007
   },
   {
     id: "ds-3rdyrsem2-cns-cns-unit-41-pdf",
@@ -1510,8 +1355,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/CNS_UNIT-41.pdf",
-    size: 534880,
-    added: "2026-10-31"
+    size: 534880
   },
   {
     id: "ds-3rdyrsem2-cns-cns-unit-51-pdf",
@@ -1519,8 +1363,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/CNS_UNIT-51.pdf",
-    size: 358328,
-    added: "2026-10-31"
+    size: 358328
   },
   {
     id: "ds-3rdyrsem2-cns-cns-unit-52-pdf",
@@ -1528,8 +1371,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/CNS_UNIT-52.pdf",
-    size: 255560,
-    added: "2026-10-31"
+    size: 255560
   },
   {
     id: "ds-3rdyrsem2-cns-cns-unit21-symmetricciphers-1-pdf",
@@ -1537,8 +1379,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/CNS-UNIT21-SymmetricCiphers (1).pdf",
-    size: 1787960,
-    added: "2026-10-31"
+    size: 1787960
   },
   {
     id: "ds-3rdyrsem2-cns-cns-unit22-pdf",
@@ -1546,8 +1387,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/CNS-UNIT22.pdf",
-    size: 4018050,
-    added: "2026-10-31"
+    size: 4018050
   },
   {
     id: "ds-3rdyrsem2-cns-cryptography-and-network-security-principles-and-practice-6th-edition-william-stallings-pdf",
@@ -1556,7 +1396,6 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/3rdyrSem2/CNS/Cryptography and Network Security Principles and Practice (6th Edition) (William Stallings).pdf",
     size: 11876545,
-    added: "2026-10-31",
     githubOnly: true
   },
   {
@@ -1565,8 +1404,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/SMPC.pdf",
-    size: 1006950,
-    added: "2026-10-31"
+    size: 1006950
   },
   {
     id: "ds-3rdyrsem2-cns-sss1-pdf",
@@ -1574,8 +1412,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/SSS1.pdf",
-    size: 1256944,
-    added: "2026-10-31"
+    size: 1256944
   },
 
   // ── DS · Design Thinking (DT) ───────────────────────────────────
@@ -1585,8 +1422,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Design Thinking (DT)",
     category: "DS",
     path: "DS/3rdyrSem2/DT/DT QUESTIONS_Imp_Mid1.pdf",
-    size: 27162,
-    added: "2026-11-01"
+    size: 27162
   },
   {
     id: "ds-3rdyrsem2-dt-dt-unit-3-pdf",
@@ -1594,8 +1430,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Design Thinking (DT)",
     category: "DS",
     path: "DS/3rdyrSem2/DT/DT UNIT-3.pdf",
-    size: 1664357,
-    added: "2026-11-01"
+    size: 1664357
   },
   {
     id: "ds-3rdyrsem2-dt-dt-unit-1-pdf",
@@ -1603,8 +1438,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Design Thinking (DT)",
     category: "DS",
     path: "DS/3rdyrSem2/DT/DT-Unit-1.pdf",
-    size: 137349,
-    added: "2026-11-01"
+    size: 137349
   },
   {
     id: "ds-3rdyrsem2-dt-dt-unit-2-pdf",
@@ -1612,8 +1446,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Design Thinking (DT)",
     category: "DS",
     path: "DS/3rdyrSem2/DT/DT-Unit-2.pdf",
-    size: 5801077,
-    added: "2026-11-01"
+    size: 5801077
   },
   {
     id: "ds-3rdyrsem2-dt-dt-unit-4-pdf",
@@ -1621,8 +1454,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Design Thinking (DT)",
     category: "DS",
     path: "DS/3rdyrSem2/DT/DT-UNIT-4.pdf",
-    size: 1461759,
-    added: "2026-11-01"
+    size: 1461759
   },
   {
     id: "ds-3rdyrsem2-dt-unit-5-pdf",
@@ -1630,8 +1462,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Design Thinking (DT)",
     category: "DS",
     path: "DS/3rdyrSem2/DT/UNIT-5.pdf",
-    size: 667699,
-    added: "2026-11-01"
+    size: 667699
   },
 
   // ── DS · Machine Learning (ML) ──────────────────────────────────
@@ -1641,8 +1472,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Machine Learning (ML)",
     category: "DS",
     path: "DS/3rdyrSem2/Machine_Learning/ML_MID1_THEORY.pdf",
-    size: 773669,
-    added: "2026-10-31"
+    size: 773669
   },
   {
     id: "ds-3rdyrsem2-machine-learning-ml-mid2-theory-pdf",
@@ -1650,8 +1480,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Machine Learning (ML)",
     category: "DS",
     path: "DS/3rdyrSem2/Machine_Learning/ML_MID2_THEORY.pdf",
-    size: 228354,
-    added: "2026-10-31"
+    size: 228354
   },
 
   // ── DS · Cloud Computing ────────────────────────────────────────
@@ -1661,8 +1490,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/4A_Networking and Data_Centres for CC.pdf",
-    size: 542159,
-    added: "2026-11-03"
+    size: 542159
   },
   {
     id: "ds-4thyrsem1-cloud-computing-4b-cloud-service-providers-enhanced-v3-pdf",
@@ -1670,8 +1498,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/4B_Cloud_Service_Providers_Enhanced_v3.pdf",
-    size: 431993,
-    added: "2026-11-03"
+    size: 431993
   },
   {
     id: "ds-4thyrsem1-cloud-computing-5a-security-for-cloud-computingv2-pdf",
@@ -1679,8 +1506,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/5A_Security for Cloud Computingv2.pdf",
-    size: 90121,
-    added: "2026-11-03"
+    size: 90121
   },
   {
     id: "ds-4thyrsem1-cloud-computing-5b-advanced-concepts-in-cloud-computing-pdf",
@@ -1688,8 +1514,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/5B_Advanced_Concepts_in_Cloud_Computing.pdf",
-    size: 476893,
-    added: "2026-11-03"
+    size: 476893
   },
   {
     id: "ds-4thyrsem1-cloud-computing-cc-simple-revision-notes-pdf",
@@ -1697,8 +1522,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/CC_simple_Revision notes.pdf",
-    size: 292312,
-    added: "2026-11-17"
+    size: 292312
   },
   {
     id: "ds-4thyrsem1-cloud-computing-cloud-computing-paradigms-pdf",
@@ -1706,8 +1530,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/Cloud Computing Paradigms.pdf",
-    size: 3041591,
-    added: "2026-09-03"
+    size: 3041591
   },
   {
     id: "ds-4thyrsem1-cloud-computing-cloud-computing-complete-notes-1-docx",
@@ -1715,8 +1538,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/Cloud_Computing_Complete_Notes (1).docx",
-    size: 2911446,
-    added: "2026-11-17"
+    size: 2911446
   },
   {
     id: "ds-4thyrsem1-cloud-computing-cloud-computing-complete-notes-docx",
@@ -1724,8 +1546,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/Cloud_Computing_Complete_Notes.docx",
-    size: 2712588,
-    added: "2026-11-17"
+    size: 2712588
   },
   {
     id: "ds-4thyrsem1-cloud-computing-cloud-computing-part-b-all-60-docx",
@@ -1733,8 +1554,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/Cloud_Computing_Part_B_All_60.docx",
-    size: 2132159,
-    added: "2026-11-17"
+    size: 2132159
   },
   {
     id: "ds-4thyrsem1-cloud-computing-cloud-computing-unit-1-pdf",
@@ -1742,8 +1562,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/cloud-computing_UNit-1.pdf",
-    size: 2216056,
-    added: "2026-09-03"
+    size: 2216056
   },
   {
     id: "ds-4thyrsem1-cloud-computing-cloud-pdf",
@@ -1751,8 +1570,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/cloud.pdf",
-    size: 807816,
-    added: "2026-09-03"
+    size: 807816
   },
   {
     id: "ds-4thyrsem1-cloud-computing-soa-as-technology-drivers-for-cloud-computing-pdf",
@@ -1760,8 +1578,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/SOA as Technology Drivers for Cloud Computing.pdf",
-    size: 2600320,
-    added: "2026-09-03"
+    size: 2600320
   },
   {
     id: "ds-4thyrsem1-cloud-computing-web-2-0-and-3-0-pptx",
@@ -1769,8 +1586,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/web 2.0 and 3.0.pptx",
-    size: 941392,
-    added: "2026-11-03"
+    size: 941392
   },
 
   // ── DS · Data Mining (DM) ───────────────────────────────────────
@@ -1780,8 +1596,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Association to correlations.pdf",
-    size: 190859,
-    added: "2026-09-03"
+    size: 190859
   },
   {
     id: "ds-4thyrsem1-data-mining-decisiontreesboostingexampleproblem-pdf",
@@ -1789,8 +1604,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/DecisionTreesBoostingExampleProblem.pdf",
-    size: 455552,
-    added: "2026-10-31"
+    size: 455552
   },
   {
     id: "ds-4thyrsem1-data-mining-dm-mid-2-questions-docx",
@@ -1798,8 +1612,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/DM mid-2  questions.docx",
-    size: 18174,
-    added: "2026-10-31"
+    size: 18174
   },
   {
     id: "ds-4thyrsem1-data-mining-dm-mid-2-important-questions-docx",
@@ -1807,8 +1620,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/DM_Mid-2_Important_Questions.docx",
-    size: 1029921,
-    added: "2026-10-31"
+    size: 1029921
   },
   {
     id: "ds-4thyrsem1-data-mining-fp-growth-algorithm-example-problems-pdf",
@@ -1816,8 +1628,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/fp-growth-algorithm-example-problems.pdf",
-    size: 349409,
-    added: "2026-09-03"
+    size: 349409
   },
   {
     id: "ds-4thyrsem1-data-mining-knn-pdf",
@@ -1825,8 +1636,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/KNN .pdf",
-    size: 119518,
-    added: "2026-10-31"
+    size: 119518
   },
   {
     id: "ds-4thyrsem1-data-mining-neuralnetworks-pdf",
@@ -1834,8 +1644,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/NeuralNetworks .pdf",
-    size: 157731,
-    added: "2026-10-31"
+    size: 157731
   },
   {
     id: "ds-4thyrsem1-data-mining-rule-based-classification-pdf",
@@ -1843,8 +1652,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Rule Based Classification.pdf",
-    size: 187699,
-    added: "2026-10-31"
+    size: 187699
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-1-data-mining-lec-1-pptx",
@@ -1852,8 +1660,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining Lec-1.pptx",
-    size: 1294964,
-    added: "2026-08-28"
+    size: 1294964
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-1-data-mining-lect-2-3-4-pptx",
@@ -1861,8 +1668,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining Lect 2_3_4.pptx",
-    size: 8309551,
-    added: "2026-08-28"
+    size: 8309551
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-1-data-mining-part-2-pptx",
@@ -1870,8 +1676,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining part-2.pptx",
-    size: 7930481,
-    added: "2026-08-28"
+    size: 7930481
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-1-data-mining-part-3-data-preprocessing-pptx",
@@ -1879,8 +1684,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining Part-3_ Data Preprocessing.pptx",
-    size: 4118167,
-    added: "2026-08-28"
+    size: 4118167
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-2-part-1-pptx",
@@ -1888,8 +1692,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -2 Part-1.pptx",
-    size: 318407,
-    added: "2026-08-28"
+    size: 318407
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-2-part-2-pptx",
@@ -1897,8 +1700,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -2 part-2.pptx",
-    size: 325137,
-    added: "2026-08-28"
+    size: 325137
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-2-part-3-pptx",
@@ -1906,8 +1708,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -2 Part-3.pptx",
-    size: 76284,
-    added: "2026-08-28"
+    size: 76284
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-3-part-1-pptx",
@@ -1915,8 +1716,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -3 Part-1.pptx",
-    size: 535643,
-    added: "2026-08-28"
+    size: 535643
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-4-data-mining-textbook-notes-pptx",
@@ -1924,8 +1724,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -4 Data Mining textbook notes.pptx",
-    size: 2394442,
-    added: "2026-10-31"
+    size: 2394442
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-4-clusteranalysis-short-notes-pdf",
@@ -1933,8 +1732,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit 4 ClusterAnalysis  Short notes.pdf",
-    size: 283971,
-    added: "2026-10-31"
+    size: 283971
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-3-basics-pptx",
@@ -1942,8 +1740,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-3 Basics .pptx",
-    size: 1738859,
-    added: "2026-10-31"
+    size: 1738859
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-3-basics-pdf",
@@ -1951,8 +1748,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-3 Basics.pdf",
-    size: 1005532,
-    added: "2026-09-03"
+    size: 1005532
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-3-svm-knn-rb-nn-pdf",
@@ -1960,8 +1756,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-3 SVM_KNN_RB_NN.pdf",
-    size: 531569,
-    added: "2026-10-31"
+    size: 531569
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-4-outlieranalysis-short-notes-pdf",
@@ -1969,8 +1764,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-4 OutlierAnalysis  short notes.pdf",
-    size: 90731,
-    added: "2026-10-31"
+    size: 90731
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-5-web-spatial-temporal-mining-pdf",
@@ -1978,8 +1772,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-5  Web Spatial Temporal Mining.pdf",
-    size: 170909,
-    added: "2026-10-31"
+    size: 170909
   },
 
   // ── DS · Natural Language Processing (NLP) ──────────────────────
@@ -1989,8 +1782,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/Difference_Between_FrameNet_and_PropBank.pdf",
-    size: 4063,
-    added: "2026-08-28"
+    size: 4063
   },
   {
     id: "ds-4thyrsem1-natural-language-processing-natural-language-processing-ramesh-babu-sir-notes-unit-1-to-5-pdf-pdf",
@@ -1998,8 +1790,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing [Ramesh Babu sir notes] unit 1 to 5.pdf.pdf",
-    size: 5420194,
-    added: "2026-11-03"
+    size: 5420194
   },
   {
     id: "ds-4thyrsem1-natural-language-processing-natural-language-processing-unit-1-2-ramesh-babu-sir-notes-pdf",
@@ -2008,7 +1799,7 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing_ UNIT 1&2 [ Ramesh Babu Sir Notes ].pdf",
     size: 14516433,
-    added: "2026-09-02"
+    githubOnly: true
   },
   {
     id: "ds-4thyrsem1-natural-language-processing-natural-language-processing-pdf",
@@ -2017,7 +1808,7 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing.pdf",
     size: 14516245,
-    added: "2026-08-28"
+    githubOnly: true
   },
   {
     id: "ds-4thyrsem1-natural-language-processing-nlp-all5units-impqs-docx",
@@ -2025,8 +1816,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/NLP_all5units_impqs.docx",
-    size: 2097800,
-    added: "2026-11-03"
+    size: 2097800
   },
   {
     id: "ds-4thyrsem1-natural-language-processing-nlp-extra-1mark-questions-1-docx",
@@ -2034,8 +1824,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/NLP_Extra_1Mark_Questions (1).docx",
-    size: 51245,
-    added: "2026-11-19"
+    size: 51245
   },
   {
     id: "ds-4thyrsem1-natural-language-processing-nlp-mid2-important-questions-docx",
@@ -2043,8 +1832,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/NLP_Mid2_Important_Questions.docx",
-    size: 2755792,
-    added: "2026-11-03"
+    size: 2755792
   },
   {
     id: "ds-4thyrsem1-natural-language-processing-nlp-sem-full-docx",
@@ -2052,8 +1840,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/NLP_Sem_Full.docx",
-    size: 6480,
-    added: "2026-11-19"
+    size: 6480
   },
 
   // ── DS · Predictive Analysis (PA) ───────────────────────────────
@@ -2063,8 +1850,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/Memory_Palace_method - unit 3 to 4 [mid2].docx",
-    size: 2647327,
-    added: "2026-11-02"
+    size: 2647327
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-pa-mid2-all2marksqs-docx",
@@ -2072,8 +1858,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/PA_mid2_all2marksqs.docx",
-    size: 809522,
-    added: "2026-11-01"
+    size: 809522
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-pa-mid2-all5marksqs-docx",
@@ -2081,8 +1866,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/PA_MID2_all5marksqs.docx",
-    size: 1901015,
-    added: "2026-11-01"
+    size: 1901015
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-pa-notes-units-1-to-3-docx",
@@ -2090,8 +1874,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/PA_Notes_Units_1_to_3.docx",
-    size: 1593675,
-    added: "2026-11-21"
+    size: 1593675
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-v-pptx",
@@ -2099,8 +1882,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/UNIT - V.pptx",
-    size: 91598,
-    added: "2026-10-31"
+    size: 91598
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-1-pdf",
@@ -2108,8 +1890,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_1.pdf",
-    size: 1049691,
-    added: "2026-11-01"
+    size: 1049691
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-1-pptx",
@@ -2117,8 +1898,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_1.pptx",
-    size: 6377095,
-    added: "2026-08-28"
+    size: 6377095
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-3-midterm-2-pptx",
@@ -2126,8 +1906,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_3_midterm-2.pptx",
-    size: 9955395,
-    added: "2026-10-31"
+    size: 9955395
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-3-pptx",
@@ -2135,8 +1914,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_3.pptx",
-    size: 5444909,
-    added: "2026-08-28"
+    size: 5444909
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-3cnn-pdf",
@@ -2144,8 +1922,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_3CNN.pdf",
-    size: 916335,
-    added: "2026-08-28"
+    size: 916335
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-2-pptx",
@@ -2153,8 +1930,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit-2.pptx",
-    size: 77939,
-    added: "2026-08-28"
+    size: 77939
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-3-pdf",
@@ -2162,8 +1938,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit-3.pdf",
-    size: 1486814,
-    added: "2026-11-01"
+    size: 1486814
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-4-pdf",
@@ -2171,8 +1946,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit-4.pdf",
-    size: 8088049,
-    added: "2026-11-01"
+    size: 8088049
   },
   {
     id: "ds-4thyrsem1-textbooks-dean-abbott-applied-predictive-analytics-principles-and-techniques-for-the-professional-data-analyst-wiley-2014-pdf",
@@ -2180,8 +1954,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/textbooks/dean-abbott-applied-predictive-analytics_-principles-and-techniques-for-the-professional-data-analyst-wiley-2014.pdf",
-    size: 5821408,
-    added: "2026-08-28"
+    size: 5821408
   },
 
   // ── DS · Web & Social Media Analytics (WSMA) ────────────────────
@@ -2191,8 +1964,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Web & Social Media Analytics (WSMA)",
     category: "DS",
     path: "DS/4thyrSem1/Web_n_SocialMedia_Analytics/_W&SMA Unit 3& 4.pdf",
-    size: 3200879,
-    added: "2026-08-29"
+    size: 3200879
   },
   {
     id: "ds-4thyrsem1-web-n-socialmedia-analytics-unit-1-additionalmaterial-pdf",
@@ -2200,8 +1972,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Web & Social Media Analytics (WSMA)",
     category: "DS",
     path: "DS/4thyrSem1/Web_n_SocialMedia_Analytics/Unit 1_additionalmaterial.pdf",
-    size: 995815,
-    added: "2026-11-02"
+    size: 995815
   },
   {
     id: "ds-4thyrsem1-web-n-socialmedia-analytics-w-sma-unit-1-2-pdf",
@@ -2209,8 +1980,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Web & Social Media Analytics (WSMA)",
     category: "DS",
     path: "DS/4thyrSem1/Web_n_SocialMedia_Analytics/W&SMA Unit 1  &2.pdf",
-    size: 3582086,
-    added: "2026-08-29"
+    size: 3582086
   },
   {
     id: "ds-4thyrsem1-web-n-socialmedia-analytics-wsma-mid2-docx",
@@ -2218,8 +1988,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Web & Social Media Analytics (WSMA)",
     category: "DS",
     path: "DS/4thyrSem1/Web_n_SocialMedia_Analytics/WSMA_Mid2.docx",
-    size: 1413731,
-    added: "2026-11-17"
+    size: 1413731
   },
   {
     id: "ds-4thyrsem1-web-n-socialmedia-analytics-wsma-semexam-wtables-docx",
@@ -2227,8 +1996,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Web & Social Media Analytics (WSMA)",
     category: "DS",
     path: "DS/4thyrSem1/Web_n_SocialMedia_Analytics/WSMA_SemExam_wtables.docx",
-    size: 2129245,
-    added: "2026-11-17"
+    size: 2129245
   },
   {
     id: "ds-4thyrsem1-web-n-socialmedia-analytics-wsma-semexam-docx",
@@ -2236,19 +2004,25 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Web & Social Media Analytics (WSMA)",
     category: "DS",
     path: "DS/4thyrSem1/Web_n_SocialMedia_Analytics/WSMA_SemExam.docx",
-    size: 953127,
-    added: "2026-11-17"
+    size: 953127
   },
 
   // ── PYQs · Natural Language Processing (NLP) ────────────────────
+  {
+    id: "pyqs-2023-2027-batch-papers-cse-imageprocessing-2025-sempaper-pdf",
+    name: "ImageProcessing 2025 SemPaper",
+    subject: "Natural Language Processing (NLP)",
+    category: "PYQs",
+    path: "PYQs/2023-2027 batch papers/CSE/ImageProcessing_2025_SemPaper.pdf",
+    size: 690015
+  },
   {
     id: "pyqs-2023-2027-batch-papers-cse-nlp-exam-key-booklet-pdf",
     name: "NLP EXAM KEY BOOKLET",
     subject: "Natural Language Processing (NLP)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/CSE/NLP EXAM KEY BOOKLET.pdf",
-    size: 192816,
-    added: "2026-11-03"
+    size: 192816
   },
   {
     id: "pyqs-2023-2027-batch-papers-cse-nlp-mid-1-pdf",
@@ -2256,8 +2030,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/CSE/NLP MID-1.pdf",
-    size: 4601511,
-    added: "2026-11-03"
+    size: 4601511
   },
   {
     id: "pyqs-2023-2027-batch-papers-cse-nlp-mids-question-paper-pdf",
@@ -2265,8 +2038,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/CSE/NLP mids question paper.pdf",
-    size: 952689,
-    added: "2026-11-03"
+    size: 952689
   },
   {
     id: "pyqs-2023-2027-batch-papers-cse-question-bank-nlp-mid1-pdf",
@@ -2274,8 +2046,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/CSE/question bank_nlp_mid1.pdf",
-    size: 101700,
-    added: "2026-11-03"
+    size: 101700
   },
 
   // ── PYQs · Analysis & Design of Algorithms (ADA) ────────────────
@@ -2285,8 +2056,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Analysis & Design of Algorithms (ADA)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/DS/ADA_2025_mid2.jpg",
-    size: 76398,
-    added: "2026-11-03"
+    size: 76398
   },
 
   // ── PYQs · Cryptography & Network Security (CNS) ────────────────
@@ -2296,8 +2066,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/DS/CNS Mids and Sem [year 2025].pdf",
-    size: 480938,
-    added: "2026-11-03"
+    size: 480938
   },
 
   // ── PYQs · Predictive Analysis (PA) ─────────────────────────────
@@ -2307,8 +2076,17 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Predictive Analysis (PA)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/DS/mid1labexam_PA_2026yr_4thyrsem1.pdf",
-    size: 83086,
-    added: "2026-11-03"
+    size: 83086
+  },
+
+   // ── PYQs · Image Processing (IP) ─────────────────────────────
+  {
+    id: "pyqs-2023-2027-batch-papers-cse-sem-ip-2025yr-3rdyrsem1-pdf",
+    name: "IP Mid 1 Lab Exam — 2025 (3rd Year Sem 1)",
+    subject: "Image Processing (IP)",
+    category: "PYQs",
+    path: "PYQs/2023-2027 batch papers/CSE/ImageProcessing_2025_SemPaper.pdf",
+    size: 83086
   },
 
   // ── Lab_Codes · Cryptography & Network Security (CNS) ───────────
@@ -2318,8 +2096,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Cryptography & Network Security (CNS)",
     category: "Lab_Codes",
     path: "Lab_Codes/cns lab record .pdf",
-    size: 9045295,
-    added: "2026-11-02"
+    size: 9045295
   },
 
   // ── Lab_Codes · Lab Codes ───────────────────────────────────────
@@ -2330,7 +2107,6 @@ window.ARCHIVE_DOCUMENTS = [
     category: "Lab_Codes",
     path: "Lab_Codes/files.zip",
     size: 17686,
-    added: "2026-11-02",
     githubOnly: true
   },
   {
@@ -2340,7 +2116,6 @@ window.ARCHIVE_DOCUMENTS = [
     category: "Lab_Codes",
     path: "Lab_Codes/idk which subject is this.zip",
     size: 17686,
-    added: "2026-11-02",
     githubOnly: true
   },
 
@@ -2351,8 +2126,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Natural Language Processing (NLP)",
     category: "Lab_Codes",
     path: "Lab_Codes/NLP_Lab_Notes_3col (1).pdf",
-    size: 42852,
-    added: "2026-11-17"
+    size: 42852
   },
 
   // ── Lab_Codes · Web & Social Media Analytics (WSMA) ─────────────
@@ -2362,8 +2136,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Web & Social Media Analytics (WSMA)",
     category: "Lab_Codes",
     path: "Lab_Codes/wsma.txt",
-    size: 19025,
-    added: "2026-11-02"
+    size: 19025
   },
   {
     id: "lab-codes-wsmafinal-txt",
@@ -2371,8 +2144,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Web & Social Media Analytics (WSMA)",
     category: "Lab_Codes",
     path: "Lab_Codes/wsmafinal.txt",
-    size: 19038,
-    added: "2026-11-21"
+    size: 19038
   },
 
   // ── ZtoA files · Academic Calendars ─────────────────────────────
@@ -2382,8 +2154,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Academic Calendars",
     category: "ZtoA files",
     path: "ZtoA files/Calendars/2nd_3rd_4th_Academic_calendar_2026-27_V1.docx",
-    size: 29435,
-    added: "2026-11-02"
+    size: 29435
   },
   {
     id: "ztoa-files-calendars-academiccalendar2025-26-pdf",
@@ -2391,8 +2162,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Academic Calendars",
     category: "ZtoA files",
     path: "ZtoA files/Calendars/AcademicCalendar2025-26.pdf",
-    size: 434940,
-    added: "2026-11-02"
+    size: 434940
   },
 
   // ── ZtoA files · R22 Syllabus ───────────────────────────────────
@@ -2402,8 +2172,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/1st year B.Tech CSAM.docx",
-    size: 230980,
-    added: "2026-11-02"
+    size: 230980
   },
   {
     id: "ztoa-files-r22-syllabus-1st-year-b-tech-cse-aiml-docx",
@@ -2411,8 +2180,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/1st year B.Tech CSE AIML.docx",
-    size: 196754,
-    added: "2026-11-02"
+    size: 196754
   },
   {
     id: "ztoa-files-r22-syllabus-1st-year-b-tech-cse-ds-docx",
@@ -2420,8 +2188,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/1st year B.Tech CSE DS.docx",
-    size: 231712,
-    added: "2026-11-02"
+    size: 231712
   },
   {
     id: "ztoa-files-r22-syllabus-1st-year-b-tech-cse-docx",
@@ -2429,8 +2196,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/1st year B.Tech CSE.docx",
-    size: 195838,
-    added: "2026-11-02"
+    size: 195838
   },
   {
     id: "ztoa-files-r22-syllabus-2nd-year-b-tech-csam-docx",
@@ -2438,8 +2204,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/2nd year B.Tech CSAM.docx",
-    size: 203640,
-    added: "2026-11-02"
+    size: 203640
   },
   {
     id: "ztoa-files-r22-syllabus-2nd-year-b-tech-cse-aiml-docx",
@@ -2447,8 +2212,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/2nd year B.Tech CSE AIML.docx",
-    size: 200848,
-    added: "2026-11-02"
+    size: 200848
   },
   {
     id: "ztoa-files-r22-syllabus-2nd-year-b-tech-cse-ds-docx",
@@ -2456,8 +2220,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/2nd year B.Tech CSE DS.docx",
-    size: 190358,
-    added: "2026-11-02"
+    size: 190358
   },
   {
     id: "ztoa-files-r22-syllabus-2nd-year-b-tech-cse-docx",
@@ -2465,8 +2228,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/2nd year B.Tech CSE.docx",
-    size: 190785,
-    added: "2026-11-02"
+    size: 190785
   },
   {
     id: "ztoa-files-r22-syllabus-3rd-4-th-year-b-tech-cse-ds-docx",
@@ -2474,8 +2236,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/3rd_4 th year B.Tech CSE DS.docx",
-    size: 753183,
-    added: "2026-11-02"
+    size: 753183
   },
   {
     id: "ztoa-files-r22-syllabus-3rd-4-th-year-b-tech-cse-v1-docx",
@@ -2483,8 +2244,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/3rd_4 th year B.Tech CSE V1.docx",
-    size: 511631,
-    added: "2026-11-02"
+    size: 511631
   },
 
   // ── ZtoA files · Templates ──────────────────────────────────────
@@ -2494,8 +2254,7 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Templates",
     category: "ZtoA files",
     path: "ZtoA files/Templates/images-removebg-preview.png",
-    size: 293668,
-    added: "2026-11-02"
+    size: 293668
   },
   {
     id: "ztoa-files-templates-prc-i-presentation-template-pptx",
@@ -2503,7 +2262,6 @@ window.ARCHIVE_DOCUMENTS = [
     subject: "Templates",
     category: "ZtoA files",
     path: "ZtoA files/Templates/PRC-I_Presentation_Template.pptx",
-    size: 8505931,
-    added: "2026-11-02"
+    size: 8505931
   }
 ];

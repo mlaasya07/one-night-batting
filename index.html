@@ -17,8 +17,6 @@
     --muted:#e6d8a6;
     --soft:#e6d8a6;
     --soft-dark:#000000;
-    --new:#f5d547;
-    --new-ink:#2a2100;
     --serif:'Playfair Display',Georgia,serif;
     --sans:'DM Sans',Arial,sans-serif;
     --mono:'DM Mono',monospace;
@@ -749,12 +747,11 @@ h1,h2,h3,p
     padding:7px 10px;
     cursor:pointer
 }
-/* ---------- additions: NEW badge, favourites, get-back-into, paging, search hint ---------- */
+/* ---------- additions: favourites, get-back-into, paging, search hint ---------- */
 .search{padding-right:34px}
 .kbd-hint{position:absolute;right:11px;top:50%;transform:translateY(-50%);font:10px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:1px 6px;pointer-events:none}
 .search:focus~.kbd-hint,.search:not(:placeholder-shown)~.kbd-hint{display:none}
 @media(hover:none){.kbd-hint{display:none}}
-.new-badge{display:inline-block;margin-left:8px;padding:1px 6px;border-radius:2px;background:var(--new);color:var(--new-ink);font:700 8px/1.6 var(--mono);letter-spacing:1px;vertical-align:2px}
 .small-btn.star{font-size:12px;line-height:1;padding:6px 8px}
 .small-btn.star.on{color:var(--soft);border-color:var(--soft)}
 .doc-meta{display:flex;gap:10px;margin-top:5px;min-width:0}
@@ -945,7 +942,6 @@ a.section-index:hover{color:var(--soft)}
 
   const documents = Array.isArray(window.ARCHIVE_DOCUMENTS) ? window.ARCHIVE_DOCUMENTS : [];
   const config = window.ARCHIVE_CONFIG || {};
-  const NEW_DAYS = Number(config.newDays) || 14;
   const byId = new Map(documents.map(d => [d.id, d]));
   const byPath = new Map(documents.map(d => [d.path, d]));
   const view = document.getElementById("view");
@@ -1015,7 +1011,6 @@ a.section-index:hover{color:var(--soft)}
   };
   const githubOnly = doc => doc.githubOnly === true;
   const categoryDocs = id => documents.filter(doc => categoryFor(doc) === id || (id === "PYQs" && String(doc.path || "").startsWith("PYQs/")));
-  const isNew = doc => !!doc.added && (Date.now() - Date.parse(doc.added)) / 864e5 <= NEW_DAYS;
   const formatSize = n => {
     if (!n) return "";
     if (n < 1024 * 1024) return `${Math.max(1, Math.round(n / 1024))} KB`;
@@ -1185,10 +1180,9 @@ a.section-index:hover{color:var(--soft)}
   function subjectCard(cat, g) {
     const count = g.docs.length;
     const left = g.sems.length > 1 ? g.sems.map(x => `Y${x.year} S${x.sem}`).join(" / ") : cat.id.toUpperCase();
-    const fresh = g.docs.filter(isNew).length;
     return `<button class="collection" data-open-subject="${escapeHTML(g.name)}" data-cat="${escapeHTML(cat.id)}">
       <div class="collection-icon">${cat.symbol}</div>
-      <div class="collection-title">${escapeHTML(g.name)}${fresh ? '<span class="new-badge">NEW</span>' : ""}</div>
+      <div class="collection-title">${escapeHTML(g.name)}</div>
       <div class="collection-desc">${escapeHTML(typeSummary(g.docs))}</div>
       <div class="collection-foot"><span>${escapeHTML(left)}</span><span>${count} FILE${count === 1 ? "" : "S"} ↗</span></div>
     </button>`;
@@ -1249,7 +1243,7 @@ a.section-index:hover{color:var(--soft)}
     return `<article class="doc">
       <div class="filetype ${escapeHTML(extension(doc.path))}">${escapeHTML(displayType(doc.path))}</div>
       <div class="doc-info">
-        <div class="doc-name">${escapeHTML(titleFor(doc))}${isNew(doc) ? '<span class="new-badge">NEW</span>' : ""}</div>
+        <div class="doc-name">${escapeHTML(titleFor(doc))}</div>
         <div class="doc-meta">${size ? `<span class="doc-size">${size}</span>` : ""}<div class="doc-path">${escapeHTML(doc.path)}</div></div>
       </div>
       <div class="doc-actions">
