@@ -23,8 +23,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0          # full history, so each file's first-added date (NEW badge) is correct
 
       - uses: actions/setup-node@v4
         with:
