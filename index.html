@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<title>One Night Batting - @mlaasya07</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
+:root
+{
+    --bg:#000000;
+    --panel:#430f0f;
+    --panel2:#4f1414;
+    --line:#720a0a;
+    --ink:#e9e9df;
+    --muted:#e6d8a6;
+    --soft:#e6d8a6;
+    --soft-dark:#000000;
+    --new:#f5d547;
+    --new-ink:#2a2100;
+    --serif:'Playfair Display',Georgia,serif;
+    --sans:'DM Sans',Arial,sans-serif;
+    --mono:'DM Mono',monospace;
+    --sidebar:252px
+}
+*
+{
+    box-sizing:border-box
+}
+html
+{
+    scroll-behavior:smooth
+}
+body
+{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:14px
+}
+button,input,select
+{
+    font:inherit
+}
+button,a
+{
+    -webkit-tap-highlight-color:transparent
+}
+a
+{
+    color:inherit;
+    text-decoration:none
+}
+button
+{
+    color:inherit
+}
+.shell
+{
+    min-height:100vh
+}
+.sidebar
+{
+    position:fixed;
+    inset:0 auto 0 0;
+    width:var(--sidebar);
+    padding:29px 19px 20px;
+    background:#4f1414;
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    z-index:30;
+    transition:transform .25s
+}
+.brand
+{
+    padding:0 10px 34px
+}
+.brand-name
+{
+    font:600 27px/1.03 var(--serif);
+    letter-spacing:-.8px
+}
+.brand-name span
+{
+    color:var(--soft);
+    font-style:italic
+}
+.brand-caption,.eyebrow,.nav-label,.mono
+{
+    font-family:var(--mono);
+    text-transform:uppercase;
+    letter-spacing:1.4px
+}
+.brand-caption
+{
+    font-size:9px;
+    color:var(--muted);
+    margin-top:10px
+}
+.nav-label
+{
+    font-size:9px;
+    color:#d7b17d;
+    padding:0 11px;
+    margin:17px 0 9px
+}
+.nav
+{
+    display:grid;
+    gap:4px
+}
+.nav-link
+{
+    width:100%;
+    border:0;
+    background:transparent;
+    text-align:left;
+    padding:11px 12px;
+    border-radius:4px;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-size:12px;
+    cursor:pointer;
+    transition:.18s
+}
+.nav-link:hover
+{
+    background:var(--panel2);
+    color:var(--ink)
+}
+.nav-link.active
+{
+    background:var(--soft-dark);
+    color:var(--soft)
+}
+.nav-symbol
+{
+    width:17px;
+    text-align:center;
+    font-size:15px
+}
+.nav-count
+{
+    margin-left:auto;
+    font:10px var(--mono);
+    color:#737b6e
+}
+.sidebar-bottom
+{
+    margin-top:auto;
+    border-top:1px solid var(--line);
+    padding:17px 9px 0
+}
+.repo-link
+{
+    font-size:11px;
+    color:var(--muted)
+}
+.repo-link:hover
+{
+    color:var(--soft)
+}
+.sidebar-note
+{
+    font:9px/1.7 var(--mono);
+    color:#d7b17d;
+    margin-top:13px
+}
+.main
+{
+    margin-left:var(--sidebar);
+    min-height:100vh
+}
+.topbar
+{
+    height:66px;
+    border-bottom:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 clamp(22px,5vw,68px)
+}
+.crumb
+{
+    font:10px var(--mono);
+    letter-spacing:1.2px;
+    color:var(--muted)
+}
+.crumb strong
+{
+    color:var(--soft);
+    font-weight:400
+}
+.top-actions
+{
+    display:flex;
+    align-items:center;
+    gap:16px
+}
+.status
+{
+    font-size:10px;
+    color:var(--muted);
+    display:flex;
+    align-items:center;
+    gap:7px
+}
+.status-dot
+{
+    width:6px;
+    height:6px;
+    background:#a8ba82;
+    border-radius:50%
+}
+.github
+{
+    border:1px solid var(--line);
+    padding:8px 12px;
+    border-radius:3px;
+    font-size:10px
+}
+.github:hover
+{
+    border-color:var(--soft);
+    color:var(--soft)
+}
+.menu-toggle
+{
+    display:none;
+    border:1px solid var(--line);
+    background:transparent;
+    padding:7px 10px;
+    border-radius:3px
+}
+.content
+{
+    width:min(1280px,100%);
+    margin:auto;
+    padding:53px clamp(22px,5vw,68px) 70px
+}
+.eyebrow
+{
+    font-size:9px;
+    color:var(--soft);
+    margin-bottom:19px
+}
+.hero
+{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    align-items:flex-end;
+    padding-bottom:38px;
+    border-bottom:1px solid var(--line)
+}
+h1,h2,h3,p
+{
+    margin-top:0
+}
+.hero h1
+{
+    font:500 clamp(42px,5.3vw,68px)/1.04 var(--serif);
+    letter-spacing:-1.8px;
+    margin:0;
+    max-width:720px
+}
+.hero h1 em
+{
+    color:var(--soft);
+    font-weight:500
+}
+.hero-copy
+{
+    font-size:12px;
+    line-height:1.9;
+    color:var(--muted);
+    max-width:490px;
+    margin:18px 0 0
+}
+.hero-aside
+{
+    text-align:right;
+    white-space:nowrap;
+    font:9px/2 var(--mono);
+    color:var(--muted)
+}
+.stats
+{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border:1px solid var(--line);
+    margin:28px 0 48px
+}
+.stat
+{
+    padding:18px 21px;
+    border-right:1px solid var(--line)
+}
+.stat:last-child
+{
+    border:0
+}
+.stat-value
+{
+    font:500 30px var(--serif);
+    color:var(--soft)
+}
+.stat-label
+{
+    font:9px var(--mono);
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-top:5px
+}
+.section-head
+{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    margin-bottom:19px;
+    gap:15px
+}
+.section-head h2
+{
+    font:500 25px var(--serif);
+    margin:0
+}
+.section-head p
+{
+    font-size:11px;
+    color:var(--muted);
+    margin:5px 0 0
+}
+.section-index
+{
+    font:9px var(--mono);
+    letter-spacing:1px;
+    color:var(--muted);
+    white-space:nowrap
+}
+.collections
+{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:11px;
+    margin-bottom:49px
+}
+.collection
+{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:20px;
+    text-align:left;
+    cursor:pointer;
+    min-height:155px;
+    transition:transform .2s,border-color .2s,background .2s
+}
+.collection:hover
+{
+    transform:translateY(-2px);
+    border-color:#657151;
+    background:var(--panel2)
+}
+.collection-icon
+{
+    font-size:18px;
+    color:var(--soft);
+    margin-bottom:18px
+}
+.collection-title
+{
+    font:500 19px var(--serif)
+}
+.collection-desc
+{
+    font-size:10px;
+    color:var(--muted);
+    margin-top:7px;
+    line-height:1.6
+}
+.collection-foot
+{
+    display:flex;
+    justify-content:space-between;
+    border-top:1px solid var(--line);
+    padding-top:11px;
+    margin-top:17px;
+    font:9px var(--mono);
+    color:var(--muted);
+    letter-spacing:.6px
+}
+.toolbar
+{
+    display:flex;
+    gap:9px;
+    margin:20px 0 17px;
+    flex-wrap:wrap
+}
+.search-wrap
+{
+    position:relative;
+    flex:1;
+    min-width:220px
+}
+.search-mark
+{
+    position:absolute;
+    left:13px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--muted);
+    font-size:17px
+}
+.search
+{
+    width:100%;
+    height:41px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--ink);
+    padding:0 13px 0 38px;
+    outline:0;
+    font-size:11px
+}
+.search:focus,.select:focus
+{
+    border-color:#83916b
+}
+.search::placeholder
+{
+    color:#727a6c
+}
+.select
+{
+    height:41px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--muted);
+    padding:0 28px 0 11px;
+    font-size:10px;
+    outline:0
+}
+.result-line
+{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    margin:0 0 10px;
+    font:9px var(--mono);
+    letter-spacing:.8px;
+    color:var(--muted)
+}
+.document-list
+{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px
+}
+.doc
+{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:14px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:3px;
+    min-width:0;
+    transition:.18s
+}
+.doc:hover
+{
+    background:var(--panel2);
+    border-color:#566149
+}
+.filetype
+{
+    width:39px;
+    height:45px;
+    flex:0 0 39px;
+    display:grid;
+    place-items:center;
+    background:#22271f;
+    border:1px solid var(--line);
+    border-radius:2px;
+    color:var(--soft);
+    font:9px var(--mono)
+}
+.filetype.pdf
+{
+    color:#d99b8e
+}
+.filetype.ppt,.filetype.pptx
+{
+    color:#d7b17d
+}
+.filetype.doc,.filetype.docx
+{
+    color:#91add0
+}
+.doc-info
+{
+    min-width:0;
+    flex:1
+}
+.doc-name
+{
+    font-size:11px;
+    font-weight:600;
+    line-height:1.5;
+    overflow-wrap:anywhere
+}
+.doc-path
+{
+    font:9px var(--mono);
+    color:var(--muted);
+    margin-top:5px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+.doc-actions
+{
+    display:flex;
+    gap:6px;
+    flex-shrink:0
+}
+.small-btn
+{
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--muted);
+    padding:7px 9px;
+    border-radius:2px;
+    font-size:9px;
+    cursor:pointer
+}
+.small-btn:hover
+{
+    border-color:var(--soft);
+    color:var(--soft)
+}
+.small-btn.primary
+{
+    background:var(--soft);
+    color:#1b2015;
+    border-color:var(--soft)
+}
+.small-btn.primary:hover
+{
+    background:#d8e0c0
+}
+.empty
+{
+    grid-column:1/-1;
+    text-align:center;
+    padding:53px 20px;
+    border:1px dashed var(--line);
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.9
+}
+.empty strong
+{
+    display:block;
+    font:500 21px var(--serif);
+    color:var(--ink);
+    margin-bottom:6px
+}
+.empty code
+{
+    font:10px var(--mono);
+    color:var(--soft)
+}
+.page-intro
+{
+    padding:5px 0 34px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:30px
+}
+.page-intro h1
+{
+    font:500 clamp(36px,4.6vw,55px)/1.1 var(--serif);
+    margin:0
+}
+.page-intro h1 em
+{
+    color:var(--soft)
+}
+.page-intro p
+{
+    max-width:600px;
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
+    margin:14px 0 0
+}
+.year-tabs
+{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:18px 0 4px
+}
+.year-tab
+{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--muted);
+    font:9px var(--mono);
+    letter-spacing:1px;
+    padding:9px 14px;
+    cursor:pointer;
+    transition:border-color .2s,color .2s,background .2s
+}
+.year-tab:hover
+{
+    border-color:#657151;
+    color:var(--soft)
+}
+.year-tab.active
+{
+    background:var(--soft-dark);
+    border-color:#83916b;
+    color:var(--soft)
+}
+.sem-head
+{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid var(--line);
+    padding-bottom:9px;
+    margin:26px 0 12px;
+    font:9px var(--mono);
+    letter-spacing:1.2px;
+    color:var(--soft)
+}
+.sem-head span:last-child
+{
+    color:var(--muted)
+}
+.sem-grid
+{
+    margin-bottom:0
+}
+.back-link
+{
+    display:inline-block;
+    color:var(--soft);
+    font:9px var(--mono);
+    letter-spacing:1px;
+    margin-bottom:22px;
+    cursor:pointer
+}
+.footer
+{
+    border-top:1px solid var(--line);
+    padding:21px clamp(22px,5vw,68px);
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    color:var(--muted);
+    font:9px var(--mono);
+    letter-spacing:.5px
+}
+.modal
+{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.82);
+    z-index:80;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px
+}
+.modal.open
+{
+    display:flex
+}
+.modal-panel
+{
+    width:min(1100px,100%);
+    height:min(90vh,900px);
+    background:var(--panel);
+    border:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    border-radius:4px;
+    overflow:hidden
+}
+.modal-head
+{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    padding:12px 16px;
+    border-bottom:1px solid var(--line)
+}
+.modal-title
+{
+    font-size:11px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+.modal-tools
+{
+    display:flex;
+    gap:7px;
+    flex-shrink:0
+}
+.modal-frame
+{
+    width:100%;
+    flex:1;
+    border:0;
+    background:#fff
+}
+.modal-note
+{
+    padding:9px 14px;
+    border-top:1px solid var(--line);
+    font-size:9px;
+    color:var(--muted)
+}
+.modal-note a
+{
+    color:var(--soft);
+    text-decoration:underline
+}
+.close
+{
+    background:transparent;
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:7px 10px;
+    cursor:pointer
+}
+/* ---------- additions: NEW badge, favourites, get-back-into, paging, search hint ---------- */
+.search{padding-right:34px}
+.kbd-hint{position:absolute;right:11px;top:50%;transform:translateY(-50%);font:10px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:1px 6px;pointer-events:none}
+.search:focus~.kbd-hint,.search:not(:placeholder-shown)~.kbd-hint{display:none}
+@media(hover:none){.kbd-hint{display:none}}
+.new-badge{display:inline-block;margin-left:8px;padding:1px 6px;border-radius:2px;background:var(--new);color:var(--new-ink);font:700 8px/1.6 var(--mono);letter-spacing:1px;vertical-align:2px}
+.small-btn.star{font-size:12px;line-height:1;padding:6px 8px}
+.small-btn.star.on{color:var(--soft);border-color:var(--soft)}
+.doc-meta{display:flex;gap:10px;margin-top:5px;min-width:0}
+.doc-meta .doc-path{margin-top:0;flex:1;min-width:0}
+.doc-size{font:9px var(--mono);color:var(--muted);flex-shrink:0}
+.more-wrap{display:flex;align-items:center;gap:14px;margin-top:14px;font:9px var(--mono);letter-spacing:.8px;color:var(--muted)}
+.small-btn.more{padding:9px 14px}
+.link-btn{background:none;border:0;padding:0;font:9px var(--mono);letter-spacing:.8px;color:var(--muted);text-decoration:underline;cursor:pointer}
+.link-btn:hover{color:var(--soft)}
+.resume{background:var(--panel);border:1px solid var(--line);border-radius:3px;padding:14px 16px 4px;margin:0 0 40px}
+.resume-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--line);font:9px var(--mono);letter-spacing:1.2px}
+.resume-q{color:var(--soft)}
+.resume-tools{display:flex;gap:14px}
+.resume-item{display:flex;align-items:center;gap:13px;padding:11px 0;border-bottom:1px solid var(--line)}
+.resume-item:last-child{border-bottom:0}
+.resume-info{flex:1;min-width:0}
+.resume-off{font:9px var(--mono);letter-spacing:.8px;color:var(--muted);margin:-30px 0 30px}
+.fav-section{margin-bottom:49px}
+a.section-index:hover{color:var(--soft)}
+@media(max-width:760px){.resume-item{flex-wrap:wrap}.resume-item .doc-actions{width:100%;padding-left:0}}
+@media(max-width:1050px)
+{
+    .collections
+    {
+        grid-template-columns:repeat(2,minmax(0,1fr))
+    }
+    .document-list
+    {
+        grid-template-columns:1fr
+    }
+}
+@media(max-width:760px)
+{
+    .sidebar
+    {
+        transform:translateX(-100%);
+        box-shadow:20px 0 50px #0008
+    }
+    .sidebar.open
+    {
+        transform:translateX(0)
+    }
+    .main
+    {
+        margin-left:0
+    }
+    .menu-toggle
+    {
+        display:block
+    }
+    .topbar
+    {
+        padding:0 18px
+    }
+    .content
+    {
+        padding:37px 19px 50px
+    }
+    .hero
+    {
+        align-items:flex-start;
+        flex-direction:column
+    }
+    .hero-aside
+    {
+        text-align:left
+    }
+    .stats
+    {
+        grid-template-columns:repeat(2,1fr)
+    }
+    .stat:nth-child(2)
+    {
+        border-right:0
+    }
+    .stat:nth-child(-n+2)
+    {
+        border-bottom:1px solid var(--line)
+    }
+    .status
+    {
+        display:none
+    }
+    .footer
+    {
+        padding:19px;
+        flex-direction:column
+    }
+    .doc
+    {
+        flex-wrap:wrap
+    }
+    .doc-actions
+    {
+        width:100%;
+        padding-left:52px
+    }
+}
+@media(max-width:440px)
+{
+    .collections
+    {
+        grid-template-columns:1fr
+    }
+    .select
+    {
+        flex:1
+    }
+    .section-index
+    {
+        font-size:8px
+    }
+    .github
+    {
+        padding:7px 9px
+    }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#/home" aria-label="One Night Batting home">
+      <div class="brand-name">one night <br><span>batting.</span></div>
+      <div class="brand-caption">An academic archive</div>
+    </a>
+    <div class="nav-label">☆</div>
+    <nav class="nav" id="navigation">
+      <a class="nav-link" href="#/home" data-route="home"><span class="nav-symbol">⌂</span>Overview</a>
+    </nav>
+    <div class="nav-label">Collections</div>
+    <nav class="nav" id="collection-nav"></nav>
+    <div class="sidebar-bottom">
+      <a class="repo-link" href="https://github.com/mlaasya07/one-night-batting" target="_blank" rel="noopener">↗ Open GitHub repository</a>
+      <div class="sidebar-note">A QUIET PLACE FOR<br>ALL YOUR STUDY MATERIAL.</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">☰</button>
+        <div class="crumb">ARCHIVE&nbsp; / &nbsp;<strong id="breadcrumb">OVERVIEW</strong></div>
+      </div>
+      <div class="top-actions">
+        <div class="status"><span class="status-dot"></span>LOCAL CATALOGUE</div>
+        <a class="github" href="https://github.com/mlaasya07/one-night-batting" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </header>
+
+    <div class="content" id="view" aria-live="polite"></div>
+    <footer class="footer"><span>ONE NIGHT BATTING © 2026</span><span>BUILT FOR LEARNING. KEPT IN ONE PLACE.</span></footer>
+  </main>
+</div>
+
+<div class="modal" id="preview-modal" role="dialog" aria-modal="true" aria-label="Document preview">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <div class="modal-title" id="modal-title">Document preview</div>
+      <div class="modal-tools">
+        <a class="small-btn primary" id="modal-open" href="#" target="_blank" rel="noopener">Open original ↗</a>
+        <a class="small-btn" id="modal-download" href="#" download>Download ↓</a>
+        <button class="close" id="modal-close" aria-label="Close preview">✕</button>
+      </div>
+    </div>
+    <iframe class="modal-frame" id="modal-frame" title="Document preview"></iframe>
+    <div class="modal-note" id="modal-note">Preview uses your browser's built-in document support.</div>
+  </div>
+</div>
+
+<script src="./data.js"></script>
+<script>
+(() => {
+  "use strict";
+
+  const CATEGORIES = [
+    {id:"CSE",label:"Computer Science",symbol:"⌘",description:"Computer science coursework, notes and reference material."},
+    {id:"DS",label:"Data Science",symbol:"◈",description:"Data science subjects, lecture material and study resources."},
+    {id:"PYQs",label:"Previous Papers",symbol:"▤",description:"Past examination papers and question banks."},
+    {id:"Lab_Codes",label:"Lab Codes",symbol:"⌨",description:"Laboratory programs, practical files and code resources."},
+    {id:"ZtoA files",label:"Other Resources",symbol:"▣",description:"Additional academic material and miscellaneous references."}
+  ];
+
+  const PAGE = 30;            // cards shown per "show more" step
+  const RECENT_MAX = 5;       // opened files remembered
+  const RECENT_SHOW = 3;      // shown in "Get back into?"
+  const RECENT_DAYS = 14;     // remembered files expire after this long
+
+  const documents = Array.isArray(window.ARCHIVE_DOCUMENTS) ? window.ARCHIVE_DOCUMENTS : [];
+  const config = window.ARCHIVE_CONFIG || {};
+  const NEW_DAYS = Number(config.newDays) || 14;
+  const byId = new Map(documents.map(d => [d.id, d]));
+  const byPath = new Map(documents.map(d => [d.path, d]));
+  const view = document.getElementById("view");
+  const sidebar = document.getElementById("sidebar");
+  const modal = document.getElementById("preview-modal");
+  const frame = document.getElementById("modal-frame");
+  let activeQuery = "";
+  let activeType = "all";
+  let activeSort = "name";
+  let activeYear = "all";
+  let currentCat = null;
+  let listCtx = null;
+  let limit = PAGE;
+  let currentRoute = "home";
+
+  // ---------- browser storage (favourites, recently opened) ----------
+  const KEY_FAV = "onb:favourites", KEY_RECENT = "onb:recent", KEY_RECENT_OFF = "onb:recent-off";
+  const store = {
+    get(key, fallback) { try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch { return fallback; } },
+    set(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* storage unavailable */ } }
+  };
+  const favouritePaths = () => store.get(KEY_FAV, []).filter(p => byPath.has(p));
+  const isFav = p => favouritePaths().includes(p);
+  function toggleFav(p) {
+    const list = favouritePaths(), i = list.indexOf(p);
+    if (i >= 0) list.splice(i, 1); else list.unshift(p);
+    store.set(KEY_FAV, list);
+  }
+  const recentOff = () => store.get(KEY_RECENT_OFF, false) === true;
+  const recents = () => {
+    const cutoff = Date.now() - RECENT_DAYS * 864e5;
+    return store.get(KEY_RECENT, []).filter(r => r && byPath.has(r.p) && r.t > cutoff);
+  };
+  function addRecent(p) {
+    if (recentOff() || !byPath.has(p)) return;
+    store.set(KEY_RECENT, [{p, t: Date.now()}, ...recents().filter(r => r.p !== p)].slice(0, RECENT_MAX));
+  }
+  const removeRecent = p => store.set(KEY_RECENT, recents().filter(r => r.p !== p));
+
+  // ---------- helpers ----------
+  const escapeHTML = value => String(value ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const extension = path => String(path).split(".").pop().toLowerCase();
+  const typeOf = path => {
+    const ext = extension(path);
+    if (ext === "pdf") return "pdf";
+    if (["ppt","pptx"].includes(ext)) return "presentation";
+    if (["doc","docx"].includes(ext)) return "word";
+    return "other";
+  };
+  const displayType = path => extension(path).toUpperCase();
+  const NATIVE_PREVIEW = ["jpg","jpeg","png","gif","webp","svg","txt","md","html","htm"];
+  const canPreview = path => ["pdf","doc","docx","ppt","pptx",...NATIVE_PREVIEW].includes(extension(path));
+  const categoryFor = doc => doc.category || String(doc.path || "").split("/")[0];
+  const titleFor = doc => doc.name || String(doc.path || "").split("/").pop().replace(/\.[^.]+$/,"").replace(/[_-]/g," ");
+  const fileURL = path => String(path).split("/").map(encodeURIComponent).join("/");
+  const githubRepo = () => {
+    if (config.githubRepo) return String(config.githubRepo).replace(/\/+$/, "");
+    if (/\.github\.io$/.test(location.hostname)) {
+      const repo = location.pathname.split("/")[1];
+      if (repo) return `https://github.com/${location.hostname.split(".")[0]}/${repo}`;
+    }
+    return "";
+  };
+  const githubURL = path => {
+    const base = githubRepo();
+    return base ? `${base}/raw/${config.branch || "main"}/${fileURL(path)}` : fileURL(path);
+  };
+  const githubOnly = doc => doc.githubOnly === true;
+  const categoryDocs = id => documents.filter(doc => categoryFor(doc) === id || (id === "PYQs" && String(doc.path || "").startsWith("PYQs/")));
+  const isNew = doc => !!doc.added && (Date.now() - Date.parse(doc.added)) / 864e5 <= NEW_DAYS;
+  const formatSize = n => {
+    if (!n) return "";
+    if (n < 1024 * 1024) return `${Math.max(1, Math.round(n / 1024))} KB`;
+    return `${(n / 1024 / 1024).toFixed(n < 10 * 1024 * 1024 ? 1 : 0)} MB`;
+  };
+  const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "S"}`;
+
+  // ---------- unit grouping (subject pages) ----------
+  const ROMAN = {i:1, ii:2, iii:3, iv:4, v:5, vi:6, vii:7};
+  const UNIT_RE = /(?<![a-z])units?[\s-]*(\d+|[ivx]+)(?![a-z])/i;
+  const QB_STRONG = /question|important|(?<![a-z])imp ?qs?|(?<![a-z])qb(?![a-z])|qns|problem|assignment|(?<![a-z])exams?(?![a-z])|sem ?exam|twist|\d ?marks?|memory palace/i;
+  const QB_WEAK = /(?<![a-z])mids?(?![a-z0-9])|(?<![a-z])mid ?-?[12](?![a-z0-9])|(?<![a-z])sem(?![a-z])/i;
+  const GROUPS = {lectures:{key:"lectures",label:"LECTURES",order:200}, qb:{key:"qb",label:"QUESTION BANKS & EXAM PREP",order:300},
+    lab:{key:"lab",label:"LAB",order:400}, books:{key:"books",label:"TEXTBOOKS & REFERENCES",order:500}, other:{key:"other",label:"NOTES & OTHER",order:600}};
+  const customGroup = label => ({key:`c:${label}`, label:String(label).toUpperCase(), order:550});
+
+  function groupOf(doc) {
+    if (doc.group) return customGroup(doc.group);
+    const file = String(doc.path).split("/").pop();
+    const text = `${titleFor(doc)} ${file}`.replace(/_/g, " ");
+    const m = text.match(UNIT_RE);
+    // "… textbook notes" for a unit still belongs under that unit; real textbooks have no unit number
+    if ((/textbook/i.test(text) && !m) || /\d(st|nd|rd|th) edition/i.test(text) || /\/textbooks?\//i.test(doc.path)) return GROUPS.books;
+    if (QB_STRONG.test(text)) return GROUPS.qb;
+    let n = 0;
+    if (m) {
+      const raw = m[1].toLowerCase();
+      n = /^\d+$/.test(raw) ? +raw : (ROMAN[raw] || 0);
+      if (n >= 10) n = +String(n)[0];              // "UNIT 21", "UNIT-11" -> unit 2, unit 1
+    } else {
+      const ab = file.match(/^(\d)[ab](?![a-z])/i);  // "4A Networking…", "5B Advanced…"
+      if (ab) n = +ab[1];
+    }
+    if (n > 0) return {key:`u${n}`, label:`UNIT ${n}`, order:100 + n};
+    if (/lecture/i.test(text)) return GROUPS.lectures;
+    if (/(?<![a-z])lab(?![a-z])/i.test(text)) return GROUPS.lab;
+    if (QB_WEAK.test(text)) return GROUPS.qb;
+    return GROUPS.other;
+  }
+
+  function groupedMarkup(result) {
+    const groups = new Map();
+    result.forEach(d => {
+      const g = groupOf(d);
+      if (!groups.has(g.key)) groups.set(g.key, {...g, items: []});
+      groups.get(g.key).items.push(d);
+    });
+    const list = [...groups.values()].sort((a, b) => a.order - b.order);
+    if (list.length < 2) return null;              // nothing worth grouping
+    return list.map(g => `<div class="sem-head"><span>${escapeHTML(g.label)}</span><span>${plural(g.items.length, "FILE")}</span></div>
+      <div class="document-list">${g.items.map(documentMarkup).join("")}</div>`).join("");
+  }
+
+  // ---------- navigation ----------
+  function buildNavigation() {
+    document.getElementById("navigation").innerHTML = `
+      <a class="nav-link" href="#/home" data-route="home"><span class="nav-symbol">⌂</span>Overview</a>
+      <a class="nav-link" href="#/favourites" data-route="favourites"><span class="nav-symbol">★</span>Favourites<span class="nav-count" id="fav-count">${favouritePaths().length}</span></a>`;
+    document.getElementById("collection-nav").innerHTML = CATEGORIES.map(cat => `
+      <a class="nav-link" href="#/${encodeURIComponent(cat.id)}" data-route="${escapeHTML(cat.id)}">
+        <span class="nav-symbol">${cat.symbol}</span>${escapeHTML(cat.label)}
+        <span class="nav-count">${categoryDocs(cat.id).length}</span>
+      </a>`).join("");
+  }
+
+  function statsMarkup() {
+    const counts = {
+      all: documents.length,
+      pdf: documents.filter(d => typeOf(d.path) === "pdf").length,
+      presentation: documents.filter(d => typeOf(d.path) === "presentation").length,
+      word: documents.filter(d => typeOf(d.path) === "word").length
+    };
+    return `<section class="stats">
+      <div class="stat"><div class="stat-value">${counts.all}</div><div class="stat-label">Total documents</div></div>
+      <div class="stat"><div class="stat-value">${counts.pdf}</div><div class="stat-label">PDF documents</div></div>
+      <div class="stat"><div class="stat-value">${counts.presentation}</div><div class="stat-label">Presentations</div></div>
+      <div class="stat"><div class="stat-value">${counts.word}</div><div class="stat-label">Word documents</div></div>
+    </section>`;
+  }
+
+  function collectionCards() {
+    return CATEGORIES.map(cat => {
+      const count = categoryDocs(cat.id).length;
+      return `<button class="collection" data-open-category="${escapeHTML(cat.id)}">
+        <div class="collection-icon">${cat.symbol}</div>
+        <div class="collection-title">${escapeHTML(cat.label)}</div>
+        <div class="collection-desc">${escapeHTML(cat.description)}</div>
+        <div class="collection-foot"><span>${escapeHTML(cat.id.toUpperCase())}</span><span>${count} FILE${count === 1 ? "" : "S"} ↗</span></div>
+      </button>`;
+    }).join("");
+  }
+
+  function emptyMarkup(category) {
+    const label = category ? (CATEGORIES.find(c => c.id === category)?.label || category) : "the archive";
+    return `<div class="empty"><strong>No documents found</strong>
+      Nothing matches in ${escapeHTML(label)}.<br>
+      New files appear here after <code>data.js</code> is rebuilt (<code>node tools/build-data.mjs</code>).</div>`;
+  }
+
+  function toolbarMarkup() {
+    return `<div class="toolbar">
+      <label class="search-wrap"><span class="search-mark">⌕</span>
+        <input class="search" id="doc-search" type="search" placeholder="Search by document, subject or folder..." value="${escapeHTML(activeQuery)}" autocomplete="off">
+        <kbd class="kbd-hint" aria-hidden="true">/</kbd>
+      </label>
+      <select class="select" id="type-filter" aria-label="Filter by file type">
+        <option value="all" ${activeType==="all"?"selected":""}>All formats</option>
+        <option value="pdf" ${activeType==="pdf"?"selected":""}>PDF</option>
+        <option value="presentation" ${activeType==="presentation"?"selected":""}>PowerPoint</option>
+        <option value="word" ${activeType==="word"?"selected":""}>Word</option>
+        <option value="other" ${activeType==="other"?"selected":""}>Other files</option>
+      </select>
+      <select class="select" id="sort-filter" aria-label="Sort documents">
+        <option value="name" ${activeSort==="name"?"selected":""}>Name: A–Z</option>
+        <option value="name-desc" ${activeSort==="name-desc"?"selected":""}>Name: Z–A</option>
+        <option value="folder" ${activeSort==="folder"?"selected":""}>Folder</option>
+      </select>
+    </div>`;
+  }
+
+  const compare = (a, b) => String(a).localeCompare(String(b), undefined, {numeric:true, sensitivity:"base"});
+
+  function filteredDocuments(category, subject) {
+    let result = category ? categoryDocs(category) : [...documents];
+    if (subject) result = result.filter(d => (d.subject || "General") === subject);
+    if (activeQuery.trim()) {
+      const q = activeQuery.toLowerCase().trim();
+      result = result.filter(d => [titleFor(d),d.subject,d.path,categoryFor(d)].join(" ").toLowerCase().includes(q));
+    }
+    if (activeType !== "all") result = result.filter(d => typeOf(d.path) === activeType);
+    result.sort((a,b) => {
+      if (activeSort === "name-desc") return compare(titleFor(b), titleFor(a));
+      if (activeSort === "folder") return compare(a.path, b.path);
+      return compare(titleFor(a), titleFor(b));
+    });
+    return result;
+  }
+
+  // ---------- subjects ----------
+  // Any folder in the path named like "3rdyrSem2" gives the year / semester.
+  const semesterOf = path => {
+    for (const seg of String(path).split("/").slice(1, -1)) {
+      const m = seg.match(/^(\d)(?:st|nd|rd|th)yrSem(\d)$/i);
+      if (m) return {year:+m[1], sem:+m[2]};
+    }
+    return null;
+  };
+
+  function subjectGroups(category) {
+    const map = new Map();
+    categoryDocs(category).forEach(d => {
+      const name = d.subject || "General";
+      if (!map.has(name)) map.set(name, []);
+      map.get(name).push(d);
+    });
+    return [...map.entries()].map(([name, docs]) => {
+      const sems = [...new Map(docs.map(d => semesterOf(d.path)).filter(Boolean).map(s => [s.year*10+s.sem, s])).values()].sort((a,b) => (a.year*10+a.sem)-(b.year*10+b.sem));
+      return {name, docs, sems, order: sems.length ? sems[0].year*10+sems[0].sem : 99};
+    }).sort((a,b) => a.order - b.order || compare(a.name, b.name));
+  }
+
+  function typeSummary(docs) {
+    const n = t => docs.filter(d => typeOf(d.path) === t).length;
+    return [[n("pdf"),"PDF"],[n("presentation"),"PPT"],[n("word"),"DOC"],[n("other"),"OTHER"]].filter(x => x[0]).map(x => `${x[0]} ${x[1]}`).join(" · ");
+  }
+
+  function subjectCard(cat, g) {
+    const count = g.docs.length;
+    const left = g.sems.length > 1 ? g.sems.map(x => `Y${x.year} S${x.sem}`).join(" / ") : cat.id.toUpperCase();
+    const fresh = g.docs.filter(isNew).length;
+    return `<button class="collection" data-open-subject="${escapeHTML(g.name)}" data-cat="${escapeHTML(cat.id)}">
+      <div class="collection-icon">${cat.symbol}</div>
+      <div class="collection-title">${escapeHTML(g.name)}${fresh ? '<span class="new-badge">NEW</span>' : ""}</div>
+      <div class="collection-desc">${escapeHTML(typeSummary(g.docs))}</div>
+      <div class="collection-foot"><span>${escapeHTML(left)}</span><span>${count} FILE${count === 1 ? "" : "S"} ↗</span></div>
+    </button>`;
+  }
+
+  // Flat list, shown a page at a time.
+  function pagedList(result) {
+    const shown = result.slice(0, limit), rest = result.length - shown.length;
+    return `<div class="document-list">${shown.map(documentMarkup).join("")}</div>` +
+      (rest > 0 ? `<div class="more-wrap"><button class="small-btn more" data-more>Show ${Math.min(PAGE, rest)} more</button><span>${shown.length} OF ${result.length} SHOWN</span></div>` : "");
+  }
+
+  function listBody(result, ctx) {
+    if (!result.length) return `<div class="document-list">${emptyMarkup(ctx.category)}</div>`;
+    if (ctx.subject && !activeQuery.trim() && activeType === "all") {
+      const grouped = groupedMarkup(result);
+      if (grouped) return grouped;
+    }
+    return pagedList(result);
+  }
+
+  // In a collection: year tabs + subject cards grouped by year/semester; flat results while searching/filtering.
+  function categoryBody(cat) {
+    if (activeQuery.trim() || activeType !== "all") {
+      const result = filteredDocuments(cat.id);
+      return `<div class="result-line"><span id="result-count">${plural(result.length, "DOCUMENT")} FOUND</span><span>ACROSS ALL SUBJECTS</span></div>
+        ${result.length ? pagedList(result) : `<div class="document-list">${emptyMarkup(cat.id)}</div>`}`;
+    }
+    const groups = subjectGroups(cat.id);
+    if (!groups.length) return emptyMarkup(cat.id);
+    const years = [...new Set(groups.filter(g => g.sems.length).map(g => g.sems[0].year))].sort();
+    if (activeYear !== "all" && !years.includes(+activeYear)) activeYear = "all";
+    const tabs = years.length ? `<div class="year-tabs">${["all", ...years].map(y =>
+      `<button class="year-tab${String(y) === String(activeYear) ? " active" : ""}" data-year="${y}">${y === "all" ? "ALL YEARS" : "YEAR " + y}</button>`).join("")}</div>` : "";
+    const visible = activeYear === "all" ? groups : groups.filter(g => g.sems.length && g.sems[0].year === +activeYear);
+    const sections = [];
+    visible.forEach(g => {
+      const label = g.sems.length ? `YEAR ${g.sems[0].year} · SEM ${g.sems[0].sem}` : "OTHER";
+      let sec = sections.find(x => x.label === label);
+      if (!sec) sections.push(sec = {label, items:[]});
+      sec.items.push(g);
+    });
+    return `${tabs}
+      <div class="result-line"><span>${plural(visible.length, "SUBJECT")}</span><span>SELECT A SUBJECT TO OPEN ITS FILES</span></div>
+      ${sections.map(sec => `${years.length ? `<div class="sem-head"><span>${sec.label}</span><span>${plural(sec.items.length, "SUBJECT")}</span></div>` : ""}
+        <div class="collections sem-grid"${years.length ? "" : ' style="margin-top:14px"'}>${sec.items.map(g => subjectCard(cat, g)).join("")}</div>`).join("")}`;
+  }
+
+  function documentMarkup(doc) {
+    const path = fileURL(doc.path);
+    const fav = isFav(doc.path);
+    const star = `<button class="small-btn star${fav ? " on" : ""}" data-fav="${escapeHTML(doc.path)}" aria-pressed="${fav}" aria-label="${fav ? "Remove from favourites" : "Add to favourites"}" title="${fav ? "Remove from favourites" : "Add to favourites"}">${fav ? "★" : "☆"}</button>`;
+    const actions = githubOnly(doc)
+      ? `<a class="small-btn primary" href="${escapeHTML(githubURL(doc.path))}" data-gh="${escapeHTML(doc.path)}" target="_blank" rel="noopener">Download from GitHub ↓</a>`
+      : `${canPreview(doc.path) ? `<button class="small-btn primary" data-preview="${escapeHTML(doc.id)}">Preview</button>` : ""}
+        <a class="small-btn" href="${escapeHTML(path)}" download>↓</a>`;
+    const size = formatSize(doc.size);
+    return `<article class="doc">
+      <div class="filetype ${escapeHTML(extension(doc.path))}">${escapeHTML(displayType(doc.path))}</div>
+      <div class="doc-info">
+        <div class="doc-name">${escapeHTML(titleFor(doc))}${isNew(doc) ? '<span class="new-badge">NEW</span>' : ""}</div>
+        <div class="doc-meta">${size ? `<span class="doc-size">${size}</span>` : ""}<div class="doc-path">${escapeHTML(doc.path)}</div></div>
+      </div>
+      <div class="doc-actions">
+        ${star}${actions}
+      </div>
+    </article>`;
+  }
+
+  function renderDocumentArea(category, subject) {
+    const result = filteredDocuments(category, subject);
+    listCtx = {category, subject};
+    return `${toolbarMarkup()}
+      <div class="result-line"><span id="result-count">${plural(result.length, "DOCUMENT")} FOUND</span><span>LOCAL DOCUMENT INDEX</span></div>
+      <div id="list-wrap">${listBody(result, listCtx)}</div>`;
+  }
+
+  // ---------- "Get back into?" and favourites on the overview ----------
+  function resumeMarkup() {
+    if (recentOff()) return `<div class="resume-off">“Get back into?” is off · <button class="link-btn" data-resume-on>Turn on</button></div>`;
+    const items = recents().slice(0, RECENT_SHOW).map(r => byPath.get(r.p));
+    if (!items.length) return "";
+    return `<section class="resume">
+      <div class="resume-head"><span class="resume-q">GET BACK INTO?</span>
+        <span class="resume-tools"><button class="link-btn" data-resume-clear>Clear all</button><button class="link-btn" data-resume-off>Don’t ask again</button></span></div>
+      ${items.map(d => `<div class="resume-item">
+        <div class="resume-info"><div class="doc-name">${escapeHTML(titleFor(d))}</div><div class="doc-path">${escapeHTML(d.subject || "")}</div></div>
+        <div class="doc-actions"><button class="small-btn primary" data-resume-open="${escapeHTML(d.path)}">Yes</button><button class="small-btn" data-resume-no="${escapeHTML(d.path)}">No</button></div>
+      </div>`).join("")}
+    </section>`;
+  }
+
+  function favouritesTeaser() {
+    const list = favouritePaths().map(p => byPath.get(p));
+    if (!list.length) return "";
+    return `<section class="fav-section">
+      <div class="section-head"><div><h2>Favourites</h2><p>Files you starred.</p></div><a class="section-index" href="#/favourites">${list.length} STARRED ↗</a></div>
+      <div class="document-list">${list.slice(0, 6).map(documentMarkup).join("")}</div>
+    </section>`;
+  }
+
+  function refreshHomeSlots() {
+    const r = document.getElementById("resume-slot"), f = document.getElementById("fav-slot");
+    if (r) r.innerHTML = resumeMarkup();
+    if (f) f.innerHTML = favouritesTeaser();
+  }
+
+  // ---------- pages ----------
+  function renderHome() {
+    document.getElementById("breadcrumb").textContent = "OVERVIEW";
+    view.innerHTML = `
+      <section class="hero">
+        <div>
+          <div class="eyebrow">A PERSONAL KNOWLEDGE COLLECTION / EST. 2025</div>
+          <h1>One night.<br>A thousand <em>pages.</em></h1>
+          <p class="hero-copy">A growing collection of academic resources, lecture materials, previous question papers, laboratory codes and everything in between. Collected in one place, organised for easier access.</p>
+        </div>
+        <div class="hero-aside">ARCHIVE NO. 001<br>ACADEMIC RESOURCE LIBRARY<br>OPEN COLLECTION</div>
+      </section>
+      ${statsMarkup()}
+      <div id="resume-slot">${resumeMarkup()}</div>
+      <section>
+        <div class="section-head"><div><h2>Explore the archive</h2><p>Browse resources by collection.</p></div><div class="section-index">01 / COLLECTIONS</div></div>
+        <div class="collections">${collectionCards()}</div>
+      </section>
+      <div id="fav-slot">${favouritesTeaser()}</div>
+      <section>
+        <div class="section-head"><div><h2>All documents</h2><p>Search the complete collection.</p></div><div class="section-index">02 / LIBRARY</div></div>
+        ${renderDocumentArea(null)}
+      </section>`;
+    bindViewEvents(null);
+  }
+
+  function renderFavourites() {
+    document.getElementById("breadcrumb").textContent = "FAVOURITES";
+    const list = favouritePaths().map(p => byPath.get(p));
+    view.innerHTML = `
+      <a class="back-link" href="#/home">← BACK TO OVERVIEW</a>
+      <section class="page-intro">
+        <div class="eyebrow">YOUR SHELF</div>
+        <h1>Your <em>favourites.</em></h1>
+        <p>${list.length ? `${plural(list.length, "FILE").toLowerCase()} starred. Saved in this browser only.` : "Star a file with ☆ and it will show up here. Saved in this browser only."}</p>
+      </section>
+      ${list.length ? `<div class="document-list">${list.map(documentMarkup).join("")}</div>` : `<div class="document-list"><div class="empty"><strong>Nothing starred yet</strong>Use the ☆ button on any file.</div></div>`}`;
+  }
+
+  function renderCategory(id, subject) {
+    const cat = CATEGORIES.find(c => c.id === id);
+    if (!cat) return renderHome();
+    const group = subject ? subjectGroups(id).find(g => g.name === subject) : null;
+    if (group) return renderSubject(cat, group);
+    document.getElementById("breadcrumb").textContent = cat.id.toUpperCase();
+    view.innerHTML = `
+      <a class="back-link" href="#/home">← BACK TO OVERVIEW</a>
+      <section class="page-intro">
+        <div class="eyebrow">COLLECTION / ${escapeHTML(cat.id.toUpperCase())}</div>
+        <h1>${escapeHTML(cat.label.split(" ")[0])} <em>${escapeHTML(cat.label.split(" ").slice(1).join(" "))}</em></h1>
+        <p>${escapeHTML(cat.description)} Pick a subject to open its files, or search across the whole collection.</p>
+      </section>
+      ${toolbarMarkup()}
+      <div id="category-body">${categoryBody(cat)}</div>`;
+    currentCat = cat;
+    bindViewEvents(id, null, cat);
+  }
+
+  function renderSubject(cat, group) {
+    document.getElementById("breadcrumb").textContent = `${cat.id.toUpperCase()} / ${group.name.toUpperCase()}`;
+    const words = group.name.split(" ");
+    view.innerHTML = `
+      <a class="back-link" href="#/${encodeURIComponent(cat.id)}">← BACK TO ${escapeHTML(cat.label.toUpperCase())}</a>
+      <section class="page-intro">
+        <div class="eyebrow">COLLECTION / ${escapeHTML(cat.id.toUpperCase())} / SUBJECT</div>
+        <h1>${escapeHTML(words[0])} <em>${escapeHTML(words.slice(1).join(" "))}</em></h1>
+        <p>${group.docs.length} file${group.docs.length === 1 ? "" : "s"} · ${escapeHTML(typeSummary(group.docs))}. Preview or download anything below.</p>
+      </section>
+      ${renderDocumentArea(cat.id, group.name)}`;
+    bindViewEvents(cat.id, group.name, null);
+  }
+
+  // Re-draw whichever list is on screen (after searching, filtering or "show more").
+  function rerenderList() {
+    const body = document.getElementById("category-body");
+    if (body && currentCat) { body.innerHTML = categoryBody(currentCat); return; }
+    const wrap = document.getElementById("list-wrap");
+    if (!wrap || !listCtx) return;
+    const result = filteredDocuments(listCtx.category, listCtx.subject);
+    document.getElementById("result-count").textContent = `${plural(result.length, "DOCUMENT")} FOUND`;
+    wrap.innerHTML = listBody(result, listCtx);
+  }
+
+  function bindViewEvents(category, subject, subjectsOfCat) {
+    const search = document.getElementById("doc-search");
+    const type = document.getElementById("type-filter");
+    const sort = document.getElementById("sort-filter");
+    if (!search || !type || !sort) return;
+    const update = () => {
+      activeQuery = search.value;
+      activeType = type.value;
+      activeSort = sort.value;
+      limit = PAGE;
+      rerenderList();
+    };
+    search.addEventListener("input", update);
+    type.addEventListener("change", update);
+    sort.addEventListener("change", update);
+  }
+
+  // ---------- opening files ----------
+  function openPreview(doc) {
+    addRecent(doc.path);
+    const url = fileURL(doc.path);
+    const ext = extension(doc.path);
+    document.getElementById("modal-title").textContent = titleFor(doc);
+    document.getElementById("modal-open").href = url;
+    document.getElementById("modal-download").href = url;
+    document.getElementById("modal-download").setAttribute("download", "");
+    const note = document.getElementById("modal-note");
+    if (ext === "pdf") {
+      frame.src = url;
+      note.textContent = "PDF preview uses your browser's built-in viewer. Use Open original if the preview is unavailable.";
+    } else if (["doc","docx","ppt","pptx"].includes(ext)) {
+      const absolute = new URL(url, location.href).href;
+      frame.src = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(absolute)}`;
+      note.innerHTML = `Office preview requires the file to be publicly reachable online. If it does not load, use <a href="${escapeHTML(url)}" target="_blank" rel="noopener">Open original</a> or Download.`;
+    } else if (NATIVE_PREVIEW.includes(ext)) {
+      frame.src = url;
+      note.textContent = "Shown in your browser's built-in viewer. Use Open original if it does not display.";
+    } else {
+      frame.src = "about:blank";
+      note.textContent = "Preview is not available for this file type. Open the original file or download it.";
+    }
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function openDoc(doc) {
+    if (githubOnly(doc)) { addRecent(doc.path); window.open(githubURL(doc.path), "_blank", "noopener"); }
+    else if (canPreview(doc.path)) openPreview(doc);
+    else { addRecent(doc.path); window.open(fileURL(doc.path), "_blank", "noopener"); }
+  }
+
+  function closePreview() {
+    modal.classList.remove("open");
+    frame.src = "about:blank";
+    document.body.style.overflow = "";
+  }
+
+  function toggleFavourite(path) {
+    toggleFav(path);
+    const on = isFav(path);
+    document.querySelectorAll("[data-fav]").forEach(btn => {
+      if (btn.dataset.fav !== path) return;
+      btn.classList.toggle("on", on);
+      btn.textContent = on ? "★" : "☆";
+      btn.setAttribute("aria-pressed", String(on));
+      btn.title = btn.ariaLabel = on ? "Remove from favourites" : "Add to favourites";
+    });
+    const count = document.getElementById("fav-count");
+    if (count) count.textContent = favouritePaths().length;
+    if (currentRoute === "favourites") renderFavourites();
+    else if (currentRoute === "home") { const f = document.getElementById("fav-slot"); if (f) f.innerHTML = favouritesTeaser(); }
+  }
+
+  // ---------- routing ----------
+  function route() {
+    const raw = location.hash.replace(/^#\/?/, "");
+    const parts = raw.split("?")[0].split("/").map(p => { try { return decodeURIComponent(p); } catch { return p; } });
+    const routeId = raw ? parts[0] : "home";
+    const subjectId = parts[1] || null;
+    activeQuery = ""; activeType = "all"; activeSort = "name"; activeYear = "all";
+    limit = PAGE; currentCat = null; listCtx = null; currentRoute = routeId;
+    document.querySelectorAll(".nav-link").forEach(link => link.classList.toggle("active", link.dataset.route === routeId || (!raw && link.dataset.route === "home")));
+    sidebar.classList.remove("open");
+    if (!raw || routeId === "home") renderHome();
+    else if (routeId === "favourites") renderFavourites();
+    else renderCategory(routeId, subjectId);
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- events ----------
+  view.addEventListener("click", event => {
+    const hit = sel => event.target.closest(sel);
+    let el;
+    if ((el = hit("[data-preview]"))) { const doc = byId.get(el.dataset.preview); if (doc) openPreview(doc); return; }
+    if ((el = hit("[data-gh]"))) { addRecent(el.dataset.gh); return; }               // let the link open normally
+    if ((el = hit("[data-fav]"))) { toggleFavourite(el.dataset.fav); return; }
+    if (hit("[data-more]")) { limit += PAGE; rerenderList(); return; }
+    if ((el = hit("[data-resume-open]"))) { const doc = byPath.get(el.dataset.resumeOpen); if (doc) openDoc(doc); return; }
+    if ((el = hit("[data-resume-no]"))) { removeRecent(el.dataset.resumeNo); refreshHomeSlots(); return; }
+    if (hit("[data-resume-clear]")) { store.set(KEY_RECENT, []); refreshHomeSlots(); return; }
+    if (hit("[data-resume-off]")) { store.set(KEY_RECENT_OFF, true); store.set(KEY_RECENT, []); refreshHomeSlots(); return; }
+    if (hit("[data-resume-on]")) { store.set(KEY_RECENT_OFF, false); refreshHomeSlots(); return; }
+    if ((el = hit("[data-open-category]"))) { location.hash = `/${encodeURIComponent(el.dataset.openCategory)}`; return; }
+    if ((el = hit("[data-year]")) && currentCat) { activeYear = el.dataset.year; document.getElementById("category-body").innerHTML = categoryBody(currentCat); return; }
+    if ((el = hit("[data-open-subject]"))) location.hash = `/${encodeURIComponent(el.dataset.cat)}/${encodeURIComponent(el.dataset.openSubject)}`;
+  });
+  document.getElementById("modal-close").addEventListener("click", closePreview);
+  modal.addEventListener("click", e => { if (e.target === modal) closePreview(); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      if (modal.classList.contains("open")) closePreview();
+      else if (document.activeElement?.id === "doc-search") document.activeElement.blur();
+      return;
+    }
+    // "/" jumps to the search box (like GitHub)
+    if (e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey && !modal.classList.contains("open")) {
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || "")) return;
+      const box = document.getElementById("doc-search");
+      if (box) { e.preventDefault(); box.focus(); box.select(); }
+    }
+  });
+  document.getElementById("menu-toggle").addEventListener("click", () => sidebar.classList.toggle("open"));
+  window.addEventListener("hashchange", route);
+
+  buildNavigation();
+  route();
+})();
+</script>
+</body>
+</html>
