@@ -3,7 +3,7 @@
   "githubRepo": "https://github.com/mlaasya07/one-night-batting",
   "branch": "main",
   "newDays": 14,
-  "githubOnlyOverMB": 10,
+  "githubOnlyOverMB": 25,
   "forceGithubOnly": [
     "Stallings",
     "Tanenbaum",
@@ -50,7 +50,6 @@
     "DS/4thyrSem1/textbooks": "Predictive Analysis (PA)",
     "Lab_Codes": "Lab Codes",
     "PYQs/2023-2027 batch papers/CSE": "Natural Language Processing (NLP)",
-    "PYQs/2023-2027 batch papers/DS": "ADA",
     "ZtoA files/Calendars": "Academic Calendars",
     "ZtoA files/R22_Syllabus": "R22 Syllabus",
     "ZtoA files/Templates": "Templates"
@@ -789,7 +788,8 @@
       "name": "Question bank NLP mid 1"
     },
     "PYQs/2023-2027 batch papers/DS/ADA_2025_mid2.jpg": {
-      "name": "ADA Mid 2 — 2025 (image)"
+      "name": "ADA Mid 2 — 2025 (image)",
+      "subject": "Analysis & Design of Algorithms (ADA)"
     },
     "PYQs/2023-2027 batch papers/DS/CNS Mids and Sem [year 2025].pdf": {
       "name": "CNS Mids and Sem Papers — 2025",
