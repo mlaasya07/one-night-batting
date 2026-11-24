@@ -21,8 +21,10 @@
     "ZtoA files/Test_Files"
   ],
   "subjects": {
+    "CSE/3rdyrSem1/DAA": "Design Algorithms and Analysis (DAA)",
     "CSE/3rdyrSem2/FLAT": "Formal Languages & Automata Theory (FLAT)",
     "CSE/3rdyrSem2/NLP": "Natural Language Processing (NLP)",
+
     "CSE/4thyrSem1/CNS": "Cryptography & Network Security (CNS)",
     "CSE/4thyrSem1/CompilerDesign": "Compiler Design",
 
@@ -31,24 +33,30 @@
     "DS/2ndyrSem1/Data_Structures_in_C": "Data Structures in C",
     "DS/2ndyrSem1/Digital_Electronics": "Digital Electronics",
     "DS/2ndyrSem1/JAVA": "Java",
+
     "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis": "Business Economics & Financial Analysis (BEFA)",
     "DS/2ndyrSem2/DBMS": "Database Management Systems (DBMS)",
     "DS/2ndyrSem2/Discrete_Mathematics": "Discrete Mathematics",
     "DS/2ndyrSem2/Operating_System": "Operating Systems",
     "DS/2ndyrSem2/Software_Engineering": "Software Engineering",
+
     "DS/3rdyrSem1/Comp_Networks": "Computer Networks",
     "DS/3rdyrSem1/Intro_To_DataSci": "Introduction to Data Science",
+    "DS/3rdyrSem1/SMD": "Spatial Multimedia Databases (SMD)",
+    "DS/3rdyrSem1/ADA": "Algorithms Design and Analysis (ADA)",
+    "DS/3rdyrSem1/AI": "Artificial Intelligence (AI)",
+
     "DS/3rdyrSem2/ATCD": "Automata Theory & Compiler Design (ATCD)",
     "DS/3rdyrSem2/Big_Data_Analysis": "Big Data Analysis (BDA)",
     "DS/3rdyrSem2/CNS": "Cryptography & Network Security (CNS)",
     "DS/3rdyrSem2/DT": "Design Thinking (DT)",
     "DS/3rdyrSem2/Machine_Learning": "Machine Learning (ML)",
+    
     "DS/4thyrSem1/Cloud_Computing": "Cloud Computing",
     "DS/4thyrSem1/Data_Mining": "Data Mining (DM)",
     "DS/4thyrSem1/Natural_Language_Processing": "Natural Language Processing (NLP)",
     "DS/4thyrSem1/Predictive_Analysis": "Predictive Analysis (PA)",
     "DS/4thyrSem1/Web_n_SocialMedia_Analytics": "Web & Social Media Analytics (WSMA)",
-    "DS/4thyrSem1/textbooks": "Predictive Analysis (PA)",
 
     "Lab_Codes": "Lab Codes",
 
@@ -59,6 +67,16 @@
     "ZtoA files/Templates": "Templates"
   },
   "entries": {
+
+    "CSE/3rdyrSem1/ADA/ADA_UNIT1.pdf": { "name": "Algorithms Design and Analysis UNIT 1.1" },
+    "CSE/3rdyrSem1/ADA/ADA_UNIT2&3.1.pdf": { "name": "Algorithms Design and Analysis UNIT 2 & 3.1" },
+    "CSE/3rdyrSem1/ADA/ADA_UNIT3.2&4.pdf": { "name": "Algorithms Design and Analysis UNIT 3.2 & 4" },
+    "CSE/3rdyrSem1/ADA/ADA_UNIT5.1.pdf": { "name": "Algorithms Design and Analysis UNIT 5.1" },
+    "CSE/3rdyrSem1/ADA/ADA_UNIT5.2.pdf": { "name": "Algorithms Design and Analysis UNIT 5.2" },
+    "CSE/3rdyrSem1/ADA/ADA_UNIT5.3.pdf": { "name": "Algorithms Design and Analysis UNIT 5.3" },
+    "CSE/3rdyrSem1/ADA/ADA_ImpQs_Mid2.pdf": { "name": "Algorithms Design and Analysis MID IMP QS" },
+
+
     "CSE/3rdyrSem2/FLAT/FLAT_ProblemsForMid2.pdf": { "name": "FLAT Problems For Mid 2" },
     "CSE/3rdyrSem2/FLAT/Lecture1_IntroToAutomataTheory.pdf": { "name": "FLAT-Lecture 1 Intro To Automata Theory" },
     "CSE/3rdyrSem2/FLAT/Lecture2_DFA.pdf": { "name": "FLAT-Lecture 2 DFA" },
@@ -82,6 +100,8 @@
     "CSE/3rdyrSem2/NLP/UNIT1_Tokens_Lexemes_Morphemes_Typology_NLP.pdf": { "name": "UNIT 1 Tokens Lexemes Morphemes Typology NLP" },
     "CSE/3rdyrSem2/NLP/Unit3.pdf": { "name": "NLP-Unit 3" },
     "CSE/3rdyrSem2/NLP/UNIT V Language Modeling.pdf": { "name": "NLP-UNIT V Language Modeling" },
+
+
     "CSE/4thyrSem1/CNS/3. CNS UNIT-3 R20 (1).pdf": { "name": "3. CNS UNIT 3 R20" },
     "CSE/4thyrSem1/CNS/4. CNS UNIT-4 R20 (1).pdf": { "name": "4. CNS UNIT 4 R20" },
     "CSE/4thyrSem1/CNS/Assignment_questions_cns.pdf": { "name": "Assignment questions CNS" },
@@ -136,6 +156,8 @@
     "DS/2ndyrSem1/JAVA/unit 2.pdf": { "name": "Java-Unit 2" },
     "DS/2ndyrSem1/JAVA/unit 3.pdf": { "name": "Java-Unit 3" },
     "DS/2ndyrSem1/JAVA/unit 4 & 5.pdf": { "name": "Java-Unit 4 & 5" },
+
+
     "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/important questions of all units.pdf": { "name": "BEFA-Important questions of all units" },
     "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-4. Financial accounting.pdf": { "name": "BEFA-Unit 4. Financial accounting" },
     "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-5. Ratio Analysis.pdf": { "name": "BEFA-Unit 5. Ratio Analysis" },
@@ -181,6 +203,8 @@
     "DS/2ndyrSem2/Software_Engineering/unit-3.pdf": { "name": "Software Engineering-Unit 3" },
     "DS/2ndyrSem2/Software_Engineering/unit-4-1.pdf": { "name": "Software Engineering-Unit 4-1" },
     "DS/2ndyrSem2/Software_Engineering/unit-5-1.pdf": { "name": "Software Engineering-Unit 5-1" },
+
+
     "DS/3rdyrSem1/Comp_Networks/Andrew S. Tanenbaum - Computer Networks Textbook.pdf": { "name": "Andrew S. Tanenbaum - Computer Networks Textbook" },
     "DS/3rdyrSem1/Comp_Networks/unit 1 pt1.pdf": { "name": "Computer Networks-Unit 1 pt1" },
     "DS/3rdyrSem1/Comp_Networks/unit 1 pt2.pdf": { "name": "Computer Networks-Unit 1 pt2" },
@@ -192,6 +216,41 @@
     "DS/3rdyrSem1/Comp_Networks/unit 5 pt2.pdf": { "name": "Computer Networks-Unit 5 pt2" },
     "DS/3rdyrSem1/Comp_Networks/unit 5 pt3.pdf": { "name": "Computer Networks-Unit 5 pt3" },
     "DS/3rdyrSem1/Intro_To_DataSci/Doing Data Science Textbook.pdf": { "name": "Doing Data Science Textbook" },
+    "DS/3rdyrSem1/Intro_To_DataSci/IDS_Mid1_impqs.pdf": { "name": "Intro to Data Science Mid1 Important Questions" },
+    "DS/3rdyrSem1/Intro_To_DataSci/IDS_Mid2_impqs.pdf": { "name": "Intro to Data Science Mid2 Important Questions" },
+    "DS/3rdyrSem1/Intro_To_DataSci/IDS_Sem_impqs.pdf": { "name": "Intro to Data Science Sem Important Questions" },
+    "DS/3rdyrSem1/ADA/ADA_UNIT1.pdf": { "name": "Algorithms Design and Analysis UNIT 1.1" },
+    "DS/3rdyrSem1/ADA/ADA_UNIT2&3.1.pdf": { "name": "Algorithms Design and Analysis UNIT 2 & 3.1" },
+    "DS/3rdyrSem1/ADA/ADA_UNIT3.2&4.pdf": { "name": "Algorithms Design and Analysis UNIT 3.2 & 4" },
+    "DS/3rdyrSem1/ADA/ADA_UNIT5.1.pdf": { "name": "Algorithms Design and Analysis UNIT 5.1" },
+    "DS/3rdyrSem1/ADA/ADA_UNIT5.2.pdf": { "name": "Algorithms Design and Analysis UNIT 5.2" },
+    "DS/3rdyrSem1/ADA/ADA_UNIT5.3.pdf": { "name": "Algorithms Design and Analysis UNIT 5.3" },
+    "DS/3rdyrSem1/ADA/ADA_ImpQs_Mid2.pdf": { "name": "Algorithms Design and Analysis MID IMP QS" },
+    "DS/3rdyrSem1/AI/AI_Unit1.1.pdf": { "name": "Artificial Intelligence UNIT 1.1" },
+    "DS/3rdyrSem1/AI/AI_Unit1.2.pdf": { "name": "Artificial Intelligence UNIT 1.2" },
+    "DS/3rdyrSem1/AI/AI_Unit1.3.pdf": { "name": "Artificial Intelligence UNIT 1.3" },
+    "DS/3rdyrSem1/AI/AI_Unit2.1.pdf": { "name": "Artificial Intelligence UNIT 2.1" },
+    "DS/3rdyrSem1/AI/AI_Unit2.2.pdf": { "name": "Artificial Intelligence UNIT 2.2" },
+    "DS/3rdyrSem1/AI/AI_Unit3.pdf": { "name": "Artificial Intelligence UNIT 3" },
+    "DS/3rdyrSem1/AI/AI_Unit4.pdf": { "name": "Artificial Intelligence UNIT 4" },
+    "DS/3rdyrSem1/AI/AI_Unit5.pdf": { "name": "Artificial Intelligence UNIT 5" },
+    "DS/3rdyrSem1/AI/AI_TextBook.pdf": { "name": "Artificial Intelligence Textbook" },
+    "DS/3rdyrSem1/SMD/SMD_Textbook.pdf": { "name": "Spatial Multimedia Databases Textbook" },
+    "DS/3rdyrSem1/SMD/SMD_Mid2_impqs.pdf": { "name": "Spatial Multimedia Databases MID2 IMP QS" },
+    "DS/3rdyrSem1/SMD/SMD_Sem_impqs.pdf": { "name": "Spatial Multimedia Databases SEM IMP QS" },
+    "DS/3rdyrSem1/SMD/SMD_Unit1.1.pdf": { "name": "Spatial Multimedia Databases UNIT 1.1" },
+    "DS/3rdyrSem1/SMD/SMD_Unit1.2.pdf": { "name": "Spatial Multimedia Databases UNIT 1.2" },
+    "DS/3rdyrSem1/SMD/SMD_Unit1.3.pdf": { "name": "Spatial Multimedia Databases UNIT 1.3" },
+    "DS/3rdyrSem1/SMD/SMD_Unit1.4.pdf": { "name": "Spatial Multimedia Databases UNIT 1.4" },
+    "DS/3rdyrSem1/SMD/SMD_Unit2.1.pdf": { "name": "Spatial Multimedia Databases UNIT 2.1" },
+    "DS/3rdyrSem1/SMD/SMD_Unit2.2.pdf": { "name": "Spatial Multimedia Databases UNIT 2.2" },
+    "DS/3rdyrSem1/SMD/SMD_Unit2.3.pdf": { "name": "Spatial Multimedia Databases UNIT 2.3" },
+    "DS/3rdyrSem1/SMD/SMD_Unit2.4.pdf": { "name": "Spatial Multimedia Databases UNIT 2.4" },
+    "DS/3rdyrSem1/SMD/SMD_Unit2.5.pdf": { "name": "Spatial Multimedia Databases UNIT 2.5" },
+    
+
+
+
     "DS/3rdyrSem2/ATCD/Lecture1_IntroToAutomataTheory.pdf": { "name": "ATCD-Lecture 1 Intro To Automata Theory" },
     "DS/3rdyrSem2/ATCD/Lecture2_DFA.pdf": { "name": "ATCD-Lecture 2 DFA" },
     "DS/3rdyrSem2/ATCD/Lecture3_NFA.pdf": { "name": "ATCD-Lecture 3 NFA" },
@@ -236,6 +295,8 @@
     "DS/3rdyrSem2/DT/UNIT-5.pdf": { "name": "DT-UNIT 5" },
     "DS/3rdyrSem2/Machine_Learning/ML_MID1_THEORY.pdf": { "name": "ML MID 1 THEORY" },
     "DS/3rdyrSem2/Machine_Learning/ML_MID2_THEORY.pdf": { "name": "ML MID 2 THEORY" },
+
+
     "DS/4thyrSem1/Cloud_Computing/4A_Networking and Data_Centres for CC.pdf": { "name": "Cloud Computing-4A Networking and Data Centres for CC" },
     "DS/4thyrSem1/Cloud_Computing/4B_Cloud_Service_Providers_Enhanced_v3.pdf": { "name": "4B Cloud Service Providers Enhanced v3" },
     "DS/4thyrSem1/Cloud_Computing/5A_Security for Cloud Computingv2.pdf": { "name": "5A Security for Cloud Computingv2" },
@@ -293,7 +354,7 @@
     "DS/4thyrSem1/Predictive_Analysis/unit_3.pptx": { "name": "PA-Unit 3" },
     "DS/4thyrSem1/Predictive_Analysis/unit_3_midterm-2.pptx": { "name": "PA-Unit 3 midterm 2" },
     "DS/4thyrSem1/Predictive_Analysis/unit_3CNN.pdf": { "name": "PA-Unit 3 CNN" },
-    "DS/4thyrSem1/textbooks/dean-abbott-applied-predictive-analytics_-principles-and-techniques-for-the-professional-data-analyst-wiley-2014.pdf": { "name": "Applied Predictive Analytics-Dean Abbott (Wiley, 2014)" },
+    "DS/4thyrSem1/Predictive_Analysis/PA_Textbook.pdf": { "name": "Applied Predictive Analytics-Dean Abbott (Wiley, 2014)" },
     "DS/4thyrSem1/Web_n_SocialMedia_Analytics/_W&SMA Unit 3& 4.pdf": { "name": "WSMA-Units 3 & 4" },
     "DS/4thyrSem1/Web_n_SocialMedia_Analytics/Unit 1_additionalmaterial.pdf": { "name": "WSMA-Unit 1 additionalmaterial" },
     "DS/4thyrSem1/Web_n_SocialMedia_Analytics/W&SMA Unit 1  &2.pdf": { "name": "WSMA-Units 1 & 2" },

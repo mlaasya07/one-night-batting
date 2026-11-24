@@ -21,6 +21,66 @@ window.ARCHIVE_CONFIG = {
 };
 
 window.ARCHIVE_DOCUMENTS = [
+  // ── CSE · DAA ───────────────────────────────────────────────────
+  {
+    id: "cse-3rdyrsem1-daa-ada-impqs-mid2-pdf",
+    name: "ADA ImpQs Mid2",
+    subject: "DAA",
+    category: "CSE",
+    path: "CSE/3rdyrSem1/DAA/ADA_ImpQs_Mid2.pdf",
+    size: 53910
+  },
+  {
+    id: "cse-3rdyrsem1-daa-ada-unit1-pdf",
+    name: "ADA UNIT1",
+    subject: "DAA",
+    category: "CSE",
+    path: "CSE/3rdyrSem1/DAA/ADA_UNIT1.pdf",
+    size: 2290471
+  },
+  {
+    id: "cse-3rdyrsem1-daa-ada-unit2-3-1-pdf",
+    name: "ADA UNIT2&3.1",
+    subject: "DAA",
+    category: "CSE",
+    path: "CSE/3rdyrSem1/DAA/ADA_UNIT2&3.1.pdf",
+    size: 31078000,
+    githubOnly: true
+  },
+  {
+    id: "cse-3rdyrsem1-daa-ada-unit3-2-4-pdf",
+    name: "ADA UNIT3.2&4",
+    subject: "DAA",
+    category: "CSE",
+    path: "CSE/3rdyrSem1/DAA/ADA_UNIT3.2&4.pdf",
+    size: 14748396,
+    githubOnly: true
+  },
+  {
+    id: "cse-3rdyrsem1-daa-ada-unit5-1-pdf",
+    name: "ADA UNIT5.1",
+    subject: "DAA",
+    category: "CSE",
+    path: "CSE/3rdyrSem1/DAA/ADA_UNIT5.1.pdf",
+    size: 1501149
+  },
+  {
+    id: "cse-3rdyrsem1-daa-ada-unit5-2-pdf",
+    name: "ADA UNIT5.2",
+    subject: "DAA",
+    category: "CSE",
+    path: "CSE/3rdyrSem1/DAA/ADA_UNIT5.2.pdf",
+    size: 320946
+  },
+  {
+    id: "cse-3rdyrsem1-daa-ada-unit5-3-pdf",
+    name: "ADA UNIT5.3",
+    subject: "DAA",
+    category: "CSE",
+    path: "CSE/3rdyrSem1/DAA/ADA_UNIT5.3.pdf",
+    size: 1216909
+  },
+
   // ── CSE · Formal Languages & Automata Theory (FLAT) ─────────────
   {
     id: "cse-3rdyrsem2-flat-flat-problemsformid2-pdf",
@@ -1026,6 +1086,142 @@ window.ARCHIVE_DOCUMENTS = [
     size: 792219
   },
 
+  // ── DS · Algorithms Design and Analysis (ADA) ───────────────────
+  {
+    id: "ds-3rdyrsem1-ada-ada-impqs-mid2-pdf",
+    name: "Algorithms Design and Analysis MID IMP QS",
+    subject: "Algorithms Design and Analysis (ADA)",
+    category: "DS",
+    path: "DS/3rdyrSem1/ADA/ADA_ImpQs_Mid2.pdf",
+    size: 53910
+  },
+  {
+    id: "ds-3rdyrsem1-ada-ada-unit1-pdf",
+    name: "Algorithms Design and Analysis UNIT 1.1",
+    subject: "Algorithms Design and Analysis (ADA)",
+    category: "DS",
+    path: "DS/3rdyrSem1/ADA/ADA_UNIT1.pdf",
+    size: 2290471
+  },
+  {
+    id: "ds-3rdyrsem1-ada-ada-unit2-3-1-pdf",
+    name: "Algorithms Design and Analysis UNIT 2 & 3.1",
+    subject: "Algorithms Design and Analysis (ADA)",
+    category: "DS",
+    path: "DS/3rdyrSem1/ADA/ADA_UNIT2&3.1.pdf",
+    size: 31078000,
+    githubOnly: true
+  },
+  {
+    id: "ds-3rdyrsem1-ada-ada-unit3-2-4-pdf",
+    name: "Algorithms Design and Analysis UNIT 3.2 & 4",
+    subject: "Algorithms Design and Analysis (ADA)",
+    category: "DS",
+    path: "DS/3rdyrSem1/ADA/ADA_UNIT3.2&4.pdf",
+    size: 14748396,
+    githubOnly: true
+  },
+  {
+    id: "ds-3rdyrsem1-ada-ada-unit5-1-pdf",
+    name: "Algorithms Design and Analysis UNIT 5.1",
+    subject: "Algorithms Design and Analysis (ADA)",
+    category: "DS",
+    path: "DS/3rdyrSem1/ADA/ADA_UNIT5.1.pdf",
+    size: 1501149
+  },
+  {
+    id: "ds-3rdyrsem1-ada-ada-unit5-2-pdf",
+    name: "Algorithms Design and Analysis UNIT 5.2",
+    subject: "Algorithms Design and Analysis (ADA)",
+    category: "DS",
+    path: "DS/3rdyrSem1/ADA/ADA_UNIT5.2.pdf",
+    size: 320946
+  },
+  {
+    id: "ds-3rdyrsem1-ada-ada-unit5-3-pdf",
+    name: "Algorithms Design and Analysis UNIT 5.3",
+    subject: "Algorithms Design and Analysis (ADA)",
+    category: "DS",
+    path: "DS/3rdyrSem1/ADA/ADA_UNIT5.3.pdf",
+    size: 1216909
+  },
+
+  // ── DS · Artificial Intelligence (AI) ───────────────────────────
+  {
+    id: "ds-3rdyrsem1-ai-ai-textbook-pdf",
+    name: "Artificial Intelligence Textbook",
+    subject: "Artificial Intelligence (AI)",
+    category: "DS",
+    path: "DS/3rdyrSem1/AI/AI_TextBook.pdf",
+    size: 54744973,
+    githubOnly: true
+  },
+  {
+    id: "ds-3rdyrsem1-ai-ai-unit1-1-pdf",
+    name: "AI UNIT1.1",
+    subject: "Artificial Intelligence (AI)",
+    category: "DS",
+    path: "DS/3rdyrSem1/AI/AI_UNIT1.1.pdf",
+    size: 13781649,
+    githubOnly: true
+  },
+  {
+    id: "ds-3rdyrsem1-ai-ai-unit1-2-pdf",
+    name: "AI UNIT1.2",
+    subject: "Artificial Intelligence (AI)",
+    category: "DS",
+    path: "DS/3rdyrSem1/AI/AI_UNIT1.2.pdf",
+    size: 869286
+  },
+  {
+    id: "ds-3rdyrsem1-ai-ai-unit1-3-pdf",
+    name: "AI UNIT1.3",
+    subject: "Artificial Intelligence (AI)",
+    category: "DS",
+    path: "DS/3rdyrSem1/AI/AI_UNIT1.3.pdf",
+    size: 3782593
+  },
+  {
+    id: "ds-3rdyrsem1-ai-ai-unit2-1-pdf",
+    name: "AI UNIT2.1",
+    subject: "Artificial Intelligence (AI)",
+    category: "DS",
+    path: "DS/3rdyrSem1/AI/AI_UNIT2.1.pdf",
+    size: 3928047
+  },
+  {
+    id: "ds-3rdyrsem1-ai-ai-unit2-2-pdf",
+    name: "AI UNIT2.2",
+    subject: "Artificial Intelligence (AI)",
+    category: "DS",
+    path: "DS/3rdyrSem1/AI/AI_UNIT2.2.pdf",
+    size: 3410961
+  },
+  {
+    id: "ds-3rdyrsem1-ai-ai-unit3-pdf",
+    name: "AI UNIT3",
+    subject: "Artificial Intelligence (AI)",
+    category: "DS",
+    path: "DS/3rdyrSem1/AI/AI_UNIT3.pdf",
+    size: 1914293
+  },
+  {
+    id: "ds-3rdyrsem1-ai-ai-unit4-pdf",
+    name: "AI UNIT4",
+    subject: "Artificial Intelligence (AI)",
+    category: "DS",
+    path: "DS/3rdyrSem1/AI/AI_UNIT4.pdf",
+    size: 1961065
+  },
+  {
+    id: "ds-3rdyrsem1-ai-ai-unit5-pdf",
+    name: "AI UNIT5",
+    subject: "Artificial Intelligence (AI)",
+    category: "DS",
+    path: "DS/3rdyrSem1/AI/AI_UNIT5.pdf",
+    size: 1082130
+  },
+
   // ── DS · Computer Networks ──────────────────────────────────────
   {
     id: "ds-3rdyrsem1-comp-networks-andrew-s-tanenbaum-computer-networks-textbook-pdf",
@@ -1118,6 +1314,129 @@ window.ARCHIVE_DOCUMENTS = [
     path: "DS/3rdyrSem1/Intro_To_DataSci/Doing Data Science Textbook.pdf",
     size: 29297180,
     githubOnly: true
+  },
+  {
+    id: "ds-3rdyrsem1-intro-to-datasci-ids-mid1-impqs-pdf",
+    name: "Intro to Data Science Mid1 Important Questions",
+    subject: "Introduction to Data Science",
+    category: "DS",
+    path: "DS/3rdyrSem1/Intro_To_DataSci/IDS_Mid1_impqs.pdf",
+    size: 22244
+  },
+  {
+    id: "ds-3rdyrsem1-intro-to-datasci-ids-mid2-impqs-pdf",
+    name: "Intro to Data Science Mid2 Important Questions",
+    subject: "Introduction to Data Science",
+    category: "DS",
+    path: "DS/3rdyrSem1/Intro_To_DataSci/IDS_Mid2_impqs.pdf",
+    size: 427689
+  },
+  {
+    id: "ds-3rdyrsem1-intro-to-datasci-ids-sem-impqs-pdf",
+    name: "Intro to Data Science Sem Important Questions",
+    subject: "Introduction to Data Science",
+    category: "DS",
+    path: "DS/3rdyrSem1/Intro_To_DataSci/IDS_Sem_impqs.pdf",
+    size: 27502
+  },
+
+  // ── DS · Spatial Multimedia Databases (SMD) ─────────────────────
+  {
+    id: "ds-3rdyrsem1-smd-smd-mid2-impqs-pdf",
+    name: "Spatial Multimedia Databases MID2 IMP QS",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_Mid2_impqs.pdf",
+    size: 215411
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-sem-impqs-pdf",
+    name: "Spatial Multimedia Databases SEM IMP QS",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_Sem_impqs.pdf",
+    size: 171667
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-textbook-pdf",
+    name: "Spatial Multimedia Databases Textbook",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_Textbook.pdf",
+    size: 15334547,
+    githubOnly: true
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-unit1-1-pdf",
+    name: "SMD UNIT1.1",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_UNIT1.1.pdf",
+    size: 1336618
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-unit1-2-pdf",
+    name: "SMD UNIT1.2",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_UNIT1.2.pdf",
+    size: 931365
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-unit1-3-pdf",
+    name: "SMD UNIT1.3",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_UNIT1.3.pdf",
+    size: 3562575
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-unit1-4-pdf",
+    name: "SMD UNIT1.4",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_UNIT1.4.pdf",
+    size: 6882452
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-unit2-1-pdf",
+    name: "SMD UNIT2.1",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_UNIT2.1.pdf",
+    size: 2137864
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-unit2-2-pdf",
+    name: "SMD UNIT2.2",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_UNIT2.2.pdf",
+    size: 985702
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-unit2-3-pdf",
+    name: "SMD UNIT2.3",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_UNIT2.3.pdf",
+    size: 610381
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-unit2-4-pdf",
+    name: "SMD UNIT2.4",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_UNIT2.4.pdf",
+    size: 707236
+  },
+  {
+    id: "ds-3rdyrsem1-smd-smd-unit2-5-pdf",
+    name: "SMD UNIT2.5",
+    subject: "Spatial Multimedia Databases (SMD)",
+    category: "DS",
+    path: "DS/3rdyrSem1/SMD/SMD_UNIT2.5.pdf",
+    size: 614221
   },
 
   // ── DS · Automata Theory & Compiler Design (ATCD) ───────────────
@@ -1893,6 +2212,14 @@ window.ARCHIVE_DOCUMENTS = [
     size: 3528331
   },
   {
+    id: "ds-4thyrsem1-predictive-analysis-pa-textbook-pdf",
+    name: "Applied Predictive Analytics-Dean Abbott (Wiley, 2014)",
+    subject: "Predictive Analysis (PA)",
+    category: "DS",
+    path: "DS/4thyrSem1/Predictive_Analysis/PA_Textbook.pdf",
+    size: 5821408
+  },
+  {
     id: "ds-4thyrsem1-predictive-analysis-unit-v-pptx",
     name: "PA-UNIT V",
     subject: "Predictive Analysis (PA)",
@@ -1963,14 +2290,6 @@ window.ARCHIVE_DOCUMENTS = [
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit-4.pdf",
     size: 8088049
-  },
-  {
-    id: "ds-4thyrsem1-textbooks-dean-abbott-applied-predictive-analytics-principles-and-techniques-for-the-professional-data-analyst-wiley-2014-pdf",
-    name: "Applied Predictive Analytics-Dean Abbott (Wiley, 2014)",
-    subject: "Predictive Analysis (PA)",
-    category: "DS",
-    path: "DS/4thyrSem1/textbooks/dean-abbott-applied-predictive-analytics_-principles-and-techniques-for-the-professional-data-analyst-wiley-2014.pdf",
-    size: 5821408
   },
 
   // ── DS · Web & Social Media Analytics (WSMA) ────────────────────
@@ -2432,6 +2751,14 @@ window.ARCHIVE_DOCUMENTS = [
   },
 
   // ── ZtoA files · Templates ──────────────────────────────────────
+  {
+    id: "ztoa-files-templates-3rdyrsem1-r-project-report-template-pdf",
+    name: "3rdyrSem1 R Project Report Template",
+    subject: "Templates",
+    category: "ZtoA files",
+    path: "ZtoA files/Templates/3rdyrSem1_R_Project_Report_Template.pdf",
+    size: 2977908
+  },
   {
     id: "ztoa-files-templates-images-removebg-preview-png",
     name: "Template Image-images-removebg-preview",
