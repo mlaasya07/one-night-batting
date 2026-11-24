@@ -32,7 +32,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture1-introtoautomatatheory-pdf",
-    name: "FLAT - Lecture 1 Intro To Automata Theory",
+    name: "FLAT — Lecture 1 Intro To Automata Theory",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture1_IntroToAutomataTheory.pdf",
@@ -40,7 +40,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture2-dfa-pdf",
-    name: "FLAT - Lecture 2 DFA",
+    name: "FLAT — Lecture 2 DFA",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture2_DFA.pdf",
@@ -48,7 +48,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture3-nfa-pdf",
-    name: "FLAT - Lecture 3 NFA",
+    name: "FLAT — Lecture 3 NFA",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture3_NFA.pdf",
@@ -56,7 +56,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture4-enfa-pdf",
-    name: "FLAT - Lecture 4 eNFA",
+    name: "FLAT — Lecture 4 eNFA",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture4_eNFA.pdf",
@@ -64,7 +64,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture5-re-pdf",
-    name: "FLAT - Lecture 5 RE",
+    name: "FLAT — Lecture 5 RE",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture5_RE.pdf",
@@ -72,7 +72,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture6-pumpinglemma-pdf",
-    name: "FLAT - Lecture 6 Pumping Lemma",
+    name: "FLAT — Lecture 6 Pumping Lemma",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture6_PumpingLemma.pdf",
@@ -80,7 +80,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture7-prl-pdf",
-    name: "FLAT - Lecture 7 PRL",
+    name: "FLAT — Lecture 7 PRL",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture7_PRL.pdf",
@@ -88,7 +88,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture8-cfg-pdf",
-    name: "FLAT - Lecture 8 CFG",
+    name: "FLAT — Lecture 8 CFG",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture8_CFG.pdf",
@@ -96,7 +96,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture9-pda-pdf",
-    name: "FLAT - Lecture 9 PDA",
+    name: "FLAT — Lecture 9 PDA",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture9_PDA.pdf",
@@ -104,7 +104,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture10-tm-pdf",
-    name: "FLAT - Lecture 10 TM",
+    name: "FLAT — Lecture 10 TM",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture10_TM.pdf",
@@ -112,7 +112,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture11-undecidability-pdf",
-    name: "FLAT - Lecture 11 Undecidability",
+    name: "FLAT — Lecture 11 Undecidability",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture11_Undecidability.pdf",
@@ -120,7 +120,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-lecture12-pdf",
-    name: "FLAT - Lecture 12",
+    name: "FLAT — Lecture 12",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/Lecture12.pdf",
@@ -136,7 +136,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-flat-links-txt",
-    name: "FLAT - Links",
+    name: "FLAT — Links",
     subject: "Formal Languages & Automata Theory (FLAT)",
     category: "CSE",
     path: "CSE/3rdyrSem2/FLAT/links.txt",
@@ -179,7 +179,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-nlp-semantic-parsing-presentation-pdf",
-    name: "NLP - Semantic Parsing Presentation",
+    name: "NLP — Semantic Parsing Presentation",
     subject: "Natural Language Processing (NLP)",
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/Semantic_Parsing_Presentation.pdf",
@@ -187,7 +187,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-nlp-unit-v-language-modeling-pdf",
-    name: "NLP - UNIT V Language Modeling",
+    name: "NLP — UNIT V Language Modeling",
     subject: "Natural Language Processing (NLP)",
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/UNIT V Language Modeling.pdf",
@@ -203,7 +203,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-3rdyrsem2-nlp-unit3-pdf",
-    name: "NLP - Unit 3",
+    name: "NLP — Unit 3",
     subject: "Natural Language Processing (NLP)",
     category: "CSE",
     path: "CSE/3rdyrSem2/NLP/Unit3.pdf",
@@ -293,7 +293,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-cns-ipsec-pdf",
-    name: "CNS - IPSec",
+    name: "CNS — IPSec",
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/IPSec.pdf",
@@ -301,7 +301,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-cns-note10-sha-3-pdf",
-    name: "CNS - NOTE10 SHA 3",
+    name: "CNS — NOTE10 SHA 3",
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/NOTE10_SHA_3.pdf",
@@ -309,7 +309,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-cns-pgp-pdf",
-    name: "CNS - PGP",
+    name: "CNS — PGP",
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/PGP.pdf",
@@ -317,7 +317,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-cns-pki-final-pdf",
-    name: "CNS - PKI final",
+    name: "CNS — PKI final",
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/PKI_final.pdf",
@@ -325,7 +325,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-cns-ppt-pdf",
-    name: "CNS - PPT",
+    name: "CNS — PPT",
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/ppt.pdf",
@@ -333,7 +333,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-cns-smime-pdf",
-    name: "CNS - SMIME",
+    name: "CNS — SMIME",
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/SMIME.pdf",
@@ -341,7 +341,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-cns-studymaterial-lastunits-pdf",
-    name: "CNS - Study Material Last Units",
+    name: "CNS — Study Material Last Units",
     subject: "Cryptography & Network Security (CNS)",
     category: "CSE",
     path: "CSE/4thyrSem1/CNS/studyMaterial_LastUnits.pdf",
@@ -375,7 +375,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-compilerdesign-unit-2-parsers-pdf",
-    name: "Compiler Design - UNIT 2 Parsers",
+    name: "Compiler Design — UNIT 2 Parsers",
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/UNIT-2 Parsers.pdf",
@@ -383,7 +383,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-compilerdesign-unit-3-sdd-part-2-pdf",
-    name: "Compiler Design - UNIT 3 SDD Part 2",
+    name: "Compiler Design — UNIT 3 SDD Part 2",
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/UNIT-3 SDD Part 2.pdf",
@@ -391,7 +391,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-compilerdesign-unit-3-sdd-pdf",
-    name: "Compiler Design - UNIT 3 SDD",
+    name: "Compiler Design — UNIT 3 SDD",
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/UNIT-3 SDD.pdf",
@@ -399,7 +399,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "cse-4thyrsem1-compilerdesign-unit-4-5-partial-pdf",
-    name: "Compiler Design - UNIT 4,5(partial)",
+    name: "Compiler Design — UNIT 4,5(partial)",
     subject: "Compiler Design",
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/UNIT-4,5(partial).pdf",
@@ -409,7 +409,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Computer Organization & Architecture (COA) ─────────────
   {
     id: "ds-2ndyrsem1-coa-unit-i-part-a-pdf",
-    name: "COA - Unit I part A",
+    name: "COA — Unit I part A",
     subject: "Computer Organization & Architecture (COA)",
     category: "DS",
     path: "DS/2ndyrSem1/COA/Unit I part A.pdf",
@@ -417,7 +417,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-coa-unit-i-part-b-pdf",
-    name: "COA - Unit I part B",
+    name: "COA — Unit I part B",
     subject: "Computer Organization & Architecture (COA)",
     category: "DS",
     path: "DS/2ndyrSem1/COA/Unit I part B.pdf",
@@ -425,7 +425,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-coa-unit-i-part-c-pdf",
-    name: "COA - Unit I part C",
+    name: "COA — Unit I part C",
     subject: "Computer Organization & Architecture (COA)",
     category: "DS",
     path: "DS/2ndyrSem1/COA/Unit I part C.pdf",
@@ -435,7 +435,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Computer Oriented Statistical Mathematics (COSM) ───────
   {
     id: "ds-2ndyrsem1-cosm-probability-1-pdf",
-    name: "COSM - Probability 1",
+    name: "COSM — Probability 1",
     subject: "Computer Oriented Statistical Mathematics (COSM)",
     category: "DS",
     path: "DS/2ndyrSem1/COSM/Probability-1.pdf",
@@ -445,7 +445,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Data Structures in C ───────────────────────────────────
   {
     id: "ds-2ndyrsem1-data-structures-in-c-bnb-trees-pdf",
-    name: "Data Structures - BnB+Trees",
+    name: "Data Structures — BnB+Trees",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/BnB+Trees.pdf",
@@ -453,7 +453,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-bst-notes1-pdf",
-    name: "Data Structures - BST Notes1",
+    name: "Data Structures — BST Notes1",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/BST_Notes1.pdf",
@@ -461,7 +461,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-complete-notes-pdf",
-    name: "Data Structures - Complete Notes",
+    name: "Data Structures — Complete Notes",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Complete_Notes.pdf",
@@ -469,7 +469,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-data-structures-with-c-by-schaum-lipschutz-textbook-pdf",
-    name: "Data Structures With C - Schaum / Lipschutz (Textbook)",
+    name: "Data Structures With C — Schaum / Lipschutz (Textbook)",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Data-Structures-With-C-by-schaum-lipschutz Textbook.pdf",
@@ -511,7 +511,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-graphs-pdf",
-    name: "Data Structures - Graphs",
+    name: "Data Structures — Graphs",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Graphs.pdf",
@@ -519,7 +519,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-hashtables-pdf",
-    name: "Data Structures - Hashtables",
+    name: "Data Structures — Hashtables",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/hashtables.pdf",
@@ -527,7 +527,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-linked-lists-pdf",
-    name: "Data Structures - Linked Lists",
+    name: "Data Structures — Linked Lists",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Linked Lists.pdf",
@@ -535,7 +535,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-quick-sort-pdf",
-    name: "Data Structures - Quick Sort",
+    name: "Data Structures — Quick Sort",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Quick_Sort.pdf",
@@ -543,7 +543,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-sorting-pdf",
-    name: "Data Structures - Sorting",
+    name: "Data Structures — Sorting",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Sorting.pdf",
@@ -551,7 +551,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-data-structures-in-c-traversal-pdf",
-    name: "Data Structures - Traversal",
+    name: "Data Structures — Traversal",
     subject: "Data Structures in C",
     category: "DS",
     path: "DS/2ndyrSem1/Data_Structures_in_C/Traversal.pdf",
@@ -561,7 +561,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Digital Electronics ────────────────────────────────────
   {
     id: "ds-2ndyrsem1-digital-electronics-all-units-question-bank-pdf",
-    name: "Digital Electronics - All units - Question Bank",
+    name: "Digital Electronics — All units - Question Bank",
     subject: "Digital Electronics",
     category: "DS",
     path: "DS/2ndyrSem1/Digital_Electronics/all units - Question Bank.pdf",
@@ -586,7 +586,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-digital-electronics-unit-4-pdf",
-    name: "Digital Electronics - Unit 4",
+    name: "Digital Electronics — Unit 4",
     subject: "Digital Electronics",
     category: "DS",
     path: "DS/2ndyrSem1/Digital_Electronics/unit 4.pdf",
@@ -594,7 +594,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-digital-electronics-unit-5-pdf",
-    name: "Digital Electronics - Unit 5",
+    name: "Digital Electronics — Unit 5",
     subject: "Digital Electronics",
     category: "DS",
     path: "DS/2ndyrSem1/Digital_Electronics/unit 5.pdf",
@@ -612,7 +612,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-java-example-codes-pdf",
-    name: "Java - Example codes",
+    name: "Java — Example codes",
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/example codes.pdf",
@@ -620,7 +620,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-java-java-threads-synchf-pdf",
-    name: "Java - Threads & SynchF",
+    name: "Java — Threads & SynchF",
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/Java-Threads&SynchF.pdf",
@@ -628,7 +628,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-java-unit-2-pdf",
-    name: "Java - Unit 2",
+    name: "Java — Unit 2",
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/unit 2.pdf",
@@ -636,7 +636,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-java-unit-3-pdf",
-    name: "Java - Unit 3",
+    name: "Java — Unit 3",
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/unit 3.pdf",
@@ -644,7 +644,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem1-java-unit-4-5-pdf",
-    name: "Java - Unit 4 & 5",
+    name: "Java — Unit 4 & 5",
     subject: "Java",
     category: "DS",
     path: "DS/2ndyrSem1/JAVA/unit 4 & 5.pdf",
@@ -654,7 +654,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Business Economics & Financial Analysis (BEFA) ─────────
   {
     id: "ds-2ndyrsem2-business-economics-n-financial-analysis-important-questions-of-all-units-pdf",
-    name: "BEFA - Important questions of all units",
+    name: "BEFA — Important questions of all units",
     subject: "Business Economics & Financial Analysis (BEFA)",
     category: "DS",
     path: "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/important questions of all units.pdf",
@@ -662,7 +662,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-business-economics-n-financial-analysis-unit-4-financial-accounting-pdf",
-    name: "BEFA - Unit 4. Financial accounting",
+    name: "BEFA — Unit 4. Financial accounting",
     subject: "Business Economics & Financial Analysis (BEFA)",
     category: "DS",
     path: "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-4. Financial accounting.pdf",
@@ -670,7 +670,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-business-economics-n-financial-analysis-unit-5-ratio-analysis-pdf",
-    name: "BEFA - Unit 5. Ratio Analysis",
+    name: "BEFA — Unit 5. Ratio Analysis",
     subject: "Business Economics & Financial Analysis (BEFA)",
     category: "DS",
     path: "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-5. Ratio Analysis.pdf",
@@ -680,7 +680,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Database Management Systems (DBMS) ─────────────────────
   {
     id: "ds-2ndyrsem2-dbms-importantqformid1-pdf",
-    name: "DBMS - Important Qfor Mid 1",
+    name: "DBMS — Important Qfor Mid 1",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/ImportantQforMid1.pdf",
@@ -688,7 +688,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-dbms-importantqformid2-pdf",
-    name: "DBMS - Important Qfor Mid 2",
+    name: "DBMS — Important Qfor Mid 2",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/ImportantQforMid2.pdf",
@@ -696,7 +696,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-dbms-impqs-sem-pdf",
-    name: "DBMS - Imp Qs Sem",
+    name: "DBMS — Imp Qs Sem",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/ImpQs_Sem.pdf",
@@ -704,7 +704,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-1-1-pdf",
-    name: "DBMS - Unit 1-1",
+    name: "DBMS — Unit 1-1",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/unit 1-1.pdf",
@@ -712,7 +712,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-1-2-pdf",
-    name: "DBMS - Unit 1-2",
+    name: "DBMS — Unit 1-2",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/unit 1-2.pdf",
@@ -720,7 +720,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-3-2-pdf",
-    name: "DBMS - Unit 3-2",
+    name: "DBMS — Unit 3-2",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/Unit 3-2.pdf",
@@ -728,7 +728,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-2-pdf",
-    name: "DBMS - Unit 2",
+    name: "DBMS — Unit 2",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/unit-2.pdf",
@@ -736,7 +736,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-4-pdf",
-    name: "DBMS - Unit 4",
+    name: "DBMS — Unit 4",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/unit-4.pdf",
@@ -744,7 +744,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-dbms-unit-5-pdf",
-    name: "DBMS - Unit 5",
+    name: "DBMS — Unit 5",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/Unit-5.pdf",
@@ -752,7 +752,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-dbms-unit3-1-pdf",
-    name: "DBMS - Unit 3-1",
+    name: "DBMS — Unit 3-1",
     subject: "Database Management Systems (DBMS)",
     category: "DS",
     path: "DS/2ndyrSem2/DBMS/Unit3-1.pdf",
@@ -778,7 +778,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-discrete-mathematics-unit-1-pdf",
-    name: "Discrete Mathematics - Unit 1",
+    name: "Discrete Mathematics — Unit 1",
     subject: "Discrete Mathematics",
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/unit-1.pdf",
@@ -786,7 +786,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-discrete-mathematics-unit-2-pdf",
-    name: "Discrete Mathematics - Unit 2",
+    name: "Discrete Mathematics — Unit 2",
     subject: "Discrete Mathematics",
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/unit-2.pdf",
@@ -794,7 +794,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-discrete-mathematics-unit-4-pdf",
-    name: "Discrete Mathematics - Unit 4",
+    name: "Discrete Mathematics — Unit 4",
     subject: "Discrete Mathematics",
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/unit-4.pdf",
@@ -803,7 +803,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-discrete-mathematics-unit-5-pdf",
-    name: "Discrete Mathematics - Unit 5",
+    name: "Discrete Mathematics — Unit 5",
     subject: "Discrete Mathematics",
     category: "DS",
     path: "DS/2ndyrSem2/Discrete_Mathematics/unit-5.pdf",
@@ -885,7 +885,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-operating-system-presentation-lab-pdf",
-    name: "Operating Systems - Presentation Lab",
+    name: "Operating Systems — Presentation Lab",
     subject: "Operating Systems",
     category: "DS",
     path: "DS/2ndyrSem2/Operating_System/Presentation_Lab.pdf",
@@ -895,7 +895,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Software Engineering ───────────────────────────────────
   {
     id: "ds-2ndyrsem2-software-engineering-2-blackbox-problems-pdf",
-    name: "Software Engineering - 2 blackbox problems",
+    name: "Software Engineering — 2 blackbox problems",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/2_blackbox-problems.pdf",
@@ -903,7 +903,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-3-debugging-in-testing-pdf",
-    name: "Software Engineering - 3 debugging in testing",
+    name: "Software Engineering — 3 debugging in testing",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/3_debugging_in_testing.pdf",
@@ -952,7 +952,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-1-ppt-pdf",
-    name: "Software Engineering - Unit 1 PPT",
+    name: "Software Engineering — Unit 1 PPT",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-1_ppt.pdf",
@@ -960,7 +960,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-1-pdf",
-    name: "Software Engineering - Unit 1",
+    name: "Software Engineering — Unit 1",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-1.pdf",
@@ -969,7 +969,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-2-ppt-pdf",
-    name: "Software Engineering - Unit 2 PPT",
+    name: "Software Engineering — Unit 2 PPT",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-2_ppt.pdf",
@@ -978,7 +978,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-2-pdf",
-    name: "Software Engineering - Unit 2",
+    name: "Software Engineering — Unit 2",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-2.pdf",
@@ -986,7 +986,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-3-2-pdf",
-    name: "Software Engineering - Unit 3-2",
+    name: "Software Engineering — Unit 3-2",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-3-2.pdf",
@@ -994,7 +994,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-3-3-pdf",
-    name: "Software Engineering - Unit 3-3",
+    name: "Software Engineering — Unit 3-3",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-3-3.pdf",
@@ -1002,7 +1002,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-3-pdf",
-    name: "Software Engineering - Unit 3",
+    name: "Software Engineering — Unit 3",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-3.pdf",
@@ -1010,7 +1010,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-4-1-pdf",
-    name: "Software Engineering - Unit 4-1",
+    name: "Software Engineering — Unit 4-1",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-4-1.pdf",
@@ -1019,7 +1019,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-2ndyrsem2-software-engineering-unit-5-1-pdf",
-    name: "Software Engineering - Unit 5-1",
+    name: "Software Engineering — Unit 5-1",
     subject: "Software Engineering",
     category: "DS",
     path: "DS/2ndyrSem2/Software_Engineering/unit-5-1.pdf",
@@ -1038,7 +1038,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-1-pt1-pdf",
-    name: "Computer Networks - Unit 1 pt1",
+    name: "Computer Networks — Unit 1 pt1",
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 1 pt1.pdf",
@@ -1046,7 +1046,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-1-pt2-pdf",
-    name: "Computer Networks - Unit 1 pt2",
+    name: "Computer Networks — Unit 1 pt2",
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 1 pt2.pdf",
@@ -1054,7 +1054,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-2-pdf",
-    name: "Computer Networks - Unit 2",
+    name: "Computer Networks — Unit 2",
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 2.pdf",
@@ -1062,7 +1062,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-3-pt1-pdf",
-    name: "Computer Networks - Unit 3 pt1",
+    name: "Computer Networks — Unit 3 pt1",
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 3 pt1.pdf",
@@ -1070,7 +1070,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-3-pt2-pdf",
-    name: "Computer Networks - Unit 3 pt2",
+    name: "Computer Networks — Unit 3 pt2",
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 3 pt2.pdf",
@@ -1078,7 +1078,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-4-pdf",
-    name: "Computer Networks - Unit 4",
+    name: "Computer Networks — Unit 4",
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 4.pdf",
@@ -1086,7 +1086,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-5-pt1-pdf",
-    name: "Computer Networks - Unit 5 pt1",
+    name: "Computer Networks — Unit 5 pt1",
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 5 pt1.pdf",
@@ -1094,7 +1094,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-5-pt2-pdf",
-    name: "Computer Networks - Unit 5 pt2",
+    name: "Computer Networks — Unit 5 pt2",
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 5 pt2.pdf",
@@ -1102,7 +1102,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem1-comp-networks-unit-5-pt3-pdf",
-    name: "Computer Networks - Unit 5 pt3",
+    name: "Computer Networks — Unit 5 pt3",
     subject: "Computer Networks",
     category: "DS",
     path: "DS/3rdyrSem1/Comp_Networks/unit 5 pt3.pdf",
@@ -1131,7 +1131,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture1-introtoautomatatheory-pdf",
-    name: "ATCD - Lecture 1 Intro To Automata Theory",
+    name: "ATCD — Lecture 1 Intro To Automata Theory",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture1_IntroToAutomataTheory.pdf",
@@ -1139,7 +1139,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture2-dfa-pdf",
-    name: "ATCD - Lecture 2 DFA",
+    name: "ATCD — Lecture 2 DFA",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture2_DFA.pdf",
@@ -1147,7 +1147,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture3-nfa-pdf",
-    name: "ATCD - Lecture 3 NFA",
+    name: "ATCD — Lecture 3 NFA",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture3_NFA.pdf",
@@ -1155,7 +1155,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture4-enfa-pdf",
-    name: "ATCD - Lecture 4 eNFA",
+    name: "ATCD — Lecture 4 eNFA",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture4_eNFA.pdf",
@@ -1163,7 +1163,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture5-re-pdf",
-    name: "ATCD - Lecture 5 RE",
+    name: "ATCD — Lecture 5 RE",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture5_RE.pdf",
@@ -1171,7 +1171,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture6-pumpinglemma-pdf",
-    name: "ATCD - Lecture 6 Pumping Lemma",
+    name: "ATCD — Lecture 6 Pumping Lemma",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture6_PumpingLemma.pdf",
@@ -1179,7 +1179,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture7-prl-pdf",
-    name: "ATCD - Lecture 7 PRL",
+    name: "ATCD — Lecture 7 PRL",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture7_PRL.pdf",
@@ -1187,7 +1187,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture8-cfg-pdf",
-    name: "ATCD - Lecture 8 CFG",
+    name: "ATCD — Lecture 8 CFG",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture8_CFG.pdf",
@@ -1195,7 +1195,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture9-pda-pdf",
-    name: "ATCD - Lecture 9 PDA",
+    name: "ATCD — Lecture 9 PDA",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture9_PDA.pdf",
@@ -1203,7 +1203,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture10-tm-pdf",
-    name: "ATCD - Lecture 10 TM",
+    name: "ATCD — Lecture 10 TM",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture10_TM.pdf",
@@ -1211,7 +1211,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture11-undecidability-pdf",
-    name: "ATCD - Lecture 11 Undecidability",
+    name: "ATCD — Lecture 11 Undecidability",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture11_Undecidability.pdf",
@@ -1219,7 +1219,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-lecture12-pdf",
-    name: "ATCD - Lecture 12",
+    name: "ATCD — Lecture 12",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/Lecture12.pdf",
@@ -1227,7 +1227,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-links-txt",
-    name: "ATCD - Links",
+    name: "ATCD — Links",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/links.txt",
@@ -1251,7 +1251,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-atcd-problemsformid1-pdf",
-    name: "ATCD - Problems For Mid 1",
+    name: "ATCD — Problems For Mid 1",
     subject: "Automata Theory & Compiler Design (ATCD)",
     category: "DS",
     path: "DS/3rdyrSem2/ATCD/ProblemsForMid1.pdf",
@@ -1277,7 +1277,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-big-data-analysis-hadoopsecunit-pdf",
-    name: "BDA - Hadoop Sec Unit",
+    name: "BDA — Hadoop Sec Unit",
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/HadoopSecUnit.pdf",
@@ -1285,7 +1285,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-big-data-analysis-important-questions-mid1-pdf",
-    name: "BDA - Important Questions - Mid 1",
+    name: "BDA — Important Questions - Mid 1",
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/Important Questions - Mid1.pdf",
@@ -1293,7 +1293,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-big-data-analysis-notesforbda-updated-pdf",
-    name: "BDA - Notes (Updated)",
+    name: "BDA — Notes (Updated)",
     subject: "Big Data Analysis (BDA)",
     category: "DS",
     path: "DS/3rdyrSem2/Big_Data_Analysis/notesforBDA-Updated.pdf",
@@ -1400,7 +1400,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-cns-smpc-pdf",
-    name: "CNS - SMPC",
+    name: "CNS — SMPC",
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/SMPC.pdf",
@@ -1408,7 +1408,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-cns-sss1-pdf",
-    name: "CNS - SSS1",
+    name: "CNS — SSS1",
     subject: "Cryptography & Network Security (CNS)",
     category: "DS",
     path: "DS/3rdyrSem2/CNS/SSS1.pdf",
@@ -1458,7 +1458,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-3rdyrsem2-dt-unit-5-pdf",
-    name: "DT - UNIT 5",
+    name: "DT — UNIT 5",
     subject: "Design Thinking (DT)",
     category: "DS",
     path: "DS/3rdyrSem2/DT/UNIT-5.pdf",
@@ -1486,7 +1486,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Cloud Computing ────────────────────────────────────────
   {
     id: "ds-4thyrsem1-cloud-computing-4a-networking-and-data-centres-for-cc-pdf",
-    name: "Cloud Computing - 4A Networking and Data Centres for CC",
+    name: "Cloud Computing — 4A Networking and Data Centres for CC",
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/4A_Networking and Data_Centres for CC.pdf",
@@ -1518,7 +1518,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-cloud-computing-cc-simple-revision-notes-pdf",
-    name: "Cloud Computing - CC simple Revision notes",
+    name: "Cloud Computing — CC simple Revision notes",
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/CC_simple_Revision notes.pdf",
@@ -1566,7 +1566,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-cloud-computing-cloud-pdf",
-    name: "Cloud Computing - Cloud",
+    name: "Cloud Computing — Cloud",
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/cloud.pdf",
@@ -1582,7 +1582,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-cloud-computing-web-2-0-and-3-0-pptx",
-    name: "Cloud Computing - Web 2.0 and 3.0",
+    name: "Cloud Computing — Web 2.0 and 3.0",
     subject: "Cloud Computing",
     category: "DS",
     path: "DS/4thyrSem1/Cloud_Computing/web 2.0 and 3.0.pptx",
@@ -1592,7 +1592,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Data Mining (DM) ───────────────────────────────────────
   {
     id: "ds-4thyrsem1-data-mining-association-to-correlations-pdf",
-    name: "Data Mining - Association to correlations",
+    name: "Data Mining — Association to correlations",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Association to correlations.pdf",
@@ -1600,7 +1600,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-decisiontreesboostingexampleproblem-pdf",
-    name: "Data Mining - Decision Trees Boosting Example Problem",
+    name: "Data Mining — Decision Trees Boosting Example Problem",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/DecisionTreesBoostingExampleProblem.pdf",
@@ -1624,7 +1624,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-fp-growth-algorithm-example-problems-pdf",
-    name: "Data Mining - Fp growth algorithm example problems",
+    name: "Data Mining — Fp growth algorithm example problems",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/fp-growth-algorithm-example-problems.pdf",
@@ -1632,7 +1632,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-knn-pdf",
-    name: "Data Mining - KNN",
+    name: "Data Mining — KNN",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/KNN .pdf",
@@ -1640,7 +1640,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-neuralnetworks-pdf",
-    name: "Data Mining - Neural Networks",
+    name: "Data Mining — Neural Networks",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/NeuralNetworks .pdf",
@@ -1648,7 +1648,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-rule-based-classification-pdf",
-    name: "Data Mining - Rule Based Classification",
+    name: "Data Mining — Rule Based Classification",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Rule Based Classification.pdf",
@@ -1688,7 +1688,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-2-part-1-pptx",
-    name: "Data Mining - Unit 2 Part 1",
+    name: "Data Mining — Unit 2 Part 1",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -2 Part-1.pptx",
@@ -1696,7 +1696,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-2-part-2-pptx",
-    name: "Data Mining - Unit 2 part 2",
+    name: "Data Mining — Unit 2 part 2",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -2 part-2.pptx",
@@ -1704,7 +1704,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-2-part-3-pptx",
-    name: "Data Mining - Unit 2 Part 3",
+    name: "Data Mining — Unit 2 Part 3",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -2 Part-3.pptx",
@@ -1712,7 +1712,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-3-part-1-pptx",
-    name: "Data Mining - Unit 3 Part 1",
+    name: "Data Mining — Unit 3 Part 1",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit -3 Part-1.pptx",
@@ -1728,7 +1728,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-4-clusteranalysis-short-notes-pdf",
-    name: "Data Mining - Unit 4 Cluster Analysis Short notes",
+    name: "Data Mining — Unit 4 Cluster Analysis Short notes",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit 4 ClusterAnalysis  Short notes.pdf",
@@ -1736,7 +1736,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-3-basics-pptx",
-    name: "Data Mining - Unit 3 Basics",
+    name: "Data Mining — Unit 3 Basics",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-3 Basics .pptx",
@@ -1744,7 +1744,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-3-basics-pdf",
-    name: "Data Mining - Unit 3 Basics",
+    name: "Data Mining — Unit 3 Basics",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-3 Basics.pdf",
@@ -1752,7 +1752,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-3-svm-knn-rb-nn-pdf",
-    name: "Data Mining - Unit 3 SVM KNN RB NN",
+    name: "Data Mining — Unit 3 SVM KNN RB NN",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-3 SVM_KNN_RB_NN.pdf",
@@ -1760,7 +1760,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-4-outlieranalysis-short-notes-pdf",
-    name: "Data Mining - Unit 4 Outlier Analysis short notes",
+    name: "Data Mining — Unit 4 Outlier Analysis short notes",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-4 OutlierAnalysis  short notes.pdf",
@@ -1768,7 +1768,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-data-mining-unit-5-web-spatial-temporal-mining-pdf",
-    name: "Data Mining - Unit 5 Web Spatial Temporal Mining",
+    name: "Data Mining — Unit 5 Web Spatial Temporal Mining",
     subject: "Data Mining (DM)",
     category: "DS",
     path: "DS/4thyrSem1/Data_Mining/Unit-5  Web Spatial Temporal Mining.pdf",
@@ -1778,7 +1778,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Natural Language Processing (NLP) ──────────────────────
   {
     id: "ds-4thyrsem1-natural-language-processing-difference-between-framenet-and-propbank-pdf",
-    name: "NLP - Difference Between Frame Net and Prop Bank",
+    name: "NLP — Difference Between Frame Net and Prop Bank",
     subject: "Natural Language Processing (NLP)",
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/Difference_Between_FrameNet_and_PropBank.pdf",
@@ -1786,7 +1786,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-natural-language-processing-natural-language-processing-ramesh-babu-sir-notes-unit-1-to-5-pdf-pdf",
-    name: "Natural Language Processing - Ramesh Babu Sir Notes (Units 1–5)",
+    name: "Natural Language Processing — Ramesh Babu Sir Notes (Units 1–5)",
     subject: "Natural Language Processing (NLP)",
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing [Ramesh Babu sir notes] unit 1 to 5.pdf.pdf",
@@ -1794,7 +1794,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-natural-language-processing-natural-language-processing-unit-1-2-ramesh-babu-sir-notes-pdf",
-    name: "Natural Language Processing - Ramesh Babu Sir Notes (Units 1 & 2)",
+    name: "Natural Language Processing — Ramesh Babu Sir Notes (Units 1 & 2)",
     subject: "Natural Language Processing (NLP)",
     category: "DS",
     path: "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing_ UNIT 1&2 [ Ramesh Babu Sir Notes ].pdf",
@@ -1846,7 +1846,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Predictive Analysis (PA) ───────────────────────────────
   {
     id: "ds-4thyrsem1-predictive-analysis-memory-palace-method-unit-3-to-4-mid2-docx",
-    name: "PA - Memory Palace method - unit 3 to 4 [mid 2]",
+    name: "PA — Memory Palace method - unit 3 to 4 [mid 2]",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/Memory_Palace_method - unit 3 to 4 [mid2].docx",
@@ -1869,12 +1869,12 @@ window.ARCHIVE_DOCUMENTS = [
     size: 1901015
   },
   {
-    id: "ds-4thyrsem1-predictive-analysis-pa-sem-important-questions-docx",
-    name: "PA SEM Important Questions",
+    id: "ds-4thyrsem1-predictive-analysis-pa-notes-5units-semfull-docx",
+    name: "PA Notes 5Units SemFull",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/PA_Notes_5Units_SemFull.docx",
-    size: 2755792
+    size: 3528331
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-pa-notes-units-1-to-3-docx",
@@ -1886,7 +1886,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-v-pptx",
-    name: "PA - UNIT V",
+    name: "PA — UNIT V",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/UNIT - V.pptx",
@@ -1894,7 +1894,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-1-pdf",
-    name: "PA - Unit 1",
+    name: "PA — Unit 1",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_1.pdf",
@@ -1902,7 +1902,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-1-pptx",
-    name: "PA - Unit 1",
+    name: "PA — Unit 1",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_1.pptx",
@@ -1910,7 +1910,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-3-midterm-2-pptx",
-    name: "PA - Unit 3 midterm 2",
+    name: "PA — Unit 3 midterm 2",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_3_midterm-2.pptx",
@@ -1918,7 +1918,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-3-pptx",
-    name: "PA - Unit 3",
+    name: "PA — Unit 3",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_3.pptx",
@@ -1926,7 +1926,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-3cnn-pdf",
-    name: "PA - Unit 3 CNN",
+    name: "PA — Unit 3 CNN",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit_3CNN.pdf",
@@ -1934,7 +1934,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-2-pptx",
-    name: "PA - Unit 2",
+    name: "PA — Unit 2",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit-2.pptx",
@@ -1942,7 +1942,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-3-pdf",
-    name: "PA - Unit 3",
+    name: "PA — Unit 3",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit-3.pdf",
@@ -1950,7 +1950,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-predictive-analysis-unit-4-pdf",
-    name: "PA - Unit 4",
+    name: "PA — Unit 4",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/Predictive_Analysis/unit-4.pdf",
@@ -1958,7 +1958,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-textbooks-dean-abbott-applied-predictive-analytics-principles-and-techniques-for-the-professional-data-analyst-wiley-2014-pdf",
-    name: "Applied Predictive Analytics - Dean Abbott (Wiley, 2014)",
+    name: "Applied Predictive Analytics — Dean Abbott (Wiley, 2014)",
     subject: "Predictive Analysis (PA)",
     category: "DS",
     path: "DS/4thyrSem1/textbooks/dean-abbott-applied-predictive-analytics_-principles-and-techniques-for-the-professional-data-analyst-wiley-2014.pdf",
@@ -1968,7 +1968,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── DS · Web & Social Media Analytics (WSMA) ────────────────────
   {
     id: "ds-4thyrsem1-web-n-socialmedia-analytics-w-sma-unit-3-4-pdf",
-    name: "WSMA - Units 3 & 4",
+    name: "WSMA — Units 3 & 4",
     subject: "Web & Social Media Analytics (WSMA)",
     category: "DS",
     path: "DS/4thyrSem1/Web_n_SocialMedia_Analytics/_W&SMA Unit 3& 4.pdf",
@@ -1976,7 +1976,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-web-n-socialmedia-analytics-unit-1-additionalmaterial-pdf",
-    name: "WSMA - Unit 1 additionalmaterial",
+    name: "WSMA — Unit 1 additionalmaterial",
     subject: "Web & Social Media Analytics (WSMA)",
     category: "DS",
     path: "DS/4thyrSem1/Web_n_SocialMedia_Analytics/Unit 1_additionalmaterial.pdf",
@@ -1984,7 +1984,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ds-4thyrsem1-web-n-socialmedia-analytics-w-sma-unit-1-2-pdf",
-    name: "WSMA - Units 1 & 2",
+    name: "WSMA — Units 1 & 2",
     subject: "Web & Social Media Analytics (WSMA)",
     category: "DS",
     path: "DS/4thyrSem1/Web_n_SocialMedia_Analytics/W&SMA Unit 1  &2.pdf",
@@ -2015,15 +2015,17 @@ window.ARCHIVE_DOCUMENTS = [
     size: 953127
   },
 
-  // ── PYQs · Natural Language Processing (NLP) ────────────────────
+  // ── PYQs · Image Processing (IP) ────────────────────────────────
   {
     id: "pyqs-2023-2027-batch-papers-cse-imageprocessing-2025-sempaper-pdf",
-    name: "ImageProcessing 2025 SemPaper",
-    subject: "Natural Language Processing (NLP)",
+    name: "IP Sem Paper - 2025 (3rd Year Sem 1)",
+    subject: "Image Processing (IP)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/CSE/ImageProcessing_2025_SemPaper.pdf",
     size: 690015
   },
+
+  // ── PYQs · Natural Language Processing (NLP) ────────────────────
   {
     id: "pyqs-2023-2027-batch-papers-cse-nlp-exam-key-booklet-pdf",
     name: "NLP EXAM KEY BOOKLET",
@@ -2060,7 +2062,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── PYQs · Analysis & Design of Algorithms (ADA) ────────────────
   {
     id: "pyqs-2023-2027-batch-papers-ds-ada-2025-mid2-jpg",
-    name: "ADA Mid 2 - 2025 (image)",
+    name: "ADA Mid 2 — 2025 (image)",
     subject: "Analysis & Design of Algorithms (ADA)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/DS/ADA_2025_mid2.jpg",
@@ -2070,7 +2072,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── PYQs · Cryptography & Network Security (CNS) ────────────────
   {
     id: "pyqs-2023-2027-batch-papers-ds-cns-mids-and-sem-year-2025-pdf",
-    name: "CNS Mids and Sem Papers - 2025",
+    name: "CNS Mids and Sem Papers — 2025",
     subject: "Cryptography & Network Security (CNS)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/DS/CNS Mids and Sem [year 2025].pdf",
@@ -2080,20 +2082,10 @@ window.ARCHIVE_DOCUMENTS = [
   // ── PYQs · Predictive Analysis (PA) ─────────────────────────────
   {
     id: "pyqs-2023-2027-batch-papers-ds-mid1labexam-pa-2026yr-4thyrsem1-pdf",
-    name: "PA Mid 1 Lab Exam - 2026 (4th Year Sem 1)",
+    name: "PA Mid 1 Lab Exam — 2026 (4th Year Sem 1)",
     subject: "Predictive Analysis (PA)",
     category: "PYQs",
     path: "PYQs/2023-2027 batch papers/DS/mid1labexam_PA_2026yr_4thyrsem1.pdf",
-    size: 83086
-  },
-
-   // ── PYQs · Image Processing (IP) ─────────────────────────────
-  {
-    id: "pyqs-2023-2027-batch-papers-cse-sem-ip-2025yr-3rdyrsem1-pdf",
-    name: "IP Mid 1 Lab Exam - 2025 (3rd Year Sem 1)",
-    subject: "Image Processing (IP)",
-    category: "PYQs",
-    path: "PYQs/2023-2027 batch papers/CSE/ImageProcessing_2025_SemPaper.pdf",
     size: 83086
   },
 
@@ -2119,7 +2111,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "lab-codes-idk-which-subject-is-this-zip",
-    name: "Lab Files - Subject Unknown (zip)",
+    name: "Lab Files — Subject Unknown (zip)",
     subject: "Lab Codes",
     category: "Lab_Codes",
     path: "Lab_Codes/idk which subject is this.zip",
@@ -2140,7 +2132,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── Lab_Codes · Web & Social Media Analytics (WSMA) ─────────────
   {
     id: "lab-codes-wsma-txt",
-    name: "WSMA - wsma.txt",
+    name: "WSMA — wsma.txt",
     subject: "Web & Social Media Analytics (WSMA)",
     category: "Lab_Codes",
     path: "Lab_Codes/wsma.txt",
@@ -2148,7 +2140,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "lab-codes-wsmafinal-txt",
-    name: "WSMA - wsmafinal.txt",
+    name: "WSMA — wsmafinal.txt",
     subject: "Web & Social Media Analytics (WSMA)",
     category: "Lab_Codes",
     path: "Lab_Codes/wsmafinal.txt",
@@ -2176,7 +2168,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── ZtoA files · R22 Syllabus ───────────────────────────────────
   {
     id: "ztoa-files-r22-syllabus-1st-year-b-tech-csam-docx",
-    name: "Syllabus - 1st year B.Tech CSAM",
+    name: "Syllabus — 1st year B.Tech CSAM",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/1st year B.Tech CSAM.docx",
@@ -2184,7 +2176,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ztoa-files-r22-syllabus-1st-year-b-tech-cse-aiml-docx",
-    name: "Syllabus - 1st year B.Tech CSE AIML",
+    name: "Syllabus — 1st year B.Tech CSE AIML",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/1st year B.Tech CSE AIML.docx",
@@ -2192,7 +2184,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ztoa-files-r22-syllabus-1st-year-b-tech-cse-ds-docx",
-    name: "Syllabus - 1st year B.Tech CSE DS",
+    name: "Syllabus — 1st year B.Tech CSE DS",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/1st year B.Tech CSE DS.docx",
@@ -2200,7 +2192,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ztoa-files-r22-syllabus-1st-year-b-tech-cse-docx",
-    name: "Syllabus - 1st year B.Tech CSE",
+    name: "Syllabus — 1st year B.Tech CSE",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/1st year B.Tech CSE.docx",
@@ -2208,7 +2200,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ztoa-files-r22-syllabus-2nd-year-b-tech-csam-docx",
-    name: "Syllabus - 2nd year B.Tech CSAM",
+    name: "Syllabus — 2nd year B.Tech CSAM",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/2nd year B.Tech CSAM.docx",
@@ -2216,7 +2208,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ztoa-files-r22-syllabus-2nd-year-b-tech-cse-aiml-docx",
-    name: "Syllabus - 2nd year B.Tech CSE AIML",
+    name: "Syllabus — 2nd year B.Tech CSE AIML",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/2nd year B.Tech CSE AIML.docx",
@@ -2224,7 +2216,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ztoa-files-r22-syllabus-2nd-year-b-tech-cse-ds-docx",
-    name: "Syllabus - 2nd year B.Tech CSE DS",
+    name: "Syllabus — 2nd year B.Tech CSE DS",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/2nd year B.Tech CSE DS.docx",
@@ -2232,7 +2224,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ztoa-files-r22-syllabus-2nd-year-b-tech-cse-docx",
-    name: "Syllabus - 2nd year B.Tech CSE",
+    name: "Syllabus — 2nd year B.Tech CSE",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/2nd year B.Tech CSE.docx",
@@ -2240,7 +2232,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ztoa-files-r22-syllabus-3rd-4-th-year-b-tech-cse-ds-docx",
-    name: "Syllabus - 3rd–4th year B.Tech CSE DS",
+    name: "Syllabus — 3rd–4th year B.Tech CSE DS",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/3rd_4 th year B.Tech CSE DS.docx",
@@ -2248,7 +2240,7 @@ window.ARCHIVE_DOCUMENTS = [
   },
   {
     id: "ztoa-files-r22-syllabus-3rd-4-th-year-b-tech-cse-v1-docx",
-    name: "Syllabus - 3rd–4th year B.Tech CSE V1",
+    name: "Syllabus — 3rd–4th year B.Tech CSE V1",
     subject: "R22 Syllabus",
     category: "ZtoA files",
     path: "ZtoA files/R22_Syllabus/3rd_4 th year B.Tech CSE V1.docx",
@@ -2258,7 +2250,7 @@ window.ARCHIVE_DOCUMENTS = [
   // ── ZtoA files · Templates ──────────────────────────────────────
   {
     id: "ztoa-files-templates-images-removebg-preview-png",
-    name: "Template Image - images-removebg-preview",
+    name: "Template Image — images-removebg-preview",
     subject: "Templates",
     category: "ZtoA files",
     path: "ZtoA files/Templates/images-removebg-preview.png",
