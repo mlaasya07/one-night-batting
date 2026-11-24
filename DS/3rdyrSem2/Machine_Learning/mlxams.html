@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Machine Learning — Important Q&A</title>
+<title>Machine Learning-Important Q&A</title>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -91,7 +91,7 @@
         <tr><td>Insufficient Data</td><td>Most ML algorithms require large labelled datasets; scarce data leads to overfitting</td></tr>
         <tr><td>Non-Representative Data</td><td>Training data must represent the deployment distribution; sampling bias distorts models</td></tr>
         <tr><td>Poor Data Quality</td><td>Noise, missing values, outliers, and labelling errors degrade model accuracy</td></tr>
-        <tr><td>Irrelevant Features</td><td>Too many features (curse of dimensionality) — feature engineering / selection is essential</td></tr>
+        <tr><td>Irrelevant Features</td><td>Too many features (curse of dimensionality)-feature engineering / selection is essential</td></tr>
         <tr><td>Overfitting</td><td>Complex model memorises training noise; fails on new data</td></tr>
         <tr><td>Underfitting</td><td>Model too simple to capture patterns; high training and test error</td></tr>
         <tr><td>Computational Cost</td><td>Deep models require massive GPU resources and memory</td></tr>
@@ -104,7 +104,7 @@
 <div class="short-entry">
   <div class="entry-head"><span class="entry-num">Q.02</span><span class="entry-term">Describe concept learning as a search problem.</span><span class="entry-marks">2 marks</span></div>
   <div class="entry-body">
-    <p><strong>Concept learning</strong> is the task of inferring a Boolean function (concept) from labelled training examples. It can be viewed as a <em>search through a hypothesis space</em> H — each hypothesis h is a candidate definition of the target concept c.</p>
+    <p><strong>Concept learning</strong> is the task of inferring a Boolean function (concept) from labelled training examples. It can be viewed as a <em>search through a hypothesis space</em> H-each hypothesis h is a candidate definition of the target concept c.</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Element</th><th>Role in Concept Learning</th></tr></thead>
       <tbody>
@@ -140,7 +140,7 @@
 <div class="short-entry">
   <div class="entry-head"><span class="entry-num">Q.04</span><span class="entry-term">Define overfitting. How can it be avoided?</span><span class="entry-marks">2 marks</span></div>
   <div class="entry-body">
-    <p><strong>Overfitting</strong> occurs when a model learns training data too closely — including its noise — resulting in very low training error but high test error (poor generalisation).</p>
+    <p><strong>Overfitting</strong> occurs when a model learns training data too closely-including its noise-resulting in very low training error but high test error (poor generalisation).</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Prevention Method</th><th>How it Helps</th></tr></thead>
       <tbody>
@@ -203,7 +203,7 @@
 <div class="short-entry">
   <div class="entry-head"><span class="entry-num">Q.08</span><span class="entry-term">What is the Candidate Elimination algorithm?</span><span class="entry-marks">2 marks</span></div>
   <div class="entry-body">
-    <p>The <strong>Candidate Elimination</strong> algorithm maintains a <em>Version Space</em> — the set of all hypotheses consistent with training examples — by tracking two boundaries:</p>
+    <p>The <strong>Candidate Elimination</strong> algorithm maintains a <em>Version Space</em>-the set of all hypotheses consistent with training examples-by tracking two boundaries:</p>
     <ul>
       <li><strong>S (Specific boundary):</strong> Most specific hypotheses consistent with all positive examples.</li>
       <li><strong>G (General boundary):</strong> Most general hypotheses consistent with all negative examples.</li>
@@ -257,7 +257,7 @@
 <div class="short-entry">
   <div class="entry-head"><span class="entry-num">Q.11</span><span class="entry-term">What is feature scaling and why is it required?</span><span class="entry-marks">2 marks</span></div>
   <div class="entry-body">
-    <p><strong>Feature scaling</strong> normalises the range of input features so no feature dominates due to its magnitude. It is required because distance-based algorithms (K-NN, SVM, K-Means) and gradient descent in neural networks are sensitive to unscaled features — a feature with range [0, 10,000] overwhelms one with range [0, 1].</p>
+    <p><strong>Feature scaling</strong> normalises the range of input features so no feature dominates due to its magnitude. It is required because distance-based algorithms (K-NN, SVM, K-Means) and gradient descent in neural networks are sensitive to unscaled features-a feature with range [0, 10,000] overwhelms one with range [0, 1].</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Method</th><th>Formula</th><th>Range</th><th>When to Use</th></tr></thead>
       <tbody>
@@ -274,7 +274,7 @@
   <div class="entry-head"><span class="entry-num">Q.12</span><span class="entry-term">Why is inductive bias important in decision trees?</span><span class="entry-marks">2 marks</span></div>
   <div class="entry-body">
     <p><strong>Inductive bias</strong> is the set of assumptions a learning algorithm uses to generalise from training examples to unseen instances. Without it, no generalisation is possible (No Free Lunch Theorem).</p>
-    <p>In decision trees (ID3), the inductive bias is: <em>prefer shorter trees</em> and <em>trees that place high information-gain attributes near the root</em>. This bias favours compact, discriminating hypotheses and is embodied in the greedy top-down split strategy — always choosing the attribute that most reduces impurity (entropy).</p>
+    <p>In decision trees (ID3), the inductive bias is: <em>prefer shorter trees</em> and <em>trees that place high information-gain attributes near the root</em>. This bias favours compact, discriminating hypotheses and is embodied in the greedy top-down split strategy-always choosing the attribute that most reduces impurity (entropy).</p>
     <div class="rule-box"><p>ID3 Bias: Shorter trees preferred; high IG attributes split early → Occam's Razor applied to trees</p></div>
   </div>
 </div>
@@ -288,7 +288,7 @@
       <thead><tr><th>Step</th><th>Detail</th></tr></thead>
       <tbody>
         <tr><td>Bootstrap sampling</td><td>Draw N samples with replacement from training set D; ~63% unique per bag</td></tr>
-        <tr><td>Train base models</td><td>Train independent model (e.g., decision tree) on each sample — in parallel</td></tr>
+        <tr><td>Train base models</td><td>Train independent model (e.g., decision tree) on each sample-in parallel</td></tr>
         <tr><td>Aggregate</td><td>Vote (classification) or average (regression) across all models</td></tr>
       </tbody>
     </table></div>
@@ -333,7 +333,7 @@
 <div class="short-entry">
   <div class="entry-head"><span class="entry-num">Q.16</span><span class="entry-term">Explain Candidate Elimination algorithm.</span><span class="entry-marks">2 marks</span></div>
   <div class="entry-body">
-    <p>See Q.08 for full detail. In brief: Candidate Elimination maintains the <strong>Version Space</strong> — all hypotheses consistent with training data — by tracking its two boundary sets S (most specific) and G (most general). For each new example, boundaries are updated: S is generalised on positive examples; G is specialised on negative ones. The algorithm converges to the target concept if the hypothesis space contains it and data is noise-free. Unlike Find-S, it outputs a set of hypotheses (the Version Space) rather than a single hypothesis.</p>
+    <p>See Q.08 for full detail. In brief: Candidate Elimination maintains the <strong>Version Space</strong>-all hypotheses consistent with training data-by tracking its two boundary sets S (most specific) and G (most general). For each new example, boundaries are updated: S is generalised on positive examples; G is specialised on negative ones. The algorithm converges to the target concept if the hypothesis space contains it and data is noise-free. Unlike Find-S, it outputs a set of hypotheses (the Version Space) rather than a single hypothesis.</p>
   </div>
 </div>
 
@@ -341,7 +341,7 @@
 <div class="short-entry">
   <div class="entry-head"><span class="entry-num">Q.17</span><span class="entry-term">Describe dimensionality reduction and its purpose.</span><span class="entry-marks">2 marks</span></div>
   <div class="entry-body">
-    <p><strong>Dimensionality reduction</strong> transforms high-dimensional data to a lower-dimensional representation while preserving maximum relevant structure. It addresses the <em>Curse of Dimensionality</em> — as dimensions grow, data becomes increasingly sparse and models overfit.</p>
+    <p><strong>Dimensionality reduction</strong> transforms high-dimensional data to a lower-dimensional representation while preserving maximum relevant structure. It addresses the <em>Curse of Dimensionality</em>-as dimensions grow, data becomes increasingly sparse and models overfit.</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Method</th><th>Type</th><th>Best For</th></tr></thead>
       <tbody>
@@ -420,7 +420,7 @@
     <div class="table-wrap"><table>
       <thead><tr><th></th><th>SARSA (On-policy)</th><th>Q-Learning (Off-policy)</th></tr></thead>
       <tbody>
-        <tr><td>Update target</td><td>Q(S′,A′) — actual next action</td><td>max Q(S′,·) — greedy best</td></tr>
+        <tr><td>Update target</td><td>Q(S′,A′)-actual next action</td><td>max Q(S′,·)-greedy best</td></tr>
         <tr><td>Converges to</td><td>Policy being followed (incl. exploration)</td><td>Optimal policy Q*</td></tr>
         <tr><td>Risk behaviour</td><td>Conservative; avoids dangerous edges</td><td>Aggressive; optimal-seeking</td></tr>
       </tbody>
@@ -430,7 +430,7 @@
 
 <!-- ═══════════════════════ PART B ═══════════════════════ -->
 <div class="part-header" id="part-b">
-  <h2>Part B — Detailed Questions</h2>
+  <h2>Part B-Detailed Questions</h2>
   <div class="meta">5 Marks Each &middot; Q1 through Q5 Sections</div>
 </div>
 
@@ -479,17 +479,17 @@
     </ol>
 
     <span class="sub-h">Linear Separability</span>
-    <p>A dataset is <strong>linearly separable</strong> if a single hyperplane can perfectly divide the classes. The <em>Perceptron Convergence Theorem</em> guarantees convergence in finite steps if linearly separable. It cannot solve XOR — this limitation motivated the MLP.</p>
+    <p>A dataset is <strong>linearly separable</strong> if a single hyperplane can perfectly divide the classes. The <em>Perceptron Convergence Theorem</em> guarantees convergence in finite steps if linearly separable. It cannot solve XOR-this limitation motivated the MLP.</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Gate</th><th>Linearly Separable?</th><th>Perceptron Solves?</th></tr></thead>
       <tbody>
         <tr><td>AND, OR, NOT</td><td>Yes</td><td>Yes</td></tr>
-        <tr><td>XOR, XNOR</td><td>No</td><td>No — requires MLP</td></tr>
+        <tr><td>XOR, XNOR</td><td>No</td><td>No-requires MLP</td></tr>
       </tbody>
     </table></div>
 
     <span class="sub-h">NOR Gate Training Example</span>
-    <p>NOR: output 1 only when all inputs are 0. Truth table: (0,0)→1, (0,1)→0, (1,0)→0, (1,1)→0. Since NOR is linearly separable, the perceptron converges. Starting with w₁=w₂=0, b=0, η=1 — after iterating through all examples, typical final weights are w₁=−1, w₂=−1, b=0.5 (or similar).</p>
+    <p>NOR: output 1 only when all inputs are 0. Truth table: (0,0)→1, (0,1)→0, (1,0)→0, (1,1)→0. Since NOR is linearly separable, the perceptron converges. Starting with w₁=w₂=0, b=0, η=1-after iterating through all examples, typical final weights are w₁=−1, w₂=−1, b=0.5 (or similar).</p>
   </div>
 </div>
 
@@ -503,9 +503,9 @@
     <div class="rule-box"><p>Dataset D is linearly separable ⟺ ∃ w, b such that: wᵀxᵢ + b > 0 for all positive xᵢ and wᵀxᵢ + b &lt; 0 for all negative xᵢ</p></div>
 
     <span class="sub-h">Visual Illustration</span>
-    <div class="diagram-wrap"><div class="diagram-label">Linear Separability — AND (separable) vs XOR (not separable)</div>
+    <div class="diagram-wrap"><div class="diagram-label">Linear Separability-AND (separable) vs XOR (not separable)</div>
     <svg viewBox="0 0 540 210" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
-      <!-- AND gate — linearly separable -->
+      <!-- AND gate-linearly separable -->
       <text x="120" y="16" text-anchor="middle" fill="#aaa" font-size="11">AND Gate (Separable)</text>
       <line x1="30" y1="170" x2="220" y2="170" stroke="#333" stroke-width="1"/>
       <line x1="30" y1="170" x2="30" y2="30" stroke="#333" stroke-width="1"/>
@@ -522,7 +522,7 @@
       <line x1="40" y1="55" x2="205" y2="155" stroke="#ff9" stroke-width="1.5" stroke-dasharray="5,3"/>
       <text x="100" y="48" fill="#ff9" font-size="9">Decision boundary</text>
 
-      <!-- XOR gate — NOT linearly separable -->
+      <!-- XOR gate-NOT linearly separable -->
       <text x="400" y="16" text-anchor="middle" fill="#aaa" font-size="11">XOR Gate (Not Separable)</text>
       <line x1="310" y1="170" x2="500" y2="170" stroke="#333" stroke-width="1"/>
       <line x1="310" y1="170" x2="310" y2="30" stroke="#333" stroke-width="1"/>
@@ -534,7 +534,7 @@
       <!-- positive XOR points -->
       <circle cx="340" cy="80"  r="8" fill="#6cf" stroke="#6cf" stroke-width="2"/><text x="340" y="70" text-anchor="middle" fill="#6cf" font-size="9">(0,1)</text>
       <circle cx="460" cy="140" r="8" fill="#6cf" stroke="#6cf" stroke-width="2"/><text x="460" y="158" text-anchor="middle" fill="#6cf" font-size="9">(1,0)</text>
-      <!-- no single boundary possible — crossed lines showing impossibility -->
+      <!-- no single boundary possible-crossed lines showing impossibility -->
       <line x1="320" y1="110" x2="490" y2="110" stroke="#f88" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
       <text x="400" y="107" text-anchor="middle" fill="#f88" font-size="8" opacity="0.7">No single line works</text>
     </svg></div>
@@ -547,12 +547,12 @@
         <tr><td>OR</td><td>Yes</td><td>Yes</td><td>Separates (0,0) from (0,1),(1,0),(1,1)</td></tr>
         <tr><td>NOT</td><td>Yes</td><td>Yes</td><td>Single threshold on one input</td></tr>
         <tr><td>XOR</td><td>No</td><td>No</td><td>Positive/negative classes interleaved diagonally</td></tr>
-        <tr><td>XNOR</td><td>No</td><td>No</td><td>Complement of XOR — same non-separability</td></tr>
+        <tr><td>XNOR</td><td>No</td><td>No</td><td>Complement of XOR-same non-separability</td></tr>
       </tbody>
     </table></div>
 
     <span class="sub-h">Perceptron Convergence Theorem</span>
-    <p>If a dataset is linearly separable, the Perceptron Learning Algorithm is <em>guaranteed to converge</em> to a correct separating hyperplane in a finite number of update steps. If the data is not linearly separable, the algorithm cycles indefinitely without converging — necessitating multi-layer networks (MLP).</p>
+    <p>If a dataset is linearly separable, the Perceptron Learning Algorithm is <em>guaranteed to converge</em> to a correct separating hyperplane in a finite number of update steps. If the data is not linearly separable, the algorithm cycles indefinitely without converging-necessitating multi-layer networks (MLP).</p>
   </div>
 </div>
 
@@ -560,7 +560,7 @@
 <div class="q-block">
   <div class="q-head"><span class="q-num">Q1–C</span><span class="q-title">Explain Candidate Elimination Algorithm / Describe Candidate Elimination Method</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p>The <strong>Candidate Elimination Algorithm</strong> (Mitchell, 1982) is a concept learning algorithm that maintains the entire <em>Version Space</em> — the set of all hypotheses in H consistent with all training examples seen so far — by tracking two boundary sets.</p>
+    <p>The <strong>Candidate Elimination Algorithm</strong> (Mitchell, 1982) is a concept learning algorithm that maintains the entire <em>Version Space</em>-the set of all hypotheses in H consistent with all training examples seen so far-by tracking two boundary sets.</p>
 
     <span class="sub-h">Version Space Boundaries</span>
     <ul>
@@ -578,7 +578,7 @@
       </tbody>
     </table></div>
 
-    <span class="sub-h">Worked Example — EnjoySport Dataset</span>
+    <span class="sub-h">Worked Example-EnjoySport Dataset</span>
     <p>Attributes: Sky, AirTemp, Humidity, Wind, Water, Forecast. Target: EnjoySport (Yes/No).</p>
     <div class="table-wrap"><table>
       <thead><tr><th>#</th><th>Example</th><th>Label</th><th>S after update</th><th>G after update</th></tr></thead>
@@ -593,7 +593,7 @@
 
     <span class="sub-h">Properties</span>
     <ul>
-      <li>Outputs the entire <strong>Version Space</strong> (a set), not a single hypothesis — unlike Find-S.</li>
+      <li>Outputs the entire <strong>Version Space</strong> (a set), not a single hypothesis-unlike Find-S.</li>
       <li>Converges to target concept if H contains it and training data is noise-free.</li>
       <li>A <strong>perfectly classified example</strong> with S=G gives a single, unambiguous hypothesis.</li>
       <li>Fails gracefully: if VS becomes empty, target concept is not in H or data is contradictory.</li>
@@ -604,8 +604,8 @@
       <thead><tr><th>Property</th><th>Find-S</th><th>Candidate Elimination</th></tr></thead>
       <tbody>
         <tr><td>Output</td><td>Single most-specific consistent hypothesis</td><td>Entire Version Space (S and G boundaries)</td></tr>
-        <tr><td>Uses negative examples</td><td>No</td><td>Yes — to specialise G</td></tr>
-        <tr><td>Detects inconsistency</td><td>No</td><td>Yes — VS becomes empty</td></tr>
+        <tr><td>Uses negative examples</td><td>No</td><td>Yes-to specialise G</td></tr>
+        <tr><td>Detects inconsistency</td><td>No</td><td>Yes-VS becomes empty</td></tr>
         <tr><td>Bias</td><td>Most specific hypothesis</td><td>No preference within VS</td></tr>
       </tbody>
     </table></div>
@@ -616,20 +616,20 @@
 <div class="q-block">
   <div class="q-head"><span class="q-num">Q1–D</span><span class="q-title">How Can Overfitting Be Reduced?</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p><strong>Overfitting</strong> occurs when a model fits training data — including its noise — so tightly that it fails to generalise to new examples. It is characterised by low training error but high test error.</p>
+    <p><strong>Overfitting</strong> occurs when a model fits training data-including its noise-so tightly that it fails to generalise to new examples. It is characterised by low training error but high test error.</p>
 
     <span class="sub-h">Overfitting Visualised</span>
-    <div class="diagram-wrap"><div class="diagram-label">Training vs Validation Error — Overfitting Point</div>
+    <div class="diagram-wrap"><div class="diagram-label">Training vs Validation Error-Overfitting Point</div>
     <svg viewBox="0 0 540 200" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <defs><marker id="ov" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#555"/></marker></defs>
       <line x1="50" y1="170" x2="510" y2="170" stroke="#333" stroke-width="1.5" marker-end="url(#ov)"/>
       <line x1="50" y1="170" x2="50" y2="20" stroke="#333" stroke-width="1.5" marker-end="url(#ov)"/>
       <text x="280" y="190" text-anchor="middle" fill="#555" font-size="9">Model Complexity →</text>
       <text x="30" y="95" fill="#555" font-size="9" transform="rotate(-90,30,95)">Error</text>
-      <!-- Training error curve — decreasing -->
+      <!-- Training error curve-decreasing -->
       <path d="M60,130 Q150,100 250,75 Q350,60 480,40" fill="none" stroke="#6cf" stroke-width="2"/>
       <text x="490" y="38" fill="#6cf" font-size="9">Train</text>
-      <!-- Validation error curve — U-shaped -->
+      <!-- Validation error curve-U-shaped -->
       <path d="M60,125 Q120,90 200,80 Q280,78 350,90 Q420,110 480,145" fill="none" stroke="#f88" stroke-width="2"/>
       <text x="490" y="148" fill="#f88" font-size="9">Val</text>
       <!-- optimal line -->
@@ -671,12 +671,12 @@
       <thead><tr><th>Approach</th><th>How Prior Knowledge is Used</th><th>Example</th></tr></thead>
       <tbody>
         <tr><td>Bayesian Prior P(h)</td><td>Encode beliefs about hypothesis plausibility; MAP = argmax P(D|h)P(h)</td><td>Medical: anatomical constraints as priors</td></tr>
-        <tr><td>Transfer Learning</td><td>Pre-train on large dataset; fine-tune on task — weights initialised meaningfully</td><td>ImageNet-pretrained CNN for X-ray classification</td></tr>
+        <tr><td>Transfer Learning</td><td>Pre-train on large dataset; fine-tune on task-weights initialised meaningfully</td><td>ImageNet-pretrained CNN for X-ray classification</td></tr>
         <tr><td>Constructive Induction</td><td>Domain expert defines relevant features / hypothesis structure before learning</td><td>Chemical reaction rules encoded as features</td></tr>
         <tr><td>Initialised Version Space</td><td>Start with restricted S and G boundaries based on known constraints</td><td>Only hypotheses satisfying safety rules considered</td></tr>
       </tbody>
     </table></div>
-    <p>In neural networks: <strong>Xavier/He weight initialisation</strong> is a form of prior knowledge — it ensures variance flows correctly through layers, replacing harmful all-zero or large-random initialisations. This embeds the prior belief that weights should be small and symmetric around zero.</p>
+    <p>In neural networks: <strong>Xavier/He weight initialisation</strong> is a form of prior knowledge-it ensures variance flows correctly through layers, replacing harmful all-zero or large-random initialisations. This embeds the prior belief that weights should be small and symmetric around zero.</p>
   </div>
 </div>
 
@@ -684,7 +684,7 @@
 <div class="q-block">
   <div class="q-head"><span class="q-num">Q1–F</span><span class="q-title">Explain Linear Regression and Locally Weighted Linear Regression</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p><strong>Linear Regression</strong> fits a linear function y = wᵀx + b to minimise the Mean Squared Error between predictions and targets. It is the simplest parametric regression model — weights are learned globally from all training data.</p>
+    <p><strong>Linear Regression</strong> fits a linear function y = wᵀx + b to minimise the Mean Squared Error between predictions and targets. It is the simplest parametric regression model-weights are learned globally from all training data.</p>
 
     <span class="sub-h">Closed-Form Solution (Normal Equation)</span>
     <div class="rule-box"><p>ŵ = (XᵀX)⁻¹ Xᵀy &nbsp;&nbsp; (works when XᵀX is invertible; O(n³) complexity)</p></div>
@@ -711,7 +711,7 @@
       <tbody>
         <tr><td>Model type</td><td>Global (single model)</td><td>Local (model per query point)</td></tr>
         <tr><td>Training cost</td><td>O(nd²) once</td><td>O(nd²) per query</td></tr>
-        <tr><td>Handles non-linearity</td><td>No (without basis functions)</td><td>Yes — local linear fits curved data</td></tr>
+        <tr><td>Handles non-linearity</td><td>No (without basis functions)</td><td>Yes-local linear fits curved data</td></tr>
         <tr><td>Parameters</td><td>Fixed weight vector w</td><td>Bandwidth k only</td></tr>
       </tbody>
     </table></div>
@@ -722,9 +722,9 @@
 <div class="q-block">
   <div class="q-head"><span class="q-num">Q2–A</span><span class="q-title">Explain Multi-Layer Perceptron (MLP) Architecture</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p>A <strong>Multi-Layer Perceptron (MLP)</strong> is a fully connected feedforward neural network with one or more hidden layers. Non-linear activations at each neuron allow the MLP to learn arbitrarily complex functions — overcoming the single-layer perceptron's linear limitation (Universal Approximation Theorem).</p>
+    <p>A <strong>Multi-Layer Perceptron (MLP)</strong> is a fully connected feedforward neural network with one or more hidden layers. Non-linear activations at each neuron allow the MLP to learn arbitrarily complex functions-overcoming the single-layer perceptron's linear limitation (Universal Approximation Theorem).</p>
 
-    <span class="sub-h">Architecture Diagram — 3 Layer MLP</span>
+    <span class="sub-h">Architecture Diagram-3 Layer MLP</span>
     <div class="diagram-wrap"><div class="diagram-label">Input (3) → Hidden 1 (4) → Hidden 2 (3) → Output (2)</div>
     <svg viewBox="0 0 560 200" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <defs><marker id="ma" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#222"/></marker></defs>
@@ -801,7 +801,7 @@
 <div class="q-block">
   <div class="q-head"><span class="q-num">Q2–B</span><span class="q-title">How Does a Neural Network Learn Using Gradient Descent?</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p>A neural network learns by iteratively adjusting its weights to minimise a loss function using <strong>gradient descent</strong> — moving parameters in the direction that most reduces error. Gradients are computed efficiently via backpropagation.</p>
+    <p>A neural network learns by iteratively adjusting its weights to minimise a loss function using <strong>gradient descent</strong>-moving parameters in the direction that most reduces error. Gradients are computed efficiently via backpropagation.</p>
 
     <span class="sub-h">Loss Functions</span>
     <div class="table-wrap"><table>
@@ -896,7 +896,7 @@
       <line x1="480" y1="40" x2="503" y2="40" stroke="#555" stroke-width="1.5" marker-end="url(#lp)"/>
     </svg></div>
 
-    <span class="sub-h">Backpropagation — Detailed Chain Rule</span>
+    <span class="sub-h">Backpropagation-Detailed Chain Rule</span>
     <p>For an L-layer network, the gradient at layer l is computed using the chain rule from the output layer backwards:</p>
     <div class="rule-box"><p>δˡ = ((Wˡ⁺¹)ᵀ δˡ⁺¹) ⊙ f'(zˡ) &nbsp;&nbsp; ∂L/∂Wˡ = δˡ (aˡ⁻¹)ᵀ &nbsp;&nbsp; ∂L/∂bˡ = δˡ</p></div>
     <p>Here δˡ is the error signal at layer l, f'(zˡ) is the derivative of the activation, and ⊙ is element-wise multiplication.</p>
@@ -926,7 +926,7 @@
       <tbody>
         <tr><td>Hidden activation</td><td>Radial (distance-based)</td><td>Sigmoidal (inner product)</td></tr>
         <tr><td>Training</td><td>2-stage: cluster centres, then output weights</td><td>Full backpropagation</td></tr>
-        <tr><td>Local generalisation</td><td>Yes — each unit active near its centre</td><td>No — global activation</td></tr>
+        <tr><td>Local generalisation</td><td>Yes-each unit active near its centre</td><td>No-global activation</td></tr>
         <tr><td>Interpretability</td><td>Higher</td><td>Lower</td></tr>
       </tbody>
     </table></div>
@@ -949,7 +949,7 @@
       </tbody>
     </table></div>
 
-    <span class="sub-h">SVM for Classification — Soft Margin</span>
+    <span class="sub-h">SVM for Classification-Soft Margin</span>
     <p>When data is not perfectly separable, the <em>soft-margin SVM</em> introduces slack variables ξᵢ ≥ 0 allowing some misclassification. Hyperparameter C controls the trade-off: large C = fewer errors but smaller margin; small C = larger margin but more violations.</p>
   </div>
 </div>
@@ -962,12 +962,12 @@
 
     <span class="sub-h">1. Regularisation</span>
     <p><strong>L2 (Weight Decay):</strong> Adds penalty λΣwᵢ² to the loss. Large weights are penalised, forcing the network to find a simpler solution. Prevents any single weight from dominating.</p>
-    <p><strong>L1:</strong> Adds λΣ|wᵢ|. Promotes sparsity — many weights become exactly zero, performing implicit feature selection.</p>
+    <p><strong>L1:</strong> Adds λΣ|wᵢ|. Promotes sparsity-many weights become exactly zero, performing implicit feature selection.</p>
     <div class="rule-box"><p>Loss with L2: J = MSE + λΣwᵢ² &nbsp;&nbsp;&nbsp; Gradient update: w ← w(1 − ηλ) − η·∂MSE/∂w</p></div>
 
     <span class="sub-h">2. Dropout</span>
-    <p>During each training forward pass, each neuron is independently deactivated (set to 0) with probability p (typically 0.5 for hidden layers). This prevents neurons from co-adapting — each must learn robust features independently. At test time, all neurons are active but weights are scaled by (1−p).</p>
-    <div class="diagram-wrap"><div class="diagram-label">Dropout — Random deactivation during training</div>
+    <p>During each training forward pass, each neuron is independently deactivated (set to 0) with probability p (typically 0.5 for hidden layers). This prevents neurons from co-adapting-each must learn robust features independently. At test time, all neurons are active but weights are scaled by (1−p).</p>
+    <div class="diagram-wrap"><div class="diagram-label">Dropout-Random deactivation during training</div>
     <svg viewBox="0 0 540 120" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <text x="135" y="14" text-anchor="middle" fill="#555" font-size="9">Full Network</text>
       <text x="400" y="14" text-anchor="middle" fill="#555" font-size="9">After Dropout (p=0.5)</text>
@@ -987,7 +987,7 @@
       <line x1="147" y1="35" x2="198" y2="55" stroke="#222" stroke-width="1"/>
       <line x1="147" y1="62" x2="198" y2="55" stroke="#222" stroke-width="1"/>
       <line x1="147" y1="89" x2="198" y2="55" stroke="#222" stroke-width="1"/>
-      <!-- Dropout network — some dropped -->
+      <!-- Dropout network-some dropped -->
       <circle cx="330" cy="45" r="12" fill="#111" stroke="#6cf" stroke-width="1.5"/>
       <circle cx="330" cy="80" r="12" fill="#111" stroke="#6cf" stroke-width="1.5"/>
       <circle cx="405" cy="35" r="12" fill="#333" stroke="#333" stroke-width="1.5"/>
@@ -1027,7 +1027,7 @@
 <div class="q-block">
   <div class="q-head"><span class="q-num">Q2–F</span><span class="q-title">Train Perceptron for NOR Gate</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p>The <strong>NOR gate</strong> produces output 1 only when ALL inputs are 0. With 2 inputs x₁ and x₂, it is a linearly separable function — so the perceptron is guaranteed to converge.</p>
+    <p>The <strong>NOR gate</strong> produces output 1 only when ALL inputs are 0. With 2 inputs x₁ and x₂, it is a linearly separable function-so the perceptron is guaranteed to converge.</p>
 
     <span class="sub-h">NOR Gate Truth Table</span>
     <div class="table-wrap"><table>
@@ -1043,7 +1043,7 @@
     <span class="sub-h">Initialisation</span>
     <p>w₁ = 0, w₂ = 0, b = 0, learning rate η = 1. Output rule: ŷ = 1 if w₁x₁ + w₂x₂ + b ≥ 0, else 0. Update rule: Δwᵢ = η(t − ŷ)·xᵢ, Δb = η(t − ŷ).</p>
 
-    <span class="sub-h">Epoch 1 — Step-by-Step Training</span>
+    <span class="sub-h">Epoch 1-Step-by-Step Training</span>
     <div class="table-wrap"><table>
       <thead><tr><th>Step</th><th>x₁,x₂</th><th>t</th><th>net</th><th>ŷ</th><th>Error (t−ŷ)</th><th>Δw₁</th><th>Δw₂</th><th>Δb</th><th>New w₁,w₂,b</th></tr></thead>
       <tbody>
@@ -1054,11 +1054,11 @@
       </tbody>
     </table></div>
 
-    <span class="sub-h">Epoch 2 — Verification</span>
+    <span class="sub-h">Epoch 2-Verification</span>
     <div class="table-wrap"><table>
       <thead><tr><th>x₁,x₂</th><th>t</th><th>net = 0·x₁ + (−1)·x₂ + (−1)</th><th>ŷ</th><th>Correct?</th></tr></thead>
       <tbody>
-        <tr><td>0, 0</td><td>1</td><td>0 + 0 − 1 = −1</td><td>0</td><td>✗ — error, must continue</td></tr>
+        <tr><td>0, 0</td><td>1</td><td>0 + 0 − 1 = −1</td><td>0</td><td>✗-error, must continue</td></tr>
       </tbody>
     </table></div>
     <p>Training continues across more epochs. The perceptron converges after sufficient iterations. A known convergent solution for NOR is: <strong>w₁ = −1, w₂ = −1, b = 0.5</strong> (threshold 0). Let us verify:</p>
@@ -1077,26 +1077,26 @@
 
 <!-- ══════ Q3-A: Ensemble + Decision Trees ══════ -->
 <div class="q-block">
-  <div class="q-head"><span class="q-num">Q3–A</span><span class="q-title">Ensemble Learning — Bagging and Boosting / Decision Tree Learning</span><span class="q-marks">5 marks</span></div>
+  <div class="q-head"><span class="q-num">Q3–A</span><span class="q-title">Ensemble Learning-Bagging and Boosting / Decision Tree Learning</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p><strong>Ensemble learning</strong> combines multiple base models (weak learners) into a single stronger model. Diversity among base models cancels individual errors — the ensemble generalises better than any single component.</p>
+    <p><strong>Ensemble learning</strong> combines multiple base models (weak learners) into a single stronger model. Diversity among base models cancels individual errors-the ensemble generalises better than any single component.</p>
 
-    <span class="sub-h">Bagging vs Boosting — Detailed Comparison</span>
+    <span class="sub-h">Bagging vs Boosting-Detailed Comparison</span>
     <div class="table-wrap"><table>
       <thead><tr><th>Property</th><th>Bagging</th><th>Boosting</th></tr></thead>
       <tbody>
-        <tr><td>Training order</td><td>Parallel — all models trained independently</td><td>Sequential — each model corrects the previous</td></tr>
+        <tr><td>Training order</td><td>Parallel-all models trained independently</td><td>Sequential-each model corrects the previous</td></tr>
         <tr><td>Data sampling</td><td>Bootstrap (random with replacement, ~63% unique)</td><td>Full data, but misclassified examples upweighted</td></tr>
         <tr><td>Primary reduction</td><td>Variance (stable models from noisy data)</td><td>Bias (corrects systematic errors)</td></tr>
         <tr><td>Combination</td><td>Majority vote / average (equal weight)</td><td>Weighted vote (accurate learners get more weight)</td></tr>
-        <tr><td>Overfitting risk</td><td>Low</td><td>Higher — can overfit with too many rounds</td></tr>
+        <tr><td>Overfitting risk</td><td>Low</td><td>Higher-can overfit with too many rounds</td></tr>
         <tr><td>Examples</td><td>Random Forest, Extra Trees</td><td>AdaBoost, Gradient Boosting, XGBoost, LightGBM</td></tr>
       </tbody>
     </table></div>
 
     <span class="sub-h">Real-World Comparison</span>
-    <p><strong>Bagging (Random Forest) — Medical Diagnosis:</strong> Each tree trained on a bootstrap sample of patient records makes an independent diagnosis. The majority vote is far more reliable than any single decision tree, which might overfit to one training batch.</p>
-    <p><strong>Boosting (XGBoost) — Credit Scoring:</strong> First model roughly predicts default risk. Subsequent models specifically target the customers misclassified by earlier rounds. The final ensemble is highly accurate for edge cases — a key advantage in fraud detection.</p>
+    <p><strong>Bagging (Random Forest)-Medical Diagnosis:</strong> Each tree trained on a bootstrap sample of patient records makes an independent diagnosis. The majority vote is far more reliable than any single decision tree, which might overfit to one training batch.</p>
+    <p><strong>Boosting (XGBoost)-Credit Scoring:</strong> First model roughly predicts default risk. Subsequent models specifically target the customers misclassified by earlier rounds. The final ensemble is highly accurate for edge cases-a key advantage in fraud detection.</p>
 
     <span class="sub-h">ID3 Decision Tree Algorithm</span>
     <p>ID3 builds a tree top-down by greedily selecting the attribute with the highest <strong>Information Gain</strong> at each node.</p>
@@ -1114,13 +1114,13 @@
   </div>
 </div>
 
-<!-- ══════ Q3-B: ID3 Splitting Attribute — Worked Example ══════ -->
+<!-- ══════ Q3-B: ID3 Splitting Attribute-Worked Example ══════ -->
 <div class="q-block">
-  <div class="q-head"><span class="q-num">Q3–B</span><span class="q-title">Determine Splitting Attribute Using ID3 — Worked Example</span><span class="q-marks">5 marks</span></div>
+  <div class="q-head"><span class="q-num">Q3–B</span><span class="q-title">Determine Splitting Attribute Using ID3-Worked Example</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
     <p>The ID3 algorithm selects the attribute with the highest <strong>Information Gain</strong> as the root/splitting node. Information Gain measures the reduction in entropy achieved by splitting on an attribute.</p>
 
-    <span class="sub-h">Sample Dataset — PlayTennis</span>
+    <span class="sub-h">Sample Dataset-PlayTennis</span>
     <div class="table-wrap"><table>
       <thead><tr><th>Day</th><th>Outlook</th><th>Temperature</th><th>Humidity</th><th>Wind</th><th>PlayTennis</th></tr></thead>
       <tbody>
@@ -1141,11 +1141,11 @@
       </tbody>
     </table></div>
 
-    <span class="sub-h">Step 1 — Root Entropy H(S)</span>
+    <span class="sub-h">Step 1-Root Entropy H(S)</span>
     <p>14 examples: 9 Yes (+), 5 No (−).</p>
     <div class="rule-box"><p>H(S) = −(9/14)log₂(9/14) − (5/14)log₂(5/14) = −0.643·(−0.637) − 0.357·(−1.485) = 0.940 bits</p></div>
 
-    <span class="sub-h">Step 2 — Information Gain for Outlook</span>
+    <span class="sub-h">Step 2-Information Gain for Outlook</span>
     <p>Outlook values: Sunny (5 examples: 2+,3−), Overcast (4 examples: 4+,0−), Rain (5 examples: 3+,2−)</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Outlook Value</th><th>Count</th><th>Yes</th><th>No</th><th>Entropy</th></tr></thead>
@@ -1157,7 +1157,7 @@
     </table></div>
     <div class="rule-box"><p>IG(S, Outlook) = 0.940 − [(5/14)·0.971 + (4/14)·0.000 + (5/14)·0.971] = 0.940 − 0.693 = <strong>0.247 bits</strong></p></div>
 
-    <span class="sub-h">Step 3 — Information Gain for Other Attributes</span>
+    <span class="sub-h">Step 3-Information Gain for Other Attributes</span>
     <div class="table-wrap"><table>
       <thead><tr><th>Attribute</th><th>IG</th></tr></thead>
       <tbody>
@@ -1168,7 +1168,7 @@
       </tbody>
     </table></div>
 
-    <span class="sub-h">Step 4 — Decision</span>
+    <span class="sub-h">Step 4-Decision</span>
     <p><strong>Outlook</strong> has the highest information gain (0.247 bits) and is selected as the root splitting attribute. The tree splits data into three subtrees: Sunny, Overcast (immediate leaf: Yes), and Rain. The process recurses on Sunny and Rain subsets using remaining attributes.</p>
 
     <div class="diagram-wrap"><div class="diagram-label">Resulting Root Split</div>
@@ -1212,8 +1212,8 @@
       <li><strong>Repeat</strong> steps 2–3 until centroids stabilise (assignments don't change).</li>
     </ol>
 
-    <span class="sub-h">K-Means Example — 2D Data</span>
-    <div class="diagram-wrap"><div class="diagram-label">K-Means Iteration — k=2</div>
+    <span class="sub-h">K-Means Example-2D Data</span>
+    <div class="diagram-wrap"><div class="diagram-label">K-Means Iteration-k=2</div>
     <svg viewBox="0 0 540 160" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <!-- Axes -->
       <text x="130" y="14" text-anchor="middle" fill="#555" font-size="9">Iteration 1: Initial centroids</text>
@@ -1259,9 +1259,9 @@
       <thead><tr><th>Property</th><th>K-Means</th></tr></thead>
       <tbody>
         <tr><td>Cluster shape</td><td>Spherical (Euclidean distance assumes circular boundaries)</td></tr>
-        <tr><td>Cluster count k</td><td>Must be specified upfront — use Elbow/Silhouette to choose</td></tr>
-        <tr><td>Outlier sensitivity</td><td>High — outliers pull centroids away from cluster core</td></tr>
-        <tr><td>Complexity</td><td>O(n·k·d·iterations) — fast for moderate n, k</td></tr>
+        <tr><td>Cluster count k</td><td>Must be specified upfront-use Elbow/Silhouette to choose</td></tr>
+        <tr><td>Outlier sensitivity</td><td>High-outliers pull centroids away from cluster core</td></tr>
+        <tr><td>Complexity</td><td>O(n·k·d·iterations)-fast for moderate n, k</td></tr>
       </tbody>
     </table></div>
 
@@ -1272,9 +1272,9 @@
     <div class="table-wrap"><table>
       <thead><tr><th>Concept</th><th>Definition</th><th>Example</th></tr></thead>
       <tbody>
-        <tr><td>ε (epsilon)</td><td>Neighbourhood radius — max distance to be "near"</td><td>ε = 0.5 units</td></tr>
+        <tr><td>ε (epsilon)</td><td>Neighbourhood radius-max distance to be "near"</td><td>ε = 0.5 units</td></tr>
         <tr><td>MinPts</td><td>Minimum neighbours within ε to be a "core point"</td><td>MinPts = 4</td></tr>
-        <tr><td>Core Point</td><td>Has ≥ MinPts neighbours within ε — starts a cluster</td><td>Dense region centre</td></tr>
+        <tr><td>Core Point</td><td>Has ≥ MinPts neighbours within ε-starts a cluster</td><td>Dense region centre</td></tr>
         <tr><td>Border Point</td><td>Within ε of a core point but fewer than MinPts neighbours</td><td>Edge of cluster</td></tr>
         <tr><td>Noise Point</td><td>Not within ε of any core point; labelled as outlier (−1)</td><td>Isolated anomaly</td></tr>
       </tbody>
@@ -1285,9 +1285,9 @@
       <thead><tr><th>Feature</th><th>K-Means</th><th>DBSCAN</th></tr></thead>
       <tbody>
         <tr><td>Cluster shape</td><td>Spherical only</td><td>Arbitrary (C-shape, rings)</td></tr>
-        <tr><td>Specify k</td><td>Yes — must choose k upfront</td><td>No — k determined automatically</td></tr>
-        <tr><td>Handles outliers</td><td>No — forced into nearest cluster</td><td>Yes — labelled as noise</td></tr>
-        <tr><td>Scalability</td><td>Fast — O(nkd)</td><td>Slower — O(n log n) with index</td></tr>
+        <tr><td>Specify k</td><td>Yes-must choose k upfront</td><td>No-k determined automatically</td></tr>
+        <tr><td>Handles outliers</td><td>No-forced into nearest cluster</td><td>Yes-labelled as noise</td></tr>
+        <tr><td>Scalability</td><td>Fast-O(nkd)</td><td>Slower-O(n log n) with index</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -1300,7 +1300,7 @@
     <p>A <strong>Genetic Algorithm (GA)</strong> is a population-based metaheuristic optimisation algorithm modelled on Darwinian natural selection. It evolves a population of candidate solutions over successive generations using selection, crossover, and mutation operators. GAs excel on discontinuous, multi-modal, high-dimensional search spaces.</p>
 
     <span class="sub-h">GA Lifecycle</span>
-    <div class="diagram-wrap"><div class="diagram-label">Genetic Algorithm — Generation Cycle</div>
+    <div class="diagram-wrap"><div class="diagram-label">Genetic Algorithm-Generation Cycle</div>
     <svg viewBox="0 0 580 110" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <defs><marker id="ga" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/></marker></defs>
       <rect x="5"   y="28" width="88" height="36" rx="3" fill="#111" stroke="#555" stroke-width="1.5"/>
@@ -1331,11 +1331,11 @@
       <tbody>
         <tr><td>Chromosome</td><td>Encoded candidate solution (binary string, real vector)</td><td>10110100 represents parameter set</td></tr>
         <tr><td>Population</td><td>Set of M chromosomes evaluated each generation</td><td>M = 100 candidate solutions</td></tr>
-        <tr><td>Fitness Function</td><td>Measures solution quality — drives selection pressure</td><td>f(x) = −MSE(model with params x)</td></tr>
+        <tr><td>Fitness Function</td><td>Measures solution quality-drives selection pressure</td><td>f(x) = −MSE(model with params x)</td></tr>
         <tr><td>Selection</td><td>Prefer fitter chromosomes as parents</td><td>Roulette wheel, Tournament selection</td></tr>
         <tr><td>Crossover (pᵣ≈0.8)</td><td>Swap segments of two parents at cut point(s)</td><td>P1: 1011|00 + P2: 0100|11 → C: 101111</td></tr>
-        <tr><td>Mutation (pₘ≈0.01)</td><td>Randomly flip bits — maintains genetic diversity</td><td>10110 → 10010</td></tr>
-        <tr><td>Elitism</td><td>Carry best n individuals unchanged to next generation</td><td>Top 2 pass directly — prevents regression</td></tr>
+        <tr><td>Mutation (pₘ≈0.01)</td><td>Randomly flip bits-maintains genetic diversity</td><td>10110 → 10010</td></tr>
+        <tr><td>Elitism</td><td>Carry best n individuals unchanged to next generation</td><td>Top 2 pass directly-prevents regression</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -1347,12 +1347,12 @@
   <div class="q-body">
     <p><strong>PCA</strong> (Principal Component Analysis) and <strong>ICA</strong> (Independent Component Analysis) are both linear dimensionality reduction techniques, but they optimise different statistical objectives and suit different problem types.</p>
 
-    <span class="sub-h">PCA — Maximises Variance</span>
+    <span class="sub-h">PCA-Maximises Variance</span>
     <p>PCA finds orthogonal components (principal components) that explain the maximum variance in the data. Components are <em>uncorrelated</em> (zero covariance) but not necessarily statistically independent.</p>
     <div class="rule-box"><p>PCA: C = (1/n)XᵀX → eigen-decompose → project onto top-k eigenvectors (directions of max variance)</p></div>
 
-    <span class="sub-h">ICA — Maximises Statistical Independence</span>
-    <p>ICA finds components that are <em>statistically independent</em> — a stronger condition than uncorrelated. It relies on non-Gaussianity to separate mixed signals into their independent sources.</p>
+    <span class="sub-h">ICA-Maximises Statistical Independence</span>
+    <p>ICA finds components that are <em>statistically independent</em>-a stronger condition than uncorrelated. It relies on non-Gaussianity to separate mixed signals into their independent sources.</p>
     <div class="rule-box"><p>ICA: x = As → estimate W = A⁻¹ such that s = Wx has maximally independent components &nbsp;&nbsp; (maximise non-Gaussianity via kurtosis/negentropy)</p></div>
 
     <span class="sub-h">Theoretical Comparison</span>
@@ -1360,21 +1360,21 @@
       <thead><tr><th>Property</th><th>PCA</th><th>ICA</th></tr></thead>
       <tbody>
         <tr><td>Goal</td><td>Maximise variance; reduce dimensions</td><td>Maximise statistical independence of components</td></tr>
-        <tr><td>Statistical order</td><td>2nd order (uncorrelated)</td><td>Higher-order (independent — stronger condition)</td></tr>
+        <tr><td>Statistical order</td><td>2nd order (uncorrelated)</td><td>Higher-order (independent-stronger condition)</td></tr>
         <tr><td>Ordering</td><td>Deterministic by variance</td><td>No natural ordering of components</td></tr>
-        <tr><td>Gaussian data</td><td>Optimal; PCA = whitening for Gaussian</td><td>Fails — independence = uncorrelated for Gaussian (ICA is undefined)</td></tr>
-        <tr><td>Scaling ambiguity</td><td>None — eigenvalues give variance</td><td>Component amplitudes are ambiguous</td></tr>
+        <tr><td>Gaussian data</td><td>Optimal; PCA = whitening for Gaussian</td><td>Fails-independence = uncorrelated for Gaussian (ICA is undefined)</td></tr>
+        <tr><td>Scaling ambiguity</td><td>None-eigenvalues give variance</td><td>Component amplitudes are ambiguous</td></tr>
         <tr><td>Applications</td><td>Compression, noise reduction, visualisation, face recognition</td><td>Blind source separation, EEG/fMRI, audio unmixing</td></tr>
       </tbody>
     </table></div>
 
-    <span class="sub-h">Real-Time Problem 1 — Face Recognition (PCA)</span>
+    <span class="sub-h">Real-Time Problem 1-Face Recognition (PCA)</span>
     <p>In the <strong>Eigenfaces</strong> method (Turk &amp; Pentland, 1991), PCA is applied to a dataset of face images. Each image (e.g., 100×100 = 10,000 pixels) is projected onto the top-k principal components ("eigenfaces") capturing the most variance in face appearances. A new face is represented as a low-dimensional coordinate vector and matched to the nearest stored face. PCA reduces 10,000 dimensions to ~50–150 components while retaining 95%+ of variance.</p>
 
-    <span class="sub-h">Real-Time Problem 2 — Cocktail Party Problem (ICA)</span>
-    <p>In the <strong>Cocktail Party Problem</strong>, multiple microphones record a mixture of conversations from different people. Each microphone signal x = As (A = mixing matrix, s = independent source signals). ICA recovers the original separate voices by finding W = A⁻¹ such that Wx has statistically independent components. PCA would fail here because the voice signals are not simply the directions of maximum variance — they are statistically independent non-Gaussian signals that ICA is specifically designed to separate.</p>
+    <span class="sub-h">Real-Time Problem 2-Cocktail Party Problem (ICA)</span>
+    <p>In the <strong>Cocktail Party Problem</strong>, multiple microphones record a mixture of conversations from different people. Each microphone signal x = As (A = mixing matrix, s = independent source signals). ICA recovers the original separate voices by finding W = A⁻¹ such that Wx has statistically independent components. PCA would fail here because the voice signals are not simply the directions of maximum variance-they are statistically independent non-Gaussian signals that ICA is specifically designed to separate.</p>
 
-    <div class="diagram-wrap"><div class="diagram-label">ICA — Cocktail Party Source Separation</div>
+    <div class="diagram-wrap"><div class="diagram-label">ICA-Cocktail Party Source Separation</div>
     <svg viewBox="0 0 540 130" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <defs><marker id="ica" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#555"/></marker></defs>
       <text x="60" y="14" text-anchor="middle" fill="#555" font-size="9">Source Signals (s)</text>
@@ -1408,7 +1408,7 @@
 <div class="q-block">
   <div class="q-head"><span class="q-num">Q4–C</span><span class="q-title">PCA, Isomap Algorithm, and Linear Discriminant Analysis (LDA)</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <span class="sub-h">PCA — Full Algorithm</span>
+    <span class="sub-h">PCA-Full Algorithm</span>
     <ol>
       <li><strong>Standardise</strong> each feature: zero mean, unit variance.</li>
       <li><strong>Compute covariance matrix:</strong> C = (1/n)XᵀX ∈ ℝᵈˣᵈ</li>
@@ -1419,12 +1419,12 @@
     <div class="rule-box"><p>Explained variance ratio: EVRⱼ = λⱼ / Σᵢλᵢ &nbsp;&nbsp; Choose k: Σⱼ₌₁ᵏ EVRⱼ ≥ 0.95</p></div>
 
     <span class="sub-h">Isomap Algorithm</span>
-    <p>Isomap extends MDS (Multi-Dimensional Scaling) using <strong>geodesic distances along the data manifold</strong> instead of straight Euclidean distances — essential when data lies on a curved surface (e.g., Swiss roll).</p>
+    <p>Isomap extends MDS (Multi-Dimensional Scaling) using <strong>geodesic distances along the data manifold</strong> instead of straight Euclidean distances-essential when data lies on a curved surface (e.g., Swiss roll).</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Step</th><th>Operation</th></tr></thead>
       <tbody>
         <tr><td>1. Build neighbourhood graph</td><td>Connect each point to its K nearest neighbours with Euclidean edge weights</td></tr>
-        <tr><td>2. Geodesic distances</td><td>Run Dijkstra (or Floyd-Warshall) to find shortest paths — approximates manifold distances</td></tr>
+        <tr><td>2. Geodesic distances</td><td>Run Dijkstra (or Floyd-Warshall) to find shortest paths-approximates manifold distances</td></tr>
         <tr><td>3. MDS embedding</td><td>Apply classical MDS on the geodesic distance matrix to embed data in d dimensions</td></tr>
       </tbody>
     </table></div>
@@ -1439,7 +1439,7 @@
         <tr><td>Type</td><td>Unsupervised</td><td>Supervised (uses class labels)</td></tr>
         <tr><td>Maximises</td><td>Total data variance</td><td>Between-class / within-class ratio</td></tr>
         <tr><td>Max components</td><td>d (all dimensions)</td><td>C−1 (C = number of classes)</td></tr>
-        <tr><td>Best for</td><td>Compression, general preprocessing</td><td>Classification — maximises class separability</td></tr>
+        <tr><td>Best for</td><td>Compression, general preprocessing</td><td>Classification-maximises class separability</td></tr>
       </tbody>
     </table></div>
   </div>
@@ -1447,7 +1447,7 @@
 
 <!-- ══════ Q5-A: Q-Learning ══════ -->
 <div class="q-block">
-  <div class="q-head"><span class="q-num">Q5–A</span><span class="q-title">Q-Learning and SARSA — Reinforcement Learning Algorithms</span><span class="q-marks">5 marks</span></div>
+  <div class="q-head"><span class="q-num">Q5–A</span><span class="q-title">Q-Learning and SARSA-Reinforcement Learning Algorithms</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
     <p><strong>Q-Learning</strong> is an <strong>off-policy, model-free</strong> Temporal Difference (TD) algorithm. It learns the optimal action-value function Q*(s,a) regardless of the exploration strategy used during training.</p>
 
@@ -1478,9 +1478,9 @@ Repeat for each episode:
       <thead><tr><th>Property</th><th>Q-Learning</th><th>SARSA</th></tr></thead>
       <tbody>
         <tr><td>Policy type</td><td>Off-policy</td><td>On-policy</td></tr>
-        <tr><td>Update target</td><td>max Q(s′,a′) — best possible action</td><td>Q(s′,a′) — actual next action taken</td></tr>
+        <tr><td>Update target</td><td>max Q(s′,a′)-best possible action</td><td>Q(s′,a′)-actual next action taken</td></tr>
         <tr><td>Convergence</td><td>Optimal Q* (with decaying ε, α)</td><td>Current behavioural policy value</td></tr>
-        <tr><td>Risk behaviour</td><td>Aggressive — shortcuts near cliffs</td><td>Conservative — avoids dangerous paths</td></tr>
+        <tr><td>Risk behaviour</td><td>Aggressive-shortcuts near cliffs</td><td>Conservative-avoids dangerous paths</td></tr>
         <tr><td>Example</td><td>Cliff-walking: takes shortcut along cliff</td><td>Cliff-walking: takes safer longer path</td></tr>
       </tbody>
     </table></div>
@@ -1504,7 +1504,7 @@ Repeat for each episode:
     <p>An <strong>HMM</strong> models a system with <strong>unobservable hidden states</strong> that generate observable outputs. The system follows the <em>Markov property</em>: the next state depends only on the current state (memoryless transition).</p>
 
     <span class="sub-h">HMM Structure Diagram</span>
-    <div class="diagram-wrap"><div class="diagram-label">HMM — Hidden States Generate Observations</div>
+    <div class="diagram-wrap"><div class="diagram-label">HMM-Hidden States Generate Observations</div>
     <svg viewBox="0 0 500 110" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <defs>
         <marker id="hm1" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#f88"/></marker>
@@ -1547,14 +1547,14 @@ Repeat for each episode:
     <div class="table-wrap"><table>
       <thead><tr><th>Problem</th><th>Question</th><th>Algorithm</th></tr></thead>
       <tbody>
-        <tr><td>Evaluation</td><td>P(O|λ) — probability of observation sequence</td><td>Forward Algorithm (dynamic programming)</td></tr>
+        <tr><td>Evaluation</td><td>P(O|λ)-probability of observation sequence</td><td>Forward Algorithm (dynamic programming)</td></tr>
         <tr><td>Decoding</td><td>Best hidden state sequence given O</td><td>Viterbi Algorithm (DP, finds global optimum)</td></tr>
         <tr><td>Learning</td><td>Estimate A, B, π from observation data</td><td>Baum-Welch (EM algorithm)</td></tr>
       </tbody>
     </table></div>
 
-    <span class="sub-h">Real-World Example — Speech Recognition</span>
-    <p>In speech recognition, <em>phonemes</em> are the hidden states (unobservable acoustic units) and <em>acoustic feature vectors</em> (MFCC frames) are the observations. The HMM models the probability that a sequence of acoustic observations was generated by a particular word or phoneme sequence. The Viterbi algorithm decodes the most likely phoneme sequence from the observed audio — this is the foundation of classical ASR (Automatic Speech Recognition) systems.</p>
+    <span class="sub-h">Real-World Example-Speech Recognition</span>
+    <p>In speech recognition, <em>phonemes</em> are the hidden states (unobservable acoustic units) and <em>acoustic feature vectors</em> (MFCC frames) are the observations. The HMM models the probability that a sequence of acoustic observations was generated by a particular word or phoneme sequence. The Viterbi algorithm decodes the most likely phoneme sequence from the observed audio-this is the foundation of classical ASR (Automatic Speech Recognition) systems.</p>
   </div>
 </div>
 
@@ -1567,8 +1567,8 @@ Repeat for each episode:
     <span class="sub-h">Factorisation Rule</span>
     <div class="rule-box"><p>P(X₁, X₂, ..., Xₙ) = Π P(Xᵢ | Parents(Xᵢ)) &nbsp;&nbsp; (product over all nodes)</p></div>
 
-    <span class="sub-h">Structure Diagram — Medical Diagnosis Network</span>
-    <div class="diagram-wrap"><div class="diagram-label">Bayesian Network — Disease → Symptom Dependencies</div>
+    <span class="sub-h">Structure Diagram-Medical Diagnosis Network</span>
+    <div class="diagram-wrap"><div class="diagram-label">Bayesian Network-Disease → Symptom Dependencies</div>
     <svg viewBox="0 0 540 180" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <defs><marker id="bn" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#555"/></marker></defs>
       <!-- Nodes -->
@@ -1622,8 +1622,8 @@ Repeat for each episode:
       </tbody>
     </table></div>
 
-    <span class="sub-h">Naive Bayes — Simplest Bayesian Network</span>
-    <p>Naive Bayes assumes all features are <em>conditionally independent</em> given the class label — an extreme simplification that works surprisingly well for text classification. The class and feature nodes form a star-shaped DAG with the class at the root.</p>
+    <span class="sub-h">Naive Bayes-Simplest Bayesian Network</span>
+    <p>Naive Bayes assumes all features are <em>conditionally independent</em> given the class label-an extreme simplification that works surprisingly well for text classification. The class and feature nodes form a star-shaped DAG with the class at the root.</p>
     <div class="rule-box"><p>P(C|x₁,...,xₙ) ∝ P(C) · Π P(xᵢ|C) &nbsp;&nbsp; (conditional independence assumption)</p></div>
   </div>
 </div>
@@ -1632,14 +1632,14 @@ Repeat for each episode:
 <div class="q-block">
   <div class="q-head"><span class="q-num">Q5–D</span><span class="q-title">Explain Markov Random Fields (MRF)</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p>A <strong>Markov Random Field</strong> (MRF), also called an <em>Undirected Graphical Model</em> or <em>Markov Network</em>, represents a joint probability distribution using an <em>undirected graph</em>. Unlike Bayesian Networks, edges carry no directional causal meaning — they only represent symmetric statistical correlations.</p>
+    <p>A <strong>Markov Random Field</strong> (MRF), also called an <em>Undirected Graphical Model</em> or <em>Markov Network</em>, represents a joint probability distribution using an <em>undirected graph</em>. Unlike Bayesian Networks, edges carry no directional causal meaning-they only represent symmetric statistical correlations.</p>
 
     <span class="sub-h">Factorisation (Gibbs Distribution)</span>
     <div class="rule-box"><p>P(X) = (1/Z) · Π_C ψ_C(X_C) &nbsp;&nbsp; Z = Σ_X Π ψ_C(X_C) &nbsp;&nbsp; (Z = partition function / normalisation constant)</p></div>
-    <p>Here ψ_C(X_C) is the <em>potential function</em> (clique potential) over a clique C — a fully connected subgraph. Potentials encode compatibility scores between variable configurations.</p>
+    <p>Here ψ_C(X_C) is the <em>potential function</em> (clique potential) over a clique C-a fully connected subgraph. Potentials encode compatibility scores between variable configurations.</p>
 
     <span class="sub-h">MRF Structure Diagram</span>
-    <div class="diagram-wrap"><div class="diagram-label">MRF — Undirected Graph (Image Segmentation Example)</div>
+    <div class="diagram-wrap"><div class="diagram-label">MRF-Undirected Graph (Image Segmentation Example)</div>
     <svg viewBox="0 0 540 180" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <!-- Grid of pixels as MRF nodes -->
       <text x="270" y="14" text-anchor="middle" fill="#555" font-size="9">Pixel labels connected to 4-neighbourhood (undirected)</text>
@@ -1683,8 +1683,8 @@ Repeat for each episode:
       <tbody>
         <tr><td>Image Segmentation</td><td>Pixel label MRF where neighbouring pixels should have similar labels; MAP inference finds optimal labelling</td></tr>
         <tr><td>Stereo Vision</td><td>Depth estimation; adjacent pixels likely have similar depth values</td></tr>
-        <tr><td>NLP — CRF (Conditional Random Field)</td><td>Discriminative MRF for sequence labelling; Named Entity Recognition, POS tagging</td></tr>
-        <tr><td>Ising Model (Physics)</td><td>Binary spin variables on a lattice — MRF with pairwise potentials; models phase transitions</td></tr>
+        <tr><td>NLP-CRF (Conditional Random Field)</td><td>Discriminative MRF for sequence labelling; Named Entity Recognition, POS tagging</td></tr>
+        <tr><td>Ising Model (Physics)</td><td>Binary spin variables on a lattice-MRF with pairwise potentials; models phase transitions</td></tr>
       </tbody>
     </table></div>
 
@@ -1707,7 +1707,7 @@ Repeat for each episode:
 <div class="q-block">
   <div class="q-head"><span class="q-num">Q5–E</span><span class="q-title">Generate Pseudo-Random Sequence</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p>A <strong>pseudo-random number generator (PRNG)</strong> produces sequences that appear random but are entirely deterministic — given the same seed, the same sequence is reproduced. PRNGs are foundational in ML for weight initialisation, mini-batch sampling, dropout masks, and Monte Carlo methods.</p>
+    <p>A <strong>pseudo-random number generator (PRNG)</strong> produces sequences that appear random but are entirely deterministic-given the same seed, the same sequence is reproduced. PRNGs are foundational in ML for weight initialisation, mini-batch sampling, dropout masks, and Monte Carlo methods.</p>
 
     <span class="sub-h">1. Linear Congruential Generator (LCG)</span>
     <p>The simplest and most widely used PRNG. Generates a sequence using the recurrence relation:</p>
@@ -1733,7 +1733,7 @@ Repeat for each episode:
     <span class="sub-h">2. Mersenne Twister (MT19937)</span>
     <p>Industry-standard PRNG used in Python, NumPy, and MATLAB. Has a period of 2^19937−1 (astronomically long). Not cryptographically secure but excellent for ML simulations. Based on a twisted generalised feedback shift register (TGFSR).</p>
 
-    <span class="sub-h">3. Using PRNGs in ML — Importance of Seed</span>
+    <span class="sub-h">3. Using PRNGs in ML-Importance of Seed</span>
     <div class="table-wrap"><table>
       <thead><tr><th>ML Use Case</th><th>PRNG Role</th></tr></thead>
       <tbody>
@@ -1758,7 +1758,7 @@ Repeat for each episode:
     <p><strong>MCMC</strong> is a class of algorithms for sampling from complex probability distributions P(θ) that are difficult to sample from directly (e.g., high-dimensional posteriors in Bayesian inference). It constructs a Markov chain whose stationary distribution is the target distribution P(θ).</p>
 
     <span class="sub-h">Why MCMC is Needed</span>
-    <p>In Bayesian inference, the posterior P(θ|data) ∝ P(data|θ)·P(θ) is often intractable — the normalisation constant Z = ∫P(data|θ)·P(θ)dθ cannot be computed analytically for complex models. MCMC avoids computing Z by constructing a chain that samples from P(θ|data) proportionally.</p>
+    <p>In Bayesian inference, the posterior P(θ|data) ∝ P(data|θ)·P(θ) is often intractable-the normalisation constant Z = ∫P(data|θ)·P(θ)dθ cannot be computed analytically for complex models. MCMC avoids computing Z by constructing a chain that samples from P(θ|data) proportionally.</p>
 
     <span class="sub-h">Metropolis-Hastings Algorithm</span>
     <div class="code-block">Initialise θ₀ (arbitrary starting point)
@@ -1773,7 +1773,7 @@ Discard first B samples (burn-in)
 Return: {θ_B, θ_{B+1}, ..., θ_T} as approximate samples from P(θ|data)</div>
 
     <span class="sub-h">MCMC Convergence Diagram</span>
-    <div class="diagram-wrap"><div class="diagram-label">MCMC Trace — Burn-in Phase then Stationary Sampling</div>
+    <div class="diagram-wrap"><div class="diagram-label">MCMC Trace-Burn-in Phase then Stationary Sampling</div>
     <svg viewBox="0 0 540 140" xmlns="http://www.w3.org/2000/svg" style="font-family:'JetBrains Mono',monospace;font-size:10px;">
       <line x1="40" y1="120" x2="510" y2="120" stroke="#333" stroke-width="1"/>
       <line x1="40" y1="120" x2="40" y2="20" stroke="#333" stroke-width="1"/>
@@ -1792,7 +1792,7 @@ Return: {θ_B, θ_{B+1}, ..., θ_T} as approximate samples from P(θ|data)</div>
     </svg></div>
 
     <span class="sub-h">Gibbs Sampling (Special Case)</span>
-    <p>When the full joint P(θ) is hard to sample but each <em>conditional</em> P(θᵢ|θ₋ᵢ) is tractable, Gibbs sampling cycles through variables updating each from its conditional: θᵢ⁽ᵗ⁾ ~ P(θᵢ | θ₁⁽ᵗ⁾,...,θᵢ₋₁⁽ᵗ⁾, θᵢ₊₁⁽ᵗ⁻¹⁾,...). Acceptance ratio is always 1 — no rejections.</p>
+    <p>When the full joint P(θ) is hard to sample but each <em>conditional</em> P(θᵢ|θ₋ᵢ) is tractable, Gibbs sampling cycles through variables updating each from its conditional: θᵢ⁽ᵗ⁾ ~ P(θᵢ | θ₁⁽ᵗ⁾,...,θᵢ₋₁⁽ᵗ⁾, θᵢ₊₁⁽ᵗ⁻¹⁾,...). Acceptance ratio is always 1-no rejections.</p>
 
     <span class="sub-h">Applications in ML</span>
     <div class="table-wrap"><table>
@@ -1806,19 +1806,19 @@ Return: {θ_B, θ_{B+1}, ..., θ_T} as approximate samples from P(θ|data)</div>
     </table></div>
 
     <span class="sub-h">MCMC Diagnostics</span>
-    <p>Good sampling requires: adequate <strong>burn-in</strong> (discard early transient samples), high <strong>effective sample size</strong> (ESS — accounts for autocorrelation between chain steps), and <strong>Gelman-Rubin convergence test</strong> (run multiple chains from different starts; check R̂ ≈ 1.0 for convergence).</p>
+    <p>Good sampling requires: adequate <strong>burn-in</strong> (discard early transient samples), high <strong>effective sample size</strong> (ESS-accounts for autocorrelation between chain steps), and <strong>Gelman-Rubin convergence test</strong> (run multiple chains from different starts; check R̂ ≈ 1.0 for convergence).</p>
   </div>
 </div>
 
 <!-- ══════ Q.EX: KNN ══════ -->
 <div class="q-block">
-  <div class="q-head"><span class="q-num">Q.EX</span><span class="q-title">K-Nearest Neighbours — Complete Method</span><span class="q-marks">5 marks</span></div>
+  <div class="q-head"><span class="q-num">Q.EX</span><span class="q-title">K-Nearest Neighbours-Complete Method</span><span class="q-marks">5 marks</span></div>
   <div class="q-body">
-    <p>KNN is a <strong>lazy, instance-based, non-parametric</strong> algorithm — it stores all training data and defers computation to query time. No explicit training phase; generalisation emerges from local neighbourhood voting.</p>
+    <p>KNN is a <strong>lazy, instance-based, non-parametric</strong> algorithm-it stores all training data and defers computation to query time. No explicit training phase; generalisation emerges from local neighbourhood voting.</p>
     <div class="table-wrap"><table>
       <thead><tr><th>Step</th><th>Operation</th></tr></thead>
       <tbody>
-        <tr><td>1. Store all training data</td><td>No model fitting — data IS the model</td></tr>
+        <tr><td>1. Store all training data</td><td>No model fitting-data IS the model</td></tr>
         <tr><td>2. Query arrives (x_q)</td><td>Compute distance from x_q to all training points</td></tr>
         <tr><td>3. Find K nearest</td><td>Select K points with smallest distance (Euclidean / Manhattan)</td></tr>
         <tr><td>4. Predict</td><td>Classification: majority class vote; Regression: average of K values</td></tr>

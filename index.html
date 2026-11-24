@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#1d3461">
 <title>One Night Batting - @mlaasya07</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 :root
 {
     --bg:#000000;
-    --panel:#430f0f;
-    --panel2:#4f1414;
-    --line:#720a0a;
+    --panel:#1d3461;
+    --panel2:#26427a;
+    --line:#3a5694;
     --ink:#e9e9df;
-    --muted:#e6d8a6;
-    --soft:#e6d8a6;
+    --muted:#ecba82;
+    --soft:#ecba82;
     --soft-dark:#000000;
     --serif:'Playfair Display',Georgia,serif;
     --sans:'DM Sans',Arial,sans-serif;
@@ -65,7 +65,7 @@ button
     inset:0 auto 0 0;
     width:var(--sidebar);
     padding:29px 19px 20px;
-    background:#4f1414;
+    background:#1d3461;
     border-right:1px solid var(--line);
     display:flex;
     flex-direction:column;
@@ -101,7 +101,7 @@ button
 .nav-label
 {
     font-size:9px;
-    color:#d7b17d;
+    color:#ecba82;
     padding:0 11px;
     margin:17px 0 9px
 }
@@ -146,7 +146,7 @@ button
 {
     margin-left:auto;
     font:10px var(--mono);
-    color:#737b6e
+    color:#ecba82
 }
 .sidebar-bottom
 {
@@ -166,7 +166,7 @@ button
 .sidebar-note
 {
     font:9px/1.7 var(--mono);
-    color:#d7b17d;
+    color:#ecba82;
     margin-top:13px
 }
 .main
@@ -212,7 +212,7 @@ button
 {
     width:6px;
     height:6px;
-    background:#a8ba82;
+    background:#c5e383;
     border-radius:50%
 }
 .github
@@ -229,7 +229,7 @@ button
 }
 .menu-toggle
 {
-    display:none;
+    display:block;
     border:1px solid var(--line);
     background:transparent;
     padding:7px 10px;
@@ -363,7 +363,7 @@ h1,h2,h3,p
 .collection:hover
 {
     transform:translateY(-2px);
-    border-color:#657151;
+    border-color:#ecba82;
     background:var(--panel2)
 }
 .collection-icon
@@ -430,11 +430,11 @@ h1,h2,h3,p
 }
 .search:focus,.select:focus
 {
-    border-color:#83916b
+    border-color:#ecba82
 }
 .search::placeholder
 {
-    color:#727a6c
+    color:#8fa0c8
 }
 .select
 {
@@ -478,7 +478,7 @@ h1,h2,h3,p
 .doc:hover
 {
     background:var(--panel2);
-    border-color:#566149
+    border-color:#ecba82
 }
 .filetype
 {
@@ -487,7 +487,7 @@ h1,h2,h3,p
     flex:0 0 39px;
     display:grid;
     place-items:center;
-    background:#22271f;
+    background:#0f1d3a;
     border:1px solid var(--line);
     border-radius:2px;
     color:var(--soft);
@@ -495,11 +495,11 @@ h1,h2,h3,p
 }
 .filetype.pdf
 {
-    color:#d99b8e
+    color:#ecba82
 }
 .filetype.ppt,.filetype.pptx
 {
-    color:#d7b17d
+    color:#ecba82
 }
 .filetype.doc,.filetype.docx
 {
@@ -550,12 +550,12 @@ h1,h2,h3,p
 .small-btn.primary
 {
     background:var(--soft);
-    color:#1b2015;
+    color:#1d3461;
     border-color:var(--soft)
 }
 .small-btn.primary:hover
 {
-    background:#d8e0c0
+    background:#f5d2a8
 }
 .empty
 {
@@ -623,13 +623,13 @@ h1,h2,h3,p
 }
 .year-tab:hover
 {
-    border-color:#657151;
+    border-color:#ecba82;
     color:var(--soft)
 }
 .year-tab.active
 {
     background:var(--soft-dark);
-    border-color:#83916b;
+    border-color:#ecba82;
     color:var(--soft)
 }
 .sem-head
@@ -746,6 +746,12 @@ h1,h2,h3,p
     border-radius:2px;
     padding:7px 10px;
     cursor:pointer
+}
+/* ---------- collapsible sidebar (desktop) ---------- */
+.main{transition:margin-left .25s}
+@media(min-width:761px){
+  body.collapsed .sidebar{transform:translateX(-100%)}
+  body.collapsed .main{margin-left:0}
 }
 /* ---------- additions: favourites, get-back-into, paging, search hint ---------- */
 .search{padding-right:34px}
@@ -869,11 +875,41 @@ a.section-index:hover{color:var(--soft)}
         padding:7px 9px
     }
 }
+/* ---------- short screens: keep the whole sidebar reachable ---------- */
+.sidebar{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+.sidebar-bottom{flex-shrink:0}
+@media(max-height:900px){
+  .sidebar{padding-top:20px;padding-bottom:14px}
+  .brand{padding-bottom:16px}
+  .nav-label{margin:10px 0 6px}
+  .nav{gap:2px}
+  .nav-link{padding:8px 12px}
+  .sidebar-bottom{padding-top:12px}
+  .sidebar-note{margin-top:8px}
+}
+@media(max-height:700px){
+  .brand{padding-bottom:8px}
+  .brand-name{font-size:22px}
+  .nav-link{padding:6px 12px}
+  .sidebar-note{font-size:8px;margin-top:6px}
+}
+.footer-link{color:var(--soft)}
+.footer-link:hover{text-decoration:underline}
+
+/* sidebar toggle: inside the sidebar when open, next to ARCHIVE when collapsed */
+.collapse-btn{position:absolute;top:14px;right:12px;width:26px;height:26px;border:1px solid var(--line);background:transparent;border-radius:3px;color:var(--muted);cursor:pointer;line-height:1;font-size:16px;padding:0}
+.collapse-btn:hover{border-color:var(--soft);color:var(--soft)}
+@media(min-width:761px){
+  .menu-toggle{display:none}
+  body.collapsed .menu-toggle{display:block}
+}
+@media(max-width:760px){.collapse-btn{display:none}}
 </style>
 </head>
 <body>
 <div class="shell">
   <aside class="sidebar" id="sidebar">
+    <button class="collapse-btn" id="collapse-btn" aria-label="Collapse sidebar" title="Collapse sidebar ([)">‹</button>
     <a class="brand" href="#/home" aria-label="One Night Batting home">
       <div class="brand-name">one night <br><span>batting.</span></div>
       <div class="brand-caption">An academic archive</div>
@@ -893,7 +929,7 @@ a.section-index:hover{color:var(--soft)}
   <main class="main">
     <header class="topbar">
       <div style="display:flex;align-items:center;gap:12px">
-        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation">☰</button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open navigation" title="Show sidebar ([)">☰</button>
         <div class="crumb">ARCHIVE&nbsp; / &nbsp;<strong id="breadcrumb">OVERVIEW</strong></div>
       </div>
       <div class="top-actions">
@@ -903,7 +939,7 @@ a.section-index:hover{color:var(--soft)}
     </header>
 
     <div class="content" id="view" aria-live="polite"></div>
-    <footer class="footer"><span>ONE NIGHT BATTING © 2026</span><span>BUILT FOR LEARNING. KEPT IN ONE PLACE.</span></footer>
+  <footer class="footer"><span>ONE NIGHT BATTING © 2026 | <a class="footer-link" href="https://github.com/mlaasya07" target="_blank" rel="noopener">@mlaasya07</a></span><span>BUILT FOR LEARNING. KEPT IN ONE PLACE.</span></footer>
   </main>
 </div>
 
@@ -1487,6 +1523,9 @@ a.section-index:hover{color:var(--soft)}
       else if (document.activeElement?.id === "doc-search") document.activeElement.blur();
       return;
     }
+    if (e.key === "[" && !e.ctrlKey && !e.metaKey && !e.altKey && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || "")) {
+      document.getElementById("menu-toggle").click();
+    }
     // "/" jumps to the search box (like GitHub)
     if (e.key === "/" && !e.ctrlKey && !e.metaKey && !e.altKey && !modal.classList.contains("open")) {
       if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || "")) return;
@@ -1494,7 +1533,13 @@ a.section-index:hover{color:var(--soft)}
       if (box) { e.preventDefault(); box.focus(); box.select(); }
     }
   });
-  document.getElementById("menu-toggle").addEventListener("click", () => sidebar.classList.toggle("open"));
+  const KEY_COLLAPSED = "onb:sidebar-collapsed";
+  if (store.get(KEY_COLLAPSED, false) === true) document.body.classList.add("collapsed");
+  document.getElementById("collapse-btn").addEventListener("click", () => document.getElementById("menu-toggle").click());
+  document.getElementById("menu-toggle").addEventListener("click", () => {
+    if (window.matchMedia("(max-width:760px)").matches) sidebar.classList.toggle("open");
+    else store.set(KEY_COLLAPSED, document.body.classList.toggle("collapsed"));
+  });
   window.addEventListener("hashchange", route);
 
   buildNavigation();
