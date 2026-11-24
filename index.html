@@ -976,6 +976,7 @@ a.section-index:hover{color:var(--soft)}
     {id:"CSE",label:"Computer Science",symbol:"⌘",description:"Computer science coursework, notes and reference material."},
     {id:"DS",label:"Data Science",symbol:"◈",description:"Data science subjects, lecture material and study resources."},
     {id:"PYQs",label:"Previous Papers",symbol:"▤",description:"Past examination papers and question banks."},
+    {id:"Keys",label:"Exam Keys",symbol:"🕸",description:"Last-minute answer keys. Each one opens in a new tab."},
     {id:"Lab_Codes",label:"Lab Codes",symbol:"⌨",description:"Laboratory programs, practical files and code resources."},
     {id:"ZtoA files",label:"Other Resources",symbol:"▣",description:"Additional academic material and miscellaneous references."}
   ];
@@ -1219,10 +1220,10 @@ a.section-index:hover{color:var(--soft)}
 
   function typeSummary(docs) {
     const n = t => docs.filter(d => typeOf(d.path) === t).length;
-    return [[n("pdf"),"PDF"],[n("presentation"),"PPT"],[n("word"),"DOC"],[n("other"),"OTHER"]].filter(x => x[0]).map(x => `${x[0]} ${x[1]}`).join(" · ");
+    return [[n("pdf"),"PDF"],[n("presentation"),"PPT"],[n("word"),"DOC"],[n("other"),"FILES"]].filter(x => x[0]).map(x => `${x[0]} ${x[1]}`).join(" · ");
   }
 
-  function subjectCard(cat, g) {
+    function subjectCard(cat, g) {
     const count = g.docs.length;
     const left = g.sems.length > 1 ? g.sems.map(x => `Y${x.year} S${x.sem}`).join(" / ") : cat.id.toUpperCase();
     return `<button class="collection" data-open-subject="${escapeHTML(g.name)}" data-cat="${escapeHTML(cat.id)}">
@@ -1231,6 +1232,17 @@ a.section-index:hover{color:var(--soft)}
       <div class="collection-desc">${escapeHTML(typeSummary(g.docs))}</div>
       <div class="collection-foot"><span>${escapeHTML(left)}</span><span>${count} FILE${count === 1 ? "" : "S"} ↗</span></div>
     </button>`;
+    }
+  function keyCards(cat) {
+  const keys = categoryDocs(cat.id).sort((a, b) => compare(titleFor(a), titleFor(b)));
+  if (!keys.length) return emptyMarkup(cat.id);
+  return `<div class="result-line"><span>${plural(keys.length, "KEY")}</span><span>EACH OPENS IN A NEW TAB</span></div>
+    <div class="collections" style="margin-top:14px">${keys.map(d => `<a class="collection" href="${escapeHTML(fileURL(d.path))}" target="_blank" rel="noopener" data-gh="${escapeHTML(d.path)}">
+      <div class="collection-icon">${cat.symbol}</div>
+      <div class="collection-title">${escapeHTML(titleFor(d))}</div>
+      <div class="collection-desc">${escapeHTML(d.subject || "")}</div>
+      <div class="collection-foot"><span>EXAM KEY</span><span>OPEN ↗</span></div>
+    </a>`).join("")}</div>`;
   }
 
   // Flat list, shown a page at a time.
@@ -1251,39 +1263,41 @@ a.section-index:hover{color:var(--soft)}
 
   // In a collection: year tabs + subject cards grouped by year/semester; flat results while searching/filtering.
   function categoryBody(cat) {
-    if (activeQuery.trim() || activeType !== "all") {
-      const result = filteredDocuments(cat.id);
-      return `<div class="result-line"><span id="result-count">${plural(result.length, "DOCUMENT")} FOUND</span><span>ACROSS ALL SUBJECTS</span></div>
-        ${result.length ? pagedList(result) : `<div class="document-list">${emptyMarkup(cat.id)}</div>`}`;
-    }
-    const groups = subjectGroups(cat.id);
-    if (!groups.length) return emptyMarkup(cat.id);
-    const years = [...new Set(groups.filter(g => g.sems.length).map(g => g.sems[0].year))].sort();
-    if (activeYear !== "all" && !years.includes(+activeYear)) activeYear = "all";
-    const tabs = years.length ? `<div class="year-tabs">${["all", ...years].map(y =>
-      `<button class="year-tab${String(y) === String(activeYear) ? " active" : ""}" data-year="${y}">${y === "all" ? "ALL YEARS" : "YEAR " + y}</button>`).join("")}</div>` : "";
-    const visible = activeYear === "all" ? groups : groups.filter(g => g.sems.length && g.sems[0].year === +activeYear);
-    const sections = [];
-    visible.forEach(g => {
-      const label = g.sems.length ? `YEAR ${g.sems[0].year} · SEM ${g.sems[0].sem}` : "OTHER";
-      let sec = sections.find(x => x.label === label);
-      if (!sec) sections.push(sec = {label, items:[]});
-      sec.items.push(g);
-    });
-    return `${tabs}
-      <div class="result-line"><span>${plural(visible.length, "SUBJECT")}</span><span>SELECT A SUBJECT TO OPEN ITS FILES</span></div>
-      ${sections.map(sec => `${years.length ? `<div class="sem-head"><span>${sec.label}</span><span>${plural(sec.items.length, "SUBJECT")}</span></div>` : ""}
-        <div class="collections sem-grid"${years.length ? "" : ' style="margin-top:14px"'}>${sec.items.map(g => subjectCard(cat, g)).join("")}</div>`).join("")}`;
+  if (activeQuery.trim() || activeType !== "all") {
+    const result = filteredDocuments(cat.id);
+    return `<div class="result-line"><span id="result-count">${plural(result.length, "DOCUMENT")} FOUND</span><span>ACROSS ALL SUBJECTS</span></div>
+      ${result.length ? pagedList(result) : `<div class="document-list">${emptyMarkup(cat.id)}</div>`}`;
+  }
+  const groups = subjectGroups(cat.id);
+  if (!groups.length) return emptyMarkup(cat.id);
+  const years = [...new Set(groups.filter(g => g.sems.length).map(g => g.sems[0].year))].sort();
+  if (activeYear !== "all" && !years.includes(+activeYear)) activeYear = "all";
+  const tabs = years.length ? `<div class="year-tabs">${["all", ...years].map(y =>
+    `<button class="year-tab${String(y) === String(activeYear) ? " active" : ""}" data-year="${y}">${y === "all" ? "ALL YEARS" : "YEAR " + y}</button>`).join("")}</div>` : "";
+  const visible = activeYear === "all" ? groups : groups.filter(g => g.sems.length && g.sems[0].year === +activeYear);
+  const sections = [];
+  visible.forEach(g => {
+    const label = g.sems.length ? `YEAR ${g.sems[0].year} · SEM ${g.sems[0].sem}` : "OTHER";
+    let sec = sections.find(x => x.label === label);
+    if (!sec) sections.push(sec = {label, items:[]});
+    sec.items.push(g);
+  });
+  return `${tabs}
+    <div class="result-line"><span>${plural(visible.length, "SUBJECT")}</span><span>SELECT A SUBJECT TO OPEN ITS FILES</span></div>
+    ${sections.map(sec => `${years.length ? `<div class="sem-head"><span>${sec.label}</span><span>${plural(sec.items.length, "SUBJECT")}</span></div>` : ""}
+      <div class="collections sem-grid"${years.length ? "" : ' style="margin-top:14px"'}>${sec.items.map(g => subjectCard(cat, g)).join("")}</div>`).join("")}`;
   }
 
   function documentMarkup(doc) {
     const path = fileURL(doc.path);
     const fav = isFav(doc.path);
     const star = `<button class="small-btn star${fav ? " on" : ""}" data-fav="${escapeHTML(doc.path)}" aria-pressed="${fav}" aria-label="${fav ? "Remove from favourites" : "Add to favourites"}" title="${fav ? "Remove from favourites" : "Add to favourites"}">${fav ? "★" : "☆"}</button>`;
-    const actions = githubOnly(doc)
-      ? `<a class="small-btn primary" href="${escapeHTML(githubURL(doc.path))}" data-gh="${escapeHTML(doc.path)}" target="_blank" rel="noopener">Download from GitHub ↓</a>`
-      : `${canPreview(doc.path) ? `<button class="small-btn primary" data-preview="${escapeHTML(doc.id)}">Preview</button>` : ""}
-        <a class="small-btn" href="${escapeHTML(path)}" download>↓</a>`;
+    const actions = categoryFor(doc) === "Keys"
+    ? `<a class="small-btn primary" href="${escapeHTML(path)}" data-gh="${escapeHTML(doc.path)}" target="_blank" rel="noopener">Open key ↗</a>`
+    : githubOnly(doc)
+    ? `<a class="small-btn primary" href="${escapeHTML(githubURL(doc.path))}" data-gh="${escapeHTML(doc.path)}" target="_blank" rel="noopener">Download from GitHub ↓</a>`
+    : `${canPreview(doc.path) ? `<button class="small-btn primary" data-preview="${escapeHTML(doc.id)}">Preview</button>` : ""}
+    <a class="small-btn" href="${escapeHTML(path)}" download>↓</a>`;
     const size = formatSize(doc.size);
     return `<article class="doc">
       <div class="filetype ${escapeHTML(extension(doc.path))}">${escapeHTML(displayType(doc.path))}</div>

@@ -12,8 +12,9 @@
   "categories": [
     "CSE",
     "DS",
-    "PYQs",
     "Lab_Codes",
+    "PYQs",
+    "Keys",
     "ZtoA files"
   ],
   "exclude": [
@@ -24,6 +25,7 @@
     "CSE/3rdyrSem2/NLP": "Natural Language Processing (NLP)",
     "CSE/4thyrSem1/CNS": "Cryptography & Network Security (CNS)",
     "CSE/4thyrSem1/CompilerDesign": "Compiler Design",
+
     "DS/2ndyrSem1/COA": "Computer Organization & Architecture (COA)",
     "DS/2ndyrSem1/COSM": "Computer Oriented Statistical Mathematics (COSM)",
     "DS/2ndyrSem1/Data_Structures_in_C": "Data Structures in C",
@@ -47,826 +49,305 @@
     "DS/4thyrSem1/Predictive_Analysis": "Predictive Analysis (PA)",
     "DS/4thyrSem1/Web_n_SocialMedia_Analytics": "Web & Social Media Analytics (WSMA)",
     "DS/4thyrSem1/textbooks": "Predictive Analysis (PA)",
+
     "Lab_Codes": "Lab Codes",
+
     "PYQs/2023-2027 batch papers/CSE": "Natural Language Processing (NLP)",
+
     "ZtoA files/Calendars": "Academic Calendars",
     "ZtoA files/R22_Syllabus": "R22 Syllabus",
     "ZtoA files/Templates": "Templates"
   },
   "entries": {
-    "CSE/3rdyrSem2/FLAT/FLAT_ProblemsForMid2.pdf": {
-      "name": "FLAT Problems For Mid 2"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture1_IntroToAutomataTheory.pdf": {
-      "name": "FLAT-Lecture 1 Intro To Automata Theory"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture2_DFA.pdf": {
-      "name": "FLAT-Lecture 2 DFA"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture3_NFA.pdf": {
-      "name": "FLAT-Lecture 3 NFA"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture4_eNFA.pdf": {
-      "name": "FLAT-Lecture 4 eNFA"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture5_RE.pdf": {
-      "name": "FLAT-Lecture 5 RE"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture6_PumpingLemma.pdf": {
-      "name": "FLAT-Lecture 6 Pumping Lemma"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture7_PRL.pdf": {
-      "name": "FLAT-Lecture 7 PRL"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture8_CFG.pdf": {
-      "name": "FLAT-Lecture 8 CFG"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture9_PDA.pdf": {
-      "name": "FLAT-Lecture 9 PDA"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture10_TM.pdf": {
-      "name": "FLAT-Lecture 10 TM"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture11_Undecidability.pdf": {
-      "name": "FLAT-Lecture 11 Undecidability"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture12.pdf": {
-      "name": "FLAT-Lecture 12"
-    },
-    "CSE/3rdyrSem2/FLAT/Lecture13_MDFA_Only_for_FLAT.pdf": {
-      "name": "Lecture 13 MDFA Only for FLAT"
-    },
-    "CSE/3rdyrSem2/FLAT/links.txt": {
-      "name": "FLAT-Links"
-    },
-    "CSE/3rdyrSem2/FLAT/ProblemSet_Unit4_ATCD_n_FLAT.pdf": {
-      "name": "Problem Set Unit 4 ATCD & FLAT"
-    },
-    "CSE/3rdyrSem2/NLP/NLP GPT NOTES.pdf": {
-      "name": "NLP GPT NOTES"
-    },
-    "CSE/3rdyrSem2/NLP/NLP Intro1.pdf": {
-      "name": "NLP Intro 1"
-    },
-    "CSE/3rdyrSem2/NLP/NLP unit5.pdf": {
-      "name": "NLP unit 5"
-    },
-    "CSE/3rdyrSem2/NLP/Semantic_Parsing_Presentation.pdf": {
-      "name": "NLP-Semantic Parsing Presentation"
-    },
-    "CSE/3rdyrSem2/NLP/UNIT1_Tokens_Lexemes_Morphemes_Typology_NLP.pdf": {
-      "name": "UNIT 1 Tokens Lexemes Morphemes Typology NLP"
-    },
-    "CSE/3rdyrSem2/NLP/Unit3.pdf": {
-      "name": "NLP-Unit 3"
-    },
-    "CSE/3rdyrSem2/NLP/UNIT V Language Modeling.pdf": {
-      "name": "NLP-UNIT V Language Modeling"
-    },
-    "CSE/4thyrSem1/CNS/3. CNS UNIT-3 R20 (1).pdf": {
-      "name": "3. CNS UNIT 3 R20"
-    },
-    "CSE/4thyrSem1/CNS/4. CNS UNIT-4 R20 (1).pdf": {
-      "name": "4. CNS UNIT 4 R20"
-    },
-    "CSE/4thyrSem1/CNS/Assignment_questions_cns.pdf": {
-      "name": "Assignment questions CNS"
-    },
-    "CSE/4thyrSem1/CNS/CNS UNIT-1.pdf": {
-      "name": "CNS UNIT 1"
-    },
-    "CSE/4thyrSem1/CNS/CNS UNIT-1_2.pdf": {
-      "name": "CNS UNIT 1 2"
-    },
-    "CSE/4thyrSem1/CNS/CNS_Long_QNS.pdf_1.pdf": {
-      "name": "CNS Long QNS 1"
-    },
-    "CSE/4thyrSem1/CNS/CNS_ShortQNS_1.pdf": {
-      "name": "CNS ShortQNS 1"
-    },
-    "CSE/4thyrSem1/CNS/CNS_SomeTopics.pdf": {
-      "name": "CNS Some Topics"
-    },
-    "CSE/4thyrSem1/CNS/CNS_Twist_Questions.docx": {
-      "name": "CNS Twist Questions"
-    },
-    "CSE/4thyrSem1/CNS/CRYPTOGRAPHY_AND_NETWORK_SECURITY_NOTES.pdf": {
-      "name": "CRYPTOGRAPHY AND NETWORK SECURITY NOTES"
-    },
-    "CSE/4thyrSem1/CNS/IPSec.pdf": {
-      "name": "CNS-IPSec"
-    },
-    "CSE/4thyrSem1/CNS/NOTE10_SHA_3.pdf": {
-      "name": "CNS-NOTE10 SHA 3"
-    },
-    "CSE/4thyrSem1/CNS/PGP.pdf": {
-      "name": "CNS-PGP"
-    },
-    "CSE/4thyrSem1/CNS/PKI_final.pdf": {
-      "name": "CNS-PKI final"
-    },
-    "CSE/4thyrSem1/CNS/ppt.pdf": {
-      "name": "CNS-PPT"
-    },
-    "CSE/4thyrSem1/CNS/SMIME.pdf": {
-      "name": "CNS-SMIME"
-    },
-    "CSE/4thyrSem1/CNS/studyMaterial_LastUnits.pdf": {
-      "name": "CNS-Study Material Last Units"
-    },
-    "CSE/4thyrSem1/CNS/unit 5 cns_casestudy_notes.pdf": {
-      "name": "Unit 5 CNS casestudy notes"
-    },
-    "CSE/4thyrSem1/CompilerDesign/CD QB mid-2.pdf": {
-      "name": "CD QB mid 2"
-    },
-    "CSE/4thyrSem1/CompilerDesign/CD-QUESTION BANK-MID-1.pdf": {
-      "name": "CD QUESTION BANK MID 1"
-    },
-    "CSE/4thyrSem1/CompilerDesign/UNIT-2 Parsers.pdf": {
-      "name": "Compiler Design-UNIT 2 Parsers"
-    },
-    "CSE/4thyrSem1/CompilerDesign/UNIT-3 SDD Part 2.pdf": {
-      "name": "Compiler Design-UNIT 3 SDD Part 2"
-    },
-    "CSE/4thyrSem1/CompilerDesign/UNIT-3 SDD.pdf": {
-      "name": "Compiler Design-UNIT 3 SDD"
-    },
-    "CSE/4thyrSem1/CompilerDesign/UNIT-4,5(partial).pdf": {
-      "name": "Compiler Design-UNIT 4,5(partial)"
-    },
-    "DS/2ndyrSem1/COA/Unit I part A.pdf": {
-      "name": "COA-Unit I part A"
-    },
-    "DS/2ndyrSem1/COA/Unit I part B.pdf": {
-      "name": "COA-Unit I part B"
-    },
-    "DS/2ndyrSem1/COA/Unit I part C.pdf": {
-      "name": "COA-Unit I part C"
-    },
-    "DS/2ndyrSem1/COSM/Probability-1.pdf": {
-      "name": "COSM-Probability 1"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/BnB+Trees.pdf": {
-      "name": "Data Structures-BnB+Trees"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/BST_Notes1.pdf": {
-      "name": "Data Structures-BST Notes1"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/Complete_Notes.pdf": {
-      "name": "Data Structures-Complete Notes"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/Data-Structures-With-C-by-schaum-lipschutz Textbook.pdf": {
-      "name": "Data Structures With C-Schaum / Lipschutz (Textbook)"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/DS 3rd chapter.pdf": {
-      "name": "DS 3rd chapter"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/DS UNIT 3.pdf": {
-      "name": "DS UNIT 3"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/DS_Unit-1.pdf": {
-      "name": "DS Unit 1"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/DS_Unit_1 HandWritten.pdf": {
-      "name": "DS Unit 1 Hand Written"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/Graphs.pdf": {
-      "name": "Data Structures-Graphs"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/hashtables.pdf": {
-      "name": "Data Structures-Hashtables"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/Linked Lists.pdf": {
-      "name": "Data Structures-Linked Lists"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/Quick_Sort.pdf": {
-      "name": "Data Structures-Quick Sort"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/Sorting.pdf": {
-      "name": "Data Structures-Sorting"
-    },
-    "DS/2ndyrSem1/Data_Structures_in_C/Traversal.pdf": {
-      "name": "Data Structures-Traversal"
-    },
-    "DS/2ndyrSem1/Digital_Electronics/all units - Question Bank.pdf": {
-      "name": "Digital Electronics-All units - Question Bank"
-    },
-    "DS/2ndyrSem1/Digital_Electronics/Digital Design (3rd Edition) Textbook.pdf": {
-      "name": "Digital Design (3rd Edition) Textbook"
-    },
-    "DS/2ndyrSem1/Digital_Electronics/unit 4.pdf": {
-      "name": "Digital Electronics-Unit 4"
-    },
-    "DS/2ndyrSem1/Digital_Electronics/unit 5.pdf": {
-      "name": "Digital Electronics-Unit 5"
-    },
-    "DS/2ndyrSem1/Digital_Electronics/UNIT - 4_DLD_PLDs.pdf": {
-      "name": "UNIT 4 DLD PLDs"
-    },
-    "DS/2ndyrSem1/JAVA/01 Introduction to Java.pdf": {
-      "name": "01 Introduction to Java"
-    },
-    "DS/2ndyrSem1/JAVA/example codes.pdf": {
-      "name": "Java-Example codes"
-    },
-    "DS/2ndyrSem1/JAVA/Java-Threads&SynchF.pdf": {
-      "name": "Java-Threads & SynchF"
-    },
-    "DS/2ndyrSem1/JAVA/unit 2.pdf": {
-      "name": "Java-Unit 2"
-    },
-    "DS/2ndyrSem1/JAVA/unit 3.pdf": {
-      "name": "Java-Unit 3"
-    },
-    "DS/2ndyrSem1/JAVA/unit 4 & 5.pdf": {
-      "name": "Java-Unit 4 & 5"
-    },
-    "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/important questions of all units.pdf": {
-      "name": "BEFA-Important questions of all units"
-    },
-    "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-4. Financial accounting.pdf": {
-      "name": "BEFA-Unit 4. Financial accounting"
-    },
-    "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-5. Ratio Analysis.pdf": {
-      "name": "BEFA-Unit 5. Ratio Analysis"
-    },
-    "DS/2ndyrSem2/DBMS/ImportantQforMid1.pdf": {
-      "name": "DBMS-Important Qfor Mid 1"
-    },
-    "DS/2ndyrSem2/DBMS/ImportantQforMid2.pdf": {
-      "name": "DBMS-Important Qfor Mid 2"
-    },
-    "DS/2ndyrSem2/DBMS/ImpQs_Sem.pdf": {
-      "name": "DBMS-Imp Qs Sem"
-    },
-    "DS/2ndyrSem2/DBMS/Unit3-1.pdf": {
-      "name": "DBMS-Unit 3-1"
-    },
-    "DS/2ndyrSem2/DBMS/unit 1-1.pdf": {
-      "name": "DBMS-Unit 1-1"
-    },
-    "DS/2ndyrSem2/DBMS/unit 1-2.pdf": {
-      "name": "DBMS-Unit 1-2"
-    },
-    "DS/2ndyrSem2/DBMS/Unit 3-2.pdf": {
-      "name": "DBMS-Unit 3-2"
-    },
-    "DS/2ndyrSem2/DBMS/unit-2.pdf": {
-      "name": "DBMS-Unit 2"
-    },
-    "DS/2ndyrSem2/DBMS/unit-4.pdf": {
-      "name": "DBMS-Unit 4"
-    },
-    "DS/2ndyrSem2/DBMS/Unit-5.pdf": {
-      "name": "DBMS-Unit 5"
-    },
-    "DS/2ndyrSem2/Discrete_Mathematics/DM-chapter-3.pdf": {
-      "name": "DM chapter 3"
-    },
-    "DS/2ndyrSem2/Discrete_Mathematics/Model_Mid_DM_Exam_Paper.pdf": {
-      "name": "Model Mid DM Exam Paper"
-    },
-    "DS/2ndyrSem2/Discrete_Mathematics/unit-1.pdf": {
-      "name": "Discrete Mathematics-Unit 1"
-    },
-    "DS/2ndyrSem2/Discrete_Mathematics/unit-2.pdf": {
-      "name": "Discrete Mathematics-Unit 2"
-    },
-    "DS/2ndyrSem2/Discrete_Mathematics/unit-4.pdf": {
-      "name": "Discrete Mathematics-Unit 4"
-    },
-    "DS/2ndyrSem2/Discrete_Mathematics/unit-5.pdf": {
-      "name": "Discrete Mathematics-Unit 5"
-    },
-    "DS/2ndyrSem2/Operating_System/OS_LAB_1.pdf": {
-      "name": "OS LAB 1"
-    },
-    "DS/2ndyrSem2/Operating_System/OS_Practice_Q_mid2.pdf": {
-      "name": "OS Practice Q mid 2"
-    },
-    "DS/2ndyrSem2/Operating_System/OS_UNIT_1_not_complete.pdf": {
-      "name": "OS UNIT 1 not complete"
-    },
-    "DS/2ndyrSem2/Operating_System/OS_UNIT_2_not_complete.pdf": {
-      "name": "OS UNIT 2 not complete"
-    },
-    "DS/2ndyrSem2/Operating_System/OS_UNIT_3.pdf": {
-      "name": "OS UNIT 3"
-    },
-    "DS/2ndyrSem2/Operating_System/OS_UNIT_3_till_mid1.pdf": {
-      "name": "OS UNIT 3 till mid 1"
-    },
-    "DS/2ndyrSem2/Operating_System/OS_UNIT_4.pdf": {
-      "name": "OS UNIT 4"
-    },
-    "DS/2ndyrSem2/Operating_System/OS_UNIT_5_RajeevSirPart.pdf": {
-      "name": "OS UNIT 5 Rajeev Sir Part"
-    },
-    "DS/2ndyrSem2/Operating_System/OS_UNIT_5_SouravSirPart.pdf": {
-      "name": "OS UNIT 5 Sourav Sir Part"
-    },
-    "DS/2ndyrSem2/Operating_System/Presentation_Lab.pdf": {
-      "name": "Operating Systems-Presentation Lab"
-    },
-    "DS/2ndyrSem2/Software_Engineering/2_blackbox-problems.pdf": {
-      "name": "Software Engineering-2 blackbox problems"
-    },
-    "DS/2ndyrSem2/Software_Engineering/3_debugging_in_testing.pdf": {
-      "name": "Software Engineering-3 debugging in testing"
-    },
-    "DS/2ndyrSem2/Software_Engineering/4_SE_Unit_4_softwareMetrics.pdf": {
-      "name": "4 SE Unit 4 software Metrics"
-    },
-    "DS/2ndyrSem2/Software_Engineering/SE UNIT -4 (TESTING STRATEGIES)-1.pdf": {
-      "name": "SE UNIT 4 (TESTING STRATEGIES)-1"
-    },
-    "DS/2ndyrSem2/Software_Engineering/SE UNIT -5 (RISK MANAGEMENT PART-1)-1.pdf": {
-      "name": "SE UNIT 5 (RISK MANAGEMENT PART 1)-1"
-    },
-    "DS/2ndyrSem2/Software_Engineering/SE-Unit_5_software-quality-management.pdf": {
-      "name": "SE Unit 5 software quality management"
-    },
-    "DS/2ndyrSem2/Software_Engineering/SE_Unit-4_software-testing-strategies-and-methods.pdf": {
-      "name": "SE Unit 4 software testing strategies and methods"
-    },
-    "DS/2ndyrSem2/Software_Engineering/unit-1.pdf": {
-      "name": "Software Engineering-Unit 1"
-    },
-    "DS/2ndyrSem2/Software_Engineering/unit-1_ppt.pdf": {
-      "name": "Software Engineering-Unit 1 PPT"
-    },
-    "DS/2ndyrSem2/Software_Engineering/unit-2.pdf": {
-      "name": "Software Engineering-Unit 2"
-    },
-    "DS/2ndyrSem2/Software_Engineering/unit-2_ppt.pdf": {
-      "name": "Software Engineering-Unit 2 PPT"
-    },
-    "DS/2ndyrSem2/Software_Engineering/unit-3-2.pdf": {
-      "name": "Software Engineering-Unit 3-2"
-    },
-    "DS/2ndyrSem2/Software_Engineering/unit-3-3.pdf": {
-      "name": "Software Engineering-Unit 3-3"
-    },
-    "DS/2ndyrSem2/Software_Engineering/unit-3.pdf": {
-      "name": "Software Engineering-Unit 3"
-    },
-    "DS/2ndyrSem2/Software_Engineering/unit-4-1.pdf": {
-      "name": "Software Engineering-Unit 4-1"
-    },
-    "DS/2ndyrSem2/Software_Engineering/unit-5-1.pdf": {
-      "name": "Software Engineering-Unit 5-1"
-    },
-    "DS/3rdyrSem1/Comp_Networks/Andrew S. Tanenbaum - Computer Networks Textbook.pdf": {
-      "name": "Andrew S. Tanenbaum - Computer Networks Textbook"
-    },
-    "DS/3rdyrSem1/Comp_Networks/unit 1 pt1.pdf": {
-      "name": "Computer Networks-Unit 1 pt1"
-    },
-    "DS/3rdyrSem1/Comp_Networks/unit 1 pt2.pdf": {
-      "name": "Computer Networks-Unit 1 pt2"
-    },
-    "DS/3rdyrSem1/Comp_Networks/unit 2.pdf": {
-      "name": "Computer Networks-Unit 2"
-    },
-    "DS/3rdyrSem1/Comp_Networks/unit 3 pt1.pdf": {
-      "name": "Computer Networks-Unit 3 pt1"
-    },
-    "DS/3rdyrSem1/Comp_Networks/unit 3 pt2.pdf": {
-      "name": "Computer Networks-Unit 3 pt2"
-    },
-    "DS/3rdyrSem1/Comp_Networks/unit 4.pdf": {
-      "name": "Computer Networks-Unit 4"
-    },
-    "DS/3rdyrSem1/Comp_Networks/unit 5 pt1.pdf": {
-      "name": "Computer Networks-Unit 5 pt1"
-    },
-    "DS/3rdyrSem1/Comp_Networks/unit 5 pt2.pdf": {
-      "name": "Computer Networks-Unit 5 pt2"
-    },
-    "DS/3rdyrSem1/Comp_Networks/unit 5 pt3.pdf": {
-      "name": "Computer Networks-Unit 5 pt3"
-    },
-    "DS/3rdyrSem1/Intro_To_DataSci/Doing Data Science Textbook.pdf": {
-      "name": "Doing Data Science Textbook"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture1_IntroToAutomataTheory.pdf": {
-      "name": "ATCD-Lecture 1 Intro To Automata Theory"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture2_DFA.pdf": {
-      "name": "ATCD-Lecture 2 DFA"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture3_NFA.pdf": {
-      "name": "ATCD-Lecture 3 NFA"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture4_eNFA.pdf": {
-      "name": "ATCD-Lecture 4 eNFA"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture5_RE.pdf": {
-      "name": "ATCD-Lecture 5 RE"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture6_PumpingLemma.pdf": {
-      "name": "ATCD-Lecture 6 Pumping Lemma"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture7_PRL.pdf": {
-      "name": "ATCD-Lecture 7 PRL"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture8_CFG.pdf": {
-      "name": "ATCD-Lecture 8 CFG"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture9_PDA.pdf": {
-      "name": "ATCD-Lecture 9 PDA"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture10_TM.pdf": {
-      "name": "ATCD-Lecture 10 TM"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture11_Undecidability.pdf": {
-      "name": "ATCD-Lecture 11 Undecidability"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture12.pdf": {
-      "name": "ATCD-Lecture 12"
-    },
-    "DS/3rdyrSem2/ATCD/Lecture-14_ATCD.pdf": {
-      "name": "Lecture 14 ATCD"
-    },
-    "DS/3rdyrSem2/ATCD/links.txt": {
-      "name": "ATCD-Links"
-    },
-    "DS/3rdyrSem2/ATCD/ProblemSet_Mid2_ATCD.pdf": {
-      "name": "Problem Set Mid 2 ATCD"
-    },
-    "DS/3rdyrSem2/ATCD/ProblemSet_Unit4_ATCD_n_FLAT.pdf": {
-      "name": "Problem Set Unit 4 ATCD & FLAT"
-    },
-    "DS/3rdyrSem2/ATCD/ProblemsForMid1.pdf": {
-      "name": "ATCD-Problems For Mid 1"
-    },
-    "DS/3rdyrSem2/Big_Data_Analysis/BDA_LAB_Linux_Basic_Commands_and_Java_Env_Variables.pdf": {
-      "name": "BDA LAB Linux Basic Commands and Java Env Variables"
-    },
-    "DS/3rdyrSem2/Big_Data_Analysis/BDA_Mid2_Important Questions.pdf": {
-      "name": "BDA Mid 2 Important Questions"
-    },
-    "DS/3rdyrSem2/Big_Data_Analysis/HadoopSecUnit.pdf": {
-      "name": "BDA-Hadoop Sec Unit"
-    },
-    "DS/3rdyrSem2/Big_Data_Analysis/Important Questions - Mid1.pdf": {
-      "name": "BDA-Important Questions - Mid 1"
-    },
-    "DS/3rdyrSem2/Big_Data_Analysis/notesforBDA-Updated.pdf": {
-      "name": "BDA-Notes (Updated)"
-    },
-    "DS/3rdyrSem2/Big_Data_Analysis/UnitIII-BDA.pdf": {
-      "name": "Unit III BDA"
-    },
-    "DS/3rdyrSem2/Big_Data_Analysis/UnitIV-BDA.pdf": {
-      "name": "Unit IV BDA"
-    },
-    "DS/3rdyrSem2/CNS/cns lab record .pdf": {
-      "name": "CNS Lab Record"
-    },
-    "DS/3rdyrSem2/CNS/CNS-UNIT21-SymmetricCiphers (1).pdf": {
-      "name": "CNS UNIT 21 Symmetric Ciphers"
-    },
-    "DS/3rdyrSem2/CNS/CNS-UNIT22.pdf": {
-      "name": "CNS UNIT 22"
-    },
-    "DS/3rdyrSem2/CNS/CNS_UNIT-11.pdf": {
-      "name": "CNS UNIT 11"
-    },
-    "DS/3rdyrSem2/CNS/CNS_UNIT-12.pdf": {
-      "name": "CNS UNIT 12"
-    },
-    "DS/3rdyrSem2/CNS/CNS_UNIT-32.pdf": {
-      "name": "CNS UNIT 32"
-    },
-    "DS/3rdyrSem2/CNS/CNS_UNIT-41.pdf": {
-      "name": "CNS UNIT 41"
-    },
-    "DS/3rdyrSem2/CNS/CNS_UNIT-51.pdf": {
-      "name": "CNS UNIT 51"
-    },
-    "DS/3rdyrSem2/CNS/CNS_UNIT-52.pdf": {
-      "name": "CNS UNIT 52"
-    },
-    "DS/3rdyrSem2/CNS/Cryptography and Network Security Principles and Practice (6th Edition) (William Stallings).pdf": {
-      "name": "Cryptography and Network Security Principles and Practice (6th Edition) (William Stallings)"
-    },
-    "DS/3rdyrSem2/CNS/SMPC.pdf": {
-      "name": "CNS-SMPC"
-    },
-    "DS/3rdyrSem2/CNS/SSS1.pdf": {
-      "name": "CNS-SSS1"
-    },
-    "DS/3rdyrSem2/DT/DT QUESTIONS_Imp_Mid1.pdf": {
-      "name": "DT QUESTIONS Imp Mid 1"
-    },
-    "DS/3rdyrSem2/DT/DT UNIT-3.pdf": {
-      "name": "DT UNIT 3"
-    },
-    "DS/3rdyrSem2/DT/DT-Unit-1.pdf": {
-      "name": "DT Unit 1"
-    },
-    "DS/3rdyrSem2/DT/DT-Unit-2.pdf": {
-      "name": "DT Unit 2"
-    },
-    "DS/3rdyrSem2/DT/DT-UNIT-4.pdf": {
-      "name": "DT UNIT 4"
-    },
-    "DS/3rdyrSem2/DT/UNIT-5.pdf": {
-      "name": "DT-UNIT 5"
-    },
-    "DS/3rdyrSem2/Machine_Learning/ML_MID1_THEORY.pdf": {
-      "name": "ML MID 1 THEORY"
-    },
-    "DS/3rdyrSem2/Machine_Learning/ML_MID2_THEORY.pdf": {
-      "name": "ML MID 2 THEORY"
-    },
-    "DS/4thyrSem1/Cloud_Computing/4A_Networking and Data_Centres for CC.pdf": {
-      "name": "Cloud Computing-4A Networking and Data Centres for CC"
-    },
-    "DS/4thyrSem1/Cloud_Computing/4B_Cloud_Service_Providers_Enhanced_v3.pdf": {
-      "name": "4B Cloud Service Providers Enhanced v3"
-    },
-    "DS/4thyrSem1/Cloud_Computing/5A_Security for Cloud Computingv2.pdf": {
-      "name": "5A Security for Cloud Computingv2"
-    },
-    "DS/4thyrSem1/Cloud_Computing/5B_Advanced_Concepts_in_Cloud_Computing.pdf": {
-      "name": "5B Advanced Concepts in Cloud Computing"
-    },
-    "DS/4thyrSem1/Cloud_Computing/CC_simple_Revision notes.pdf": {
-      "name": "Cloud Computing-CC simple Revision notes"
-    },
-    "DS/4thyrSem1/Cloud_Computing/Cloud Computing Paradigms.pdf": {
-      "name": "Cloud Computing Paradigms"
-    },
-    "DS/4thyrSem1/Cloud_Computing/cloud-computing_UNit-1.pdf": {
-      "name": "Cloud computing UNit 1"
-    },
-    "DS/4thyrSem1/Cloud_Computing/cloud.pdf": {
-      "name": "Cloud Computing-Cloud"
-    },
-    "DS/4thyrSem1/Cloud_Computing/Cloud_Computing_Complete_Notes (1).docx": {
-      "name": "Cloud Computing Complete Notes (copy)"
-    },
-    "DS/4thyrSem1/Cloud_Computing/Cloud_Computing_Complete_Notes.docx": {
-      "name": "Cloud Computing Complete Notes"
-    },
-    "DS/4thyrSem1/Cloud_Computing/Cloud_Computing_Part_B_All_60.docx": {
-      "name": "Cloud Computing Part B All 60"
-    },
-    "DS/4thyrSem1/Cloud_Computing/SOA as Technology Drivers for Cloud Computing.pdf": {
-      "name": "SOA as Technology Drivers for Cloud Computing"
-    },
-    "DS/4thyrSem1/Cloud_Computing/web 2.0 and 3.0.pptx": {
-      "name": "Cloud Computing-Web 2.0 and 3.0"
-    },
-    "DS/4thyrSem1/Data_Mining/Association to correlations.pdf": {
-      "name": "Data Mining-Association to correlations"
-    },
-    "DS/4thyrSem1/Data_Mining/DecisionTreesBoostingExampleProblem.pdf": {
-      "name": "Data Mining-Decision Trees Boosting Example Problem"
-    },
-    "DS/4thyrSem1/Data_Mining/DM mid-2  questions.docx": {
-      "name": "DM mid 2 questions"
-    },
-    "DS/4thyrSem1/Data_Mining/DM_Mid-2_Important_Questions.docx": {
-      "name": "DM Mid 2 Important Questions"
-    },
-    "DS/4thyrSem1/Data_Mining/fp-growth-algorithm-example-problems.pdf": {
-      "name": "Data Mining-Fp growth algorithm example problems"
-    },
-    "DS/4thyrSem1/Data_Mining/KNN .pdf": {
-      "name": "Data Mining-KNN"
-    },
-    "DS/4thyrSem1/Data_Mining/NeuralNetworks .pdf": {
-      "name": "Data Mining-Neural Networks"
-    },
-    "DS/4thyrSem1/Data_Mining/Rule Based Classification.pdf": {
-      "name": "Data Mining-Rule Based Classification"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit 4 ClusterAnalysis  Short notes.pdf": {
-      "name": "Data Mining-Unit 4 Cluster Analysis Short notes"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining Lec-1.pptx": {
-      "name": "Unit 1 Data Mining Lec 1"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining Lect 2_3_4.pptx": {
-      "name": "Unit 1 Data Mining Lect 2 3 4"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining part-2.pptx": {
-      "name": "Unit 1 Data Mining part 2"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining Part-3_ Data Preprocessing.pptx": {
-      "name": "Unit 1 Data Mining Part 3 Data Preprocessing"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit -2 Part-1.pptx": {
-      "name": "Data Mining-Unit 2 Part 1"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit -2 part-2.pptx": {
-      "name": "Data Mining-Unit 2 part 2"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit -2 Part-3.pptx": {
-      "name": "Data Mining-Unit 2 Part 3"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit -3 Part-1.pptx": {
-      "name": "Data Mining-Unit 3 Part 1"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit -4 Data Mining textbook notes.pptx": {
-      "name": "Unit 4 Data Mining textbook notes"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit-3 Basics .pptx": {
-      "name": "Data Mining-Unit 3 Basics"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit-3 Basics.pdf": {
-      "name": "Data Mining-Unit 3 Basics"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit-3 SVM_KNN_RB_NN.pdf": {
-      "name": "Data Mining-Unit 3 SVM KNN RB NN"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit-4 OutlierAnalysis  short notes.pdf": {
-      "name": "Data Mining-Unit 4 Outlier Analysis short notes"
-    },
-    "DS/4thyrSem1/Data_Mining/Unit-5  Web Spatial Temporal Mining.pdf": {
-      "name": "Data Mining-Unit 5 Web Spatial Temporal Mining"
-    },
-    "DS/4thyrSem1/Natural_Language_Processing/Difference_Between_FrameNet_and_PropBank.pdf": {
-      "name": "NLP-Difference Between Frame Net and Prop Bank"
-    },
-    "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing [Ramesh Babu sir notes] unit 1 to 5.pdf.pdf": {
-      "name": "Natural Language Processing-Ramesh Babu Sir Notes (Units 1–5)"
-    },
-    "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing.pdf": {
-      "name": "Natural Language Processing"
-    },
-    "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing_ UNIT 1&2 [ Ramesh Babu Sir Notes ].pdf": {
-      "name": "Natural Language Processing-Ramesh Babu Sir Notes (Units 1 & 2)"
-    },
-    "DS/4thyrSem1/Natural_Language_Processing/NLP_all5units_impqs.docx": {
-      "name": "NLP all5units impqs"
-    },
-    "DS/4thyrSem1/Natural_Language_Processing/NLP_Extra_1Mark_Questions (1).docx": {
-      "name": "NLP Extra 1Mark Questions"
-    },
-    "DS/4thyrSem1/Natural_Language_Processing/NLP_Mid2_Important_Questions.docx": {
-      "name": "NLP Mid 2 Important Questions"
-    },
-    "DS/4thyrSem1/Natural_Language_Processing/NLP_Sem_Full.docx": {
-      "name": "NLP Sem Full"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/Memory_Palace_method - unit 3 to 4 [mid2].docx": {
-      "name": "PA-Memory Palace method - unit 3 to 4 [mid 2]"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/PA_mid2_all2marksqs.docx": {
-      "name": "PA mid 2 all2marksqs"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/PA_MID2_all5marksqs.docx": {
-      "name": "PA MID 2 all5marksqs"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/PA_Notes_Units_1_to_3.docx": {
-      "name": "PA Notes Units 1 to 3"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/UNIT - V.pptx": {
-      "name": "PA-UNIT V"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/unit-2.pptx": {
-      "name": "PA-Unit 2"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/unit-3.pdf": {
-      "name": "PA-Unit 3"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/unit-4.pdf": {
-      "name": "PA-Unit 4"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/unit_1.pdf": {
-      "name": "PA-Unit 1"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/unit_1.pptx": {
-      "name": "PA-Unit 1"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/unit_3.pptx": {
-      "name": "PA-Unit 3"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/unit_3_midterm-2.pptx": {
-      "name": "PA-Unit 3 midterm 2"
-    },
-    "DS/4thyrSem1/Predictive_Analysis/unit_3CNN.pdf": {
-      "name": "PA-Unit 3 CNN"
-    },
-    "DS/4thyrSem1/textbooks/dean-abbott-applied-predictive-analytics_-principles-and-techniques-for-the-professional-data-analyst-wiley-2014.pdf": {
-      "name": "Applied Predictive Analytics-Dean Abbott (Wiley, 2014)"
-    },
-    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/_W&SMA Unit 3& 4.pdf": {
-      "name": "WSMA-Units 3 & 4"
-    },
-    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/Unit 1_additionalmaterial.pdf": {
-      "name": "WSMA-Unit 1 additionalmaterial"
-    },
-    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/W&SMA Unit 1  &2.pdf": {
-      "name": "WSMA-Units 1 & 2"
-    },
-    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/WSMA_Mid2.docx": {
-      "name": "WSMA Mid 2"
-    },
-    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/WSMA_SemExam.docx": {
-      "name": "WSMA Sem Exam"
-    },
-    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/WSMA_SemExam_wtables.docx": {
-      "name": "WSMA Sem Exam wtables"
-    },
-    "PYQs/2023-2027 batch papers/CSE/NLP EXAM KEY BOOKLET.pdf": {
-      "name": "NLP EXAM KEY BOOKLET"
-    },
-    "PYQs/2023-2027 batch papers/CSE/NLP MID-1.pdf": {
-      "name": "NLP MID 1"
-    },
-    "PYQs/2023-2027 batch papers/CSE/NLP mids question paper.pdf": {
-      "name": "NLP mids question paper"
-    },
-    "PYQs/2023-2027 batch papers/CSE/question bank_nlp_mid1.pdf": {
-      "name": "Question bank NLP mid 1"
-    },
-    "PYQs/2023-2027 batch papers/DS/ADA_2025_mid2.jpg": {
-      "name": "ADA Mid 2-2025 (image)",
-      "subject": "Analysis & Design of Algorithms (ADA)"
-    },
-    "PYQs/2023-2027 batch papers/DS/CNS Mids and Sem [year 2025].pdf": {
-      "name": "CNS Mids and Sem Papers-2025",
-      "subject": "Cryptography & Network Security (CNS)"
-    },
-    "PYQs/2023-2027 batch papers/DS/mid1labexam_PA_2026yr_4thyrsem1.pdf": {
-      "name": "PA Mid 1 Lab Exam-2026 (4th Year Sem 1)",
-      "subject": "Predictive Analysis (PA)"
-    },
-    "PYQs/2023-2027 batch papers/CSE/ImageProcessing_2025_SemPaper.pdf": {
-      "name": "IP Sem Paper - 2025 (3rd Year Sem 1)",
-      "subject": "Image Processing (IP)"
-    },
-    "Lab_Codes/cns lab record .pdf": {
-      "name": "CNS Lab Record",
-      "subject": "Cryptography & Network Security (CNS)"
-    },
-    "Lab_Codes/files.zip": {
-      "name": "Lab Files (files.zip)",
-      "githubOnly": true
-    },
-    "Lab_Codes/idk which subject is this.zip": {
-      "name": "Lab Files-Subject Unknown (zip)",
-      "githubOnly": true
-    },
-    "Lab_Codes/NLP_Lab_Notes_3col (1).pdf": {
-      "name": "NLP Lab Notes 3col",
-      "subject": "Natural Language Processing (NLP)"
-    },
-    "Lab_Codes/wsma.txt": {
-      "name": "WSMA-wsma.txt",
-      "subject": "Web & Social Media Analytics (WSMA)"
-    },
-    "Lab_Codes/wsmafinal.txt": {
-      "name": "WSMA-wsmafinal.txt",
-      "subject": "Web & Social Media Analytics (WSMA)"
-    },
-    "ZtoA files/Calendars/2nd_3rd_4th_Academic_calendar_2026-27_V1.docx": {
-      "name": "2nd–3rd–4th Academic calendar 2026-27 V1"
-    },
-    "ZtoA files/Calendars/AcademicCalendar2025-26.pdf": {
-      "name": "Academic Calendar 2025-26"
-    },
-    "ZtoA files/R22_Syllabus/1st year B.Tech CSAM.docx": {
-      "name": "Syllabus-1st year B.Tech CSAM"
-    },
-    "ZtoA files/R22_Syllabus/1st year B.Tech CSE AIML.docx": {
-      "name": "Syllabus-1st year B.Tech CSE AIML"
-    },
-    "ZtoA files/R22_Syllabus/1st year B.Tech CSE DS.docx": {
-      "name": "Syllabus-1st year B.Tech CSE DS"
-    },
-    "ZtoA files/R22_Syllabus/1st year B.Tech CSE.docx": {
-      "name": "Syllabus-1st year B.Tech CSE"
-    },
-    "ZtoA files/R22_Syllabus/2nd year B.Tech CSAM.docx": {
-      "name": "Syllabus-2nd year B.Tech CSAM"
-    },
-    "ZtoA files/R22_Syllabus/2nd year B.Tech CSE AIML.docx": {
-      "name": "Syllabus-2nd year B.Tech CSE AIML"
-    },
-    "ZtoA files/R22_Syllabus/2nd year B.Tech CSE DS.docx": {
-      "name": "Syllabus-2nd year B.Tech CSE DS"
-    },
-    "ZtoA files/R22_Syllabus/2nd year B.Tech CSE.docx": {
-      "name": "Syllabus-2nd year B.Tech CSE"
-    },
-    "ZtoA files/R22_Syllabus/3rd_4 th year B.Tech CSE DS.docx": {
-      "name": "Syllabus-3rd–4th year B.Tech CSE DS"
-    },
-    "ZtoA files/R22_Syllabus/3rd_4 th year B.Tech CSE V1.docx": {
-      "name": "Syllabus-3rd–4th year B.Tech CSE V1"
-    },
-    "ZtoA files/Templates/images-removebg-preview.png": {
-      "name": "Template Image-images-removebg-preview"
-    },
-    "ZtoA files/Templates/PRC-I_Presentation_Template.pptx": {
-      "name": "PRC I Presentation Template"
-    }
+    "CSE/3rdyrSem2/FLAT/FLAT_ProblemsForMid2.pdf": { "name": "FLAT Problems For Mid 2" },
+    "CSE/3rdyrSem2/FLAT/Lecture1_IntroToAutomataTheory.pdf": { "name": "FLAT-Lecture 1 Intro To Automata Theory" },
+    "CSE/3rdyrSem2/FLAT/Lecture2_DFA.pdf": { "name": "FLAT-Lecture 2 DFA" },
+    "CSE/3rdyrSem2/FLAT/Lecture3_NFA.pdf": { "name": "FLAT-Lecture 3 NFA" },
+    "CSE/3rdyrSem2/FLAT/Lecture4_eNFA.pdf": { "name": "FLAT-Lecture 4 eNFA" },
+    "CSE/3rdyrSem2/FLAT/Lecture5_RE.pdf": { "name": "FLAT-Lecture 5 RE" },
+    "CSE/3rdyrSem2/FLAT/Lecture6_PumpingLemma.pdf": { "name": "FLAT-Lecture 6 Pumping Lemma" },
+    "CSE/3rdyrSem2/FLAT/Lecture7_PRL.pdf": { "name": "FLAT-Lecture 7 PRL" },
+    "CSE/3rdyrSem2/FLAT/Lecture8_CFG.pdf": { "name": "FLAT-Lecture 8 CFG" },
+    "CSE/3rdyrSem2/FLAT/Lecture9_PDA.pdf": { "name": "FLAT-Lecture 9 PDA" },
+    "CSE/3rdyrSem2/FLAT/Lecture10_TM.pdf": { "name": "FLAT-Lecture 10 TM" },
+    "CSE/3rdyrSem2/FLAT/Lecture11_Undecidability.pdf": { "name": "FLAT-Lecture 11 Undecidability" },
+    "CSE/3rdyrSem2/FLAT/Lecture12.pdf": { "name": "FLAT-Lecture 12" },
+    "CSE/3rdyrSem2/FLAT/Lecture13_MDFA_Only_for_FLAT.pdf": { "name": "Lecture 13 MDFA Only for FLAT" },
+    "CSE/3rdyrSem2/FLAT/links.txt": { "name": "FLAT-Links" },
+    "CSE/3rdyrSem2/FLAT/ProblemSet_Unit4_ATCD_n_FLAT.pdf": { "name": "Problem Set Unit 4 ATCD & FLAT" },
+    "CSE/3rdyrSem2/NLP/NLP GPT NOTES.pdf": { "name": "NLP GPT NOTES" },
+    "CSE/3rdyrSem2/NLP/NLP Intro1.pdf": { "name": "NLP Intro 1" },
+    "CSE/3rdyrSem2/NLP/NLP unit5.pdf": { "name": "NLP unit 5" },
+    "CSE/3rdyrSem2/NLP/Semantic_Parsing_Presentation.pdf": { "name": "NLP-Semantic Parsing Presentation" },
+    "CSE/3rdyrSem2/NLP/UNIT1_Tokens_Lexemes_Morphemes_Typology_NLP.pdf": { "name": "UNIT 1 Tokens Lexemes Morphemes Typology NLP" },
+    "CSE/3rdyrSem2/NLP/Unit3.pdf": { "name": "NLP-Unit 3" },
+    "CSE/3rdyrSem2/NLP/UNIT V Language Modeling.pdf": { "name": "NLP-UNIT V Language Modeling" },
+    "CSE/4thyrSem1/CNS/3. CNS UNIT-3 R20 (1).pdf": { "name": "3. CNS UNIT 3 R20" },
+    "CSE/4thyrSem1/CNS/4. CNS UNIT-4 R20 (1).pdf": { "name": "4. CNS UNIT 4 R20" },
+    "CSE/4thyrSem1/CNS/Assignment_questions_cns.pdf": { "name": "Assignment questions CNS" },
+    "CSE/4thyrSem1/CNS/CNS UNIT-1.pdf": { "name": "CNS UNIT 1" },
+    "CSE/4thyrSem1/CNS/CNS UNIT-1_2.pdf": { "name": "CNS UNIT 1 2" },
+    "CSE/4thyrSem1/CNS/CNS_Long_QNS.pdf_1.pdf": { "name": "CNS Long QNS 1" },
+    "CSE/4thyrSem1/CNS/CNS_ShortQNS_1.pdf": { "name": "CNS ShortQNS 1" },
+    "CSE/4thyrSem1/CNS/CNS_SomeTopics.pdf": { "name": "CNS Some Topics" },
+    "CSE/4thyrSem1/CNS/CNS_Twist_Questions.docx": { "name": "CNS Twist Questions" },
+    "CSE/4thyrSem1/CNS/CRYPTOGRAPHY_AND_NETWORK_SECURITY_NOTES.pdf": { "name": "CRYPTOGRAPHY AND NETWORK SECURITY NOTES" },
+    "CSE/4thyrSem1/CNS/IPSec.pdf": { "name": "CNS-IPSec" },
+    "CSE/4thyrSem1/CNS/NOTE10_SHA_3.pdf": { "name": "CNS-NOTE10 SHA 3" },
+    "CSE/4thyrSem1/CNS/PGP.pdf": { "name": "CNS-PGP" },
+    "CSE/4thyrSem1/CNS/PKI_final.pdf": { "name": "CNS-PKI final" },
+    "CSE/4thyrSem1/CNS/ppt.pdf": { "name": "CNS-PPT" },
+    "CSE/4thyrSem1/CNS/SMIME.pdf": { "name": "CNS-SMIME" },
+    "CSE/4thyrSem1/CNS/studyMaterial_LastUnits.pdf": { "name": "CNS-Study Material Last Units" },
+    "CSE/4thyrSem1/CNS/unit 5 cns_casestudy_notes.pdf": { "name": "Unit 5 CNS casestudy notes" },
+    "CSE/4thyrSem1/CompilerDesign/CD QB mid-2.pdf": { "name": "CD QB mid 2" },
+    "CSE/4thyrSem1/CompilerDesign/CD-QUESTION BANK-MID-1.pdf": { "name": "CD QUESTION BANK MID 1" },
+    "CSE/4thyrSem1/CompilerDesign/UNIT-2 Parsers.pdf": { "name": "Compiler Design-UNIT 2 Parsers" },
+    "CSE/4thyrSem1/CompilerDesign/UNIT-3 SDD Part 2.pdf": { "name": "Compiler Design-UNIT 3 SDD Part 2" },
+    "CSE/4thyrSem1/CompilerDesign/UNIT-3 SDD.pdf": { "name": "Compiler Design-UNIT 3 SDD" },
+    "CSE/4thyrSem1/CompilerDesign/UNIT-4,5(partial).pdf": { "name": "Compiler Design-UNIT 4,5(partial)" },
+
+    "DS/2ndyrSem1/COA/Unit I part A.pdf": { "name": "COA-Unit I part A" },
+    "DS/2ndyrSem1/COA/Unit I part B.pdf": { "name": "COA-Unit I part B" },
+    "DS/2ndyrSem1/COA/Unit I part C.pdf": { "name": "COA-Unit I part C" },
+    "DS/2ndyrSem1/COSM/Probability-1.pdf": { "name": "COSM-Probability 1" },
+    "DS/2ndyrSem1/Data_Structures_in_C/BnB+Trees.pdf": { "name": "Data Structures-BnB+Trees" },
+    "DS/2ndyrSem1/Data_Structures_in_C/BST_Notes1.pdf": { "name": "Data Structures-BST Notes1" },
+    "DS/2ndyrSem1/Data_Structures_in_C/Complete_Notes.pdf": { "name": "Data Structures-Complete Notes" },
+    "DS/2ndyrSem1/Data_Structures_in_C/Data-Structures-With-C-by-schaum-lipschutz Textbook.pdf": { "name": "Data Structures With C-Schaum / Lipschutz (Textbook)" },
+    "DS/2ndyrSem1/Data_Structures_in_C/DS 3rd chapter.pdf": { "name": "DS 3rd chapter" },
+    "DS/2ndyrSem1/Data_Structures_in_C/DS UNIT 3.pdf": { "name": "DS UNIT 3" },
+    "DS/2ndyrSem1/Data_Structures_in_C/DS_Unit-1.pdf": { "name": "DS Unit 1" },
+    "DS/2ndyrSem1/Data_Structures_in_C/DS_Unit_1 HandWritten.pdf": { "name": "DS Unit 1 Hand Written" },
+    "DS/2ndyrSem1/Data_Structures_in_C/Graphs.pdf": { "name": "Data Structures-Graphs" },
+    "DS/2ndyrSem1/Data_Structures_in_C/hashtables.pdf": { "name": "Data Structures-Hashtables" },
+    "DS/2ndyrSem1/Data_Structures_in_C/Linked Lists.pdf": { "name": "Data Structures-Linked Lists" },
+    "DS/2ndyrSem1/Data_Structures_in_C/Quick_Sort.pdf": { "name": "Data Structures-Quick Sort" },
+    "DS/2ndyrSem1/Data_Structures_in_C/Sorting.pdf": { "name": "Data Structures-Sorting" },
+    "DS/2ndyrSem1/Data_Structures_in_C/Traversal.pdf": { "name": "Data Structures-Traversal" },
+    "DS/2ndyrSem1/Digital_Electronics/all units - Question Bank.pdf": { "name": "Digital Electronics-All units - Question Bank" },
+    "DS/2ndyrSem1/Digital_Electronics/Digital Design (3rd Edition) Textbook.pdf": { "name": "Digital Design (3rd Edition) Textbook" },
+    "DS/2ndyrSem1/Digital_Electronics/unit 4.pdf": { "name": "Digital Electronics-Unit 4" },
+    "DS/2ndyrSem1/Digital_Electronics/unit 5.pdf": { "name": "Digital Electronics-Unit 5" },
+    "DS/2ndyrSem1/Digital_Electronics/UNIT - 4_DLD_PLDs.pdf": { "name": "UNIT 4 DLD PLDs" },
+    "DS/2ndyrSem1/JAVA/01 Introduction to Java.pdf": { "name": "01 Introduction to Java" },
+    "DS/2ndyrSem1/JAVA/example codes.pdf": { "name": "Java-Example codes" },
+    "DS/2ndyrSem1/JAVA/Java-Threads&SynchF.pdf": { "name": "Java-Threads & SynchF" },
+    "DS/2ndyrSem1/JAVA/unit 2.pdf": { "name": "Java-Unit 2" },
+    "DS/2ndyrSem1/JAVA/unit 3.pdf": { "name": "Java-Unit 3" },
+    "DS/2ndyrSem1/JAVA/unit 4 & 5.pdf": { "name": "Java-Unit 4 & 5" },
+    "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/important questions of all units.pdf": { "name": "BEFA-Important questions of all units" },
+    "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-4. Financial accounting.pdf": { "name": "BEFA-Unit 4. Financial accounting" },
+    "DS/2ndyrSem2/Business_Economics_n_Financial_Analysis/Unit-5. Ratio Analysis.pdf": { "name": "BEFA-Unit 5. Ratio Analysis" },
+    "DS/2ndyrSem2/DBMS/ImportantQforMid1.pdf": { "name": "DBMS-Important Qfor Mid 1" },
+    "DS/2ndyrSem2/DBMS/ImportantQforMid2.pdf": { "name": "DBMS-Important Qfor Mid 2" },
+    "DS/2ndyrSem2/DBMS/ImpQs_Sem.pdf": { "name": "DBMS-Imp Qs Sem" },
+    "DS/2ndyrSem2/DBMS/Unit3-1.pdf": { "name": "DBMS-Unit 3-1" },
+    "DS/2ndyrSem2/DBMS/unit 1-1.pdf": { "name": "DBMS-Unit 1-1" },
+    "DS/2ndyrSem2/DBMS/unit 1-2.pdf": { "name": "DBMS-Unit 1-2" },
+    "DS/2ndyrSem2/DBMS/Unit 3-2.pdf": { "name": "DBMS-Unit 3-2" },
+    "DS/2ndyrSem2/DBMS/unit-2.pdf": { "name": "DBMS-Unit 2" },
+    "DS/2ndyrSem2/DBMS/unit-4.pdf": { "name": "DBMS-Unit 4" },
+    "DS/2ndyrSem2/DBMS/Unit-5.pdf": { "name": "DBMS-Unit 5" },
+    "DS/2ndyrSem2/Discrete_Mathematics/DM-chapter-3.pdf": { "name": "DM chapter 3" },
+    "DS/2ndyrSem2/Discrete_Mathematics/Model_Mid_DM_Exam_Paper.pdf": { "name": "Model Mid DM Exam Paper" },
+    "DS/2ndyrSem2/Discrete_Mathematics/unit-1.pdf": { "name": "Discrete Mathematics-Unit 1" },
+    "DS/2ndyrSem2/Discrete_Mathematics/unit-2.pdf": { "name": "Discrete Mathematics-Unit 2" },
+    "DS/2ndyrSem2/Discrete_Mathematics/unit-4.pdf": { "name": "Discrete Mathematics-Unit 4" },
+    "DS/2ndyrSem2/Discrete_Mathematics/unit-5.pdf": { "name": "Discrete Mathematics-Unit 5" },
+    "DS/2ndyrSem2/Operating_System/OS_LAB_1.pdf": { "name": "OS LAB 1" },
+    "DS/2ndyrSem2/Operating_System/OS_Practice_Q_mid2.pdf": { "name": "OS Practice Q mid 2" },
+    "DS/2ndyrSem2/Operating_System/OS_UNIT_1_not_complete.pdf": { "name": "OS UNIT 1 not complete" },
+    "DS/2ndyrSem2/Operating_System/OS_UNIT_2_not_complete.pdf": { "name": "OS UNIT 2 not complete" },
+    "DS/2ndyrSem2/Operating_System/OS_UNIT_3.pdf": { "name": "OS UNIT 3" },
+    "DS/2ndyrSem2/Operating_System/OS_UNIT_3_till_mid1.pdf": { "name": "OS UNIT 3 till mid 1" },
+    "DS/2ndyrSem2/Operating_System/OS_UNIT_4.pdf": { "name": "OS UNIT 4" },
+    "DS/2ndyrSem2/Operating_System/OS_UNIT_5_RajeevSirPart.pdf": { "name": "OS UNIT 5 Rajeev Sir Part" },
+    "DS/2ndyrSem2/Operating_System/OS_UNIT_5_SouravSirPart.pdf": { "name": "OS UNIT 5 Sourav Sir Part" },
+    "DS/2ndyrSem2/Operating_System/Presentation_Lab.pdf": { "name": "Operating Systems-Presentation Lab" },
+    "DS/2ndyrSem2/Software_Engineering/2_blackbox-problems.pdf": { "name": "Software Engineering-2 blackbox problems" },
+    "DS/2ndyrSem2/Software_Engineering/3_debugging_in_testing.pdf": { "name": "Software Engineering-3 debugging in testing" },
+    "DS/2ndyrSem2/Software_Engineering/4_SE_Unit_4_softwareMetrics.pdf": { "name": "4 SE Unit 4 software Metrics" },
+    "DS/2ndyrSem2/Software_Engineering/SE UNIT -4 (TESTING STRATEGIES)-1.pdf": { "name": "SE UNIT 4 (TESTING STRATEGIES)-1" },
+    "DS/2ndyrSem2/Software_Engineering/SE UNIT -5 (RISK MANAGEMENT PART-1)-1.pdf": { "name": "SE UNIT 5 (RISK MANAGEMENT PART 1)-1" },
+    "DS/2ndyrSem2/Software_Engineering/SE-Unit_5_software-quality-management.pdf": { "name": "SE Unit 5 software quality management" },
+    "DS/2ndyrSem2/Software_Engineering/SE_Unit-4_software-testing-strategies-and-methods.pdf": { "name": "SE Unit 4 software testing strategies and methods" },
+    "DS/2ndyrSem2/Software_Engineering/unit-1.pdf": { "name": "Software Engineering-Unit 1" },
+    "DS/2ndyrSem2/Software_Engineering/unit-1_ppt.pdf": { "name": "Software Engineering-Unit 1 PPT" },
+    "DS/2ndyrSem2/Software_Engineering/unit-2.pdf": { "name": "Software Engineering-Unit 2" },
+    "DS/2ndyrSem2/Software_Engineering/unit-2_ppt.pdf": { "name": "Software Engineering-Unit 2 PPT" },
+    "DS/2ndyrSem2/Software_Engineering/unit-3-2.pdf": { "name": "Software Engineering-Unit 3-2" },
+    "DS/2ndyrSem2/Software_Engineering/unit-3-3.pdf": { "name": "Software Engineering-Unit 3-3" },
+    "DS/2ndyrSem2/Software_Engineering/unit-3.pdf": { "name": "Software Engineering-Unit 3" },
+    "DS/2ndyrSem2/Software_Engineering/unit-4-1.pdf": { "name": "Software Engineering-Unit 4-1" },
+    "DS/2ndyrSem2/Software_Engineering/unit-5-1.pdf": { "name": "Software Engineering-Unit 5-1" },
+    "DS/3rdyrSem1/Comp_Networks/Andrew S. Tanenbaum - Computer Networks Textbook.pdf": { "name": "Andrew S. Tanenbaum - Computer Networks Textbook" },
+    "DS/3rdyrSem1/Comp_Networks/unit 1 pt1.pdf": { "name": "Computer Networks-Unit 1 pt1" },
+    "DS/3rdyrSem1/Comp_Networks/unit 1 pt2.pdf": { "name": "Computer Networks-Unit 1 pt2" },
+    "DS/3rdyrSem1/Comp_Networks/unit 2.pdf": { "name": "Computer Networks-Unit 2" },
+    "DS/3rdyrSem1/Comp_Networks/unit 3 pt1.pdf": { "name": "Computer Networks-Unit 3 pt1" },
+    "DS/3rdyrSem1/Comp_Networks/unit 3 pt2.pdf": { "name": "Computer Networks-Unit 3 pt2" },
+    "DS/3rdyrSem1/Comp_Networks/unit 4.pdf": { "name": "Computer Networks-Unit 4" },
+    "DS/3rdyrSem1/Comp_Networks/unit 5 pt1.pdf": { "name": "Computer Networks-Unit 5 pt1" },
+    "DS/3rdyrSem1/Comp_Networks/unit 5 pt2.pdf": { "name": "Computer Networks-Unit 5 pt2" },
+    "DS/3rdyrSem1/Comp_Networks/unit 5 pt3.pdf": { "name": "Computer Networks-Unit 5 pt3" },
+    "DS/3rdyrSem1/Intro_To_DataSci/Doing Data Science Textbook.pdf": { "name": "Doing Data Science Textbook" },
+    "DS/3rdyrSem2/ATCD/Lecture1_IntroToAutomataTheory.pdf": { "name": "ATCD-Lecture 1 Intro To Automata Theory" },
+    "DS/3rdyrSem2/ATCD/Lecture2_DFA.pdf": { "name": "ATCD-Lecture 2 DFA" },
+    "DS/3rdyrSem2/ATCD/Lecture3_NFA.pdf": { "name": "ATCD-Lecture 3 NFA" },
+    "DS/3rdyrSem2/ATCD/Lecture4_eNFA.pdf": { "name": "ATCD-Lecture 4 eNFA" },
+    "DS/3rdyrSem2/ATCD/Lecture5_RE.pdf": { "name": "ATCD-Lecture 5 RE" },
+    "DS/3rdyrSem2/ATCD/Lecture6_PumpingLemma.pdf": { "name": "ATCD-Lecture 6 Pumping Lemma" },
+    "DS/3rdyrSem2/ATCD/Lecture7_PRL.pdf": { "name": "ATCD-Lecture 7 PRL" },
+    "DS/3rdyrSem2/ATCD/Lecture8_CFG.pdf": { "name": "ATCD-Lecture 8 CFG" },
+    "DS/3rdyrSem2/ATCD/Lecture9_PDA.pdf": { "name": "ATCD-Lecture 9 PDA" },
+    "DS/3rdyrSem2/ATCD/Lecture10_TM.pdf": { "name": "ATCD-Lecture 10 TM" },
+    "DS/3rdyrSem2/ATCD/Lecture11_Undecidability.pdf": { "name": "ATCD-Lecture 11 Undecidability" },
+    "DS/3rdyrSem2/ATCD/Lecture12.pdf": { "name": "ATCD-Lecture 12" },
+    "DS/3rdyrSem2/ATCD/Lecture-14_ATCD.pdf": { "name": "Lecture 14 ATCD" },
+    "DS/3rdyrSem2/ATCD/links.txt": { "name": "ATCD-Links" },
+    "DS/3rdyrSem2/ATCD/ProblemSet_Mid2_ATCD.pdf": { "name": "Problem Set Mid 2 ATCD" },
+    "DS/3rdyrSem2/ATCD/ProblemSet_Unit4_ATCD_n_FLAT.pdf": { "name": "Problem Set Unit 4 ATCD & FLAT" },
+    "DS/3rdyrSem2/ATCD/ProblemsForMid1.pdf": { "name": "ATCD-Problems For Mid 1" },
+    "DS/3rdyrSem2/Big_Data_Analysis/BDA_LAB_Linux_Basic_Commands_and_Java_Env_Variables.pdf": { "name": "BDA LAB Linux Basic Commands and Java Env Variables" },
+    "DS/3rdyrSem2/Big_Data_Analysis/BDA_Mid2_Important Questions.pdf": { "name": "BDA Mid 2 Important Questions" },
+    "DS/3rdyrSem2/Big_Data_Analysis/HadoopSecUnit.pdf": { "name": "BDA-Hadoop Sec Unit" },
+    "DS/3rdyrSem2/Big_Data_Analysis/Important Questions - Mid1.pdf": { "name": "BDA-Important Questions - Mid 1" },
+    "DS/3rdyrSem2/Big_Data_Analysis/notesforBDA-Updated.pdf": { "name": "BDA-Notes (Updated)" },
+    "DS/3rdyrSem2/Big_Data_Analysis/UnitIII-BDA.pdf": { "name": "Unit III BDA" },
+    "DS/3rdyrSem2/Big_Data_Analysis/UnitIV-BDA.pdf": { "name": "Unit IV BDA" },
+    "DS/3rdyrSem2/CNS/cns lab record .pdf": { "name": "CNS Lab Record" },
+    "DS/3rdyrSem2/CNS/CNS-UNIT21-SymmetricCiphers (1).pdf": { "name": "CNS UNIT 21 Symmetric Ciphers" },
+    "DS/3rdyrSem2/CNS/CNS-UNIT22.pdf": { "name": "CNS UNIT 22" },
+    "DS/3rdyrSem2/CNS/CNS_UNIT-11.pdf": { "name": "CNS UNIT 11" },
+    "DS/3rdyrSem2/CNS/CNS_UNIT-12.pdf": { "name": "CNS UNIT 12" },
+    "DS/3rdyrSem2/CNS/CNS_UNIT-32.pdf": { "name": "CNS UNIT 32" },
+    "DS/3rdyrSem2/CNS/CNS_UNIT-41.pdf": { "name": "CNS UNIT 41" },
+    "DS/3rdyrSem2/CNS/CNS_UNIT-51.pdf": { "name": "CNS UNIT 51" },
+    "DS/3rdyrSem2/CNS/CNS_UNIT-52.pdf": { "name": "CNS UNIT 52" },
+    "DS/3rdyrSem2/CNS/Cryptography and Network Security Principles and Practice (6th Edition) (William Stallings).pdf": { "name": "Cryptography and Network Security Principles and Practice (6th Edition) (William Stallings)" },
+    "DS/3rdyrSem2/CNS/SMPC.pdf": { "name": "CNS-SMPC" },
+    "DS/3rdyrSem2/CNS/SSS1.pdf": { "name": "CNS-SSS1" },
+    "DS/3rdyrSem2/DT/DT QUESTIONS_Imp_Mid1.pdf": { "name": "DT QUESTIONS Imp Mid 1" },
+    "DS/3rdyrSem2/DT/DT UNIT-3.pdf": { "name": "DT UNIT 3" },
+    "DS/3rdyrSem2/DT/DT-Unit-1.pdf": { "name": "DT Unit 1" },
+    "DS/3rdyrSem2/DT/DT-Unit-2.pdf": { "name": "DT Unit 2" },
+    "DS/3rdyrSem2/DT/DT-UNIT-4.pdf": { "name": "DT UNIT 4" },
+    "DS/3rdyrSem2/DT/UNIT-5.pdf": { "name": "DT-UNIT 5" },
+    "DS/3rdyrSem2/Machine_Learning/ML_MID1_THEORY.pdf": { "name": "ML MID 1 THEORY" },
+    "DS/3rdyrSem2/Machine_Learning/ML_MID2_THEORY.pdf": { "name": "ML MID 2 THEORY" },
+    "DS/4thyrSem1/Cloud_Computing/4A_Networking and Data_Centres for CC.pdf": { "name": "Cloud Computing-4A Networking and Data Centres for CC" },
+    "DS/4thyrSem1/Cloud_Computing/4B_Cloud_Service_Providers_Enhanced_v3.pdf": { "name": "4B Cloud Service Providers Enhanced v3" },
+    "DS/4thyrSem1/Cloud_Computing/5A_Security for Cloud Computingv2.pdf": { "name": "5A Security for Cloud Computingv2" },
+    "DS/4thyrSem1/Cloud_Computing/5B_Advanced_Concepts_in_Cloud_Computing.pdf": { "name": "5B Advanced Concepts in Cloud Computing" },
+    "DS/4thyrSem1/Cloud_Computing/CC_simple_Revision notes.pdf": { "name": "Cloud Computing-CC simple Revision notes" },
+    "DS/4thyrSem1/Cloud_Computing/Cloud Computing Paradigms.pdf": { "name": "Cloud Computing Paradigms" },
+    "DS/4thyrSem1/Cloud_Computing/cloud-computing_UNit-1.pdf": { "name": "Cloud computing UNit 1" },
+    "DS/4thyrSem1/Cloud_Computing/cloud.pdf": { "name": "Cloud Computing-Cloud" },
+    "DS/4thyrSem1/Cloud_Computing/Cloud_Computing_Complete_Notes (1).docx": { "name": "Cloud Computing Complete Notes (copy)" },
+    "DS/4thyrSem1/Cloud_Computing/Cloud_Computing_Complete_Notes.docx": { "name": "Cloud Computing Complete Notes" },
+    "DS/4thyrSem1/Cloud_Computing/Cloud_Computing_Part_B_All_60.docx": { "name": "Cloud Computing Part B All 60" },
+    "DS/4thyrSem1/Cloud_Computing/SOA as Technology Drivers for Cloud Computing.pdf": { "name": "SOA as Technology Drivers for Cloud Computing" },
+    "DS/4thyrSem1/Cloud_Computing/web 2.0 and 3.0.pptx": { "name": "Cloud Computing-Web 2.0 and 3.0" },
+    "DS/4thyrSem1/Data_Mining/Association to correlations.pdf": { "name": "Data Mining-Association to correlations" },
+    "DS/4thyrSem1/Data_Mining/DecisionTreesBoostingExampleProblem.pdf": { "name": "Data Mining-Decision Trees Boosting Example Problem" },
+    "DS/4thyrSem1/Data_Mining/DM mid-2  questions.docx": { "name": "DM mid 2 questions" },
+    "DS/4thyrSem1/Data_Mining/DM_Mid-2_Important_Questions.docx": { "name": "DM Mid 2 Important Questions" },
+    "DS/4thyrSem1/Data_Mining/fp-growth-algorithm-example-problems.pdf": { "name": "Data Mining-Fp growth algorithm example problems" },
+    "DS/4thyrSem1/Data_Mining/KNN .pdf": { "name": "Data Mining-KNN" },
+    "DS/4thyrSem1/Data_Mining/NeuralNetworks .pdf": { "name": "Data Mining-Neural Networks" },
+    "DS/4thyrSem1/Data_Mining/Rule Based Classification.pdf": { "name": "Data Mining-Rule Based Classification" },
+    "DS/4thyrSem1/Data_Mining/Unit 4 ClusterAnalysis  Short notes.pdf": { "name": "Data Mining-Unit 4 Cluster Analysis Short notes" },
+    "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining Lec-1.pptx": { "name": "Unit 1 Data Mining Lec 1" },
+    "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining Lect 2_3_4.pptx": { "name": "Unit 1 Data Mining Lect 2 3 4" },
+    "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining part-2.pptx": { "name": "Unit 1 Data Mining part 2" },
+    "DS/4thyrSem1/Data_Mining/Unit -1 Data Mining Part-3_ Data Preprocessing.pptx": { "name": "Unit 1 Data Mining Part 3 Data Preprocessing" },
+    "DS/4thyrSem1/Data_Mining/Unit -2 Part-1.pptx": { "name": "Data Mining-Unit 2 Part 1" },
+    "DS/4thyrSem1/Data_Mining/Unit -2 part-2.pptx": { "name": "Data Mining-Unit 2 part 2" },
+    "DS/4thyrSem1/Data_Mining/Unit -2 Part-3.pptx": { "name": "Data Mining-Unit 2 Part 3" },
+    "DS/4thyrSem1/Data_Mining/Unit -3 Part-1.pptx": { "name": "Data Mining-Unit 3 Part 1" },
+    "DS/4thyrSem1/Data_Mining/Unit -4 Data Mining textbook notes.pptx": { "name": "Unit 4 Data Mining textbook notes" },
+    "DS/4thyrSem1/Data_Mining/Unit-3 Basics .pptx": { "name": "Data Mining-Unit 3 Basics" },
+    "DS/4thyrSem1/Data_Mining/Unit-3 Basics.pdf": { "name": "Data Mining-Unit 3 Basics" },
+    "DS/4thyrSem1/Data_Mining/Unit-3 SVM_KNN_RB_NN.pdf": { "name": "Data Mining-Unit 3 SVM KNN RB NN" },
+    "DS/4thyrSem1/Data_Mining/Unit-4 OutlierAnalysis  short notes.pdf": { "name": "Data Mining-Unit 4 Outlier Analysis short notes" },
+    "DS/4thyrSem1/Data_Mining/Unit-5  Web Spatial Temporal Mining.pdf": { "name": "Data Mining-Unit 5 Web Spatial Temporal Mining" },
+    "DS/4thyrSem1/Natural_Language_Processing/Difference_Between_FrameNet_and_PropBank.pdf": { "name": "NLP-Difference Between Frame Net and Prop Bank" },
+    "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing [Ramesh Babu sir notes] unit 1 to 5.pdf.pdf": { "name": "Natural Language Processing-Ramesh Babu Sir Notes (Units 1–5)" },
+    "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing.pdf": { "name": "Natural Language Processing" },
+    "DS/4thyrSem1/Natural_Language_Processing/Natural Language Processing_ UNIT 1&2 [ Ramesh Babu Sir Notes ].pdf": { "name": "Natural Language Processing-Ramesh Babu Sir Notes (Units 1 & 2)" },
+    "DS/4thyrSem1/Natural_Language_Processing/NLP_all5units_impqs.docx": { "name": "NLP all5units impqs" },
+    "DS/4thyrSem1/Natural_Language_Processing/NLP_Extra_1Mark_Questions (1).docx": { "name": "NLP Extra 1Mark Questions" },
+    "DS/4thyrSem1/Natural_Language_Processing/NLP_Mid2_Important_Questions.docx": { "name": "NLP Mid 2 Important Questions" },
+    "DS/4thyrSem1/Natural_Language_Processing/NLP_Sem_Full.docx": { "name": "NLP Sem Full" },
+    "DS/4thyrSem1/Predictive_Analysis/Memory_Palace_method - unit 3 to 4 [mid2].docx": { "name": "PA-Memory Palace method - unit 3 to 4 [mid 2]" },
+    "DS/4thyrSem1/Predictive_Analysis/PA_mid2_all2marksqs.docx": { "name": "PA mid 2 all2marksqs" },
+    "DS/4thyrSem1/Predictive_Analysis/PA_MID2_all5marksqs.docx": { "name": "PA MID 2 all5marksqs" },
+    "DS/4thyrSem1/Predictive_Analysis/PA_Notes_Units_1_to_3.docx": { "name": "PA Notes Units 1 to 3" },
+    "DS/4thyrSem1/Predictive_Analysis/UNIT - V.pptx": { "name": "PA-UNIT V" },
+    "DS/4thyrSem1/Predictive_Analysis/unit-2.pptx": { "name": "PA-Unit 2" },
+    "DS/4thyrSem1/Predictive_Analysis/unit-3.pdf": { "name": "PA-Unit 3" },
+    "DS/4thyrSem1/Predictive_Analysis/unit-4.pdf": { "name": "PA-Unit 4" },
+    "DS/4thyrSem1/Predictive_Analysis/unit_1.pdf": { "name": "PA-Unit 1" },
+    "DS/4thyrSem1/Predictive_Analysis/unit_1.pptx": { "name": "PA-Unit 1" },
+    "DS/4thyrSem1/Predictive_Analysis/unit_3.pptx": { "name": "PA-Unit 3" },
+    "DS/4thyrSem1/Predictive_Analysis/unit_3_midterm-2.pptx": { "name": "PA-Unit 3 midterm 2" },
+    "DS/4thyrSem1/Predictive_Analysis/unit_3CNN.pdf": { "name": "PA-Unit 3 CNN" },
+    "DS/4thyrSem1/textbooks/dean-abbott-applied-predictive-analytics_-principles-and-techniques-for-the-professional-data-analyst-wiley-2014.pdf": { "name": "Applied Predictive Analytics-Dean Abbott (Wiley, 2014)" },
+    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/_W&SMA Unit 3& 4.pdf": { "name": "WSMA-Units 3 & 4" },
+    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/Unit 1_additionalmaterial.pdf": { "name": "WSMA-Unit 1 additionalmaterial" },
+    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/W&SMA Unit 1  &2.pdf": { "name": "WSMA-Units 1 & 2" },
+    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/WSMA_Mid2.docx": { "name": "WSMA Mid 2" },
+    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/WSMA_SemExam.docx": { "name": "WSMA Sem Exam" },
+    "DS/4thyrSem1/Web_n_SocialMedia_Analytics/WSMA_SemExam_wtables.docx": { "name": "WSMA Sem Exam wtables" },
+
+    "Lab_Codes/BDA_Lab.pdf": { "name": "BDA Lab", "subject": "Big Data Analysis (BDA)" },
+    "Lab_Codes/cns lab record .pdf": { "name": "CNS Lab Record", "subject": "Cryptography & Network Security (CNS)" },
+    "Lab_Codes/files.zip": { "name": "Lab Files (files.zip)", "githubOnly": true },
+    "Lab_Codes/idk which subject is this.zip": { "name": "Lab Files-Subject Unknown (zip)", "githubOnly": true },
+    "Lab_Codes/NLP_Lab_Notes_3col (1).pdf": { "name": "NLP Lab Notes 3col", "subject": "Natural Language Processing (NLP)" },
+    "Lab_Codes/wsma.txt": { "name": "WSMA-wsma.txt", "subject": "Web & Social Media Analytics (WSMA)" },
+    "Lab_Codes/wsmafinal.txt": { "name": "WSMA-wsmafinal.txt", "subject": "Web & Social Media Analytics (WSMA)" },
+
+    "PYQs/2023-2027 batch papers/CSE/ImageProcessing_2025_SemPaper.pdf": { "name": "IP Sem Paper - 2025 (3rd Year Sem 1)", "subject": "Image Processing (IP)" },
+    "PYQs/2023-2027 batch papers/CSE/NLP EXAM KEY BOOKLET.pdf": { "name": "NLP EXAM KEY BOOKLET" },
+    "PYQs/2023-2027 batch papers/CSE/NLP MID-1.pdf": { "name": "NLP MID 1" },
+    "PYQs/2023-2027 batch papers/CSE/NLP mids question paper.pdf": { "name": "NLP mids question paper" },
+    "PYQs/2023-2027 batch papers/CSE/question bank_nlp_mid1.pdf": { "name": "Question bank NLP mid 1" },
+    "PYQs/2023-2027 batch papers/DS/ADA_2025_mid2.jpg": { "name": "ADA Mid 2-2025 (image)", "subject": "Analysis & Design of Algorithms (ADA)" },
+    "PYQs/2023-2027 batch papers/DS/CNS Mids and Sem [year 2025].pdf": { "name": "CNS Mids and Sem Papers-2025", "subject": "Cryptography & Network Security (CNS)" },
+    "PYQs/2023-2027 batch papers/DS/mid1labexam_PA_2026yr_4thyrsem1.pdf": { "name": "PA Mid 1 Lab Exam-2026 (4th Year Sem 1)", "subject": "Predictive Analysis (PA)" },
+
+    "Keys/flat.html": { "name": "FLAT Key · CSE · 3-2", "subject": "Formal Languages & Automata Theory (FLAT)", "group": "Exam Keys" },
+    "Keys/flatfull.html": { "name": "FLAT Full Key · CSE · 3-2", "subject": "Formal Languages & Automata Theory (FLAT)", "group": "Exam Keys" },
+    "Keys/ai.html": { "name": "AI Key · DS · 3-2", "subject": "AI", "group": "Exam Keys" },
+    "Keys/atcd.html": { "name": "ATCD Key · DS · 3-2", "subject": "Automata Theory & Compiler Design (ATCD)", "group": "Exam Keys" },
+    "Keys/atcdfull.html": { "name": "ATCD Full Key · DS · 3-2", "subject": "Automata Theory & Compiler Design (ATCD)", "group": "Exam Keys" },
+    "Keys/bda.html": { "name": "BDA Key · DS · 3-2", "subject": "Big Data Analysis (BDA)", "group": "Exam Keys" },
+    "Keys/cns.html": { "name": "CNS Key · DS · 3-2", "subject": "Cryptography & Network Security (CNS)", "group": "Exam Keys" },
+    "Keys/dt.html": { "name": "DT Key · DS · 3-2", "subject": "Design Thinking (DT)", "group": "Exam Keys" },
+    "Keys/dt-ans.html": { "name": "DT Answer Key · DS · 3-2", "subject": "Design Thinking (DT)", "group": "Exam Keys" },
+    "Keys/ml.html": { "name": "ML Key · DS · 3-2", "subject": "Machine Learning (ML)", "group": "Exam Keys" },
+    "Keys/ml-ans.html": { "name": "ML Answer Key · DS · 3-2", "subject": "Machine Learning (ML)", "group": "Exam Keys" },
+    "Keys/mlxams.html": { "name": "ML Exams Key · DS · 3-2", "subject": "Machine Learning (ML)", "group": "Exam Keys" },
+    "Keys/data-mining.html": { "name": "Data Mining Key · DS · 4-1", "subject": "Data Mining (DM)", "group": "Exam Keys" },
+    "Keys/nlp.html": { "name": "NLP Key · DS · 4-1", "subject": "Natural Language Processing (NLP)", "group": "Exam Keys" },
+    "Keys/predictive-analysis.html": { "name": "PA Mid 1 Exam Key · DS · 4-1", "subject": "Predictive Analysis (PA)", "group": "Exam Keys" },
+    "Keys/wsma.html": { "name": "WSMA Key · DS · 4-1", "subject": "Web & Social Media Analytics (WSMA)", "group": "Exam Keys" },
+
+    "ZtoA files/Calendars/2nd_3rd_4th_Academic_calendar_2026-27_V1.docx": { "name": "2nd–3rd–4th Academic calendar 2026-27 V1" },
+    "ZtoA files/Calendars/AcademicCalendar2025-26.pdf": { "name": "Academic Calendar 2025-26" },
+    "ZtoA files/R22_Syllabus/1st year B.Tech CSAM.docx": { "name": "Syllabus-1st year B.Tech CSAM" },
+    "ZtoA files/R22_Syllabus/1st year B.Tech CSE AIML.docx": { "name": "Syllabus-1st year B.Tech CSE AIML" },
+    "ZtoA files/R22_Syllabus/1st year B.Tech CSE DS.docx": { "name": "Syllabus-1st year B.Tech CSE DS" },
+    "ZtoA files/R22_Syllabus/1st year B.Tech CSE.docx": { "name": "Syllabus-1st year B.Tech CSE" },
+    "ZtoA files/R22_Syllabus/2nd year B.Tech CSAM.docx": { "name": "Syllabus-2nd year B.Tech CSAM" },
+    "ZtoA files/R22_Syllabus/2nd year B.Tech CSE AIML.docx": { "name": "Syllabus-2nd year B.Tech CSE AIML" },
+    "ZtoA files/R22_Syllabus/2nd year B.Tech CSE DS.docx": { "name": "Syllabus-2nd year B.Tech CSE DS" },
+    "ZtoA files/R22_Syllabus/2nd year B.Tech CSE.docx": { "name": "Syllabus-2nd year B.Tech CSE" },
+    "ZtoA files/R22_Syllabus/3rd_4 th year B.Tech CSE DS.docx": { "name": "Syllabus-3rd–4th year B.Tech CSE DS" },
+    "ZtoA files/R22_Syllabus/3rd_4 th year B.Tech CSE V1.docx": { "name": "Syllabus-3rd–4th year B.Tech CSE V1" },
+    "ZtoA files/Templates/images-removebg-preview.png": { "name": "Template Image-images-removebg-preview" },
+    "ZtoA files/Templates/PRC-I_Presentation_Template.pptx": { "name": "PRC I Presentation Template" }
   }
 }

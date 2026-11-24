@@ -7,7 +7,7 @@
 
   What it does
     - lists every PDF / PPT(X) / DOC(X) / TXT / MD / image / ZIP under the collection folders
-    - skips .html pages, placeholder first.txt / first.md, hidden folders, root files,
+    - skips .html pages (except in Keys/), placeholder first.txt / first.md, hidden folders, root files,
       and anything listed under "exclude" in catalogue.json
     - card titles and subjects come from catalogue.json ("entries", then "subjects" per folder);
       new files fall back to a name made from the file name
@@ -53,8 +53,8 @@ const files = [];
       walk(path.join(dir, it.name), r);
     } else if (it.isFile() && rel) {            // files in the repo root are never listed
       const ext = path.extname(it.name).slice(1).toLowerCase();
-      if (!INCLUDE.has(ext) || SKIP_FILES.has(it.name.toLowerCase())) continue;
-      files.push(r);
+      const isKey = r.startsWith('Keys/') && ext === 'html';
+      if ((!INCLUDE.has(ext) && !isKey) || SKIP_FILES.has(it.name.toLowerCase())) continue;      files.push(r);
     }
   }
 })(ROOT, '');

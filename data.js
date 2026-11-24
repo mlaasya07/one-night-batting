@@ -8,7 +8,7 @@
     id        unique, URL-safe key
     name      title shown on the card
     subject   subject label (searchable)
-    category  collection id in index.html: CSE | DS | PYQs | Lab_Codes | ZtoA files
+    category  collection id in index.html: CSE | DS | Lab_Codes | PYQs | Keys | ZtoA files
     path      path relative to this folder, using forward slashes
     size      file size in bytes
     githubOnly: true  -> no preview; the card links to download the file from GitHub
@@ -1885,6 +1885,14 @@ window.ARCHIVE_DOCUMENTS = [
     size: 1593675
   },
   {
+    id: "ds-4thyrsem1-predictive-analysis-pa-notes-units-semfull-docx",
+    name: "PA Notes Units SemFull",
+    subject: "Predictive Analysis (PA)",
+    category: "DS",
+    path: "DS/4thyrSem1/Predictive_Analysis/PA_Notes_Units_SemFull.docx",
+    size: 3528331
+  },
+  {
     id: "ds-4thyrsem1-predictive-analysis-unit-v-pptx",
     name: "PA-UNIT V",
     subject: "Predictive Analysis (PA)",
@@ -2015,6 +2023,74 @@ window.ARCHIVE_DOCUMENTS = [
     size: 953127
   },
 
+  // ── Lab_Codes · Big Data Analysis (BDA) ─────────────────────────
+  {
+    id: "lab-codes-bda-lab-pdf",
+    name: "BDA Lab",
+    subject: "Big Data Analysis (BDA)",
+    category: "Lab_Codes",
+    path: "Lab_Codes/BDA_Lab.pdf",
+    size: 45546
+  },
+
+  // ── Lab_Codes · Cryptography & Network Security (CNS) ───────────
+  {
+    id: "lab-codes-cns-lab-record-pdf",
+    name: "CNS Lab Record",
+    subject: "Cryptography & Network Security (CNS)",
+    category: "Lab_Codes",
+    path: "Lab_Codes/cns lab record .pdf",
+    size: 9045295
+  },
+
+  // ── Lab_Codes · Lab Codes ───────────────────────────────────────
+  {
+    id: "lab-codes-files-zip",
+    name: "Lab Files (files.zip)",
+    subject: "Lab Codes",
+    category: "Lab_Codes",
+    path: "Lab_Codes/files.zip",
+    size: 17686,
+    githubOnly: true
+  },
+  {
+    id: "lab-codes-idk-which-subject-is-this-zip",
+    name: "Lab Files-Subject Unknown (zip)",
+    subject: "Lab Codes",
+    category: "Lab_Codes",
+    path: "Lab_Codes/idk which subject is this.zip",
+    size: 17686,
+    githubOnly: true
+  },
+
+  // ── Lab_Codes · Natural Language Processing (NLP) ───────────────
+  {
+    id: "lab-codes-nlp-lab-notes-3col-1-pdf",
+    name: "NLP Lab Notes 3col",
+    subject: "Natural Language Processing (NLP)",
+    category: "Lab_Codes",
+    path: "Lab_Codes/NLP_Lab_Notes_3col (1).pdf",
+    size: 42852
+  },
+
+  // ── Lab_Codes · Web & Social Media Analytics (WSMA) ─────────────
+  {
+    id: "lab-codes-wsma-txt",
+    name: "WSMA-wsma.txt",
+    subject: "Web & Social Media Analytics (WSMA)",
+    category: "Lab_Codes",
+    path: "Lab_Codes/wsma.txt",
+    size: 19025
+  },
+  {
+    id: "lab-codes-wsmafinal-txt",
+    name: "WSMA-wsmafinal.txt",
+    subject: "Web & Social Media Analytics (WSMA)",
+    category: "Lab_Codes",
+    path: "Lab_Codes/wsmafinal.txt",
+    size: 19038
+  },
+
   // ── PYQs · Image Processing (IP) ────────────────────────────────
   {
     id: "pyqs-2023-2027-batch-papers-cse-imageprocessing-2025-sempaper-pdf",
@@ -2089,62 +2165,170 @@ window.ARCHIVE_DOCUMENTS = [
     size: 83086
   },
 
-  // ── Lab_Codes · Cryptography & Network Security (CNS) ───────────
+  // ── Keys · AI ───────────────────────────────────────────────────
   {
-    id: "lab-codes-cns-lab-record-pdf",
-    name: "CNS Lab Record",
+    id: "keys-ai-html",
+    name: "AI Key · DS · 3-2",
+    subject: "AI",
+    category: "Keys",
+    path: "Keys/ai.html",
+    size: 110934,
+    group: "Exam Keys"
+  },
+
+  // ── Keys · Automata Theory & Compiler Design (ATCD) ─────────────
+  {
+    id: "keys-atcd-html",
+    name: "ATCD Key · DS · 3-2",
+    subject: "Automata Theory & Compiler Design (ATCD)",
+    category: "Keys",
+    path: "Keys/atcd.html",
+    size: 115411,
+    group: "Exam Keys"
+  },
+  {
+    id: "keys-atcdfull-html",
+    name: "ATCD Full Key · DS · 3-2",
+    subject: "Automata Theory & Compiler Design (ATCD)",
+    category: "Keys",
+    path: "Keys/atcdfull.html",
+    size: 74936,
+    group: "Exam Keys"
+  },
+
+  // ── Keys · Big Data Analysis (BDA) ──────────────────────────────
+  {
+    id: "keys-bda-html",
+    name: "BDA Key · DS · 3-2",
+    subject: "Big Data Analysis (BDA)",
+    category: "Keys",
+    path: "Keys/bda.html",
+    size: 152969,
+    group: "Exam Keys"
+  },
+
+  // ── Keys · Cryptography & Network Security (CNS) ────────────────
+  {
+    id: "keys-cns-html",
+    name: "CNS Key · DS · 3-2",
     subject: "Cryptography & Network Security (CNS)",
-    category: "Lab_Codes",
-    path: "Lab_Codes/cns lab record .pdf",
-    size: 9045295
+    category: "Keys",
+    path: "Keys/cns.html",
+    size: 98814,
+    group: "Exam Keys"
   },
 
-  // ── Lab_Codes · Lab Codes ───────────────────────────────────────
+  // ── Keys · Data Mining (DM) ─────────────────────────────────────
   {
-    id: "lab-codes-files-zip",
-    name: "Lab Files (files.zip)",
-    subject: "Lab Codes",
-    category: "Lab_Codes",
-    path: "Lab_Codes/files.zip",
-    size: 17686,
-    githubOnly: true
-  },
-  {
-    id: "lab-codes-idk-which-subject-is-this-zip",
-    name: "Lab Files-Subject Unknown (zip)",
-    subject: "Lab Codes",
-    category: "Lab_Codes",
-    path: "Lab_Codes/idk which subject is this.zip",
-    size: 17686,
-    githubOnly: true
+    id: "keys-data-mining-html",
+    name: "Data Mining Key · DS · 4-1",
+    subject: "Data Mining (DM)",
+    category: "Keys",
+    path: "Keys/data-mining.html",
+    size: 207390,
+    group: "Exam Keys"
   },
 
-  // ── Lab_Codes · Natural Language Processing (NLP) ───────────────
+  // ── Keys · Design Thinking (DT) ─────────────────────────────────
   {
-    id: "lab-codes-nlp-lab-notes-3col-1-pdf",
-    name: "NLP Lab Notes 3col",
+    id: "keys-dt-ans-html",
+    name: "DT Answer Key · DS · 3-2",
+    subject: "Design Thinking (DT)",
+    category: "Keys",
+    path: "Keys/dt-ans.html",
+    size: 159846,
+    group: "Exam Keys"
+  },
+  {
+    id: "keys-dt-html",
+    name: "DT Key · DS · 3-2",
+    subject: "Design Thinking (DT)",
+    category: "Keys",
+    path: "Keys/dt.html",
+    size: 115813,
+    group: "Exam Keys"
+  },
+
+  // ── Keys · Formal Languages & Automata Theory (FLAT) ────────────
+  {
+    id: "keys-flat-html",
+    name: "FLAT Key · CSE · 3-2",
+    subject: "Formal Languages & Automata Theory (FLAT)",
+    category: "Keys",
+    path: "Keys/flat.html",
+    size: 110898,
+    group: "Exam Keys"
+  },
+  {
+    id: "keys-flatfull-html",
+    name: "FLAT Full Key · CSE · 3-2",
+    subject: "Formal Languages & Automata Theory (FLAT)",
+    category: "Keys",
+    path: "Keys/flatfull.html",
+    size: 76724,
+    group: "Exam Keys"
+  },
+
+  // ── Keys · Machine Learning (ML) ────────────────────────────────
+  {
+    id: "keys-ml-ans-html",
+    name: "ML Answer Key · DS · 3-2",
+    subject: "Machine Learning (ML)",
+    category: "Keys",
+    path: "Keys/ml-ans.html",
+    size: 88831,
+    group: "Exam Keys"
+  },
+  {
+    id: "keys-ml-html",
+    name: "ML Key · DS · 3-2",
+    subject: "Machine Learning (ML)",
+    category: "Keys",
+    path: "Keys/ml.html",
+    size: 71833,
+    group: "Exam Keys"
+  },
+  {
+    id: "keys-mlxams-html",
+    name: "ML Exams Key · DS · 3-2",
+    subject: "Machine Learning (ML)",
+    category: "Keys",
+    path: "Keys/mlxams.html",
+    size: 143078,
+    group: "Exam Keys"
+  },
+
+  // ── Keys · Natural Language Processing (NLP) ────────────────────
+  {
+    id: "keys-nlp-html",
+    name: "NLP Key · DS · 4-1",
     subject: "Natural Language Processing (NLP)",
-    category: "Lab_Codes",
-    path: "Lab_Codes/NLP_Lab_Notes_3col (1).pdf",
-    size: 42852
+    category: "Keys",
+    path: "Keys/nlp.html",
+    size: 192604,
+    group: "Exam Keys"
   },
 
-  // ── Lab_Codes · Web & Social Media Analytics (WSMA) ─────────────
+  // ── Keys · Predictive Analysis (PA) ─────────────────────────────
   {
-    id: "lab-codes-wsma-txt",
-    name: "WSMA-wsma.txt",
-    subject: "Web & Social Media Analytics (WSMA)",
-    category: "Lab_Codes",
-    path: "Lab_Codes/wsma.txt",
-    size: 19025
+    id: "keys-predictive-analysis-html",
+    name: "PA Mid 1 Exam Key · DS · 4-1",
+    subject: "Predictive Analysis (PA)",
+    category: "Keys",
+    path: "Keys/predictive-analysis.html",
+    size: 95785,
+    group: "Exam Keys"
   },
+
+  // ── Keys · Web & Social Media Analytics (WSMA) ──────────────────
   {
-    id: "lab-codes-wsmafinal-txt",
-    name: "WSMA-wsmafinal.txt",
+    id: "keys-wsma-html",
+    name: "WSMA Key · DS · 4-1",
     subject: "Web & Social Media Analytics (WSMA)",
-    category: "Lab_Codes",
-    path: "Lab_Codes/wsmafinal.txt",
-    size: 19038
+    category: "Keys",
+    path: "Keys/wsma.html",
+    size: 99295,
+    group: "Exam Keys"
   },
 
   // ── ZtoA files · Academic Calendars ─────────────────────────────
