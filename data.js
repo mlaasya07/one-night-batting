@@ -21,11 +21,11 @@ window.ARCHIVE_CONFIG = {
 };
 
 window.ARCHIVE_DOCUMENTS = [
-  // ── CSE · DAA ───────────────────────────────────────────────────
+  // ── CSE · Design Algorithms and Analysis (DAA) ──────────────────
   {
     id: "cse-3rdyrsem1-daa-ada-impqs-mid2-pdf",
     name: "ADA ImpQs Mid2",
-    subject: "DAA",
+    subject: "Design Algorithms and Analysis (DAA)",
     category: "CSE",
     path: "CSE/3rdyrSem1/DAA/ADA_ImpQs_Mid2.pdf",
     size: 53910
@@ -33,7 +33,7 @@ window.ARCHIVE_DOCUMENTS = [
   {
     id: "cse-3rdyrsem1-daa-ada-unit1-pdf",
     name: "ADA UNIT1",
-    subject: "DAA",
+    subject: "Design Algorithms and Analysis (DAA)",
     category: "CSE",
     path: "CSE/3rdyrSem1/DAA/ADA_UNIT1.pdf",
     size: 2290471
@@ -41,7 +41,7 @@ window.ARCHIVE_DOCUMENTS = [
   {
     id: "cse-3rdyrsem1-daa-ada-unit2-3-1-pdf",
     name: "ADA UNIT2&3.1",
-    subject: "DAA",
+    subject: "Design Algorithms and Analysis (DAA)",
     category: "CSE",
     path: "CSE/3rdyrSem1/DAA/ADA_UNIT2&3.1.pdf",
     size: 31078000,
@@ -50,7 +50,7 @@ window.ARCHIVE_DOCUMENTS = [
   {
     id: "cse-3rdyrsem1-daa-ada-unit3-2-4-pdf",
     name: "ADA UNIT3.2&4",
-    subject: "DAA",
+    subject: "Design Algorithms and Analysis (DAA)",
     category: "CSE",
     path: "CSE/3rdyrSem1/DAA/ADA_UNIT3.2&4.pdf",
     size: 14748396,
@@ -59,7 +59,7 @@ window.ARCHIVE_DOCUMENTS = [
   {
     id: "cse-3rdyrsem1-daa-ada-unit5-1-pdf",
     name: "ADA UNIT5.1",
-    subject: "DAA",
+    subject: "Design Algorithms and Analysis (DAA)",
     category: "CSE",
     path: "CSE/3rdyrSem1/DAA/ADA_UNIT5.1.pdf",
     size: 1501149
@@ -67,7 +67,7 @@ window.ARCHIVE_DOCUMENTS = [
   {
     id: "cse-3rdyrsem1-daa-ada-unit5-2-pdf",
     name: "ADA UNIT5.2",
-    subject: "DAA",
+    subject: "Design Algorithms and Analysis (DAA)",
     category: "CSE",
     path: "CSE/3rdyrSem1/DAA/ADA_UNIT5.2.pdf",
     size: 320946
@@ -75,7 +75,7 @@ window.ARCHIVE_DOCUMENTS = [
   {
     id: "cse-3rdyrsem1-daa-ada-unit5-3-pdf",
     name: "ADA UNIT5.3",
-    subject: "DAA",
+    subject: "Design Algorithms and Analysis (DAA)",
     category: "CSE",
     path: "CSE/3rdyrSem1/DAA/ADA_UNIT5.3.pdf",
     size: 1216909
@@ -464,6 +464,192 @@ window.ARCHIVE_DOCUMENTS = [
     category: "CSE",
     path: "CSE/4thyrSem1/CompilerDesign/UNIT-4,5(partial).pdf",
     size: 888552
+  },
+
+  // ── CSE · Data Mining (DM) ──────────────────────────────────────
+  {
+    id: "cse-4thyrsem1-dm-association-to-correlations-pdf",
+    name: "Data Mining-Association to correlations",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Association to correlations.pdf",
+    size: 190859
+  },
+  {
+    id: "cse-4thyrsem1-dm-decisiontreesboostingexampleproblem-pdf",
+    name: "Data Mining-Decision Trees Boosting Example Problem",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/DecisionTreesBoostingExampleProblem.pdf",
+    size: 455552
+  },
+  {
+    id: "cse-4thyrsem1-dm-dm-mid-2-questions-docx",
+    name: "DM mid 2 questions",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/DM mid-2  questions.docx",
+    size: 18174
+  },
+  {
+    id: "cse-4thyrsem1-dm-dm-mid-2-important-questions-docx",
+    name: "DM Mid 2 Important Questions",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/DM_Mid-2_Important_Questions.docx",
+    size: 1029921
+  },
+  {
+    id: "cse-4thyrsem1-dm-fp-growth-algorithm-example-problems-pdf",
+    name: "Data Mining-Fp growth algorithm example problems",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/fp-growth-algorithm-example-problems.pdf",
+    size: 349409
+  },
+  {
+    id: "cse-4thyrsem1-dm-knn-pdf",
+    name: "Data Mining-KNN",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/KNN .pdf",
+    size: 119518
+  },
+  {
+    id: "cse-4thyrsem1-dm-neuralnetworks-pdf",
+    name: "Data Mining-Neural Networks",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/NeuralNetworks .pdf",
+    size: 157731
+  },
+  {
+    id: "cse-4thyrsem1-dm-rule-based-classification-pdf",
+    name: "Data Mining-Rule Based Classification",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Rule Based Classification.pdf",
+    size: 187699
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-1-data-mining-lec-1-pptx",
+    name: "Unit 1 Data Mining Lec 1",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit -1 Data Mining Lec-1.pptx",
+    size: 1294964
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-1-data-mining-lect-2-3-4-pptx",
+    name: "Unit 1 Data Mining Lect 2 3 4",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit -1 Data Mining Lect 2_3_4.pptx",
+    size: 8309551
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-1-data-mining-part-2-pptx",
+    name: "Unit 1 Data Mining part 2",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit -1 Data Mining part-2.pptx",
+    size: 7930481
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-1-data-mining-part-3-data-preprocessing-pptx",
+    name: "Unit 1 Data Mining Part 3 Data Preprocessing",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit -1 Data Mining Part-3_ Data Preprocessing.pptx",
+    size: 4118167
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-2-part-1-pptx",
+    name: "Data Mining-Unit 2 Part 1",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit -2 Part-1.pptx",
+    size: 318407
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-2-part-2-pptx",
+    name: "Data Mining-Unit 2 part 2",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit -2 part-2.pptx",
+    size: 325137
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-2-part-3-pptx",
+    name: "Data Mining-Unit 2 Part 3",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit -2 Part-3.pptx",
+    size: 76284
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-3-part-1-pptx",
+    name: "Data Mining-Unit 3 Part 1",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit -3 Part-1.pptx",
+    size: 535643
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-4-data-mining-textbook-notes-pptx",
+    name: "Unit 4 Data Mining textbook notes",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit -4 Data Mining textbook notes.pptx",
+    size: 2394442
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-4-clusteranalysis-short-notes-pdf",
+    name: "Data Mining-Unit 4 Cluster Analysis Short notes",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit 4 ClusterAnalysis  Short notes.pdf",
+    size: 283971
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-3-basics-pptx",
+    name: "Data Mining-Unit 3 Basics",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit-3 Basics .pptx",
+    size: 1738859
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-3-basics-pdf",
+    name: "Data Mining-Unit 3 Basics",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit-3 Basics.pdf",
+    size: 1005532
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-3-svm-knn-rb-nn-pdf",
+    name: "Data Mining-Unit 3 SVM KNN RB NN",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit-3 SVM_KNN_RB_NN.pdf",
+    size: 531569
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-4-outlieranalysis-short-notes-pdf",
+    name: "Data Mining-Unit 4 Outlier Analysis short notes",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit-4 OutlierAnalysis  short notes.pdf",
+    size: 90731
+  },
+  {
+    id: "cse-4thyrsem1-dm-unit-5-web-spatial-temporal-mining-pdf",
+    name: "Data Mining-Unit 5 Web Spatial Temporal Mining",
+    subject: "Data Mining (DM)",
+    category: "CSE",
+    path: "CSE/4thyrSem1/DM/Unit-5  Web Spatial Temporal Mining.pdf",
+    size: 170909
   },
 
   // ── DS · Computer Organization & Architecture (COA) ─────────────
